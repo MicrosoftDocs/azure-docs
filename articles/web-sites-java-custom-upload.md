@@ -21,7 +21,7 @@
 This topic explains how to upload a custom Java  website to Azure. Included is information that applies to any Java website, and also some examples for specific applications.
 
 Note that Azure provides a means for creating Java websites using the Azure portal's configuration UI, and the Azure application gallery, as documented at [Get started with Azure web sites and Java
-](../web-sites-java-get-started). This tutorial is for scenarios in which you do not want to use the Azure configuration UI or the Azure application gallery.  
+](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the Azure configuration UI or the Azure application gallery.  
 
 # Configuration guidelines
 

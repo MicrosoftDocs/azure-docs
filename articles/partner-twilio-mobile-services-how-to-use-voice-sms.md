@@ -72,14 +72,14 @@ When you're ready to get a Twilio account, sign up at [Try Twilio][try_twilio]. 
 When you sign up for a Twilio account, you'll receive an account ID and an authentication token. Both will be needed to make Twilio API calls. To prevent unauthorized access to your account, keep your authentication token secure. Your account ID and authentication token are viewable at the [Twilio account page][twilio_account], in the fields labeled **ACCOUNT SID** and **AUTH TOKEN**, respectively.
 
 <h2><a id="create_app"></a>Create a Mobile Service</h2>
-A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](/documentation/articles/mobile-services-ios-get-started/).
+A Mobile Service that hosts a Twilio enabled application is no different from any other Mobile Service. You simply add the Twilio node.js library in order to reference it from your Mobile Service Custom API scripts. For information on creating an initial mobile service, see [Getting Started with Mobile Services](mobile-services-ios-get-started.md).
 
 <h2><a id="ConfigureMobileService"></a>Configure Your Mobile Service to use the Twilio Node.js Library</h2>
 Twilio provides a Node.js library that wraps various aspects of Twilio to provide simple and easy ways to interact with the Twilio REST API and Twilio Client to generate TwiML responses.
 
 To use the Twilio node.js library in your Mobile Service, you need leverage Mobile Services npm module support, which you can do by storing your scripts in source control. 
 
-1. Complete the tutorial [Store Scripts in Source Control](/documentation/articles/mobile-services-store-scripts-source-control/). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
+1. Complete the tutorial [Store Scripts in Source Control](mobile-services-store-scripts-source-control.md). This walks you through setting-up source control for your Mobile Services and storing your server scripts in a Git repository.
 
 2. After you have set up source control for your Mobile Service, open the repository on your local computer, browse to the `\services` subfolder, open the package.json file in a text editor, and add the following field to the **dependencies** object:
 

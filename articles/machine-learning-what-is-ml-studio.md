@@ -53,8 +53,8 @@ An experiment consists of datasets that provide data to analytical modules, whic
 - All input ports for modules must have some connection to the data flow. 
 - All required parameters for a module must be set. 
 
-For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). 
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ### Datasets
 

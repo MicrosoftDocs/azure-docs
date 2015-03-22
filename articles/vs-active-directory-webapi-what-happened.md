@@ -16,9 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# What happened to my project?
+
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-webapi-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-webapi-what-happened/)
+> - [Getting Started](vs-active-directory-webapi-getting-started.md)
+> - [What Happened](vs-active-directory-webapi-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

@@ -36,7 +36,7 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 
 - You must have a Microsoft Azure account. For options about signing up for an account, see [Azure: Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](../hdinsight-provision-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](hdinsight-provision-clusters.md)
 
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see [How to install and configure Azure PowerShell][powershell-install-configure].
 
@@ -66,24 +66,24 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 
-[hdinsight-errors]: ../hdinsight-debug-jobs/
+[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-introduction]: ../hdinsight-hadoop-introduction/
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md
 
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[hdinsight-samples]: ../hdinsight-run-samples/
-[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
-[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
-[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
-[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 

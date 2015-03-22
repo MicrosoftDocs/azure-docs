@@ -315,9 +315,9 @@ The stored procedure feature takes advantage of [Table-Valued Parameters][table-
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
-[adfgetstarted]: ../data-factory-get-started
-[adf-copyactivity]: ../data-factory-copy-activity
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[adfgetstarted]: data-factory-get-started.md
+[adf-copyactivity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx

@@ -39,8 +39,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 For information about how to create and publish an Azure Machine Learning web service, 
 see [Publish an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
-[walkthrough]: ../machine-learning-walkthrough-develop-predictive-solution/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 ## Request-Response Service (RRS)

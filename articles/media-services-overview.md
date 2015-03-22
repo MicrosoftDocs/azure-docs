@@ -36,7 +36,7 @@ The following poster depicts Azure Media Services workflows, from media creation
 
 ##Concepts
 
-For more information, see [Concepts](../media-services-concepts).
+For more information, see [Concepts](media-services-concepts.md).
 
 ##Choosing Your Media Experience
 
@@ -104,11 +104,11 @@ The following table shows each type of device and the client technologies suppor
 
 ##Delivering Media on-Demand with Azure Media Services
 
-For more information, see [Delivering Media on-Demand with Azure Media Services](../media-services-video-on-demand-workflow).
+For more information, see [Delivering Media on-Demand with Azure Media Services](media-services-video-on-demand-workflow.md).
 
 ##Delivering Live Streaming with Azure Media Services
 
-For more information, see [Delivering Live Streaming with Azure Media Services](../media-services-live-streaming-wrokflow) contains links to topics that show how to perform tasks mentioned above.
+For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-wrokflow.md) contains links to topics that show how to perform tasks mentioned above.
 
 ##Clients
 
@@ -123,7 +123,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 - Building Video Applications on Windows 8 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
 
-For more information, see [Developing Video Player Applications](../media-services-develop-video-players)
+For more information, see [Developing Video Player Applications](media-services-develop-video-players.md)
 
 ##Patterns & practices guidance
 

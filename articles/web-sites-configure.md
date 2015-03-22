@@ -97,7 +97,7 @@ Use this area to add custom script processors to handle requests for specific fi
 
 
 ### Virtual applications and directories 
-
+ 
 To configure virtual applications and directories, specify each virtual directory and its corresponding physical path relative to the website root. Optionally, you can select the **Application** checkbox to mark a virtual directory as an application.
 
 
