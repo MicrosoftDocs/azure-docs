@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send push notifications to a specific user with Xamarin iOS Configuration" 
+	pageTitle="Send push notifications to a specific user with Xamarin iOS client" 
 	description="Learn how to send push notifications to all devices of a user" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
-This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend.
+This topic shows you how to send notifications to all registered devices of a specific user from your mobile backend. It introduced the concept of [templates], which gives client applications the freedom of specifying payload formats and variable placeholders at registration. Send then hits every platform with these placeholders, enabling cross-platform notifications.
+
+> [AZURE.NOTE] To get push working with cross-platform clients, you will need to complete this tutorial for each platform you would like to enable. You will only need to do the [mobile backend update](#backend) once for clients that share the same mobile backend.
  
 ##Prerequisites 
 
@@ -32,18 +34,42 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. In **App.xaml.cs**, replace the **InitNotificationsAsync** method with the following:
+1. Move the APNs registration snippets from **FinishedLaunching** in **AppDelegate.cs** to the **RefreshAsync** Task definition in **QSTodoListViewController.cs**. The registrations should happen after authentication completes.
 
-        private async void InitNotificationsAsync()
-        {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+        ...
+        if (todoService.User == null) {
+            await QSTodoService.DefaultService.Authenticate (this);
+            if (todoService.User == null) {
+                Console.WriteLine ("couldn't login!!");
+                return;
+            }
 
-            string apnsTemplatesJson = '{\"simpleNotification\":{body: "{\"aps\":{\"alert\":\"'+ $message +'\"}}';
+            // registers for push for iOS8
+            var settings = UIUserNotificationSettings.GetSettingsForTypes (
+                UIUserNotificationType.Alert
+                | UIUserNotificationType.Badge
+                | UIUserNotificationType.Sound, 
+                new NSSet ());
 
-            JObject apnsTemplates = JObject.Parse(apnsTemplatesJson);
-            
-			var result = MobileService.GetPush().RegisterAsync(channel.Uri, apnsTemplates);
+            UIApplication.SharedApplication.RegisterUserNotificationSettings (settings); 
+            UIApplication.SharedApplication.RegisterForRemoteNotifications ();
         }
+        ...
+
+2. In **AppDelegate.cs**, replace the **RegisterAsync** call in **RegisteredForRemoteNotifications** with the following to work with templates:
+
+        // delete await push.RegisterAsync (deviceToken);
+        
+        var notificationTemplate = "{\"aps\": {\"alert\":\"$(message)\"}}";
+
+        JObject templateBody = new JObject();
+        templateBody["body"] = notificationTemplate;
+
+        JObject templates = new JObject();
+        templates["testApnsTemplate"] = templateBody;
+
+        // register with templates
+        await push.RegisterAsync (deviceToken, templates);
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
@@ -68,7 +94,7 @@ Before you start this tutorial, you must have already completed these App Servic
 
             try
             {
-            	await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
+                await Hub.Push.SendTemplateNotificationAsync(notification, userTag);
             }
             catch (System.Exception ex)
             {
@@ -84,3 +110,4 @@ Re-publish your mobile backend project and run any of the client apps you have s
 <!-- URLs. -->
 [Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
 [Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/
+[templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx

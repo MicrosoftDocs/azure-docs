@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send x-plat notifications to a specific user with iOS Configuration" 
+	pageTitle="Send x-plat notifications to a specific user with iOS client" 
 	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
@@ -56,6 +56,7 @@ Before you start this tutorial, you must have already completed these App Servic
                                @"testNotificationTemplate": @{ @"body" : @{ @"aps" : @{ @"alert": @"$(message)" } } }
                                };
     
+        // register with templates
         [client.push registerDeviceToken:deviceToken template:templates completion:^(NSError *error) {
             if (error != nil) {
                 NSLog(@"Error registering for notifications: %@", error);

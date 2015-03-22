@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send x-plat notifications to a specific user with Windows Store Configuration"
+	pageTitle="Send x-plat notifications to a specific user with Windows Store client"
 	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
 	documentationCenter="windows" 
