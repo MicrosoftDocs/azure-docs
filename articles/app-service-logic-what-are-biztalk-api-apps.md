@@ -20,7 +20,9 @@
 
 Azure App Services is built atop a principle of extensibility and common connectivity through API Apps. A *Connector* is a type of API App that focuses on connectivity. Connectors, like any other API App, are used from Web Apps, Mobile Apps, and Logic Apps. Connectors make it easy to connect to existing services and help manage authentication, provide monitoring, analytics, and more.
 
-Any developer can create their own API Apps and deploy them privately, or share and monetize them through the marketplace. 
+Any developer can create their own API Apps and deploy them privately, and in the future will be able to share and monetize them through the marketplace. 
+
+![API Apps Marketplace](./media/app-service-learn-about-flows-preview/Marketplace.png)
 
 To accelerate developers building solutions with Azure App Services, the Microsoft Azure team added a number of connectors to the marketplace to satisfy many common scenarios. Furthermore, to extend the reach of App Services to complex and advanced integration scenarios, a number of Premium and BizTalk capabilities are also available.
 
