@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="Send x-plat notifications to a specific user with Windows Store Configuration"
+	pageTitle="Send x-plat notifications to a specific user with iOS Configuration" 
 	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
-	documentationCenter="windows" 
+	documentationCenter="ios" 
 	authors="yuaxu" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,8 +10,8 @@
 <tags 
 	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="mobile-dotnet" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
@@ -34,35 +34,33 @@ Before you start this tutorial, you must have already completed these App Servic
 
 ##<a name="client"></a>Update your client to register for templates to handle cross-platform pushes
 
-1. We will instead perform **InitNotificationAsync** in **MainPage.cs** to work with user authentication. Delete your **InitNotificationAsync** method definition and call in **App.xmal.cs**, and add the following in **MainPage.cs** in the **MainPage** class:
+1. Move the APNs registration snippets in **QSAppDelegate.m**'s **application:didFinishLaunchingWithOptions** to the call to **loginWithProvider** in **QSTodoListViewController.m** so it happens after authentication completes:
 
-        private async void InitNotificationsAsync()
-        {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
- 
-            // building templates for wns
-            var toastTemplate = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">$(message)</text></binding></visual></toast>";
-            JObject templateBody = new JObject();
-            templateBody["body"] = toastTemplate;
- 
-            JObject wnsToastHeaders = new JObject();
-            wnsToastHeaders["X-WNS-Type"] = "wns/toast";
-            templateBody["headers"] = wnsToastHeaders;
- 
-            JObject templates = new JObject();
-            templates["testTemplate"] = templateBody;
- 
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri, templates);
-        }
+        [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
+            [self refresh];
+            
+            // register iOS8 or previous devices for notifications
+            if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+                [[UIApplication sharedApplication] registerForRemoteNotifications];
+            }
+            else {
+                // Register for remote notifications
+                [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+                 UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
+            }
+        }];
 
-    You will also want to transfer some using statements to **MainPage.cs**.
+2. Replace your **registerDeviceToken** call in **application:didRegisterForRemoteNotificationsWithDeviceToken** with the following to work with templates:
 
-2. Use this method right after the **AuthenticateAsync** call in **ButtonLogin_Click**.
-
-        await AuthenticateAsync();
-        InitNotificationAsync();
-
-Your app is now set up to register user device with the user login information.
+        NSDictionary *templates = @{
+                               @"testNotificationTemplate": @{ @"body" : @{ @"aps" : @{ @"alert": @"$(message)" } } }
+                               };
+    
+        [client.push registerDeviceToken:deviceToken template:templates completion:^(NSError *error) {
+            if (error != nil) {
+                NSLog(@"Error registering for notifications: %@", error);
+            }
+        }];
 
 ##<a name="backend"></a>Update your service backend to send notifications to a specific user
 
@@ -101,6 +99,6 @@ Your app is now set up to register user device with the user login information.
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview/
-[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/
+[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-ios-get-started-push-preview/
+[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-ios-get-started-push-preview/
 [templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx

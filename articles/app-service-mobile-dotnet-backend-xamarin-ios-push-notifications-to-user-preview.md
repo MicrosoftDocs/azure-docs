@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send push notifications to a specific user with App Service" 
+	pageTitle="Send push notifications to a specific user with Xamarin iOS Configuration" 
 	description="Learn how to send push notifications to all devices of a user" 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
