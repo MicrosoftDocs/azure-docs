@@ -16,7 +16,7 @@
 	ms.date="03/16/2015" 
 	ms.author="yuaxu"/>
 
-# Add push notifications to your Mobile Services app
+# Add push notifications to your Windows Store app
 
 [AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../includes/app-service-mobile-selector-get-started-push-preview.md)]
 
@@ -26,16 +26,16 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 1. [Register your app for push notifications](#register)
 2. [Configure](#configure)
-2. [Update the service to send push notifications](#update-service)
-3. [Enable push notifications for local testing](#local-testing)
-4. [Test push notifications in your app](#test)
+3. [Update the service to send push notifications](#update-service)
+4. [Add push notifications to your app](#add-push)
+5. [Test push notifications in your app](#test)
 
 This tutorial is based on the App Service Mobile App quickstart. Before you start this tutorial, you must first complete either [Get started with App Service mobile apps].
 
 To complete this tutorial, you need the following:
 
 * An active [Microsoft Store account](http://go.microsoft.com/fwlink/p/?LinkId=280045).
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>. 
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
 ##<a id="register"></a>Register your app for push notifications
 
@@ -84,7 +84,7 @@ To send push notifications to Windows Universal apps with Azure App Service, you
 
 ##<a id="configure"></a>Configure Mobile App to send push requests
 
-1. Log on to the [Azure Preview Portal], select **Browse**, **Mobile Apps**, and then click your app. click on Push Notification services.
+1. Log on to the [Azure Preview Portal], select **Browse**, **Mobile App**, and then click your app. click on Push Notification services.
 
 2. In Windows Notification Service, enter your **Client secret** and **Package security identifier (SID)** and save.
 
@@ -103,36 +103,28 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
-        using System;
         using System.Collections.Generic;
-        using Microsoft.Azure.Mobile.Server;
-        using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
 
-4. Update the `PostTodoItem` method definition with the following code:  
+4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        // get Notification Hubs credentials associated with this Mobile App
+        string notificationHubName = this.Services.Settings.NotificationHubName;
+        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+
+        // connect to notification hub
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+
+        // windows payload
+        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
+
+        try
         {
-            TodoItem current = await InsertAsync(item);
-
-            // get notification hubs credentials associated with this mobile app
-            string notificationHubName = this.Services.Settings.NotificationHubName;
-            string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-            // connect to notification hub
-            NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
-
-            var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
-
-            try
-            {
-                var result = await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-            }
-            catch (System.Exception ex)
-            {
-                throw ex;
-            }
-            return CreatedAtRoute("Tables", new { id = current.Id }, current);
+            await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+        }
+        catch (System.Exception ex)
+        {
+            throw ex;
         }
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
@@ -142,7 +134,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
-## Add push notifications to your app
+##<a id="update-service"></a>Add push notifications to your app
 
 1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**. 
 
@@ -150,16 +142,16 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 2. Search for the App Service Mobile App client SDK for managed and click **Install**, select all projects in the solution, and accept the terms of use. 
 
-    This downloads, installs, and adds a reference in all projects to the Azure Messaging library for Windows using the <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet package</a>. 
+    This downloads, installs, and adds a reference in all projects to the Azure Mobile Push library for Windows. 
 
-3. Open the App.xaml.cs project file and add the following `using` statements:
+3. Open the **App.xaml.cs** project file and add the following `using` statements:
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.MobileServices;
 
     In a universal project, this file is located in the `<project_name>.Shared` folder.
 
-4. Also in App.xaml.cs, add the following **InitNotificationsAsync** method definition to the **App** class:
+4. In the same file, add the following **InitNotificationsAsync** method definition to the **App** class:
     
         private async void InitNotificationsAsync()
         {
@@ -170,7 +162,7 @@ Now that push notifications are enabled in the app, you must update your app bac
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.
     
-5. At the top of the **OnLaunched** event handler in App.xaml.cs, add the following call to the new **InitNotificationsAsync** method:
+5. At the top of the **OnLaunched** event handler in **App.xaml.cs**, add the following call to the new **InitNotificationsAsync** method:
 
         InitNotificationsAsync();
 
@@ -188,7 +180,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
 Your app is now ready to receive toast notifications.
 
-##<a id="test"></a> Test push notifications in your app
+##<a id="test"></a>Test push notifications in your app
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-windows-universal-test-push-preview](../includes/app-service-mobile-dotnet-backend-windows-universal-test-push-preview.md)]
 

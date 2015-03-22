@@ -83,7 +83,6 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
         {
             throw;
         }
-        //return CreatedAtRoute("Tables", new { id = current.Id }, current);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
@@ -106,7 +105,6 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
             UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
         }
-        // return YES;
 
 3. In the same file, add the following handler method inside the **QSAppDelegate** implementation:
 

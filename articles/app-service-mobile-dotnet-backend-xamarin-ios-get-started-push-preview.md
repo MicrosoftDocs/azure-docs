@@ -178,7 +178,6 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
         {
             throw;
         }
-        //return CreatedAtRoute("Tables", new { id = current.Id }, current);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 

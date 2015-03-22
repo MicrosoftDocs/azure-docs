@@ -16,7 +16,7 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Send cross-platform push notifications to all devices of a specific user with templates
+# Send x-plat push notifications to all devices of a specific user with templates
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
@@ -82,5 +82,5 @@ Before you start this tutorial, you must have already completed these App Servic
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview/
-[Get started with push notifications]: /documentation/articles/app-service-mobile-dotnet-backend-windows-universal-get-started-push-preview/
+[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview/
+[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview/
