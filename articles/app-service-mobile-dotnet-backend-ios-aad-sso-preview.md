@@ -37,9 +37,21 @@ This tutorial requires the following:
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
-## <a name="add-authentication-code"></a>Add authentication code to the client app
+## <a name="add-adal"></a>Add a reference to the Active Directory Authentication Library
 
-1. Download the [Active Directory Authentication Library for iOS] and include it in your project. Be sure to also add the storyboards from the ADAL source.
+1. Download the [Active Directory Authentication Library for iOS].
+
+2. In Xcode Navigator, select your project and click **File** and choose **Add Files to...**. Navigate to where you downloaded the library and select **ADALiOS.xcodeproj**.
+
+3. Select your project again and open the **Build Settings** tab. Navigate to the **Linking** section and add `-ObjC` to **Other Linker Flags**.
+
+4. Select the **Build Phases** tab. Under **Target Dependencies**, add `ADALiOS`.
+
+5. Under **Link Binary With Libraries**, add `libADALiOS.a`.
+
+You will now be able to reference the Active Directory Authentication Library in your project.
+
+## <a name="add-authentication-code"></a>Add authentication code to the client app
 
 2. In the QSTodoListViewController, include ADAL with the following:
 

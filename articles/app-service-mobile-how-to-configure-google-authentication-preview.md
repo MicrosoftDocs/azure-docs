@@ -22,6 +22,8 @@ This topic shows you how to configure Azure App Services to use Google as an aut
 
 To complete the procedure in this topic, you must have a Google account that has a verified email address. To create a new Google account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkId=268302" target="_blank">accounts.google.com</a>.
 
+## <a name="register"> </a>Register your application with Google
+
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=268303" target="_blank">Google apis</a> website, sign-in with your Google account credentials, click **Create Project**, provide a **Project name**, then click **Create**.
 
 2. In the left navigation bar, click **API & Auth**. Then click **Consent screen**. Select your **Email Address**, and enter a **Product Name**. Then click **Save**. 
@@ -37,6 +39,9 @@ To complete the procedure in this topic, you must have a Google account that has
 6. On the next screen, under **Client ID for web applications**, make a note of the values of **Client ID** and **Client secret**. 
 
     > [AZURE.IMPORTANT] The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+
+
+## <a name="secrets"> </a>Add Google information to your Mobile App
 
 7. Log on to the [Azure Management Portal], and navigate to your App Services gateway.
 
