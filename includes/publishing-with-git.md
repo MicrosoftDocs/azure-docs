@@ -1,4 +1,4 @@
-# Using Git to deploy Web Apps in Azure App Service
+# Continuous deployment using GIT in Azure App Service
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports continuous deployment to Web Apps from source code control and repository tools like BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, and TFS. You can use these tools to maintain the content and code for your application, and then quickly and easily push changes to your Azure web app when you want.
 
