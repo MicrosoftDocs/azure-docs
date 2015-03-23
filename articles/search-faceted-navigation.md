@@ -31,7 +31,7 @@ In Azure Search, faceted navigation is built at query time, using attributed fie
 
 In terms of application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would want from faceted navigation is provided by the service, including built-in support for setting up ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
-For a hands-on experience, we recommend this sample on CodePlex:  [Azure Search AdventureWorks Catalog](../search-create-first-solution/)
+For a hands-on experience, we recommend this sample on CodePlex:  [Azure Search AdventureWorks Catalog](search-create-first-solution.md)
 
 You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
 
@@ -309,14 +309,14 @@ There are two Geospatial functions in Azure Search, **geo.distance** and **geo.i
 
 - The **geo.intersects** function returns true if a given point is within a given polygon, where the point is a field and the polygon is specified as a constant list of coordinates passed as part of the filter.
 
-You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](../search-create-geospatial/).
+You can find filter examples in [OData expression syntax (Azure Search)](http://msdn.microsoft.com/library/azure/dn798921.aspx). To learn more about geospatial search, see [Create a geospatial search application in Azure Search](search-create-geospatial.md).
 
 <a name="tryitout"></a>
 # Try it out #
 
 Azure Search Adventure Works Demo on Codeplex contains the examples referenced in this article. As you work with search results, watch the URL for changes in query construction. This application happens to append facets to the URI as you select each one.
 
-1.	Configure the sample application (see [Create your first application for instructions](../search-create-first-solution/)). 
+1.	Configure the sample application (see [Create your first application for instructions](search-create-first-solution.md)). 
 
 	Notice the schema that is defined in the Program.cs file of the CatalogIndexer project. It specifies facetable fields for color, listPrice, size, weight, categoryName, and modelName.  Only a few of these (color, listPrice, categoryName) are actually implemented in faceted navigation.
 
@@ -376,11 +376,11 @@ For more insights on design principles for faceted navigation, we recommend the 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
 [Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: ../search-create-first-solution/
+[Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: http://msdn.microsoft.com/library/azure/dn798921.aspx
-[Create a geospatial search application in Azure Search]: ../search-create-geospatial/
+[Create a geospatial search application in Azure Search]: search-create-geospatial.md
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
 [http://www.odata.org/documentation/odata-version-2-0/overview/]: http://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search?forum=azuresearch
+[Faceting on Azure Search forum post]: faceting-on-azure-search.md?forum=azuresearch
 [Search Documents (Azure Search API)]: http://msdn.microsoft.com/library/azure/dn798927.aspx
 

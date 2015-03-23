@@ -48,7 +48,7 @@ The table below provides a list of Exchange Providers and locations where they a
 
 
 
-Visit the [Exchange Providers page](../expressroute-exchange-providers) for more information on how to enable the service.
+Visit the [Exchange Providers page](expressroute-exchange-providers.md) for more information on how to enable the service.
 
 
 ## Network Service Provider (NSP) Locations
@@ -67,7 +67,7 @@ The table below provides a list of Network Service Providers and locations where
 |**[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**| | | | | | | | | | | | |Available| | |
 |**[Verizon](http://www.verizonenterprise.com/news/2014/04/secure-cloud-interconnect-solutions-enterprise)**| | | | | |Available| | | | |Available| | | |Available|
 
-Visit the [Network Service Providers page](../expressroute-network-service-providers) for more information on how to enable the service.
+Visit the [Network Service Providers page](expressroute-network-service-providers.md) for more information on how to enable the service.
 
 ## Connectivity through service providers that are not listed above
 If your network provider is not in the list above, you can still get connected to Azure. 

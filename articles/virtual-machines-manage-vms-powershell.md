@@ -20,9 +20,9 @@
 
 Before getting started here are some starter articles that will help you get a VM setup
 
-* [How to install and configure Azure PowerShell](../install-configure-powershell/)
-* [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](../virtual-machines-ps-create-preconfigure-windows-vms/)
-* [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](../virtual-machines-ps-create-preconfigure-linux-vms/)
+* [How to install and configure Azure PowerShell](install-configure-powershell.md)
+* [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+* [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
 ## Stop a VM
 You can stop a VM using the Stop-AzureVM cmdlet

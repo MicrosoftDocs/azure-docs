@@ -127,5 +127,5 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Todolist application]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Get started with authentication]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Get started with push notifications]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Get started with authentication]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users.md
+[Get started with push notifications]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push.md

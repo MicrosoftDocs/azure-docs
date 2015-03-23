@@ -43,9 +43,9 @@ To create a PHP website using the Azure Management Portal, do the following:
 
 To create a PHP website using the Azure Command Line Tools for Mac and Linux do the following:
 
-1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](/documentation/articles/xplat-cli/#install).
+1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](xplat-cli.md#install).
 
-1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](/documentation/articles/xplat-cli/#configure).
+1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](xplat-cli.md#configure).
 
 1. Run the following command from a command prompt:
 
@@ -59,7 +59,7 @@ Note that you can execute the `azure site create` command with any of the follow
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
 * `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
 
-For information about additional options, see [How to create and manage an Azure Web Site](/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_your_web_sites).
+For information about additional options, see [How to create and manage an Azure Web Site](virtual-machines-command-line-tools.md#Commands_to_manage_your_web_sites).
 
 <h2><a name="PowerShell"></a>Create a PHP website using the Azure PowerShell cmdlets</h2>
 
@@ -98,7 +98,7 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/develop/
 
 [waws]: /manage/services/web-sites/
 [Azure Management Portal]: http://manage.windowsazure.com/
-[xplat-tools]: /documentation/articles/xplat-cli/
+[xplat-tools]: xplat-cli.md
 [powershell-cmdlets]: /develop/php/how-to-guides/powershell-cmdlets/
 [configure-php]: /develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /develop/php/tutorials/website-w-mysql-and-git/

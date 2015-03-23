@@ -49,7 +49,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 	![Initialize the volume](./media/storage-windows-attach-disk/InitializeDiskVolume.png)
 
 
-[logon]: ../virtual-machines-log-on-windows-server/
+[logon]: virtual-machines-log-on-windows-server.md
 
 
 

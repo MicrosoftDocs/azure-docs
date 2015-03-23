@@ -461,18 +461,18 @@ Article | Description
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc…
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the Data Factory cmdlets. 
 
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-custom-activities]: ../data-factory-use-custom-activities
-[troubleshoot]: ../data-factory-troubleshoot
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: ../data-factory-get-started
-[adfintroduction]: ../data-factory-introduction
-[useonpremisesdatasources]: ../data-factory-use-onpremises-datasources
-[usepigandhive]: ../data-factory-pig-hive-activities
-[tutorial-onpremises]: ../data-factory-tutorial-extend-onpremises
-[download-azure-powershell]: ../powershell-install-configure
+[adfgetstarted]: data-factory-get-started.md
+[adfintroduction]: data-factory-introduction.md
+[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
+[usepigandhive]: data-factory-pig-hive-activities.md
+[tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
+[download-azure-powershell]: powershell-install-configure.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
