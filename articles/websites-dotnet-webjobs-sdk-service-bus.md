@@ -44,7 +44,7 @@ You also have to set the AzureWebJobsServiceBus connection string in addition to
 		    <add name="AzureWebJobsServiceBus" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
 		</connectionStrings>
 
-For more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
+For a sample project, see [Service Bus example](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus). For more information, see [Get Started with the WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> How to trigger a function when a Service Bus queue message is received
 
