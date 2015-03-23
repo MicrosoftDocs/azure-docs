@@ -20,7 +20,7 @@
 
 This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. 
 
-We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB and trying our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out DocumentDB and run SQL queries against our dataset in your browser.
+We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB and trying our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out DocumentDB and run SQL queries against our dataset.
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
