@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Enable HTTPS for Web App in Azure App Service- .NET Dev Center" 
+	pageTitle="Enable HTTPS for a web app in Azure App Service" 
 	description="Learn how to enable SSL with an Azure App Service." 
 	services="app-service\web" 
 	documentationCenter=".net" 
