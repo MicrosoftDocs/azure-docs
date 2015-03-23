@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage Azure web apps through the Azure Portal" 
+	pageTitle="Manage web apps using the Azure Portal" 
 	description="Overview of the web app management tasks in Microsoft Azure using the Azure Portal." 
 	services="app-service\web" 
 	documentationCenter="" 
