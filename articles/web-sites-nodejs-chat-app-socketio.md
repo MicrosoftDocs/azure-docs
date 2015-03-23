@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Node.js Web App using Socket.io - Azure tutorial" 
+	pageTitle="Create a Node.js chat application with Socket.IO in Azure App Service" 
 	description="A tutorial that demonstrates using socket.io in a node.js web app hosted on Azure." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
@@ -19,7 +19,7 @@
 
 
 
-# Create a Node.js Chat Application with Socket.IO in Azure App Service
+# Create a Node.js chat application with Socket.IO in Azure App Service
 
 Socket.IO provides real-time communication between your node.js server and clients using WebSockets. It also supports fallback to other transports (such as long polling) that work with older browsers. This tutorial will walk you through hosting a Socket.IO based chat application as an Azure web app, and show you how to [scale](#scale-out) the application using [Azure Redis Cache](http://azure.microsoft.com/documentation/services/cache). For more information on Socket.IO, see [http://socket.io/][socketio].
 
