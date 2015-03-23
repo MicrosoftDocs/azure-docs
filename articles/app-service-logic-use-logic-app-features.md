@@ -57,7 +57,7 @@ This logic app still results in a lot of files being uploaded to Dropbox. The fo
 
 2. In the text box, type the following:
 
-    	@greaterThan(repeatItem().Retweet_Count , 5)
+    	@greater(repeatItem().Retweet_Count , 5)
     
 	The function **greaterThan** compares two values and only allows the action to be executed when the first value is greater than the second value. You access a given property as a dot (.) followed by the property name, such as `.Retweet_Count` above. 
 
@@ -92,7 +92,7 @@ The following updates your existing logic app to use parameters for the query te
 2. Scroll to the `twitterconnector` action, locate the query value and replace it with `@concat('#', parameters('topic'))`.
 	The  **concat** function joins together two or more strings. 
  
-3. Finally, go to the `dropboxconnector` action and add the topic parameter, as follows:
+3. Finally, go to the `drothanpboxconnector` action and add the topic parameter, as follows:
 
     	@concat('/tweets/', parameters('topic'), '/',repeatItem().TweetID,'.txt')
 
