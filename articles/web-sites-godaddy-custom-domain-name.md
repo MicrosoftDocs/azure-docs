@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure a GoDaddy domain name for an Azure web app" 
+	pageTitle="Configure a custom domain name in Azure App Service (GoDaddy)" 
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="wpickett"/>
 
-#Configuring a custom domain name for an Azure web app (GoDaddy)
+#Configure a custom domain name in Azure App Service (GoDaddy)
 
 [AZURE.INCLUDE [web-selector](../includes/websites-custom-domain-selector.md)]
 
