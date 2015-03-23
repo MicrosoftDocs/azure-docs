@@ -64,15 +64,15 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 
 
 
-[hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet/
+[hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-[hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-[hbase-build-java-maven]: ../hdinsight-hbase-build-java-maven/
+[hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-hive]: hdinsight-use-hive.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
@@ -82,7 +82,7 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 
 [apache-hadoop]: http://hadoop.apache.org/
 

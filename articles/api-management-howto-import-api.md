@@ -89,10 +89,10 @@ Once an API is created and the operations imported, you can review and configure
 [Configure API settings]: #configure-api-settings
 [Next steps]: #next-steps
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to create APIs]: ../api-management-howto-create-apis
-[How to configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings

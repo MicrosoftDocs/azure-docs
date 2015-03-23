@@ -18,7 +18,7 @@
 
 This is the second step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 1.	[Create an ML workspace][create-workspace]
@@ -28,12 +28,12 @@ This is the second step of the walkthrough, [Developing a Predictive Solution wi
 5.	[Publish the web service][publish]
 6.	[Access the web service][access-ws]
 
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
+[upload-data]: machine-learning-walkthrough-2-upload-data.md
+[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
+[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
+[publish]: machine-learning-walkthrough-5-publish-web-service.md
+[access-ws]: machine-learning-walkthrough-6-access-web-service.md
 
 ----------
 
@@ -84,7 +84,7 @@ This uploads the data into a dataset module that we can use in an experiment.
 
 For more information about importing various types of data into an experiment, see [Import your training data into Azure Machine Learning Studio][importdata].
 
-[importdata]: ../machine-learning-import-data/
+[importdata]: machine-learning-import-data.md
 
 **Next: [Create a new experiment][create-new]**
 

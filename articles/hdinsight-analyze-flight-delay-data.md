@@ -856,18 +856,18 @@ Now you understand how to upload a file to Azure Blob storage, how to populate a
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 [hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html

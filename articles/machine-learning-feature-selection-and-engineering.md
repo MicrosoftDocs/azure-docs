@@ -49,7 +49,7 @@ What kind of features should be created to enhance the dataset when training a m
 
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
-* A regression example [Prediction of the number of bike rentals](http://azure.microsoft.com/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) in a supervised experiment where the target values are known 
+* A regression example [Prediction of the number of bike rentals](machine-learning-sample-prediction-of-number-of-bike-rentals.md) in a supervised experiment where the target values are known 
 * A text mining classification example using [Feature Hashing](http://help.azureml.net/Content/html/C9A82660-2D9C-411D-8122-4D9E0B3CE92A.htm)
 
 ### Example 1: Adding Temporal Features for Regression Model ###

@@ -19,13 +19,13 @@
 
 #Create ContentKeys with .NET
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
 
 Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you create a new asset (for example, before you [upload files](../media-services-dotnet-upload-files/)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
+When you create a new asset (for example, before you [upload files](media-services-dotnet-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
-When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-dotnet-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
+When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](media-services-dotnet-configure-asset-delivery-policy.md) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
 Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 

@@ -143,18 +143,18 @@ Note that the value of **sampleheader** in the response is now **value2**. Becau
 [api-management-console]: ./media/api-management-howto-cache/api-management-console.png
 
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-products
-[Monitoring and analytics]: ../api-management-monitoring
-[Add APIs to a product]: ../api-management-howto-add-products/#add-apis
-[Publish a product]: ../api-management-howto-add-products/#publish-product
-[Get started with Azure API Management]: ../api-management-get-started
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies
