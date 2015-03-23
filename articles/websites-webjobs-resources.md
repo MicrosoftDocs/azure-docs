@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure WebJobs Recommended Resources" 
+	pageTitle="Azure WebJobs resources" 
 	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -16,7 +16,9 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Overview
+# Azure WebJobs resources
+
+## Overview
 
 This topic links to documentation resources about how to use Azure WebJobs and the Azure WebJobs SDK. Azure WebJobs provide an easy way to run scripts or programs as background processes on [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). You can upload and run an executable file such as as cmd, bat, exe (.NET), ps1, sh, php, py, js and jar. These programs run as WebJobs on a schedule (cron) or continuously.
 
@@ -24,7 +26,7 @@ The WebJobs SDK makes it easier to use Azure Storage. The WebJobs SDK has a bind
 
 Creating, deploying, and managing WebJobs is seamless with integrated tooling in Visual Studio. You can create WebJobs from templates, publish, and manage (run/stop/monitor/debug) them. 
 
-The WebJobs dashboard in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output. 
+The WebJobs dashboard in the Azure portal provides powerful management capabilities that give you full control over the execution of WebJobs, including the ability to invoke individual functions within WebJobs. The dashboard also displays function runtimes and logging output. 
 
 ##<a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 
