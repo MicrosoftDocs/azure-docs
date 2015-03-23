@@ -44,12 +44,16 @@ Connectors can also be used as actions as a part of your Logic App. This can be 
 ##How to use connectors##
 The following articles provide examples of how some of the out of box connectors can be used.
 
-* [Using Box connector]
-* [Using Facebook connector]
-* [Using Salesforce connector]
-* [Using Twitter connector]
-* [Using SAP connector]
+* [Using HTTP connector]
 * [Using FTP connector]
+* [Using Box connector]
+* [Using Azure Storage Blob connector]
+* [Using Facebook connector]
+* [Using Twitter connector]
+* [Using Salesforce connector]
+* [Using Office 365 connector]
+* [Using Sharepoint connector]
+* [Using SAP connector]
 
 For additional details, please refer to the Connector API Reference [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
@@ -62,5 +66,8 @@ For additional details, please refer to the Connector API Reference [http://aka.
 [Using Twitter connector]: app-service-logic-connector-twitter.md
 [Using SAP connector]: app-service-logic-connector-sap.md
 [Using FTP connector]: app-service-logic-connector-ftp.md
-
+[Using HTTP connector]: app-service-logic-connector-http.md
+[Using Azure Storage Blob connector]: app-service-logic-connector-office365.md
+[Using Office 365 connector]: app-service-logic-connector-sharepoint.md
+[Using Sharepoint connector]: app-service-logic-connector-azurestorageblob.md
 
