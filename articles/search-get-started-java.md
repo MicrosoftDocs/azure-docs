@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="search" 
-	ms.devlang="" 
+	ms.devlang="na" 
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
