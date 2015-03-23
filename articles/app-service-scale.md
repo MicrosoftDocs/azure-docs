@@ -145,7 +145,7 @@ Depending on the web app's Service plan mode, the following developer-oriented f
 <a name="Next Steps"></a>	
 ## Next Steps
 
-- To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+- To get started with Azure, see [Microsoft Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 - For information on pricing, support, and SLA, visit the following links.
 	
