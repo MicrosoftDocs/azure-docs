@@ -199,6 +199,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		FROM hivesampletable 
 		group by country, state;
 
+	> [ACOM.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
 		
 3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
 
