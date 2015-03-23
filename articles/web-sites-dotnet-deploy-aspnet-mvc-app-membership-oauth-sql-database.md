@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and deploy an ASP.NET MVC app with authentication and SQL DB to Azure App Service" 
+	pageTitle="Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service" 
 	description="Learn how to develop an ASP.NET MVC 5 app with a SQL Database back-end, add authentication and authorization, and deploy it to Azure." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -19,7 +19,7 @@
 
 
 
-# Create and deploy an ASP.NET MVC app with authentication and SQL DB to Azure App Service
+# Create an ASP.NET MVC app with auth and SQL DB and deploy to Azure App Service
 
 This tutorial shows you how to build a secure ASP.NET MVC 5 web app that enables users to log in with credentials from Facebook or Google. You will also deploy the application to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
 
