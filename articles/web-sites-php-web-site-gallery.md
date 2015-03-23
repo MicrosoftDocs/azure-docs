@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a WordPress web app from the gallery in Azure App Service" 
+	pageTitle="Create a WordPress web app in Azure App Service" 
 	description="A tutorial that teaches you how to create a new Azure web app for a WordPress blog, and then deploy it through the Azure Portal." 
 	services="app-service\web" 
 	documentationCenter="php" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
-# Create a WordPress web app from the gallery in Azure App Service
+# Create a WordPress web app in Azure App Service
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
