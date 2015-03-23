@@ -20,6 +20,8 @@
 
 This topic shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider. 
 
+## <a name="register"> </a>Register your application with Azure Active Directory
+
 1. Log on to the [Preview Azure Management Portal], and navigate to your App Service gateway.
 
 2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**.
@@ -44,7 +46,9 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 9. Click **Save**. Then copy the **Client ID** for the app.
 
-10. Return to the new management portal and the **User Authentication** blade for your gateway. Paste in the **Client ID** setting for the Azure Active Directory identity provider.
+## <a name="secrets"> </a>Add Azure Active Directory information to your Mobile App
+
+10. Return to the preview management portal and the **User Authentication** blade for your gateway. Paste in the **Client ID** setting for the Azure Active Directory identity provider.
   
 11. In the **Allowed Tenants** list, you need to add the domain of the directory in which you registered the application (e.g. contoso.onmicrosoft.com). You can find your default domain name by clicking the **Domains** tab on your Azure Active Directory tenant. Add your domain name to the **Allowed Tenants** list then click **Save**.  
 

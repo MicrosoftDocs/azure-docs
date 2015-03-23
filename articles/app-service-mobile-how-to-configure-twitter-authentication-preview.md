@@ -22,6 +22,8 @@ This topic shows you how to configure Azure App Services to use Twitter as an au
 
 To complete the procedure in this topic, you must have a Twitter account that has a verified email address. To create a new Twitter account, go to <a href="http://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
 
+## <a name="register"> </a>Register your application with Twitter
+
 1. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
 2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosoproxysite.azurewebsites.net/signin-twitter`.
@@ -35,6 +37,9 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 5. Select the **Keys and Access Tokens** tab. Make a note of the values of **Consumer Key (API Key)** and **Consumer secret (API Secret)**. 
 
     > [AZURE.NOTE] The consumer secret is an important security credential. Do not share this secret with anyone or distribute it with your app.
+
+
+## <a name="secrets"> </a>Add Twitter information to your Mobile App
 
 6. Log on to the [Azure Management Portal], and navigate to your App Service gateway.
 
