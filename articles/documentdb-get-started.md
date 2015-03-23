@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -135,7 +135,8 @@ A document can be created by using the [CreateDocumentAsync](https://go.microsof
  
 
 ##<a id="Query"></a>Query DocumentDB resources
-DocumentDB supports rich queries against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step.  
+
+DocumentDB supports rich queries against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. 
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
@@ -204,7 +205,8 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, righ
 
 ##<a id="NextSteps"></a>Next steps
 -	Learn how to [monitor a DocumentDB account](https://go.microsoft.com/fwlink/p/?LinkId=402378).
--	For details on the programming model, see the Development section on the [DocumentDB documentation page](https://go.microsoft.com/fwlink/p/?LinkID=402319).
+-	Run queries against our sample dataset in the [Query Playground](http://www.documentdb.com/sql/demo).
+-	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../documentation/services/documentdb/).
 
 
 [Connect to a DocumentDB Account]: #Connect
