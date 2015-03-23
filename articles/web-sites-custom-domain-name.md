@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure a custom domain name for a web app in Azure App Service"
+	pageTitle="Configure a custom domain name in Azure App Service"
 	description="Learn how to use a custom domain name with a web app in Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015"
 	ms.author="mwasson"/>
 
-# Configure a custom domain name for a web app in Azure App Service
+# Configure a custom domain name in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
   <a href="/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a>
