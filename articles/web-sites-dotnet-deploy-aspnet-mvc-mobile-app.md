@@ -1,5 +1,5 @@
 <properties 
-	pageTitle=".NET ASP.NET MVC 5 mobile web app - Azure tutorials" 
+	pageTitle="Deploy an ASP.NET MVC 5 mobile web app in Azure App Service" 
 	description="A tutorial that teaches you how to deploy a web app to Azure App Service using mobile features in ASP.NET MVC 5 web application." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -17,7 +17,7 @@
 	ms.author="cephalin;riande"/>
 
 
-# Deploy an MVC 5 mobile web app to Azure App Service
+# Deploy an ASP.NET MVC 5 mobile web app in Azure App Service
 
 This tutorial will teach you the basics of how to build an ASP.NET MVC 5
 web app that is mobile-friendly and deploy it to Azure App Service. For this tutorial, you need 
