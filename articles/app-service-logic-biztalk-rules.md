@@ -213,10 +213,10 @@ One of the main advantages of using Business Rules is that changes to business l
 [2]: ./media/app-service-logic-biztalk-rules/InsuranceBusinessLogic.png
 [3]: ./media/app-service-logic-biztalk-rules/CreateRuleApiApp.png
 [4]: ./media/app-service-logic-biztalk-rules/RulesDashboard.png
-[5]: ./media/app-service-logic-biztalk-rules/LiteralVocab.png
-[6]: ./media/app-service-logic-biztalk-rules/XMLVocab.png
-[7]: ./media/app-service-logic-biztalk-rules/BulkAdd.png
-[8]: ./media/app-service-logic-biztalk-rules/PolicyList.png
-[9]: ./media/app-service-logic-biztalk-rules/RuleCreate.png
-[10]: ./media/app-service-logic-biztalk-rules/ApiDef.png
+[5]: ./media/app-service-logic-biztalk-rules/LiteralVocab.PNG
+[6]: ./media/app-service-logic-biztalk-rules/XMLVocab.PNG
+[7]: ./media/app-service-logic-biztalk-rules/BulkAdd.PNG
+[8]: ./media/app-service-logic-biztalk-rules/PolicyList.PNG
+[9]: ./media/app-service-logic-biztalk-rules/RuleCreate.PNG
+[10]: ./media/app-service-logic-biztalk-rules/ApiDef.PNG
 
