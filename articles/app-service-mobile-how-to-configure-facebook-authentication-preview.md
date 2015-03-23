@@ -47,7 +47,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
 
 9. If you don't see a website section below, click **Add Platform** and select **Website**. Type the URL of your App Service gateway in **Site URL**, then click **Save Changes**.
 
-10. Click the **Advanced** tab and add your redirect URI to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your gateway appended with the path, _/signin-facebook_. For example, `https://contosoproxysite.azurewebsites.net/signin-facebook`.
+10. Click the **Advanced** tab and add your redirect URI to **Valid OAuth redirect URIs**. Then click **Save Changes**. Your redirect URI is the URL of your gateway appended with the path, _/signin-facebook_. For example, `https://contosogateway.azurewebsites.net/signin-facebook`.
 
 11. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **Status & Review** in the left navigation bard. Then click **Yes** to enable general public access.
 

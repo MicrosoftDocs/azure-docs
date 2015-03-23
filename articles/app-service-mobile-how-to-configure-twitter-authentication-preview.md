@@ -26,7 +26,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 1. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
-2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosoproxysite.azurewebsites.net/signin-twitter`.
+2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosogateway.azurewebsites.net/signin-twitter`.
 
     ![][0]
 
