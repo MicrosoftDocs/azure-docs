@@ -56,7 +56,7 @@ The first step in migrating is to create the App Service which will host the new
 
 You will likely want to use the same database and Notification Hub as you did in Mobile Services. You can copy these values from the **Configure** tab of the Mobile Services section of the [Azure Management Portal]. Under **Connection Strings**, copy `MS_NotificationHubConnectionString` and `MS_TableConnectionString`. Navigate to your Mobile App Code site and select **Settings**, **Application settings**, and add these connection strings, overwriting any existing values. You should additionally add these values to the Mobile App resource as well. To do this, navigate to the Mobile App blade, select **Settings** and then **Properties**. Click the link labeled **API App host** to view the site hosting your Mobile App resource. Go to **Settings**, **Application settings**, and paste in the connection strings as in the code site. Do not change other values as this could break Mobile App functionality. Please note that at the moment, the Mobile App blade will continue to show the existing connections even after this configuration step. Additional action may be required once the Mobile Apps experience has been updated.
 
-Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. You should remove the Mobile Services NuGet from your existing project and instead include the Server SDK. You may need to modify some using statements, with which Visual Studio will assist. The main item that one may find missing from the Server SDK is a PushRegistrationHandler class. Registrations are handled slightly differently in Mobile Apps, and custom tag operations are handled via custom APIs. Please see the [Add push notifications to your mobile app] topic for more information.
+Mobile Apps provides a new [Mobile App Server SDK] which provides much of the same functionality as the Mobile Services runtime. You should remove the Mobile Services NuGet from your existing project and instead include the Server SDK. You may need to modify some using statements, with which Visual Studio will assist. The main item that you may find missing from the Server SDK is the PushRegistrationHandler class. Registrations are handled slightly differently in Mobile Apps, and tagless registrations are enabled by default. Managing tags may be accomplished by using custom APIs. Please see the [Add push notifications to your mobile app] topic for more information.
 
 Scheduled jobs are not built into Mobile Apps, so any existing jobs that you have in your .NET backend will need to be migrated individually. One option is to create a scheduled [Web Job] on the Mobile App code site. You could also set up a controller that holds your job code and configure the [Azure Scheduler] to hit that endpoint on the expected schedule.
 
@@ -97,7 +97,7 @@ In the same update, you will need to adjust any push notification registration c
     var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
     await MobileService.GetPush().Register(channel.Uri); 
 
-Please see the [Add push notifications to your mobile app] topic for details specific to your target platform.
+Please see the [Add push notifications to your mobile app] and [Send cross-platform push notifications] topics for details specific to your target platform.
 
 Once your customers have had a chance to receive these updates, you can delete the Mobile Services version of your app. At this point, you have completely migrated to an App Service Mobile App.
 
@@ -113,3 +113,4 @@ Once your customers have had a chance to receive these updates, you can delete t
 [Add authentication to your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
 [Web Job]: /en-us/documentation/articles/websites-webjobs-resources/
+[Send cross-platform push notifications]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview
