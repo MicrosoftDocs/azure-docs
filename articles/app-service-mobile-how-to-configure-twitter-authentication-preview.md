@@ -42,7 +42,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
     ![][1]
 
-You are now ready to use Facebook for authentication in your app.
+You are now ready to use Twitter for authentication in your app.
 
 ## <a name="related-content"> </a>Related Content
 
