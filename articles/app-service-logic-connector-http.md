@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Http Listener and Connector" 
    description="Using the HTTP listener and HTTP action in your Logic App" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="prkumar" 
    manager="dwrede" 
