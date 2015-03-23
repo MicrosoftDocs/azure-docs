@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to deploy to Web Apps"
+	pageTitle="Deploy a web app in Azure App Service"
 	description="Learn what methods are available for deploying content to Web Apps."
 	services="app-service\web"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015"
 	ms.author="tdykstra"/>
 
-#How to deploy a web app
+#Deploy a web app in Azure App Service
 
 ## Overview
 
