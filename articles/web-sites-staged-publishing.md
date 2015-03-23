@@ -41,7 +41,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
 
-The web app must be running in the **Standard** or **Premium** mode no order for you to enable multiple deployment slots.
+The web app must be running in the **Standard** or **Premium** mode in order for you to enable multiple deployment slots.
 
 1. In the [Azure Preview Portal](https://portal.azure.com/), open your web app's blade.
 2. Click **Deployment slots**. Then, in the **Deployment slots** blade, click **Add Slot**.
