@@ -17,7 +17,7 @@
 	ms.date="03/24/2015" 
 	ms.author="mwasson"/>
 
-# Manage web apps through the Azure Portal
+# Manage web apps using the Azure Portal
 
 In the [Azure Portal](https://portal.azure.com), you manage your web apps through a series of *blades*, which are containers for the different components. (For an overview of the Azure Portal, please refer to the [Portal](http://go.microsoft.com/fwlink/?LinkId=529715) changes guide.) 
 
