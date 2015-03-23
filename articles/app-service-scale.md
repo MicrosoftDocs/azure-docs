@@ -24,7 +24,7 @@ Scaling up on Azure Web apps involves two related actions: changing your App Ser
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your service plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about App Service plans (formerly Web Hosting Plans), see [What is an App Service Hosting Plan?](http://azure.microsoft.com/en-us/documentation/articles/web-sites-web-hosting-plan-overview/) and [Azure App Service Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/en-us/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).  
+For information about App Service plans (formerly Web Hosting Plans), see [What is an App Service Hosting Plan?](../web-sites-web-hosting-plan-overview/) and [Azure App Service Hosting Plans In-Depth Overview](../azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](http://http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Before switching a web app from the **Free** mode to **Basic** or **Standard** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -138,9 +138,9 @@ Depending on the web app's Service plan mode, the following developer-oriented f
 
 ### Web Endpoint Monitoring ###
 
-- Web endpoint monitoring is available in the Basic and Standard App Service plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](http://www.windowsazure.com/en-us/documentation/articles/web-sites-monitor/).
+- Web endpoint monitoring is available in the Basic and Standard App Service plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](../web-sites-monitor/).
 
-- For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/).
+- For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](http://azure.microsoft.com/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Next Steps
@@ -149,29 +149,29 @@ Depending on the web app's Service plan mode, the following developer-oriented f
 
 - For information on pricing, support, and SLA, visit the following links.
 	
-	[Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/)
+	[Data Transfers Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Microsoft Azure Support Plans](http://www.windowsazure.com/en-us/support/plans/)
+	[Microsoft Azure Support Plans](http://azure.microsoft.com/support/plans/)
 	
-	[Service Level Agreements](http://www.windowsazure.com/en-us/support/legal/sla/)
+	[Service Level Agreements](http://azure.microsoft.com/support/legal/sla/)
 	
-	[SQL Database Pricing Details](http://www.windowsazure.com/en-us/pricing/details/sql-database/)
+	[SQL Database Pricing Details](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes]
 	
-	[App Service Pricing Details](http://www.windowsazure.com/en-us/pricing/details/web-sites/)
+	[App Service Pricing Details](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[App Service Pricing Details - SSL Connections](http://www.windowsazure.com/en-us/pricing/details/web-sites/#ssl-connections)
+	[App Service Pricing Details - SSL Connections](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
-- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Windows Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- For information on Azure App Service best practices, including building a scalable and resilient architecture, see [Best Practices: Microsoft Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Videos on scaling Azure Websites:
 	
-	[When to Scale Azure Websites - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[When to Scale Azure Websites - with Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/auto-scaling-azure-web-sites/)
+	[Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[How Azure Websites Scale - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
+	[How Azure Websites Scale - with Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 
