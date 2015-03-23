@@ -20,7 +20,7 @@
 
 #<a name="howtomonitor"></a>Monitoring basics for Web Apps in Azure App Service 
 
-[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
+[App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality for Standard and Premium App Service plans via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
 ##<a name="websitemetrics"></a>How to: Add web app metrics
 
