@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Deploy Azure WebJobs to Azure App Service Web Apps" 
+	pageTitle="Deploy WebJobs using Visual Studio" 
 	description="Learn how to deploy Azure WebJobs to Azure App Service Web Apps using Visual Studio." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# How to Deploy Azure WebJobs to Azure App Service Web Apps
+# Deploy WebJobs using Visual Studio
 
 ## Overview
 
