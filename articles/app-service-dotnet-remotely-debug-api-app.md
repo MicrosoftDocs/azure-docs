@@ -34,7 +34,7 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 In Visual Studio, open the solution that contains the API app from the [first](../app-service-dotnet-create-api-app/) tutorial. Right-click the solution and select the **Add** > **New Project**.
 
-![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/re)
+![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project-v3.png)
 
 Select the **Windows Desktop** category and **Console Application** project template.
 
