@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Hybrid Connection: Connect a web app in Azure App Service to an on-premises resource using Hybrid Connections" 
+	pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
 	description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-#Connect a web app in Azure App Service to an on-premises resource using Hybrid Connections
+#Access on-premises resources using hybrid connections in Azure App Service
 
 You can connect a web app in Azure App Service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between a web app in App Service and an on-premises SQL Server database.
 
