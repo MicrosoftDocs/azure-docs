@@ -44,7 +44,7 @@ You can find the IP address, as well as the **awverify** name and **.azurewebsit
 
 	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-	> [AZURE.NOTE] If **Manage Domains** is not enabled, you are using a free website. You cannot use custom domain names with a free website, and must upgrade to Shared, Basic, or Standard mode. For more information on the Website modes modes, including how to change the mode of your site, see [How to scale websites](http://www.windowsazure.com/documentation/articles/web-sites-scale/).
+	> [AZURE.NOTE] If **Manage Domains** is not enabled, you are using a free website. You cannot use custom domain names with a free website, and must upgrade to Shared, Basic, or Standard mode. For more information on the Website modes modes, including how to change the mode of your site, see [How to scale websites](../articles/web-sites-scale.md).
 
 6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address. Save this information, as it will be used when creating DNS records.
 

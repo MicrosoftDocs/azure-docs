@@ -19,7 +19,7 @@
 # Quick start guide for the Machine Learning Recommendations API
 
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/documentation/articles/machine-learning-recommendation-api-quick-start-guide/)
+Latest version can be found [here](machine-learning-recommendation-api-quick-start-guide.md)
 
 This document depicts how to onboard your service or application to use Azure ML Recommendations. 
 

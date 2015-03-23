@@ -31,7 +31,7 @@ This tutorial shows you how to run a MapReduce word count example on a Hadoop cl
 
 - You must have an Azure account. For options about signing up for an account, see the [Try out Azure for free](http://azure.microsoft.com/pricing/free-trial/) page.
 
-- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](../hdinsight-provision-clusters/).
+- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Get Started with Azure HDInsight][hdinsight-get-started] or [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
 
 - You must have installed Azure PowerShell, and have it configured for use with your account. For instructions about how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
@@ -200,17 +200,17 @@ For tutorials that run other samples and provide instructions about using Pig, H
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
-[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
-[hdinsight-sample-cs-streaming]: ../hdinsight-sample-csharp-streaming/
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-cs-streaming]: hdinsight-sample-csharp-streaming.md
 
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
  
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
 

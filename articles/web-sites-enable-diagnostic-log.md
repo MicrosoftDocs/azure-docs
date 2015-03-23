@@ -111,7 +111,7 @@ To download the log files using the Azure Command Line Tools, open a new command
 
 This will save the logs for the website named 'websitename' to a file named **diagnostics.zip** in the current directory.
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](/documentation/articles/xplat-cli/).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
 
 ##<a name="streamlogs"></a> How to: Stream logs
 
@@ -157,7 +157,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 	azure site log tail websitename --path http
 
-> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](/documentation/articles/xplat-cli/).
+> [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
 
 ##<a name="understandlogs"></a> How to: Understand diagnostics logs
 

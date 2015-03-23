@@ -155,8 +155,8 @@ When following the integration procedure described above, the Engagement service
 
 To benefit from "Any time" push, you need to use one or more Native Push services depending on devices you target:
 
-  - Google Play devices: Use [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](../mobile-engagement-android-gcm-integrate/) guide.
-  - Amazon devices: Use [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](../mobile-engagement-android-adm-integrate/) guide.
+  - Google Play devices: Use [Google Cloud Messaging] by following the [How to Integrate GCM with Engagement guide](mobile-engagement-android-gcm-integrate.md) guide.
+  - Amazon devices: Use [Amazon Device Messaging] by following the [How to Integrate ADM with Engagement guide](mobile-engagement-android-adm-integrate.md) guide.
 
 If you want to target both Amazon and Google Play devices, its possible to have everything inside 1 AndroidManifest.xml/APK for development. But when submitting to Amazon, they may reject your application if they find GCM code.
 

@@ -33,13 +33,13 @@ Azure Machine Learning is a fully managed service that you can use to create, te
 
 Machine Learning Studio is a workbench environment you access through a web browser. Machine Learning Studio hosts a pallet of modules with a visual composition interface that enables you to build an end-to-end, data-science workflow in the form of an experiment. 
 
-For more information about the Machine Learning Studio, see [What is Machine Learning Studio](../machine-learning-what-is-ml-studio/)
+For more information about the Machine Learning Studio, see [What is Machine Learning Studio](machine-learning-what-is-ml-studio.md)
 
 **What is the Machine Learning API service?**
 
 The Machine Learning API service enables you to deploy predictive models built in Machine Learning Studio as scalable, fault-tolerant, web services. The web services created by the Machine Learning API service are REST APIs that provide an interface for communication between external applications and your predictive analytics models. 
 
-See [Connect to a Machine Learning web service](../machine-learning-connect-to-azure-machine-learning-web-service/) for more information.
+See [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md) for more information.
 
 **Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)  to define a model?**
 
@@ -66,7 +66,7 @@ No, however each time an experiment is run that version of the graph is kept and
 ###Importing and exporting data for Machine Learning
 **What data sources does Machine Learning support?**
 
-Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](../machine-learning-import-data/) to learn more about supported file formats. 
+Data can be loaded into Machine Learning Studio in one of two ways: by uploading local files as a dataset or by using a reader module to import data. Local files can be uploaded by adding new datasets in Machine Learning Studio. See [Import training data into Machine Learning Studio](machine-learning-import-data.md) to learn more about supported file formats. 
 
 
 ####<a id="ModuleLimit"></a>How large can the data set be for my modules?
@@ -93,7 +93,7 @@ You can visit the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=4
 
 **Can I bring my existing code into ML Studio?** 
 
-Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](../machine-learning-extend-your-experiment-with-r/). 
+Yes, you can bring your existing R code in ML Studio and run it in the same experiment with Azure Machine Learning-provided learners and publish this as a web service via Azure Machine Learning. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md). 
 
 ###Data processing 
 **Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
@@ -114,7 +114,7 @@ Machine Learning Studio provides state of the art algorithms, such as Scalable B
 No, however there are a number of ways in Machine Learning Studio to compare the results of each algorithm to determine the right one for your problem. 
 
 **Do you have any guidelines on picking one algorithm over another for the provided algorithms?** 
-See [How to choose an algorithm ](../machine-learning-algorithm-choice/). 
+See [How to choose an algorithm ](machine-learning-algorithm-choice.md). 
 
 **Are the provided algorithms written in R or Python?** 
 
@@ -139,7 +139,7 @@ Currently new custom modules can only be created in R.
 ###R module 
 **What R packages are available in Machine Learning Studio?** 
 
-Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](../machine-learning-extend-your-experiment-with-r/) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
+Machine Learning Studio supports 400+ R packages today, and this list is constantly growing. See [Extend your experiment with R ](machine-learning-extend-your-experiment-with-r.md) to learn how to get a list of supported R packages. If the package you want is not in this list, provide the name of package at [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231). 
 
 **Is it possible to build a custom R module?** 
 
@@ -168,16 +168,16 @@ No.
 
 **Is there a baseline latency that is expected for all web services?** 
 
-See the [Azure subscription limits](../azure-subscription-service-limits/)
+See the [Azure subscription limits](azure-subscription-service-limits.md)
 
 ###Use
 **When would I want to run my predictive model as a Batch Execution service versus a Request Response service?**
 
-The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](../machine-learning-consume-web-services/). 
+The Request Response service (RRS) is a low-latency, high-scale web service that is used to provide an interface to stateless models that are created and published from the experimentation environment. The Batch Execution service (BES) is a service for asynchronously scoring a batch of data records. The input for BES is similar to data input used in RRS. The main difference is that BES reads a block of records from a variety of sources, such as the Blob service and Table service in Azure, Azure SQL Database, HDInsight (hive query), and HTTP sources. For more information, see [How to consume Machine Learning web services](machine-learning-consume-web-services.md). 
 
 **How do I update the model for the deployed web service?** 
 
-Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](../machine-learning-publish-a-machine-learning-web-service/) for details on how to update a deployed web service. 
+Updating a predictive model for an already deployed service is as simple as modifying and re-running the experiment used to author and save the trained model. Once you have new version of the trained model available, ML Studio will ask you if you want to update your staging web service. After the update is applied to the staging web service, the same update will become available for you to apply to the production web service as well. See [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md) for details on how to update a deployed web service. 
 
 
 **How do I monitor my Web service deployed in production?** 
@@ -218,7 +218,7 @@ No.
 
 **Who has access to the http end point for the web service deployed in production by default? How do I restrict access to the end point?** 
 
-Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](../machine-learning-connect-to-azure-machine-learning-web-service/).
+Once a predictive model has been put into production, the Azure Portal lists the URL for the deployed web services. Staging service URLs are accessible from the Machine Learning Studio Environment in the web services section; Production service URLs are accessible from Azure Portal, in the Machine Learning section. Access keys are provided for both Staging and Production web services from the web service dashboard in the Machine Learning Studio and Azure portal environments, respectively. Access keys are needed to make calls to the web service in production and staging. For more information, see [Connect to a Machine Learning web service](machine-learning-connect-to-azure-machine-learning-web-service.md).
 
 **What happens if my Storage Account cannot be found?** 
 
@@ -235,7 +235,7 @@ If you have changed Storage Account Access Keys, please ensure to resync the Acc
 
 ##Azure Marketplace 
 
-See the [FAQ for publishing and using apps in the Machine Learning Marketplace](../machine-learning-marketplace-faq/)
+See the [FAQ for publishing and using apps in the Machine Learning Marketplace](machine-learning-marketplace-faq.md)
 
 ##Support and training 
 

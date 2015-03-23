@@ -237,9 +237,9 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users
+[Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
@@ -249,11 +249,11 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[How to use the Android client library for Mobile Services]: /documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
-[Send push notifications to authenticated users]: /documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
 [What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Send template-based notifications to subscribers]: /documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[Send broadcast notifications to subscribers]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/

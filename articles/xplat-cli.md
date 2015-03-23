@@ -440,7 +440,7 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
+[xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
-[Using the Azure Cross-Platform Command Line Interface]: /documentation/articles/virtual-machines-command-line-tools/
+[Using the Azure Cross-Platform Command Line Interface]: virtual-machines-command-line-tools.md

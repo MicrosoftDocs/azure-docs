@@ -39,7 +39,7 @@ Your Cloud Services are affected if any one of the following applies:
 2. You do not have a value for osFamily explicitly specified in the ServiceConfiguration.cscfg file for your Cloud Service. Currently, the system uses the default value of "1" in this case.
 3. The Azure Management Portal lists your Guest Operating System family value as "Windows Server 2008". See [this](https://msdn.microsoft.com/library/azure/gg456325.aspx) to locate this value.
 
-To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
+To find which of your cloud services are running which OS Family, you can run the script below in Azure PowerShell, though you must [set up Azure PowerShell](install-configure-powershell.md) first. For additional details on the script, see [Azure Guest OS Family 1 End of Life: June 2014](http://blogs.msdn.com/b/ryberry/archive/2014/04/02/azure-guest-os-family-1-end-of-life-june-2014.aspx). 
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {
@@ -60,13 +60,13 @@ We recommend you migrate your Cloud Service roles to one of the supported Guest 
 **Guest OS family 4.x** - Windows Server 2012 R2 *(recommended)*
 
 1. Ensure that your application is using SDK 2.1 or later with .NET framework 4.0, 4.5 or 4.5.1.
-2. Set the osFamily attribute to ì4î in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
+2. Set the osFamily attribute to ‚Äú4‚Äù in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
 **Guest OS family 3.x** - Windows Server 2012
 
 1. Ensure that your application is using SDK 1.8 or later with .NET framework 4.0 or 4.5. 
-2. Set the osFamily attribute to ì3î in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
+2. Set the osFamily attribute to ‚Äú3‚Äù in the ServiceConfiguration.cscfg file, and redeploy your cloud service.
 
 
 **Guest OS family 2.x** - Windows Server 2008 R2
