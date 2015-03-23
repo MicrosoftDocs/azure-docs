@@ -98,13 +98,12 @@ In this section, you will modify the app to display a login screen before displa
 	
 5. Press the **Run** button to build the project and start the app in the iPhone simulator. Verify that the app displays no data. 
 
-	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items and you can make updates to the data.
+	Perform the refresh gesture by pulling down the list of items, which will cause the login screen to appear. Once you have successfully entered valid credentials, the app will display the list of todo items, and you can make updates to the data.
 
  
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Create a Xamarin.iOS app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/
 
 [Azure Management Portal]: https://portal.azure.com
