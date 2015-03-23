@@ -40,7 +40,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 7. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your gateway. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
 
-8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosoproxysite.azurewebsites.net/signin-aad`.
+8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosogateway.azurewebsites.net/signin-aad`.
 
     ![][3]
 
