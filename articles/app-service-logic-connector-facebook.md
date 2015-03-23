@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Facebook Connector API App" 
    description="How to use the FacebookConnector" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="adgoda" 
    manager="dwrede" 
