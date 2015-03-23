@@ -29,16 +29,16 @@ Web Apps can back up the following information:
 
 * Web app configuration
 * Web app file content
-* Any SQL Server or MySQL databases connected to your site (you can choose which ones to include in the backup)
+* Any SQL Server or MySQL databases connected to your app (you can choose which ones to include in the backup)
 
 This information is backed up to the Azure storage account and container that you specify. 
 
-> [AZURE.NOTE] Each backup is a complete offline copy of your web app, not an incremental update.
+> [AZURE.NOTE] Each backup is a complete offline copy of your app, not an incremental update.
 
 <a name="requirements"></a>
 ## Requirements and restrictions
 
-* The Backup and Restore feature requires the site to be in a Standard tier. For more information about scaling your web app to use a Standard tier, see [Scale a web app in Azure App Service](../web-sites-scale/). Note that the Premium tier allows a greater number of daily backups to be performed over the Standard tier.
+* The Backup and Restore feature requires the site to be in Standard mode. For more information about scaling your web app to use Standard mode, see [Scale a web app in Azure App Service](../web-sites-scale/). Note that Premium mode allows a greater number of daily backups to be performed over the Standard mode.
 
 * The Backup and Restore feature requires an Azure storage account and container that must belong to the same subscription as the web app that you are going to back up. If you do not yet have a storage account, you can create one by clicking the **Storage Account** in the **Backups** blade of the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), and then choosing the **Storage Account** and the **Container** from the **Destination** blade. For more information on Azure storage accounts, see the [links](#moreaboutstorage) at the end of this article.
 
@@ -108,8 +108,7 @@ The XML file that is stored with the zip file indicates the database file name u
 
 The database backup file itself is stored in the root of the .zip file. For a SQL database, this is a BACPAC file (no file extension) and can be imported. To create a new SQL database based on the BACPAC export, you can follow the steps in the article [Import a BACPAC File to Create a New User Database](http://technet.microsoft.com/library/hh710052.aspx).
 
-For information on restoring an Azure web app (including databases) by using the Azure management portal, see [
-Restore a web app in Azure App Service](../web-sites-restore/).
+For information on restoring a web app (including databases) by using the Azure Portal, see [Restore a web app in Azure App Service](../web-sites-restore/).
 
 > [AZURE.NOTE] Altering any of the files in your **websitebackups** container can cause the backup to become invalid and therefore non-restorable.
 

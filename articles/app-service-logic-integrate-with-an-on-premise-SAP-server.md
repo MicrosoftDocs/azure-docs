@@ -24,7 +24,7 @@ The SAP server can even be behind your firewall on-premises. In case of on-premi
 
 ![Hybrid connectivity flow][1]
 
-An SAP Connector in the cloud cannot directly connect to a SAP server behind a firewall. The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
+An SAP Connector in the cloud cannot directly connect to an SAP server behind a firewall. The Hybrid listener bridges the gap by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
 
 
 ## Different ways to integrate with SAP
@@ -34,7 +34,6 @@ The following actions are supported:
 - Call TRFC
 - Call BAPI
 - Send IDoc
-
 
 ## Prerequisites
 The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are captured [here][9] under the section titled **For the SAP adapter**.
@@ -93,7 +92,6 @@ Select **Install** to complete the Hybrid connection manager setup:
 ![Hybrid connection manager installation in progress][6]
 
 ![Hybrid connection manager installation completed][7]
-
 
 ## Validate hybrid connection
 Browse to the SAP connector you created through **Browse** > **API Apps** > *name of your connector*

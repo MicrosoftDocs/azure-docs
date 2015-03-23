@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create an Azure API App" 
-	description="This article demonstrates how to use Visual Studio 2013 to create an Azure API App" 
+	pageTitle="Create an Azure App Service API App" 
+	description="This article demonstrates how to use Visual Studio 2013 to create an API App in Azure App Service" 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -22,9 +22,9 @@
 
 This is the first tutorial in a series of three, that will get you started with API Apps in Azure App Service.
 
-1. In this tutorial you create a new API app and prepare it to be deployed to your Azure subscription. 
-* In [Deploy an API App](../app-service-dotnet-create-api-app/) you deploy the API app to your Azure subscription.
-* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+1. In this tutorial, you will create a new API app and prepare it to be deployed to your Azure subscription. 
+* In [Deploy an API App](../app-service-dotnet-create-api-app/), you will deploy the API app to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you will use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Create your first API app ##
 
@@ -36,7 +36,7 @@ Select the **Azure API App** project template and then click **OK**.
 
 ![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
 
-Right-click the **Models** folder in the Web API project, and then in the context menu click **Add > Class**. 
+Right-click the **Models** folder in the Web API project, and then in the context menu select **Add > Class**. 
 
 ![](./media/app-service-dotnet-create-api-app/03-add-new-class-v3.png) 
 
@@ -56,15 +56,15 @@ Replace the entire contents of the file with the following code.
 		}
 	}
 
-Right-click the **Controllers** folder, and then in the context menu click **Add > Controller**. 
+Right-click the **Controllers** folder, and then in the context menu select **Add > Controller**. 
 
 ![](./media/app-service-dotnet-create-api-app/05-new-controller-v3.png)
 
-In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option, and then click **Add**. 
+In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option and click **Add**. 
 
 ![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v3.png)
 
-Name the controller **ContactsController**, and then click **Add**. 
+Name the controller **ContactsController** and click **Add**. 
 
 ![](./media/app-service-dotnet-create-api-app/07-new-controller-name-v2.png)
 

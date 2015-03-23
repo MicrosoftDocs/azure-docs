@@ -30,6 +30,12 @@ Archiving is exposed at two points for both messages and acknowledgements (MDNs)
 
 Browse to the AS2 Connector API App instance and click 'Tracking'. Narrow down the tracking information by using filter parameters. Once your message is in view, click to see its detailed view. The archived URL for the message will be displayed in this detailed view.
 
+![][1]  
+
 ##How To: Retrieve Archived Message
 
 Use the URL retrieved above to retrieve the archived message from Azure Blob Storage.
+
+
+<!--Image references-->
+[1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg

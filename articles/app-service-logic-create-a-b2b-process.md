@@ -53,7 +53,11 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 
 ## Create a flow / business process
 1. Create a new flow in which the first step is AS2. Drag and drop the **AS2 Connector** and choose the instance already created. Choose trigger as the functionality
+
+![][1]
+
 2. Next drag and drop **Azure Storage Blob Connector** and choose the instance already created. Choose action as the functionality and within that select Upload Blob as the desired functionality. Configure as appropriate
+
 3. Now create/deploy the flow
 
 
@@ -62,4 +66,8 @@ This tutorial assumes that you have a basic understanding of Azure App Services,
 2. Execution information about the flow is surfaced by browsing to the flow and then stepping into the flow instance which got executed
 3. For AS2 processing information, browse to the AS2Connector instance involved, and then follow by stepping into the Tracking part. You can use the filters involved to restrict the view to the information that is desired.
 
+![][2]
 
+<!--Image references-->
+[1]: ./media/app-service-logic-create-a-b2b-process/Flow.jpg
+[2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg

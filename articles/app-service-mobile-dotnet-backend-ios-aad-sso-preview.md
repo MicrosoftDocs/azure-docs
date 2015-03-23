@@ -37,9 +37,21 @@ This tutorial requires the following:
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)] 
 
-## <a name="add-authentication-code"></a>Add authentication code to the client app
+## <a name="add-adal"></a>Add a reference to the Active Directory Authentication Library
 
-1. Download the [Active Directory Authentication Library for iOS] and include it in your project. Be sure to also add the storyboards from the ADAL source.
+1. Download the [Active Directory Authentication Library for iOS].
+
+2. In Xcode Navigator, select your project and click **File** and choose **Add Files to...**. Navigate to where you downloaded the library and select **ADALiOS.xcodeproj**.
+
+3. Select your project again and open the **Build Settings** tab. Navigate to the **Linking** section and add `-ObjC` to **Other Linker Flags**.
+
+4. Select the **Build Phases** tab. Under **Target Dependencies**, add `ADALiOS`.
+
+5. Under **Link Binary With Libraries**, add `libADALiOS.a`.
+
+You will now be able to reference the Active Directory Authentication Library in your project.
+
+## <a name="add-authentication-code"></a>Add authentication code to the client app
 
 2. In the QSTodoListViewController, include ADAL with the following:
 
@@ -82,11 +94,11 @@ This tutorial requires the following:
 
 4. In the code for the `loginAndGetData` method above, replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application, the format should be https://login.windows.net/tenant-name.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure Management Portal].
 
-5. In the code for the `loginAndGetData` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your Mobile App. If you followed the [How to configure your Mobile App with Azure Active Directory] topic your App ID URI should be similar to https://contosoproxysite.azurewebsites.net/login/aad.
+5. In the code for the `loginAndGetData` method above, replace **INSERT-RESOURCE-URI-HERE** with the **App ID URI** for your Mobile App. If you followed the [How to configure your Mobile App with Azure Active Directory] topic your App ID URI should be similar to https://contosogateway.azurewebsites.net/login/aad.
 
 6. In the code for the `loginAndGetData` method above, replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 
-7. In the code for the `loginAndGetData` method above, replace **INSERT-REDIRECT-URI-HERE** with the /login/done endpoint for your App Service Gateway. This should be similar to https://contosoproxysite.azurewebsites.net/login/done.
+7. In the code for the `loginAndGetData` method above, replace **INSERT-REDIRECT-URI-HERE** with the /login/done endpoint for your App Service Gateway. This should be similar to https://contosogateway.azurewebsites.net/login/done.
 
 8. In the QSTodoListViewController, modify `ViewDidLoad` by replacing `[self refresh]` with the following:
 
