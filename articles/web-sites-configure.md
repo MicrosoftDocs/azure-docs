@@ -17,7 +17,7 @@
 	ms.author="mwasson"/>
 
 
-# How to Configure Web Apps #
+# Configure web apps in Azure App Service #
 
 This topic explains how to configure a web app using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715).
 
