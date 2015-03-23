@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Securing an Azure web app." 
+	pageTitle="Secure a web app in Azure App Service" 
 	description="Learn how to secure an Azure web app." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="cephalin"/>
 
 
-#Securing a web app in Microsoft Azure App Service
+#Secure a web app in Azure App Service
 
 One of the challenges of developing a web app is how to provide a safe and secure service for your customers. In this article, you will learn about features of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) that can secure your web app.
 
