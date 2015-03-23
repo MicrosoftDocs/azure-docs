@@ -58,10 +58,10 @@ Once your API app is created, you can now use the Twitter connector as a trigger
 	![][5]
 6.	You can now use Twitter connector in the flow. You can now use the Tweets retrieved from the Twitter trigger in other actions in the flow.
  
-	![][6]
+	![][6] ![][7]
 7.	In the similar way you can use the Twitter actions in the flow. Select a Twitter action and configure the inputs for that respective action.
 
-	![][7] ![][8]
+	![][8] ![][9]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
@@ -72,3 +72,4 @@ Once your API app is created, you can now use the Twitter connector as a trigger
 [6]: ./media/app-service-logic-connector-twitter/img6.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/img8.png
+[9]: ./media/app-service-logic-connector-twitter/img9.png
