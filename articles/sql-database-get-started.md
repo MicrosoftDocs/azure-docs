@@ -20,7 +20,7 @@
 
 Use this article to learn how to create and administer a relational database service in the cloud with Azure. If you're new to SQL Server and database administration, you can finish this topic in about 30 minutes. You'll create and provision a new sample database using SQL Database, and then you'll query system and user data using SQL Server Management Studio (SSMS). When you finish, you'll have a new sample database and an understanding of how to perform basic administration tasks.
 
-Another option for running SQL in the cloud is to host SQL Server on a virtual machine. See <link> if you want to get started on that route, and see <link> for a quick comparison of the options.
+Another option for running SQL in the cloud is to host SQL Server on a virtual machine. See [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md) if you want to get started on that route, and see [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison of the options.
 
 ## Step 1: Create a Microsoft Azure account
 Skip this step if you already have an Azure account. If you don't, click **Free Trial** in the upper right of this page and then come back after you've signed up.
@@ -28,7 +28,7 @@ Skip this step if you already have an Azure account. If you don't, click **Free 
 ## Step 2: Use the Azure Management Portal to create a database and a logical server
 
 <br/>
-1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com) and then click **New** at the bottom of the page. From the list of stuff you can create, click **Data Services**, and then click **SQL Database**.
+1. Sign in to the [Azure Management portal](http://manage.windowsazure.com) and then click **New** at the bottom of the page. From the list of stuff you can create, click **Data Services**, and then click **SQL Database**.
 
 <br/>****
 2. In this article, you'll create a database using **Custom Create** because it's the best way to show you all the options. Click that.
@@ -46,7 +46,7 @@ Skip this step if you already have an Azure account. If you don't, click **Free 
  
 * If your account has access to multiple subscriptions, you can choose a different one from the **Subscription** list.
 
-* Under **Service Tiers**, **Standard** is automatically selected, which is the go-to option. If you want to change it, you can click a different service tier. Your service tier selection determines what **Performance Level** is available for you to choose. See [Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx) for details.
+* Under **Service Tiers**, **Standard** is automatically selected, which is the go-to option. If you want to change it, you can click a different service tier. Your service tier selection determines what **Performance Level** is available for you to choose. See [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx) for details.
 
 * Choose a **Collation**. For this exercise, you can leave this alone. If you want to be adventurous and learn more about collation, see [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx).
 
@@ -59,7 +59,7 @@ Skip this step if you already have an Azure account. If you don't, click **Free 
 
 Use this guidance for settings on that page:
 
-* For **Login name** type "SQLAdmin", which will be the name of the server-level principal of your SQL Database server. Then create and confirm a strong password for that login. The administrator name can't be a Windows user, nor should it be a Live ID user name. Windows authentication is not supported on SQL Database. See [Managing Databases and Logins](https://msdn.microsoft.com/library/azure/ee336235.aspx) for more information.
+* For **Login name** type "SQLAdmin", which will be the name of the server-level principal of your SQL Database server. Then create and confirm a strong password for that login. The administrator name can't be a Windows user, nor should it be a Live ID user name. Windows authentication is not supported on SQL Database. See [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx) for more information.
 
 * Pick a **Region** that is closest to you, your users, or that makes sense for your application. Keep your application and database in the same region to save bandwidth cost and reduce data latency.
 
@@ -83,7 +83,7 @@ When you create a server, the SQL Database firewall prevents access until you gi
 
 When you add an IP address, a new firewall rule on the server is created to allow traffic from that IP address, which is often the router or proxy server your device is listening on.
 
-> [AZURE.IMPORTANT] The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
+> [AZURE.IMPORTANT] The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 <br/>
 1. If you're not already there from the previous step, in the Management Portal, click **SQL Databases** on the left nav, find your database in the list, and then click the link under **Server**.
@@ -141,7 +141,7 @@ Now you have SSMS connected to your SQL Database server, and you're ready to cre
 
 ## Step 5: Create the schema
 
-In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft.com/library/bb510741.aspx) script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) statement. Further on, the script uses the [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
+In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft.com/library/bb510741.aspx) script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx) statement. Further on, the script uses the [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) statement to specify the primary key and table relationships.
 
 <br/>
 1. In **Object Explorer**, expand **Databases**, click **School** and then click **New Query**.
@@ -390,7 +390,7 @@ In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft
 
 
 ## Step 6: Insert data
-This script uses the [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) statement to add values to each column.
+This script uses the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement to add values to each column.
 
 Click **New Query** again, copy this script, paste it into the new query window, and then click **Execute**.
  
