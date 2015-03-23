@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and deploy an ASP.NET web app in Azure App Service" 
+	pageTitle="Create an ASP.NET web app in Azure App Service" 
 	description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to a web app in Azure App Service. In less than 15 minutes you'll have an app up and running in the cloud." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Create and deploy an ASP.NET web app in Azure App Service
+# Create an ASP.NET web app in Azure App Service
 
 ## Overview
 
