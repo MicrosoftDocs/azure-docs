@@ -24,8 +24,6 @@ We recommend getting started by watching the following video, where Ryan CrawCou
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
-<a href="http://www.documentdb.com/sql/demo">![Query playground](./media/documentdb-introduction/documentdb-query-playground.jpg)</a>
-
 Then, return to this article, where you'll learn the answers to the following questions:  
 
 -	[What is DocumentDB and what value does it provide to cloud and mobile applications?](#what-is-docdb)
@@ -95,7 +93,8 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 ##<a name="next-steps"></a>Next Steps
 To get started with Azure DocumentDB, explore these resources:
 
-- [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [Query Playground](http://www.documentdb.com/sql/demo)
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 -	[Interact with DocumentDB resources](documentdb-interactions-with-resources.md)
 -	[Create a DocumentDB database account](documentdb-create-account.md)

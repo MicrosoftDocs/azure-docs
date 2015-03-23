@@ -16,6 +16,8 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# What happened to my project?
+
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
 > - [What Happened](vs-storage-cloud-services-what-happened.md)
