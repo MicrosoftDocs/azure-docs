@@ -18,8 +18,7 @@
 
 # Enable offline sync for your Xamarin iOS mobile app
 
-<!-- [AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
- -->
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../includes/app-service-mobile-selector-offline-preview.md)]
 
 This tutorial covers the offline sync feature of Mobile Apps for iOS. Offline sync allows end-users to interact with a mobile app--viewing, adding, or modifying data--even when there is no network connection. Changes are stored in a local database; once the device is back online, these changes are synced with the remote service.
 
