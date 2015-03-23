@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Deploy to staging slots for Web Apps in Azure App Service"
+	pageTitle="Set up staging environments for web apps in Azure App Service"
 	description="Learn how to use staged publishing for web apps in Azure App Service."
 	services="app-service\web"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 	ms.author="cephalin"/>
 
 <a name="Overview"></a>
-# Deploy to staging slots for web apps in Azure App Service
+# Set up staging environments for web apps in Azure App Service
 
 When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
