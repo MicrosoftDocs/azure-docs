@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Integrate your web app in Azure App Service with Azure Virtual Network" 
+	pageTitle="Integrate a web app with an Azure Virtual Network" 
 	description="Shows you how to connect an Azure web app in Azure App Service to a new or existing Azure virtual network" 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Integrate your web app in Azure Azure App Service with an Azure Virtual Network #
+# Integrate a web app with an Azure Virtual Network #
 This document describes the virtual network integration preview feature and shows how to set it up with Web Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).  If you are unfamiliar with Azure Virtual Networks, this is a capability that will allow you to build hybrid solutions with your Azure and on-premise resources.  
 
 This integration gives your web app access to resources in your virtual network but does not grant access to your web app from the virtual network.  Some standard scenarios are where your web app needs access to a database or web services that are running in virtual machines in your virtual network or even in your own data center.  It does not allow you to mount a drive.  It also currently does not support enabling integration with authentication systems in your virtual network.  The feature is in Preview though and will continue to be improved before reaching GA.
