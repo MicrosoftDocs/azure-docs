@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a .NET WebJob using the WebJobs SDK" 
+	pageTitle="Create a .NET WebJob in Azure App Service" 
 	description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The frontend runs in a web app in Azure App Service, and the backend runs as a WebJob. The app uses Entity Framework, SQL Database, and Azure storage queues and blobs." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Create a .NET WebJob using the WebJobs SDK
+# Create a .NET WebJob in Azure App Service
 
 ## Overview
 
