@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="03/23/2015" 
 	ms.author="jeffreyg"/>
 
 # Get started with SQL Database
@@ -30,7 +30,7 @@ Skip this step if you already have an Azure account. If you don't, click **Free 
 <br/>
 1. Sign in to the [Azure Management Portal](http://manage.windowsazure.com) and then click **New** at the bottom of the page. From the list of stuff you can create, click **Data Services**, and then click **SQL Database**.
 
-<br/>****
+<br/>
 2. In this article, you'll create a database using **Custom Create** because it's the best way to show you all the options. Click that.
  
    ![Custom create a SQL Database](./media/sql-database-get-started/sqldbcustomcreate.png)
