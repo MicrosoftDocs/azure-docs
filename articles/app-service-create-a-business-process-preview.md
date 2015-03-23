@@ -4,18 +4,18 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service" 
+	services="app-service-logic" 
 	documentationCenter=""/>
 
 
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-logic"
 	ms.workload="web"
-	ms.tgt_pltfrm=""
-	ms.devlang=""
-	ms.topic=""
-	ms.date="2/24/2015"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/24/2015"
 	ms.author="stepsic"/>
 
 # Developing a business process using Flow and API apps
