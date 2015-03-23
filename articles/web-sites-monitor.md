@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitoring basics for Web Apps in Azure App Service" 
+	pageTitle="Monitor Web Apps in Azure App Service" 
 	description="Learn how to monitor Web Apps in Azure App Service by using the Management Portal." 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-#<a name="howtomonitor"></a>Monitoring basics for Web Apps in Azure App Service 
+#<a name="howtomonitor"></a>Monitor Web Apps in Azure App Service 
 
 [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) provide monitoring functionality for Standard and Premium App Service plans via the Monitor management page. The Monitor management page provides performance statistics for a web app as described below.
 
