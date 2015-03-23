@@ -55,9 +55,9 @@ o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop c
 <GooglePlay><iTunes><Windows Phone Store><Windows Store>
 
     - Cloud Dependency Outages
-[Azure Service Status]( http://azure.microsoft.com/en-us/status/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
+[Azure Service Status]( http://azure.microsoft.com/status/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
     - Push Notification Services (PNS) Dependency Outages
-[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/en-us/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/en-us/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
+[Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
     - App Store Outages
 [GooglePlay](https://play.google.com/), [iTunes](http://www.apple.com/itunes/charts/), [Windows Phone Store](http://www.windowsphone.com/), [Windows Store](http://windows.microsoft.com/)
 
