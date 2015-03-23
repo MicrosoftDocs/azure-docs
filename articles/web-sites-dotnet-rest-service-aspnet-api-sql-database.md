@@ -1,5 +1,5 @@
 <properties 
-	pageTitle=".NET REST service using Web API - Azure tutorial" 
+	pageTitle="Create a REST service using ASP.NET Web API and SQL Database in Azure App Service" 
 	description="A tutorial that teaches you how to deploy an app that uses the ASP.NET Web API to an Azure web app by using Visual Studio." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -17,7 +17,7 @@
 	ms.date="03/24/2015" 
 	ms.author="riande"/>
 
-# REST service using ASP.NET Web API and SQL Database 
+# Create a REST service using ASP.NET Web API and SQL Database in Azure App Service
 
 This tutorial shows how to deploy an ASP.NET web app to an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) by using the Publish Web wizard in Visual Studio 2013 or Visual Studio 2013 for Web Express. 
 
