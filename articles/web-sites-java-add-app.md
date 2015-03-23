@@ -18,7 +18,7 @@
 
 # Adding an application to your Java website on Azure
 
-Once you have initialized your Java website as documented at [Get started with Microsoft Azure Web Sites and Java](../web-sites-java-get-started), you can upload your application by placing your WAR in the **webapps** folder.
+Once you have initialized your Java website as documented at [Get started with Microsoft Azure Web Sites and Java](web-sites-java-get-started.md), you can upload your application by placing your WAR in the **webapps** folder.
 
 The navigation path to the **webapps** folder differs based on how you set up your website.
 

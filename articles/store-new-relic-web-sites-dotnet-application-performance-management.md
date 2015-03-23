@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="New Relic App Performance Management on Azure" 
 	description="Learn how to use New Relic's performance monitoring on Azure." 
-	services="app-service-web" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="stepsic-microsoft-com" 
 	manager="carolz" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 

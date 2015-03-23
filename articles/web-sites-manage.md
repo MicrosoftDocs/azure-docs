@@ -68,7 +68,7 @@ To add an alert rule, click the graph, then click **Add alert**. An alert rule n
 - **Process explorer** (B). Click to view the processes running in the app, including working set and thread count.
 
 ## Deployment
-
+ 
 ![](./media/web-sites-manage/manage05.png)
 
 - Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](web-sites-publish-source-control.md)
@@ -79,7 +79,7 @@ To add an alert rule, click the graph, then click **Add alert**. An alert rule n
 
 - Connect the app to a virtual network
 - Add hybrid connections
-	
+
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Next steps

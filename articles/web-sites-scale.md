@@ -102,13 +102,13 @@ For information about App Service plans, see [What is an App Service Plan?](web-
 7. Click **Save** in the command bar. Your autoscale rule should now be reflected in the **Scale** blade. 
 	
 	![Set Autoscale Rule Result][SetRulesFinal]
-	
+
 <a name="ScalingSQLServer"></a>
 ##Scaling a SQL Server Database connected to your web app
 If you have one or more SQL Server databases linked to your web app (regardless of App Service plan mode), you can quickly scale them based on your needs.
 
 1. To scale one of the linked databases, open your web app's blade in the [Azure portal][portal]. In the **Essentials** collapsible dropdown, click the **Resource group** link. Then, in the **Summary** part of the resource group blade, clicked one of the linked databases.
-	
+
 	![Linked database][ResourceGroup]
 	
 2. In your linked SQL Database blade, click the **Pricing tier** part, select one of the tiers based on your performance requirement, and click **Select**. 

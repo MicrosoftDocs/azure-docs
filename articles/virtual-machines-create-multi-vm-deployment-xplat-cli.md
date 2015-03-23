@@ -63,5 +63,5 @@ While you can find more information by using the –help option on any of the Az
 ## Next steps
 
  
-* [Linux and open-source computing on Azure](../virtual-machines-linux-opensource/)
-* [How to log on to a virtual machine running Linux](../virtual-machines-linux-how-to-log-on/)
+* [Linux and open-source computing on Azure](virtual-machines-linux-opensource.md)
+* [How to log on to a virtual machine running Linux](virtual-machines-linux-how-to-log-on.md)

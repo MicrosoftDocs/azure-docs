@@ -20,7 +20,7 @@
 
 In this article, you will learn how to create an ASP.NET MVC line-of-business (LOB) application in [Azure Websites](/services/websites/) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create LOB applications in Azure Websites but your organization requires all data to be stored on-site.
 
-For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](../web-sites-authentication-authorization/).
+For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -181,7 +181,7 @@ Now you need to configure a RP trust in AD FS Mangement before you can your samp
 	-	Name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name) - used by ASP.NET to hydrate `User.Identity.Name`.
 	-	User principal name (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn) - used to uniquely identify users in the organization.
 	-	Group memberships as roles (http://schemas.microsoft.com/ws/2008/06/identity/claims/role) - can be used with `[Authorize(Roles="role1, role2,...")]` decoration to authorize controllers/actions. In reality, this may not be the most performant approach for role authorization, especially if your AD users regularly belong to hundreds of security groups, which translates to hundreds of role claims in the SAML token. An alternative approach is to send a single role claim conditionally depending on the user's membership in a particular group. However, we'll keep it simple for this tutorial.
-	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-adfs/#bkmk_crud).
+	-	Name ID (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier) - can be used for anti-forgery validation. For more information on how to make it work with anti-forgery validation, see the **Add LOB functionality** section of [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](web-sites-dotnet-lob-application-adfs.md#bkmk_crud).
 
 	> [AZURE.NOTE] The claim types you need to configure for your application is determined by your application's needs. For the list of claims supported by Azure Active Directory applications (i.e. RP trusts), for example, see [Supported Token and Claim Types](http://msdn.microsoft.com/library/azure/dn195587.aspx).
 
@@ -335,14 +335,14 @@ Since you have included group memberships as role claims in your RP trust config
 
 A reason that you would want to implement your line-of-business application with AD FS instead of Azure Active Directory is compliance issues with keeping organization data off-premise. This may also mean that your Azure website must access on-premise databases, since you are not allowed to use [SQL Database](/services/sql-database/) as the data tier for your websites.
 
-Azure Websites supports accessing on-premise databases with two approaches: [Hybrid Connections](../integration-hybrid-connection-overview/) and [Virtual Networks](../web-sites-integrate-with-vnet/). For more information, see [Using VNET integration and Hybrid connections with Azure Websites](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
+Azure Websites supports accessing on-premise databases with two approaches: [Hybrid Connections](integration-hybrid-connection-overview.md) and [Virtual Networks](web-sites-integrate-with-vnet.md). For more information, see [Using VNET integration and Hybrid connections with Azure Websites](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/).
 
 <a name="bkmk_resources"></a>
 ## Further resources
 
-- [Protect the Application with SSL and the Authorize Attribute](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Authenticate and Authorize Users in LOB Applications in Azure Websites ](../web-sites-authentication-authorization/)
-- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory](../web-sites-dotnet-lob-application-azure-ad/)
+- [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+- [Authenticate and Authorize Users in LOB Applications in Azure Websites ](web-sites-authentication-authorization.md)
+- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with Azure Active Directory](web-sites-dotnet-lob-application-azure-ad.md)
 - [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

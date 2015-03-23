@@ -4,7 +4,7 @@
 
 ## Markdown for Azure.microsoft.com
 
-For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/) and our [markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
+For general markdown tips, see [Markdown Basics](https://help.github.com/articles/markdown-basics/) and our [markdown cheatsheet](./media/documents/markdown-cheatsheet.pdf?raw=true). If you need to create article crosslinks in markdown, see the [linking guidance] (./create-links-markdown.md#markdown-syntax-for-acom-relative-links.md/). 
 
 Azure.microsoft.com supports [fenced code blocks](https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks) and [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting). However, ACOM supports only one syntax highlighting color scheme, regardless of the language you specify in a code block.
 
@@ -142,15 +142,19 @@ Published article: [http://azure.microsoft.com/documentation/articles/web-sites-
 
 ## Technology and platform selectors
 
-Use technology and platform switchers in technical artilces when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers.
+Use technology and platform switchers in technical articles when you author multiple flavors of the same article to address differences in implementation across technologies or platforms. This is typically most applicable to our mobile platform content for developers. There are currently two different types of selectors, [simple selectors](#simple-selectors) and and [two-way selectors](#two-way-selectors).
 
-Usage
+>[AZURE.NOTE]Because the same selector markdown goes in each topic in the selection, we recommend placing the selector for your topic in an include, then referencing that include in all of your topics that use the same selector.
+
+###<a id="simple-selectors"></a>Simple selectors
+
+Simple (one-way) selectors render as a set of option buttons right below the title. Use these buttons when customers only need to choose from topics in a single platform or technology set, such as .NET, Node.js, and Java  
 
 See [Get started with Notification Hubs](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-phone-get-started/) to see how the author created 8 versions of the same article, but used selectors to enable navigation across them all.
 
-![](./media/custom-markdown-extensions/selectors.PNG)
+![Simple selector example](./media/custom-markdown-extensions/selectors.PNG)
 
-###Syntax
+####Syntax
 
     > [AZURE.SELECTOR]
     - [Link #1 Label](link #1 url)
@@ -159,16 +163,54 @@ See [Get started with Notification Hubs](http://azure.microsoft.com/documentatio
 Example:
 
     > [AZURE.SELECTOR]
-    - [Windows Universal](/documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
-    - [Windows Phone](/documentation/articles/notification-hubs-windows-phone-get-started/)
-    - [iOS](/documentation/articles/notification-hubs-ios-get-started/)
-    - [Android](/documentation/articles/notification-hubs-android-get-started/)
-    - [Kindle](/documentation/articles/notification-hubs-kindle-get-started/)
-    - [Baidu](/documentation/articles/notification-hubs-baidu-get-started/)
-    - [Xamarin.iOS](/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/)
-    - [Xamarin.Android](/documentation/articles/partner-xamarin-notification-hubs-android-get-started/)
+    - [Windows Universal](../articles/notification-hubs-windows-store-dotnet-get-started/)
+    - [Windows Phone](../articles/notification-hubs-windows-phone-get-started/)
+    - [iOS](../articles/notification-hubs-ios-get-started/)
+    - [Android](../articles/notification-hubs-android-get-started/)
+    - [Kindle](../articles/notification-hubs-kindle-get-started/)
+    - [Baidu](../articles/notification-hubs-baidu-get-started/)
+    - [Xamarin.iOS](../articles/partner-xamarin-notification-hubs-ios-get-started/)
+    - [Xamarin.Android](../articles/partner-xamarin-notification-hubs-android-get-started/)
 
-### Rendering
+#### Rendering
+
+The image above shows the rendering on azure.microsoft.com. On the rendered GitHub pages, the selectors render as a bulleted list of links.
+
+###<a id="two-way-selectors"></a>Two-way selectors
+
+Two-way selectors lets users select a topics from a 2 x n matrix. This is essential when an Azure technology, such as Mobile Services, supports multiple backend platforms as well as multiple clients. Keep in mind the following:
+
+- While it was designed as `(Platform | Backend)`, the dropwdown text can now be customized.
+- You do not need a list item for every point in your matrix, but do only have an item where a topic URL exists and is not a duplicate.
+- The link can be any URL, although it is generally another GitHub topic.
+
+See [Get started with Mobile Services](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/) to see how the author created 15 versions of the same article (9 mobile client platforms and 2 backend platforms), but used selectors to enable navigation across them all. Note that 3 articles don't have both backend versions.
+
+![Two-way selectors example](./media/custom-markdown-extensions/selector-list.png)
+
+####Syntax
+
+	> [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
+	- [(Dropdown1Text1 | Dropdown2Text1 )](../articles/dropdown1-text1-dropdown2-text1.md)
+	- [(Dropdown1Text1 | Dropdown2Text2 )](../articles/dropdown1-text1-dropdown2-text1.md)
+	- [(Dropdown1Text2 | Dropdown2Text3 )](../articles/dropdown1-text1-dropdown2-text1.md)
+	- [(Dropdown1Text3 | Dropdown2Text4 )](../articles/dropdown1-text1-dropdown2-text1.md)
+
+Example:
+
+	> [AZURE.SELECTOR-LIST (Platform | Backend )]
+	- [(iOS | .NET)](./mobile-services-dotnet-backend-ios-get-started-push.md)
+	- [(iOS | JavaScript)](./mobile-services-javascript-backend-ios-get-started-push.md)
+	- [(Windows universal C# | .NET)](./mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
+	- [(Windows universal C# | Javascript)](./mobile-services-javascript-backend-windows-universal-dotnet-get-started-push.md)
+	- [(Windows Phone | .NET)](./mobile-services-dotnet-backend-windows-phone-get-started-push.md)
+	- [(Windows Phone | Javascript)](./mobile-services-javascript-backend-windows-phone-get-started-push.md)
+	- [(Android | .NET)](./mobile-services-dotnet-backend-android-get-started-push.md)
+	- [(Android | Javascript)](./mobile-services-javascript-backend-android-get-started-push.md)
+	- [(Xamarin iOS | Javascript)](./partner-xamarin-mobile-services-ios-get-started-push.md)
+	- [(Xamarin Android | Javascript)](./partner-xamarin-mobile-services-android-get-started-push.md)
+
+#### Rendering
 
 The image above shows the rendering on azure.microsoft.com. On the rendered GitHub pages, the selectors render as a bulleted list of links.
 
