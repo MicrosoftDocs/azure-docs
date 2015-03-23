@@ -27,21 +27,15 @@ To use this scenario you will need:
 
 <!--- TODO: Add try it now information here -->
 
-##Getting started
+##Getting your connectors
 
-First, you need to create a new logic app:
+First, you need to create the two connectors you will be using: **Dropbox Connector** and **Twitter Connector**. To create these:
 
-1. In the [Azure portal], sign in to your Azure subscription.
+1. Click on **Marketplace** on the home screen and search for **Twitter**. 
 
-2. Click on the **+ New** button at the bottom-left of the screen, expand **Web + Mobile**, then click **Logic App**. 
+2. Select Twitter Connector and click the create button. You will get a blade for all of your settings. You can leave the name as **Twitter Connector**.
 
- 	This displays the Create logic app blade, where you provide some basic settings to get started.
-
-	![Create logic app blade](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
-
-3. In **Name** type a meaningful name for your logic app.
-
-2. Type a plan name in **Create new app service plan**.
+3. Type a plan name in **Create new app service plan**.
 	
 	>[AZURE.NOTE]The steps in this section assume that you are creating a new app service plan. If you are using an existing app service plan, you click **Select Existing**, select your existing plan, and then skip to the next section.
  
@@ -49,13 +43,33 @@ First, you need to create a new logic app:
  
 	>[AZURE.NOTE]By default, only plans recommended for Logic Apps are displayed. Click **View all** to see all available plans. When you run a logic app in the Free tier, you can only run every hour and use up to 1000 actions per month.
 
-3. Create a **Resource group** for your flow. 
+5. Create a **Resource group** for your flow. 
 
 	Resource groups act as containers for your apps. All of the resources for your app will live in the same resource group.
 
-4. If you have more than one Azure subscription, choose the one you will use.
+6. If you have more than one Azure subscription, choose the one you will use.
 
-5. Choose the **Location** to run your Logic app.
+7. Choose the **Location** to run your Logic app.
+
+	![Create API app blade](./media/app-service-logic-create-a-logic-app/gallery.png)
+
+8. Click **Create**. The provisioning step may take a minute or two. 
+
+9. Now repeat the process with Dropbox.
+
+##Starting the Logic app
+
+Now, you need to create a new Logic app:
+
+1. Click on the **+ New** button at the bottom-left of the screen, expand **Web + Mobile**, then click **Logic App**. 
+
+ 	This displays the Create logic app blade, where you provide some basic settings to get started.
+
+	![Create logic app blade](./media/app-service-logic-create-a-logic-app/createlogicapp.png)
+	
+2. In **Name** type a meaningful name for your logic app.
+
+3. Choose the **App service plan** you used when creating your connectors. This should automatically choose the Location, Subscription and Resource Group for you.
 
 This takes care of the basic settings, but don't click **Create** just yet. Next, you will add triggers and actions to your workflow.
 
@@ -83,10 +97,9 @@ Now, you will add an action to the flow.
 Actions are what your workflow does. You can have any number of actions, and you can organize them so that information from one action is passed to the next.
 
 1. In the right-hand pane, find **Twitter connector**, then click it. 
- 
-	This immediately creates the Twitter connector in the resource group and app service plan that you selected previously. The provisioning step may take a minute or two. 
 
-2. After provisioning is complete, click the **Authorize** button, sign in to your Twitter account and click **Authorize app**. 
+
+2. After it has loaded, click the **Authorize** button, sign in to your Twitter account and click **Authorize app**. 
 
 	This grants the connector access to your Twitter account. A list of possible operations provided by the Twitter connector is displayed. 
 
@@ -103,13 +116,11 @@ The Twitter connector is now part of the workflow.
 The final step is to add an action that uploads a tweets to a Dropbox file. 
 
 1. In the right-hand pane, click **Dropbox connector**. 
-
-	This creates the Dropbox connector in the resource group. The provisioning step may take a minute or two. 
   
-	![Authorize Dropbox connector](./media/app-service-logic-create-a-logic-app/authorize.png)
-
 2. After provisioning is complete, click the **Authorize** button, sign in to your Dropbox account, and **Allow**.
 
+	![Authorize Dropbox connector](./media/app-service-logic-create-a-logic-app/authorize.png)
+	
 	This grants the connector access to your Dropbox account. A list of possible operations provided by the Dropbox connector is displayed. 
  
 4. Click **Upload file**.  
