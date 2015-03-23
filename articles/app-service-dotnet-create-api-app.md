@@ -36,7 +36,7 @@ Select the **Azure API App** project template and then click **OK**.
 
 ![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
 
-Right-click the **Models** folder in the Web API project, and then in the context menu click **Add > Class**. 
+Right-click the **Models** folder in the Web API project, and then in the context menu select **Add > Class**. 
 
 ![](./media/app-service-dotnet-create-api-app/03-add-new-class-v3.png) 
 
@@ -56,15 +56,15 @@ Replace the entire contents of the file with the following code.
 		}
 	}
 
-Right-click the **Controllers** folder, and then in the context menu click **Add > Controller**. 
+Right-click the **Controllers** folder, and then in the context menu select **Add > Controller**. 
 
 ![](./media/app-service-dotnet-create-api-app/05-new-controller-v3.png)
 
-In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option, and then click **Add**. 
+In the **Add Scaffold** dialog, select the **Web API 2 Controller - Empty** option and click **Add**. 
 
 ![](./media/app-service-dotnet-create-api-app/06-new-controller-dialog-v3.png)
 
-Name the controller **ContactsController**, and then click **Add**. 
+Name the controller **ContactsController** and click **Add**. 
 
 ![](./media/app-service-dotnet-create-api-app/07-new-controller-name-v2.png)
 
