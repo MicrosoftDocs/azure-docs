@@ -25,7 +25,7 @@ Azure App Service is a fully managed Platform as a Service (PaaS) offering for p
 #Why Mobile Apps?
 *Mobile Apps* in *Azure App Service* offer highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile apps. With Mobile Apps you can:
 
-- **Build native and cross platform apps** - whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Phonegap apps, you can take advantage of App Service using native SDKs.  
+- **Build native and cross platform apps** - whether you're building native iOS, Android, and Windows apps or cross-platform Xamarin or Cordova (Phonegap) apps, you can take advantage of App Service using native SDKs.  
 - **Connect to your enterprise systems** - with Mobile Apps you can add corporate sign on in minutes, and connect to your enterprise on-premises or cloud resources.
 - **Connect to SaaS APIs easily** - with more than 40 SaaS API connectors, you can easily integrate your app with SaaS APIs your enterprise uses today. Want to update account status in both CRM and the billing system? Mobile Apps offer enterprise SaaS APIs at your fingertips.
 - **Build offline-ready apps with sync** - make your mobile workforce productive by building apps that work offline and use Mobile Apps to sync data in the background when connectivity is present with any of your enterprise data sources or SaaS APIs.
