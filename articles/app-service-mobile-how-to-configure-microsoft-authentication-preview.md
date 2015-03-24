@@ -26,7 +26,7 @@ This topic shows you how to configure Azure App Services to use Microsoft Accoun
 
 2. Click **Create application**, then type an **Application name** and click **I accept**.
 
-3. Click **API Settings**. Select **Yes** for **Mobile or desktop client app**. In the **Redirect URL** field, enter the URL of your gateway appended with the path, _/signin-microsoft_. For example, `https://contosogateway.azurewebsites.net/signin-microsoft`. After entering the redirect URL, click **Save**.
+3. Click **API Settings**. Select **Yes** for **Mobile or desktop client app**. In the **Redirect URL** field, enter the URL of your gateway appended with the path, _/signin-microsoft_. For example, `https://contosogateway.azurewebsites.net/signin-microsoft`. Make sure that you are using the HTTPS scheme. After entering the redirect URL, click **Save**.
 
 	![][0]
 

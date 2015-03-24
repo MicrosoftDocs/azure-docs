@@ -24,7 +24,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 1. Log on to the [Preview Azure Management Portal], and navigate to your App Service gateway.
 
-2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**.
+2. Under **Settings**, choose **Identity**, and then select **Azure Active Directory**. Copy the **APP URL**. Make sure that you are using the HTTPS scheme.
 
     ![][1]
 
@@ -40,7 +40,7 @@ This topic shows you how to configure Azure App Services to use Azure Active Dir
 
 7. In the **SIGN-ON URL** box, paste the App ID you copied from the Active Directory identity provider settings of your gateway. Enter the same unique resource identifier in the **App ID URI** box. Then click to continue.
 
-8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosogateway.azurewebsites.net/signin-aad`.
+8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your gateway appended with the path, _/signin-aad_. For example, `https://contosogateway.azurewebsites.net/signin-aad`. Make sure that you are using the HTTPS scheme.
 
     ![][3]
 
