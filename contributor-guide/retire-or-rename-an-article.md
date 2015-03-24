@@ -28,7 +28,11 @@ SME authors need to follow several steps to gracefully retire content so users o
 
 3. Add and commit all your changes, push them to your fork, and create a pull request to move your changes from your fork to the master branch of the main repository.
 
-## Step 2: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate
+## Step 2: Update the FWLink tool
+
+Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed. More info - [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Manage%20inbound%20links%20to%20retired%20topics.aspx).
+
+## Step 3: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate
 
 You'll have to work with the person who maintains and updates the documentation landing page for your service for this part. Contact your content team partner if you don't know who that person is. The person who maintains and updates the doc landing page will need to do two things:
 
@@ -37,10 +41,6 @@ You'll have to work with the person who maintains and updates the documentation 
 2. If a replacement article exists, create a redirect. More info - see the [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Remove%20published%20pages%20and%20request%20redirects.aspx).
 
 3. Check the changes into the repository.
-
-## Step 3: Update the FWLink tool
-
-Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed. More info - [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Manage%20inbound%20links%20to%20retired%20topics.aspx).
 
 ## Step 4: Retire the article
 
