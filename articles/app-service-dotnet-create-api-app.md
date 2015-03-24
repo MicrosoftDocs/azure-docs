@@ -22,9 +22,11 @@
 
 This is the first tutorial in a series of three, that will get you started with API Apps in Azure App Service.
 
-1. In this tutorial, you will create a new API app and prepare it to be deployed to your Azure subscription. 
-* In [Deploy an API App](../app-service-dotnet-create-api-app/), you will deploy the API app to your Azure subscription.
-* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you will use Visual Studio to remotely debug the code while it runs in Azure.
+1. In this tutorial, you create a new API app and prepare it to be deployed to your Azure subscription. 
+* In [Deploy an API App](../app-service-dotnet-create-api-app/), you deploy the API app to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you use Visual Studio to remotely debug the code while it runs in Azure.
+
+[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Create your first API app ##
 
@@ -119,4 +121,6 @@ Click the **Try it out** button You'll see that the API is functioning and retur
 
 ## Next steps
 
-At this point, your app has everything it needs to be published into the Azure API Apps Marketplace or directly deployed and hosted as an API App in Azure App Service. The [next tutorial](../app-service-dotnet-deploy-api-app/) shows how to publish your API app into the Azure API App Marketplace.
+Your API app is now ready to be deployed, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-app/) tutorial to do that.
+
+For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)
