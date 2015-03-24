@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="03/24/2015" 
 	ms.author="kathydav"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
@@ -57,7 +57,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –private-config-path PrivateConf.json
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
 
 ### <a name="sshkeyresetcli"></a>Reset the SSH key
 
@@ -70,7 +70,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –private-config-path PrivateConf.json
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="resetbothcli"></a>Reset the password and the SSH key
 
@@ -84,7 +84,7 @@ Step 1: Create a file named PrivateConf.json with these contents, substituting f
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –private-config-path PrivateConf.json
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="createnewsudocli"></a>Create a new sudo user account
 
@@ -110,7 +110,7 @@ Step 1: Create a file named PrivateConf.json with this content.
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname". 
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –private-config-path PrivateConf.json
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="deletecli"></a>Delete a user
 
@@ -124,7 +124,7 @@ Step 1: Create a file named PrivateConf.json with this content, substituting for
 
 Step 2: Run this command, substituting the name of your virtual machine for "vmname".
 
-	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –private-config-path PrivateConf.json
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ### <a name="statuscli"></a>Display the status of the VMAccess extension
 
