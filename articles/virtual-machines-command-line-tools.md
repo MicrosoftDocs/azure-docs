@@ -684,13 +684,13 @@ This command deletes a certificate.
 	info:   service cert delete command OK
 
 
-##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your websites
+##<a name="Commands_to_manage_your_web_sites"></a>Commands to manage your web apps
 
-An Azure website is a web configuration accessible by URI. Websites are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
+An Azure web app is a web configuration accessible by URI. Web apps are hosted in virtual machines, but you do not need to think about the details of creating and deploying the virtual machine yourself. Those details are handled for you by Azure.
 
 **site list [options]**
 
-This command lists your websites.
+This command lists your web apps.
 
 	~$ azure site list
 	info:   Executing command site list
@@ -703,7 +703,7 @@ This command lists your websites.
 
 **site set [options] [name]**
 
-This command will set configuration options for your website [name]
+This command will set configuration options for your web app [name]
 
 	~$ azure site set
 	info:    Executing command site set
@@ -724,7 +724,7 @@ This command will generate a custom deployment script
 
 **site create [options] [name]**
 
-This command creates a new website and local directory.
+This command creates a new web app and local directory. 
 
 	~$ azure site create mysite
 	info:   Executing command site create
@@ -739,7 +739,7 @@ This command creates a new website and local directory.
 
 **site browse [options] [name]**
 
-This command opens your website in a browser.
+This command opens your web app in a browser.
 
 	~$ azure site browse mysite
 	info:   Executing command site browse
@@ -748,7 +748,7 @@ This command opens your website in a browser.
 
 **site show [options] [name]**
 
-This command shows details for a website.
+This command shows details for a web app.
 
 	~$ azure site show mysite
 	info:   Executing command site show
@@ -778,7 +778,7 @@ This command shows details for a website.
 
 **site delete [options] [name]**
 
-This command deletes a website.
+This command deletes a web app.
 
 	~$ azure site delete mysite
 	info:   Executing command site delete
@@ -788,7 +788,7 @@ This command deletes a website.
 
  **site swap [options] [name]**
 
-This command swaps two website slots.
+This command swaps two web app slots.
 
 This command supports the following additional option:
 
@@ -797,7 +797,7 @@ This command supports the following additional option:
 
 **site start [options] [name]**
 
-This command starts a website.
+This command starts a web app.
 
 	~$ azure site start mysite
 	info:   Executing command site start
@@ -807,7 +807,7 @@ This command starts a website.
 
 **site stop [options] [name]**
 
-This command stops a website.
+This command stops a web app.
 
 	~$ azure site stop mysite
 	info:   Executing command site stop
@@ -817,7 +817,7 @@ This command stops a website.
 
 **site restart [options] [name]
 
-This command stops and then starts a specified website.
+This command stops and then starts a specified web app.
 
 This command supports the following additional option:
 
@@ -826,7 +826,7 @@ This command supports the following additional option:
 
 **site location list [options]**
 
-This command lists your Website locations.
+This command lists your web app locations.
 
 	~$ azure site location list
 	info:    Executing command site location list
@@ -841,11 +841,11 @@ This command lists your Website locations.
 	data:    East US
 	info:    site location list command OK
 
-###Commands to manage your Website application settings
+###Commands to manage your web app application settings
 
 **site appsetting list [options] [name]**
 
-This command lists the app setting added to the website.
+This command lists the app setting added to the web app.
 
 	~$ azure site appsetting list
 	info:    Executing command site appsetting list
@@ -859,7 +859,7 @@ This command lists the app setting added to the website.
 
 **site appsetting add [options] &lt;keyvaluepair> [name]**
 
-This command adds an app setting to your website as a key value pair.
+This command adds an app setting to your web app as a key value pair.
 
 	~$ azure site appsetting add test=value
 	info:    Executing command site appsetting add
@@ -871,7 +871,7 @@ This command adds an app setting to your website as a key value pair.
 
 **site appsetting delete [options] &lt;key> [name]**
 
-This command deletes the specified app setting from the website.
+This command deletes the specified app setting from the web app.
 
 	~$ azure site appsetting delete test
 	info:    Executing command site appsetting delete
@@ -894,11 +894,11 @@ This command displays details of the specified app setting
 	data:    Value:  value
 	info:    site appsetting show command OK
 
-###Commands to manage your Website certificates
+###Commands to manage your web app certificates
 
 **site cert list [options] [name]**
 
-This command displays a list of the website certs.
+This command displays a list of the web app certs.
 
 	~$ azure site cert list
 	info:    Executing command site cert list
@@ -934,7 +934,7 @@ This command shows the cert details
 	data:    Certificate thumbprint CE1CD65852B38DC32001C2E0E8F7A526A29B541F
 	info:    site cert show command OK
 
-###Commands to manage your Website connection strings
+###Commands to manage your web app connection strings
 
 **site connectionstring list [options] [name]**
 
@@ -944,7 +944,7 @@ This command shows the cert details
 
 **site connectionstring show [options] &lt;connectionname> [name]**
 
-###Commands to manage your Website default documents
+###Commands to manage your web app default documents
 
 **site defaultdocument list [options] [name]**
 
@@ -952,7 +952,7 @@ This command shows the cert details
 
 **site defaultdocument delete [options] &lt;document> [name]**
 
-###Commands to manage your Website deployments
+###Commands to manage your web app deployments
 
 **site deployment list [options] [name]**
 
@@ -964,7 +964,7 @@ This command shows the cert details
 
 **site deployment user set [options] [username] [pass]**
 
-###Commands to manage your Website domains
+###Commands to manage your web app domains
 
 **site domain list [options] [name]**
 
@@ -972,7 +972,7 @@ This command shows the cert details
 
 **site domain delete [options] &lt;dn> [name]**
 
-###Commands to manage your Website handler mappings
+###Commands to manage your web app handler mappings
 
 **site handler list [options] [name]**
 
@@ -980,11 +980,11 @@ This command shows the cert details
 
 **site handler delete [options] &lt;extension> [name]**
 
-###Commands to manage your Website Web Jobs
+###Commands to manage your Web Jobs
 
 **site job list [options] [name]**
 
-This command list all the web jobs under a website.
+This command list all the web jobs under a web app.
 
 This command supports the following additional options:
 
@@ -1043,7 +1043,7 @@ This command supports the following additional options:
 + **--job-name** &lt;job-name>: Required. The name of the webjob.
 + **--slot** &lt;slot>: The name of the slot to restart.
 
-###Commands to manage your Website Web Jobs History
+###Commands to manage your Web Jobs History
 
 **site job history list [options] [jobName] [name]**
 
@@ -1064,11 +1064,11 @@ This command supports the following additional options:
 + **--run-id** &lt;run-id>: Optional. The id of the run history. If not specified, show the latest run.
 + **--slot** &lt;slot>: The name of the slot to restart.
 
-###Commands to manage your Website diagnostics
+###Commands to manage your web app diagnostics
 
 **site log download [options] [name]**
 
-Download a .zip file that contains your website's diagnostics.
+Download a .zip file that contains your web app's diagnostics.
 
 	~$ azure site log download
 	info:    Executing command site log download
@@ -1091,7 +1091,7 @@ This command connects your terminal to the log-streaming service.
 
 **site log set [options] [name]**
 
-This command configures the diagnostic options for your website.
+This command configures the diagnostic options for your web app.
 
 	~$ azure site log set -a
 	info:    Executing command site log set
@@ -1108,7 +1108,7 @@ This command configures the diagnostic options for your website.
 	+ Updating diagnostic settings
 	info:    site log set command OK
 
-###Commands to manage your Website repositories
+###Commands to manage your web app repositories
 
 **site repository branch [options] &lt;branch> [name]**
 
@@ -1116,7 +1116,7 @@ This command configures the diagnostic options for your website.
 
 **site repository sync [options] [name]**
 
-###Commands to manage your Website scaling
+###Commands to manage your web app scaling
 
 **site scale mode [options] &lt;mode> [name]**
 

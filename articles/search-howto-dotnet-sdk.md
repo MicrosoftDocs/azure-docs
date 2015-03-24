@@ -81,10 +81,10 @@ The sample application we'll be exploring creates a new index named "hotels", po
         CreateHotelsIndex(serviceClient);
 
         SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
         Console.WriteLine("{0}", "Uploading documents...\n");
         UploadDocuments(indexClient);
-            
+
         Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
         SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -184,8 +184,8 @@ Next, `Main` creates a new "hotels" index by calling this method:
         var definition = new Index()
         {
             Name = "hotels",
-            Fields = new[] 
-            { 
+            Fields = new[]
+            {
                 new Field("hotelId", DataType.String)                       { IsKey = true },
                 new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                 new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -440,10 +440,10 @@ Program.cs:
                 CreateHotelsIndex(serviceClient);
 
                 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
-            
+
                 Console.WriteLine("{0}", "Uploading documents...\n");
                 UploadDocuments(indexClient);
-            
+
                 Console.WriteLine("{0}", "Searching documents 'fancy wifi'...\n");
                 SearchDocuments(indexClient, searchText: "fancy wifi");
 
@@ -467,8 +467,8 @@ Program.cs:
                 var definition = new Index()
                 {
                     Name = "hotels",
-                    Fields = new[] 
-                    { 
+                    Fields = new[]
+                    {
                         new Field("hotelId", DataType.String)                       { IsKey = true },
                         new Field("hotelName", DataType.String)                     { IsSearchable = true, IsFilterable = true },
                         new Field("baseRate", DataType.Double)                      { IsFilterable = true, IsSortable = true },
@@ -538,7 +538,7 @@ Program.cs:
                             Location = GeographyPoint.Create(48.678581, -122.131577)
                         },
                         new Hotel() 
-                        { 
+                    {
                             HotelId = "566-518", 
                             HotelName = "Surprisingly Expensive Suites",
                             BaseRate = 279.99,
@@ -567,9 +567,9 @@ Program.cs:
 
             private static void SearchDocuments(SearchIndexClient indexClient, string searchText, string filter = null)
             {
-                // Execute search based on search text and optional filter 
+                // Execute search based on search text and optional filter
                 var sp = new SearchParameters();
-            
+
                 if (!String.IsNullOrEmpty(filter))
                 {
                     sp.Filter = filter;

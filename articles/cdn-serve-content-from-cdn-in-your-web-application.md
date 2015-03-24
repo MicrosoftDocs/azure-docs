@@ -97,12 +97,12 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 
 	>[AZURE.NOTE] While enabling the query string is not necessary for this part of the tutorial, you want to do this as early as possible for convenience sake since any change here is going to take time to propagate to the rest of the nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later). You will find out how to take advantage of this in [Serve fresh content immediately through query strings](#query).
 
-6. In Visual Studio 2013, in Server Explorer, click the **Connect to Windows Azure** button.
+6. In Visual Studio 2013, in Server Explorer, click the **Connect to Microsoft Azure** button.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG)
 
 7.  Follow the prompt to sign into your Azure account. 
-8.  Once you sign in, expand the **Windows Azure > Storage > your storage account**. Right-click **Blob** and select **Create Blob Container**.
+8.  Once you sign in, expand the **Microsoft Azure > Storage > your storage account**. Right-click **Blob** and select **Create Blob Container**.
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-6.PNG)
 
@@ -114,7 +114,7 @@ Let's get to it. Follow the steps below to start using the Azure CDN:
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-8.PNG)
 
-10.	Click the **Upload Blob** button to upload images, scripts, or stylesheets that are used by your Web pages into the blob container. The upload progress will be shown in the **Windows Azure Activity Log**, and the blobs will appear in the container view when they are uploaded. 
+10.	Click the **Upload Blob** button to upload images, scripts, or stylesheets that are used by your Web pages into the blob container. The upload progress will be shown in the **Azure Activity Log**, and the blobs will appear in the container view when they are uploaded. 
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-9.PNG)
 
@@ -151,7 +151,7 @@ In this section, you have learned how to create a CDN endpoint, upload content t
 
 If you want to easily upload all of the static content in your ASP.NET Web application to your CDN endpoint, or if your deploy your Web application using continuous delivery (for an example, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md)), you can use Azure PowerShell to automate the synchronization of the latest content files to Azure blobs every time you deploy your Web application. For example, you can run the script at [Upload Content Files from ASP.NET Application to Azure Blobs](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) upload all the content files in an ASP.NET application. To use this script:
 
-4. From the **Start** menu, run **Windows Azure PowerShell**.
+4. From the **Start** menu, run **Microsoft Azure PowerShell**.
 5. In the Azure PowerShell window, run `Get-AzurePublishSettingsFile` to download a publish settings file for your Azure account.
 6. Once you have downloaded your publish settings file, run the following: 
 
@@ -159,7 +159,7 @@ If you want to easily upload all of the static content in your ASP.NET Web appli
 
 	>[AZURE.NOTE] Once you import your publish settings file, it will be the default Azure account used for all Azure PowerShell sessions. This means that the above steps only need to be done once.
 	
-1. Download the script from the [download page]((http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
+1. Download the script from the [download page](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a). Save it into your ASP.NET application's project folder.
 2. Right-click the downloaded script and click **Properties**.
 3. Click **Unblock**.
 4. Open a PowerShell window and run the following:
