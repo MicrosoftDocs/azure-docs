@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2015"
+	ms.date="03/24/2015"
 	ms.author="prvijay"/>
 
 # Introduction to Azure Backup
