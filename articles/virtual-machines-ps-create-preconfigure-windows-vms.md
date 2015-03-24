@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="03/23/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
@@ -56,7 +56,7 @@ Here are some examples of ImageFamily values for Windows-based computers:
 - Windows Server Technical Preview 
 - SQL Server 2012 SP1 Enterprise on Windows Server 2012 
 
-If you find the image you are looking for, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the ImageFamily value. 
+If you find the image you are looking for, open a fresh instance of the text editor of your choice (or an instance of the PowerShell Integrated Scripting Environment [ISE]) and copy the following into the new text file, substituting the ImageFamily value. 
 
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -65,7 +65,7 @@ In some cases, the image name is in the Label property instead of the ImageFamil
 
 	Get-AzureVMImage | select Label -Unique
 
-If you find the right image with this command, open a fresh instance of the text editor of your choice and copy the following into the new text file, substituting the Label value. 
+If you find the right image with this command, open a fresh instance of the text editor of your choice (or an instance of the PowerShell ISE) and copy the following into the new text file, substituting the Label value. 
 
 	$label="<Label value>"
 	$image = Get-AzureVMImage | where { $_.Label -eq $label } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1

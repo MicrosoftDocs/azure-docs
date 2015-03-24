@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/20/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB programming: Stored procedures, triggers, and UDFs
@@ -407,7 +407,7 @@ The UDF can subsequently be used in queries like in the following sample:
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -617,7 +617,7 @@ And the following example shows how to create a user defined function (UDF) and 
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}
