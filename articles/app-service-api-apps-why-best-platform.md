@@ -51,7 +51,7 @@ to scale your servers based on load or schedule.
 
 - **Friction-free deploy** - Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson, or BitBucket – enabling you to automatically build, test and deploy your API app on each successful code check-in or integration tests.
 
-## Web Apps Concepts ##
+## API Apps concepts ##
 
 - **API Apps Gallery** - Select from an ever-growing list of existing API app templates.
 - **Connectors** - A type of API app that makes it easy to connect to SaaS platforms such as Salesforce and Office 365.
