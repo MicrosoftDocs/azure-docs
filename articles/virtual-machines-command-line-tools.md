@@ -1450,7 +1450,7 @@ This commands removes all rows of data from the table.
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](http://www.windowsazure.com/develop/mobile/how-to-guides/work-with-server-scripts/).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](../mobile-services-how-to-use-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
