@@ -179,6 +179,6 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
 <!-- URLs. -->
 
 [Preview Azure Management Portal]: https://portal.azure.com/
-[Azure Management Portal]: https://portal.azure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
 [Authenticate your app with Active Directory Authentication Library Single Sign-On]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-aad-sso-preview/
