@@ -34,7 +34,7 @@ The following are the steps for publishing an Azure Machine Learning web service
 
 ## Walk through
 ###Step 1: Create and publish a Machine Learning Request-Response service (RRS)###
- If you have not done this already, please take a look at this [walk through](../machine-learning-walkthrough-5-publish-web-service/).
+ If you have not done this already, please take a look at this [walk through](machine-learning-walkthrough-5-publish-web-service.md).
 
 ###Step 2: Deploy the service to production, and obtain the API Key and OData endpoint information###
 1. From the [Azure management portal](http://manage.windowsazure.com), select the **MACHINE LEARNING** option from the left navigation bar, and select your workspace. 

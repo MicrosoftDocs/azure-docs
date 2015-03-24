@@ -1,10 +1,9 @@
 <properties 
-	pageTitle="Getting started with SQL Database - Azure" 
+	pageTitle="Get started with SQL Database" 
 	description="Get started creating and managing SQL Databases in Azure." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="jeffgoll" 
-	writer="" 
 	manager="jeffreyg" 
 	editor="monicar"/>
 
@@ -14,134 +13,145 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2014" 
+	ms.date="03/23/2015" 
 	ms.author="jeffreyg"/>
 
+# Get started with SQL Database
 
-# Getting Started with Microsoft Azure SQL Database
+Use this article to learn how to create and administer a relational database service in the cloud with Azure. If you're new to SQL Server and database administration, you can finish this topic in about 30 minutes. You'll create and provision a new sample database using SQL Database, and then you'll query system and user data using SQL Server Management Studio (SSMS). When you finish, you'll have a new sample database and an understanding of how to perform basic administration tasks.
 
-In this tutorial you will learn the fundamentals of Microsoft Azure SQL Database administration using the Azure Management portal. If you are new to database administration, you can follow these lessons to learn essential skills in about 30 minutes. 
-
-This tutorial does not assume prior experience with SQL Server or Azure SQL Database. When you complete this tutorial, you will have a sample database on Azure and an understanding of how to perform basic administration tasks using the Management Portal.
-
-You will create and provision a sample database on the Azure platform and query system and user data using Excel.
-
-
+Another option for running SQL in the cloud is to host SQL Server on a virtual machine. See [Provisioning a SQL Server Virtual Machine on Azure](virtual-machines-provision-sql-server.md) if you want to get started on that route, and see [Understanding Azure SQL Database and SQL Server in Azure VMs](data-management-azure-sql-database-and-sql-server-iaas.md) for a quick comparison of the options.
 
 ## Step 1: Create a Microsoft Azure account
+Skip this step if you already have an Azure account. If you don't, click **Free Trial** in the upper right of this page and then come back after you've signed up.
 
-1. Open a web browser, and browse to [http://azure.microsoft.com](http://azure.microsoft.com).
-To get started with a free account, click free trial in the upper right corner and follow the steps.
+## Step 2: Use the Azure Management Portal to create a database and a logical server
 
-2. Your account is now created. You are ready to get started.
+<br/>
+1. Sign in to the [Azure Management portal](http://manage.windowsazure.com) and then click **New** at the bottom of the page. From the list of stuff you can create, click **Data Services**, and then click **SQL Database**.
 
+<br/>
+2. In this article, you'll create a database using **Custom Create** because it's the best way to show you all the options. Click that.
+ 
+   ![Custom create a SQL Database](./media/sql-database-get-started/sqldbcustomcreate.png)
 
-## Step 2: Connect to Azure and create a database
+<br/>
+3. Clicking **Custom Create** opens the **Specify database settings** screen.
 
+   ![Set up database](./media/sql-database-get-started/sqldbsettings.png)
 
-1. Sign in to the [Management Portal](http://manage.windowsazure.com). You should see a navigation pane that looks like this.
+   Use this guidance for settings on this screen:
 
-	![Navigation pane][Image1]
+* Use "School" for the **Name** of the database. The name needs to be unique in the subscription you're using.
+ 
+* If your account has access to multiple subscriptions, you can choose a different one from the **Subscription** list.
 
-2. Click **New** at the bottom of the page. When you click **New**, a list rolls up the screen showing things you can create.
+* Under **Service Tiers**, **Standard** is automatically selected, which is the go-to option. If you want to change it, you can click a different service tier. Your service tier selection determines what **Performance Level** is available for you to choose. See [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx) for details.
 
-3. Click **SQL Database** and then click **Custom Create**. 
+* Choose a **Collation**. For this exercise, you can leave this alone. If you want to be adventurous and learn more about collation, see [Collation and Unicode Support](https://msdn.microsoft.com/library/ms143726.aspx).
 
-	![Navigation pane][Image2]
+* Choose a logical **Server** to host the database you create. In this exercise, you'll create a new one, so choose **New SQL database server**. When you do that, a second page appears for you to create Server settings. A single logical server can host multiple databases, so you can add another database to this server later.
 
-Choosing this option lets you create a new server and a SQL database at the same time, with you as the administrator. As the system administrator, you can perform more tasks, including connecting to the Management Portal for SQL Database, which you will do later in this tutorial.  
+<br/> 
+4. Clicking the arrow on the bottom of the screen moves you on to the **Server Settings** page.
 
-4.  The Database Settings page appears when you click **Custom Create**. In this page, provide basic information that creates an empty SQL database on the server. Adding tables and data will come in a later step. 
+   ![Set up the database server](./media/sql-database-get-started/sqldbserversettings.png)
 
-    Fill out the Database Settings page as follows:
+Use this guidance for settings on that page:
 
-	![Navigation pane][Image3]
+* For **Login name** type "SQLAdmin", which will be the name of the server-level principal of your SQL Database server. Then create and confirm a strong password for that login. The administrator name can't be a Windows user, nor should it be a Live ID user name. Windows authentication is not supported on SQL Database. See [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx) for more information.
 
-* Enter **School** for the database name. 
+* Pick a **Region** that is closest to you, your users, or that makes sense for your application. Keep your application and database in the same region to save bandwidth cost and reduce data latency.
 
-* Use the default settings for edition, max size, and collation. 
+* Check **Allow Azure services to access this server** so that you other Azure services can connect to this database for reporting and integration.
 
-* Choose **New SQL Database Server**. Selecting a new server adds a second page that we'll use to set the administrator account and region. 
+<br/>
+5. Click the check mark at the bottom of the screen, which takes you to the **SQL databases** listing. When Azure is done creating your database and the server, its status shows as **Online**, and the name of the server appears in the **Server** column.
 
-* When you are done, click the arrow to go to next page.
+   ![The database is online](./media/sql-database-get-started/schooldblisting.png)
 
+<br/>
+6. Make a note of the **Server** name. You'll need it later.
 
-7. Fill out the Server Settings as follows: 
+   > [AZURE.NOTE] You didn't have to choose a server name because SQL Database sets up the appropriate DNS entries when it creates the server. This helps avoid pesky name collisions with other DNS entries, which can be hard to isolate and troubleshoot.
 
-	![Navigation pane][Image4]
-
-* Enter an administrator name as one word with no spaces. SQL Database uses SQL Authentication over an encrypted connection to validate user identity. A new SQL Server authentication login that has administrator permissions will be created using the name you provide. The administrator name cannot be a Windows user, nor should it be a Live ID user name. Windows authentication is not supported on SQL Database.
-
-* Provide a strong password that is over eight characters, using a combination of upper and lower case values, and a number or symbol. Use the help bubble for details about password complexity.
-
-* Choose a region. Region determines the geographical location of the server. Regions cannot be easily switched, so choose one that makes sense for this server. Choose a location that is closest to you. Keeping your Azure application and database in the same region saves you on egress bandwidth cost and data latency.
-
-* Be sure to keep the **Allow Azure Services to access this server**  checkbox selected so that you can connect to this database using the Management Portal for SQL Database, Excel in Office 365, or Azure SQL Reporting.
-
-* Click the checkmark at the bottom of the page when you are finished.
-
-Notice that you did not specify a server name. Because the SQL Database server must be accessible worldwide, SQL Database configures the appropriate DNS entries when the server is created. The generated name ensures that there are no name collisions with other DNS entries. You cannot change the name of your SQL Database server.
-
-To see the name of the server that hosts the **School** database that you just created, click **SQL Databases** in the left navigation pane, then click the **School** database in the **SQL Databases** list view. On the **Quick Start** page, scroll down to see the server name.
-
-In the next step, you will configure the firewall so that connections from applications running on your computer are allowed to access the databases on your SQL Database server.
-
-
+In the next step, you'll configure the firewall on the server so that connections from applications running on your computer can access the databases on your SQL Database server.
 
 ## Step 3: Configure the firewall
 
-To configure the firewall so that connections are allowed through, you'll enter information on the server page.
+When you create a server, the SQL Database firewall prevents access until you give it the IP addresses of the client computers that you want to authorize. The firewall grants access based on the originating IP address of each request, so you'll need to add IP addresses or address ranges to the server as you add clients.
 
-**Note:** The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [SQL Database Firewall](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-en-us.aspx).
+When you add an IP address, a new firewall rule on the server is created to allow traffic from that IP address, which is often the router or proxy server your device is listening on.
 
+> [AZURE.IMPORTANT] The SQL Database service is only available with TCP port 1433 used by the TDS protocol, so make sure that the firewall on your network and local computer allows outgoing TCP communication on port 1433. For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
-1. In the navigation pane on the left, click **SQL Databases**.
+<br/>
+1. If you're not already there from the previous step, in the Management Portal, click **SQL Databases** on the left nav, find your database in the list, and then click the link under **Server**.
 
-2. Click **Servers** at the top of the page. Next, click on the server you just created to open the server page.
+   ![The server for school db](./media/sql-database-get-started/schooldbshowserver.png)
 
-3. On the server page, click **Configure** to open the **Allowed IP Addresses** settings, and then click **Add to the allowed IP Addresses** link. This will create a new firewall rule to allow connection requests from the router or proxy server your device is listening on.
+<br/>
+2. Click **Configure**, and you'll see a list of **allowed IP addresses** along with the **Current client IP address** that the SQL Database server recognizes from your connection.
 
-4. You can create additional firewall rules by specifying a rule name and the start and end IP range values.
+   ![Firewall settings](./media/sql-database-get-started/sqldbfirewall.png)
 
-5. To enable interactions between this server and other Azure services, click **Yes** to the **Microsoft Azure Services** option. 
+<br/>
+3. Click **Add to the allowed IP addresses**, which creates a firewall rule to allow your current client IP address. You can create additional firewall rules by providing a **Rule name** and the **Start IP Address** and **End IP address** in a range.
+ 
+<br/>
+4. Click **SAVE** at the bottom of the page.
+   > [AZURE.IMPORTANT] Depending on your network configuration, your originating IP address may change frequently, which can result in a "Client with IP Address xxx.xxx.xxx.xxx is not allowed to access the server" error. Check back here to find your client IP address and then add it, or choose a range of inclusive IP addresses.
 
-7. To save your changes, click **SAVE** at the bottom of the page.
+Congratulations! You now have a database running in Azure on a SQL Database server, with a server-level SQL administrator, and a firewall rule that enables client access! But you still don't have a working database you can play with. To do that, your database needs a schema and some data. We'll do that next.
 
-6. After you save the rule, your page will look similar to the following screenshot.
+## Step 4: Install SSMS and connect to your SQL Database logical server
 
-	![Navigation pane][Image7]
+In this step, you'll download and run SQL Server Management Studio Express and connect to your server. Then you'll copy two Transact-SQL (T-SQL) scripts from this article and run them. The first script creates a schema that defines tables, columns, and relationships. The second script adds the data. If you've built databases in SQL Server before, one of the differences you'll notice is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize the threat of attacks against the data in transit. 
 
-You now have a SQL Database server on Azure, a firewall rule that enables access to the server, a database object, and an administrator login. But you still don't have a working database that you can query. To do that, your database must have a schema and actual data.
+<br/>
+1. Get the **Server** name you took note of earlier. We'll call this <*servername*> later when you connect to your logical server. Also have your Login name and password handy.
+ 
+<br/>
+2. Go to the download page for [SQL Server 2014 Express](http://www.microsoft.com/download/details.aspx?id=42299) and read that page to be sure your computer meets the requirements. Click **Download**, and choose either the 32-bit version (x86) or the 64-bit version (x64) of the **MgmtStudio** download.
 
-Because this tutorial uses just the tools at hand, you'll use the query window in the Management Portal for SQL Database to run Transact-SQL script that builds a predefined database.
+   ![Download SSMS express](./media/sql-database-get-started/ssmsdownload.png)
 
-As your skills increase, you will want to explore additional ways of creating a database, including programmatic approaches or the design surface in SQL Server Data Tools. If you already have an existing SQL Server database that runs on a local server, you can easily migrate that database to the Azure server that you just set up. Use the links at the end of this tutorial to find out how. 
+<br/>
+3. Follow the prompts as you install SSMS. The default selections work for this exercise.
 
+<br/> 
+4. After you install SSMS, search for **SQL Server 2014 Management Studio** on your PC and start SSMS.
 
+<br/>
+5. SSMS prompts you for server information.
 
-## Step 4: Add data and a schema using Transact-SQL script
+   ![Connect SSMS to server](./media/sql-database-get-started/ssmsserverinfo.png)
+   
+Use this guidance for settings:
 
-In this step, you run two scripts. The first one creates a schema that defines tables, columns, and relationships. The second script adds the data. Each step is performed independently on a separate connection. If you've built databases in SQL Server before, one of the differences you'll notice in SQL Database is that CREATE and INSERT commands must run in separate batches. SQL Database imposes this requirement to minimize attacks against the data while it is in transit. 
+* Choose **Database Engine** from the **Server type** list.
 
-1. Go to the home page. In the [Management Portal](http://manage.windowsazure.com), the **School** database appears in the list of **All** items on the home page.
+* In **Server name** type <*servername*>**.database.windows.net**, where <*servername*> is the name that SQL Database assigned to your server, which you recorded earlier.
 
-	![Navigation pane][Image8]
+* For **Authentication**, type the Login name you chose when you set up the server. We used **SQLAdmin**. Then type the **Password** you set up for it.
 
-2. Find the listing for your database **School**, and then click in the **Name** column. This opens the dashboard for the database.
+6. Click **Connect**. SSMS tries to connect to your server. Occasionally a different IP address will be assigned to the SSMS client and the connection fails with an error. If that happens, record the IP address from the error message and add it to the firewall using the portal, which you learned how to do earlier in this article.
 
-3. Click **Manage** at the bottom of the dashboard page to open the SQL Database management portal, which you can use to run Transact-SQL commands and queries. Enter the administrator login name and password to login to the **School** database. This is the administrator login that you used when set up when you created the server earlier.
-
-4. In the SQL Database management portal, click **New Query** in the ribbon. An empty query window opens in the workspace. In the next step, you use this window to copy in a series of predefined scripts that add structure and data to your empty database.
-
-
+Now you have SSMS connected to your SQL Database server, and you're ready to create a database schema and load it up with data.
 
 ## Step 5: Create the schema
 
-In this step, you create the schema using the following Transact-SQL script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](http://msdn.microsoft.com/library/windowsazure/ee336258.aspx) statement. Further on, this script uses the [ALTER TABLE](http://msdn.microsoft.com/library/windowsazure/ee336286.aspx) statement to specify the primary key and table relationships.
+In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft.com/library/bb510741.aspx) script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx) statement. Further on, the script uses the [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) statement to specify the primary key and table relationships.
 
-Copy the script and paste it into the query window. Then click **Run** at the top of the window to execute the script.
+<br/>
+1. In **Object Explorer**, expand **Databases**, click **School** and then click **New Query**.
 
-<div style="width:auto; height:600px; overflow:auto"><pre>
+   ![School database in SSMS](./media/sql-database-get-started/ssmsschool.png)
+
+<br/>
+2. Copy this script, paste it into the query window that opens, and then click **Execute**.
+<br/>
+
 	-- Create the Department table.
 	IF NOT EXISTS (SELECT * FROM sys.objects 
 		WHERE object_id = OBJECT_ID(N'[dbo].[Department]') 
@@ -377,17 +387,15 @@ Copy the script and paste it into the query window. Then click **Run** at the to
 	ALTER TABLE [dbo].[OfficeAssignment] CHECK 
    	 CONSTRAINT [FK_OfficeAssignment_Person];
 	GO
-</pre></div>
-
 
 
 ## Step 6: Insert data
+This script uses the [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) statement to add values to each column.
 
-Open a new query window and then paste in the following script. Run the script to insert data. This script uses the [INSERT](http://msdn.microsoft.com/library/windowsazure/ee336284.aspx) statement to add values to each column.
-
-<div style="width:auto; height:600px; overflow:auto"><pre>
+Click **New Query** again, copy this script, paste it into the new query window, and then click **Execute**.
+ 
 	-- Insert data into the Person table.
-	SET IDENTITY_INSERT dbo.Person ON;
+    SET IDENTITY_INSERT dbo.Person ON;
 	GO
 	INSERT INTO dbo.Person (PersonID, LastName, FirstName, HireDate, EnrollmentDate)
 	VALUES (1, 'Abercrombie', 'Kim', '1995-03-11', null);
@@ -460,27 +468,20 @@ Open a new query window and then paste in the following script. Run the script t
 	GO
 	SET IDENTITY_INSERT dbo.Person OFF;
 	GO
-	
-</pre></div>
 
+## Step 7: Query sample and system data
 
-## Step 7: Query sample and system data in the Management Portal for SQL Database
+To check your work, run simple queries that return the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
 
-To check your work, run a query that returns the data you just entered. You can also run built-in stored procedures and data management views that provide information about the databases running on your SQL Database server.
-
-<h4 id="QueryDB">Query sample data</h4>
+### Query sample data
 
 In a new query window, copy and run the following Transact-SQL script to retrieve some of the data you just added.
 
-
-<div style="width:auto; height:auto; overflow:auto"><pre>
 	SELECT * From Person
-</pre></div>
 
 You should see a result set with 34 rows from the person table, including PersonID, LastName, FirstName, HireDate, and EnrollmentDate.
 
-
-<h4 id="QuerySys">Query system data</h4>
+### Query system data
 
 You can also use system views and built-in stored procedures to get information from the server. For the purposes of this tutorial, you will try out just a few commands.
 
@@ -496,74 +497,50 @@ Run this stored procedure to return a list of all of the objects in the **School
 
 	EXEC SP_help
 
-Do not close the portal connection to the **School** database. You will need it again in a few minutes.
-
-
-
 ## Step 8: Create a database login and assign permissions
 
-In SQL Database, you can create logins and grant permissions using Transact-SQL. In this lesson, using Transact-SQL, you will do three things:
+With SQL Database, you can create logins and grant permissions using Transact-SQL similar to the one you created when you set up the server. In this lesson, using SSMS and T-SQL, you'll do three things:
 
+* Create a new SQL Server authentication login
 
-1. Create a SQL Server authentication login
-2. Create  a database user, and
-3. Grant permissions via role membership.
+* Create  a database user
 
-A SQL Server authentication login is used for server connections. All users who access a database on a SQL Database server do so by providing a SQL Server authentication login name and password. 
+* Grant permissions via role membership
 
-To create a login, you must first connect to the **master** database.
+<br/>
+1. In **Object Explorer**, expand **System Databases**, right-click **Master** and then click **New Query**.
 
-<h4 id="CreateLogin">Create a SQL Server authentication login</h4>
+   ![Master database in SSMS](./media/sql-database-get-started/ssmsmaster.png)
 
-1. In the [Management Portal](http://manage.windowsazure.com), select **SQL Databases**, click **Servers**, choose the server and then click the white arrow to open the server page.
+<br/>
+2. Copy and paste the following command into the query window, and then click **Execute**, which creates a new SQL Server login named 'SQLDBLogin'.
 
-2. On the Quick Start page, click **Manage Server** to open a new connection to the Management Portal for SQL Database. 
+    CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-3. Specify **master** for the database to connect to, then login with your username and password. This is the administrator login that you specified when you created the server.
+### Create a database user and assign permissions
 
-4. The SQL Database management portal opens in a new browser window and you will be connected to **master**.
+Now that you've created the SQL Server authentication login, the next step is to create a user for the School database and assign the database and permission levels associated with the user. You do this by creating a **database user** on each database you want the user to access.
 
-5. If you see an error on the page similar to the following, ignore it. Click **New Query** to open a query window that lets you execute Transact-SQL commands on the **master** database.
+<br/>
+1. In **Object Explorer** click the **School** database and open a new query window again.
 
-	![Navigation pane][Image15]
+<br/>
+2. Copy and paste the following statement into the query window, and then click **Execute**, which creates a new user for the School database.
 
-6. Copy and paste the following command into the query window.
+    CREATE USER SQLDBUser FROM LOGIN SQLDBLogin;
+ 
+<br/>
+3. Open a new query window for the School database, copy and paste the following statement into the query window, and then click **Execute**, which runs a [system stored procedure](https://msdn.microsoft.com/library/ms187961.aspx), called [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx), which assigns the db_datareader [role](https://msdn.microsoft.com/library/ms189121.aspx) to the new database user you created earlier.
 
-        CREATE LOGIN SQLDBLogin WITH password='Password1';
-
-7. Run the command to create a new SQL Server login named 'SQLDBLogin'.
-
-
-<h4 id="CreateDBuser">Create a database user and assign permissions</h4>
-
-After you create a SQL Server authentication login, the next step is to assign the database and permission levels associated with the login. You do this by creating a **database user** on each database.
-
-1. Go back to the SQL Database management portal page that connects to the **School** database. If you closed the browser window, start a new connection to **School** database using the steps from the previous lesson, "Add data and a schema using Transact-SQL script". 
-
-	On the SQL Database management portal page, the **School** database name is visible in the top left corner.
-
-	![Navigation pane][Image12]
-
-2. Click **New Query** to open a new query window and copy in the following statement. 
-
-	    CREATE USER SQLDBUser FROM LOGIN SQLDBLogin;
-
-3. Run the script. This script creates a new database user based on the login.
-
-   Next, you'll assign permissions using the db_datareader role. Database users assigned to this role can read all data from all user tables in the database. 
-
-4. Open a new query window and then enter and run the next statement. This statement runs a built-in stored procedure that assigns the db_datareader role to the new user you just created. 
-
-        EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
-
-You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins to allow different levels of access to your data.
-
+    EXEC sp_addrolemember 'db_datareader', 'SQLDBUser';
+   
+You now have a new SQL Server authentication login that has read-only permission to the **School** database. Using these steps, you can create other SQL Server authentication logins, and assign those logins to different roles for different databases.
 
 ## Step 9: Connect from an application
 
 You can use ADO.NET to connect to Microsoft Azure SQL Database. Unlike an on-premises connection, you need to account for throttling or other service faults that could terminate a connection or temporarily block new connections. This condition is called a transient fault. To manage transient faults, you implement a retry strategy. When connecting to Azure SQL Database, the [Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkId=519356), part of Enterprise Library 6 – April 2013, has detection strategies that identify a transient fault condition.
 
-<h4>Sample C# Console Application</h4>
+### Sample C# Console Application
 
 
 	static void Main(string[] args)
@@ -644,11 +621,7 @@ You can use ADO.NET to connect to Microsoft Azure SQL Database. Unlike an on-pre
 
 ## Next steps
 
-Now that you are familiar with SQL Database and the management portals, you can try out other tools and techniques used by SQL Server database administrators.
-
-To actively manage your new database, consider installing and using SQL Server Management Studio. Management Studio is the primary database administration tool for managing SQL Server databases, including those running on Azure. Using Management Studio, you can save queries for future use, add new tables and stored procedures, and hone your Transact-SQL skills in a rich scripting environment that includes a syntax checker, intellisense, and templates. To get started, follow the instructions in [Managing SQL Databases Using SQL Server Management Studio](sql-database-manage-azure-ssms.md).
-
-Fluency in the Transact-SQL query and data definition language is essential for database administrators. If you are new to Transact-SQL, start with the [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/library/ms365303.aspx) to learn some basic skills.
+Now that you are familiar with SQL Database and how to connect to databases and run queries to perform basic tasks, you can try out other tools and techniques used by SQL Server database administrators. If you're new to Transact-SQL, go deeper with [Tutorial: Writing Transact-SQL Statements](http://msdn.microsoft.com/library/ms365303.aspx) to learn some basic skills.
 
 There are other methods for moving an on-premises database to SQL Database. If you have existing databases, or if you downloaded sample databases to practice with, try the following alternative approaches:
 
@@ -656,26 +629,4 @@ There are other methods for moving an on-premises database to SQL Database. If y
 * [Copying Databases in SQL Database](http://msdn.microsoft.com/library/windowsazure/ff951624.aspx)
 * [Deploy a SQL Server Database to an Azure Virtual Machine](http://msdn.microsoft.com/library/dn195938)
 
-
-
-[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
-[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
-[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
-[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
-[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
-[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
-[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
-[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
-[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
-[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
-[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
-[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
-[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
 

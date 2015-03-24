@@ -152,9 +152,9 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started
-[Add Mobile Services to an existing app]: /documentation/articles/mobile-services-windows-store-javascript-get-started
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-windows-store-javascript-get-started.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx

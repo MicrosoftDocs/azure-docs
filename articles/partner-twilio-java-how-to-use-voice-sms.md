@@ -210,8 +210,8 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: ../java-add-certificate-ca-store
-[howto_phonecall_java]: ../partner-twilio-java-phone-call-example
+[add_ca_cert]: java-add-certificate-ca-store.md
+[howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
 [twimlet_message_url]: http://twimlets.com/message
 [twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World

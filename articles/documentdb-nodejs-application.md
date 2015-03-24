@@ -2,7 +2,7 @@
 	pageTitle="Build a Node.js web application using DocumentDB | Azure" 
 	description="Learn how to use Microsoft Azure DocumentDB to store and access data from a Node.js Express web application hosted on Azure Websites." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -11,16 +11,20 @@
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/17/2015" 
+	ms.date="03/20/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 
 This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 
-After completing this tutorial, you'll be able to answer the following questions:
+We recommend getting started by watching the following video, where Andrew Liu shows you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
+
+> [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
+
+Then, return to this article, where you'll learn the answers to the following questions:
 
 - How do I work with DocumentDB using the documentdb npm module?
 - How do I deploy the web application to Azure Websites?
@@ -32,7 +36,7 @@ DocumentDB.
 
 ![Screen shot of the My Todo List application created in this tutorial](./media/documentdb-nodejs-application/image1.png)
 
-Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here][].
+Don't have time to complete the tutorial and just want to get the complete solution from GitHub? Not a problem, get it [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
 ## <a name="_Toc395783176"></a>Prerequisites
 
@@ -560,7 +564,7 @@ running in Azure!
 Congratulations! You have just built your first Node.js Express Web
 Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/core_sdk/tutorial/todo).
+The source code for the complete reference application can be downloaded [here](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo).
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/

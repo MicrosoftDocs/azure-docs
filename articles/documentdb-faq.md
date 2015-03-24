@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/22/2014" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 
@@ -63,7 +63,7 @@ You can create databases using one of the DocumentDB SDKs or through the REST AP
 A collection is a container of JSON documents and the associated JavaScript application logic. Queries and transactions are scoped to collections. You can store a set of heterogeneous JSON documents within a single collection, all which are automatically indexed.   
 
 ###Are there any limits on databases and collections?
-Each purchased capacity unit comes with an allocation of database storage and provisioned throughput. Quotas are also in place for each resource managed by the service. Please refer to the DocumentDB Preview Limits section of the [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits/) article for more information.  
+Each purchased capacity unit comes with an allocation of database storage and provisioned throughput. Quotas are also in place for each resource managed by the service. Please see [DocumentDB Limits for the Preview Release](documentdb-limits.md) for more information.  
 
 ###How do I set up users and permissions?
 You can create users and permissions using one of the DocumentDB SDKs or through the REST APIs. For details, see the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319)  for information on how to develop applications.  

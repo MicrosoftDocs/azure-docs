@@ -200,7 +200,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 
 ##<a name="send"></a>How to send a notification to your app
 
->[AZURE.NOTE]You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](./mobile-services-javascript-backend-android-get-started-push.md).  For an example of how to send notifications using the REST APIs, see [How to use Notification Hubs from Java](./notification-hubs-java-backend-how-to.md) or [How to use Notification Hubs from PHP](./notification-hubs-php-backend-how-to.md).
+>[AZURE.NOTE]You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see [Get started with push notifications in Mobile Services](mobile-services-javascript-backend-android-get-started-push.md).  For an example of how to send notifications using the REST APIs, see [How to use Notification Hubs from Java](notification-hubs-java-backend-how-to.md) or [How to use Notification Hubs from PHP](notification-hubs-php-backend-how-to.md).
 
 1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
@@ -306,6 +306,6 @@ In this simple example you broadcast notifications to all your Android devices. 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Use Notification Hubs to push notifications to users]: ./notification-hubs-aspnet-backend-android-notify-users.md
-[Use Notification Hubs to send breaking news]: ./notification-hubs-aspnet-backend-android-breaking-news.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-android-notify-users.md
+[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-breaking-news.md
 
