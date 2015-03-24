@@ -22,7 +22,7 @@ This topic contains links to resources for managing an Azure website. Management
 
 Over the lifetime of a site, you will perform different management tasks, as you move from initial deployment to normal operation, maintenance, and updates.
 
-Many website management tasks can be performed in the Azure portal. For more information, see [Manage websites through the Azure Management Portal](http://azure.microsoft.com/en-us/documentation/articles/web-sites-manage/).
+Many website management tasks can be performed in the Azure portal. For more information, see [Manage websites through the Azure Management Portal](../web-sites-manage/).
 
 ## Before you deploy your site to production
 
@@ -30,7 +30,7 @@ Many website management tasks can be performed in the Azure portal. For more inf
 
 Azure Websites is offered in four tiers: Free, Shared, Basic and Standard. For information about the features and pricing for each tier, see [Pricing details](http://azure.microsoft.com/pricing/details/websites/). 
 
-- [Web Hosting Plans](http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview) let you group multiple websites under the same tier.
+- [Web Hosting Plans](../azure-web-sites-web-hosting-plans-in-depth-overview/) let you group multiple websites under the same tier.
 - You can always [switch tiers](web-sites-scale.md) after you create your website.
 
 ### Configuration
@@ -59,7 +59,7 @@ While your site is running, you want to make sure it is available, and that it s
 
 ### Monitoring
 
-- Through the Management Portal, you can [add performance metrics](http://azure.microsoft.com/documentation/articles/web-sites-monitor) such as CPU usage and number of client requests.
+- Through the Management Portal, you can [add performance metrics](../web-sites-monitor) such as CPU usage and number of client requests.
 - For deeper insight, use New Relic to monitor and manage performance. See [New Relic Application Performance Management on Azure Websites](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Scale your website](web-sites-scale.md) in response to traffic. Depending on your tier, you can scale the number of VMs and/or the size of the VM instances. In the Standard Plan, you can also set up autoscaling, so your site scales automatically, either on a fixed schedule, or in response to load.  
  
