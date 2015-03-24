@@ -1468,6 +1468,137 @@ This request can then be sent to DocumentDB as a parameterized JSON query like s
 
 Parameter values can be any valid JSON (strings, numbers, Booleans, null, even arrays or nested JSON). Also since DocumentDB is schema-less, parameters are not validated against any type.
 
+##Built-in functions
+DocumentDB also supports a number of built-in functions for common operations, that can be used inside queries like user defined functions (UDFs).
+
+<table>
+<tr>
+<td>Mathematical Functions</td>	
+<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, and TRUNC</td>
+</tr>
+<tr>
+<td>Type checking functions</td>	
+<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, and IS_STRING</td>
+</tr>
+</table>  
+
+If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficient. 
+
+###Mathematical functions
+The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
+
+<table>
+<tr>
+<td><strong>Usage</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td>Returns the absolute (positive) value of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td>Returns the smallest integer value greater than, or equal to, the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td>Returns the largest integer less than or equal to the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td>Returns the exponent of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td>Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td>Returns the base-10 logarithmic value of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td>Returns a numeric value, rounded to the closest integer value.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td>Returns a numeric value, truncated to the closest integer value.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td>Returns the square root of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td>Returns the square of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td>Returns the power of the specified numeric expression to the value specifed.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td>Returns the sign value (-1, 0, 1) of the specified numeric expression.</td>
+</tr>
+</table> 
+
+For example, you can now run queries like the following:
+
+**Query**
+
+    SELECT VALUE ABS(-4)
+
+**Results**
+
+    [4]
+
+The main difference between DocumentDB’s functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a document where the Size property is missing, or has a non-numeric value like “unknown”, then the document is skipped over, instead of returning an error.
+
+###Type checking Functions
+The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here’s a table of supported built-in type checking functions.
+
+<table>
+<tr>
+  <td><strong>Usage</strong></td>
+  <td><strong>Description</strong></td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is an array.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a Boolean.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is null.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a number.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a JSON object.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a string.</td>
+</tr>
+</table>
+
+Using these functions, you can now run queries like the following:
+
+**Query**
+
+    SELECT VALUE IS_NUMBER(-4)
+
+**Results**
+
+    [true]
+
+
 ##LINQ to DocumentDB SQL
 LINQ is a .NET programming model that expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 
 
