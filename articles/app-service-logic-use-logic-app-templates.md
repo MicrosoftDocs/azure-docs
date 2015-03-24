@@ -38,4 +38,4 @@ Automated processes for handling common Azure procedures that you may typically 
 ### Consumer Cloud Templates
 Simple templates that integrate with social media services such as Twitter, Yammer and email.  These can be great personal productivity applications that constantly listen for updates and takes action when new items arrive.
 
-After selecting one of the templates complete the deployment as you would if you created your own logic app.  Please see [Create a Logic App](../app-service-logic-create-a-logic-app.md).
+After selecting one of the templates complete the deployment as you would if you created your own logic app.  Please see [Create a Logic App](../articles/app-service-logic-create-a-logic-app.md).
