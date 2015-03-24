@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors patterns & anti-patterns" 
    description="design patterns that work well with Service Fabric Actors" 
-   services="winfabric" 
+   services="service fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="winfabric"
+   ms.service="service fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"

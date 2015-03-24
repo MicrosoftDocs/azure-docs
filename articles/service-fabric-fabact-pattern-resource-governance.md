@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors Resource Governance design pattern" 
    description="Design pattern on how Service Fabric Actors can be used to model application what needs to scale but use constrained resources" 
-   services="winfabric" 
+   services="service fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="winfabric"
+   ms.service="service fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: Resource Governance
+# Pattern: resource governance
 This pattern and related scenarios are easily recognisable by developers—enterprise or otherwise—who have constrained resources on-premises or in the cloud, which they cannot immediately scale or that wish to ship large scale applications and data to the cloud.
  
 In the enterprise these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows this is a common situation on-premises. Even at cloud scale, we have seen this situation occur when a cloud service has attempted to exceed the 64K TCP limit of connections between an address/port tuple, or when attempting to connect to a cloud-based database that limits the number of concurrent connections.

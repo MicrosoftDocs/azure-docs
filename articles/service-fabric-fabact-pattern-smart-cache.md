@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors Smart Cache design pattern" 
    description="Design pattern on how to use Service Fabric Actors as Caching infrastructure on web-based applications" 
-   services="winfabric" 
+   services="service fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="winfabric"
+   ms.service="service fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: Smart Cache
+# Pattern: smart cache
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
 Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
 What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.

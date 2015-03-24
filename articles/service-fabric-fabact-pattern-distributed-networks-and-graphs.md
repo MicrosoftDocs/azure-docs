@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern" 
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs" 
-   services="winfabric" 
+   services="service fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="winfabric"
+   ms.service="service fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: Distributed Networks and Graphs
+# Pattern: distributed networks and graphs
 Azure Fabric Service Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
 
 ![][1]
