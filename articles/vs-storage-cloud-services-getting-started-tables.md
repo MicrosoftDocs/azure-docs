@@ -31,6 +31,7 @@ The Azure Table storage service enables you to store large amounts of structured
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
+	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Table;
