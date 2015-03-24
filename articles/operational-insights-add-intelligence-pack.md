@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="Operational Insights add intelligence pack" 
-    description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
+    pageTitle="Operational Insights intelligence packs" 
+    description="You can add additional functionality to Operational Insights with intelligence packs" 
     services="operational-insights" 
     documentationCenter="" 
-    authors="leylakazemi" 
+    authors="bandersmsft" 
     manager="jwhit" 
     editor=""/>
 
@@ -13,20 +13,46 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="leylak"/>
+    ms.date="03/20/2015" 
+    ms.author="banders"/>
 
-#Add or remove intelligence packs
+# Operational Insights intelligence packs
 
-Microsoft Azure Operational Insights includes the base Configuration Assessment module. However, you can get additional functionality by adding intelligence packs to it.
+Microsoft Azure Operational Insights includes the base Configuration Assessment module. However, you can get additional functionality by adding intelligence packs to it from the Overview page.
+
+![image of intelligence packs icon](./media/operational-insights-add-intelligence-pack/overview-intelpacks.png)
 
 After you have added an intelligence pack, data is collected from the servers in your infrastructure and sent to the Operational Insights service. Processing by the Operational Insights service can take from a few minutes to several hours. After the service processes the data, you can view it in Operational Insights.
 
 You can easily remove an intelligence pack when it is no longer needed. When you remove an intelligence pack, its data is not sent to Operational Insights, which reduces the amount of data used by your daily quota.
 
+## Intelligence packs supported by the Microsoft Monitoring Agent
 
+At this time, servers that are connected directly to Microsoft Azure Operational Insights using the Microsoft Monitoring Agent can use most of the intelligence packs available, including:
 
-##To add an intelligence pack
+- [System Updates](operational-insights-updates.md)
+
+- [Log Management](operational-insights-log-collection.md)
+
+- [Antimalware](operational-insights-antimalware.md)
+
+- [Change Tracking](operational-insights-change-tracking.md)
+
+- [SQL and Active Directory Assessment](operational-insights-assessment.md)
+
+However, the following intelligence packs are *not* supported with the Microsoft Monitoring Agent
+
+- [Capacity Management](operational-insights-capacity.md)
+
+- [Configuration Assessment](operational-insights-configuration-assessment.md)
+
+IIS log collection is supported on computers with:
+
+- Windows Server 2012
+
+- Windows Server 2012 R2
+
+### To add an intelligence pack
 
 
 1. On the Overview page in Operational Insights, click the **Intelligence Packs** tile.
@@ -46,7 +72,7 @@ You can easily remove an intelligence pack when it is no longer needed. When you
 
 
 
-##To remove an intelligence pack
+### To remove an intelligence pack
 
 
 

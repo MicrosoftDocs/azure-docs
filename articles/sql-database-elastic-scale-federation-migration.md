@@ -65,7 +65,7 @@ With Federations, a connection is established to a particular federation member 
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-With the Elastic Scale APIs, a connection to a particular shard is established via [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) with the  **OpenConnectionForKey** method on the **RangeShardMap** class. 
+With the Elastic Scale APIs, a connection to a particular shard is established via [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the  **OpenConnectionForKey** method on the **RangeShardMap** class. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,7 +82,7 @@ With the Elastic Scale APIs, a connection to a particular shard is established v
         } 
     }
 
-The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](./sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
+The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
 
 ## <a name="Switch-Out-Existing-Federation-Members"></a>Switch Out Existing Federation Members 
 
@@ -102,7 +102,7 @@ The Federations Migration Utility provides the abilities to:
 
 
 ##Feature Comparison  
-Although Elastic Scale offers many additional features (for example, [multi-shard querying](./sql-database-elastic-scale-multishard-querying.md), [spliting and merging shards](./sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](./sql-database-elastic-scale-elasticity.md), [client-side caching](./sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in Elastic Scale.
+Although Elastic Scale offers many additional features (for example, [multi-shard querying](sql-database-elastic-scale-multishard-querying.md), [spliting and merging shards](sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](sql-database-elastic-scale-elasticity.md), [client-side caching](sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in Elastic Scale.
   
 
 - The use of **FILTERING=ON**. Elastic scale does not currently support row-level filtering. One mitigation is to build the filtering logic into the query issued against the shard as follows: 

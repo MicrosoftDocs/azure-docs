@@ -6,12 +6,10 @@
 
 The Azure Active Directory Connect wizard is the single tool and guided experience for connecting your on-premises directories with Azure Active Directory.  The wizard deploys and configures all components required to get your directory integration up and running including sync services, password sync or Active Directory  Federation Services (AD FS), and prerequisites such as the Azure AD PowerShell module.
 
->[AZURE.NOTE] **Azure Active Directory Connect encompasses functionality that was previously released as DirSync and AAD Sync. These tools will no longer be released individually.** 
-
-> **Azure Active Directory Connect is now your one-stop shop for sync, sign-on, and all other aspects of your on-premises to Azure AD integration.**
 
 
-If you are currently evaluating or using Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (AAD Sync), or Forefront Identity Manager 2010 R2, see [Directory Integration Tools](http://msdn.microsoft.com/library/azure/dn757582.aspx "Directory Integration Tools") for more information.
+
+If you are currently evaluating or using Azure Active Directory Synchronization Tool (DirSync), Azure Active Directory Synchronization Services (Azure AD Sync), or Forefront Identity Manager 2010 R2, see [Directory Integration Tools](http://msdn.microsoft.com/library/azure/dn757582.aspx "Directory Integration Tools") for more information.
 
 
 ##  Azure Active Directory Connect Public Preview 

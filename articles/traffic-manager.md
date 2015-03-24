@@ -1,9 +1,9 @@
-<properties
+﻿<properties
    pageTitle="Traffic Manager Overview"
    description="This article contains the Traffic Manager technical overview."
    services="traffic-manager"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
+   ms.date="03/23/2015"
+   ms.author="joaoma" />
 
 # Traffic Manager Overview
 
@@ -67,9 +67,9 @@ Figure 2
 	
 	[AZURE.NOTE]**The Round Robin method of load balancing now supports weighted distribution of network traffic. However, at this time you must use either REST APIs or Windows PowerShell to configure the weight. For more information and an example configuration, see [Azure Traffic Manager External Endpoints and Weighted Round Robin via PowerShell](https://msdn.microsoft.com/library/azure/hh744829.aspx) in the Azure blog.**
 	- 	**Configure endpoints –** Endpoints are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know the endpoints.
-	- 	**Configure monitoring settings –** Monitoring settings are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know what to monitor. For steps to configure monitoring, see [Configure Traffic Manager Monitoring](../configure-traffic-manager-monitoring).
-1. **Test your Traffic Manager profile.** Test that your profile and domain are working as expected. For information about how to do this, see [Testing Traffic Manager Settings](../testing-traffic-manager-settings).
-1. **Point your company domain name’s DNS resource record to the profile to make it live.** For more information, see [Point a Company Internet Domain to a Traffic Manager Domain](../point-a-company-internet-domain-to-a-traffic-manager-domain).
+	- 	**Configure monitoring settings –** Monitoring settings are not configured during Quick Create. After creating your profile and specifying your load balancing method, you must then let Traffic Manager know what to monitor. For steps to configure monitoring, see [Configure Traffic Manager Monitoring](configure-traffic-manager-monitoring.md).
+1. **Test your Traffic Manager profile.** Test that your profile and domain are working as expected. For information about how to do this, see [Testing Traffic Manager Settings](testing-traffic-manager-settings.md).
+1. **Point your company domain name’s DNS resource record to the profile to make it live.** For more information, see [Point a Company Internet Domain to a Traffic Manager Domain](point-a-company-internet-domain-to-a-traffic-manager-domain.md).
 
 Using the example in Figure 1, you would change the DNS resource record on your servers for the following to point the company domain name to the Traffic Manager domain name:
 
@@ -123,7 +123,7 @@ You can create and configure your Traffic Manager profile by using REST APIs. Fo
 
 -**Monitors –** Within each definition are monitor settings. This is where the protocol, port, and relative path and file name are configured. Monitor settings are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Monitoring](https://msdn.microsoft.com/library/azure/dn339013.aspx).
 
--**Policy –** Within each definition are policy settings. The policy is where load balancing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods).
+-**Policy –** Within each definition are policy settings. The policy is where load balancing methods and endpoints are specified. The policy itself is not visible in the Management Portal, although some of the settings for the policy are visible and can be configured in the Management Portal. For more information, see [About Traffic Manager Load Balancing Methods](about-traffic-manager-balancing-methods.md).
 
 ## Configuring settings by using Windows PowerShell
 
@@ -147,7 +147,7 @@ You can create and configure your Traffic Manager profile by using Windows Power
 
 -**All cloud services in a profile must use the same monitoring settings –** You can only chose a single path and file to monitor all endpoints in a given definition. You can enter "/" in the Relative path and file name text box so that monitoring will try to access the default path and filename.
 
--**Disable endpoints for temporary changes, rather than changing your configuration –** In many cases, you may wish to take an endpoint offline. Rather than removing the endpoint from your profile, simply disable the individual endpoint in your profile instead. This leaves the endpoint as part of the profile, but the profile acts as if the endpoint is not included in it. This is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, you can enable it. For more information, see [Disable or Enable an Endpoint](../disable-or-enable-an-endpoint).
+-**Disable endpoints for temporary changes, rather than changing your configuration –** In many cases, you may wish to take an endpoint offline. Rather than removing the endpoint from your profile, simply disable the individual endpoint in your profile instead. This leaves the endpoint as part of the profile, but the profile acts as if the endpoint is not included in it. This is very useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, you can enable it. For more information, see [Disable or Enable an Endpoint](disable-or-enable-an-endpoint.md).
 
 -**Storage –** How you design the location and distribution of your storage is an important consideration when using Traffic Manager. Think of the end-to-end transaction and how your data will flow when you design and deploy your applications for Traffic Manager.
 

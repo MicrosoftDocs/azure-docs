@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="03/19/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,12 +22,11 @@
 
 
 <!--
-GeneMi , 2015-March-17 Monday 12:28pm
+GeneMi , 2015-March-19 Thursday 15:41pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
-Applying tech review feedback from Young Gah Kim.
-Also, testing the new suffix ".md" in the 'routing' link near bottom.
+Re SqlException, not .HResult, rather .Number.
 -->
 
 
@@ -99,7 +98,7 @@ Some SQL Database connection errors are persistent and there is no reason to imm
 - *Transient:* If your working connection to SQL Database is later forcibly terminated by Azure throttling or load balancing systems, trying to reconnect is recommended.
 
 
-The [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) thrown by the call to SQL Database contains a numeric error code in its HResult property. If the error code is one that is listed as a transient error, your program should retry the call.
+The [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) thrown by the call to SQL Database contains a numeric error code in its **Number** property. If the error code is one that is listed as a transient error, your program should retry the call.
 
 
 - [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - its **Connection-Loss Errors** section is a list of the transient errors that warrant a retry.
@@ -130,7 +129,7 @@ For ADO.NET with Enterprise Library and the Transient Fault Handling classes, se
 For Elastic Scale, see:
 
 
-- [Get Started with Azure SQL Database Elastic Scale Preview](../sql-database-elastic-scale-get-started/)
+- [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 
 

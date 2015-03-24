@@ -16,18 +16,18 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet5-what-happened/)
-
-## Getting Started with Azure Storage (ASP.NET 5 Projects)
+# Getting Started with Azure Storage (ASP.NET 5 Projects)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [Getting Started](vs-storage-aspnet5-getting-started-queues.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
-Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/ "How to use Queue Storage from .NET") for more information.
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
+
+Azure queue storage is a service for storing large numbers of messages that can be accessed from anywhere in the world via authenticated calls using HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain millions of messages, up to the total capacity limit of a storage account. See [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md/ "How to use Queue Storage from .NET") for more information.
 
 To programmatically access queues in ASP.NET 5 projects, you need to add the following items, if they're not already present.
 

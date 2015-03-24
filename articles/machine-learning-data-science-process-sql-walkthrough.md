@@ -77,7 +77,7 @@ We will formulate three prediction problems based on the *tip\_amount*, namely:
 
 ## <a name="setup"></a>Setting Up the Azure Data Science Environment
 
-As you can see from the [Plan Your Environment](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-your-environment/) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
+As you can see from the [Plan Your Environment](machine-learning-data-science-plan-your-environment.md) guide, there are several options to work with the NYC Taxi Trips dataset in Azure:
 
 - Work with the data in Azure blobs then model in Azure Machine Learning
 - Load the data into a SQL Server database then model in Azure Machine Learning
@@ -86,11 +86,11 @@ In this tutorial we will demonstrate parallel bulk import of the data to a SQL S
 
 To set up your Azure Data Science environment:
 
-1. [Create a storage account](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
+1. [Create a storage account](storage-create-storage-account.md)
 
-2. [Create an Azure ML workspace](http://azure.microsoft.com/documentation/articles/machine-learning-create-workspace/)
+2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-3. [Provision a Data Science Virtual Machine](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-setup-sql-server-virtual-machine/), which will serve as a SQL Server as well an IPython Notebook server.
+3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which will serve as a SQL Server as well an IPython Notebook server.
 
 	> [AZURE.NOTE] The sample scripts and IPython notebooks will be downloaded to your Data Science virtual machine during the setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library:  
 	> - Sample Scripts: `C:\Users\<user_name>\Documents\Data Science Scripts`  
@@ -102,7 +102,7 @@ Based on the dataset size, data source location, and the selected Azure target e
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-move-azure-blob/) to copy the data to your new virtual machine.
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your new virtual machine.
 
 To copy the data using AzCopy:
 
@@ -625,7 +625,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](http://azure.microsoft.com/documentation/articles/machine-learning-create-workspace/).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/)
 
@@ -674,7 +674,7 @@ An example of a binary classification experiment reading data directly from the 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](http://azure.microsoft.com/documentation/articles/machine-learning-publish-a-machine-learning-web-service/).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 

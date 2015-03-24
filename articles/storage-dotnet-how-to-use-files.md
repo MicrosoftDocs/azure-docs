@@ -87,7 +87,7 @@ Next, we'll use Azure PowerShell to create a file share. Once the file share has
 
 ### Install the PowerShell cmdlets for Azure Storage
 
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](install-configure-powershell.md) for the install point and installation instructions.
 
 > [AZURE.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
@@ -134,8 +134,8 @@ To see the file in the directory, you can list the directory's files. This comma
 
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share. 
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-windows-tutorial/).
-2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-log-on-windows-server/).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](virtual-machines-windows-tutorial.md).
+2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 3. Open a PowerShell window on the virtual machine. 
 
 ### Persist your storage account credentials for the virtual machine

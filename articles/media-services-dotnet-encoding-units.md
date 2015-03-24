@@ -21,7 +21,7 @@
 
 #How to Scale Encoding with .NET SDK
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series.
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.
   
 ##Overview
 
