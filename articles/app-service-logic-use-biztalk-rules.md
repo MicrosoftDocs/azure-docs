@@ -209,14 +209,14 @@ The Rules API App can also be invoked using a rich set of APIs available. This w
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-biztalk-rules/InsuranceScenario.PNG	
-[2]: ./media/app-service-logic-biztalk-rules/InsuranceBusinessLogic.png
-[3]: ./media/app-service-logic-biztalk-rules/CreateRuleApiApp.png
-[4]: ./media/app-service-logic-biztalk-rules/RulesDashboard.png
-[5]: ./media/app-service-logic-biztalk-rules/LiteralVocab.PNG
-[6]: ./media/app-service-logic-biztalk-rules/XMLVocab.PNG
-[7]: ./media/app-service-logic-biztalk-rules/BulkAdd.PNG
-[8]: ./media/app-service-logic-biztalk-rules/PolicyList.PNG
-[9]: ./media/app-service-logic-biztalk-rules/RuleCreate.PNG
-[10]: ./media/app-service-logic-biztalk-rules/APIDef.PNG
+[1]: ./media/app-service-logic-use-biztalk-rules/InsuranceScenario.PNG	
+[2]: ./media/app-service-logic-use-biztalk-rules/InsuranceBusinessLogic.png
+[3]: ./media/app-service-logic-use-biztalk-rules/CreateRuleApiApp.png
+[4]: ./media/app-service-logic-use-biztalk-rules/RulesDashboard.png
+[5]: ./media/app-service-logic-use-biztalk-rules/LiteralVocab.PNG
+[6]: ./media/app-service-logic-use-biztalk-rules/XMLVocab.PNG
+[7]: ./media/app-service-logic-use-biztalk-rules/BulkAdd.PNG
+[8]: ./media/app-service-logic-use-biztalk-rules/PolicyList.PNG
+[9]: ./media/app-service-logic-use-biztalk-rules/RuleCreate.PNG
+[10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 
