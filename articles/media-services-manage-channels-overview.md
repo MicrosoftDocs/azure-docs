@@ -30,7 +30,7 @@ A streaming endpoint represents a streaming service that can deliver content dir
 
 The following diagram represents the live streaming workflow using an on-premises live encoder that outputs multi-bitrate RTMP, or Smooth Streaming (Fragmented MP4). When using an on-premises encoder, the incoming stream passes through to the streaming endpoint without any encoding.
 
-Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passe through, but the client applications will get a single bitrate stream.
+Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also pass through, but the client applications will get a single bitrate stream.
 
 
 ![Live workflow][live-overview]
@@ -70,7 +70,7 @@ Valid streaming protocol options are:
 - Multi-bitrate Fragmented MP4 (Smooth Streaming). You can ingest live Fragmented MP4 (Smooth Streaming) content over an SSL connection.
 - Multi-bitrate RTMP. Currently, you cannot ingest RTMP over SSL.
 
-Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also passed through, but the client applications will get a single bitrate stream.
+Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also pass through, but the client applications will get a single bitrate stream.
 
 
 You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
