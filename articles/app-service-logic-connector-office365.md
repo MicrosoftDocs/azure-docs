@@ -29,9 +29,18 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 - Send Event
 - Add Contact
 
+##Create the O365 Connector API App##
+To create the O365 Connector API App, carry out the following steps:
+
+1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+2.	Browse to “Web and Mobile > API apps” and search for “Office365”.
+3.	Configure the Office 365 Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.
+
+	![][21]
+
 
 ##Create a Logic App##
-To use a Office 365 connector in your Logic app, the connector API App should have been already created or you can create one on the fly in Logic app. Let us create a simple logic app that gets triggered when an email is received (at your sales enquiry email id - say sales@contoso.com). And, it creates an event, adds a contact with the sender's details, sends an email to your personal account and finally sends a reply with an acknowledgment.
+Let us create a simple logic app that gets triggered when an email is received (at your sales enquiry email id - say sales@contoso.com). And, it creates an event, adds a contact with the sender's details, sends an email to your personal account and finally sends a reply with an acknowledgment.
 
 1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
 
@@ -45,12 +54,11 @@ To use a Office 365 connector in your Logic app, the connector API App should ha
 
 	![][3]
 
-4.	Expand ‘Create New’ in Gallery to see all the available API Apps. Select ‘Office 365’ from the gallery and the ‘Office 365 Trigger’ gets added to the flow.
+4.	Select the Office 365 trigger from the 'API Apps in this resource group' section in the gallery to add it to the flow.
+
 	![][4]
 
-5.	This creates a new ‘Office 365 Connector’ API App in the same resource group as the Logic app. It will take approximately 30 seconds for the API app to get created.
-
-6.	Once the App is created, click on ‘Authorize’ to provide Office 365 login credentials.
+6.	Connecting to Office 365 requires you to authorize the Logic App to be able to access your account. Click on ‘Authorize’ to provide Office 365 login credentials.
 
 	![][5]
 
@@ -147,4 +155,6 @@ To use a Office 365 connector in your Logic app, the connector API App should ha
 [18]: ./media/app-service-logic-connector-office365/18_Office365_Reply_To_Configured.png
 [19]: ./media/app-service-logic-connector-office365/19_Office365_Send_Inputs.png
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
+[21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
+
 
