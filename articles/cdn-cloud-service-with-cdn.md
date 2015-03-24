@@ -57,7 +57,7 @@ This tutorial has the following prerequisites:
 
 In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to a cloud service Web role, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
-1. In Visual Studio 2013, create a new Azure cloud service from the menu bar by going to **File > New > Project > Cloud > Windows Azure Cloud Service**. Give it a name and click **OK**.
+1. In Visual Studio 2013, create a new Azure cloud service from the menu bar by going to **File > New > Project > Cloud > Azure Cloud Service**. Give it a name and click **OK**.
 
 	![](media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG)
 
@@ -92,7 +92,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	>[AZURE.NOTE] The publishing process for cloud services takes a long time. The Enable Web Deploy for all roles option can make debugging your cloud service much quicker by providing fast (but temporary) updates to your Web roles. For more information on this option, see [Publishing a Cloud Service using the Azure Tools](http://msdn.microsoft.com/library/ff683672.aspx).
 
-	When the **Windows Azure Activity Log** shows that publishing status is **Completed**, you will create a CDN endpoint that's integrated with this cloud service. 
+	When the **Microsoft Azure Activity Log** shows that publishing status is **Completed**, you will create a CDN endpoint that's integrated with this cloud service. 
 
 1. To create a CDN endpoint, log into your [Azure management portal](http://manage.windowsazure.com/). 
 2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;servicename>*.cloudapp.net/cdn/** and click **Create**.
@@ -212,7 +212,7 @@ In [Serve content from controller actions through Azure CDN](#controller), I wil
 <a name="controller"></a>
 ## Serve content from controller actions through Azure CDN ##
 
-When you integrate a cloud service Web role with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Other than serving your cloud service directly through Azure CDN (demonstrated above), [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Windows Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
+When you integrate a cloud service Web role with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Other than serving your cloud service directly through Azure CDN (demonstrated above), [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
 
 Suppose in your cloud service you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
 

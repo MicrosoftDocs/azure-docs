@@ -1,5 +1,5 @@
 <properties
-	pageTitle="What is Web Apps?"
+	pageTitle="Web Apps overview"
 	description="Learn more about App Service Web Apps"
 	services="app-service\web"
 	documentationCenter=""
@@ -18,7 +18,7 @@
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-#What is Web Apps?
+#Web Apps overview
 
 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) is a fully Managed Platform for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. Quickly create and deploy mission critical web apps that scale with your business by using Azure App Service.
 

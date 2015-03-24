@@ -91,7 +91,7 @@ The final stage of this tutorial is to build and run your new app.
 	- 	Find the **OnCreate** method in **TodoActivity.java** and locate the code that instantiates the mobile services client. The code is visible in the preceding image.
 	- 	Replace "MobileServiceUrl" with the actual Url of your mobile service.
 	- 	Replace "AppKey" with the key of your mobile service.
-	- 	For more details consult the tutorial <a href="http://azure.microsoft.commobile-services-android-get-started-data.md">Add Mobile Services to an existing app</a>. 
+	- 	For more details consult the tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Add Mobile Services to an existing app</a>. 
 
 
 
