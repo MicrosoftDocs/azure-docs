@@ -3,7 +3,7 @@
 	description="Learn how to use mdadm to configure RAID on Linux in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="szark" 
+	authors="szarkos" 
 	writer="szark" 
 	manager="timlt" 
 	editor=""/>

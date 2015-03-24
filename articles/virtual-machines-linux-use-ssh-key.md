@@ -3,7 +3,7 @@
 	description="Learn how to generate and use SSH keys with a Linux virtual machine on Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="szark" 
+	authors="szarkos" 
 	manager="timlt" 
 	editor=""/>
 
