@@ -112,6 +112,6 @@ You will now be able to reference the Active Directory Authentication Library in
 
 <!-- URLs. -->
 [How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://portal.azure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  [Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started-preview/
