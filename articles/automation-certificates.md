@@ -40,7 +40,7 @@ The activities in the following table are used to access certificates in a runbo
 |:---|:---|
 |Get-AutomationCertificate|Gets a certificate to use in a runbook.|
 
->[AZURE.NOTE] You should avoid using variables in the –Name parameter of GetAutomationCertificate since this can complicate discovering dependencies between runbooks and certificate assets at design time.
+You should avoid using variables in the –Name parameter of GetAutomationCertificate since this can complicate discovering dependencies between runbooks and certificate assets at design time.
 
 ## Creating a new certificate
 
@@ -48,25 +48,7 @@ When you create a new certificate, you upload a cer or pfx file to Azure Automat
 
 ### To create a new certificate with the Management Portal
 
-1. Select the **Automation** workspace.
-
-1. At the top of the window, click **Assets**.
-
-1. At the bottom of the window, click **Add Setting**.
-
-1. Click** Add Credential**.
-
-1. In the **Credential Type** dropdown, select **Certificate**.
-
-1. Type a name for the certificate in the **Name** box.
-
-1. Click the right arrow.
-
-1. Browse for a .cer or .pfx file.
-
-1. If you select a .pfx file, specify a password and whether it should be allowed to be exported.
-
-1. Click the check mark to upload the certificate file.
+To create a new certificate in the management portal, see [To create a new asset with the Azure Management Portal](../automation-assets#CreateAsset).  Create a new Credential and select **Certificate** for the **Credential Type**.
 
 ### To create a new certificate with Windows PowerShell
 

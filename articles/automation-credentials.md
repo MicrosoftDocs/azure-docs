@@ -40,29 +40,14 @@ The activities in the following table are used to access credentials in a runboo
 |:---|:---|
 |Get-AutomationPSCredential|Gets a credential to use in a runbook. Returns a [System.Management.Automation.PSCredential](http://aka.ms/runbookauthor/pscredential) object.|
 
->[AZURE.NOTE] You should avoid using variables in the –Name parameter of Get-AutomationPSCredential since this can complicate discovering dependencies between runbooks and credential assets at design time.
+You should avoid using variables in the –Name parameter of Get-AutomationPSCredential since this can complicate discovering dependencies between runbooks and credential assets at design time.
 
 ## Creating a new credential
 
 ### To create a new credential with the Management Portal
 
-1. Select the Automation workspace.
+To create a new credential in the management portal, see [To create a new asset with the Azure Management Portal](../automation-assets#CreateAsset).  Select **PowerShell Credential** for the **Credential Type**.
 
-1. At the top of the window, click Assets.
-
-1. At the bottom of the window, click Add Setting.
-
-1. Click Add Credential.
-
-1. In the Credential Type dropdown, select PowerShell Credential.
-
-1. Type a name for the credential in the Name box.
-
-1. Click the right arrow.
-
-1. Type in values for each property.
-
-1. Click the check mark to save the credential.
 
 ### To create a new PowerShell credential with Windows PowerShell
 

@@ -42,29 +42,13 @@ The activities in the following table are used to access connections in a runboo
 |---|---|
 |Get-AutomationConnection|Gets a connection to use in a runbook. Returns a hashtable with the properties of the connection.|
 
->[AZURE.NOTE] You should avoid using variables in the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks and connection assets at design time.
+You should avoid using variables in the –Name parameter of **Get- AutomationConnection** since this can complicate discovering dependencies between runbooks and connection assets at design time.
 
 ## Creating a New Connection
 
 ### To create a new connection with the management portal
 
-1. Select the **Automation** workspace.
-
-1. At the top of the window, click **Assets**.
-
-1. At the bottom of the window, click **Add Setting**.
-
-1. Click **Add Connection**.
-
-1. In the **Connection Type** dropdown, select a connection type.
-
-1. Type a name for the connection in the **Name** box.
-
-1. Click the right arrow.
-
-1. Type in a value for each property.
-
-1. Click the check mark to save the connection.
+To create a new connection in the management portal, see [To create a new asset with the Azure Management Portal](../automation-assets#CreateAsset).
 
 ### To create a new connection with Windows PowerShell
 

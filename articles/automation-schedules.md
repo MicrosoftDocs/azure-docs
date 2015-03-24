@@ -37,29 +37,7 @@ The cmdlets in the following table are used to create and manage variables with 
 
 ### To create a new schedule with the management portal
 
-1. Select the **Automation** workspace.
-
-1. At the top of the window, click **Assets**.
-
-1. At the bottom of the window, click **Add Setting**.
-
-1. Click **Add Schedule**.
-
-1. Type a name for the variable in the **Name** box.
-
-1. Click the right arrow.
-
-1. Select **One Time**, **hourly** or **Daily**.
-
-1. Select a **Start Time**.
-
-1. For **Hourly** or **Daily** schedules, perform the following steps:
-
-	1. If the schedule should not run indefinitely, select **Schedule Expires On** and specify an expiration date and time.
-
-	1. In the **Recur Every** box, select the number of days the schedule should recur.
-
-1. Click the check mark to save the variable.
+To create a new schedule in the management portal, see [To create a new asset with the Azure Management Portal](../automation-assets#CreateAsset).  
 
 ### To create a new schedule with Windows PowerShell
 

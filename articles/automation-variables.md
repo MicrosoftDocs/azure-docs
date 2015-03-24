@@ -63,23 +63,7 @@ The activities in the following table are used to access Automation variables in
 
 ### To create a new variable with the Azure Management Portal
 
-1. Select the **Automation** workspace.
-
-1. At the top of the window, click **Assets**.
-
-1. At the bottom of the window, click **Add Setting**.
-
-1. Click **Add Variable**.
-
-1. In the **Type** dropdown, select a data type.
-
-1. Type a name for the variable in the **Name** box.
-
-1. Click the right arrow.
-
-1. Type in a value for the variable and specify whether to encrypt it.
-
-1. Click the check mark to save the new variable.
+To create a new variable in the management portal, see [To create a new asset with the Azure Management Portal](../automation-assets#CreateAsset).
 
 ### To create a new variable with Windows PowerShell
 
