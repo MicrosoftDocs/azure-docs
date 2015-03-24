@@ -599,7 +599,7 @@ If you're looking to save time and just want to build the complete todo solution
 	
 	If you don't have an account, see [Create a database account](documentdb-create-account.md) to set one up.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
+	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. In the Web.config file, update the default values for the **endpoint** and **authKey** keys.
 
