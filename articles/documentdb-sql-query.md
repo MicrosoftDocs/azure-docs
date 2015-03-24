@@ -1482,7 +1482,7 @@ DocumentDB also supports a number of built-in functions for common operations, t
 </tr>
 </table>  
 
-If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficient. 
+If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
 
 ###Mathematical functions
 The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
