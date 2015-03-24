@@ -29,11 +29,9 @@ When you access Azure resources using the [Azure cmdlets](http://aka.ms/runbooka
 
 3. Select the directory name that is associated with your Azure subscription. If necessary, you can change this association from **Settings > Subscriptions > Edit Directory**.
 
-4. [Create a new Active Directory user](https://msdn.microsoft.com/library/azure/hh967632.aspx). Select **New user in your organization** for the **Type of user** and do not **Enable Multi-Factor Authentication**.
+4. [Create a new Active Directory user](https://msdn.microsoft.com/library/azure/hh967632.aspx).  Select **New user in your organization** for the **Type of user** and do not **Enable Multi-Factor Authentication**.
 
-5. [Create a new Active Directory user](https://msdn.microsoft.com/library/azure/hh967632.aspx)
-
-6. Note the user’s full name and temporary password.
+5. Note the user’s full name and temporary password.
 
 7. Select **Settings > Administrators > Add**.
 
@@ -45,7 +43,6 @@ When you access Azure resources using the [Azure cmdlets](http://aka.ms/runbooka
 
 11. Create a new [Azure Automation Credential asset](../automation-credentials) for the user account that you created. The **Credential Type** should be **Windows PowerShell Credential**.
 
-12. [Create a new Azure Automation Credential asset](http://aka.ms/automationassetscredentials)
 
 ## To use the credential in a runbook
 

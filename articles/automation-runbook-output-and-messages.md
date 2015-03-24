@@ -102,7 +102,7 @@ Create a warning or error message using the [Write-Warning](http://aka.ms/runboo
 
 The Verbose message stream is for general information about the runbook operation. Since the [Debug Stream](#Debug) is not available in a runbook, verbose messages should be used for debug information. By default, verbose messages from published runbooks will not be stored in the job history. To store verbose messages, configure published runbooks to Log Verbose Records on the Configure tab of the runbook in the Azure Management Portal. In most cases, you should keep the default setting of not logging verbose records for a runbook for performance reasons. Turn on this option only to troubleshoot or debug a runbook.
 
-When [testing a runbook](../automation-testing-a-runbook), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](https://msdn.microsoft.com/library/azure/dn879147.aspx), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure Management Portal.
+When [testing a runbook](../automation-testing-a-runbook), verbose messages are not displayed even if the runbook is configured to log verbose records. To display verbose messages while testing a runbook, you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages will be displayed in the Test Output Pane of the Azure Management Portal.
 
 Create a verbose message using the [Write-Verbose](http://aka.ms/runbookauthor/cmdlet/writeverbose) cmdlet.
 
