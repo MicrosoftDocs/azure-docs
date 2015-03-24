@@ -16,23 +16,24 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [What Happened](/documentation/articles/vs-storage-cloud-services-what-happened/)
-
-## Getting Started with Azure Storage (Cloud Service projects)
+# Getting Started with Azure Storage (Cloud Service projects)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What Happened](vs-storage-cloud-services-what-happened.md)
+
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files.
 
-To get started, you need to create an Azure storage account and then create one or more containers in the storage. For example, you could make a storage called “Scrapbook,” then create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use Blob Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
+To get started, you need to create an Azure storage account and then create one or more containers in the storage. For example, you could make a storage called “Scrapbook,” then create containers in the storage called “images” to store pictures and another called “audio” to store audio files. After you create the containers, you can upload individual blob files to them. See [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md/ "How to use Blob Storage from .NET") for more information on programmatically manipulating blobs.
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
+	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Blob;

@@ -16,21 +16,22 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
-> - [What Happened](/documentation/articles/vs-storage-cloud-services-what-happened/)
-
-##Getting Started with Azure Storage (Cloud Service projects)
+# Getting Started with Azure Storage (Cloud Service projects)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-cloud-services-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-cloud-services-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-cloud-services-getting-started-tables/)
+> - [Getting Started](vs-storage-cloud-services-getting-started-tables.md)
+> - [What Happened](vs-storage-cloud-services-what-happened.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-cloud-services-getting-started-blobs.md)
+> - [Queues](vs-storage-cloud-services-getting-started-queues.md)
+> - [Tables](vs-storage-cloud-services-getting-started-tables.md)
+
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-table "How to use Table Storage from .NET") for more information.
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
+	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Table;

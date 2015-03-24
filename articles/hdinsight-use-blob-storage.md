@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/05/2015" 
+	ms.date="03/16/2015" 
 	ms.author="jgao"/>
 
 
-#Query big data from Hadoop-compatible Blob storage for analysis in HDInsight
+#Use Azure Blob storage with HDInsight
 
 Low-cost Azure Blob storage is a robust, general-purpose, Hadoop-compatible storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on data in Azure Blob storage. In this tutorial, learn how to set up a container for blob storage, and then address the data inside.
 
@@ -96,6 +96,7 @@ To use blobs, you first create an [Azure Storage account][azure-storage-create].
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
 
+Don't share a default storage container with multiple HDInsight clusters. If you need to use a shared container to provide access to data for multiple HDInsight clusters then you should add it as an additional storage account in the cluster configuration. For more information, see [Provision HDInsight clusters][hdinsight-provision]. However you can reuse a default storage container after the original HDInsight cluster has been deleted. For HBase clusters, you can actually retain the HBase table schema and data by provision a new HBase cluster using the default blob storage container that is used by an HBase cluster that has been deleted.    
 
 
 ###Create a blob container for HDInsight by using the Azure portal
@@ -121,7 +122,7 @@ You also have the option to create your own container or use an existing one.
 
 
 ### Create a container by using Azure PowerShell
-[Azure PowerShell][powershell-install] can be used to create containers. The following is a sample Azure PowerShell script:
+[Azure PowerShell][powershell-install] can be used to create containers. The following PowerShell script shows how to create a Blob container on an existing Azure storage account:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -283,16 +284,16 @@ To learn more, see the following articles:
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig]
 
-[Powershell-install]: ../install-configure-powershell/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
+[Powershell-install]: install-configure-powershell.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
 
-[Powershell-install]: ../install-configure-powershell/
+[Powershell-install]: install-configure-powershell.md
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage-create-storage-account/
+[azure-storage-create]: storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png

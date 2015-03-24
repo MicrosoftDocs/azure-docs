@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2014" 
+	ms.date="03/13/2015" 
 	ms.author="kenazk"/>
 
 #Manage the availability of virtual machines
@@ -55,7 +55,7 @@ For example, you could put all the VMs in the front-end of your application runn
 
  
 ### Combine the Load Balancer with Availability Sets
-Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all Virtual Machine tiers include the Azure Load Balancer. For more information on load balancing your virtual machines, please read [Load Balancing Virtual Machines](../load-balance-virtual-machines/). 
+Combine the Azure Load Balancer with an Availability Set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Note that not all Virtual Machine tiers include the Azure Load Balancer. For more information on load balancing your virtual machines, please read [Load Balancing Virtual Machines](load-balance-virtual-machines.md). 
 
 If the load balancer is not configured to balance traffic across multiple virtual machines, then any planned maintenance event will affect the only traffic-serving virtual machine, causing an outage to your application tier. Placing multiple virtual machines of the same tier under the same load balancer and Availability Set enables traffic to be continuously served by at least one instance. 
 
@@ -69,6 +69,6 @@ Avoid leaving a single instance virtual machine in an Availability Set by itself
 
  
 <!-- Link references -->
-[How to Configure An Availability Set for Virtual Machines]: ../virtual-machines-how-to-configure-availability
+[How to Configure An Availability Set for Virtual Machines]: virtual-machines-how-to-configure-availability.md
 
 

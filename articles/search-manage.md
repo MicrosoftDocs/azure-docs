@@ -25,7 +25,7 @@ Azure Search is a cloud-based service and HTTP-based API that can be used in cus
 
 This article explains how to administer a Search service in the new [Azure Preview portal](https://portal.azure.com).
 
-Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) and [Azure Search Management REST API reference](http://msdn.microsoft.com/library/azure/dn832684.aspx) for details.
+Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](search-get-started-management-api.md) and [Azure Search Management REST API reference](http://msdn.microsoft.com/library/azure/dn832684.aspx) for details.
 
 <a id="sub-1"></a>
 ## Add search service to your subscription
@@ -41,7 +41,7 @@ To plan for capacity and understand the billing impact, we recommend these links
 +	[Limits and constraints](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Get started with Azure Search](../search-get-started/).
+When you are ready to sign up, see [Get started with Azure Search](search-get-started.md).
 
 <a id="sub-2"></a>
 ## Administrative tasks
@@ -214,7 +214,7 @@ Roles provide access control after the service is created. Only subscription man
 
 
 <!--Link references-->
-[Get started with Azure Search]: ../search-get-started/
-[Azure Search development workflow]: ../search-workflow/
-[Create your first azure search solution]: ../search-create-first-solution/
+[Get started with Azure Search]: search-get-started.md
+[Azure Search development workflow]: search-workflow.md
+[Create your first azure search solution]: search-create-first-solution.md
 

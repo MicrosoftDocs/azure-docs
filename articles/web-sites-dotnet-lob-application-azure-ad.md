@@ -22,7 +22,7 @@ In this article, you will learn how to easily create an ASP.NET MVC line-of-busi
 
 The AAD tenant that you use can be can have an Azure-only directory, or it can be directory-synced with your on-premise Active Directory (AD) to create a single sign-on experience for workers that are on-premise or remote.
 
-For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](../web-sites-authentication-authorization).
+For an overview of the different enterprise authentication and authorization options for Azure Websites, see [Authenticate and Authorize Users in LOB Applications in Azure Websites](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -121,7 +121,7 @@ Here, you will publish the application to an Azure Website. There are already in
 
 6. Once the application is created, click **Configure**.
 7. Under **Keys**, create a new key by selecting **1 year** in the dropdown.
-8. Under **Permissions to other applications**, for the **Windows Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
+8. Under **Permissions to other applications**, for the **Azure Active Directory** entry, select **Access your organization's directory** in the **Delegated Permissions** dropdown.
 
 	> [AZURE.NOTE] The exact permissions you need here depends on the desired functionality of your application. Some permissions require the **Global Administrator** role to set, but the permissions required by this tutorial only requires the **User** role.
 
@@ -338,9 +338,9 @@ Now that you have configured the authorizations and LOB functionality for the di
 <a name="bkmk_resources"></a>
 ## Further resources
 
-- [Protect the Application with SSL and the Authorize Attribute](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Authenticate and Authorize Users in LOB Applications in Azure Websites ](../web-sites-authentication-authorization/)
-- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](../web-sites-dotnet-lob-application-adfs/)
+- [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
+- [Authenticate and Authorize Users in LOB Applications in Azure Websites ](web-sites-authentication-authorization.md)
+- [Create an ASP.NET MVC Line-of-Business Application in Azure Websites that Authenticates with AD FS](web-sites-dotnet-lob-application-adfs.md)
 - [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
 - [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)

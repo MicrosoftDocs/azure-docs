@@ -198,7 +198,7 @@ To do this... | Use this...
 
 * [WordPress optimization](http://codex.wordpress.org/WordPress_Optimization)
 
-* [Convert a WordPress site to a multisite](http://azure.microsoft.com/documentation/articles/web-sites-php-convert-wordpress-multisite/)
+* [Convert a WordPress site to a multisite](web-sites-php-convert-wordpress-multisite.md)
 
 * [ClearDB upgrade wizard for Azure](http://www.cleardb.com/store/azure/upgrade)
 

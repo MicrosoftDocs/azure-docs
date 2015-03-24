@@ -18,7 +18,9 @@
 
 # Create an Azure Search service in the portal
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides the search engine and storage of search data, which you access and manage using a .NET SDK or a REST API. For more information about what it does, see [Introducing Azure Search](../fundamentals-azure-search-chappell/).  
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides search features like type-ahead suggestions and fuzzy matching, a search engine, and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. For more information about what Search does, see [Introducing Azure Search](fundamentals-azure-search-chappell.md).
+
+##Add Search to your subscription  
 
 As an administrator, you can add Search to an existing subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources. 
 
@@ -32,7 +34,7 @@ As an administrator, you can add Search to an existing subscription at no cost w
 
      ![][3]
 
-	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/en-us/library/azure/dn857353.aspx) for more information about naming conventions. 
+	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions. 
 	
 	- **Pricing Tier** determines capacity and billing. Both tiers provide the same features, but at different resource levels. 
 	
@@ -47,8 +49,10 @@ As an administrator, you can add Search to an existing subscription at no cost w
 
 4. Click **Create** to provision the service. 
 
+Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
+
 <a id="sub-2"></a>
-##Find the service name and api-keys of your Azure Search service##
+##Find the service name and api-keys of your Azure Search service
 
 After the service is created, you can return to the portal to get the URL or `api-key`. Connections to your Search service requires that you have both the URL and an `api-key` to authenticate the call. 
 
@@ -86,8 +90,8 @@ You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792)
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. You can use either approach for a code-free approach to verifying service availability.
 
-- [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
-- [How to use Telerik Fiddler with Azure Search](../search-fiddler/)
+- [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
+- [How to use Telerik Fiddler with Azure Search](search-fiddler.md)
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -95,11 +99,11 @@ Confirming that your service is operational and accessible from a client applica
 
 The following additional material shows you how to build and manage search applications that use Azure Search.
 
-- [Create your first Azure Search solution](../search-create-first-solution/) 
+- [Create your first Azure Search solution](search-create-first-solution.md) 
 
-- [How to use Azure Search in .NET](../search-howto-dotnet-sdk/)
+- [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
 
-- [Manage your search solution in Microsoft Azure](../search-manage/) 
+- [Manage your search solution in Microsoft Azure](search-manage.md) 
 
 - [Azure Search on MSDN](http://msdn.microsoft.com/library/dn798933.aspx)
 
