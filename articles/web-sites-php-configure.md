@@ -1,5 +1,5 @@
 <properties
-	pageTitle="How to Configure PHP for Web Apps in Azure App Service"
+	pageTitle="Configure PHP in Azure App Service web apps "
 	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
 	services="app-service\web"
 	documentationCenter="php"
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015"
 	ms.author="tomfitz"/>
 
-#How to configure PHP for Web Apps in Azure App Service
+#Configure PHP in Azure App Service web apps 
 
 ## Introduction
 

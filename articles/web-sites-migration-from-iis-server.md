@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Migrate an enterprise web app to App Service using the Migration Assistant" 
+	pageTitle="Migrate an enterprise web app to Azure App Service" 
 	description="Shows how to use Web Apps Migration Assistant to quickly migrate existing IIS websites to Azure App Service Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Migrate an enterprise web app to App Service using the Migration Assistant
+# Migrate an enterprise web app to Azure App Service
 
 You can easily migrate your existing websites that run on Internet Information Service (IIS) 6 or later to [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). [Web Apps Migration Assistant](https://www.movemetothecloud.net/) can analyze your IIS server installation, identify which sites can be migrated to App Service, highlight any elements that cannot be migrated or are unsupported on the platform, and then migrate your websites and associated databases to Azure.
 

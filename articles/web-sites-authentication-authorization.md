@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Authenticate and authorize line-of-business apps in Azure App Service Web Apps" 
+	pageTitle="Use Active Directory for authentication in Azure App Service" 
 	description="Learn the different authentication and authorization options for line-of-business applications that are deployed to Azure App Service Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
@@ -16,9 +16,9 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Authenticate and authorize users in line-of-business applications in Azure App Service Web Apps #
+# Use Active Directory for authentication in Azure App Service #
 
-[Azure Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
+[Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) enables enterprise line-of-business application scenarios by supporting single sign-on (SSO) of users whether they access the application from your on-premises environment or the public internet. It can be integrated with [Azure Active Directory](http://azure.microsoft.com/services/active-directory/) (AAD) or on-premises secure token service (STS), such as Active Directory Federation Services (AD FS), to authenticate your internal Active Directory (AD) users and authorize them properly.
 
 ## Zero-friction authentication and authorization ##
 

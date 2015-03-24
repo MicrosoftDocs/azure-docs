@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PHP web app with MySQL and Git - Azure tutorial" 
+	pageTitle="Create a PHP-MySQL web app in Azure App Service and deploy using Git" 
 	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use Git deployment to Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
@@ -16,7 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
-#Create a PHP-MySQL web app and deploy using Git
+#Create a PHP-MySQL web app in Azure App Service and deploy using Git
 
 This tutorial shows you how to create a PHP-MySQL web app and how to deploy it to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) using Git. You will use [PHP][install-php], the MySQL Command-Line Tool (part of [MySQL][install-mysql]), a web server, and [Git][install-git] installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
  

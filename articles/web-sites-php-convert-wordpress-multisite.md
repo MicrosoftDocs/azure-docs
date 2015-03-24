@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Convert a WordPress web app to a Multisite" 
+	pageTitle="Convert WordPress to Multisite in Azure App Service" 
 	description="Learn how to take an existing WordPress web app created through the gallery in Azure and convert it to WordPress Multisite" 
 	services="app-service\web" 
 	documentationCenter="php" 
@@ -18,7 +18,7 @@
 
 
 
-# Convert a WordPress web app to a Multisite
+# Convert WordPress to Multisite in Azure App Service
 
 ## Overview
 

@@ -24,7 +24,7 @@ If you're actively developing your own API app using Visual Studio and need to t
 
 This is the second tutorial in a series of three:
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you created a Web API project. 
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API App project. 
 * In this tutorial, you will deploy the API app to your Azure subscription.
 * In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you will use Visual Studio to remotely debug the code while it runs in Azure.
 
@@ -61,7 +61,7 @@ The provisioning process creates the resource group and API App in your Azure su
 
 ![Status notification via the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-Once the API App is provisioned, right-click the project in Solution Explorer and click **Publish**, to re-open the publish dialog. The publish profile created in the previous step should be pre-selected. Click **Publish** to begin the deployment process. 
+Once the API App is provisioned, right-click the project in Solution Explorer and select **Publish** to re-open the publish dialog. The publish profile created in the previous step should be pre-selected. Click **Publish** to begin the deployment process. 
 
 ![Deploying the API App](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
@@ -100,11 +100,11 @@ This code adds a **Post** method that can be used to post new `Contact` instance
 
 ![Adding the Post method to the controller](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
 
-In **Solution Explorer**, right-click the project and click **Publish**. 
+In **Solution Explorer**, right-click the project and select **Publish**. 
 
 ![Project Publish context menu](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
 
-Select the **Debug** configuration from **Configuration** dropdown and click **Publish** to redeploy the API app. 
+Select the **Debug** configuration from **Configuration** drop-down and click **Publish** to redeploy the API app. 
 
 ![Publish Web settings](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
 

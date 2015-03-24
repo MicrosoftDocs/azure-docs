@@ -2,17 +2,16 @@ After testing the client app against the local mobile app, the final stage of th
 
 > [AZURE.NOTE] This procedure shows how to publish your mobile app backend using Visual Studio tools. You can also publish your .NET backend using source control.
 
-1. Go to your mobile app in the portal, and look for the **Related** section for a web app which will be named like `<your app name>-code`. Click on that part and it will show the **web app** blade which contains a link at the top called **Get Publish Profile**. Click that link and save it somewhere to access later.
+1. In Solution Explorer, right-click the mobile app code project (it is your app name with "Service" appended) and select **Publish**. 
 
-   <!--todo: new screenshot when web app labels replace website in Ibiza-->
-   ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-profile.png)
+	![Select publish on the app code project](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-project-publish.png)
 
-2. In Solution Explorer, right-click the mobile app project (it is your app name with "Service" appended), click **Publish**, then in the **Publish Web** dialog box click **Import**. From there, select your file you just downloaded. Click **OK** and then **Next**.
+2. In the **Publish Web** dialog box, select **Azure Mobile App** as the Publish Target. In the dialog that appears, select your existing mobile app, which will be your mobile app name appended with "code".
 
-   ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-import.png)
+    ![Select an existing web app to publish to](./media/app-service-mobile-dotnet-backend-publish-service-preview/mobile-quickstart-publish-select-service.png)
 
 3. Click **Validate connection** to verify that publishing is correctly configured, then click **Publish**.
 
-   ![](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
+	![Publish settings wizard final page](./media/app-service-mobile-dotnet-backend-publish-service-preview/dotnet-publish-settings.png)
 
-   After publishing succeeds, you will see the confirmation page that the mobile app backend is up and running in Azure. Your VS output window will also show success.
+   After publishing succeeds, you will see the confirmation page that the mobile app backend is up and running in Azure. Your Visual Studio output window will also show success.

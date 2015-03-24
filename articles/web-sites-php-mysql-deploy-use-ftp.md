@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PHP web app with MySQL and FTP - Azure tutorial" 
+	pageTitle="Create a PHP-MySQL web app in Azure App Service and deploy using FTP" 
 	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure." 
 	services="app-service\web" 
 	documentationCenter="php" 
@@ -17,7 +17,7 @@
 	ms.author="tomfitz"/>
 
 
-#Create a PHP-MySQL web app and deploy using FTP
+#Create a PHP-MySQL web app in Azure App Service and deploy using FTP
 
 This tutorial shows you how to create a PHP-MySQL web app and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
  
