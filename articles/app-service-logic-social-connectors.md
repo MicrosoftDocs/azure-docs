@@ -16,9 +16,6 @@
 	ms.date="03/24/2015" 
 	ms.author="deonhe"/>
 
-
-Keywords: App API 
-
 # Social Connectors in Microsoft Azure App Service
 
 
@@ -166,5 +163,5 @@ Connectors use either OAuth or user names and passwords.
 [Enterprise connectors](app-service-logic-enterprise-connectors.md) |
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
 [Protocol connectors](app-service-logic-protocol-connectors.md) |
-[App and Data Services connectors](app-service-logic-data-connectors.md) |
+[App + Data Services connectors](app-service-logic-data-connectors.md) |
 [Connectors and API Apps List](app-service-logic-connectors-list.md)

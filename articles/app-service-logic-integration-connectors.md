@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="mandia"/>
 
 
@@ -139,5 +139,5 @@ The following steps add BizTalk API Apps to Logic Apps, Mobile Apps, or Web Apps
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
 [Social connectors](app-service-logic-social-connectors.md)<br/>
 [Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
-[App + Data Services connectors](app-service-logic-data-connectors)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
 [Connectors and API Apps List](app-service-logic-connectors-list.md)
