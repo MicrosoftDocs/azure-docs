@@ -20,7 +20,7 @@
 
 # Azure App Service and existing Azure services
 
-This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](http://azure.microsoft.com/services/app-service/), and new integrated offering.
+This article outlines the changes to existing Azure services as part of the change to bring together several Azure services into [Azure App Service](http://azure.microsoft.com/services/app-service/), a new integrated offering.
 
 ## Overview 
 
