@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Get Started with Azure Mobile Apps for Xamarin Android apps - Azure Mobile App"
 	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
-	services="app-service-mobile"
+	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="chrande"
 	manager="dwrede"

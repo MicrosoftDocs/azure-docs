@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Send x-plat notifications to a specific user with iOS client" 
+	pageTitle="Send cross-platform notifications to a specific user in iOS" 
 	description="Learn how to send push notifications to all devices of a specific user."
 	services="app-service\mobile" 
 	documentationCenter="ios" 
@@ -16,7 +16,7 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Send x-plat push notifications to all devices of a specific user with templates
+# Send cross-platform notifications to a specific user
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
@@ -78,10 +78,11 @@ Before you start this tutorial, you must have already completed these App Servic
             // connect to notification hub
             NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
 
-            // get the current user id and create given user tag
+            // get the current user id and create tag to identify user
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
+            // build dictionary for template
             var notification = new Dictionary<string, string>{{"message", item.Text}};
 
             try

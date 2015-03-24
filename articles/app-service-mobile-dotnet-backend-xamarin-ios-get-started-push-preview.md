@@ -151,7 +151,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 
 1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
 
-2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
+2. Search for **Microsoft.Azure.NotificationHubs** and click **Install** for all projects in the solution.
 
 3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
