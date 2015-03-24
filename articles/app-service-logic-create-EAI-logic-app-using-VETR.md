@@ -13,28 +13,28 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="03/23/2015"
    ms.author="rajram"/>
 
-#Create EAI Logic App Using VETR
+
+# Create EAI Logic App Using VETR
 
 Most Enterprise Application Integration (EAI) scenarios mediate data between a source and a destination. Such scenarios often have a common set of requirements:
 
-* Ensure that data from different systems are in correct format
-* Perform “look-up” on incoming data to make decisions
-* Convert data from one format to another (for example, from a CRM system's data format to an ERP system's data format)
-* Route data to desired application or system
+- Ensure that data from different systems are in correct format
+- Perform “look-up” on incoming data to make decisions
+- Convert data from one format to another (for example, from a CRM system's data format to an ERP system's data format)
+- Route data to desired application or system
 
 In this article, we look at a common integration pattern: "one-way message mediation" or VETR (Validate, Enrich, Transform, Route.) The VETR pattern mediates data between a source entity and a destination entity. Usually the source and destination are data sources. 
 
-Consider a website that accepts orders. Users post orders to the system via HTTP. Behind the scenes, the system validates the incoming data for correctness, normalizees it, and persists it in a Service Bus queue for further processing. The system takes orders off the queue, expecting it in a particular format. Thus: the end-to-end flow is:
+Consider a website that accepts orders. Users post orders to the system using HTTP. Behind the scenes, the system validates the incoming data for correctness, normalizes it, and persists it in a Service Bus queue for further processing. The system takes orders off the queue, expecting it in a particular format. Thus: the end-to-end flow is:
 
 HTTP -> Validate -> Transform -> Service Bus
 
-
 ![Basic VETR Flow][1]
 
-The following BizTalk API Apps  help in building this pattern:
+The following BizTalk API Apps help in building this pattern:
 
 *HTTP Trigger* - Source to trigger message event
 *Validate* - Validates correctness of incoming data
@@ -42,23 +42,25 @@ The following BizTalk API Apps  help in building this pattern:
 *Service Bus Connector* - Destination entity where data is sent
 
 
-##Constructing Basic VETR pattern
-###The Basics
+## Constructing Basic VETR pattern
+### The Basics
 
-In the Azure Management Portal, click on the **+New** button at the bottom-left of the screen and click Logic App. Choose a name, location, subscription, resource group, and location that works. Resource groups act as containers for your apps and all of the resources for your app will go to the same resource group.
+In the Azure Management Portal, click on the **+New** button at the bottom-left of the screen and click Logic App. Choose a name, location, subscription, resource group, and location that works. Resource groups act as containers for your apps and all of the resources for your app go to the same resource group.
 
 Next, let's add triggers and actions.
 
-##Add HTTP Trigger
+
+## Add HTTP Trigger
 
 1. Select **HTTP Listener** from the gallery to create a new listener. Call it **HTTP1**.
-2. Leave “Send response automatically?” setting as false. Configure the trigger action by setting _HTTP Method_ to _POST_ and setting _Relative URL_ to _/OneWayPipeline_.
+2. Leave **Send response automatically?** setting as false. Configure the trigger action by setting _HTTP Method_ to _POST_ and setting _Relative URL_ to _/OneWayPipeline_.
 
 ![HTTP Trigger][2]
 
-##Add Validate Action
 
-Now, let’s specify actions that run whenever the trigger fires -- that is, whenever a call is received on the HTTP endpoint.
+## Add Validate Action
+
+Now, let’s enter actions that run whenever the trigger fires -- that is, whenever a call is received on the HTTP endpoint.
 
 1. Add **BizTalk XML Validator** from the gallery and name it _(Validate1)_ to create an instance.
 2. Configure an XSD schema to validate the incoming XML messages. Select the _Validate_ action and select _triggers(‘httplistener’).outputs.Content_ as the value for the _inputXml_ parameter.
@@ -67,7 +69,8 @@ Now, the validate action is the first action after the HTTP listener. Similarly,
 
 ![BizTalk XML Validator][3]
 
-##Add Transform Action
+
+## Add Transform Action
 Let's configure transforms to normalize the incoming data.
 
 1. Add **Transform** from the gallery. 
@@ -77,7 +80,8 @@ Let's configure transforms to normalize the incoming data.
 
 ![BizTalk Transforms][4]
 
-##Add Service Bus Connector
+
+## Add Service Bus Connector
 Next, let's add the destination -- a Service Bus Queue -- to write data to.
 
 1. Add a **Service Bus Connector** from the gallery. Set the _Name_ to _Servicebus1_, set _Connection String_ to the connection string to your service bus instance, set _Entity Name_ to _Queue_, and skip _Subscription name_. 
@@ -85,7 +89,8 @@ Next, let's add the destination -- a Service Bus Queue -- to write data to.
 
 ![Service Bus][5]
 
-##Send HTTP Response
+
+## Send HTTP Response
 Once pipeline processing is done, we send back an HTTP response for both success and failure with the following steps:
 
 1. Add an **HTTP Listener** from the gallery and select the **Send HTTP Response** action.
@@ -93,7 +98,8 @@ Once pipeline processing is done, we send back an HTTP response for both success
 	
 Repeat the above steps to send an HTTP response on failure as well. Change the condition to ```@not(equals(actions('servicebusconnector').status,'Succeeded')).```
 
-##Completion
+
+## Completion
 Every time someone sends a message to the HTTP endpoint, it trigger the app and executes the actions we just created. To manage any such logic apps you create, click **Browse** in the Azure Management Portal and click **Logic Apps**. Click on your app to see more information.
 
 

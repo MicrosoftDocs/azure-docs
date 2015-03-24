@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="hero-article" 
 	ms.date="02/13/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal;glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
@@ -34,7 +34,7 @@ Completing this tutorial requires the [Android Developer Tools][Android SDK], wh
 
 The downloaded quickstart project contains the Mobile Services SDK for Android. While this project requires Android 4.2 or a later version, the Mobile Services SDK requires only Android 2.2 or a later version.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 <!-- -->
 
@@ -91,7 +91,7 @@ The final stage of this tutorial is to build and run your new app.
 	- 	Find the **OnCreate** method in **TodoActivity.java** and locate the code that instantiates the mobile services client. The code is visible in the preceding image.
 	- 	Replace "MobileServiceUrl" with the actual Url of your mobile service.
 	- 	Replace "AppKey" with the key of your mobile service.
-	- 	For more details consult the tutorial <a href="http://azure.microsoft.commobile-services-android-get-started-data.md">Add Mobile Services to an existing app</a>. 
+	- 	For more details consult the tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Add Mobile Services to an existing app</a>. 
 
 
 

@@ -31,6 +31,7 @@ Azure queue storage is a service for storing large numbers of messages that can 
 
 Add the following code namespace declarations to the top of any C# file in which you wish to programmatically access Azure Storage.
 
+	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;

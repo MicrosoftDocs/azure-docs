@@ -296,6 +296,6 @@ Visual Studio creates this folder when when you choose the **Azure API App SDK**
 
 ## Next steps
 
-Your Web API project is now ready to be deployed as an API app, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-apps/) tutorial to do that.
+Your Web API project is now ready to be deployed as an API app, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-app/) tutorial to do that.
 
 For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)

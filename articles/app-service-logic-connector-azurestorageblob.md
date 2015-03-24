@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Azure Storage Blob Connector" 
    description="Get started with Azure Storage Blob Connector" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="dwrede" 

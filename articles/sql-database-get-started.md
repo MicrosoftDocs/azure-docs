@@ -141,7 +141,7 @@ Now you have SSMS connected to your SQL Database server, and you're ready to cre
 
 ## Step 5: Create the schema
 
-In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft.com/library/bb510741.aspx) script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](https://msdn.microsoft.com/library/ms174979.aspx) statement. Further on, the script uses the [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) statement to specify the primary key and table relationships.
+In this step, you create the schema with a [Transact-SQL](https://msdn.microsoft.com/library/bb510741.aspx) script. The script first checks for an existing table of the same name to ensure there won't be a name collision, and creates the table using the [CREATE TABLE](https://msdn.microsoft.com/library/dn305849.aspx) statement. Further on, the script uses the [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx) statement to specify the primary key and table relationships.
 
 <br/>
 1. In **Object Explorer**, expand **Databases**, click **School** and then click **New Query**.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="03/23/2015" 
 	ms.author="jtwist"/>
 
 # What are Connectors and BizTalk API Apps
@@ -39,6 +39,7 @@ App Services was born of the web and favors communication using HTTP and sharing
 App Services' SaaS connectors provide a turnkey way to connect your web, mobile, and logic apps to some of the biggest names in SaaS today, including Office 365, SalesForce, Sugar CRM, OneDrive, DropBox, Marketo, even Facebook and many more.
 
 [Social Connectors in Microsoft Azure App Service](app-service-logic-social-connectors.md)
+
 [App + Data Services Connectors in Microsoft Azure App Service](app-service-logic-data-connectors)
 
 
@@ -52,4 +53,5 @@ The Premium connectors extend the reach of App Services further into the enterpr
 Building business critical apps requires more than just connectivity. Based on the foundation of Microsoft's industry leading integration platform - BizTalk Server - the BizTalk API Apps provide advanced integration capabilities that can be snapped into your Web, Mobile and Logic Apps with ease. Includes Batching and Debatching, VETR (Validate, Extract, Transform and Route), and support for EDI formats like X12, EDIFACT, and AS2.
 
 [Business-to-Business Connectors and API Apps in Microsoft Azure App Service](app-service-logic-b2b-connectors.md)
+
 [BizTalk Integration API Apps in Microsoft Azure App Service](app-service-logic-integration-connectors.md)

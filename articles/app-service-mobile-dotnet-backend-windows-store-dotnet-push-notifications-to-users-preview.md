@@ -16,7 +16,7 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Send x-plat push notifications to all devices of a specific user with templates
+# Send cross-platform notifications to a specific user
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 
@@ -79,10 +79,11 @@ Your app is now set up to register user device with the user login information.
             // connect to notification hub
             NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
 
-            // get the current user id and create given user tag
+            // get the current user id and create tag to identify user
             ServiceUser authenticatedUser = this.User as ServiceUser;
             string userTag = "_UserId:" + authenticatedUser.Id;
 
+            // build dictionary for template
             var notification = new Dictionary<string, string>{{"message", item.Text}};
 
             try

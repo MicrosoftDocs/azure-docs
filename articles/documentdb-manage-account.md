@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 #How to manage a DocumentDB account
@@ -27,13 +27,13 @@ account is accessed. By providing two access keys, DocumentDB enables
 you to regenerate the keys with no interruption to your DocumentDB
 account.
 
-In the [Azure management preview
+In the [Azure Preview
 portal](https://portal.azure.com/),
 access the **Keys** part from your **DocumentDB Account** blade to view,
 copy, and regenerate the access keys that are used to access your
 DocumentDB account.
 
-![](./media/documentdb-manage-account/image002.jpg)
+![](../includes/media/documentdb-keys/keys.png)
 
 ### View and copy an access key
 
@@ -66,7 +66,7 @@ your keys. The following steps outline the process involved in rolling your keys
 secondary access key of the DocumentDB account.
 
 2.      Regenerate the primary access key for your DocumentDB account.
-In the  [Azure management preview portal](https://portal.azure.com/),
+In the  [Azure Preview portal](https://portal.azure.com/),
 access your DocumentDB account.
 
 3.      In the Summary lens, click **Keys**.
@@ -110,7 +110,7 @@ Level](http://go.microsoft.com/fwlink/p/?LinkId=402365) section.*
 
 ### To specify the default consistency for a DocumentDB Account
 
-1.      In the [Azure management preview
+1.      In the [Azure Ppreview
 portal](https://portal.azure.com/), access your DocumentDB account. 
 
 2.      In the **Configuration** lens, click **Default Consistency**.
@@ -125,7 +125,7 @@ level you want for your DocumentDB account.
 4.      Click **Save**.
 
 5.      The progress of the operation may be monitored via the Azure
-management preview portal Notifications hub.
+Preview portal Notifications hub.
 
 *Note that it can take several minutes before a change to the default
 consistency setting takes affect across your DocumentDB account.*
@@ -134,16 +134,16 @@ consistency setting takes affect across your DocumentDB account.*
 Microsoft Azure DocumentDB allows you to scale elastically as the
 demands of your application change throughout its lifecycle. Scaling
 DocumentDB is accomplished by increasing the capacity of your DocumentDB
-database account through the Azure management preview portal.
+database account through the Azure Preview portal.
 
 When you create a database account, it is provisioned with database
 storage and reserved throughput. At any time you can change the
 provisioned database storage and throughput for your account by adding
-or removing capacity units through the Azure management preview portal. 
+or removing capacity units through the Azure Preview portal. 
 
 ### To add or remove capacity units
 
-1.      In the [Azure management preview
+1.      In the [Azure Preview
 portal](https://portal.azure.com/), access your DocumentDB account. 
 
 2.      In the **Usage** lens, click **Scale**.
@@ -156,7 +156,7 @@ want for your DocumentDB account.
 
 4.      Click **Save** (note that it can take several minutes for the
 scaling operation to complete, you can monitor the progress via the
-Azure management preview portal Notifications hub).
+Azure Preview portal Notifications hub).
 
  *Note that the DocumentDB Preview supports a maximum of 5 capacity
 units per DocumentDB account.*
@@ -173,7 +173,7 @@ documents and attachments.*
 
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      In the [Azure management preview
+1.      In the [Azure Preview
 portal](https://portal.azure.com/), access the DocumentDB Account you
 wish to delete. 
 
