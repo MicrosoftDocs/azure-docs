@@ -63,7 +63,7 @@ First, configure the Dropbox to accept only authenticated requests.  You'll set 
  
 2.	In the API app blade, click Settings, and then click Application settings.
  
-	![](./media/app-service-api-connect-your-app-to-saas-connector/06-Dropboc-connector-properties.png) 
+	![](./media/app-service-api-connect-your-app-to-saas-connector/06-Dropbox-connector-properties.png) 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/07-dropbox-settings-dialog.png) 
 
@@ -71,17 +71,21 @@ First, configure the Dropbox to accept only authenticated requests.  You'll set 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/08-public-auth-setting-blade.png) 
 
-	You have now protected the Dropbox Connector from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
+	You have now protected the Dropbox Connector from unauthenticated access. Now it is time to setup the Dropbox Authentication. Fill in the *Client ID* and "Client Secret* details in the UI shown below (you can connect the *Client ID* and "Cleint Secret* from the [dropbox developer account](https://www.dropbox.com/developers/apps) ).
+
+	![](./media/app-service-api-connect-your-app-to-saas-connector/09-Dropbox-authentication-settings.png) 
+
+Next you have to configure the gateway to specify which authentication provider to use.
 
 ## Configure the gateway
 
 1. Go back to the Dropbox API App blade, and then click the link to the gateway.
  
-	![](./media/app-service-api-connect-your-app-to-saas-connector/09-dropbox-connector-gateway.png) 
+	![](./media/app-service-api-connect-your-app-to-saas-connector/10-dropbox-connector-gateway.png) 
 
-	![](./media/app-service-api-connect-your-app-to-saas-connector/10-gateway-all-properties.png)
+	![](./media/app-service-api-connect-your-app-to-saas-connector/11-gateway-all-properties.png)
 
-	![](./media/app-service-api-connect-your-app-to-saas-connector/11-gateway-property-settings-blade.png) 
+	![](./media/app-service-api-connect-your-app-to-saas-connector/12-gateway-property-settings-blade.png) 
 
 2. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use both the [management portal](https://manage.windowsazure.com/) and the [preview portal](https://portal.azure.com/).
   
@@ -97,21 +101,35 @@ First, configure the Dropbox to accept only authenticated requests.  You'll set 
 
 1.	In the browser, go to the login URL: 
 
-		http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
+	You can grab the URL from the gateway active directory setup blade.
+	![](./media/app-service-api-connect-your-app-to-saas-connector/14-01-gateway-login-URL-portal.png) 
+	
+	Your url will be in the following format...
+	http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
 
 	For example, if you named your resource group ‘MyResource’ and you configured the gateway for Azure Active Directory authentication, the URL would be the following:
 
 		http://Myresourcegateway.azurewebsites.net/login/aad
+	
+	Make sure you launch the developer tools before you enter the URL in the browser and hit enter. We should recieve login complete message. 
 
-	Note that this does not include your API app name. The gateway is doing the authentication, not the API app. The gateway handles authentication for all API apps in the resource group. 
+	![](./media/app-service-api-connect-your-app-to-saas-connector/14-02-gateway-login-URL-Browser.png) 
 
-2.	Enter your credentials when the browser displays a login page.
+	![](./media/app-service-api-connect-your-app-to-saas-connector/14-03-gateway-login-confirmation.png) 
+
+	Grab the zumo auth token and value from the network tab (chrome).
+	![](./media/app-service-api-connect-your-app-to-saas-connector/14-04-Acquire-Zumo-Auth-Token.png) 
+
+	Bring up the postman extension in Chrome. Enter the gateway consent URL and Zumo auth token (header) and value and make POST request. 
+
+	![](./media/app-service-api-connect-your-app-to-saas-connector/15-login-to-the-connector.png) 
  
-	If you configured Azure Active Directory login, use one of the users listed in the Users tab for the application you created in the Azure Active Directory tab of the [management portal](https://manage.windowsazure.com/).  
+	Grab the redirect url that comes back from the post request and verify that redirect URL works. 
 
-	![](./media/app-service-api-connect-your-app-to-saas-connector/12-dropbox-signin-dialog.png) 
- 
-When the login completes successfully, a token is acquired as part of the return URL and stored in the token store. The App Service backend is facilitating all the OAuth flows with all the SaaS providers. Any calls that are made to the SaaS connector will use the token in the token store to connect to the SaaS API’s. This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
+	![](./media/app-service-api-connect-your-app-to-saas-connector/16-redirect-url-validate.png)
+
+
+	If the redirect URL works that means the token is valid. Any calls that are made to the SaaS connector will use the token that we have established and verified. This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
 
 The same flow is applicable for all SaaS connectors like Safesforce, Facebook, etc. 
 
@@ -133,7 +151,10 @@ The same flow is applicable for all SaaS connectors like Safesforce, Facebook, e
 
 	For example:
 
-		https://dropboxconnector7b47555bd6784237ad3e7736da769ffc.azurewebsites.net/file/test.txt
+		https://dropboxconnector7b47555bd6784237ad3e7736da769ffc.azurewebsites.net/folder/photos
+   
+	Given we have establised the right authentication already the call above succeeds and shows the photos folder details in the browser. 
+	![](./media/app-service-api-connect-your-app-to-saas-connector/17-call-dropbox-method-from-browser.png) 
 
 <!--todo<Copy the image of the browser>-->
 
