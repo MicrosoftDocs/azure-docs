@@ -56,7 +56,7 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 
 1. In Visual Studio, right-click the solution, then click **Manage NuGet Packages**.
 
-2. Search for **WindowsAzure.ServiceBus** and click **Install** for all projects in the solution.
+2. Search for **Microsoft.Azure.NotificationHubs** and click **Install** for all projects in the solution.
 
 3. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile backend project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
@@ -137,7 +137,13 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:
         (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:[userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            NSDictionary *apsPayload = [userInfo objectForKey:@"aps"];
+            NSString *alertString = [apsPayload objectForKey:@"alert"];
+    
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
+                          alertString delegate:nil cancelButtonTitle:
+                          @"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 
