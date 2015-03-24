@@ -1,6 +1,6 @@
-﻿<properties 
+<properties 
    authors="danielceckert" 
-   documentationCenter="" 
+   documentationCenter="dev-center-name" 
    editor=""
    manager="jefco" 
    pageTitle="Manage: Load Balancer Distribution Mode (Source IP Affinity)" 
@@ -16,12 +16,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-
+<<<<<<< HEAD:articles/virtual-networks-load-balancer-manage-distribution-mode.md
    />
    
+# Manage virtual network: Load Balancer distribution mode (Source IP Affinity)
+=======
+   /> 
    
 # Manage virtual network: Load balancer distribution mode (Source IP Affinity)
-
+>>>>>>> 5781a6382194f50134d2a16bd9d72a6cca290f3d:articles/virtual-networks-load-balancer-manage-distribution-mode-source-ip.md
 
 **Source IP Affinity** (also known as **session affinity** or **client IP affinity**), an Azure load balancer distribution mode, ties connections from a single client to a single Azure-hosted server, rather than distributing each client connection dynamically to different Azure-hosted servers (the default load balancer behavior).
 
