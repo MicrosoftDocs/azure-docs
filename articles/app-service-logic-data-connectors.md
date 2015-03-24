@@ -16,9 +16,6 @@
 	ms.date="03/24/2015" 
 	ms.author="deonhe"/>
 
-
-Keywords: App API 
-
 # Data Connectors in Microsoft Azure App Service
 
 

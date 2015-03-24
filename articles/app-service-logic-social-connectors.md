@@ -14,10 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/24/2015" 
-	ms.author="deonhe"/>
-
-
-Keywords: App API 
+	ms.author="deonhe"/> 
 
 # Social Connectors in Microsoft Azure App Service
 
