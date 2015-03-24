@@ -41,9 +41,9 @@ explain how App Service impacts these existing services and adds new features.
 <table>
 <thead>
 <tr class="header">
-<th align="left">Existing Azure Service</th>
-<th align="left">Azure App Service</th>
-<th align="left">What changed</th>
+<th align="left", style="width:10%">Existing Azure Service</th>
+<th align="left", style="width:10%">Azure App Service</th>
+<th align="left", style="width:80%">What changed</th>
 </tr>
 </thead>
 <tbody>
