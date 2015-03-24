@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Azure Backup - FAQ"
    description="Frequently asked questions on the Azure Backup service"
    services="backup"
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/18/2015"
+	 ms.date="03/24/2015"
 	 ms.author="prvijay"/>
 
 # Azure Backup - FAQ
