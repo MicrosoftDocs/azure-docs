@@ -21,13 +21,16 @@
  
 #Create and load data into Hive tables from Azure blob storage
  
-In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. We share these Hive queries in Github repository. Users need to plug in their own data schema and Azure blob storage configuration in the corresponding fields in these queries. 
+In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. These Hive queries are shared in the GitHub repository. [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql). 
 
-In this repository, we also provide queries that are specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) as examples. These queries already have the data schema. Users only need to plug in the Azure blob storage configuration in the corresponding fields. Then the queries are ready to be submitted to run. 
+If you create an Azure virtual machine by following the instructions in "Set Up an Azure Virtual Machine with IPython Notebook Server", this script file has been downloaded to the `C:\Users\<user name>\Documents\Data Science Scripts` directory on the virtual machine. You need to plug in your own data schema and Azure blob storage configuration in the corresponding fields in these queries and these Hive queries should be ready for submission. 
 
-We assume that the data for Hive tables has been downloaded to the local machine of users and are in **uncompressed** tabular format, and the data has been uploaded to the default or additional container of the storage account used by the Hadoop cluster. If users want to practice on the _NYC Taxi Trip Data_, they need to first [download all 24 files](http://www.andresmh.com/nyctaxitrips/) (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and upload them to the default or additional container of the Azure storage account that are used when the [Azure HDInsight Hadoop cluster is customized](machine-learning-data-science-customize-hadoop-cluster.md). 
+We assume that the data for Hive tables is in **uncompressed** tabular format, and the data has been uploaded to the default or additional container of the storage account used by the Hadoop cluster. If users want to practice on the _NYC Taxi Trip Data_, they need to first [download all 24 files](http://www.andresmh.com/nyctaxitrips/) (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and upload them to the default or additional container of the Azure storage account that are used when the [Azure HDInsight Hadoop cluster is customized](machine-learning-data-science-customize-hadoop-cluster.html). 
 
-Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.md), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
+Hive queries can be submitted in the Hadoop Command Line on the head node of the Hadoop cluster. You need to:
+
+1. [Enable remote access to the head node of the Hadoop cluster, and log on to the head node](machine-learning-data-science-customize-hadoop-cluster.md).
+2. [Submit the Hive queries in the Hadoop Command Line on the head node](machine-learning-data-science-hive-queries.md).
 
 Users can also use [Query Console (Hive Editor)] by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md). 
 
@@ -87,7 +90,7 @@ The queries of creating a partitioned table and loading data to it are as follow
 	LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name> 
 		PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-When querying partitioned tables, it is recommended to add the partition condition in the **beginning** of the `where` clause so that the searching efficacy can be significantly improved:
+When querying partitioned tables, it is recommended to add the partition condition in the **beginning** of the `where` clause so that the searching efficacy can be significantly improved. 
 
     select 
 		field1, field2, ..., fieldN
@@ -110,6 +113,8 @@ Users cannot directly load data in blob to Hive tables in ORC storage format. He
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' 
 			lines terminated by '<line separator>' STORED AS TEXTFILE 
 			LOCATION 'wasb:///<directory in Azure blob>' TBLPROPERTIES("skip.header.line.count"="1");
+
+		LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
 
 2. Create an internal table with the same schema as the external table in step 1, and the same field delimiter. And store the Hive data in the ORC format
 

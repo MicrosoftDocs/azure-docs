@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Data Science Process in Action | Azure" 
+	pageTitle="Azure Data Science Process in Action: using SQL Sever | Azure" 
 	description="Azure Data Science Process in Action" metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
@@ -18,21 +18,10 @@
 	ms.author="msolhab,fashah" /> 
 
                 
-# Azure Data Science Process in Action
+# Azure Data Science Process in Action: using SQL Sever
 
 In this tutorial, you will follow the Azure Data Science Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
-The following sections are organized as follows:
-
-- [NYC Taxi Trips Dataset Description](#dataset)
-- [Examples of Prediction Problems](#mltasks)
-- [Setting Up the Azure Data Science Environment](#setup)
-- [Get the Data from Public Source](#getdata)
-- [Bulk Import Data into SQL Server Database](#dbload)
-- [Data Exploration and Feature Engineering in SQL Server](#dbexplore)
-- [Data Exploration and Feature Engineering in IPython Notebook](#ipnb)
-- [Building Models in Azure Machine Learning](#mlmodel)
-- [Deploying Models in Azure Machine Learning](#mldeploy)
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 

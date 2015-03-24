@@ -15,13 +15,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
-	ms.author="mohabib, sidneyh" /> 
+	ms.date="03/24/2015" 
+	ms.author="mohabib, bradsev" /> 
 
 
 # Plan Your Azure Machine Learning Data Science Environment
 
-To set up an environment, choose options based on the data source locations and your target destination in the cloud. For example, determine the size of the data, where it exists, and its format. Repeat the set up process to support additional users and scenarios. Conduct end-to-end data science exercises, starting with the original data source through creation and publishing of a model as an Azure web service for consumption in applications.
+To set up an Azure Machine Learning data science environment, choose options based on the the type and size of your data, its source locations, and its target destination in the cloud. 
+\Repeat the set up process to support additional users and scenarios. Conduct end-to-end data science exercises, starting with the original data source through creation and publishing of a model as an Azure web service for consumption in applications.
 
 This article discusses different scenarios and options available, and serves as an introduction to the Cloud Data Science Process flow presented in the **[Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about any step in the Data Science Process, click the relevant item in the [map](machine-learning-data-science-how-to-create-machine-learning-service.md).
 
@@ -75,38 +76,11 @@ Depending on your scenario, you might also need the following:
 4.  Azure Virtual Networks for on-prem to Azure file sharing
 5.  Azure Data Factory for scheduled data movement
 
-How to Use the Cloud Data Science Process Map
----------------------------------------------
 
-The Azure Machine Learning Data Science Process [map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of
-data science exercises. Since the process is iterative in nature, it shows the core steps involved in a typical flow, however, not all steps are required in every data science exercise, and the sequence of steps vary in a given exercise. Your answers to the questions above guide you through the steps—where to perform each, and how to iterate as needed.
+## How to Use the Cloud Data Science Process Map
 
-Here are example variations based on original data size, data source location, and target repository in Azure.
+The Azure Machine Learning [Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. Since the process is iterative in nature, it shows the core steps involved in a typical flow, however, not all steps are required in every data science exercise, and the sequence of steps vary in a given exercise. Your answers to the questions above guide you through the steps—where to perform each, and how to iterate as needed.
 
-- [Scenario \#1: Small to medium tabular dataset in local files](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocal)
-- [Scenario \#2: Small to medium dataset in local files requiring processing](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocalprocess)
-- [Scenario \#3: Large dataset in local files that target Azure blobs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocal)
-- [Scenario \#4: Small to medium dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#smalllocaltodb)
-- [Scenario \#5: Large dataset in local files that target SQL Server on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largelocaltodb)
-- [Scenario \#6: Large dataset in a SQL Server database running on-premises that targets SQL Server running on Azure VMs](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios#largedbtodb)
+For sample scenarios based on original data size, data source location, and target repository in Azure, see [Cloud Data Science Process in Azure Machine Learning](hmachine-learning-data-science-plan-sample-scenarios.md).
 
-Sample Data Scenarios
----------------------
-
-This diagram summarizes some scenarios and examples of process flows. Note that  processing, exploration, feature engineering, and sampling take place in one or more environments: at the source, intermediate, and/or target environments, and may iterate as needed. The diagram does not cover all data sources, targets, methods, and cloud resources possible.
-
-![Sample DS process walkthrough scenarios][8]
-
-### Azure Data Science in Action Example
-
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
-
-[1]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-small-in-aml.png
-[2]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-with-processing.png
-[3]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-large.png
-[4]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-to-db.png
-[5]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-large-to-db.png
-[6]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-db-to-db.png
-[7]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-attach-db.png
-[8]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-sample-scenarios.png
 
