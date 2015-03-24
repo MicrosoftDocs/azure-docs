@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="03/24/2015" 
 	ms.author="mandia"/>
 
 # Enterprise Connectors in Microsoft Azure App Service
@@ -146,12 +146,12 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 ## More Enterprise Connector resources
 [Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md)<br/>
-[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)<br/>
+[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
 
 
 
@@ -161,5 +161,5 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
 [Social connectors](app-service-logic-social-connectors.md)<br/>
 [Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
-[App + Data Services connectors](app-service-logic-data-connectors)<br/>
-[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
+[Connectors and API Apps List](app-service-logic-connectors-list.md)
