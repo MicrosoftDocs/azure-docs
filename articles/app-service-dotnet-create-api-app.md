@@ -119,4 +119,6 @@ Click the **Try it out** button You'll see that the API is functioning and retur
 
 ## Next steps
 
-At this point, your app has everything it needs to be published into the Azure API Apps Marketplace or directly deployed and hosted as an API App in Azure App Service. The [next tutorial](../app-service-dotnet-deploy-api-app/) shows how to publish your API app into the Azure API App Marketplace.
+Your API app is now ready to be deployed, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-app/) tutorial to do that.
+
+For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)
