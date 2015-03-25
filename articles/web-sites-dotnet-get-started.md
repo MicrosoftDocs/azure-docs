@@ -91,13 +91,13 @@ The following diagram illustrates what's happening in these two steps.
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 	
-	When you're signed in, the **Configure Microsoft Azure web app settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Configure Microsoft Azure Web App Settings** dialog box asks you what resources you want to create.
 
 	![Signed in to Azure](./media/web-sites-dotnet-get-started-vs2013/configuresitesettings.png)
 
-3. Visual Studio provides a default **Web app name**, which Azure will use as the prefix for your application's URL. If you prefer, enter a different web app name.
+3. Visual Studio provides a default **Web App name**, which Azure will use as the prefix for your application's URL. If you prefer, enter a different web app name.
 
-	The complete URL will consist of what you enter here plus *.azurewebsites.net* (as shown next to the **Web app name** text box). For example, if the name is `MyExample6442`, the URL will be `MyExample6442.azurewebsites.net`. The URL has to be unique. If someone else has already used the one you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
+	The complete URL will consist of what you enter here plus *.azurewebsites.net* (as shown next to the **Web App name** text box). For example, if the name is `MyExample6442`, the URL will be `MyExample6442.azurewebsites.net`. The URL has to be unique. If someone else has already used the one you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
 
 4. In the **Region** drop-down list, choose the location that is closest to you.
 
@@ -127,7 +127,7 @@ The following diagram illustrates what's happening in these two steps.
 
 ## Deploy the application to Azure
 
-7. In the **Web Publish Activity** window, click **Publish MyExample to this web app now**.
+7. In the **Web Publish Activity** window, click **Publish MyExample to this Web App now**.
 
 	![Web app created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
 
@@ -234,7 +234,7 @@ The [Azure Management Portal](/services/management-portal/) is a web interface t
 
 2. Click **Browse > Web Apps**, then click the name of your web app.
 
-	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
+	The **Web App** blade for your web app displays an overview of usage statistics and links for commonly used web app management functions.
   
 	![Web app blade](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
