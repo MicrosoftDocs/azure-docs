@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="2/12/2015" 
+	ms.date="03/25/2015" 
 	ms.author="tomfitz"/>
 
 #How to Access Azure SQL Database from PHP 
