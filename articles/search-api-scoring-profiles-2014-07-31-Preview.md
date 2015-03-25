@@ -77,7 +77,7 @@ As noted, customized scoring is implemented through scoring profiles defined in 
 
 This example shows the schema of an index with two scoring profiles (`boostGenre`, `newAndHighlyRated`). Any query against this index that includes either profile as a query parameter will use the profile to score the result set.
 
-[Try this example](../search-get-started-scoring-profiles/).
+[Try this example](search-get-started-scoring-profiles.md).
 
     {
       "name": "musicstoreindex",
@@ -172,7 +172,7 @@ Function type (freshness, magnitude, distance) must be lower case.
 <br>
 Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
 <br>
-Functions can only be applied to filterable fields. See [Create Index (Azure Search API)](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/#createindex) for more information about filterable fields.
+Functions can only be applied to filterable fields. See [Create Index (Azure Search API)](search-api-2014-10-20-preview.md#createindex) for more information about filterable fields.
 <br>
 Functions can only be applied to fields that are defined in the fields collection of an index.
 <td>
@@ -181,7 +181,7 @@ Functions can only be applied to fields that are defined in the fields collectio
 </table>
 </font>
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/#createindex) and [Add or Update Documents (Azure Search API)](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index (Azure Search API)](search-api-2014-10-20-preview.md#createindex) and [Add or Update Documents (Azure Search API)](search-api-2014-10-20-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
 ##Template##
@@ -283,7 +283,7 @@ A scoring function can only be applied to fields that are filterable.
 </tr><tr>
 <td>distance</td>	<td>The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameterquery` string option) as a lon,lat argument.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](http://azure.microsoft.com/documentation/articles/search-api-2014-07-31-preview/#SearchDocs) for descriptions of query parameters.</td>
+<td>distance | referencePointParameter</td>	<td>A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents (Azure Search API)](search-api-2014-07-31-preview.md#SearchDocs) for descriptions of query parameters.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>A number that indicates the distance in kilometers from the reference location where the boosting range ends.</td>
 </tr><tr>

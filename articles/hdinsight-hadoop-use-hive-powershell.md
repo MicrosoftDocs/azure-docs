@@ -22,7 +22,7 @@
 
 This document provides an example of using PowerShell to run Hive queries on a Hadoop on HDInsight cluster.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information on the HiveQL used in this example, see <a href="../hdinsight-use-hive/" target="_blank">Use Hive with Hadoop on HDInsight</a>.
+> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information on the HiveQL used in this example, see <a href="hdinsight-use-hive.md" target="_blank">Use Hive with Hadoop on HDInsight</a>.
 
 
 ##<a id="prereq"></a>Prerequisites
@@ -141,6 +141,6 @@ For general information on Hive in HDInsight.
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

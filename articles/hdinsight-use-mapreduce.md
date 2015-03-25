@@ -149,23 +149,23 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 
 * [Get Started with Azure HDInsight][hdinsight-get-started]
 * [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs]
-* [Develop Python streaming MapReduce programs for HDInsight](../hdinsight-hadoop-streaming-python)
+* [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
 * [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
 * [Use Hive with HDInsight][hdinsight-use-hive]
 * [Use Pig with HDInsight][hdinsight-use-pig] 
 * [Run the HDInsight Samples][hdinsight-samples]
 
 
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-develop-mapreduce-jobs]: ../hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-samples]: ../hdinsight-run-samples/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-develop-mapreduce-jobs]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: ../install-and-configure-powershell/
+[powershell-install-configure]: install-and-configure-powershell.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 

@@ -70,12 +70,12 @@ When your application is ready for production, you can lock-down version require
 
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
 
-[specify the Node.js version]: /documentation/articles/nodejs-specify-node-version-azure-apps/
-[How to use the Azure Command-Line Tools for Mac and Linux]: /documentation/articles/xplat-cli/
-[build and deploy a Node.js Web Site]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Node.js Web Application with Storage on MongoDB (MongoLab)]: /documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/
-[Publishing with Git]: /documentation/articles/web-sites-publish-source-control/
-[Build and deploy a Node.js application to an Azure Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Publishing with Git]: web-sites-publish-source-control.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 

@@ -25,11 +25,11 @@ There are two kinds of RemoteApp collections:
 
 This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
-1.	Create a [custom template image for RemoteApp](../remoteapp-create-custom-image/).
+1.	Create a [custom template image for RemoteApp](remoteapp-create-custom-image.md).
 2.	Create a RemoteApp collection.
 2.	Link to a virtual network.
 3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](../remoteapp-ad/).
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](remoteapp-ad.md).
 5.	Publish RemoteApp apps.
 6.	Configure user access.
 
@@ -40,10 +40,10 @@ You need to do the following before creating the collection:
 - [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp. 
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](../install-configure-powershell/) module.
+- Install the [Azure PowerShell](install-configure-powershell.md) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
-- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [How to create a custom template image for RemoteApp](../remoteapp-create-custom-image/) for detailed steps. 
-- [Configure Active Directory for RemoteApp](../remoteapp-ad/).
+- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md) for detailed steps. 
+- [Configure Active Directory for RemoteApp](remoteapp-ad.md).
 
 
 
@@ -88,12 +88,12 @@ A virtual network lets your users access data on your local network through Remo
 
 5. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password. 
 
-	This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](../remoteapp-ad/).
+	This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](remoteapp-ad.md).
 
 
 ## Step 3: Link to a RemoteApp template image ##
 
-A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](../remoteapp-create-custom-image/)) or link to an existing image (one already uploaded to Azure). You can also link to [one of the images included with your subscription](../remoteapp-images/).
+A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md)) or link to an existing image (one already uploaded to Azure). You can also link to [one of the images included with your subscription](remoteapp-images.md).
 
 If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 

@@ -88,10 +88,10 @@ Once an API is created and the settings configured, the next steps are to add th
 [Configure API operations]: #configure-api-operations
 [Next steps]: #next-steps
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[How to secure back-end services using mutual certificate authentication in Azure API Management]: ../api-management-howto-mutual-certificates
-[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: ../api-management-howto-oauth2
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[How to secure back-end services using mutual certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md

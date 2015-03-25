@@ -511,7 +511,7 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 In this document, you have learned how to use the Java Event Hub Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [HDInsight Storm Examples](https://github.com/hdinsight/hdinsight-storm-examples)
 

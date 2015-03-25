@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="03/16/2015" 
+	ms.date="03/17/2015" 
 	ms.author="danlep"/>
 
 
@@ -28,7 +28,7 @@ To use these examples, first set up a three-node CoreOS cluster as described in 
 
 ## <a id='simple'>Example 1: Hello World with Docker</a>
 
-Here is a simple "Hello World" application that runs in a single docker container. This uses the [busybox Docker Hub image].
+Here is a simple "Hello World" application that runs in a single Docker container. This uses the [busybox Docker Hub image].
 
 On your Linux client computer use your favorite text editor to create the following **systemd** unit file and name it `helloworld.service`. (For details about the syntax, see [Unit Files].)
 
@@ -89,9 +89,9 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 ## <a id='highavail'>Example 2: Highly available Apache server</a>
 
-One advantage of using CoreOS, **docker**, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the Apache web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].
+One advantage of using CoreOS, Docker, and **fleet** is that it's easy to run services in a highly available manner. In this example you'll deploy a service that consists of three identical containers running the Apache web server. The containers will run on the three VMs in the cluster. This example is similar to one in [Launching containers with fleet] and uses the [CoreOS Apache Docker Hub image].
 
-> [AZURE NOTE] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure Management Portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
+>[AZURE.NOTE] To run the highly available Apache server, you'll need to configure a load-balanced HTTP endpoint on the virtual machines (public port 80, private port 80). You can do this after creating the CoreOS cluster, using the Azure Management Portal or **azure vm endpoint** command. See [Configure a load-balanced set] for more information.
 
 On your client computer, use your favorite text editor to create a **systemd** template unit file, named apache@.service. You'll use that template to launch three separate instances, named apache@1.service, apache@2.service, and apache@3.service:
 
@@ -115,7 +115,7 @@ X-Conflicts=apache@*.service
 
 >[AZURE.NOTE]The `X-Conflicts` attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host. For details see [Unit Files].
 
-Now start the units on the CoreOS cluster. You should see that they're running on three different machines:
+Now start the unit instances on the CoreOS cluster. You should see that they're running on three different machines:
 
 ```
 fleetctl --tunnel coreos-cluster.cloudapp.net:22 start apache@{1,2,3}.service
@@ -125,7 +125,7 @@ unit apache@1.service launched on 62f0f66e.../100.79.86.62
 unit apache@2.service launched on df85f2d1.../100.78.126.15
 
 ```
-To reach the Apache server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster. Here it's called mycoreoscluster.cloudapp.net, but substitute the name of your cloud service.
+To reach the Apache server running on one of the units, send a simple request to the cloud service hosting the CoreOS cluster. 
 
 `curl http://coreos-cluster.cloudapp.net`
 
@@ -155,7 +155,7 @@ You can try doing more with your three-node CoreOS cluster on Azure. Explore how
 See also [Linux and Open-Source Computing on Azure] for more on using open-source environments on Linux VMs in Azure.
 
 <!--Link references-->
-[Azure Cross-Platform Interface (xplat-cli)]: ../xplat-cli.md/
+[Azure Cross-Platform Interface (xplat-cli)]: xplat-cli.md
 [CoreOS]: https://coreos.com/
 [CoreOS Overview]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -163,10 +163,10 @@ See also [Linux and Open-Source Computing on Azure] for more on using open-sourc
 [Patrick Chanezon's CoreOS Tutorial]: https://github.com/chanezon/azure-linux/tree/master/coreos/cloud-init
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
-[How to Use CoreOS on Azure]: ../virtual-machines-linux-coreos-how-to.md/
+[How to Use CoreOS on Azure]: virtual-machines-linux-coreos-how-to.md
 [Configure a load-balanced set]: http://msdn.microsoft.com/library/azure/dn655055.aspx
 [Launching containers with fleet]: https://coreos.com/docs/launching-containers/launching/launching-containers-fleet/
 [Unit Files]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [busybox Docker Hub image]: https://registry.hub.docker.com/_/busybox/
 [CoreOS Apache Docker Hub image]: https://registry.hub.docker.com/u/coreos/apache/
-[Linux and Open-Source Computing on Azure]: /virtual-machines-linux-opensource.md/
+[Linux and Open-Source Computing on Azure]: virtual-machines-linux-opensource.md

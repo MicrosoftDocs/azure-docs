@@ -188,15 +188,15 @@ Now that you have your experiment set up, you can iterate to try to improve the 
 
 > [AZURE.TIP] Use the **SAVE AS** button under the experiment canvas to copy any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. See [Manage experiment iterations in Azure Machine Learning Studio][runhistory] for more details.
 
-[runhistory]: ../machine-learning-manage-experiment-iterations/
+[runhistory]: machine-learning-manage-experiment-iterations.md
 
 When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices by using new data. See [Publish an Azure Machine Learning web service][publish] for more details.
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
 
 For a more extensive and detailed walkthrough for creating, training, scoring, and publishing a predictive model, see [Develop a predictive solution by using Azure Machine Learning ][walkthrough]. 
 
-[walkthrough]: ../machine-learning-walkthrough-develop-predictive-solution/
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
 [screen1]:./media/machine-learning-create-experiment/screen1.png

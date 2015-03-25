@@ -278,13 +278,13 @@ In this section you will test push and pull operations to sync the local store w
 [12]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-phone-handling-conflicts-offline-data.md 
 [Getting Started Offline Sample for Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-phone-get-started/
-[Get started with data]: /documentation/articles/mobile-services-windows-phone-get-started-data/
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Get started with data]: mobile-services-windows-phone-get-started-data.md
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
-[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
