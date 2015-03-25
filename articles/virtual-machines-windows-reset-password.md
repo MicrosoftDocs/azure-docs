@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="03/25/2015" 
 	ms.author="josephd"/>
 
 # How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines
@@ -56,9 +56,8 @@ Now, you can do these tasks:
 
 Fill in the current local administrator account name and the new password, and then run these commands.
 
-	$UserName = "<current local administrator account name>"
-	$Password = "<new password>"
-	Set-AzureVMAccessExtension –vm $vm -UserName $Username -Password $Password | Update-AzureVM
+	$cred=Get-Credential –Message "Type the name of the current local administrator account and the new password."	
+	Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 
 - If you type a different name than the current account, the VMAccess extension renames the local administrator account, assigns the password to that account, and issues a Remote Desktop log off.
 - If the local administrator account is disabled, the VMAccess extension enables it.
@@ -79,7 +78,7 @@ The VMAccess extension runs these two commands on the VM:
 
 - **Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0**
 
-	This command sets the fDenyTSConnections registry value to 0, enabling the Remote Desktop service.
+	This command sets the fDenyTSConnections registry value to 0, enabling Remote Desktop connections.
 
 If this did not solve your Remote Desktop access problem, run the [Azure IaaS (Windows) diagnostics package](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864). 
 
@@ -87,6 +86,8 @@ If this did not solve your Remote Desktop access problem, run the [Azure IaaS (W
 2.	On the **Which of the following issues are you experiencing with your Azure VM?** page, select the **RDP connectivity to an Azure VM (Reboot Required)** issue 
 
 For more information, see the [Microsoft Azure IaaS (Windows) diagnostics package Knowledgebase article](http://support.microsoft.com/kb/2976864). 
+
+If you were unable to run the Azure IaaS (Windows) diagnostics package or running it did not solve your problem, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-troubleshoot-remote-desktop-connections.md).
 
 
 ## Additional resources
