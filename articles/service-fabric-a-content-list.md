@@ -47,7 +47,7 @@ How to Choose a Programming Model- need decision making info here
 
 How to Create a Stateful Application **owner: Haishi** 
 
-How to Create a Stateless Application **owner: Haishi** 
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi** 
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -180,7 +180,7 @@ Create from template
 ### Service State
 ### Service Model
 ### Application and Service Types
-### Health Model owner: kunal
+[Azure Service Fabric Health](service-fabric-health-introduction.md) owner: oanapl
 ### Names and Properties/Naming Service
 ### Image Store
 ### Monitoring and Diagnostics owner: kunal

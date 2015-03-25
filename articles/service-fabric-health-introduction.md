@@ -1,14 +1,14 @@
 <properties
    pageTitle="Service Fabric Health Introduction - Azure"
    description="Introduction of the Service Fabric Health Subsystem"
-   services="fabric-service"
+   services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
    manager="timlt"
    editor=""/>
 
 <tags
-   ms.service="fabric-service"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
