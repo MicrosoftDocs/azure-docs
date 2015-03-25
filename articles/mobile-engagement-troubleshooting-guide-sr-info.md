@@ -2,21 +2,19 @@
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - SR Info" 
    description="Troubleshooting Guides for Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
-
-# Troubleshooting Guide - SR Info
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
@@ -28,33 +26,28 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# SR Troubleshooting Info
+# Troubleshooting guide for Service Request Information
 
 Please provide the following information when you open any Azure Mobile Engagement service request:
  
-**IDs: Please provide any applicable identifiers related to your issue:**
-
-    - App ID
-    - Campaign ID
-    - Device ID
-    - User ID
-    - Username
-    - App Info Tag
+## IDs: Please provide any applicable identifiers related to your issue
+- App ID
+- Campaign ID
+- Device ID
+- User ID
+- Username
+- App Info Tag
  
-**Errors: Please provide any applicable error information related to your issue:**
-
-    - The name of the API or UI section where the issue occurs
-    - The text of any error message you receive
-    - The results of any tests you have performed from the troubleshooting guides
- 
--    [Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkId=524382)
+## Errors: Please provide any applicable error information related to your issue
+- The name of the API or UI section where the issue occurs
+- The text of any error message you receive
+- The results of any tests you have performed from the [Troubleshooting Guides](http://go.microsoft.com/fwlink/?LinkId=524382)
 
 
-**Code: Please provide any applicable coding information related to your issue:**
-
-    - The SDK version and platform of your app (Android SDK 2.4.1, iOS 1.16.2, etc.)
-    - The download location of your production app (or the APK/TGZ files of your development app)
-    - The "AndroidManifest.xml" and/or any code snippet from your app related to Azure Mobile Engagement (for advanced troubleshooting)
+## Code: Please provide any applicable coding information related to your issue
+- The SDK version and platform of your app (Android SDK 2.4.1, iOS 1.16.2, etc.)
+- The download location of your production app (or the APK/TGZ files of your development app)
+- The "AndroidManifest.xml" and/or any code snippet from your app related to Azure Mobile Engagement (for advanced troubleshooting)
 
 <!--Link references-->
 [Link 1]: ../mobile-engagement-user-interface/
