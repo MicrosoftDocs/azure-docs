@@ -546,7 +546,7 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 •	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
-[11]: ./media/machine-learning-data-science-hive-process-walkthrough/hive-reader-properties.png
+[11]: ./media/machine-learning-data-science-process-hive-walkthrough/hive-reader-properties.png
 [12]: ./media/machine-learning-data-science-process-hive-walkthrough/binary-classification-training.png
 [13]: ./media/machine-learning-data-science-hive-process-walkthrough/create-scoring-experiment.png
 [14]: ./media/machine-learning-data-science-process-hive-walkthrough/binary-classification-scoring.png

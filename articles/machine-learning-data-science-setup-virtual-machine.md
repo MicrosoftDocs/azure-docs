@@ -134,7 +134,7 @@ Your virtual machine is now ready to use in your data science exercises. The vir
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
 [17]: ./media/machine-learning-data-science-setup-virtual-machine/add-endpoints-after-creation.png
-[18]: ./media/machine-learning-data-science-setup-general-virtual-machine/sample-ipnbs.png
+[18]: ./media/machine-learning-data-science-setup-virtual-machine/sample-ipnbs.png
 [19]: ./media/machine-learning-data-science-setup-virtual-machine/dns-name-and-host-name.png
 [20]: ./media/machine-learning-data-science-setup-virtual-machine/browser-warning-ie.png
 [21]: ./media/machine-learning-data-science-setup-virtual-machine/browser-warning.png
