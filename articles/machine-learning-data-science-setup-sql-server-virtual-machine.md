@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Set up a Data Science Virtual Machine" 
-	description="Set up a Data Science Virtual Machinee" 
+	pageTitle="Set up an Azure SQL Server virtual machine for data science" 
+	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server." 
 	services="machine-learning" 
 	solutions="" documentationCenter="" 
 	authors="msolhab,xibingaomsft" 
@@ -14,30 +14,19 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/18/2015" 
-	ms.author="msolhab,xibingaomsft" />
+	ms.author="mohabib;xibingao" />
 
-# Set up a Data Science Virtual Machine in Azure
+# Set up an Azure SQL Server virtual machine for data science
 
-In this tutorial, you will learn how to provision and configure an SQL Server Virtual Machine to be used as part of a Data Science environment. The virtual machine will also serve as an IPython Notebook server, and will be configured with supporting tools and packages which are useful for data science projects. The Azure virtual machine gallery includes several images that contain
-Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
+This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment.  Instructions are provided on how to set up the virtual machine as IPython Notebook server. The virtual machine runs on Windows and is configured with supporting tools such as Azure Storage Explorer and AzCopy, as well as other packages that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
+
+The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
 
 - SQL Server 2012 SP2 Enterprise for small to medium data sizes
 - SQL Server 2012 SP2 Enterprise Optimized for DataWarehousing Workloads for large to very large data sizes
 
  > [AZURE.NOTE] SQL Server 2012 SP2 Enterprise image **does not include a data disk**. You will need to add and/or attach one or more virtual hard disks to store your data. When you create an Azure virtual machine, it has a disk for the operating system mapped to the C drive and a temporary disk mapped to the D drive. Do not use the D drive to store data. As the name implies, it provides temporary storage only. It offers no redundancy or backup because it doesn't reside in Azure storage.
 
-In the following steps, you will:
-
--   [Connect to the Azure management portal and provision an SQL Server virtual machine](#Provision)
--   [Open the virtual machine using Remote Desktop and complete setup](#RemoteDesktop)
--   [Install IPython Notebook and other supporting tools](#InstallIPython)
--   [Attach data disks as needed](#Optional)
--   [Connect to SQL Server Management Studio and enable mixed mode authentication](#SSMS)
--   [Create SQL Server authentication logins](#Logins)
--   [Determine the DNS name of the virtual machine](#DNS)
--   [Connect to the Database Engine from another computer](#cde)
--   [Connect to the Database Engine from Azure Machine Learning](#amlconnect)
--   [Shutdown and deallocate virtual machine when not in use](#shutdown)
 
 ##<a name="Provision"></a>Connect to the Azure management portal and provision an SQL Server virtual machine
 
@@ -365,7 +354,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/).
+In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
@@ -398,9 +387,13 @@ To shutdown and deallocate the virtual machine:
 
 The virtual machine will be deallocated but not deleted. You may restart your virtual machine at any time from the Azure Management Portal.
 
-## Your SQL Server VM is ready to use
+## Your Azure SQL Server VM is ready to use: what's next?
 
-Your SQL Server virtual machine is now ready for creating and loading new databases to use as part of your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for data exploration, data processing, and other tasks in conjunction with Azure Machine Learning.
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process. This process can include steps that move data into HDInsight, that process and sample it there in preparation for learning from the data with Azure Machine Learning.
+
+* For information on how to move data into HDInsight from Azure blob storage, see [Create and load data into Hive tables from Azure blob storage](machine-learning-data-science-hive-tables.md).
+* For information on processing data in HDInsight with Hive queries, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
+* For information on sampling data in HDInsight, see [Sample data in Azure HDInsight Hive tables](machine-learning-data-science-sample-data-hive.md).
 
 
 
@@ -417,16 +410,5 @@ Your SQL Server virtual machine is now ready for creating and loading new databa
 [11]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/24test-login.png
 [12]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/amlreader.png
-[14]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/custom-script.png
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
-[Connect using SSMS]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/33connect-ssms.png
-[Connecting to a SQL Server virtual machine]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/sqlserverinvmconnectionmap.png
-[New Rule]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/13new-fw-rule.png
-[Start the Firewall Program]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/12open-wf.png
-[TCP Port 1433]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/14port-1433.png
-[Allow Connections]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/15allow-connection.png
-[Public Profile]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/16public-profile.png
-[Rule Name]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/17rule-name.png
-[Open SSCM]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/9click-sscm.png
-[Enable TCP]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/10enable-tcp.png
-[Restart Database Engine]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/11restart.png
+
