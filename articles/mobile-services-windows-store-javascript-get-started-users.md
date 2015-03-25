@@ -83,12 +83,12 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Store apps by using Live Connect]: /documentation/articles/mobile-services-windows-store-javascript-single-sign-on
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-windows-store-javascript-get-started-push/
-[Authorize users with scripts]: /documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts
+[Single sign-on for Windows Store apps by using Live Connect]: mobile-services-windows-store-javascript-single-sign-on.md
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-windows-store-javascript-get-started-push.md
+[Authorize users with scripts]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Register your Windows Store app package for Microsoft authentication]: /develop/mobile/how-to-guides/register-windows-store-app-package

@@ -30,3 +30,4 @@ Click **Yes** to verify the identity of the virtual machine.
 
 You can now work with the virtual machine remotely.
 
+If you cannot log on to the virtual machine, see [How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines](/virtual-machines-windows-reset-password/).

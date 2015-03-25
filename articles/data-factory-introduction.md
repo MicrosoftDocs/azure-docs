@@ -164,16 +164,16 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 [Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
 [Power-Query-OnPrem-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-sql-server-database-HA104019808.aspx
 
-[adf-faq]: ../data-factory-faq
+[adf-faq]: data-factory-faq.md
 
-[copy-data-with-adf]: ../data-factory-copy-activity
-[use-pig-hive]: ../data-factory-pig-hive-activities/
-[run-map-reduce]: ../data-factory-map-reduce/
-[azure-ml-adf]: ../data-factory-create-predictive-pipelines/
-[adf-common-scenarios]: ../data-factory-common-scenarios
-[create-factory-using-dotnet-sdk]: ../data-factory-create-data-factories-programmatically
-[data-factory-editor]: ../data-factory-editor
-[create-data-factory-using-powershell]: ../data-factory-monitor-manage-using-powershell
+[copy-data-with-adf]: data-factory-copy-activity.md
+[use-pig-hive]: data-factory-pig-hive-activities.md
+[run-map-reduce]: data-factory-map-reduce.md
+[azure-ml-adf]: data-factory-create-predictive-pipelines.md
+[adf-common-scenarios]: data-factory-common-scenarios.md
+[create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
+[data-factory-editor]: data-factory-editor.md
+[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
 
 [adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx 
 
@@ -182,8 +182,8 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 [msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
 [msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
 
-[adf-tutorial]: ../data-factory-tutorial
-[datafactory-getstarted]: ../data-factory-get-started/
+[adf-tutorial]: data-factory-tutorial.md
+[datafactory-getstarted]: data-factory-get-started.md
 
 [image-data-factory-introduction-traditional-ETL]: ./media/data-factory-introduction/TraditionalETL.PNG
 

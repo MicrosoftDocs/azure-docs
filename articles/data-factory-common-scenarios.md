@@ -67,8 +67,8 @@ See the following topics for consuming data using Power Query:
 
 [msdn-stored-procedure-activity]: https://msdn.microsoft.com/library/dn912649.aspx
 
-[adf-tutorial]: ../data-factory-tutorial
-[datafactory-getstarted]: ../data-factory-get-started/
+[adf-tutorial]: data-factory-tutorial.md
+[datafactory-getstarted]: data-factory-get-started.md
 
 [image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-common-scenarios/Scenario1SourceDataHub.png
 

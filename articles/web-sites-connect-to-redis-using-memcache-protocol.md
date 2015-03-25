@@ -1,4 +1,27 @@
+<properties 
+   pageTitle="web-sites-connect-to-redis-using-memcache-protocol" 
+   description="Connect a Web Application to Redis Cache using the Memcached Protocol" 
+   services="websites" 
+   documentationCenter="php" 
+   authors="syntaxc4" 
+   manager="yochayk" 
+   editor="riande"/>
+   
+<tags
+   ms.service="websites"
+   ms.devlang="php"
+   ms.topic="article"
+   ms.tgt_pltfrm="windows"
+   ms.workload="websites" 
+   ms.date="03/19/2015"
+   ms.author="cfowler"/>
+
 # Connect a Web App to Redis Cache via the Memcache Protocol
+
+Azure Websites is an open platform which provides support for a variety of programming languages including Open Source programming languages such as PHP, Python and Node.js. When building high scale applications, especially those which are distributed amongst multiple servers, a common practice is to introduce a centralized in-memory caching mechanism to offset time intensive calls to external dependencies such as third-party services or the data tier of an application. In many new scenarios [Redis][12], a popular open source data structure server, facilitates the role of an in-memory cache for the application. The Azure Redis Cache Service is the suggested first-party caching mechanism within Microsoft Azure. In many applications and application frameworks, the role of an in-memory cache is facilitated by [memcache][13], another popular scalable caching system.
+
+In order to service the needs of most applications, especially those which use open source languages, Azure Websites now exposes a local memcache endpoint which proxies caching calls into the Azure Redis Cache Service. This enables any application which communicates using the memcached protocol to cache data into a centralized caching mechanism thus alleviating the application from expensive transactions. This post will outline how to configure and validate the Azure Websites memcache shim as a centralized in-memory cache for a WordPress site. It is important to note, that this memcache shim works at the protocol level, so it isn’t specific to any particular application or application framework as long as it communicates using the memcached protocol.
+
 
 ## Prerequisites
 
@@ -158,3 +181,5 @@ Congratulations the application now has a centralized in-memory cache to aid in 
 [9]: http://redis.io/download#installation
 [10]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
+[12]: http://redis.io
+[13]: http://memcached.org

@@ -89,37 +89,37 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 ## More Resources
 
 - [Azure Websites Documentation](/documentation/services/websites/)
-- [Learning map for Azure Websites](/documentation/articles/websites-learning-map/)
+- [Learning map for Azure Websites](websites-learning-map.md)
 - [Azure Web Blog](/blog/topics/web/)
 
 
 [Azure Websites]:/services/websites/
 
-[Orchard]:/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
-[Umbraco]:/documentation/articles/web-sites-gallery-umbraco/
-[Drupal]:/documentation/articles/web-sites-php-migrate-drupal/
-[WordPress]:/documentation/articles/web-sites-php-web-site-gallery/
+[Orchard]:web-sites-dotnet-orchard-cms-gallery.md
+[Umbraco]:web-sites-gallery-umbraco.md
+[Drupal]:web-sites-php-migrate-drupal.md
+[WordPress]:web-sites-php-web-site-gallery.md
   
-[MySQL]:/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Azure SQL Database]:/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[FTP]:/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/documentation/articles/web-sites-publish-source-control/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[deploying to a staging slot]:/documentation/articles/web-sites-staged-publishing/ 
+[deploying to a staging slot]:web-sites-staged-publishing.md 
 [continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
 [run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
 [Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site]:/develop/net/tutorials/web-site-with-sql-database/
 
 [Azure Media Services]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
-[SendGrid service in Azure Marketplace]:/documentation/articles/sendgrid-dotnet-how-to-send-email/
-[Mobile Services]:/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Notification Hub]:/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[SendGrid service in Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
+[Mobile Services]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
+[Notification Hub]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
 [Azure Traffic Manager]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
-[integrating your website with Azure CDN]:/documentation/articles/cdn-websites-with-cdn/ 
+[integrating your website with Azure CDN]:cdn-websites-with-cdn.md 
 [CDN node]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
 [scale up and out]:/manage/services/web-sites/how-to-scale-websites/

@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="New Relic App Performance Management on Azure" 
 	description="Learn how to use New Relic's performance monitoring on Azure." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="stepsic-microsoft-com" 
 	manager="carolz" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -18,10 +18,10 @@
 
 
 
-#New Relic Application Performance Management on Azure Websites
+#New Relic Application Performance Management on Azure Web apps
 
 This guide describes how to add New Relic's world-class performance
-monitoring to your Azure Website. We'll cover the fast and simple
+monitoring to your Azure Web app. We'll cover the fast and simple
 process to add New Relic to your application and introduce you to some of
 New Relic's features. For more information about using New Relic, see [Using New Relic](#using-new-relic).
 

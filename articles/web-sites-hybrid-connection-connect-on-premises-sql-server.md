@@ -71,19 +71,6 @@ The steps in this article assume that you are using the browser from the compute
 
 If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](#CreateSQLDB).
 
-##In This Article##
-[A. Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](#InstallSQL)
-
-[B. Create a Website in the Azure Preview Portal](#CreateSite)
-
-[C. Create a Hybrid Connection and a BizTalk Service](#CreateHC)
-
-[D. Install the on-premises Hybrid Connection Manager to complete the connection](#InstallHCM)
-
-[E. Create a basic ASP.NET web project, edit the database connection string, and run the project locally](#CreateASPNET)
-
-[F. Publish the web application to Azure and test it](#PubNTest)
-
 <a name="InstallSQL"></a>
 ## A. Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises ##
 
@@ -389,7 +376,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](../mobile-services-dotnet-backend-hybrid-connections-get-started/)
+[Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 [Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 

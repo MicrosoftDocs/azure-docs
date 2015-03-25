@@ -257,7 +257,7 @@ Explore the [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/lib
 -	JSON specification  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 -	HTTP specification [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
 -	Entity Tags [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Query DocumentDB](../documentdb-sql-query/)
+-	[Query DocumentDB](documentdb-sql-query.md)
 -	[DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 -	[DocumentDB Programming: Stored procedures, triggers, and UDFs](../documentdb-programming/)
 -	[DocumentDB Reference Documentation](https://msdn.microsoft.com/library/azure/dn781482.aspx)
