@@ -1,6 +1,21 @@
-<properties pageTitle="Cloud Platform Integration Framework - Azure Architecture" description="The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure" services="active-directory" documentationCenter="" authors="arynes" manager="fredhar" editor="" />
+<properties 
+   pageTitle="Cloud Platform Integration Framework - Azure Architecture Patterns" 
+   description="The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure" 
+   services="" 
+   documentationCenter="" 
+   authors="arynes" 
+   manager="fredhar" 
+   editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/27/2015" ms.author="arynes" />
+<tags
+   ms.service="cloud-services"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple" 
+   ms.date="03/25/2015"
+   ms.author="arynes@microsoft.com"/>
+
 
 <h1 id="vnettut1">Cloud Platform Integration Framework (Azure Architecture Patterns)</h1>
 
@@ -27,19 +42,19 @@ To support the development of Solution architectures within Azure, a series of p
 - Global Load Balanced Web Tier 
 - Load Balanced Data Tier
 - Batch Processing Tier
-- Azure Networking
+- Hybrid Networking
 - Azure Search 
 
 ##  Additional Resources
-[CPIF Architecture](http://azure.microsoft.com/documentation/services/active-directory/) 
+[CPIF Architecture (pdf)](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-bd1e434a) 
 
 ## See Also
-[Global Load Balanced Web Tier](http://azure.microsoft.com/documentation/services/active-directory/) 
+[Global Load Balanced Web Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-2c3c663a) 
 
-[Load Balanced Data Tier](http://azure.microsoft.com/documentation/services/active-directory/)
+[Load Balanced Data Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-dfb09e41)
 
-[Batch Processing Tier](http://azure.microsoft.com/documentation/services/active-directory/)
+[Batch Processing Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-[Azure Networking](http://azure.microsoft.com/documentation/services/active-directory/)
+[Azure Networking](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
-[Azure Search](http://azure.microsoft.com/documentation/services/active-directory/)
+[Azure Search](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)

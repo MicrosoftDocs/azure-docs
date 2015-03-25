@@ -1,10 +1,24 @@
-<properties pageTitle="Cloud Platform Integration Framework - Azure Architecture" description="The Cloud Platform Integration Framework provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution consisting of architectural patterns for Microsoft Azure" services="active-directory" documentationCenter="" authors="arynes" manager="fredhar" editor="" />
+<properties 
+   pageTitle="Hybrid Networking (Azure Architecture Patterns)" 
+   description="The Hybrid Networking pattern is part of the Infrastructure area, which is described extensively in the CPIF Architecture document." 
+   services="" 
+   documentationCenter="" 
+   authors="arynes" 
+   manager="fredhar" 
+   editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/27/2015" ms.author="arynes" />
+<tags
+   ms.service="cloud-services"
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple" 
+   ms.date="03/25/2015"
+   ms.author="arynes@microsoft.com"/>
 
 <h1 id="vnettut1">Hybrid Networking (Azure Architecture Patterns)</h1>
 
-The [Cloud Platform Integration Framework (CPIF)](http://azure.microsoft.com/) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution. 
+The [Cloud Platform Integration Framework (CPIF)](azure-architectures-cpif-overview.md) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.  
 
 CPIF describes how organizations, customers and partners should design and deploy Cloud-targeted workloads utilizing the hybrid cloud platform and management capabilities of Azure, System Center and Windows Server. 
 
@@ -31,15 +45,15 @@ The hybrid networking architecture pattern is complex due to the possible number
 - ExpressRoute hybrid networking using IXP connectivity 
 
 ##  Additional Resources
-[Azure Networking](http://azure.microsoft.com/)
+[Hybrid Networking (pdf)](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-5e401f38)
 
 ## See Also
-[CPIF Architecture](http://azure.microsoft.com/documentation/services/active-directory/) 
+[CPIF Architecture](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-bd1e434a) 
 
-[Global Load Balanced Web Tier](http://azure.microsoft.com/) 
+[Global Load Balanced Web Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-2c3c663a) 
 
-[Load Balanced Data Tier](http://azure.microsoft.com/)
+[Load Balanced Data Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-dfb09e41)
 
-[Batch Processing Tier](http://azure.microsoft.com/)
+[Azure Search Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d) 
 
-[Azure Search Tier](http://azure.microsoft.com/) 
+[Batch Processing Tier](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
