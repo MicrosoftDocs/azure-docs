@@ -160,6 +160,11 @@ Not currently, but with the standard Python module or a set of them the same res
 No, there is no REPL environment for Python in the studio. 
 
 ## Web service
+###Retrainining Models Programmatically
+
+**How do I Retrain AzureML Models programmaticlly?**
+Use the Retraining APIs. Sample code is available [here](https://azuremlretrain.codeplex.com/).
+
 ###Create
 
 **Can I deploy the model locally or in an application without an internet connection?**
