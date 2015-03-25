@@ -44,6 +44,7 @@ The Copy Activity supports the following data movement scenarios:
 - Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
 - Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
 - Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
+- Copy data from an On-premises Oracle database to an Azure blob
 - Copy data from an On-premises file system to Azure Blob
  
 
@@ -111,6 +112,16 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 		<td></td>
 	</tr>
+
+	<tr>
+		<td><b>On-premises Oracle Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
 
 </table>
 
