@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Down-sampling data in Azure HDInsight Hive tables | Azure" 
+	pageTitle="Sample data in Azure HDInsight Hive tables | Azure" 
 	description="Down sampling data in Azure HDInsight Hive Tables" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -18,16 +18,14 @@
 	ms.date="03/16/2015" 
 	ms.author="hangzh;bradsev" />
 
-# Down-sampling data in Azure HDInsight Hive tables 
+# Sample data in Azure HDInsight Hive tables 
 
-If the data is big, in order for data understanding, exploration, feature engineering, and fast prototyping the data processing functions and machine learning models, usually it is a good idea to down sample the data. In this article, we describe how to down sample data in Azure HDInsight Hive tables. We cover three popularly used sampling methods: 
+If the dataset you plan to analyze is big, it is usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. This facilitates data understanding, exploration, and feature engineering. It's role in the Data Science Process, is to enable fast prototyping of the data processing functions and machine learning models.
 
-- [Uniform random sampling](#uniform)
-- [Random sampling by groups](#group)
-- [Stratified sampling](#stratified)
+In this article, we describe how to down-sample data in Azure HDInsight Hive tables. We cover three popularly used sampling methods: Uniform random sampling, random sampling by groups, and stratified sampling.
 
 ## <a name="uniform"></a> Uniform random sampling ##
-Uniform random sampling means that each row in the data set has the equal opportunity to be sampled. This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query, condition on that random field. 
+Uniform random sampling means that each row in the data set has an equal chance of being sampled. This can be implemented by adding an extra field rand() to the data set in the inner "select" query, and in the outer "select" query that condition on that random field. 
 
 Here is an example query:
 
@@ -41,7 +39,8 @@ Here is an example query:
 		from <hive table name>
 		)a
 	where samplekey<='${hiveconf:sampleRate}'
-Here, `<sample rate, 0-1>` is the proportion of records that the users want to sample. 
+
+Here, `<sample rate, 0-1>` specifies the proportion of records that the users want to sample. 
 
 ## <a name="group"></a> Random sampling by groups ##
 

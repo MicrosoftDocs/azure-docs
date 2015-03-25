@@ -15,38 +15,68 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="03/23/2015" 
 	ms.author="hangzh;bradsev" /> 
 
-#<a name="heading"></a>Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process
 
-In this document, we describe different ways of submitting Hive queries, and provide generic Hive queries to explore the data and generate features using embedded Hive User Defined Functions (UDFs). Queries specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) are also provided in Github repository. These queries already have the data schema, and are ready to be submitted to run. 
+This document describes various ways of submitting Hive queries to Hadoop clusters managed by an HDInsight service in Azure. Hive queries can be submitted by using: 
+
+* the Hadoop Command Line on the headnode of the cluster
+* the IPython Notebook 
+* the Hive Editor
+* Azure PowerShell scripts 
+
+Generic Hive queries that can used to explore the data or to generate features that use embedded Hive User Defined Functions (UDFs) are provided. 
+
+Examples of queries the specific to [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. 
+
+In the final section, parameters that users can tune so that the performance of Hive queries can be improved are discussed.
+
+## Prerequisites
+This article assumes that you have:
+ 
+* created an Azure storage account. If you need instructions, see [Create an Azure Storage account](hdinsight-get-started.md#storage) 
+* provisioned an Hadoop cluster with the HDInsight service.  If you need instructions, see [Provision an HDInsight cluster](hdinsight-get-started.md#provision).
+* the data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-hive-tables.md) to upload data to Hive tables first.
+* enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
+
+
+- [How to Submit Hive Queries](#submit)
+- [Data Exploration and Feature Engineering](#explore)
+- [Advanced topics: Tune Hive Parameters to Improve Query Speed](#tuning)
 
 ## <a name="submit"></a>How to Submit Hive Queries
 
 ###1. Through Hadoop Command Line in Head Node of Hadoop Cluster
 
-If the query is complex, usually submitting Hive queries directly in the head node of the Hadoop cluster can lead to faster turn around than submitting in IPython Notebook, Hive Editor, or Azure PowerShell scripts. 
+If the query is complex, submitting Hive queries directly in the head node of the Hadoop cluster typically leads to faster turn around than submitting in with a Hive Editor or Azure PowerShell scripts. 
 
-We assume that the remote access to the Hadoop cluster has been enabled. If not, please enable it by following the instructions in [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
-
-After you log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node. Then, enter command `cd %hive_home%\bin`.
+Log in to the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node, and enter command `cd %hive_home%\bin`.
 
 Users have three ways to submit Hive queries in Hadoop Command Line. 
 
 ####Submit Hive queries directly in Hadoop Command Line. 
 
-Users can run command like `hive -e "<your hive query>;" to submit Hive queries directly in Hadoop Command Line. An example is as follows, where the red box highlights the command that submits the Hive query, and the green box highlights the output from the Hive query.
+Users can run command like `hive -e "<your hive query>;` to submit simple Hive queries directly in Hadoop Command Line. Here is an example, where the red box outlines the command that submits the Hive query, and the green box outlines the output from the Hive query.
 
 ![Create workspace][10]
 
 ####Submit Hive queries in .hql files
 
-When the Hive query is complicated with multiple lines, editing queries in command line or Hive command console is not a pleasant experience. Users can use an text editor in the head node of the Hadoop cluster to save the Hive queries in a .hql file in a local directory of the head node. Then in the Hadoop Command Line, submit the Hive query in the .hql file by using the `-f` argument as follows:
+When the Hive query is more complicated and has multiple lines, editing queries in command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument as follows:
 	
 	`hive -f "<path to the .hql file>"`
 
 ![Create workspace][15]
+
+
+####Suppress progress status screen print of Hive queries
+
+By default, after Hive query is submitted in Hadoop Command Line, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use an argument `-S` ("S" in upper case) in the command line as follows:
+
+	hive -S -f "<path to the .hql file>"
+	hive -S -e "<Hive queries>"
 
 ####Submit Hive queries in Hive command console.
 
@@ -72,23 +102,17 @@ Users can also output the Hive query results to an Azure blob, within the defaul
 
 	`insert overwrite directory wasb:///<directory within the default container> <select clause from ...>`
 
-In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you only need to provide the directory name, without the blob name. Error will be thrown out if you provide both directory and blob names, such as `wasb:///queryoutputdir/queryoutput.txt`. 
+In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you only need to provide the directory name, without the blob name. An error will be thrown out if you provide both directory and blob names, such as `wasb:///queryoutputdir/queryoutput.txt`. 
 
 ![Create workspace][13]
 
-If you open the default container of the Hadoop cluster using tools like Azure Storage Explorer, you will see the output of the Hive query as follows. You can apply the filter (highlighted by red box) to only retrieve the blob with specified pattern.
+If you open the default container of the Hadoop cluster using tools like Azure Storage Explorer, you will see the output of the Hive query as follows. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
 
 ![Create workspace][14]
 
-###2. Through IPython Notebooks
+###2. Through Hive Editor or Azure PowerShell Commands
 
-Hive queries can be submitted in Python. An IPython Notebook describing how to submit Hive queries in Python and retrieve query outputs is shared at [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks/machine-learning-data-science-hive-queries-in-python.ipynb). If users create an Azure virtual machine and set up IPython Notebook server by following the instructions in [Setting Up IPython Notebook servers on Azure Virtual Machines](machine-learning-data-science-setup-ipython-notebooks.md), this IPython Notebook has already been checked out on your virtual machine. Otherwise, users need to copy and paste the Python scripts from the Github file to their own Python codes. Then, you only need to plug in the HDInsight Hadoop cluster information and the Hive query, and the query should be able to be submitted and run on Hadoop cluster.  
-
-The benefit of running Hive queries in IPython Notebook is that after the query completes, the query output is returned as a pandas data frame. It facilitates further analysis and process of the Hive query results. 
-
-###3. Through Hive Editor or Azure PowerShell Commands
-
-Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in), or can [submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md). 
+Users can also use Query Console (Hive Editor) by entering the URL in a web browser `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor` (you will be asked to input the Hadoop cluster credentials to log in), or can [Submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell). 
 
 ## <a name="explore"></a>Data Exploration, Feature Engineering and Hive Parameter Tuning
 
@@ -251,11 +275,11 @@ The fields that are used in this query are GPS coordinates of pickup and dropoff
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-The mathematical equations of calculating distance between two GPS coordinates can be found at [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
+The mathematical equations of calculating distance between two GPS coordinates can be found at [here](http://www.movable-type.co.uk/scripts/latlong.html), authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide function `atan2`, but provides function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query, based on its definition in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
 
 ![Create workspace][1]
 
-A full list of Hive embedded UDFs can be found [Hive Mathematical Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
+A full list of Hive embedded UDFs can be found [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions). 
 
 ## <a name="tuning"></a> Advanced topics: Tune Hive Parameters to Improve Query Speed
 
@@ -291,7 +315,7 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]:  ./media/machine-learning-data-science-hive-queries/atan2new.png
+[1]: ./media/machine-learning-data-science-hive-queries/atan2new.png
 [10]: ./media/machine-learning-data-science-hive-queries/run-hive-queries-1.png
 [11]: ./media/machine-learning-data-science-hive-queries/run-hive-queries-2.png
 [12]: ./media/machine-learning-data-science-hive-queries/output-hive-results-1.png
