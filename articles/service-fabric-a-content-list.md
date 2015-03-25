@@ -77,13 +77,31 @@ How to Create a Service Instance (PowerShell)
 More advanced conceptual topics, this handled by VS
 
 ### Test a Service owner: Vas
-How To Remove a Service and Application (PowerShell)
+What is Testability - P1 - Vas
 
-How to Run the Failover Test Scenario (PowerShell)
+Why is Testability important - P1 - Rishi
 
-How to Run the Chaos Test Scenario
+How does it work - P1 - Anmol
 
-How to Run the Chaos Test Scenario (PowerShell)
+Run an action with PowerShell - P1 - Vas
+
+Run an action with C# - P1 - Vas
+
+Run a scenario with PowerShell - P1 - Vas
+
+Run a scenario with C# - P1 - Vas
+
+Run the Chaos Test - P1 - Anmol
+
+Validating and troubleshooting - P1 - Anmol
+
+Testing during development - P2 - Rishi
+
+Testing in test/staging - P2 - Rishi
+
+Testing in production - P2 - Rishi
+
+Writing a custom test scenario - P3 - Vas
 
 ### Upgrade an Application owner: Mani
 How to Perform an Un-monitored Automatic Application Upgrade
