@@ -16,9 +16,11 @@
 	ms.date="03/26/2015" 
 	ms.author="raynew"/>
 # Back up Azure virtual machines with Azure Backup
+
 Use the Azure Backup service to protect data on your on-premises servers and Azure virtual machines from loss. This walkthrough describes how to backup your Azure virtual machines with Azure Backup.
 
 ## Overview
+
 Using Azure Backup to backup data from your Azure virtual machines provides a number of business benefits:
 
 - Azure Backup automates backup and recovery for your virtual machines
@@ -29,6 +31,7 @@ Using Azure Backup to backup data from your Azure virtual machines provides a nu
 
 
 ## Before you start
+
 You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](hhttp://azure.microsoft.com/pricing/details/backup).
 
 
@@ -76,6 +79,7 @@ You'll need an Azure account. If you don't have one start the with a [free trial
 	![Protection status](./media/backup-azure-vms/Backup_ProtectionPending.png)
  
 ## Run a backup
+
 After initial replication completes the virtual machine will be backed up in accordance with the policy schedule, or you can click **Backup Now** to run a manual backup.
 Note that **Backup Now** uses the retention policy that's applied to the virtual machine Backup and creates a recovery point.
  
@@ -117,6 +121,7 @@ After restore you'll need to reconfigure the extensions and recreate the endpoin
  Note that if you didn't select to delete the backup when you stopped backup for the virtual machine you can select the virtual machine in the Protected Items page and click **Delete**. If you want to remove the virtual machine from the backup vault, stop it and then click **Unregister** to remove it completely. 
 
 ###Dashboard
+
 On the Dashboard page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors. 
 
 
