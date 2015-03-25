@@ -19,7 +19,7 @@
 
 #How to: Dynamically Encrypt an Asset with PlayReady or AES-128
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.
   
 ##Overview
 

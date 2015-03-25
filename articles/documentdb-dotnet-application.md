@@ -2,7 +2,7 @@
 	pageTitle="Build a web application with ASP.NET MVC using DocumentDB | Azure" 
 	description="Learn how to use DocumentDB with .NET to build a To Do List web application. You'll store and access data from an ASP.NET MVC web application hosted on Azure Websites." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -597,7 +597,7 @@ If you're looking to save time and just want to build the complete todo solution
 4. Retrieve the **URI** and **PRIMARY KEY** or **SECONDARY KEY** values from the **Keys** blade of your DocumentDB account in the [Azure Preview portal](https://portal.azure.com/). 
 
 	
-	If you don't have an account, see [Create a database account](/documentation/articles/documentdb-create-account/) to set one up.
+	If you don't have an account, see [Create a database account](documentdb-create-account.md) to set one up.
 
 	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
 

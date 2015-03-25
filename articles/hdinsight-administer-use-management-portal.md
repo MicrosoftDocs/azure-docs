@@ -36,8 +36,8 @@ Before you begin this article, you must have the following:
 
 You can provision HDInsight clusters from the Azure Management Portal using the Quick Create or Custom Create options. See the following links for instructions
 
-- [Provision a cluster using Quick Create](../hdinsight-get-started/#provision)
-- [Provision a cluster using Custom Create](../hdinsight-provision-clusters/#portal) 
+- [Provision a cluster using Quick Create](hdinsight-get-started.md#provision)
+- [Provision a cluster using Custom Create](hdinsight-provision-clusters.md#portal) 
 
 [AZURE.INCLUDE [data center list](../includes/hdinsight-pricing-data-centers-clusters.md)]
 
@@ -46,7 +46,7 @@ You can provision HDInsight clusters from the Azure Management Portal using the 
 
 HDInsight works with a wide range of Hadoop components. For the list of the components that have been verified and supported, see [What version of Hadoop is in Azure HDInsight][hdinsight-versions]. HDInsight customization can be done using one of the following options:
 
-- Use Script Actions to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph, Solr, etc. For more information, see [Customize HDInsight cluster using Script Action](../hdinsight-hadoop-customize-cluster/).
+- Use Script Actions to run custom scripts that can customize a cluster to either change cluster configuration or install custom components such as Giraph, Solr, etc. For more information, see [Customize HDInsight cluster using Script Action](hdinsight-hadoop-customize-cluster.md).
 - Use the cluster customization parameters in HDInsight .NET SDK or Azure PowerShell during cluster provision. By doing so, these configuration changes are preserved through lifetime of the cluster and not affected by cluster node reimages that Azure platform periodically performs for maintenance. For more information on using the cluster customization parameters, see [Provision HDInsight clusters][hdinsight-provision].
 - Some native Java components, like Mahout, Cascading, can be run on the cluster as JAR files. These JAR files can be distributed to Azure Blob storage (WASB), and submitted to HDInsight clusters using Hadoop job submission mechanisms. For more information see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs]. 
 
@@ -190,18 +190,18 @@ In this article, you have learned how to create an HDInsight cluster using the A
 * [Get Started with Azure HDInsight][hdinsight-get-started]
 * [What version of Hadoop is in Azure HDInsight?][hdinsight-versions]
 
-[hdinsight-admin-cross-platform]: ../hdinsight-administer-use-command-line/
+[hdinsight-admin-cross-platform]: hdinsight-administer-use-command-line.md
 
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-versions]: ../hdinsight-component-versioning/
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-support]: http://azure.microsoft.com/support/options/
 [makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 [azure-management-portal]: https://manage.windowsazure.com/
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

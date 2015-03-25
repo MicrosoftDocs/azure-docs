@@ -73,9 +73,9 @@ In this article you learned how to use Power Query to retrieve data from HDInsig
 * [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 * [Upload Data to HDInsight][hdinsight-upload-data].
 
-[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.SelectHdiSource.png
 [image-hdi-powerquery-importdata]: ./media/hdinsight-connect-excel-power-query/HDI.PowerQuery.ImportData.png 

@@ -23,7 +23,7 @@
 
 To set up an environment, choose options based on the data source locations and your target destination in the cloud. For example, determine the size of the data, where it exists, and its format. Repeat the set up process to support additional users and scenarios. Conduct end-to-end data science exercises, starting with the original data source through creation and publishing of a model as an Azure web service for consumption in applications.
 
-This article discusses different scenarios and options available, and serves as an introduction to the Cloud Data Science Process flow presented in the **[Data Science Process map](./machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about any step in the Data Science Process, click the relevant item in the [map](./machine-learning-data-science-how-to-create-machine-learning-service.md).
+This article discusses different scenarios and options available, and serves as an introduction to the Cloud Data Science Process flow presented in the **[Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about any step in the Data Science Process, click the relevant item in the [map](machine-learning-data-science-how-to-create-machine-learning-service.md).
 
 ## Questions to Consider
 
@@ -69,7 +69,7 @@ Before you begin creating your Cloud Data Science environment, consider the foll
 
 Depending on your scenario, you might also need the following:
 
-1.  Azure Tools: [Azure PowerShell SDK](http://azure.microsoft.com/documentation/articles/install-configure-powershell/), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/), and others
+1.  Azure Tools: [Azure PowerShell SDK](install-configure-powershell.md), [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/), [AzCopy](storage-use-azcopy.md), and others
 2.  Azure Virtual Machines running SQL Server
 3.  Azure HDInsight (Hadoop)
 4.  Azure Virtual Networks for on-prem to Azure file sharing
@@ -78,7 +78,7 @@ Depending on your scenario, you might also need the following:
 How to Use the Cloud Data Science Process Map
 ---------------------------------------------
 
-The Azure Machine Learning Data Science Process [map](./machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of
+The Azure Machine Learning Data Science Process [map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of
 data science exercises. Since the process is iterative in nature, it shows the core steps involved in a typical flow, however, not all steps are required in every data science exercise, and the sequence of steps vary in a given exercise. Your answers to the questions above guide you through the steps—where to perform each, and how to iterate as needed.
 
 Here are example variations based on original data size, data source location, and target repository in Azure.
@@ -99,7 +99,7 @@ This diagram summarizes some scenarios and examples of process flows. Note that 
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-your-environment/dsp-plan-local-with-processing.png

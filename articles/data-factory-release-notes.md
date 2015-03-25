@@ -67,10 +67,10 @@
     
   		See [Use custom activities in an Azure Data Factory pipeline][adf-custom-activities] for a walkthrough on how to create a custom activity and use it in an Azure Data Factory pipeline.  
 
-[adf-azure-ml]: ../data-factory-create-predictive-pipelines
-[adf-custom-activities]: ../data-factory-use-custom-activities
-[adf-copy-activity]: ../data-factory-copy-activity
-[adf-editor]: ../data-factory-editor
+[adf-azure-ml]: data-factory-create-predictive-pipelines.md
+[adf-custom-activities]: data-factory-use-custom-activities.md
+[adf-copy-activity]: data-factory-copy-activity.md
+[adf-editor]: data-factory-editor.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/

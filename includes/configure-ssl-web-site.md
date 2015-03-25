@@ -454,7 +454,7 @@ At this point, you should be able to visit your website using `HTTPS://` instead
 
 Azure Websites do *not* enforce HTTPS. Visitors may still access your site using HTTP, which may compromise your website's security. If you want to enforce HTTPS for your website, you can use the **URL Rewrite** module. The URL Rewrite module is included with Azure Websites, and enables you to define rules that are applied to incoming requests before the requests are handed to your application. **It can be used for applications written in any programming language supported by Azure Websites.** 
 
-> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+> [AZURE.NOTE] .NET MVC applications should use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of URL Rewrite. For more information on using RequireHttps, see [Deploy a secure ASP.NET MVC 5 app to an Azure Web Site](../articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 > 
 > For information on programmatic redirection of requests using other programming languages and frameworks, consult the documentation for those technologies.
 
@@ -522,11 +522,11 @@ For more information on the IIS URL Rewrite module, see the [URL Rewrite](http:/
 ## More Resources ##
 - [Microsoft Azure Trust Center](/support/trust-center/security/)
 - [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
-- [Enable diagnostic logging](../web-sites-enable-diagnostic-log/)
-- [Configuring Web Sites](../web-sites-configure/)
+- [Enable diagnostic logging](../articles/web-sites-enable-diagnostic-log.md)
+- [Configuring Web Sites](../articles/web-sites-configure.md)
 - [Azure Management Portal](https://manage.windowsazure.com)
 
-[customdomain]: ../web-sites-custom-domain-name/
+[customdomain]: ../articles/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx

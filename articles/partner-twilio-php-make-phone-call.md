@@ -115,7 +115,7 @@ This code was provided to show you basic functionality using Twilio in PHP on Az
 For additional information about Twilio, see [https://www.twilio.com/docs][twilio_docs].
 
 ## See Also
-* [How to Use Twilio for Voice and SMS Capabilities in PHP](../partner-twilio-php-how-to-use-voice-sms)
+* [How to Use Twilio for Voice and SMS Capabilities in PHP](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio
@@ -128,7 +128,7 @@ For additional information about Twilio, see [https://www.twilio.com/docs][twili
 [twiml]: http://www.twilio.com/docs/api/twiml
 [twilio_api_service]: http://api.twilio.com
 [build_php_azure_app]: http://azurephp.interoperabilitybridges.com/articles/build-and-deploy-a-windows-azure-php-application
-[howto_twilio_voice_sms_php]: ../partner-twilio-php-how-to-use-voice-sms
+[howto_twilio_voice_sms_php]: partner-twilio-php-how-to-use-voice-sms.md
 [howto_blob_storage_php]: http://azure.microsoft.com/documentation/articles/storage-php-how-to-use-blobs/
 [howto_sql_azure_php]: http://azure.microsoft.com/documentation/articles/sql-database-php-how-to-use/
 [twilio_call_properties]: https://www.twilio.com/docs/api/rest/call#instance-properties

@@ -533,7 +533,7 @@ To view errors that have occurred in a running topology, use the following steps
 
 ##Next steps
 
-Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+Now that you have learned how to develop and deploy Storm topologies from the HDInsight tools for Visual Studio, learn how to [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md).
 
 For an example of a C# topology that splits stream data into multiple streams, see [https://github.com/Blackmist/csharp-storm-example](https://github.com/Blackmist/csharp-storm-example).
 
@@ -543,24 +543,24 @@ For more ways to work with HDInsight, or more Storm on HDinsight samples, see th
 
 **Apache Storm on HDInsight**
 
-* [Deploy and monitor topologies with Apache Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+* [Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Process events from Azure Event Hub with Storm on HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
+* [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
 
-* [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology/)
+* [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-* [Trending hashtags for Twitter with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending/)
+* [Trending hashtags for Twitter with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md)
 
 * [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop on HDInsight**
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [Getting started with HBase on HDInsight](../hdinsight-hbase-get-started/)
+* [Getting started with HBase on HDInsight](hdinsight-hbase-get-started.md)
