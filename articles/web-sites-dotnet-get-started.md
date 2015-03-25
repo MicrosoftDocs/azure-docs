@@ -234,7 +234,7 @@ The [Azure Management Portal](/services/management-portal/) is a web interface t
 
 2. Click **Browse > Web Apps**, then click the name of your web app.
 
-	The **Web App** blade for your web app displays an overview of usage statistics and links for a commonly used web app management functions.
+	The **Web App** blade for your web app displays an overview of usage statistics and links for commonly used web app management functions.
   
 	![Web app blade](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)-->
 
