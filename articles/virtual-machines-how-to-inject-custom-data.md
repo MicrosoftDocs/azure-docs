@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/1/2014" 
+	ms.date="03/24/2015" 
 	ms.author="rasquill"/>
 
 
@@ -33,16 +33,9 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 In this topic:
 
-+ [Injecting the Custom Data into your Azure Virtual Machine](#injectingCustomData)
+## Injecting the custom data into your Azure Virtual Machine
 
-+ [Using Custom Data in the Virtual Machine](#usingCustomData)
-
-+ [Next steps](#nextsteps)
-
-
-## <a id="injectingCustomData"></a>Injecting the Custom Data into your Azure Virtual Machine
-
-This feature is currently supported only in the [Microsoft Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstates one very basic approach. 
+This feature is currently supported only in the [Microsoft Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach. 
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -53,7 +46,7 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
 ```
 
 
-## <a id="usingCustomData"></a>Using Custom Data in the Virtual Machine
+## Using Custom Data in the Virtual Machine
  
 + If your Azure Virtual Machine is a Windows Virtual Machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin` and although it was base64-encoded to transfer from the local computer to the new Virtual Machine, it is automatically decoded and can be opened or used immediately. 
 
@@ -65,7 +58,7 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
     + At `/var/lib/waagent/CustomData` 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a id="nextsteps"></a>Next steps: Using cloud-init
+## Next steps: Using cloud-init
 
 If your Azure Virtual Machine is an Ubuntu image, then you can use cloud-init to launch a script to use your custom data automatically (or, if your custom data file is a script, execute it). For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
