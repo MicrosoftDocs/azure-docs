@@ -40,7 +40,7 @@ App Services' SaaS connectors provide a turnkey way to connect your web, mobile,
 
 [Social Connectors in Microsoft Azure App Service](app-service-logic-social-connectors.md)
 
-[App + Data Services Connectors in Microsoft Azure App Service](app-service-logic-data-connectors)
+[App + Data Services Connectors in Microsoft Azure App Service](app-service-logic-data-connectors.md)
 
 
 ## Premium Connectors 
