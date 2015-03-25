@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="24/03/2015" 
+	ms.date="03/26/2015" 
 	ms.author="raynew"/>
 
 Use the Azure Backup service to protect data on your on-premises servers and Azure virtual machines from loss. This walkthrough describes how to backup your Azure virtual machines with Azure Backup.
@@ -29,7 +29,7 @@ Using Azure Backup to backup data from your Azure virtual machines provides a nu
 
 
 ## Before you start
-You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](hhttp://azure.microsoft.com/en-us/pricing/details/backup).
+You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](hhttp://azure.microsoft.com/pricing/details/backup).
 
 
 ## Create a vault
