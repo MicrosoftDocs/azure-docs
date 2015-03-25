@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/24/2015" 
-	ms.author="mohabib,bradsev" /> 
+	ms.author="mohabib;bradsev" /> 
 
 
 # Plan Your Azure Machine Learning Data Science Environment

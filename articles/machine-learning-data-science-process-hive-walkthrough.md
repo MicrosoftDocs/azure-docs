@@ -548,6 +548,6 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
 [11]: ./media/machine-learning-data-science-process-hive-walkthrough/hive-reader-properties.png
 [12]: ./media/machine-learning-data-science-process-hive-walkthrough/binary-classification-training.png
-[13]: ./media/machine-learning-data-science-hive-process-walkthrough/create-scoring-experiment.png
+[13]: ./media/machine-learning-data-science-process-hive-walkthrough/create-scoring-experiment.png
 [14]: ./media/machine-learning-data-science-process-hive-walkthrough/binary-classification-scoring.png
 [15]: ./media/machine-learning-data-science-process-hive-walkthrough/amlreader.png

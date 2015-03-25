@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="mohabib,fashah"/> 
+	ms.author="mohabib;fashah"/> 
 
                 
 # Azure Data Science Process in Action: using SQL Sever
@@ -616,7 +616,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 

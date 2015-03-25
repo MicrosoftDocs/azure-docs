@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/18/2015" 
-	ms.author="msolhab,xibingaomsft" />
+	ms.author="mohabib;xibingao" />
 
 # Set up an Azure SQL Server virtual machine for data science
 
@@ -354,7 +354,7 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/).
+In later stages of the Cloud Data Science Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the Reader module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cloud Data Science Process map links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
 2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
