@@ -51,7 +51,7 @@ You'll perform the following steps:
 	* Public (authenticated) - Only authenticated users are allowed to call the API app from outside the resource group.
 	* Internal - Only other API apps or web apps in the same resource group are allowed to call the API app.
 
-## Configure Dropbbox API App
+## Configure Dropbox API App
 
 First, configure the Dropbox to accept only authenticated requests.  You'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
