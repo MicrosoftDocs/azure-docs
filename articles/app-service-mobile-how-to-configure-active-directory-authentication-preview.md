@@ -58,7 +58,7 @@ You are now ready to use Azure Active Directory for authentication in your app.
 
 [AZURE.INCLUDE [app-service-mobile-related-content-get-started-users](../includes/app-service-mobile-related-content-get-started-users.md)]
 
-Authenticate users of your Mobile App with Azure Active Directory single sign-on: [iOS](ios-adal)
+Authenticate users of your Mobile App with Azure Active Directory single sign-on: [iOS][ios-adal]
 
 <!-- Images. -->
 
