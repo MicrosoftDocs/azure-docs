@@ -111,7 +111,7 @@ Handle application upgrade failures **owner: alexwun**
 
 ### Scale Services and Partitions owner: vturecek
 
-### Troubleshoot and monitor deployed services 
+### Troubleshoot and monitor deployed services P2 (Phosphorus?)
 Setup Azure Diagnostics and OpInsights to collect diagnostics **owner: Kunalds**
 
 Setup AppInsights to collect metrics and alerts **owner: Kunalds**
@@ -161,6 +161,14 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ### Programming Models
  [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+
+Actor Model Design Patterns  **owner: claudioc**
+
+Actor Model Pattern: Distributed Networks and Graphs **owner: claudioc**
+
+Actor Model Pattern: Resource Governance **owner: claudioc**
+
+Actor Model Pattern: Smart Cache **owner: claudioc**
 
  [FabSrv Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
 
