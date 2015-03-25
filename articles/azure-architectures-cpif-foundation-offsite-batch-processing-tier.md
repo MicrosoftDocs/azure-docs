@@ -16,7 +16,7 @@
    ms.date="03/25/2015"
    ms.author="arynes@microsoft.com"/>
 
-<h1 id="vnettut1">Offsite Batch Processing Tier (Azure Architecture Patterns)</h1>
+# Offsite Batch Processing Tier (Azure Architecture Patterns)
 
 The [Cloud Platform Integration Framework (CPIF)](azure-architectures-cpif-overview.md) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution.  
 

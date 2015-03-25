@@ -17,7 +17,7 @@
    ms.author="arynes@microsoft.com"/>
 
 
-<h1 id="vnettut1">Cloud Platform Integration Framework (Azure Architecture Patterns)</h1>
+# Cloud Platform Integration Framework (Azure Architecture Patterns)
 
 The Cloud Platform Integration Framework (CPIF) provides workload integration guidance for onboarding applications into a Microsoft Cloud Solution. 
 
