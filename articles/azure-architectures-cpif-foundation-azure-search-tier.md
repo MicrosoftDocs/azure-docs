@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple" 
    ms.date="03/25/2015"
-   ms.author="arynes@microsoft.com"/>
+   ms.author="arynes"/>
 
 # Azure Search Tier (Azure Architecture Patterns)
 

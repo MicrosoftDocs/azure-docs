@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple" 
    ms.date="03/25/2015"
-   ms.author="arynes@microsoft.com"/>
+   ms.author="arynes"/>
 
 
 # Cloud Platform Integration Framework (Azure Architecture Patterns)
