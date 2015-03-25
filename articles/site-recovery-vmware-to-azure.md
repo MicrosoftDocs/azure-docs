@@ -36,7 +36,7 @@ Business advantages include:
 - Multi VM consistency so that virtual machines and physical servers running specific workloads can be recovered together to a consistent data point.
 - Recovery plans for simplified failover and recovery of workloads tiered over multiple machines.
 
-This feature is currently in preview. Read the [Supplemental Terms of Use for Previews](http://azure.microsoft.com/en-in/support/legal/preview-supplemental-terms/).
+This feature is currently in preview. Read the [Supplemental Terms of Use for Previews](preview-supplemental-terms).
 
 ## About this guide
 
@@ -50,7 +50,7 @@ This diagram illustrates the deployment components.
 
 ![New vault](./media/site-recovery-vmware-to-azure/ASRVMWare_Arch.png)
 
-### Deploymeno components
+### Deployment components
 
 - **On-premises machines**—Your on-premises site has machines that you want to protect. These are either virtual machines running on a VMWare hypervisor, or physical servers running Windows or Linux.
 
@@ -66,7 +66,7 @@ This diagram illustrates the deployment components.
 
 - **Data communication and replication channel**—There are a couple of options. Note that neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.
 	- **Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure over a secure public internet connection. This is the default option.
-	- **VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an [ExpressRoute](http://azure.microsoft.com/en-us/services/expressroute/) connection between the on-premises site and your Azure network. 
+	- **VPN/ExpressRoute**—Communicates and replicates data between on-premises servers and Azure over a VPN connection. You'll need to set up a site-to-site VPN or an [ExpressRoute](expressroute) connection between the on-premises site and your Azure network. 
 
  
 ## Capacity planning
@@ -90,7 +90,7 @@ The process server uses disk based cache. Ensure that there's enough free space 
 - You'll need a [Microsoft Azure](http://azure.microsoft.com/) account. You can start with a [free trial](http://aka.ms/try-azure). 
 - You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](http://go.microsoft.com/fwlink/?LinkId=398704).
 - You'll need an Azure virtual network on which the configuration server and master target server will be deployed. It should be in the same subscription and region as the Azure Site Recovery vault.
-- Make sure you have enough Azure resources to deploy all components. Read more in [Azure Subscription Limits](http://azure.microsoft.com/en-in/documentation/articles/azure-subscription-service-limits/).
+- Make sure you have enough Azure resources to deploy all components. Read more in [Azure Subscription Limits](azure-subscription-service-limits).
 - Check that machines you want to protect comply with Azure virtual machine requirements. 
 
 	- **Disk count**—A maximum of 31 disks can be supported on a single protected server
@@ -220,7 +220,7 @@ You can configure a VPN connection to the server as follows:
 1. If you don't have a site-to-site or Azure ExpressRoute connection set up you can learn more here:
 
 	- [ExpressRoute or VPN - What's right for me](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/) 
-	- [Configure a site-to-site connection to an Azure virtual machine](ttps://msdn.microsoft.com/library/azure/dn133795.aspx)
+	- [Configure a site-to-site connection to an Azure virtual machine](https://msdn.microsoft.com/library/azure/dn133795.aspx)
 	- [Configure ExpressRoute](https://msdn.microsoft.com/library/azure/dn606306.aspx) 
 	
 2. In the vault click **Servers** > **Configuration Servers** > configuration server > **Configure**.
