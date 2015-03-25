@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure Azure Backup Services to quickly and easily back-up Azure virtual machines" 
+	pageTitle="Back up Azure virtual machines with Azure Backup" 
 	description="Use this walkthrough to deploy Azure Backup to back up Azure virtual machines." 
 	services="backup" 
 	documentationCenter="" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.date="03/26/2015" 
 	ms.author="raynew"/>
-
+# Back up Azure virtual machines with Azure Backup
 Use the Azure Backup service to protect data on your on-premises servers and Azure virtual machines from loss. This walkthrough describes how to backup your Azure virtual machines with Azure Backup.
 
 ## Overview
