@@ -95,7 +95,11 @@ For more information, see [Using 3rd Party Live Encoders with Azure Media Servic
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+
+Choose **Portal**, **.NET**, **REST API** to see examples.
+
+[AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
 
 ##Configuring asset delivery policy
 

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="03/20/2015" 
 	ms.author="awills"/>
 
 # Application Insights
@@ -49,13 +49,15 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 
 2. Install the Application Insights SDK core.
 
-   ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-   (As an alternative, you could choose Application Insights SDK for Web Apps. This  provides some built-in performance counter telemetry. However, you'll see repeated trace messages in [diagnostic search][diagnostic] as the component complains that it can't find a web app.)
+    (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. However, you'll see repeated trace messages in [diagnostic search][diagnostic] as the component complains that it can't find a web app.)
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
     &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+
+    If you installed the Web Apps SDK, you might also want to comment out some of the web telemetry modules.
 
 ## <a name="telemetry"></a>Insert telemetry calls
 

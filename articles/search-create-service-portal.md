@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+	ms.date="03/25/2015" 
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the portal
 
-Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides search features like type-ahead suggestions and fuzzy matching, a search engine, and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. For more information about what Search does, see [Introducing Azure Search](fundamentals-azure-search-chappell.md).
+Microsoft Azure Search is a new service that allows you to embed search functionality into custom applications. It provides a search engine and storage of your search data, which you access and manage using the portal, a .NET SDK, or a REST API. Key features include auto-complete queries, fuzzy matching, hit-highlighting, faceted navigation, and multi-language support. For more information about what Search does, see [Introducing Azure Search](../fundamentals-azure-search-chappell/).
 
 ##Add Search to your subscription  
 
@@ -32,7 +32,7 @@ As an administrator, you can add Search to an existing subscription at no cost w
 
 3. Configure the service name, pricing tier, resource group, subscription and location. These settings are required and cannot be changed once the service is provisioned.
 
-     ![][3]
+     ![][2]
 
 	- **Service name** must be unique, lower-case, under 15 characters, with no spaces. This name becomes part of the endpoint of your Azure Search service. See [Naming Rules](https://msdn.microsoft.com/library/azure/dn857353.aspx) for more information about naming conventions. 
 	
@@ -60,9 +60,9 @@ After the service is created, you can return to the portal to get the URL or `ap
 
 2. On the service dashboard, you'll see tiles for essential information, as well as the key icon for accessing the admin keys.
 
-  	![][4]
+  	![][3]
 
-3. Copy the service URL and an admin key. You will need them for your next task, [Test service operations](#sub-3).
+3. Copy the service URL and an admin key. You will need them for your next task, [Test service operations](#sub-4).
 
 <a id="sub-3"></a>
 ##Upgrade to standard tier
@@ -90,8 +90,8 @@ You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792)
 
 Confirming that your service is operational and accessible from a client application is the final step in configuring Search. You can use either approach for a code-free approach to verifying service availability.
 
-- [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
-- [How to use Telerik Fiddler with Azure Search](search-fiddler.md)
+- [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
+- [How to use Telerik Fiddler with Azure Search](../search-fiddler/)
 
 <!--Next steps and links -->
 <a id="next-steps"></a>
@@ -99,11 +99,9 @@ Confirming that your service is operational and accessible from a client applica
 
 The following additional material shows you how to build and manage search applications that use Azure Search.
 
-- [Create your first Azure Search solution](search-create-first-solution.md) 
+- [How to use Azure Search in .NET](../search-howto-dotnet-sdk/)
 
-- [How to use Azure Search in .NET](search-howto-dotnet-sdk.md)
-
-- [Manage your search solution in Microsoft Azure](search-manage.md) 
+- [Manage your search solution in Microsoft Azure](../search-manage/) 
 
 - [Azure Search on MSDN](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -118,6 +116,6 @@ The following additional material shows you how to build and manage search appli
 
 <!--Image references-->
 [1]: ./media/search-create-service-portal/create-search-portal-1.PNG
+[2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
-[4]: ./media/search-create-service-portal/create-search-portal-4.PNG
 

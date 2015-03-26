@@ -30,11 +30,11 @@ The API is uniform across all platforms, apart from a few small variations.
 Method | Used for
 ---|---
 [`TrackPageView`](#pageViews) | Pages, screens, blades or forms
-[`TrackEvent`](#events) | User actions and other events. Used to track user behavior or to monitor performance.
-[`TrackMetric`](#metrics) | Performance measurements such as queue lengths not related to specific events
-[`TrackException`](#exceptions)|Log exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces.
-[`TrackRequest`](#reqs)| Log the frequency and duration of server requests for performance analysis.
-[`TrackTrace`](#traces)|Diagnostic log messages. You can also capture 3rd-party logs.
+[`TrackEvent`](#track-event) | User actions and other events. Used to track user behavior or to monitor performance.
+[`TrackMetric`](#track-metric) | Performance measurements such as queue lengths not related to specific events
+[`TrackException`](#track-exception)|Log exceptions for diagnosis. Trace where they occur in relation to other events and examine stack traces.
+[`TrackRequest`](#track-request)| Log the frequency and duration of server requests for performance analysis.
+[`TrackTrace`](#track-trace)|Diagnostic log messages. You can also capture 3rd-party logs.
 
 You can [attach properties and metrics](#properties) to most of these telemetry calls. 
 
@@ -115,7 +115,31 @@ Use the same string as the first parameter in the start and stop calls.
 
 Look at the Page Duration metric in [Metrics Explorer][metrics].
 
-## <a name="events"></a>Track events
+## Authenticated users
+
+By default, users are counted by installing cookies in their browsers. But if your application requires users to login, you can use the authenticated user ids to provide more accurate figures.
+
+As well as a user id, you can supply an [organizational account id](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions). This enables you to see how many companies or institutions have used your app.
+
+*JavaScript* - insert this before first call to trackPageView:
+
+    // Queue until all scripts are loaded:
+    appInsights.queue.push(function(){
+
+      // Individual user id:
+      appInsights.context.user.id = "userId";
+
+      // Organization account id:
+      appInsights.context.user.accountId = "orgId";
+    }); 
+
+Since authentication is done in the server, you would insert the IDs on generating the web page. For example in a Razor script in ASP.NET MVC:
+
+      appInsights.context.user.id = "@User.Identity.Name";
+
+To see the resulting data in Application Insights, create new charts in [Metric Explorer][metrics] to display the Users and User Accounts metrics.
+
+## Track Event
 
 Events can be displayed on the portal as an aggregated count, and you can also display individual occurrences. 
 
@@ -218,6 +242,8 @@ You can attach properties and measurements to your metrics, events, page views, 
 
 ![](./media/app-insights-web-track-usage/03-track-custom.png)
 
+*If your metric doesn't appear, close the selection blade, wait a while, and click Refresh.*
+
 **If you used properties and metrics**, segment the metric by the property:
 
 
@@ -276,7 +302,7 @@ This feature isn't built in to the other SDKs. But you can write your own code s
 
 
 
-## <a name="metrics"></a>Track metrics
+## Track Metric
 
 Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. 
 
@@ -318,7 +344,6 @@ To see the results, open Metrics Explorer and add a new chart. Set it to display
 
 
 
-
 ## Pre-aggregation
 
 If you have a large volume of metrics you want to send, you can save some bandwidth by aggregating them in your application. Send the results at intervals:
@@ -346,11 +371,13 @@ If you have a large volume of metrics you want to send, you can save some bandwi
       }
     }
 
-## TrackRequest
+## Track Request
 
 Used by the server SDK to log HTTP requests. 
 
 You can also call it yourself if you want to simulate requests in a context where you don't have the web service module running.
+
+*C#*
 
     // At start of processing this request:
 
@@ -367,9 +394,11 @@ You can also call it yourself if you want to simulate requests in a context wher
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
-## Exceptions
+## Track Exception
 
 Send exceptions to Application Insights: to [count them][metrics], as an indication of the frequency of a problem; and to [examine individual occurrences][diagnostic].
+
+*C#*
 
     try
     {
@@ -384,20 +413,34 @@ In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't 
 
 
 
-## TrackTrace 
+## Track Trace 
 
 Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. 
 
 [Log adapters][trace] use this API to send third-party logs to the portal.
 
+
+*C#*
+
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 
 
-## <a name="defaults"></a>Set default property values (not at web client)
+## <a name="defaults"></a>Set default property values
 
 You can set default values in a TelemetryContext. They are attached to every telemetry item sent from the context. 
-    
+
+*JavaScript* - insert before the first call to trackPageView on each page:
+
+    // Queue until page and scripts are fully loaded:
+    appinsights.queue.push(function(){
+
+      // Default property map:
+      appInsights.config.properties = {GameName: game.name};
+
+      // Default metric map:
+      appInsights.config.measurements = {Score: game.score};
+    });
 
 *C#*
 
