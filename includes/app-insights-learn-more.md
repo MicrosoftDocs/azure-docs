@@ -105,7 +105,7 @@ Usage tracking
 [perf]: ../articles/app-insights-web-monitor-performance.md
 [diagnostic]: ../articles/app-insights-diagnostic-search.md 
 [availability]: ../articles/app-insights-monitor-web-app-availability.md
-[usage]: ../app-insights-web-track-usage/
+[usage]: ../articles/app-insights-web-track-usage.md
 [track]: ../articles/app-insights-web-track-usage-custom-events-metrics.md
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
@@ -124,6 +124,6 @@ Usage tracking
 [desktop]: ../articles/app-insights-windows-desktop.md
 [windowsUsage]: ../articles/app-insights-windows-usage.md
 [windowsCrash]: ../articles/app-insights-windows-crashes.md
-[platforms]: ../app-insights-platforms/
+[platforms]: ../articles/app-insights-platforms.md
 [android]: https://github.com/Microsoft/AppInsights-Android
 

@@ -24,9 +24,9 @@ This tutorial shows you how to add a cloud-based backend service to a universal 
 
 In this tutorial, you will create both a new mobile service and a simple *To do list* app that stores app data in the new mobile service. The mobile service that you will create uses JavaScript for server-side business logic. To create a mobile service that lets you write your server-side business logic in the supported .NET languages using Visual Studio, see the .NET backend version of this topic.
 
->[AZURE.NOTE]This topic shows you how to create a new mobile service project and universal Windows app by using the Azure Management Portal. By using Visual Studio 2013, you can also add a new mobile service project to an existing Visual Studio solution. For more information, see [Add Mobile Services to an existing app](/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/).
+>[AZURE.NOTE]This topic shows you how to create a new mobile service project and universal Windows app by using the Azure Management Portal. By using Visual Studio 2013, you can also add a new mobile service project to an existing Visual Studio solution. For more information, see [Add Mobile Services to an existing app](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md).
 
->To add a mobile service to an Windows Phone 8.0 or Windows Phone Store 8.1 app project, see [Add Mobile Services to an existing Windows Phone app](/documentation/articles/mobile-services-windows-phone-get-started-data).
+>To add a mobile service to an Windows Phone 8.0 or Windows Phone Store 8.1 app project, see [Add Mobile Services to an existing Windows Phone app](mobile-services-windows-phone-get-started-data.md).
 
 [AZURE.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
@@ -83,7 +83,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Add push notifications to your app][Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
-For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -96,12 +96,12 @@ For more information about universal Windows apps, see [Supporting multiple devi
 
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
-[Get started with data]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-data
-[Get started with offline data sync]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-users
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Get started with data]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md
+[Get started with data]: mobile-services-windows-store-dotnet-get-started-data.md
+[Get started with offline data sync]: mobile-services-windows-store-dotnet-get-started-offline-data.md
+[Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
-[Get started with data in Mobile Services using Visual Studio 2012]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
+[Get started with data in Mobile Services using Visual Studio 2012]: mobile-services-windows-store-dotnet-get-started-data-vs2012.md

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure Data Science Process in Action | Azure" 
+	pageTitle="Azure Data Science Process in Action: using SQL Sever | Azure" 
 	description="Azure Data Science Process in Action" metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="msolhab,fashah" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,24 +15,13 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="msolhab,fashah" /> 
+	ms.author="mohabib;fashah"/> 
 
                 
-# Azure Data Science Process in Action
+# Azure Data Science Process in Action: using SQL Sever
 
 In this tutorial, you will follow the Azure Data Science Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
-The following sections are organized as follows:
-
-- [NYC Taxi Trips Dataset Description](#dataset)
-- [Examples of Prediction Problems](#mltasks)
-- [Setting Up the Azure Data Science Environment](#setup)
-- [Get the Data from Public Source](#getdata)
-- [Bulk Import Data into SQL Server Database](#dbload)
-- [Data Exploration and Feature Engineering in SQL Server](#dbexplore)
-- [Data Exploration and Feature Engineering in IPython Notebook](#ipnb)
-- [Building Models in Azure Machine Learning](#mlmodel)
-- [Deploying Models in Azure Machine Learning](#mldeploy)
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
 
@@ -98,7 +87,7 @@ To set up your Azure Data Science environment:
 	> where `<user_name>` is your VM's Windows login name. We will refer to the sample folders as **Sample Scripts** and **Sample IPython Notebooks**.
 
 
-Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios/#largelocaltodb).
+Based on the dataset size, data source location, and the selected Azure target environment, this scenario is similar to [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Get the Data from Public Source
 
@@ -120,7 +109,7 @@ To copy the data using AzCopy:
 
 ## <a name="dbload"></a>Bulk Import Data into SQL Server Database
 
-The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables) to create a new database and load the data into partitioned tables in parallel.
+The performance of loading/transferring large amounts of data to an SQL database and subsequent queries can be improved by using _Partitioned Tables and Views_. In this section, we will follow the instructions described in [Parallel Bulk Data Import Using SQL Partition Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) to create a new database and load the data into partitioned tables in parallel.
 
 1. While logged in to your VM, start **SQL Server Management Studio**.
 
@@ -627,7 +616,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
 
-1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](http://azure.microsoft.com/documentation/articles/machine-learning-what-is-ml-studio/)
+1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 

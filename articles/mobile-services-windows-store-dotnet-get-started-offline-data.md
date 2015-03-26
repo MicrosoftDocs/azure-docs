@@ -282,16 +282,16 @@ In this section you reconnect the app to the mobile service. This simulates the 
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md 
 [TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
+[Getting Started]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Windows Phone 8 Tutorial for Visual Studio 2012]: /documentation/articles/mobile-services-windows-phone-get-started-offline-data/
-[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
+[Windows Phone 8 Tutorial for Visual Studio 2012]: mobile-services-windows-phone-get-started-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
