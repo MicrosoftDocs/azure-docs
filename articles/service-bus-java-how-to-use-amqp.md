@@ -12,7 +12,7 @@
 	writer="sethm" 
 	manager="timlt" 
 	editor="mattshel" 
-	services=""/>
+	services="service-bus"/>
 
 <tags 
 	ms.service="service-bus" 
