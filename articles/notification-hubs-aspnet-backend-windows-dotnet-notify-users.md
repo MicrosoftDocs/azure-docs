@@ -274,5 +274,5 @@ To run the application, do the following:
 
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: /documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md

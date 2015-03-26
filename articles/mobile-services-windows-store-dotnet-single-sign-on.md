@@ -163,7 +163,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 [Add Mobile Services to an existing app]: mobile-services-windows-store-dotnet-get-started-data.md
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-users
+[Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
 [Authorize users with scripts]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

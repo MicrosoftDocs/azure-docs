@@ -22,6 +22,6 @@ This page is a placeholder for a new tutorial and sample that demonstrates how t
 
 [Download the finished sample](http://go.microsoft.com/fwlink/p/?LinkID=530198) to see a working example of NodeJS code that calls the Azure Search REST APIs.
 
-As a temporary workaround, consider this alternative tutorial, [Get started with Azure Search in .NET](../search-get-started-dotnet/), to learn the fundamentals of programming with Azure Search.
+As a temporary workaround, consider this alternative tutorial, [Get started with Azure Search in .NET](search-get-started-dotnet.md), to learn the fundamentals of programming with Azure Search.
 
 <!--Image references-->
