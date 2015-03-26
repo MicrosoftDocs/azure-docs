@@ -6,7 +6,11 @@ If you're a member of our Azure community and you think an article should be ret
 
 SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Deleting the article or changing it’s name should be the last thing that happens!
 
-## Step 1: Remove all crosslinks to the article from the technical content repository
+## Step 1: Manage inbound links
+
+Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. Frequently, you can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
+
+## Step 2: Remove all crosslinks to the article from the technical content repository
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 
@@ -28,11 +32,11 @@ SME authors need to follow several steps to gracefully retire content so users o
 
 3. Add and commit all your changes, push them to your fork, and create a pull request to move your changes from your fork to the master branch of the main repository.
 
-## Step 2: Update the FWLink tool
+## Step 3: Update the FWLink tool
 
 Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed. More info - [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Manage%20inbound%20links%20to%20retired%20topics.aspx).
 
-## Step 3: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate
+## Step 4: Remove all crosslinks to the article from other pages on azure.microsoft.com and create a redirect for the retired page, if appropriate
 
 You'll have to work with the person who maintains and updates the documentation landing page for your service for this part. Contact your content team partner if you don't know who that person is. The person who maintains and updates the doc landing page will need to do two things:
 
@@ -42,10 +46,10 @@ You'll have to work with the person who maintains and updates the documentation 
 
 3. Check the changes into the repository.
 
-## Step 4: Retire the article
+## Step 5: Retire the article
 
 After you've completed the three prior steps and those changes are live, then you can delete the article from the repository. 
-## Step 5: Remove links from MSDN
+## Step 6: Remove links from MSDN
 
 Review the content QA tool for broken links to the retired or renamed topic and remove/fix the links in all MSDN topics affected.
 
