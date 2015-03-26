@@ -1,4 +1,4 @@
-`#  #`<properties 
+<properties 
 	pageTitle="Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process | Azure" 
 	description="Process Data from Hive Tables with Hive queries." 
 	metaKeywords="" 
