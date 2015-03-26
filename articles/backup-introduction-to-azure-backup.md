@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Introduction to Azure Backup"
-	description="This article provides an overview of the Azure Backup service"
+	description="This article provides an overview of the Azure Backup service which enables customers to backup data to Azure"
 	services="backup"
 	documentationCenter=""
 	authors="prvijay"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="03/26/2015"
 	ms.author="prvijay"/>
 
 # Introduction to Azure Backup
