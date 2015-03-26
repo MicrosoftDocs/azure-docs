@@ -78,16 +78,35 @@ Create a Service Instance (PowerShell) **owner: vturecek**
 
 More advanced conceptual topics, this handled by VS **owner: vturecek**
 
-### Test a Service owner: Vas
-How To Remove a Service and Application (PowerShell)
+### Test a Service owner: vturecek, rsinha
+What is Testability - P1 **owner: vturecek**
 
-How to Run the Failover Test Scenario (PowerShell)
+Why is Testability important - P1 - **owner: rsinha**
 
-How to Run the Chaos Test Scenario
+How does it work - P1 **owner: anmola**
 
-How to Run the Chaos Test Scenario (PowerShell)
+Run an action with PowerShell - P1 **owner: vturecek**
 
-### Troubleshoot and monitor services locally 
+Run an action with C# - P1 **owner: vturecek**
+
+Run a scenario with PowerShell - P1 **owner: vturecek**
+
+Run a scenario with C# - P1 **owner: vturecek**
+
+Run the Chaos Test - P1 **owner: anmola**
+
+Validating and troubleshooting - P1 **owner: anmola**
+
+Testing during development - P2 **owner: rsinha**
+
+Testing in test/staging - P2 **owner: rsinha**
+
+Testing in production - P2 **owner: rsinha**
+
+Writing a custom test scenario - P3 **owner: vturecek**
+
+
+### Troubleshoot and monitor services locally owners: kunalds, toddpf
 Connect to and view the local development cluster **owner: Kunalds**
 
 View system events fromm the local development cluster using Visual Studio **owner: Kunalds**
@@ -131,7 +150,7 @@ Download crash dumps **owner: Kunalds**
 View health information in Visual Studio **owner: oanapl**
 
  
-### Query and Evaluate Application, Service, Partition, Replica Health 
+### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
 
 Query Health State and Events (PowerShell) **owner: oanapl**
 
@@ -159,7 +178,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
 
-### Programming Models
+### Programming Models Owners: masnider, claudioc, vipulm, richhas
  [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
 
 Actor Model Design Patterns  **owner: claudioc**
