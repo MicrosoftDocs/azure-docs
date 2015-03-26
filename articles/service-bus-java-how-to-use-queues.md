@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/26/2015" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -29,9 +29,9 @@ messages**, and **deleting queues**.
 
 Add the following import statements to the top of the Java file:
 
-	// Include the following imports to use service bus APIs
-	import com.microsoft.windowsazure.services.serviceBus.*;
-	import com.microsoft.windowsazure.services.serviceBus.models.*; 
+	// Include the following imports to use Service Bus APIs
+	import com.microsoft.windowsazure.services.servicebus.*;
+	import com.microsoft.windowsazure.services.servicebus.models.*; 
 	import com.microsoft.windowsazure.services.core.*; 
 	import javax.xml.datatype.*;
 	

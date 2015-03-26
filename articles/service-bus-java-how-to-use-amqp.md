@@ -20,7 +20,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/26/2015" 
 	ms.author="sethm"/>
 
 
@@ -32,11 +32,11 @@ The Advanced Message Queuing Protocol (AMQP) 1.0 is an efficient, reliable, wire
 
 The addition of AMQP 1.0 means that it’s now possible to leverage the queuing and publish/subscribe brokered messaging features of Service Bus from a range of platforms using an efficient binary protocol. Furthermore, you can build applications comprised of components built using a mix of languages, frameworks and operating systems.
 
-This How-To Guide explains how to use the Service Bus brokered messaging features (Queues and publish/subscribe Topics) from Java applications using the popular Java Message Service (JMS) API standard.
+This how-to guide explains how to use the Service Bus brokered messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard.
 
 # Get started with Service Bus
 
-This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see the How-To Guide titled “[How to Use Service Bus Queues.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)”
+This guide assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure Management Portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to Use Service Bus Queues](service-bus-dotnet-how-to-use-queues.mde).
 
 ## Downloading the AMQP 1.0 JMS client library
 
