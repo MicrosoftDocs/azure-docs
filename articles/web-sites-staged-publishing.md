@@ -67,7 +67,7 @@ The web app must be running in the **Standard** or **Premium** mode in order for
 
 5. Click the app URL in the slot's blade. Notice the the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
 
-There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](../web-sites-publish-source-control/).
+There is no content after deployment slot creation. You can deploy to the slot from a different repository branch, or an altogether different repository. You can also change the slot's configuration. Use the publish profile or deployment credentials associated with the deployment slot for content updates.  For example, you can [publish to this slot with git](web-sites-publish-source-control.md).
 
 <a name="AboutConfiguration"></a>
 ## Configuration for deployment slots ##
@@ -145,7 +145,7 @@ In the blade for a deployment slot, click **Delete** in the command bar.
 
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service.
 
-- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../install-configure-powershell/).  
+- For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md).  
 
 - To list the cmdlets available for Azure App Service in PowerShell, call `help AzureWebsite`.
 
@@ -200,7 +200,7 @@ If a deployment slot is no longer needed, it can be deleted by using the **Remov
 
 The Azure Cross-Platform Command-Line Interface (xplat-cli) provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.
 
-- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](../xplat-cli/).
+- For instructions on installing and configuring the xplat-cli, including information on how to connect xplat-cli to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 
 -  To list the commands available for Azure App Service in the xplat-cli, call `azure site -h`.
 
