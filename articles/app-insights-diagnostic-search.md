@@ -39,7 +39,7 @@ The main body of Diagnostic Search is a list of telemetry items - server request
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
@@ -203,6 +203,18 @@ Here are the search expressions you can use:
                     </tr>
 
 </table>
+
+## Save your search
+
+When you've set all the filters you want, you can save the search as a favorite:
+
+![](./media/app-insights-diagnostic-search/08-favorite-save.png)
+
+
+To see it again, **go to the overview blade** and open Favorites:
+
+![](./media/app-insights-diagnostic-search/09-favorite-get.png)
+
 
 ## Send more telemetry to Application Insights
 
