@@ -365,9 +365,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 ### Enable AlwaysOn for long-running processes
 
-For this sample application, web app frontend activity always precedes the creation of a queue message, so there is no problem if the web app goes to sleep and terminates the WebJob due to a long period of inactivity. When a request comes in, the web app wakes up and the WebJob is restarted.
-
-For WebJobs that you want to keep running even when the web app itself is inactive for a long period of time, you can use the [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) feature.
+To make sure your WebJobs are always running, and running on all instances of your website you have to enabled the [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) feature.
 
 ## <a id="create"></a>Create the application from scratch 
 
