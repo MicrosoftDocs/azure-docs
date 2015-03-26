@@ -76,7 +76,7 @@ This sample application requires an Azure Storage account or a storage emulator 
 7. After the events have been sent, press **ENTER** to close the application. 
  
 ### Create an event hub consumer group and shared access policy
-While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group.  We will walk you through the process of creating a Consumer Group below and you can learn more about them [here](https://msdn.microsoft.com/en-us/library/azure/dn836025.aspx).
+While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group.  We will walk you through the process of creating a Consumer Group below and you can learn more about them [here](https://msdn.microsoft.com/library/azure/dn836025.aspx).
 
 1.	From the Azure portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
