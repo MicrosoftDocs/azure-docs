@@ -2,21 +2,19 @@
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - APIs" 
    description="Troubleshooting Guides for Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
-
-# Troubleshooting Guide - APIs
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
@@ -28,23 +26,16 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# APIs
+# Troubleshooting guide for API issues
 
-Issues with how administrators interact with Azure Mobile Engagement via the APIs.
+The following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via the APIs.
 
-**Symptom List:**
+## Syntax issues
 
-1. <a href="#APIS1">Syntax issues</a>
-2. <a href="#APIS2">Unable to use the API to perform the same action available in the Azure Mobile Engagement UI</a>
-3. <a href="#APIS3">Error Messages</a>
-4. <a href="#APIS4">Silent failures</a>
- 
-<a name="#APIS1">
-## 1. Syntax issues:</a>
-
+### Issue
 - Syntax Errors using the API (or unexpected behavior).
 
-**Causes:**
+### Causes
 
 - Syntax issues:
     - Make sure to check the Syntax of the specific API you are using to confirm that the option is available.
@@ -52,29 +43,29 @@ Issues with how administrators interact with Azure Mobile Engagement via the API
     - Another common issue with SDK integration and API usage is to confuse the SDK Key and the API Key.
     - Scripts that connect to the APIs need to send data at least every 10 minutes or the connection will time out (especially common in Monitor API scripts listening for data). To prevent timeouts, have your script send an XMPP ping every 10 minutes to keep the session alive with the server.
 
-**See also:**
+### See also
  
 - [Concepts - Glossary][Link 6], [API Documentation][Link 4], [XMPP Protocol Info]( http://xmpp.org/extensions/xep-0199.html)
  
-<a name="#APIS2">
-## 2. Unable to use the API to perform the same action available in the Azure Mobile Engagement UI:</a>
+## Unable to use the API to perform the same action available in the Azure Mobile Engagement UI
 
+### Issue
 - An action that works from the Azure Mobile Engagement UI doesn't work from the related Azure Mobile Engagement API.
 
-**Causes:**
+### Causes
 
 - Confirming that you can perform the same action from the Azure Mobile Engagement UI shows that you have correctly integrated this feature of Azure Mobile Engagement with the SDK.
 
-**See also:**
+### See also
  
 - [UI Documentation][Link 1]
  
-<a name="#APIS3">
-## 3. Error Messages:</a>
+## Error Messages
 
+### Issue
 - Error codes using the API displayed at runtime or in logs.
 
-**Causes:**
+### Causes
 
 - Here is a composite list of common API status codes numbers for reference and preliminary troubleshooting:
 
@@ -98,21 +89,21 @@ Issues with how administrators interact with Azure Mobile Engagement via the API
         503        Analytics not available yet (the requested information is not computed yet for an application).
         504         The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
-**See also:**
+### See also
 
 - [API Documentation - for detailed errors on each specific API][Link 4]
  
-<a name="#APIS4">
-## 4. Silent failures:</a>
+## Silent failures
 
+### Issue
 - API action fails with no error message displayed at runtime or in logs.
 
-**Causes:**
+### Causes
 
 - Many items will be disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but will fail silently from the API, so remember to test the same functionality from the UI to see if it works.
 - Azure Mobile Engagement, and many advanced features of Azure Mobile Engagement you are attempting to use, need to be individually integrated into your app with the SDK as separate steps before you can use them.
 
-**See also:**
+### See also
 
 - [Troubleshooting Guide - SDK][Link 25], [SDK Documentation][Link 5]
  
