@@ -9,9 +9,9 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 #### For all scenarios, you need:
 
-   [Create a storage account](http://azure.microsoft.com/en-us/documentation/articles/storage-whatis-account/)
+   [Create a storage account](storage-whatis-account.md)
 
-  [Create an Azure ML workspace](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-workspace/)
+  [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
 **The following sections present a few sample scenarios. For each scenario, a possible Data Science flow and supporting Azure resources are listed.**
 
@@ -161,7 +161,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
     f.  If table joins are required, create indexes to expedite joins.
 
- > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables/).
+ > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -205,7 +205,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 	f.  If table joins are required, create indexes to expedite joins.
 
-> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-parallel-load-sql-partitioned-tables/).
+> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -225,11 +225,11 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 To replicate the entire SQL Server database in your SQL Server VM, you should copy a database from one location/server to another, assuming that the database can be taken temporarily offline. You do this in the SQL Server Management Studio Object Explorer GUI, or using the equivalent Transact-SQL commands.
 
-1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/en-us/library/ms191491(v=sql.110).aspx).
+1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. In Windows Explorer or Windows Command Prompt window, copy the detached database file or files and log file or files to the target location on the SQL Server VM in Azure.
-3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/en-us/library/ms190209(v=sql.110).aspx). 
+3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx). 
 
-[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/en-us/library/ms187858(v=sql.110).aspx)
+[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
 
 ## <a name="largedbtohive"></a>Scenario \#7: Big data in local files, target Hive database in Azure HDInsight Hadoop clusters
 
@@ -292,7 +292,7 @@ more method/environment -- at the source, intermediate, and/or target environmen
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
 [2]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-with-processing.png

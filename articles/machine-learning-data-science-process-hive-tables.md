@@ -320,7 +320,7 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 		set mapred.reduce.tasks=128;
 		set mapred.tasktracker.reduce.tasks.maximum=128;
 
-[1]: ./media/machine-learning-data-science-hive-tables/atan2new.png
+[1]: ./media/machine-learning-data-science-process-hive-tables/atan2new.png
 [10]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-1.png
 [11]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-2.png
 [12]: ./media/machine-learning-data-science-process-hive-tables/output-hive-results-1.png

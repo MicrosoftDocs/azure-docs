@@ -26,7 +26,7 @@ This topic shows how to provision and configure an Azure virtual machine that ca
 
 If you already have an Azure virtual machine and just want to set up an IPython Notebook server on it, you can skip this step and proceed to [Step 2: Add an endpoint for IPython Notebooks to an existing virtual machine](#add-endpoint). 
  
-Before starting the process of creating a virtual machine on Azure, you need to determine the size of the machine that is needed to process the data for their project. Smaller machines have less memory and fewer CPU cores than larger machines, but they are also less expensive. For a list of machine types and prices, see the [Virtual Machines Pricing](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/) page 
+Before starting the process of creating a virtual machine on Azure, you need to determine the size of the machine that is needed to process the data for their project. Smaller machines have less memory and fewer CPU cores than larger machines, but they are also less expensive. For a list of machine types and prices, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page 
 
 1. Log in to https://manage.windowsazure.com, and click **New** in the bottom left corner. A window will pop up. Select **COMPUTE** -> **VIRTUAL MACHINE** -> **FROM GALLERY**.
 

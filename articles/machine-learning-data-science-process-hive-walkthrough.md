@@ -463,7 +463,7 @@ To begin the modeling exercise, log in to your Azure Machine Learning workspace.
 
 2. Log in to [Azure Machine Learning Studio](https://studio.azureml.net).
 
-3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/en-us/documentation/services/machine-learning/).
+3. The Studio Home page provides a wealth of information, videos, tutorials, links to the Modules Reference, and other resources. For more information about Azure Machine Learning, consult the [Azure Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/).
 
 A typical training experiment consists of the following:
 
