@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="02/20/2015" 
+	ms.date="03/23/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB #
@@ -45,7 +45,7 @@ To provision a DocumentDB database account in Azure:
 1. If you don't already have a database account, create one by following the instructions in [Create a database account](documentdb-create-account.md). If you already have an account, proceed to step 2.
 2. Using the **Keys** blade shown in the following illustration, copy your endpoint **URI** and the **PRIMARY KEY** to your clipboard and keep them handy as we will use these values in the web application we create next.
 
-![][1]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
 
 
 ##<a id="CreateJSP"></a>Step 2: Create the JSP application ##
@@ -772,4 +772,4 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 21. In a browser, navigate to http://localhost:8080/azure-documentdb-java-sample/ and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 22. To deploy your project to an Azure web site, see [Step 6. Deploy your application to Azure Websites](#Deploy). 
 
-[1]: ./media/documentdb-java-application/keys.png
+[1]: ../includes/media/documentdb-keys/keys.png

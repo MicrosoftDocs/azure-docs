@@ -168,9 +168,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
     This guarantees that the short-lived ChannelURI is registered each time the application is launched.
 
-6. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**:
-
-    ![][18]
+6. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**.
 
     From the **File** menu, click **Save All**.
 

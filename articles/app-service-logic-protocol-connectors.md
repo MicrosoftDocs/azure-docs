@@ -13,10 +13,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/20/2015" 
-	ms.author="deonhe"/>
+	ms.date="03/24/2015" 
+	ms.author="deonhe"/> 
 
-Keywords: App API 
 
 # Protocol Connectors in Microsoft Azure App Service
 

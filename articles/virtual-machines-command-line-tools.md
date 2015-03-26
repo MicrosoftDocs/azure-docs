@@ -227,7 +227,7 @@ This command creates a new Azure virtual machine from a JSON role file.
 
 **vm list [options]**
 
-This command lists Azure virtual machines. The -json option specifies that the results are returned in raw JSON format.
+This command lists Azure virtual machines. The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -370,7 +370,7 @@ This command deletes a virtual machine endpoint.
 
 **vm endpoint list &lt;vm-name>**
 
-This command lists all virtual machine endpoints. The -json option specifies that the results are returned in raw JSON format.
+This command lists all virtual machine endpoints. The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm endpoint list my-linux-vm
 	data:   Name  External Port  Local Port
@@ -419,7 +419,7 @@ Virtual machine images are captures of already configured virtual machines that 
 **vm image list [options]**
 
 This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
-The -json option specifies that the results are returned in raw JSON format.
+The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS

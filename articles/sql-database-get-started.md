@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="jeffreyg"/>
 
 # Get started with SQL Database
@@ -73,7 +73,7 @@ Use this guidance for settings on that page:
 <br/>
 6. Make a note of the **Server** name. You'll need it later.
 
-   > [AZURE.NOTE] You didn't have to choose a server name because SQL Database sets up the appropriate DNS entries when it creates the server. This helps avoid pesky name collisions with other DNS entries, which can be hard to isolate and troubleshoot.
+> [AZURE.NOTE] You didn't have to choose a server name because SQL Database sets up the appropriate DNS entries when it creates the server. This helps avoid pesky name collisions with other DNS entries, which can be hard to isolate and troubleshoot.
 
 In the next step, you'll configure the firewall on the server so that connections from applications running on your computer can access the databases on your SQL Database server.
 
@@ -100,7 +100,8 @@ When you add an IP address, a new firewall rule on the server is created to allo
  
 <br/>
 4. Click **SAVE** at the bottom of the page.
-   > [AZURE.IMPORTANT] Depending on your network configuration, your originating IP address may change frequently, which can result in a "Client with IP Address xxx.xxx.xxx.xxx is not allowed to access the server" error. Check back here to find your client IP address and then add it, or choose a range of inclusive IP addresses.
+
+> [AZURE.IMPORTANT] Depending on your network configuration, your originating IP address may change frequently, which can result in a "Client with IP Address xxx.xxx.xxx.xxx is not allowed to access the server" error. Check back here to find your client IP address and then add it, or choose a range of inclusive IP addresses.
 
 Congratulations! You now have a database running in Azure on a SQL Database server, with a server-level SQL administrator, and a firewall rule that enables client access! But you still don't have a working database you can play with. To do that, your database needs a schema and some data. We'll do that next.
 

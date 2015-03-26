@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="03/17/2015"
+	ms.date="03/23/2015"
 	ms.author="rasquill"/>
 
 
@@ -195,7 +195,7 @@ Look for this section to fill up quickly. If you have suggestions, send us a PR 
 
 This section contains information about several different storage approaches and technologies, including NoSQL, Relational, and Big Data.
 
-### Nosql
+### NoSQL
 
 1. [Blog: 8 Open-source NoSql Databases for Azure](http://openness.microsoft.com/blog/2014/11/03/open-source-nosql-databases-microsoft-azure/)
 2. Couchdb
@@ -217,7 +217,7 @@ This section contains information about several different storage approaches and
 	- [How to: Get Started with Hadoop and Hive using HDInsight](hdinsight-get-started.md)  
 3. [Azure HDInsight](http://azure.microsoft.com/services/hdinsight/) -- a fully managed Hadoop service on Azure.
 
-### Relational Data
+### Relational Database
 2. MySQL
     - [How to: Install and Run MySQL](virtual-machines-linux-mysql-use-opensuse.md)
     - [How to: Optimize Performance of MySQL on Azure](virtual-machines-linux-optimize-mysql-perf.md)
@@ -225,6 +225,7 @@ This section contains information about several different storage approaches and
     - [How to: Create a MySQL Database using the Marketplace](store-php-create-mysql-database.md)
     - [How to: Django and MySQL on Azure Websites with Python and Visual Studio](web-sites-python-ptvs-django-mysql.md)
     - [How to: PHP and MySQL on Azure Websites with WebMatrix](web-sites-php-mysql-use-webmatrix.md)
+    - [MySQL High Availability Architecture in Microsoft Azure](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [How to: Create a Multi-Master cluster of MariaDbs](virtual-machines-mariadb-cluster.md)
 7. PostgreSQL
@@ -290,6 +291,6 @@ This section starts with a blog entry containing a series of videos on [Video: A
 [Devops, Management, and Optimization]: #devops
 [Support, Troubleshooting, and "It Just Doesn't Work"]: #supportdebug
 
-<!--Link references--In actual articles, you only need a single period before the slash.>
+<!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
