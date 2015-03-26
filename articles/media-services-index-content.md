@@ -10,10 +10,10 @@
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="juliako"/>
 
 
@@ -305,9 +305,6 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The same outputs (as succeeded jobs) are generated. You can refer to the output manifest file to find out which input files are failed, according to the Error column values. For input files that are failed, the resulting AIB, SAMI, TTML, and keyword files will NOT be generated.
 
-##Process Protected Files
-
-You can specify the **username** and **password** in the task configuration as described in [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
 
 ### <a id="error_codes"></a>Error codes
 
