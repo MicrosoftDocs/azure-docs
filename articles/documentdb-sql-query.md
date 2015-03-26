@@ -1352,7 +1352,9 @@ Below is an example of how a UDF can be registered at the DocumentDB database, s
 The preceding example creates a UDF whose name is `SQRT`. It accepts a single JSON value `number` and calculates the square root of the number using the Math library.
 
 
-We can now use this UDF in a query in a projection.
+We can now use this UDF in a query in a projection. UDFs must be qualified with the case-sensitive prefix "udf." when called from within queries. 
+
+>[AZURE.NOTE] Prior to 3/17/2015, DocumentDB supported UDF calls without the "udf." prefix like SELECT SQRT(5). This calling pattern has been deprecated.  
 
 **Query**
 
@@ -1373,7 +1375,7 @@ We can now use this UDF in a query in a projection.
 	  }
 	]
 
-The UDF can also be used inside a filter as shown in the example below:
+The UDF can also be used inside a filter as shown in the example below, also qualified with the "udf." prefix :
 
 **Query**
 
