@@ -17,7 +17,6 @@
 	ms.author="rasquill"/>
 
 
-
 #Injecting Custom Data into an Azure Virtual Machine 
 
 Injecting a script or other data into an Azure Virtual Machine when it is being provisioned is a very common scenario, regardless whether the operating system is Microsoft Windows or a Linux distribution. This topic describes how to:
@@ -29,9 +28,6 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 - Use special tools available on some systems to detect and handle custom data automatically.
 
 > [AZURE.NOTE] This topic expands upon [this Azure blog post](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) about this feature, and will be kept up-to-date as more functionality appears.
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-In this topic:
 
 ## Injecting the custom data into your Azure Virtual Machine
 
