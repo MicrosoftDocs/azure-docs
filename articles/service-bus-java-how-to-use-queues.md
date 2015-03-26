@@ -32,7 +32,7 @@ Add the following import statements to the top of the Java file:
 	// Include the following imports to use Service Bus APIs
 	import com.microsoft.windowsazure.services.servicebus.*;
 	import com.microsoft.windowsazure.services.servicebus.models.*; 
-	import com.microsoft.windowsazure.services.core.*; 
+	import com.microsoft.windowsazure.core.*; 
 	import javax.xml.datatype.*;
 	
 ## How to create a queue
