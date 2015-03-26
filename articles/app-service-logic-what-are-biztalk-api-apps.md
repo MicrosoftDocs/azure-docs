@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="03/24/2015" 
 	ms.author="jtwist"/>
 
 # What are Connectors and BizTalk API Apps
@@ -52,6 +52,6 @@ The Premium connectors extend the reach of App Services further into the enterpr
 ## BizTalk API Apps
 Building business critical apps requires more than just connectivity. Based on the foundation of Microsoft's industry leading integration platform - BizTalk Server - the BizTalk API Apps provide advanced integration capabilities that can be snapped into your Web, Mobile and Logic Apps with ease. Includes Batching and Debatching, VETR (Validate, Extract, Transform and Route), and support for EDI formats like X12, EDIFACT, and AS2.
 
-[Business-to-Business Connectors and API Apps in Microsoft Azure App Service](app-service-logic-b2b-connectors.md)
+[Business-to-Business Connectors and API Apps in Microsoft Azure App Service](app-service-logic-b2b-connectors.md)<br/>
 
 [BizTalk Integration API Apps in Microsoft Azure App Service](app-service-logic-integration-connectors.md)
