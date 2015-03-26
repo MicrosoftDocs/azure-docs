@@ -18,7 +18,7 @@
 
 #Get started with your first Azure Search application in .NET#
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](../search-howto-dotnet-sdk/) to build classes for the objects and operations used in this exercise.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) to build classes for the objects and operations used in this exercise.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
@@ -788,7 +788,7 @@ You could also try any of these terms:
 
 ##Explore the code##
 
-To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](../search-howto-dotnet-sdk/) for an explanation of the most commonly used classes in the client library.
+To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](search-howto-dotnet-sdk.md) for an explanation of the most commonly used classes in the client library.
 
 The remainder of this section covers a few points about each project. Where appropriate, we'll point you towards some alternative approaches that use more advanced features.
 
@@ -796,7 +796,7 @@ The remainder of this section covers a few points about each project. Where appr
 
 To keep things simple, the data is embedded within the solution, in a text file generated from data on the [United States Geological Services (USGS) web site](http://geonames.usgs.gov/domestic/download_data.htm). 
 
-Alternatives to embedding data include [indexers for DocumentDB](../documentdb-search-indexer/) or [indexers for Azure SQL Database](../search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
+Alternatives to embedding data include [indexers for DocumentDB](documentdb-search-indexer.md) or [indexers for Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
 
 You can also load data from an on premises SQL Server database. [This tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) shows you how.
 
@@ -804,7 +804,7 @@ The **DataIndexer** program includes a **SearchDocuments** method for searching 
 
 **SimpleSearchMVCApp Project**
 
-The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](../search-pagination-page-layout/).
+The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](search-pagination-page-layout.md).
 
 Connections to Azure Search, plus execution of a query request, are defined in the **FeatureSearch.cs** file.
 
