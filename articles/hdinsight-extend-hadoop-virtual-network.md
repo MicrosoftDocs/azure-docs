@@ -24,7 +24,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 ##<a id="whatis"></a>What is Azure Virtual Network?
 
-[Azure Virtual Network](/en-us/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
+[Azure Virtual Network](/documentation/services/virtual-network/) allows you to create a secure, persistent, network containing the resources you need for your solution. A virtual network allows you to:
 
 * Connect cloud resources together in a private network (cloud-only)
 
@@ -62,7 +62,7 @@ For more information on Virtual Network features, benefits, and capabilities, se
 >
 > It is highly recommended to designate a single subnet for each cluster.
 
-For more information on provisioning an HDInsight cluster on a Virtual Network, see [Provisioning Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/).
+For more information on provisioning an HDInsight cluster on a Virtual Network, see [Provisioning Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
 ##<a id="tasks"></a>Tasks and information
 
@@ -74,7 +74,7 @@ The HDInsight cluster will be assigned a specific FQDN for the Virtual Network i
 
 	https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/<servicename>/components/<componentname>
 
-> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](/en-us/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 You must specify the cluster name and a service and component running on the cluster, such as the YARN resource manager.
 
@@ -82,7 +82,7 @@ You must specify the cluster name and a service and component running on the clu
 
 For example, to return the FQDN from an HDInsight Hadoop cluster, you could use one of the following methods to retrieve the data for the YARN resource manager.
 
-* [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -109,7 +109,7 @@ To connect to HBase remotely using the Java API, you must determine the Zookeepe
 
 To get the zookeeper quorum address, use one of the following methods to query the Ambari management service.
 
-* [Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/)
+* [Azure PowerShell](install-configure-powershell.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
@@ -129,7 +129,7 @@ To get the zookeeper quorum address, use one of the following methods to query t
 
 		curl -G -u <username>:<password> "https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/configurations?type=hbase-site&tag=default&fields=items/properties/hbase.zookeeper.quorum" | jq .items[0].properties[]
 
-> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](/en-us/documentation/articles/hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] For more information on using Ambari with HDInsight, see [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md).
 
 Once you have the quorum information, use it in your client application.
 
@@ -162,12 +162,12 @@ If you encounter problems accessing a service from HDInsight, consult the docume
 
 The following examples demonstrate how to use HDInsight with Azure Virtual Network.
 
-* [Analyze sensor data with Storm and HBase in HDInsight](/en-us/documentation/articles/hdinsight-storm-sensor-data-analysis/) - Demonstrates how to configure a Storm and HBase cluster in a Virtual Network, as well as how to remotely write data to HBase from Storm.
+* [Analyze sensor data with Storm and HBase in HDInsight](hdinsight-storm-sensor-data-analysis.md) - Demonstrates how to configure a Storm and HBase cluster in a Virtual Network, as well as how to remotely write data to HBase from Storm.
 
-* [Provision HBase clusters on Azure Virtual Network](/en-us/documentation/articles/hdinsight-hbase-provision-vnet/) - Provides information on provisioning an HBase cluster on an Azure Virtual Network
+* [Provision HBase clusters on Azure Virtual Network](hdinsight-hbase-provision-vnet.md) - Provides information on provisioning an HBase cluster on an Azure Virtual Network
 
-* [Provision Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/) - Provides information on provisioning Hadoop clusters, including information on using Azure Virtual Network
+* [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) - Provides information on provisioning Hadoop clusters, including information on using Azure Virtual Network
 
-* [Use Sqoop with Hadoop in HDInsight](/en-us/documentation/articles/hdinsight-use-sqoop/) - Provides information on using Sqoop to transfer data with SQL Server over a Virtual Network
+* [Use Sqoop with Hadoop in HDInsight](hdinsight-use-sqoop.md) - Provides information on using Sqoop to transfer data with SQL Server over a Virtual Network
 
 To learn more about Azure Virtual Networks, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).

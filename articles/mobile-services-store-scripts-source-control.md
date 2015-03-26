@@ -17,7 +17,7 @@
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
 
 # Store project code in source control
@@ -171,10 +171,10 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Git website]: http://git-scm.com
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Work with server scripts in Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-ios-get-started-data.md
+[Work with server scripts in Mobile Services]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-ios-call-custom-api/
+[Call a custom API from the client]: mobile-services-ios-call-custom-api.md
 [Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

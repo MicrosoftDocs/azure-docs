@@ -62,7 +62,7 @@ Each performance level has an associated request unit (RU) rate limit. This is t
 
 DocumentDB allows for a rich set of database operations including queries, queries with user-defined functions (UDFs), stored procedures and triggers. The processing cost associated with each of these operations will vary based on the CPU, IO and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit as a single measure for the resources required to perform various database operations and service an application request.
 
-> [AZURE.IMPORTANT] Performance levels are measured in request units. Each performance level has an associated maximum request unit per second rate. The performance level of a collection can be adjusted through the APIs or the [Azure portal](https://portal.azure.com/).
+> [AZURE.NOTE] Performance levels are measured in request units. Each performance level has an associated maximum request unit per second rate. The performance level of a collection can be adjusted through the APIs or the [Azure portal](https://portal.azure.com/).
 
 ##<a id="Sub2"></a>Setting performance levels for collections##
 Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection. For example, if a collection is set as S3 – the collection is capable of processing 2,500 RUs/sec. Each collection reserves its designated throughput and 10GB of database storage. The price of the collection will vary based on the performance level chosen (S1, S2, S3). Note that DocumentDB operates based on capacity reservation; by creating a collection, an application has reserved and is billed for reserved throughput and database storage, regardless of how much of that storage and throughput is actively used.
@@ -78,7 +78,7 @@ Request units are reserved for each collection based on the performance level se
 > [AZURE.NOTE] When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
 ##<a id="Sub3"></a>Working with performance levels##
-DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Refer to the [partitioning data documentation](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/) for more details on partitioning data with DocumentDB. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding on whether separate collections should be used for data include:
+DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Refer to the [partitioning data documentation](documentdb-partition-data.md) for more details on partitioning data with DocumentDB. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding on whether separate collections should be used for data include:
 
 - Queries – A collection is the scope for query execution. If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.
 - Transactions – A collection is the transaction domain for stored procedures and triggers. All transactions are scoped to a single collection. 
@@ -93,9 +93,9 @@ It is recommended that your application makes use of a small number of collectio
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
  
 - [DocumentDB pricing](http://azure.microsoft.com/pricing/details/documentdb/)
-- [Managing DocumentDB capacity](http://azure.microsoft.com/documentation/articles/documentdb-manage/) 
-- [Modeling data in DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-modeling-data/)
-- [Partitioning data in DocumentDB](http://azure.microsoft.com/documentation/articles/documentdb-partition-data/)
+- [Managing DocumentDB capacity](documentdb-manage.md) 
+- [Modeling data in DocumentDB](documentdb-modeling-data.md)
+- [Partitioning data in DocumentDB](documentdb-partition-data.md)
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/). 
 

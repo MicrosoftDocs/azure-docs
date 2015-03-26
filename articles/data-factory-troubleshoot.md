@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="03/11/2015" 
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
@@ -135,8 +135,26 @@ You can overide this default by changing the defaults at the time of provisionin
 >            "mapreduce.task.timeout":"1200000"
 >        }
 
-For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/en-us/library/azure/dn893526.aspx
+For more context and a full example of the JSON to edit these map reduce Configuration properties see Example #3 in the MSDN documentation here https://msdn.microsoft.com/library/azure/dn893526.aspx
 
+## Problem: PowerShell request fails with error error 400 Bad Request "No registered resource provider found..."
+
+As of March 10, 2015, the Azure Data Factory PowerShell early private preview versions 2014-05-01-preview, 2014-07-01-preview, and 2014-08-01-preview will be discontinued. We recommend that you use the latest version of the ADF cmdlets, which are now part of the Azure PowerShell Download, such as the download from this URL http://go.microsoft.com/?linkid=9811175&clcid=0x409 
+
+If you use the discontinued versions of the Azure PowerShell SDK you may receive the following errors:
+
+		HTTP/1.1 400 Bad Request
+		Cache-Control: no-cache
+		Pragma: no-cache
+		Content-Type: application/json; charset=utf-8
+		Expires: -1
+		x-ms-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+		x-ms-correlation-request-id: e07181e4-e421-46be-8a08-1f71d5e90494
+		x-ms-routing-request-id: WESTUS:20150306T234829Z:e07181e4-e421-46be-8a08-1f71d5e90494
+		Strict-Transport-Security: max-age=31536000; includeSubDomains
+		Date: Fri, 06 Mar 2015 23:48:29 GMT
+		Content-Length: 157
+		{"error":{"code":"NoRegisteredProviderFound","message":"No registered resource provider found for location 'west US' and API version '2014-05-01-preview'."}}
 
 
 ## <a name="copywalkthrough"></a> Walkthrough: Troubleshooting an error with copying data
@@ -334,13 +352,13 @@ Article | Description
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 
-[adfgetstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[troubleshoot]: ../data-factory-troubleshoot
+[adfgetstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
@@ -353,9 +371,9 @@ Article | Description
 
 [image-data-factory-troubleshoot-table-blade-with-problem-slices]: ./media/data-factory-troubleshoot/TableBladeWithProblemSlices.png
 
-[image-data-factory-troubleshoot-activity-run-with-error]: ./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png
+[image-data-factory-troubleshoot-activity-run-with-error]: ./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png
 
-[image-data-factory-troubleshoot-dataslice-blade-with-active-runs]: ./media/data-factory-troubleshoot/ActivityRunDetailsWithError.png
+[image-data-factory-troubleshoot-dataslice-blade-with-active-runs]: ./media/data-factory-troubleshoot/DataSliceBladeWithActivityRuns.png
 
 [image-data-factory-troubleshoot-walkthrough2-with-errors-link]: ./media/data-factory-troubleshoot/Walkthrough2WithErrorsLink.png
 

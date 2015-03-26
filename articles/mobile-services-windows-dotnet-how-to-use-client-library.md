@@ -167,7 +167,7 @@ This is a simplified scenario of passing hard-coded paging values to the `Take` 
 
 ####Paging considerations for a .NET backend mobile service
 
-To override the 50 row limit in a .NET backend mobile service, you must also apply the [EnableQueryAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.odata.enablequeryattribute.aspx) to the public GET method and specify the paging behavior. When applied to the method, the following sets the maximum returned rows to 1000:
+To override the 50 row limit in a .NET backend mobile service, you must also apply the [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx) to the public GET method and specify the paging behavior. When applied to the method, the following sets the maximum returned rows to 1000:
 
     [EnableQuery(MaxTop=1000)]
 
@@ -238,9 +238,9 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
+When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 ##<a name="modifying"></a>How to: Modify data in a mobile service
 
@@ -302,9 +302,9 @@ The Mobile Services client enables you to register for push notifications with A
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/)
+Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/).
+>[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 
 ##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency
@@ -474,7 +474,7 @@ If you are using an identity provider other than Facebook, change the value of [
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
 > [AZURE.NOTE] **Windows Store app**
-When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") method by supplying a value of **true** for the _useSingleSignOn_ parameter to re-use the credentials.
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [LoginAsync](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") method by supplying a value of **true** for the _useSingleSignOn_ parameter to re-use the credentials.
 
 ###Client flow
 
@@ -519,7 +519,7 @@ If using a Microsoft account, login like so:
 	user = await client
 		.LoginWithMicrosoftAccountAsync(authentication_token_value);
 
-For an example of how to use Microsoft Account to provide a single sign-in experience, see "Authenticate your app with single sign-in" tutorial ([Windows Store](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/en-us/develop/mobile/tutorials/single-sign-on-wp8/)).
+For an example of how to use Microsoft Account to provide a single sign-in experience, see "Authenticate your app with single sign-in" tutorial ([Windows Store](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/develop/mobile/tutorials/single-sign-on-wp8/)).
 
 ###<a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use [PasswordVault] for Windows Store apps to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process.
@@ -651,13 +651,13 @@ This property converts all properties to lower case during serialization.
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
-* [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data)
+* [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Add authentication to your mobile services app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users)
+* [Add authentication to your mobile services app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md)
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push)
+* [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -692,7 +692,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Windows Store quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started/
 [Windows Phone quickstart tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-wp8/
@@ -704,18 +704,18 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
 [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
 [Optimistic Concurrency Tutorial]: http://www.windowsazure.com/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/
 
 [IncludeTotalCount]: http://msdn.microsoft.com/library/windowsazure/dn250560.aspx
@@ -723,5 +723,5 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx

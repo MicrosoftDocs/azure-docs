@@ -31,7 +31,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. When a mobile service has not been connected, the Add Push Notification wizard creates this connection for you. 
 
->[AZURE.NOTE]To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) version of this tutorial.
+>[AZURE.NOTE]To send push notifications to a Windows Phone 8.1 Store app, follow the [Windows Store app](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) version of this tutorial.
 
 ##<a id="update-app"></a> Update the app to register for notifications
 
@@ -144,19 +144,19 @@ Finally, you must update the script registered to the insert operation on the To
 
 This tutorial demonstrated the basics of enabling a Windows Store app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing one of the following tutorials:
 
-+ [Send push notifications to authenticated users](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/)
++ [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md)
 	<br/>Learn how to use tags to send push notifications from your mobile service to only an authenticated user.
 
-+ [Send broadcast notifications to subscribers](/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/)
++ [Send broadcast notifications to subscribers](notification-hubs-windows-phone-send-breaking-news.md)
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
 
-+ [Send platform-agnostic notifications to subscribers](/en-us/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/)
++ [Send platform-agnostic notifications to subscribers](notification-hubs-aspnet-cross-platform-notify-users.md)
 	<br/>Learn how to use templates to send push notifications from your mobile service, without having to craft platform-specific payloads in your back-end.
 
 
 Learn more about Mobile Services and Notification Hubs in the following topics:
 
-* [Azure Notification Hubs - Diagnosis guidelines](/en-us/documentation/articles/notification-hubs-diagnosing/)
+* [Azure Notification Hubs - Diagnosis guidelines](notification-hubs-diagnosing.md)
 	<br/>Learn how to troubleshoot your push notification issues.
 
 * [Get started with authentication]
@@ -180,14 +180,14 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Get started with data]: mobile-services-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-windows-phone-get-started-users.md
 
 [Setting up an authenticated web service to send push notifications for Windows Phone]: http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
+[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
 

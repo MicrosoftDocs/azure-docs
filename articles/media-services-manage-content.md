@@ -19,7 +19,7 @@
 
 # How to Manage Content in Media Services #
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
 This topic shows how to use Azure Management Portal to manage media content in your Media Services account.
 
@@ -56,7 +56,7 @@ If the file size value does not get updated after the uploading process stops, p
 
 ##<a id="index"></a>How to: Index content
 
-Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](../media-services-index-content/).
+Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can index your content using the Management Portal following the steps demonstrated below. However, if you would like more control over what files and how the indexing job is done, you can use the Media Services SDK for .NET or REST APIs. For more information, see [Indexing Media Files with Azure Media Indexer](media-services-index-content.md).
 
 To following steps demonstrate how to use the Management Portal to index your content.
 
@@ -79,7 +79,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 To take advantage of dynamic packaging, you need to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
-- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
 
 With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client. 
 
@@ -95,7 +95,7 @@ This section describes the steps you can take to encode your content with Azure 
 	![Process2][process2]
 
 		
-	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/en-us/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prests for Adaptive Streaming**  categories means.  
+	The [Task Preset Strings for Azure Media Encoder](https://msdn.microsoft.com/library/azure/dn619392.aspx) topic explains what each preset in **Presets for Adaptive Streaming (dynamic packaging)**, **Presets for Progressive Download**, **Legacy Prests for Adaptive Streaming**  categories means.  
 
 
 	The **Other** configurations are described below:
@@ -122,8 +122,8 @@ This section describes the steps you can take to encode your content with Azure 
 If you want for Media Services to dynamically encrypt your asset with an AES key or PlayReady DRM make sure to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated in the [Encode](#encode) section).
-- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](../media-services-manage-origins#scale_streaming_endpoints/).
-- Configure "default aes clear key service policy" or "default playready license service policy". For more information, see [Configure Content Key Authorization Policy](../media-services-portal-configure-content-key-auth-policy).  
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Configure "default aes clear key service policy" or "default playready license service policy". For more information, see [Configure Content Key Authorization Policy](media-services-portal-configure-content-key-auth-policy.md).  
 
 
 	When you are ready to enable encryption, press the **ENCRYPTION** button on the bottom of the **CONTENT** page.

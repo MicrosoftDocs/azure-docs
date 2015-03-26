@@ -600,7 +600,7 @@ For a more visual view of how Media Services works, download the [Azure Media Se
 
 <h2><a id="commerce"></a>Commerce</h2>
 
-The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with [Azure Marketplace](http://datamarket.azure.com/) and [Azure Store](/en-us/store/overview/).
+The rise of Software as a Service is transforming how we create applications. It's also transforming how we sell applications. Since a SaaS application lives in the cloud, it makes sense that its potential customers should look for solutions online. And this change applies to data as well as to applications. Why shouldn't people look to the cloud for commercially available datasets? Microsoft addresses both of these concerns with [Azure Marketplace](http://datamarket.azure.com/) and [Azure Store](../articles/overview.md).
 
 ![Azure Commerce](./media/intro-to-azure/CommerceIntroNew.png)   
  **Figure: Azure Marketplace and Azure Store let you find and buy Azure applications and commercial datasets and use them as part of your Azure applications.**
@@ -615,7 +615,7 @@ SendGrid is an application in the Azure Store that allows you to send email. It 
 
 <h2><a id="start"></a>Getting Started</h2>
 
-Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/en-us/downloads/), and go for it. Cloud computing is the new default--get started now.
+Now that you have the big-picture, the next step is to write your first Azure application. Choose your language, [get the appropriate SDK](/downloads/), and go for it. Cloud computing is the new default--get started now.
 
 
 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Node.js Getting Started Guide - Azure Tutorial" 
-	description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." 
+	description="Learn how to create a simple Node.js web application and deploy it to an Azure cloud service." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
 	authors="MikeWasson" 
@@ -20,8 +20,8 @@
 # Build and deploy a Node.js application to an Azure Cloud Service
 
 > [AZURE.SELECTOR]
-- [Node.js](../cloud-services-nodejs-develop-deploy-app)
-- [.NET](../cloud-services-dotnet-get-started)
+- [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+- [.NET](cloud-services-dotnet-get-started.md)
 
 This tutorial shows how to create a simple Node.js application running 
 in an Azure Cloud Service. Cloud Services are the building blocks of 
@@ -31,7 +31,7 @@ provide a robust dedicated virtual machine for hosting each role reliably.
 
 For more information on Cloud Services, and how they compare to Azure Websites and Virtual machines, see [Azure Websites, Cloud Services and Virtual Machines comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
->[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.
+>[AZURE.TIP] Looking to build a simple website? If your scenario involves just a simple website front-end, consider <a href="/documentation/articles/web-sites-nodejs-develop-deploy-mac/">using a lightweight Azure Website.</a> You can easily upgrade to a Cloud Service as your website grows and your requirements change.
 
 
 By following this tutorial, you will build a simple web application hosted inside a web role. You
@@ -40,7 +40,7 @@ using PowerShell command-line tools.
 
 The application is a simple "hello world" application:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.">
 </p>
 
 ## Prerequisites
@@ -49,7 +49,7 @@ The application is a simple "hello world" application:
 
 - Install the Azure SDK for Node.js: <a href="http://go.microsoft.com/fwlink/?LinkId=254279">Windows installer</a> 
 
-- Install and configure [Azure Powershell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Install and configure [Azure Powershell](install-configure-powershell.md).
 
 
 ## Create an Azure Cloud Service project
@@ -220,5 +220,5 @@ After deploying your application, you may want to disable it so you can avoid ex
 [Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
 
 [The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
+[How to Delete a Storage Account from an Azure Subscription]: https://www.windowsazure.com/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png

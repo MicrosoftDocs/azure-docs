@@ -86,7 +86,7 @@ You would create a method that accepts the selected sort option as input, and re
 
 ## Faceted navigation ##
 
-Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](http://azure.microsoft.com/documentation/articles/search-faceted-navigation/) for details.
+Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](search-faceted-navigation.md) for details.
 
 ## Filters at the page level ##
 
@@ -104,7 +104,7 @@ See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azur
 - [Index Operations](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [Document Operations](http://msdn.microsoft.com/library/azure/dn800962.aspx)
 - [Learning Roadmap](http://msdn.microsoft.com/library/azure/dn818681.aspx)
-- [Faceted Navigation in Azure Search](http://azure.microsoft.com/documentation/articles/search-faceted-navigation/)
+- [Faceted Navigation in Azure Search](search-faceted-navigation.md)
 
 
 <!--Image references-->

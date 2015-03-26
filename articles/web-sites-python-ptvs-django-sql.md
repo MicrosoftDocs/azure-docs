@@ -205,8 +205,8 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs/
+[Python Developer Center]: /develop/python/
+[Azure Cloud Services]: cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
@@ -221,4 +221,4 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 [Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 [Django Documentation]: https://www.djangoproject.com/
-[SQL Database]: /en-us/documentation/services/sql-database/
+[SQL Database]: /documentation/services/sql-database/

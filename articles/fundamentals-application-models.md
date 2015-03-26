@@ -91,7 +91,7 @@ Websites is the best Azure Compute choice for many kinds of web apps and compute
  
 **Figure 2: Azure Websites supports static websites, popular web applications, and custom web applications built with various technologies. You can also run non-web compute workloads using the WebJobs feature.** 
 
-The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](../websites-webjobs-resources/) feature. 
+The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](websites-webjobs-resources.md) feature. 
 
 Websites gives you the option of running on shared VMs that contain multiple websites created by multiple users, or on VMs that are used only by you. VMs are a part of a pool of resources managed by Azure Websites and thus allow for high reliability and fault tolerance.
 
@@ -115,7 +115,7 @@ More control also means less ease of use; unless you need the  additional contro
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../fundamentals-service-bus-hybrid-solutions/) or [Azure Queues](../storage-introduction/).)
+For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](storage-introduction.md).)
 
 As the figure suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will deploy the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
 
@@ -134,9 +134,9 @@ The PaaS nature of Cloud Services has other implications, too. One of the most i
 
 Azure also offers other compute hosting models for more specialized purposes, such as the following:
 
-* [Mobile Services](/en-us/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
-* [Batch](/en-us/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
-* [HDInsight (Hadoop)](/en-us/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
+* [Mobile Services](/services/mobile-services/). Optimized to provide a cloud back-end for apps that run on mobile devices.
+* [Batch](/services/batch/) (currently in Preview). Optimized for processing large volumes of similar tasks, ideally workloads which lend themselves to running as parallel tasks on multiple computers.
+* [HDInsight (Hadoop)](/services/hdinsight/). Optimized for running [MapReduce](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options/#hadoop) jobs on Hadoop clusters. 
 
 ## What Should I Use? Making a Choice
 

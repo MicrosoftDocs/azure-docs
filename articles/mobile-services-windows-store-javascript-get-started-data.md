@@ -35,7 +35,7 @@ To complete this tutorial, you need the following:
 
 <<<<<<< HEAD
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
-* Visual Studio 2013, which makes it easier to connect your Windows Store app to Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Get started with data in Mobile Services using Visual Studio 2012</a>. 
+* Visual Studio 2013, which makes it easier to connect your Windows Store app to Mobile Services. To complete the same basic procedure using Visual Studio 2012, follow the steps in the topic <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Get started with data in Mobile Services using Visual Studio 2012</a>. 
 =======
 * An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F).
 * Visual Studio 2013, which you will use to connect your Windows Store app project to Mobile Services.
@@ -133,7 +133,7 @@ This tutorial demonstrated the basics of enabling a Windows Store app to work wi
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
-* [Mobile Services HTML/JavaScript How-to Conceptual Reference](/en-us/documentation/articles/mobile-services-html-how-to-use-client-library/)
+* [Mobile Services HTML/JavaScript How-to Conceptual Reference](/documentation/articles/mobile-services-html-how-to-use-client-library/)
   <br/>Learn more about how to use Mobile Services with HTML and JavaScript.
 
 <!-- Anchors. -->
@@ -153,15 +153,15 @@ This tutorial demonstrated the basics of enabling a Windows Store app to work wi
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/
+[Validate and modify data with scripts]: mobile-services-windows-store-javascript-validate-modify-data-server-scripts.md
+[Refine queries with paging]: mobile-services-windows-store-javascript-add-paging-data.md
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-javascript-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /documentation/articles/mobile-services-html-how-to-use-client-library/

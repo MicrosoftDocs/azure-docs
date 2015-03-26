@@ -24,7 +24,7 @@ The Azure Search Service Management REST API provides programmatic access to muc
 - Create, change, or retrieve `api-keys` to automate regular changes to the administrative keys used for authenticating search data operations. 
 - Adjust the scale of an Azure Search service in response to changes in query volume or storage requirements.
 
-To fully administer your service programmatically, you will need two APIs: The Management REST API of Azure Search, plus the common [Azure Resource Manager REST API](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx). The Resource Manager API is used for general purpose operations that are not service specific, such as querying subscription data, listing geo-locations, and so forth. To create and manage Azure Search services in your subscription, make sure your HTTP request includes the Resource Manager endpoint, subscription ID, provider (in this case, Azure Search), and the Search service-specific operation.
+To fully administer your service programmatically, you will need two APIs: The Management REST API of Azure Search, plus the common [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx). The Resource Manager API is used for general purpose operations that are not service specific, such as querying subscription data, listing geo-locations, and so forth. To create and manage Azure Search services in your subscription, make sure your HTTP request includes the Resource Manager endpoint, subscription ID, provider (in this case, Azure Search), and the Search service-specific operation.
 
 [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) is a walkthrough of sample code that demonstrates application configuration and service management operations. The sample application issues requests to the Azure Resource Manager API as well as the service management API for Azure Search, giving you an idea of how to piece together a cohesive application that draws on both APIs.
 
@@ -45,11 +45,11 @@ The Azure Search Management REST API is an extension of the Azure Resource Manag
 Note that if your application code handles *service management operations* as well as *data operations* on indexes or documents, you'll be using two authentication approaches for each of the Azure Search APIs:
 
 - Service and key administration, due to the dependency on Resource Manager, relies on Active Directory for authentication.
-- Data requests against the Azure Search service endpoint, such as Create Index or Search Documents, use an `api-key` in the request header. See [Azure Search Service REST API](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx) for information about authenticating a data request.
+- Data requests against the Azure Search service endpoint, such as Create Index or Search Documents, use an `api-key` in the request header. See [Azure Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) for information about authenticating a data request.
 
 The sample application documented in [Get started with Azure Search Management REST API](http://go.microsoft.com/fwlink/p/?linkID=516968) demonstrates the authentication techniques for each type of operation. Instructions for configuring a client application to use Active Directory are included in the getting started. 
 
-Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/).
+Access control for Azure Resource Manager uses the built-in Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role. For details, see [Role-based access control in Azure Preview portal](role-based-access-control-configure.md).
 
 
 ### Summary of APIs ##

@@ -198,17 +198,17 @@ To stop the emulators, execute this command:
 
 To publish your application, you need to first import your publish settings  with the **Import-PublishSettingsFile** cmdlet, then you can publish your application with the **Publish-AzureServiceProject** cmdlet. Details on using each of these cmdlets can be found in [How to: Import publish settings] and [How to: Deploy a cloud service to Azure] respectively.
 
-[execution model-web sites]: /en-us/develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /en-us/develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /en-us/develop/net/fundamentals/compute/#CloudServices
-[Azure SDK for PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
+[execution model-web sites]: /develop/net/fundamentals/compute/#WebSites
+[execution model-vms]: /develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: /develop/net/fundamentals/compute/#CloudServices
+[Azure SDK for PHP]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
+[What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
 [service definition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [service configuration (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
-[How to: Import publish settings]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[How to: Deploy a cloud service to Azure]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+[How to: Import publish settings]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+[How to: Deploy a cloud service to Azure]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy

@@ -104,7 +104,7 @@ The following scheduled job purges soft deleted records that are more than a mon
         }
     }
 
-To learn more about schedule jobs with .NET backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+To learn more about schedule jobs with .NET backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](mobile-services-dotnet-backend-schedule-recurring-tasks.md) 
 
 
 
@@ -145,7 +145,7 @@ This is a sample scheduled job that deletes records that were updated prior to a
         }});
     }
 
-To learn more about scheduled jobs with JavaScript backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/).
+To learn more about scheduled jobs with JavaScript backend Mobile Services, see: [Schedule recurring jobs with JavaScript backend Mobile Services](mobile-services-schedule-recurring-tasks.md).
 
 
 
@@ -158,7 +158,7 @@ To learn more about scheduled jobs with JavaScript backend Mobile Services, see:
 
 <!-- URLs. -->
 [SQL bit type]: http://msdn.microsoft.com/library/ms177603.aspx
-[Offline data Sync for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[Offline data Sync for Mobile Services]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [Management Portal]: https://manage.windowsazure.com/
 
 

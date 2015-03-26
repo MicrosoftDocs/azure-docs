@@ -2,8 +2,9 @@
 	pageTitle="Get started with Application Insights for Windows desktop apps" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="03/20/2015" 
 	ms.author="awills"/>
 
 # Application Insights
@@ -30,9 +31,14 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store app. (This sets the content of the Overview blade. You could choose ASP.NET instead, but there would be more charts on the Overview blade that aren't applicable.)
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store application. 
+
     ![Click New, Application Insights](./media/app-insights-windows-get-started/01-new.png)
+
+    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics]. You could choose ASP.NET app instead, for example if you want to call TrackRequest() to simulate server request telemetry.)
+
 2.  Take a copy of the Instrumentation Key.
+
     ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-get-started/02-props.png)
 
 ## <a name="sdk"></a>Install the SDK in your application
@@ -41,16 +47,21 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 1. In Visual Studio, edit the NuGet packages of your desktop app project.
     ![Right-click the project and select Manage Nuget Packages](./media/app-insights-windows-get-started/03-nuget.png)
 
-2. Install the Application Insights SDK for Web apps.
-   ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+2. Install the Application Insights SDK core.
+
+    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+
+    (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. However, you'll see repeated trace messages in [diagnostic search][diagnostic] as the component complains that it can't find a web app.)
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
     &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
 
+    If you installed the Web Apps SDK, you might also want to comment out some of the web telemetry modules.
+
 ## <a name="telemetry"></a>Insert telemetry calls
 
-Create a `TelemetryClient` instance and then use it to send telemetry.
+Create a `TelemetryClient` instance and then [use it to send telemetry][track].
 
 For example, in a Windows Forms application, you could write:
 

@@ -27,15 +27,15 @@ In this example, Azure Automation is used as the schedule and workload execution
 
 In addition to this document, here are other resources:
 
-* [Get started with Azure Automation](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/)
+* [Get started with Azure Automation](automation-create-runbook-from-samples.md)
 * [Step-by-Step: Getting Started with NEW Microsoft Azure Automation preview feature](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
 * [Microsoft Azure Automation](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
-* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
+* Ask Azure Automation specific questions on the [Automation forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
 
 
 ## Prerequisites
 
-[Sign-up](http://azure.microsoft.com/services/preview/) and [familiarize](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/) yourself with the Microsoft Azure Automation Preview service. 
+[Sign-up](http://azure.microsoft.com/services/preview/) and [familiarize](automation-create-runbook-from-samples.md) yourself with the Microsoft Azure Automation Preview service. 
 
 
 ## Shard Elasticity PowerShell Files
@@ -73,7 +73,7 @@ Lastly, within the scope of the provided examples, the use of [Azure Automation]
 ## To load the runbooks 
 
 1. Download the **ShardElasticity.zip** file and extract contents.
-2. [Add references to the Elastic Scale binaries using NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
+2. [Add references to the Elastic Scale binaries using NuGet](sql-database-elastic-scale-add-references-visual-studio.md)
 3. Find the Elastic Scale client binary (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
 4. Place the DLL in the ShardElasticityModule folder and zip the folder. 
 3. In your Azure Automation account, upload the ShardElasticityModule.zip file as an **Asset**. 

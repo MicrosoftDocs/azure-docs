@@ -18,7 +18,7 @@
 	
 # Get started with Mobile Engagement
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store"  class="current">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-get-started/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store"  class="current">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-get-started/" title="iOS">iOS</a><a href="/documentation/articles/mobile-engagement-android-get-started/" title="Android">Android</a></div>
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Store application. 
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Windows Store app that collects basic data and receives push notifications using Windows Notification Service (WNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -227,8 +227,8 @@ The following sections will setup your app to receive them.
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
-		   EngagementAgent.Instance.OnActivated(args);
-		   EngagementReach.Instance.OnActivated(args);
+		   EngagementAgent.Instance.Init(args);
+		   EngagementReach.Instance.Init(args);
 		}
 
 3. Run the application. 
@@ -274,7 +274,7 @@ You should see a notification on your device, **Congratulations!**:
 
 
 <!-- URLs. -->
-[Mobile Engagement Windows Store SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
+[Mobile Engagement Windows Store SDK documentation]: mobile-engagement-windows-store-integrate-engagement.md
 [Mobile Engagement Windows Store SDK]: http://go.microsoft.com/?linkid=9864592
 
 <!-- Images. -->

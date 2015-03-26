@@ -19,12 +19,12 @@
 # Authenticate your Windows Phone 8 app with Live Connect single sign-on
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">Windows Store C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone" class="current">Windows Phone</a>
 </div>	
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
->[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-users">Add authentication to your app</a>. 
+>[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="mobile-services-windows-phone-get-started-users.md">Add authentication to your app</a>. 
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
@@ -140,7 +140,7 @@ Next, you will update the app to authenticate users with Live Connect before req
 
 7. Update string _<< INSERT CLIENT ID HERE >>_ from the previous step with the client ID value that was generated when you registered your app with Live Connect.
 
-    > [AZURE.NOTE] In a Windows Phone 8 app, an instance of the **LiveAuthClient** class is created by passing the client ID value to the class constructor. In a [Windows Store app](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), the same class is instantiated by passing the redirect domain URI.
+    > [AZURE.NOTE] In a Windows Phone 8 app, an instance of the **LiveAuthClient** class is created by passing the client ID value to the class constructor. In a [Windows Store app](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), the same class is instantiated by passing the redirect domain URI.
 
 8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
 
@@ -191,8 +191,8 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Add Mobile Services to an existing app]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-users
-[Authorize users with scripts]: /en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[Add Mobile Services to an existing app]: mobile-services-windows-phone-get-started-data.md
+[Get started with authentication]: /documentation/articles/mobile-services-windows-phone-get-started-users
+[Authorize users with scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

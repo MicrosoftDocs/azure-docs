@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015" 
+	ms.date="03/24/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -44,12 +44,13 @@ The Copy Activity supports the following data movement scenarios:
 - Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
 - Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
 - Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
+- Copy data from an On-premises Oracle database to an Azure blob
 - Copy data from an On-premises file system to Azure Blob
  
 
 <table border="1">	
 	<tr>
-		<th><i>Sink/Source<i></th>
+		<th><i>Source/Sink<i></th>
 		<th>Azure Blob</th>
 		<th>Azure Table</th>
 		<th>Azure SQL Database</th>
@@ -111,6 +112,16 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 		<td></td>
 	</tr>
+
+	<tr>
+		<td><b>On-premises Oracle Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
 
 </table>
 
@@ -349,6 +360,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
 - **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
+- **Data Type Handling by the Copy Activity**. Explains in which case the data types specified in the Structure section of the Table definition are honored/ignored.
 - **Invoke stored procedure for SQL Sink**. When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked.
 
 See [Advanced Scenarios for using the Copy Activity with Azure Data Factory][copy-activity-advanced] article for details on these scenarios. 
@@ -371,9 +383,9 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
-[adfgetstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[copy-activity-advanced]: ../data-factory-copy-activity-advanced
+[adfgetstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 

@@ -27,9 +27,9 @@ The sample application demonstrates scoring behaviors using fictional data, call
 <a id="sub-1"></a>
 ## Prerequisites
 
-The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
+The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
-You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](../search-get-started/) for help with setting up the service.
+You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](search-get-started.md) for help with setting up the service.
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 

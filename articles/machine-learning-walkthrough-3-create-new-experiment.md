@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 
 This is the third step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 1.	[Create an ML workspace][create-workspace]
@@ -29,12 +29,12 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 5.	[Publish the web service][publish]
 6.	[Access the web service][access-ws]
 
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
+[upload-data]: machine-learning-walkthrough-2-upload-data.md
+[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
+[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
+[publish]: machine-learning-walkthrough-5-publish-web-service.md
+[access-ws]: machine-learning-walkthrough-6-access-web-service.md
 
 ----------
 
@@ -43,7 +43,7 @@ This is the third step of the walkthrough, [Developing a Predictive Solution wit
 We need to create a new experiment in ML Studio that uses the dataset we uploaded.  
 
 1.	In ML Studio, click **+NEW** at the bottom of the window.
-2.	Select **EXPERIMENT**.
+2.	Select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
@@ -114,7 +114,7 @@ Our experiment now looks something like this:
 
 For more information on using R scripts in your experiments, see [Extend your experiment with R][r].
 
-[r]: ../machine-learning-extend-your-experiment-with-r/
+[r]: machine-learning-extend-your-experiment-with-r.md
 
 **Next: [Train and evaluate the models][train-models]**
 

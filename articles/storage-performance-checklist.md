@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Microsoft Azure Storage Performance and Scalability Checklist" 
-	description="Required" 
+	description="A checklist of proven practices for use with Azure Storage in developing performant applications." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -11,15 +11,15 @@
 	ms.service="storage" 
 	ms.workload="storage" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/08/2014" 
+	ms.date="02/26/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure Storage Performance and Scalability Checklist
 
 ## Overview
-Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a “checklist” style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable.  To the extent that the application’s behavior can be predicted during design, it’s useful to keep these in mind early on to avoid designs that will run into performance problems.  
+Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a checklist-style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable. To the extent that the application’s behavior can be predicted during design, it’s useful to keep these in mind early on to avoid designs that will run into performance problems.  
 
 Every application developer using Azure Storage should take the time to read this article, and check that his or her application follows each of the proven practices listed below.  
 
@@ -106,7 +106,7 @@ If your application is approaching the scalability targets for a single storage 
 ####Useful Resources
 The following links provide additional detail on scalability targets:
 -	You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets on MSDN](http://msdn.microsoft.com/library/azure/dn249410.aspx).
--	You can learn more about storage redundancy options in the blog post [Windows Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– see the next section for more details.
+-	You can learn more about storage redundancy options in the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)– see the next section for more details.
 -	For current information about pricing for Azure services, see [Azure pricing at-a-glance](http://azure.microsoft.com/pricing/overview/).  
 
 ###Networking
@@ -140,7 +140,7 @@ Normally, a browser will not allow JavaScript in a page hosted by a website on o
 Both of these technologies can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
 ####Useful Resources
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](http://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).  
+For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -221,10 +221,10 @@ Note that copies within the same storage account itself are generally completed 
 For more information, see [Copy Blob on MSDN](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 ####<a name="subheading18"></a>Use AzCopy
-The Azure Storage team has released a command line tool “AzCopy” that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios.  You can learn more about it and download it [here](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/).  
+The Azure Storage team has released a command line tool “AzCopy” that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios.  You can learn more about it and download it [here](storage-use-azcopy.md).  
 
 ####<a name="subheading19"></a>Azure Import/Export Service
-For very large volumes of data (more than 1TB), the Azure Storage offers the Import/Export service, which allows for uploading and downloading from blob storage by shipping hard drives.  You can put your data on a hard drive and send it to Microsoft for upload, or send a blank hard drive to Microsoft to download data.  You can read more about it [here](http://azure.microsoft.com/documentation/articles/storage-import-export-service/).  This can be much more efficient than uploading/downloading this volume of data over the network.  
+For very large volumes of data (more than 1TB), the Azure Storage offers the Import/Export service, which allows for uploading and downloading from blob storage by shipping hard drives.  You can put your data on a hard drive and send it to Microsoft for upload, or send a blank hard drive to Microsoft to download data.  You can read more about it [here](storage-import-export-service.md).  This can be much more efficient than uploading/downloading this volume of data over the network.  
 
 ###<a name="subheading20"></a>Use metadata
 The blob service supports head requests, which can include metadata about the blob. For example, if your application needed the EXIF data out of a photo, it could retrieve the photo and extract it. To save bandwidth and improve performance, your application could store the EXIF data in the blob’s metadata when the application uploaded the photo: you can then retrieve the EXIF data in metadata using only a HEAD request, saving significant bandwidth and the processing time needed to extract the EXIF data each time the blob is read. This would be useful in scenarios where you only need the metadata, and not the full content of a blob.  Note that only 8KB of metadata can be stored per blob (the service will not accept a request to store more than that), so if the data does not fit in that size, you may not be able to use this approach.  
@@ -268,7 +268,7 @@ This section lists several quick configuration settings that you can use to make
 ####<a name="subheading25"></a>Use JSON
 Beginning with storage service version 2013-08-15, the table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.   
 
-For more information, see the post [Windows Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN. 
+For more information, see the post [Microsoft Azure Tables: Introducing JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](http://msdn.microsoft.com/library/azure/dn535600.aspx) on MSDN. 
 
 ####<a name="subheading26"></a>Nagle Off
 Nagle’s algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle’s algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.  
@@ -375,7 +375,7 @@ For up to date cost information, see [Storage Pricing Details](http://azure.micr
 ###<a name=subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
 
-For more information, see the article [How to: Change the contents of a queued message](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/#change-contents).  
+For more information, see the article [How to: Change the contents of a queued message](../storage-dotnet-how-to-use-queues/#change-contents).  
 
 ###<a name=subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  

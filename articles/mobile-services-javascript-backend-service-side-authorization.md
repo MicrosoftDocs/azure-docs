@@ -17,8 +17,8 @@
 # Service-side Authorization of Users in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Any | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data.
 
@@ -73,9 +73,9 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Add Mobile Services to Existing App]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Add Authentication to Existing Mobile Services App]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Add Push Notifications to Existing App]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
+[Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
+[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/

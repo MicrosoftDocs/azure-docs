@@ -47,7 +47,7 @@ This tutorial requires Visual Studio 2013 running on Windows 8.1.
 
 This tutorial is a walkthrough of how the [Todo Offline Mobile Services sample] handles sync conflicts between the local offline store and the Mobile Service database in Azure.
 
-1. Download the zip file for the [Mobile Services Samples Github Repository] and extract it to a working directory. 
+1. Download the zip file for the [Mobile Services Samples GitHub Repository] and extract it to a working directory. 
 
 2. If you haven't already installed SQLite for Windows 8.1 and Windows Phone 8.1 as mentioned in the [Get started with offline data] tutorial, install both runtimes.
 
@@ -84,7 +84,7 @@ Now it's time to test the app against Mobile Services.
 
 In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push an update to the same record using an outdated version field in that record. If you recall from the [Get started with offline data], the version system property is required to support the offline syncing features. This version information is examined with each database update. If an instance of the app tries to update a record using an outdated version, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app. If the app doesn't catch the `MobileServicePreconditionFailedException` then a `MobileServicePushFailedException` will end up being thrown describing how many sync errors were encountered.
 
->[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](/en-us/documentation/articles/mobile-services-using-soft-delete/). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
+>[AZURE.NOTE] To support synchronization of deleted records with offline data sync, you should enable [Soft Delete](mobile-services-using-soft-delete.md). Otherwise, you have to manually remove records in the local store, or call `IMobileServiceSyncTable::PurgeAsync()` to purge the local store.
 
 
 The following steps show the Windows Phone 8.1 and Windows Store 8.1 clients running at the same time to cause and resolve a conflict using the sample.
@@ -157,10 +157,10 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Get started with offline data]: mobile-services-windows-store-dotnet-get-started-offline-data.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app
-[Mobile Services Samples Github Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
+[Handling Database Conflicts]: mobile-services-windows-store-dotnet-handle-database-conflicts.md#test-app
+[Mobile Services Samples GitHub Repository]: http://go.microsoft.com/fwlink/?LinkId=512865
 [Todo Offline Mobile Services sample]: http://go.microsoft.com/fwlink/?LinkId=512866

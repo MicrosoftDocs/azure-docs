@@ -2,8 +2,9 @@
 	pageTitle="Add Application Insights SDK to your web project" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-03" 
+	ms.date="03/09/2015" 
 	ms.author="awills"/>
 
 # Add Application Insights SDK to your web project
@@ -23,9 +24,10 @@ Add the Application Insights SDK to monitor your application for:
 * **Performance**  - Detect and diagnose perf issues and exceptions.
 * **Usage** - Find out what users are doing with your app.
 
-(For more options, see [Get Started with Application Insights][start]).
 
-## <a name="add"></a>1. Add Application Insights to your project
+*If you're working with a Java project, add the [Java SDK][java]. For more options, see [Get Started with Application Insights][start].*
+
+## <a name="add"></a>1. Add Application Insights to your ASP.NET project
 
 You'll need [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) (or later) and an account in [Microsoft Azure](http://azure.com).
 
@@ -86,7 +88,7 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 #### Trouble on your build server?
 
-Please see [this Troubleshooting item](../app-insights-troubleshoot-faq/#NuGetBuild).
+Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 ## Next steps
 

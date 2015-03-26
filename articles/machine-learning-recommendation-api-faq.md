@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2014" 
+	ms.date="02/19/2015" 
 	ms.author="jaymathe"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
@@ -126,7 +126,7 @@ In addition, a subscription can contain up to 10 data sets (models).
 
 **Where can I get technical support for Recommendations?**
 
-Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning) site.
+Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
 
 **Where can I find the terms of use?**
 

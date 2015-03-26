@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="cabailey"/>
 
 
@@ -35,7 +35,7 @@ Use the following table to better understand how Azure Key Vault can help to mee
 | ------------- |-------------|-----|
 | Developer for an Azure application      | “I want to write an application for Azure that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed. <br/><br/>I also want these keys and secrets to be protected, without having to write the code myself, and I want them to be easy for me to use from my application.” | √ Keys are stored in a vault and invoked by URI when needed.<br/><br/> √ Keys are safeguarded by Azure, using industry-standard algorithms, key lengths, and hardware security modules (HSMs).<br/><br/> √ Keys are collocated in HSMs inside the Azure datacenters, which provides better reliability and reduced latency.|
 | Developer for Software as a Service (SaaS)      |“I don’t want the responsibility or potential liability for my customers’ tenant keys and secrets. <br/><br/>I want the customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.” | √ Customers can import their own keys into Azure, and manage them. When a SaaS application needs to perform cryptographic operations by using their customers’ keys, Azure Key Vault does this on behalf of the application. The application does not see the customers’ keys.|
-| Chief security officer (CSO) | “I want to know that our applications comply with FIPS 140-2 Level 2 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key life cycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure.”     |√ HSMs are FIPS 140-2 Level 2 certified.<br/><br/>√ Software and Microsoft operators in datacenters cannot see or leak your keys.<br/><br/>√ Near real-time logging of key usage.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
+| Chief security officer (CSO) | “I want to know that our applications comply with FIPS 140-2 Level 2 HSMs for secure key management. <br/><br/>I want to make sure that my organization is in control of the key life cycle and can monitor key usage. <br/><br/>And although we use multiple Azure services and resources, I want to manage the keys from a single location in Azure.”     |√ HSMs are FIPS 140-2 Level 2 certified.<br/><br/>√ Key Vault is designed so that Microsoft does not see or extract your keys.<br/><br/>√ Near real-time logging of key usage.<br/><br/>√ The vault provides a single interface, regardless of how many vaults you have in Azure, which regions they support, and which applications use them. |
 
 
 Anybody with an Azure subscription can create and use key vaults. Although Azure Key Vault benefits developers and security administrators, it could be implemented and managed by an organization’s administrator who manages other Azure services for an organization. For example, this administrator would sign in with an Azure subscription, create a vault for the organization in which to store keys, and then be responsible for operational tasks, such as:
@@ -56,7 +56,7 @@ Developers can also manage the keys directly, by using  APIs. For more informati
 
 ## Next Steps
 
-For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](../key-vault-get-started).
+For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
 
 For more information about using keys and secrets with Azure Key Vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 

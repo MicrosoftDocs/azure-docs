@@ -19,12 +19,6 @@ Before you begin this article, you must have the following:
 - A computer that is running Windows 8, Windows 7, Windows Server 2012, or Windows Server 2008 R2.
 - Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone, or Office 2010 Professional Plus.
 
-##In this article
-
-1. [Install the Microsoft Hive ODBC Driver](#InstallHiveODBCDriver)
-2. [Create a Hive ODBC Data Source](#CreateHiveODBCDataSource)
-3. [Import data into Excel from an HDInsight cluster](#ImportData)
-4. [Next steps](#nextsteps)
 
 ##<a id="InstallHiveODBCDriver"></a>Install the Microsoft Hive ODBC Driver
 
@@ -109,12 +103,12 @@ In this article you learned how to use the Microsoft Hive ODBC driver to retriev
 - [Use Sqoop with HDInsight][hdinsight-use-sqoop]
 
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
 [hive-odbc-driver-download]: http://go.microsoft.com/fwlink/?LinkID=286698
 

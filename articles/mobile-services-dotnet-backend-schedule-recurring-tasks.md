@@ -20,8 +20,8 @@
 # Schedule recurring jobs in Mobile Services 
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Any | Javascript)](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
 
@@ -102,7 +102,7 @@ Next, you need to create a new table in which to store tweets.
 
 	The Updates table, which is created in the database when the DbSet is first accessed, is used by the service to store tweet data.  
 
-	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).  
+	>[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. The default initializer cannot be used against a SQL Database in Azure. For more information, see [How to Use Code First Migrations to Update the Data Model](mobile-services-dotnet-backend-use-code-first-migrations.md).  
 
 Next, you create the scheduled job that accesses Twitter and stores tweet data in the new Updates table.
 
@@ -140,7 +140,7 @@ Next, you create the scheduled job that accesses Twitter and stores tweet data i
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
 		            // Create a new context with the supplied schema name.
-		            context = new todolistContext(Services.Settings.Name);
+		            context = new todolistContext();
 		        }
 		
 		        public async override Task ExecuteAsync()
@@ -304,7 +304,7 @@ Congratulations, you have successfully created a new scheduled job in your mobil
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Register your apps for Twitter login with Mobile Services]: mobile-services-how-to-register-twitter-authentication.md
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/

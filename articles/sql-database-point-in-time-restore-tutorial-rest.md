@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/17/2015"
    ms.author="elfish; v-romcal"/>
 
 # Restore an Azure SQL database using Point in Time Restore with REST API
 
 > [AZURE.SELECTOR]
-- [Point in Time Restore - portal](./documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal.md/)
-- [Point in Time Restore - PowerShell](./documentation/articles/sql-database-point-in-time-restore-tutorial-powershell.md/) 
+- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
+- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md) 
 
 ## Overview
 
@@ -30,7 +30,7 @@ Point in Time Restore creates a new database. The service automatically selects 
 
 ## Restrictions and Security
 
-See [Restore an Azure SQL database using Point in Time Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/).
+See [Restore an Azure SQL database using Point in Time Restore in the Azure portal](sql-database-point-in-time-restore-tutorial-management-portal.md).
 
 ## How to: Restore an Azure SQL database using REST API
 

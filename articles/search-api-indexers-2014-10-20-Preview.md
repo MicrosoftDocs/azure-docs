@@ -4,7 +4,7 @@
 
 #Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)#
 
-> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](http://azure.microsoft.com/documentation/articles/search-api-2014-10-20-preview/).
+> [AZURE.NOTE] This article describes a prototype of new functionality that is not in the released version of the API. Read more about versions and supportability at [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) on MSDN. For more information about other features in this preview API, see [Azure Search Service REST API Version: 2014-10-20-Preview](../search-api-2014-10-20-preview/).
 
 ## Overview ##
 
@@ -80,7 +80,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Data Source** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](http://azure.microsoft.com/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Preview Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 <a name="CreateDataSourceRequestSyntax"></a>
 **Request Body Syntax**

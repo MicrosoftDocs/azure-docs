@@ -2,7 +2,7 @@
 	pageTitle="Media Services Release Notes" 
 	description="Media Services Release Notes" 
 	services="media-services" 
-	documentationCenter="media" 
+	documentationCenter="" 
 	authors="juliako" 
 	manager="dwrede" 
 	editor=""/>
@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [March 2015 Release](#march_changes_15)
 - [February 2015 Release](#february_changes_15)
 - [January 2015 Release](#january_changes_15)
 - [December 2014 Release](#december_changes_14)
@@ -68,11 +69,20 @@ These release notes summarize changes from previous releases and known issues.
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
 
+##<a id="march_changes_15"></a>March 2015 Release
+
+### General Media Services Updates
+
+- Media Services now provides Azure CDN integration. To support the integration, the **CdnEnabled** property was added to **StreamingEndpoint**.  **CdnEnabled** can be used with REST APIs starting with version 2.9 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/azure/dn783468.aspx)).  **CdnEnabled** can be used with .NET SDK starting with version 3.1.0.2 (for more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mediaservices.client.istreamingendpoint(v=azure.10).aspx)).
+- Announcement of **Media Encoder Premium Workflow**. For more information, see [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services).
+ 
+
+
 ##<a id="february_changes_15"></a>February 2015 Release
 
 ### General Media Services Updates
 
-Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/dn783468.aspx).
+Media Services REST API is now version 2.9. Starting with this version, you can enable the Azure CDN integration with streaming endpoints. For more information, see [StreamingEndpoint](https://msdn.microsoft.com/library/dn783468.aspx).
 
 ##<a id="january_changes_15"></a>January 2015 Release
 
@@ -114,7 +124,7 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 - Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
 - Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
 - You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
-- Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](http://azure.microsoft.com/documentation/articles/media-services-manage-origins/). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+- Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-manage-origins.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
    
 ##<a id="october_changes_14"></a>October 2014 Release
 
@@ -255,7 +265,7 @@ The changes in 3.0.0.1 and 3.0.0.2 include:
 
 * Fixed issues related to usage of LINQ queries with OrderBy statements.
 
-* Split test solutions in [Github] into Unit-based tests and Scenario-based tests.
+* Split test solutions in [GitHub] into Unit-based tests and Scenario-based tests.
 
 For more details about the changes, see: [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases].
 
@@ -272,7 +282,7 @@ The following changes were made in 3.0.0.3:
 
 >[AZURE.NOTE] 3.0.x.x releases are not backward compatible with 2.4.x.x releases.
 
-The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [Github].
+The latest version of the Media Services SDK is now 3.0.0.0. You can download the latest package from Nuget or get the bits from [GitHub].
 
 Starting with the Media Services SDK version 3.0.0.0, you can reuse the [Azure Active Directory Access Control Service (ACS)] tokens. For more information, see the “Reusing Access Control Service Tokens” section in the [Connecting to Media Services with the Media Services SDK for .NET] topic.
 
@@ -453,7 +463,7 @@ The following functionality was new in the November release of the SDK.
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MediaServices
+[Azure Media Services MSDN Forum]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API Reference]: http://msdn.microsoft.com/library/azure/hh973617.aspx 
 [Media Services Pricing Details]: http://azure.microsoft.com/pricing/details/media-services/
 [Input Metadata]: http://msdn.microsoft.com/library/azure/dn783120.aspx
@@ -481,6 +491,6 @@ The following functionality was new in the November release of the SDK.
 [Connecting to Media Services with the Media Services SDK for .NET]: http://msdn.microsoft.com/library/azure/jj129571.aspx
 [Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
-[Github]: https://github.com/Azure/azure-sdk-for-media-services
+[GitHub]: https://github.com/Azure/azure-sdk-for-media-services
 [Managing Media Services Assets across Multiple Storage Accounts]: http://msdn.microsoft.com/library/azure/dn271889.aspx
 [Handling Media Services Job Notifications]: http://msdn.microsoft.com/library/azure/dn261241.aspx

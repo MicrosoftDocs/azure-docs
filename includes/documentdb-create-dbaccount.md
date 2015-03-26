@@ -1,9 +1,9 @@
 1.	Sign in to the [Azure Preview portal](https://portal.azure.com/).
-2.	Click **New**, and then click **DocumentDB**.  
+2.	In the Jumpbar, click **New**, then select **Data + storage**, and then click **DocumentDB**. 
 
-	![Screen shot of the Azure Preview portal, highlighting the New button and DocumentDB in the New blade][1]   
+	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
 
-	Alternatively, from the Startboard, you can browse the Azure Marketplace, select the “Data + analytics” category, choose **DocumentDB** and then click **Create**.  
+	Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + analytics**, choose **DocumentDB**, and then click **Create**.  
 	
 	![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]   
    
@@ -19,7 +19,7 @@
 
 	- The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB). For details about DocumentDB account capacity and throughput,please see the [Manage DocumentDB capacity and performance][documentdb-manage] article.
 
-	- In **Resource group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
+	- In **Resource group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
 	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account will be selected automatically.*
  
@@ -51,4 +51,4 @@
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
-[documentdb-manage]:../documentdb-manage/
+[documentdb-manage]:../articles/documentdb-manage.md

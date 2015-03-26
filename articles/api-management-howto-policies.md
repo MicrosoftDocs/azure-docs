@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 
@@ -102,10 +102,10 @@ In the example policy definition above, the cross-domain statement would execute
 
 Note: A global policy has no parent policy and using the `<base>` element in it has no effect. 
 
-[Policy Reference]: ../api-management-policy-reference
-[Product]: ../api-management-howto-add-products
-[API]: ../api-management-howto-add-products/#add-apis 
-[Operation]: ../api-management-howto-add-operations
+[Policy Reference]: api-management-policy-reference.md
+[Product]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
+[Operation]: api-management-howto-add-operations.md
 
 [policies-menu]: ./media/api-management-howto-policies/api-management-policies-menu.png
 [policies-editor]: ./media/api-management-howto-policies/api-management-policies-editor.png

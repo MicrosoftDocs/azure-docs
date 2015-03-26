@@ -18,4 +18,4 @@
 
 # Send cross-platform notifications to users with Notification Hubs
 
-This topic has been superseded and is not longer valid. To learn how to use Azure Notification Hubs with Azure Mobile Services to send notifications to specific users, please see the topic [Send push notifications to authenticated users](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
+This topic has been superseded and is not longer valid. To learn how to use Azure Notification Hubs with Azure Mobile Services to send notifications to specific users, please see the topic [Send push notifications to authenticated users](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md). 

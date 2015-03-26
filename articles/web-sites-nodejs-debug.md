@@ -3,7 +3,7 @@
 	description="Learn how to debug an Azure website in Node.js." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 
@@ -112,9 +112,9 @@ For information on specifying a Node.js version for your application, see [Speci
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Tools]: /en-us/documentation/articles/xplat-cli/
-[Using Node.js Modules with Azure Applications]: /en-us/documentation/articles/nodejs-use-node-modules-azure-apps/
-[Specifying a Node.js version in an Azure application]: /en-us/documentation/articles/nodejs-specify-node-version-azure-apps/
+[How to Use The Azure Command-Line Tools]: xplat-cli.md
+[Using Node.js Modules with Azure Applications]: nodejs-use-node-modules-azure-apps.md
+[Specifying a Node.js version in an Azure application]: nodejs-specify-node-version-azure-apps.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png

@@ -49,7 +49,7 @@ You will also need an on-premises machine that will connect to Azure using Hybri
 
 To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. 
 
-For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](/en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](/en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB). 
 
 For the purposes of this tutorial, we will assume the database name is **OnPremisesDB**, it is running on port **1433** and the hostname of the machine is **onPremisesServer**.
 
@@ -115,7 +115,7 @@ The Hybrid Connection Manager enables your on-premises machine to connect to Azu
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. 
 
-	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 
 
 2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
 
@@ -140,7 +140,7 @@ Finally, we need to create an app setting to store the value of the connection s
 
 3. In Visual Studio 2013, open the project that defines your .NET-based mobile service. 
 
-	To learn how to download your .NET backend project, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .
+	To learn how to download your .NET backend project, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
  
 4. In Solution Explorer, expand the **Models** folder and open the data model file, which ends in *Context.cs*.
 

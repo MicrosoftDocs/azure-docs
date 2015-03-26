@@ -28,7 +28,7 @@ Below is an example of a .COM website running on Azure Websites. It demonstrates
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [AZURE.NOTE]
-> This guide presents some of the most common areas and tasks that are aligned with running a public-facing .COM site in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on [Digital Marketing Campaigns](../web-sites-digital-marketing-application-solution-overview/) and [Business Applications](../web-sites-business-application-solution-overview/).
+> This guide presents some of the most common areas and tasks that are aligned with running a public-facing .COM site in Azure Websites. However, there are other common solutions that you can implement in Azure Websites. To review these solutions, see the other guides on [Digital Marketing Campaigns](web-sites-digital-marketing-application-solution-overview.md) and [Business Applications](web-sites-business-application-solution-overview.md).
 
 ## Create from scratch or bring existing assets
 
@@ -89,38 +89,38 @@ Make your .COM site attractive with rich media, such as:
 
 ## More Resources
 
-- [Azure Websites Documentation](/en-us/documentation/services/websites/)
-- [Learning map for Azure Websites](../websites-learning-map/)
+- [Azure Websites Documentation](/documentation/services/websites/)
+- [Learning map for Azure Websites](websites-learning-map.md)
 - [Azure Web Blog](/blog/topics/web/)
 
 
 
-[Azure Websites]:/en-us/services/websites/
+[Azure Websites]:/services/websites/
 
-[Orchard]:../web-sites-dotnet-orchard-cms-gallery/
-[Umbraco]:../web-sites-gallery-umbraco/
-[Drupal]:../web-sites-php-migrate-drupal/
-[WordPress]:../web-sites-php-web-site-gallery/
-[MySQL]:../web-sites-php-mysql-deploy-use-git/
-[Azure SQL Database]:../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[FTP]:../web-sites-deploy/#ftp
-[Visual Studio]:../web-sites-dotnet-get-started/
-[Visual Studio Online]:../cloud-services-continuous-delivery-use-vso/
-[Git]:../web-sites-publish-source-control/
+[Orchard]:web-sites-dotnet-orchard-cms-gallery.md
+[Umbraco]:web-sites-gallery-umbraco.md
+[Drupal]:web-sites-php-migrate-drupal.md
+[WordPress]:web-sites-php-web-site-gallery.md
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[deploying to a staging slot]:../web-sites-staged-publishing/ 
+[deploying to a staging slot]:web-sites-staged-publishing.md 
 [continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
 [run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-[custom domain]:../web-sites-custom-domain-name/
-[HTTPS]:../web-sites-configure-ssl-certificate/
+[custom domain]:web-sites-custom-domain-name.md
+[HTTPS]:web-sites-configure-ssl-certificate.md
 [Websites Pricing Details]:/pricing/details/web-sites/#service-ssl
 
 [Azure Traffic Manager]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
-[integrating your website with Azure CDN]:../cdn-websites-with-cdn/ 
+[integrating your website with Azure CDN]:cdn-websites-with-cdn.md 
 [CDN node]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-[scale up and out]:../web-sites-scale/
+[scale up and out]:web-sites-scale.md
 [Azure Management Portal]:http://manage.windowsazure.com/
 [Service Management API]:https://msdn.microsoft.com/library/azure/ee460799.aspx
 [PowerShell scripting]:https://msdn.microsoft.com/library/azure/jj152841.aspx
@@ -130,11 +130,11 @@ Make your .COM site attractive with rich media, such as:
 [ASP.NET session state]:https://msdn.microsoft.com/library/azure/dn690522.aspx
 [output cache]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[quick glance]:../web-sites-monitor/
+[quick glance]:web-sites-monitor.md
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:../store-new-relic-cloud-services-dotnet-application-performance-management/
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 [Azure Media Services]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
-[SendGrid service in Azure Marketplace]:../sendgrid-dotnet-how-to-send-email/
+[SendGrid service in Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
 

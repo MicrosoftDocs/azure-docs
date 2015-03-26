@@ -176,7 +176,7 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 * [Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app with Mobile Services.
 
-* [Mobile Services C# How-to Conceptual Reference](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
+* [Mobile Services C# How-to Conceptual Reference](mobile-services-windows-dotnet-how-to-use-client-library.md)
   <br/>Learn more about how to use Mobile Services with .NET.
  
 <!-- Anchors. -->
@@ -202,12 +202,12 @@ This tutorial demonstrated the basics of enabling a Windows Phone 8 app to work 
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-wp8
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

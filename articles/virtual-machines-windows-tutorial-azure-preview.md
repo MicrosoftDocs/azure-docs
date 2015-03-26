@@ -23,7 +23,7 @@
 
 # Create a Virtual Machine in the Azure Preview Portal#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows, using as an example a Windows Server image from the Azure Marketplace in the Azure Preview Portal. The Marketplace offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
 
@@ -112,13 +112,13 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 To learn more about configuring Windows virtual machines on Azure, see the following articles:
 
-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](cloud-services-connect-virtual-machine.md)
 
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md)
 
-[Attach Data Disks to a Virtual Machine](http://www.windowsazure.com/documentation/articles/storage-windows-attach-disk/)
+[Attach Data Disks to a Virtual Machine](storage-windows-attach-disk.md)
 
-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)
+[Manage the Availability of Virtual Machines](manage-availability-virtual-machines.md)
 
 [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

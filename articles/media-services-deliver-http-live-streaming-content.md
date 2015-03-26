@@ -92,11 +92,11 @@ This topic concludes the Using Azure Media Services topics. We have covered sett
 -   [Building Applications with the Media Services SDK for .NET][]
 -   [Building Applications with the Azure Media Services REST API][]
 -   [Media Services Forum][]
--	[How to Monitor a Media Services Account](../media-services-monitor-services-account/)
--	[How to Manage Content in Media Services](../media-services-manage-content/)
+-	[How to Monitor a Media Services Account](media-services-monitor-services-account.md)
+-	[How to Manage Content in Media Services](media-services-manage-content.md)
 
 [Azure Media Services Documentation]: http://go.microsoft.com/fwlink/?linkid=245437
 [Getting Started with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Building Applications with the Azure Media Services REST API]: http://go.microsoft.com/fwlink/?linkid=252967
 [Building Applications with the Media Services SDK for .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Media Services Forum]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Media Services Forum]: http://social.msdn.microsoft.com/Forums/MediaServices/threads

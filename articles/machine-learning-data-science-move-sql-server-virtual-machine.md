@@ -80,7 +80,7 @@ If your data is in a flat file (arranged in a row/column format), it can be move
 BCP is a command line utility installed with SQL Server and is one of the quickest ways to move data. It works across all three SQL Server variants (On-premise SQL Server, SQL Azure and SQL Server VM on Azure). 
 
 > [AZURE.NOTE] **Where should my data be for BCP?**  
-> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
+> While it is not required, having files containing source data located on the same machine as the target SQL server allows for faster transfers (network speed vs local disk IO speed). You can move the flat files containing data to the machine where SQL Server is installed using various file copying tools such as [AZCopy](storage-use-azcopy.md), [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or windows copy/paste via Remote Desktop Protocol (RDP).
 
 1. Ensure that the database and the tables are created on the target SQL Server database. Here is an example of how to do that using the `Create Database` and `Create Table` commands:
 
@@ -101,7 +101,7 @@ BCP is a command line utility installed with SQL Server and is one of the quicke
 
 	`bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
 
-> **Optimizing BCP Inserts** Please refer the following article ['Guidelines for Optimizing Bulk Import'](https://technet.microsoft.com/en-us/library/ms177445%28v=sql.105%29.aspx) to optimize such inserts.
+> **Optimizing BCP Inserts** Please refer the following article ['Guidelines for Optimizing Bulk Import'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) to optimize such inserts.
 
 #### <a name="insert-tables-bulkquery-parallel"></a>Parallelizing Inserts for Faster Data Movement
 
@@ -150,7 +150,7 @@ The sample PowerShell script below demonstrate parallel inserts using bcp :
 
 ### <a name="insert-tables-bulkquery"></a>Bulk Insert SQL Query
 
-[Bulk Insert SQL Query](https://msdn.microsoft.com/en-us/library/ms188365) can be used to import data into the database from row/column based files (the supported types are covered [here](https://msdn.microsoft.com/en-us/library/ms188609)). 
+[Bulk Insert SQL Query](https://msdn.microsoft.com/library/ms188365) can be used to import data into the database from row/column based files (the supported types are covered [here](https://msdn.microsoft.com/library/ms188609)). 
 
 Here are some sample commands for Bulk Insert are as below:  
 
@@ -174,10 +174,10 @@ Here are some sample commands for Bulk Insert are as below:
 ### <a name="sql-builtin-utilities"></a>Built-in Utilities in SQL Server
 
 You can use SQL Server Integrations Services (SSIS) to import data into SQL Server VM on Azure from a flat file. 
-SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](https://technet.microsoft.com/en-us/library/ms140028.aspx):
+SSIS is available in two studio environments. For details, see [Integration Services (SSIS) and Studio Environments](https://technet.microsoft.com/library/ms140028.aspx):
 
-- For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/tools.aspx)  
-- For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/en-us/library/ms141209.aspx)
+- For details on SQL Server Data Tools, see [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
+- For details on the Import/Export Wizard, see [SQL Server Import and Export Wizard](https://msdn.microsoft.com/library/ms141209.aspx)
 
 ### <a name="sqlonprem_to_sqlonazurevm"></a>Moving Data from On-Premise SQL Server
 
@@ -191,7 +191,7 @@ We describe each of these below:
 
 #### <a name="export-flat-file"></a>Export to Flat File
 
-Various methods can be used to bulk export data from an On-Premise SQL Server as documented [here](https://msdn.microsoft.com/en-us/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
+Various methods can be used to bulk export data from an On-Premise SQL Server as documented [here](https://msdn.microsoft.com/library/ms175937.aspx). This document will cover the Bulk Copy Program (BCP) as an example. Once data is exported into a flat file, it can be imported to another SQL server using bulk import. 
 
 1. Export the data from on-premise SQL Server to a File using the bcp utility as follows
 
@@ -199,7 +199,7 @@ Various methods can be used to bulk export data from an On-Premise SQL Server as
 
 2. Create the database and the table on SQL Server VM on Azure using the `create database` and `create table` for the table schema exported in step 1.
 
-3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described [here](https://msdn.microsoft.com/en-us/library/ms191516.aspx).
+3. Create a format file for describing the table schema of the data being exported/imported. Details of the format file are described [here](https://msdn.microsoft.com/library/ms191516.aspx).
 
 	Format file generation when running BCP from the SQL Server machine 
 
@@ -222,8 +222,8 @@ Various methods can be used to bulk export data from an On-Premise SQL Server as
 
 SQL Server supports: 
 
-1. [Database backup and restore functionality](https://msdn.microsoft.com/en-us/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/en-us/library/ee210546.aspx) (using bacpac). 
-2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing SQL Azure database. For more details, see [Use the Copy Database Wizard](https://msdn.microsoft.com/en-us/library/ms188664.aspx). 
+1. [Database backup and restore functionality](https://msdn.microsoft.com/library/ms187048.aspx) (both to a local file or bacpac export to blob) and [Data Tier Applications](https://msdn.microsoft.com/library/ee210546.aspx) (using bacpac). 
+2. Ability to directly create SQL Server VMs on Azure with a copied database or copy to an existing SQL Azure database. For more details, see [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx). 
 
 A screenshot of the Database backup/restore options from SQL Server Management Studio are shown below.
 

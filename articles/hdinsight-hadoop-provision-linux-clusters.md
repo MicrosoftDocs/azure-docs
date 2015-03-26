@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/19/2015"
+   ms.date="03/03/2015"
    ms.author="nitinme"/>
 
 
@@ -27,9 +27,9 @@ Have you ever wondered why we mention clusters, every time we talk about Hadoop 
 
 ![HDInsight Cluster][img-hdi-cluster]
 
-An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight](../hdinsight-hadoop-introduction/). The data to be churned is stored in Azure Blob storage, also called *Azure Storage - Blob* (or WASB) in the context of HDInsight. For more information, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage/).
+An HDInsight cluster abstracts the Hadoop implementation details so that you don't need to worry about how to communicate with different nodes of a cluster. When you provision an HDInsight cluster, you provision Azure compute resources that contain Hadoop and related applications. For more information, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md). The data to be churned is stored in Azure Blob storage, also called *Azure Storage - Blob* (or WASB) in the context of HDInsight. For more information, see [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
-This article provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight on Linux](../hdinsight-hadoop-linux-get-started).
+This article provides instructions on the different ways to provision a cluster. If you are looking at a quick-start approach to provision a cluster, see [Get Started with Azure HDInsight on Linux](hdinsight-hadoop-linux-get-started.md).
 
 **Prerequisites:**
 
@@ -38,25 +38,19 @@ Before you begin this article, you must have the following:
 - An Azure subscription. Azure is a subscription-based platform. The HDInsight PowerShell cmdlets perform the tasks with your subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
 - SSH keys. If you want to remote into a Linux cluster using SSH with a key instead of a password. Using a key is the recommended method as it is more secure. For instructions on how to generate SSH keys refer to the following articles
 	-  From a Linux computer - [Use SSH with Linux-based HDInsight (Hadoop) from Linux, Unix, or OS X](../hdinsight-hadoop-linux-use-ssh-unix).
-	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](../hdinsight-hadoop-linux-use-ssh-windows).
-
-## In this article
-
-* [Configuration options](#configuration)
-* [Options for provisioning HDInsight Linux clusters](#options)
-* [Next steps](#nextsteps)
+	-  From a Windows computer - [Use SSH with Linux-based HDInsight (Hadoop) from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
 ## <a id="configuration"></a>Configuration options
 
 ### Clusters on Linux
 
-HDInsight provides the option of provisioning Linux clusters on Azure. Provision a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information on Azure HDInsight on Linux, see [Introduction to Hadoop on HDInsight](../hdinsight-hadoop-introduction). 
+HDInsight provides the option of provisioning Linux clusters on Azure. Provision a Linux cluster if you are familiar with Linux or Unix, migrating from an existing Linux-based Hadoop solution, or want easy integration with Hadoop ecosystem components built for Linux. For more information on Azure HDInsight on Linux, see [Introduction to Hadoop on HDInsight](hdinsight-hadoop-introduction.md). 
 
 ### Additional storage
 
 During configuration, you must specify an Azure Blob Storage account, and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional blobs that will also be associated with your cluster.
 
-For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
+For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 ### Metastore
 
@@ -78,7 +72,7 @@ Windows | Click [here](#portal) | Click [here](#cli) | Click [here](#sdk) | Avai
 
 ### <a id="portal"></a> Using Azure Management Portal
 
-HDInsight clusters use an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage/). For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+HDInsight clusters use an Azure Blob Storage container as the default file system. An Azure storage account located on the same data center is required before you can create a HDInsight cluster. For more information, see [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md). For details on creating an Azure storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
 
 > [WACOM.NOTE] Currently, only the **East Asia**, **Southeast Asia**, **North Europe**, **West Europe**, **East US**, **West US**, **North Central US**, and **South Central US** regions can host HDInsight clusters.
@@ -532,32 +526,32 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 ##<a id="nextsteps"></a> Next steps
 In this article, you have learned several ways to provision an HDInsight Hadoop cluster on Linux. To learn more, see the following articles:
 
-- [Working with HDInsight on Linux](../hdinsight-hadoop-linux-information). Get to know the nuances of working with an HDInsight cluster on Linux.
-- [Manage HDInsight clusters using Ambari](../hdinsight-hadoop-manage-ambari). Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster using Ambari Web, or the Ambari REST API. 
+- [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md). Get to know the nuances of working with an HDInsight cluster on Linux.
+- [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md). Learn how to monitor and manage your Linux-based Hadoop on HDInsight cluster using Ambari Web, or the Ambari REST API. 
 - [Use MapReduce with HDInsight][hdinsight-use-mapreduce]. Learn about the different ways to run MapReduce jobs on a cluster.
 - [Use Hive with HDInsight][hdinsight-use-hive]. Learn about the different way of running a Hive query on a cluster.
 - [Use Pig with HDInsight][hdinsight-use-pig]. Learn about the different ways of running a Pig job on a cluster.
-- [Use Azure Blob storage with HDInsight](../hdinsight-use-blob-storage). Learn how HDInsight uses Azure Blob storage to store data for HDInsight clusters.
+- [Use Azure Blob storage with HDInsight](hdinsight-use-blob-storage.md). Learn how HDInsight uses Azure Blob storage to store data for HDInsight clusters.
 - [Upload data to HDInsight][hdinsight-upload-data]. Learn how to work with data stored in an Azure Blob storage for an HDInsight cluster.
 
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
-[hdinsight-customize-cluster]: ../hdinsight-hadoop-customize-cluster/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[azure-command-line-tools]: ../xplat-cli/
-[azure-create-storageaccount]: ../storage-create-storage-account/
+[azure-command-line-tools]: xplat-cli.md
+[azure-create-storageaccount]: storage-create-storage-account.md
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -565,7 +559,7 @@ In this article, you have learned several ways to provision an HDInsight Hadoop 
 [hdi-remote]: http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp
 
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-customcreatecluster]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.png
 [image-hdi-customcreatecluster-clusteruser]: ./media/hdinsight-get-started/HDI.CustomCreateCluster.ClusterUser.png
@@ -584,4 +578,4 @@ In this article, you have learned several ways to provision an HDInsight Hadoop 
 
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
-  [89e2276a]: /en-us/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+  [89e2276a]: hdinsight-use-sqoop.md "Use Sqoop with HDInsight"

@@ -1,3 +1,3 @@
 > [AZURE.SELECTOR]
-- [.NET SDK](/en-us/documentation/articles/media-services-dotnet-get-started/)
-- [REST API](/en-us/documentation/articles/media-services-rest-get-started/)
+- [.NET SDK](../articles/media-services-dotnet-get-started.md)
+- [REST API](../articles/media-services-rest-get-started.md)

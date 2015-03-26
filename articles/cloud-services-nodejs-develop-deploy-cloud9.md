@@ -3,7 +3,7 @@
 	description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/25/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 

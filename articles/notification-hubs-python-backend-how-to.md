@@ -18,7 +18,7 @@
 
 # How to use Notification Hubs from Python
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/en-us/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/en-us/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/en-us/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python" class="current">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js">Node.js</a>
 </div>
 
 You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
@@ -33,7 +33,7 @@ In this topic we show how to:
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
 * Get a dump of the HTTP REST request/response for debugging/educational purpose. 
 
-You can follow the [Get started tutorial](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) for your mobile platform of choice, implementing the back-end portion in Python.
+You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet-get-started.md) for your mobile platform of choice, implementing the back-end portion in Python.
 
 > [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 

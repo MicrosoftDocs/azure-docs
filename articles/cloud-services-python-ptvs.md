@@ -39,7 +39,7 @@ Azure provides three compute models for running applications: [Azure Websites][e
 For more information, see [What is a Cloud Service?].
 
 > [AZURE.NOTE] **Looking to build a simple website?**
-If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/en-us/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.
+If your scenario involves just a simple website front-end, consider using a lightweight Azure Website. You can easily upgrade to a Cloud Service as your website grows and your requirements change. See the <a href="/develop/python/">Python Developer Center</a> for articles that cover development of Azure Websites.
 <br />
 
 
@@ -116,17 +116,17 @@ For more details on using Azure services from your web and worker roles, such as
 
 <!--Link references-->
 
-[What is a Cloud Service?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: ../fundamentals-application-models/#WebSites
-[execution model-vms]: ../fundamentals-application-models/#VMachine
-[execution model-cloud services]: ../fundamentals-application-models/#CloudServices
-[Python Developer Center]: /en-us/develop/python/
+[What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
+[execution model-web sites]: fundamentals-application-models.md#WebSites
+[execution model-vms]: fundamentals-application-models.md#VMachine
+[execution model-cloud services]: fundamentals-application-models.md#CloudServices
+[Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage-python-how-to-use-blob-storage/
-[Queue Service]: ../storage-python-how-to-use-queue-storage/
-[Table Service]: ../storage-python-how-to-use-table-storage/
-[Service Bus Queues]: ../service-bus-python-how-to-use-queues/
-[Service Bus Topics]: ../service-bus-python-how-to-use-topics-subscriptions/
+[Blob Service]: storage-python-how-to-use-blob-storage.md
+[Queue Service]: storage-python-how-to-use-queue-storage.md
+[Table Service]: storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->

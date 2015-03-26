@@ -274,13 +274,13 @@ The following steps demonstrate how to deploy role based access control using sc
 [6]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/client-id-and-key.png
 
 <!-- URLs. -->
-[Add authentication to your Mobile Service app]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users/
-[How to Register with the Azure Active Directory]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Add authentication to your Mobile Service app]: mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md
+[How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
-[Store Server Scripts]: /en-us/documentation/articles/mobile-services-store-scripts-source-control/
-[Register to use an Azure Active Directory Login]: /en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
+[Store Server Scripts]: mobile-services-store-scripts-source-control.md
+[Register to use an Azure Active Directory Login]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [Graph API Error Reference]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Accessing Azure Active Directory Graph Information]: /en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/
+[Accessing Azure Active Directory Graph Information]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md

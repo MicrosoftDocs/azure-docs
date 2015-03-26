@@ -26,9 +26,9 @@ The [Cloud data science sample scenarios](http://azure.microsoft.com/documentati
 
 
 
-> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/) and  [Azure Blob Service](https://msdn.microsoft.com/en-us/library/azure/dd179376.aspx). 
+> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx). 
 
-Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/). This document assumes that you have an Azure storage account and the corresponding storage key(s).
+Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](storage-create-storage-account.md). This document assumes that you have an Azure storage account and the corresponding storage key(s).
 
 <a id="explorer"></a>
 ## Use Azure Storage Explorer 
@@ -52,7 +52,7 @@ Azure Storage Explorer is a free windows based tool for inspecting and altering 
 
 AzCopy is a command line utility to upload and download data. 
 
-**Warning** If you are using a machine different from the VM that was set up earlier in the cloud data science process, please install AzCopy using the following installation instructions: [Download and install AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/#install).
+**Warning** If you are using a machine different from the VM that was set up earlier in the cloud data science process, please install AzCopy using the following installation instructions: [Download and install AzCopy](storage-use-azcopy.md#install).
 
 ####Examples of uploading/downloading files to/from blobs:
 
@@ -77,7 +77,7 @@ AzCopy is a command line utility to upload and download data.
 > 2. When downloading file, /S will search the container recursively until all files in the specified directory and its subdirectories or all files that matching the specified pattern in the given directory and its subdirectories, are downloaded.  
 > 3.  You cannot specify a specific blob file to download using the /Source parameter. To download a specific file, specify the blob file name to download using the /Pattern parameter. /S parameter can be used to have AzCopy look for a file name pattern recursively. Without the pattern parameter, AzCopy will download all files in that directory. 
 
-For detailed usage of AzCopy, please refer to [Getting Started with the AzCopy Command-Line Utility](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/#install).
+For detailed usage of AzCopy, please refer to [Getting Started with the AzCopy Command-Line Utility](storage-use-azcopy.md#install).
 
 
 <a id="PythonSDK"></a>
@@ -91,9 +91,9 @@ With the Python API provided in Azure SDK, you can
 - List the blobs in a container
 - Delete a blob
 
-This section documents how to list, upload and download blobs. For more details of the usage of the Python API, please refer [How to Use the Blob Storage Service from Python](http://azure.microsoft.com/documentation/articles/storage-python-how-to-use-blob-storage/). 
+This section documents how to list, upload and download blobs. For more details of the usage of the Python API, please refer [How to Use the Blob Storage Service from Python](storage-python-how-to-use-blob-storage.md). 
 
-> [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the cloud data science process, you need to install the [Python Azure SDK](http://azure.microsoft.com/documentation/articles/python-how-to-install/) before using the sample code below.
+> [AZURE.NOTE] If you are using a machine different from the VM that was set up earlier in the cloud data science process, you need to install the [Python Azure SDK](python-how-to-install.md) before using the sample code below.
 
 ###Upload Data to Blob
 Add the following snippet near the top of any Python code in which you wish to programmatically access Azure Storage:

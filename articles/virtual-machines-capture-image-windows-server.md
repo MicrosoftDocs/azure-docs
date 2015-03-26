@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/13/2015" 
 	ms.author="kathydav"/>
 
 #How to Capture a Windows Virtual Machine to Use as a Template#
@@ -77,8 +77,8 @@ The image is ready to be used as a template to create virtual machines. To do th
 
 	
 [About Virtual Machine Images in Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
-[How to Create a Custom Virtual Machine]: ../virtual-machines-create-custom/
-[How to Attach a Data Disk to a Virtual Machine]: ../storage-windows-attach-disk/
+[How to Create a Custom Virtual Machine]: virtual-machines-create-custom.md
+[How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [How to Log on to a Virtual Machine Running Windows Server]:http://www.windowsazure.com/manage/windows/how-to-guides/log-on-a-windows-vm/
 [How to Use Sysprep: An Introduction]:http://technet.microsoft.com/library/bb457073.aspx
 [Run Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png

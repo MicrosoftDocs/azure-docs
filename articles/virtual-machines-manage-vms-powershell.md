@@ -13,52 +13,57 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="03/09/2015"
    ms.author="kasing"/>
 
 # Manage your Virtual Machines using Azure PowerShell
 
-Before getting started you'll need to make sure you have Azure PowerShell installed. To do this, visit [How to install and configure Azure PowerShell](../install-configure-powershell/)
+Before getting started here are some starter articles that will help you get a VM setup
 
-## Get an Image
+* [How to install and configure Azure PowerShell](install-configure-powershell.md)
+* [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+* [Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines](virtual-machines-ps-create-preconfigure-linux-vms.md)
 
-Before creating a VM, you will need to decide **what image to use**. You can get a list of images using the following cmdlet
+## Stop a VM
+You can stop a VM using the Stop-AzureVM cmdlet
 
-      Get-AzureVMImage
+    Stop-AzureVM -ServiceName "mytestserv" -Name "testvm"
 
-This cmdlet will return a list of all the images available in Azure. This is a very long list and it can be hard to find the exact image you want to use. In the example below I'm using other PowerShell cmdlets to reduce the list of returned images to just those containing based on **Windows Server 2012 R2 Datacenter**. Additionally, I'm choosing to only get the latest image by specifying [-1] for the returned array of images
+>[AZURE.NOTE] **StayProvisioned** - Use this parameter to make sure you don't loose the VIP of the cloud service in case it is the last VM in that cloud service. <br><br>
 
-    $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
+> [AZURE.WARNING] If you use the **StayProvisioned** parameter, you'll still be billed for the VM.
 
-## Create a VM
+## Start a VM
+This can be done using the Start-AzureVM cmdlet
 
-Creation of a VM begins with the **New-AzureVMConfig** cmdlet. Here you'll specify the **name** of your VM, **size** of your VM and the **image** to be used for the VM. This cmdlet creates a local VM object **$myVM** that is later modified using other Azure PowerShell cmdlets in this guide.
-
-      $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
-
-Next you'll need to choose the **username** and **password** for your VM. You can do that using the **Add-AzureProvisioningConfig** cmdlet. This is where you tell Azure what OS for the VM is. Not that you are still making changes to the local **$myVM** object.
-
-    $user = "azureuser"
-    $pass = "&Azure1^Pass@"
-    $myVM = Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
-
-Finally, you are ready to spin up your VM on Azure. To do this you'll need to use the **New-AzureVM** cmdlet
-
-> [AZURE.NOTE] You'll need to configure the cloud service before you create your VM. There are two ways to do this.
-* Create the cloud service using the New-AzureService cmdlet. If you choose this method, then you'll need to make sure that the location specified in the New-AzureVM cmdlet below matches the location of your cloud service, otherwise New-AzureVM cmdlet execution cmdlet will fail.
-* Let the New-AzureVM cmdlet do this for you. You'll need to make sure that the name of the service is unique otherwise New-AzureVM cmdlet execution will fail.
-
-    New-AzureVM -ServiceName "mytestserv" -VMs $myVM -Location "West US"
-
-**OPTIONAL**
-
-You can use other cmdlets such as **Add-AzureDataDisk**, **Add-AzureEndpoint** to configure additional options for your VM
+    Start-AzureVM -ServiceName "mytestserv" -Name "testvm"
 
 ## Get a VM
 Now that you have created a VM on Azure, you'll definitely want to see how it's doing. You can do this using the **Get-AzureVM** cmdlet as shown below
 
-    Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+        Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
 
+## Attach a Data Disk
+Now that you have gotten a VM, store it in a local $vm variable. Here's how to do that
+
+    $vm = Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+
+For attaching a data disk to the VM, you'll need to use the Add-AzureDataDisk cmdlet to add your data disk to this local $vm object, then make the call to Azure with the Update-AzureVM cmdlet to update the state of the VM
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "main" -LUN 0 -VM $vm `
+              | Update-AzureVM
+
+Add-AzureDataDisk cmdlet can also be used to attach existing data disks
+
+    Add-AzureDataDisk -Import -DiskName "MyExistingDisk" -LUN 0 `
+              | Update-AzureVM
+
+Or create data disks from existing blobs
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd" `
+              -DiskLabel "main" -LUN 0 `
+              | Update-AzureVM
 
 ## Next Steps
 [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)<br>

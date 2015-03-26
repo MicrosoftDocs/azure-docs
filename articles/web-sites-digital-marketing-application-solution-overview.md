@@ -88,53 +88,53 @@ In the **Standard** hosting plan, monitor site responsiveness receive email noti
 
 ## More Resources
 
-- [Azure Websites Documentation](/en-us/documentation/services/websites/)
-- [Learning map for Azure Websites](/en-us/documentation/articles/websites-learning-map/)
+- [Azure Websites Documentation](/documentation/services/websites/)
+- [Learning map for Azure Websites](websites-learning-map.md)
 - [Azure Web Blog](/blog/topics/web/)
 
 
-[Azure Websites]:/en-us/services/websites/
+[Azure Websites]:/services/websites/
 
-[Orchard]:/en-us/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
-[Umbraco]:/en-us/documentation/articles/web-sites-gallery-umbraco/
-[Drupal]:/en-us/documentation/articles/web-sites-php-migrate-drupal/
-[WordPress]:/en-us/documentation/articles/web-sites-php-web-site-gallery/
+[Orchard]:web-sites-dotnet-orchard-cms-gallery.md
+[Umbraco]:web-sites-gallery-umbraco.md
+[Drupal]:web-sites-php-migrate-drupal.md
+[WordPress]:web-sites-php-web-site-gallery.md
   
-[MySQL]:/en-us/documentation/articles/web-sites-php-mysql-deploy-use-git/
-[Azure SQL Database]:/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
-[FTP]:/en-us/documentation/articles/web-sites-deploy/#ftp
-[Visual Studio]:/en-us/documentation/articles/web-sites-dotnet-get-started/
-[Visual Studio Online]:/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/
-[Git]:/en-us/documentation/articles/web-sites-publish-source-control/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
-[deploying to a staging slot]:/en-us/documentation/articles/web-sites-staged-publishing/ 
+[deploying to a staging slot]:web-sites-staged-publishing.md 
 [continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
 [run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-[Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site]:/en-us/develop/net/tutorials/web-site-with-sql-database/
+[Deploy a Secure ASP.NET MVC app with Membership, OAuth, and SQL Database to an Azure Web Site]:/develop/net/tutorials/web-site-with-sql-database/
 
 [Azure Media Services]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
-[SendGrid service in Azure Marketplace]:/en-us/documentation/articles/sendgrid-dotnet-how-to-send-email/
-[Mobile Services]:/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-[Notification Hub]:/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
+[SendGrid service in Azure Marketplace]:sendgrid-dotnet-how-to-send-email.md
+[Mobile Services]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
+[Notification Hub]:mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
 [Azure Traffic Manager]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
-[integrating your website with Azure CDN]:/en-us/documentation/articles/cdn-websites-with-cdn/ 
+[integrating your website with Azure CDN]:cdn-websites-with-cdn.md 
 [CDN node]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-[scale up and out]:/en-us/manage/services/web-sites/how-to-scale-websites/
+[scale up and out]:/manage/services/web-sites/how-to-scale-websites/
 [Azure Management Portal]:http://manage.windowsazure.com/
 [Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[ASP.NET session state]:https://msdn.microsoft.com/en-us/library/azure/dn690522.aspx
-[output cache]:https://msdn.microsoft.com/en-us/library/azure/dn798898.aspx
+[ASP.NET session state]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[output cache]:https://msdn.microsoft.com/library/azure/dn798898.aspx
 
-[quick glance]:/en-us/manage/services/web-sites/how-to-monitor-websites/
+[quick glance]:/manage/services/web-sites/how-to-monitor-websites/
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
-[New Relic]:/en-us/develop/net/how-to-guides/new-relic/
+[New Relic]:/develop/net/how-to-guides/new-relic/
 [How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
   

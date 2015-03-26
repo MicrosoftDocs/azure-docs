@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/05/2015" 
+	ms.date="03/10/2015" 
 	ms.author="rasquill"/>
 
 #Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/en-us/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
 
@@ -176,10 +176,10 @@ To view logged information on operations performed on a group, use the `azure gr
 ##Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with Resource Manager using Windows Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
+* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[xplatsetup]: /en-us/documentation/articles/xplat-cli/
+[xplatsetup]: xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

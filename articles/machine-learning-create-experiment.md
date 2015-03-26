@@ -20,7 +20,8 @@
  
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
-In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment.
+In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
+ 
 
 ##Five steps to create an experiment 
 
@@ -47,7 +48,7 @@ In this example, we'll walk through creating a regression model that uses sample
 
 There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
 
-1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, and then select **EXPERIMENT**. Rename the experiment from **Untitled** to something meaningful, for example, **Automobile price prediction**.
+1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful, for example, **Automobile price prediction**.
 
 2. To the left of the experiment canvas is a palette of datasets and modules. Type **automobile** in the search box at the top of this palette to find the dataset labeled **Automobile price data (Raw)**. 
 
@@ -187,15 +188,15 @@ Now that you have your experiment set up, you can iterate to try to improve the 
 
 > [AZURE.TIP] Use the **SAVE AS** button under the experiment canvas to copy any iteration of your experiment. You can see all the iterations of your experiment by clicking **VIEW RUN HISTORY** under the canvas. See [Manage experiment iterations in Azure Machine Learning Studio][runhistory] for more details.
 
-[runhistory]: ../machine-learning-manage-experiment-iterations/
+[runhistory]: machine-learning-manage-experiment-iterations.md
 
 When you're satisfied with your model, you can publish it as a web service to be used to predict automobile prices by using new data. See [Publish an Azure Machine Learning web service][publish] for more details.
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
 
 For a more extensive and detailed walkthrough for creating, training, scoring, and publishing a predictive model, see [Develop a predictive solution by using Azure Machine Learning ][walkthrough]. 
 
-[walkthrough]: ../machine-learning-walkthrough-develop-predictive-solution/
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 <!-- Images -->
 [screen1]:./media/machine-learning-create-experiment/screen1.png

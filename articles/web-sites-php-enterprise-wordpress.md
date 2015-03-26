@@ -20,15 +20,7 @@
 
 Azure Websites provides a scalable, secure and easy to use environment for mission critical, large scale [WordPress][wordpress] sites. Microsoft itself runs enterprise class sites such as the [Office][officeblog] and [Bing][bingblog] blogs. This document shows you how you can use Azure Websites to establish and maintain an enterprise class, cloud-based WordPress site that can handle a large volume of visitors.
 
-##In this article 
-
-* [Architecture and planning](#planning) - Learn about architecture, requirements, and performance considerations before creating your site
-
-* [How to](#howto) - Create, deploy, and configure your site
-
-* [More resources](#resources) - Additional resources and information
-
-##<a id="plan"></a>Architecture and planning
+## Architecture and planning
 
 A basic WordPress installation has only two requirements.
 
@@ -108,9 +100,9 @@ There are two methods of migrating an existing WordPress site to Azure Websites.
 
 * **Manual migration** - [Back up your site][wordpressbackup] and [database][wordpressdbbackup], then manually restore it to an Azure Website and associated MySQL database to migrate highly customized sites and avoid the tedium of manually installing plugins, themes, and other customizations.
 
-##How to
+## Step-by-step instructions
 
-###<a id="create"></a>Create a new WordPress site
+### Create a new WordPress site
 
 1. Use the [Azure Store][cdbnstore] to create a MySQL database of the size you identified in the [Architecture and planning](#planning) section, in the region(s) that you will host your site.
 
@@ -118,7 +110,7 @@ There are two methods of migrating an existing WordPress site to Azure Websites.
 
 If you are migrating an existing WordPress site, see [Migrate an existing WordPress site](#migrate) after creating a new site.
 
-###<a id="migrate"></a>Migrate an existing WordPress site to Azure
+### Migrate an existing WordPress site to Azure
 
 As mentioned in the [Architecture and planning](#planning) section, there are two ways to migrate a WordPress website.
 
@@ -202,11 +194,11 @@ To do this... | Use this...
 **Enable automated website backups** | [Backup Azure Websites][backup]
 **Enable diagnostic logging** | [Enable diagnostic logging for Websites][log]
 
-##<a href="resources"></a>Additional resources
+## Next Steps
 
 * [WordPress optimization](http://codex.wordpress.org/WordPress_Optimization)
 
-* [Convert a WordPress site to a multisite](http://azure.microsoft.com/documentation/articles/web-sites-php-convert-wordpress-multisite/)
+* [Convert a WordPress site to a multisite](web-sites-php-convert-wordpress-multisite.md)
 
 * [ClearDB upgrade wizard for Azure](http://www.cleardb.com/store/azure/upgrade)
 
@@ -266,7 +258,7 @@ To do this... | Use this...
 [mysqlwindows]: http://azure.microsoft.com/documentation/articles/virtual-machines-mysql-windows-server-2008r2/
 [mysqllinux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-use-opensuse/
 [cge]: http://www.mysql.com/products/cluster/
-[websitepricing]: https://azure.microsoft.com/en-us/pricing/details/web-sites/
+[websitepricing]: https://azure.microsoft.com/pricing/details/web-sites/
 [export]: http://en.support.wordpress.com/export/
 [import]: http://wordpress.org/plugins/wordpress-importer/
 [wordpressbackup]: http://wordpress.org/plugins/wordpress-importer/

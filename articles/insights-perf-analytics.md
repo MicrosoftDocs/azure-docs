@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="How to use end user analytics" 
-	description="End user analytics for Microsoft Azure websites." 
-	services="application-insights" 
+	pageTitle="Performance analytics for Azure Web Apps" 
+	description="Chart load and response time, dependency information and set alerts on performance." 
+	services="application-insights"
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="03/25/2015" 
 	ms.author="awills"/>
 
-# Performance analytics for Microsoft Azure websites
+# Performance analytics for Azure Web Apps
 
-After enabling the Azure WebSite extension (detailed steps below) you’ll be able to see statistics and details on your code's application dependencies.  These application dependencies are automatically discovered. 
+After enabling the Azure web app extension (detailed steps below) you’ll be able to see statistics and details on the application dependencies of your [Azure App Service Web App](websites-learning-map.md).  These application dependencies are automatically discovered. 
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
@@ -24,56 +25,67 @@ Here's an example that shows the amount of time spent in a SQL dependency includ
 
 
 
-## Set up Performance Analytics
+## Create a new Azure Web App with Performance Analytics
 
-#### 1. Add Application Insights to your Visual Studio project
+#### 1. Add Visual Studio Application Insights to your Visual Studio project
 
-In your project in Visual Studio 2013 Update 3 or later, add Application Insights to your project.
-
-![In Solution Explorer, right-click your project and choose Add Application Insights](./media/insights-perf-analytics/03-add.png)
-
-Or if you're creating a new project, just make sure to check the Application Insights option:
+If you're creating a new Web Application project make sure to check the Application Insights option:
 
 ![In the New Project dialog, check Add Application Insights](./media/insights-perf-analytics/04-new.png)
 
+Or if you have an existing project:
+
+![In the New Project dialog, check Add Application Insights](./media/insights-perf-analytics/03-add.png)
 
 When you're asked to login, use the credentials for your Azure account.
 
-#### 2. Enable Application Insights in your Azure website
+#### 2. Enable the Application Insights extension
 
-Enable the Application Insights Extension on the Azure web site blade (not the Application Insight blade):
+In [the Azure portal](http://portal.azure.com), open the control blade of your web app (not the Application Insights blade), and enable the Application Insights Extension:
 
-![In your Azure website blade, click Extensions. In the Extensions blade, click Add, then Choose Extension, then Application Insights](./media/insights-perf-analytics/05-extend.png)
-
-*Can I automate this step?*
-
-Yes, there's a REST API for Azure websites. In PowerShell:
-
-    $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
-    Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
+![](./media/insights-perf-analytics/05-extend.png)
 
 
 
 ## Explore the data
 
-Use your website for a while to generate some data.
+Use your website for a while to generate some telemetry.
 
-Then refresh your Application Insights blade and scroll down to the performance lens.
+Then, from your web app overview blade, open Application Monitoring. (Or from the [Azure portal home](http://portal.azure.com), Browse to Application Insights.)  
 
 ![Click Refresh](./media/insights-perf-analytics/06-overview.png)
 
-Drill into the first or second chart to see your code dependencies:
+Scroll down and open Performance:
 
-![Click a chart to see more detail](./media/insights-perf-analytics/07-dependency.png)
+![On the Application Insights overview blade, click the Performance tile](./media/insights-perf-analytics/07-dependency.png)
 
 Drill through to see individual requests:
 
 ![In the grid, click a dependency to see related requests.](./media/insights-perf-analytics/08-requests.png)
 
-## Get more Application Insights
+## Q & A
 
-* [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
+
+*Can I automate adding the Application Insights extension to the web app?*
+
+Yes, there's a REST API for Azure web apps. In PowerShell:
+
+    $extension = "https://<sitename>.scm.azurewebsites.net/api/siteextensions/Microsoft.ApplicationInsights.AzureWebSites"
+    Invoke-RestMethod -Uri $extension -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method PUT -Verbose
+
+## Next steps
+
+* [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers.
 * [Create web tests][azure-availability] to make sure your site is available and responsive
+* [Capture and search diagnostic logging](app-insights-diagnostic-search.md)
+* [Use the API](app-insights-web-track-usage-custom-events-metrics.md) for usage tracking and diagnostic logging
+* [Set performance alerts](app-insights-metrics-explorer.md)
 
-[azure-usage]: ../insights-usage-analytics/
-[azure-availability]: ../insights-create-web-tests/
+
+## Learn more 
+
+* [Azure App Service Web App](websites-learning-map.md)
+* [Application Insights](app-insights-get-started.md)
+
+[azure-usage]: insights-usage-analytics.md
+[azure-availability]: insights-create-web-tests.md

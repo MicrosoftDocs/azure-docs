@@ -24,7 +24,7 @@
  
 ## Requirements ##
 
-You must have an Azure Search service. As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin `api-key` so that you can create the index. For instructions on how to get the values for your Search service, see [Getting Started with Azure Search](./search-get-started/).
+You must have an Azure Search service. As with any custom application that uses Azure Search, you will need the URL to your service, plus an admin `api-key` so that you can create the index. For instructions on how to get the values for your Search service, see [Getting Started with Azure Search](search-get-started.md).
 
 ## Install Postman ##
 To download Postman, visit the [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm). The link from this page allows you to download and install the REST client for Postman. Once installed, you can launch Postman from the Chrome App Launcher.
@@ -35,7 +35,7 @@ To download Postman, visit the [Google Chrome Store](https://chrome.google.com/w
 To configure Postman, follow the steps: 
 
 1. Enter your Azure Search service URL where it says “Enter request URL here”.  
-2. Append to the URL: `?api-version=2014-07-31-Preview`. You could also specify a different API version. See [Search service versioning](https://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+2. Append to the URL: `?api-version=2014-07-31-Preview`. You could also specify a different API version. See [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 3. Ensure that `GET` is chosen.
 4. Click on the **Headers** button.
 5. Enter a values for:
@@ -105,9 +105,9 @@ Now that we have walked through all the basics of using Azure Search with Postma
 1. Postman supports `Collections`, which are a convenient way to save commonly issued requests. You can share collections with other people, to be issued in their own copy of Postman.
 2. In the Azure Search documentation, make sure to make note of the HTTP request type (`GET`, `PUT`, and so forth) associated with each call and change as appropriate in Postman.
 
-Documentation for the REST API can be found on [MSDN](https://msdn.microsoft.com/en-us/library/azure/dn798935.aspx).
+Documentation for the REST API can be found on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-You can also visit the [Video and tutorial list](https://msdn.microsoft.com/en-us/library/azure/dn818681.aspx) for more examples.
+You can also visit the [Video and tutorial list](https://msdn.microsoft.com/library/azure/dn818681.aspx) for more examples.
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png

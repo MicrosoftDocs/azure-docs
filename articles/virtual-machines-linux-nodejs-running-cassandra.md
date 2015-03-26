@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Run Cassandra with Linux on Azure" 
-	description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." 
+	description="How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app" 
 	services="virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="hanuk" 
-	manager="timlt" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,24 +14,13 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="12/01/2014" 
-	ms.author="hanuk"/>
+	ms.author="MikeWasson"/>
 
 
 
 
 
 <h1><a id = ""></a>Running Cassandra with Linux on Azure and Accessing it from Node.js </h1>
-**Author:** Hanu Kommalapati
-
-## Table of Contents##
-
-- [Overview] []
-- [Single Region Deployment] []
-- [Test Single Region Cassandra Cluster] []
-- [Multi-Region Deployment] []
-- [Test Multi-Region Cassandra Cluster] []
-- [Test Cassandra Cluster from Node.js] []
-- [Conclusion] []
 
 ##<a id="overview"> </a>Overview ##
 Microsoft Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra’s distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms. 
@@ -68,7 +57,7 @@ Note that at the time of this writing, Azure doesn’t allow the explicit mappin
 
 **Cluster Seeds:** It is important to select the most highly available nodes for seeds as the new nodes will communicate with seed nodes to discover the topology of the cluster. One node from each availability set is designated as seed nodes to avoid single point of failure. 
 
-**Replication Factor and Consistency Level:** Cassandra’s build-in high-availability and data durability is characterized by the Replication Factor (RF - number of copies of each row stored on the cluster) and Consistency Level (number of replicas to be read/written before returning the result to the caller). Replication factor is specified during the KEYSPACE (similar to a relational database) creation whereas the consistency level is specified while issuing the CRUD query. Replication Factor is specified during the KEYSPACE creation while the Consistency Level is specified while issuing the query. See Cassandra documentation at [Configuring for Consistency](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for consistency details and the formula for quorum computation.
+**Replication Factor and Consistency Level:** Cassandra’s build-in high-availability and data durability is characterized by the Replication Factor (RF - number of copies of each row stored on the cluster) and Consistency Level (number of replicas to be read/written before returning the result to the caller). Replication factor is specified during the KEYSPACE (similar to a relational database) creation whereas the consistency level is specified while issuing the CRUD query. See Cassandra documentation at [Configuring for Consistency](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) for consistency details and the formula for quorum computation.
 
 Cassandra supports two types of data integrity models – Consistency and Eventual Consistency; the Replication Factor and Consistency Level will together determine if the data will be consistent as soon as a write operation is complete or it will be eventually consistent. For example, specifying QUORUM as the Consistency Level will always ensures data Consistency while any consistency level, below the number of replicas to be written as needed to attain QUORUM (e.g. ONE) results in data being eventually consistent. 
 
@@ -305,7 +294,7 @@ Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) a
 
 Execute the following sequence of actions to capture the image:
 #####1. Deprovision#####
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/) to Use as a Template more details on the image capture process. 
+Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-capture-image.md) to Use as a Template more details on the image capture process. 
 
 #####2: Shutdown the VM#####
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.

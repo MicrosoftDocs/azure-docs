@@ -43,7 +43,7 @@ The cloning of the federation root to the Shard Map Manager is a copy and transl
 
 ![Migrate the existing app to use the Elastic Scale APIs][2]
 
-## Modify the Existing Application 
+## <a name="Modify-the-Existing-Application"></a>Modify the Existing Application 
 
 With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify the existing Federations application to utilize the Elastic Scale APIs. As shown in the figure above, the application connections via the Elastic Scale APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard). Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses Federations and one that uses Elastic Scale - to be executed side-by-side to verify functionality.   
 
@@ -65,7 +65,7 @@ With Federations, a connection is established to a particular federation member 
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-With the Elastic Scale APIs, a connection to a particular shard is established via [data dependent routing](./sql-database-elastic-scale-data-dependent-routing.md) with the  **OpenConnectionForKey** method on the **RangeShardMap** class. 
+With the Elastic Scale APIs, a connection to a particular shard is established via [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) with the  **OpenConnectionForKey** method on the **RangeShardMap** class. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -82,9 +82,9 @@ With the Elastic Scale APIs, a connection to a particular shard is established v
         } 
     }
 
-The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](./sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
+The steps in this section are necessary but may not address all migration scenarios that arise. For more information, please see the [conceptual overview of Elastic Scale](sql-database-elastic-scale-introduction.md) and the [API reference](http://go.microsoft.com/?linkid=9862604).
 
-## Switch Out Existing Federation Members 
+## <a name="Switch-Out-Existing-Federation-Members"></a>Switch Out Existing Federation Members 
 
 ![Switch out the federation members for the shards][3]
 
@@ -102,7 +102,7 @@ The Federations Migration Utility provides the abilities to:
 
 
 ##Feature Comparison  
-Although Elastic Scale offers many additional features (for example, [multi-shard querying](./sql-database-elastic-scale-multishard-querying.md), [spliting and merging shards](./sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](./sql-database-elastic-scale-elasticity.md), [client-side caching](./sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in Elastic Scale.
+Although Elastic Scale offers many additional features (for example, [multi-shard querying](sql-database-elastic-scale-multishard-querying.md), [spliting and merging shards](sql-database-elastic-scale-overview-split-and-merge.md), [shard elasticity](sql-database-elastic-scale-elasticity.md), [client-side caching](sql-database-elastic-scale-shard-map-management.md), and more), there are a few noteworthy Federations features that are not supported in Elastic Scale.
   
 
 - The use of **FILTERING=ON**. Elastic scale does not currently support row-level filtering. One mitigation is to build the filtering logic into the query issued against the shard as follows: 
@@ -116,6 +116,8 @@ Yields the same result as:
         --Example of USE FEDERATION with filtering in the WHERE clause 
         USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF 
         SELECT * FROM customer WHERE CustomerId = 100 
+
+As an alternative, you can also use Row-Level Security (RLS) to help you with filtering. You can find the necessary steps described in the [RLS  blog post](http://azure.microsoft.com/blog/2015/03/02/building-more-secure-middle-tier-applications-with-azure-sql-database-using-row-level-security/). Note that RLS currently does not protect UPDATE and INSERT statements against changes that would place rows outside of the shardlet. If this is a concern for your application, use database constraints or triggers in addition to RLS to enforce these aspects.
 
 - The Elastic Scale **Split** feature is not fully online. During a split operation, each individual shardlet is taken offline during the duration of the move.
 - The Elastic Scale split feature requires manual database provisioning and schema management.
@@ -131,7 +133,7 @@ Yields the same result as:
 <!--Anchors-->
 [Create Shard Map Manager from a Federation Root]:#create-shard-map-manager
 [Modify the Existing Application]:#Modify-the-Existing-Application
-[Switch Out Existing Federation Members]:#Switch-Out-Existing-Federation-members
+[Switch Out Existing Federation Members]:#Switch-Out-Existing-Federation-Members
 
 
 <!--Image references-->

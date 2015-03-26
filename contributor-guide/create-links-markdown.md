@@ -8,26 +8,44 @@
 
 | Link scenario | Guidance  |
 |---------------|-----------|
-|Linking from an ACOM article to another ACOM article|Use relative links. Do not include the language locale in your relative links ("/en-us/").|
-|​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the language locale ("/en-us/") from the link. Removing the language locale from the link allows the correct translated content to be returned based on the language locale set on the user's operating system.|
+|Linking from an ACOM article to another ACOM article|Use relative links. Do not include the en-us language locale in your relative links.|
+|​Linking to an MSDN library topic, a TechNet library topic, or KB article|​Use the actual link to the article or topic, but remove the en-us language locale from the link.|
 |Linking from an ACOM article to any other web page|Use the direct link|
 
 ###Markdown syntax for ACOM relative links
 
-To create an inline link to a page in the same directory as the current page (this is the case for all our ACOM technical articles), use the two-dot notation. Include the markdown file name extension:
+To create an inline link from an ACOM technical article to another ACOM technical article, use this link format:
 
-    [link text](../<article name>)
-    [Create a Media Services account!](../media-services-create-account)
- 
-To link to a page in a different directory (to link from a tech doc to a feature page, for example), you need to use the ../ syntax to move the correct number of steps up the URL path. No file name extension is needed. For example, to link from an article to the virtual-machines service page, you would use this notation:
+    [link text](article-name.md)
+    [Create a Media Services account](media-services-create-account.md)
 
-    [link text](../../services/virtual-machines/)
- 
-To link to the .NET samples page from an article:
+You do not have to create anchors anymore - they are automatically generated at publishing time for all H2 headings. The only thing you have to do is create links to the H2 sections:
 
-    [link text](../../../develop/net/samples/)
+    [link](#the-text-of-the-H2-section-separated-by-hyphens)
+    [Create cache](#create-cache)
 
-To test your links, push your page to your fork, and view it in the rendered view. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
+To link to an anchor in another article:
+
+    [link text](article-name.md#anchor-name)
+    [Configure your profile](media-services-create-account.md#configure-your-profile)
+
+Since includes are located in another directory, you will need to use relative paths as below. For a link to a single article, use this format:
+
+    [link text](../articles/file-name.md)
+
+If you have selectors embedded in an include, you would use this sort of linking:
+
+    > [AZURE.SELECTOR-LIST (Dropdown1 | Dropdown2 )]
+    - [(Text1 | Example1 )](../articles/example-azure-note.md)
+    - [(Text1 | Example2 )](../articles/example-azure-selector-list.md)
+    - [(Text2 | Example3 )](../articles/example-azure-selector-list2.md)
+    - [(Text2 | Example4 )](../articles/example-code.md)
+
+To link to a page on ACOM (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale. The goal here is that links work in GitHub and on the rendered site:
+
+    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)
+
+To test your links, push your page to your fork and view it in the rendered view and publish to Sandbox. The cross links on the GitHub version of the page should work as long as the targets of the URLs are present in your fork.
 
 Our [markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md/) shows an alternate way to create crosslinks in markdown so all the crosslinks are coded together at the end of the article, even while they display inline. 
 

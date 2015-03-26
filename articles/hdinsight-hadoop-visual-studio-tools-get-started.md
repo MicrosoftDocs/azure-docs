@@ -31,8 +31,8 @@ Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clust
 
 	- Windows 7, Windows 8, or Windows 8.1
 	- Visual Studio with the following versions:
-		- Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/en-us/download/details.aspx?id=39305)
-		- Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/en-us/download/details.aspx?id=44921)
+		- Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+		- Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015 Preview.
 
 	>[WACOM.NOTE] Currently the tools only come with the English version. 
@@ -188,13 +188,13 @@ In this article, you have learned how to connect to HDInsight clusters from Visu
 
 
 <!--Link references-->
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight.introduction]: ../hdinsight-introduction/
-[hdinsight.get.started]: ../hdinsight-get-started/
-[hdinsight.hive]: ../hdinsight-use-hive/
-[hdinsight.submit.jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
-[hdinsight.storm.visual.studio.tools]: ../hdinsight-storm-develop-csharp-visual-studio-topology/
-[hdinsight.access.application.logs]: ../hdinsight-hadoop-access-yarn-app-logs/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight.introduction]: hdinsight-introduction.md
+[hdinsight.get.started]: hdinsight-get-started.md
+[hdinsight.hive]: hdinsight-use-hive.md
+[hdinsight.submit.jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight.analyze.twitter.data]: hdinsight-analyze-twitter-data.md
+[hdinsight.storm.visual.studio.tools]: hdinsight-storm-develop-csharp-visual-studio-topology.md
+[hdinsight.access.application.logs]: hdinsight-hadoop-access-yarn-app-logs.md
 
 [apache.hive]: http://hive.apache.org

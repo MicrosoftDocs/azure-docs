@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/16/2014" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 
@@ -34,7 +34,7 @@ You can use any of these datasets in your own experiment by dragging it to your 
 <!--
 For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
 
-[sample-experiments]: ../machine-learning-sample-experiments/
+[sample-experiments]: machine-learning-sample-experiments.md
 -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]

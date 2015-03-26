@@ -956,8 +956,7 @@ Note: The maximum file size is 200MB.
 | Item Name | Yes | Any alphanumeric characters<br> Max length: 255 | Item name. | 
 | Item Category | Yes | Any alphanumeric characters <br> Max length: 255 | Category to which this item belongs (e.g. Cooking Books, Drama…); can be empty. |
 | Description | No, unless features are present (but can be empty) | Any alphanumeric characters <br> Max length: 4000 | Description of this item. |
-| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced Topics](21-advanced-topics) section. |
-
+| Features list | No | Any alphanumeric characters <br> Max length: 4000 | Comma-separated list of feature name=feature value that can be used to enhance model recommendation; see [Advanced Topics](#2-advanced-topics) section. |
 
 
 | HTTP Method | URI |
@@ -2645,7 +2644,7 @@ Deletes all read notifications for a model.
 
 HTTP Status code: 200
 
-###11.3. Delete User Notifications
+###13.3. Delete User Notifications
 Deletes all notifications for all models.
 
 | HTTP Method | URI |

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="02/18/2015" 
 	ms.author="garye"/>
 
 
 This is the fifth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+[develop]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 1.	[Create an ML workspace][create-workspace]
@@ -29,12 +29,12 @@ This is the fifth step of the walkthrough, [Developing a Predictive Solution wit
 5.	**Publish the web service**
 6.	[Access the web service][access-ws]
 
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
+[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
+[upload-data]: machine-learning-walkthrough-2-upload-data.md
+[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
+[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
+[publish]: machine-learning-walkthrough-5-publish-web-service.md
+[access-ws]: machine-learning-walkthrough-6-access-web-service.md
 
 ----------
 

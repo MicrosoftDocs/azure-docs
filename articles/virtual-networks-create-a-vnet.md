@@ -24,7 +24,7 @@ When you create a virtual network, your services and VMs within the VNet can com
 
 Once you create your virtual network, you can add new VMs and PaaS instances to it. Note that if you use the Management Portal to create your VMs, be sure to select **From Gallery** so that you can specify the virtual network. This is important because you can’t go back and put a VM in a virtual network after you’ve created the VM.
 
-[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](https://msdn.microsoft.com/en-us/library/azure/dn133798.aspx).
+[Azure Note] **Use this procedure to create a dedicated cloud-only virtual network.** Because of the greater complexity involved with creating a cross-premises configuration, don’t use this procedure to create a virtual network that will later be connected to your on-premises network. If you want to create a secure cross-premises connection between Azure and your on-premises network, see [About Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
 ## <a name="CreateyourVNet">Creating your virtual network</a>
 
@@ -57,7 +57,7 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://azure.microsoft.com/documentation/articles/virtual-networks-using-network-configuration-file/)
+-  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
  

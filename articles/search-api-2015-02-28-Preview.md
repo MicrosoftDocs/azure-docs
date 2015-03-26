@@ -11,14 +11,14 @@ This article is the reference documentation for `api-version=2015-02-28-Preview`
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
-- [Scoring Profiles](./search-api-scoring-profiles-2015-02-28-preview.md)
-- [Indexers](./search-api-indexers-2015-02-28-preview.md)
+- [Scoring Profiles](search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexers](search-api-indexers-2015-02-28-preview.md)
 
-Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details.
+Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
 ###APIs in this document###
 
-The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/en-us/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
+The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
 [Create Index](#CreateIndex)
 
@@ -137,7 +137,7 @@ The following list describes the required and optional request headers.
 - `api-key`: Required. The `api-key` is used to 
 - authenticate the request to your Search service. It is a string value, unique to your service. The **Create Index** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 <a name="RequestData"></a>
 **Request Body Syntax**
@@ -226,7 +226,7 @@ The syntax for structuring the request payload is as follows. A sample request i
     
 **Index Attributes**
 
-The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Add scoring Profiles](https://msdn.microsoft.com/en-us/library/azure/dn798928.aspx).
+The following attributes can be set when creating an index. For details about scoring and scoring profiles, see [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 `name` - Sets the name of the field.
 
@@ -246,7 +246,7 @@ The following attributes can be set when creating an index. For details about sc
 
   - **Note**: If a field has none of the above attributes set to `true` (`searchable`, `filterable`, `sortable`,  or`facetable`) the field is effectively excluded from the inverted index. This option is useful for fields that are not used in queries, but are needed in search results. Excluding such fields from the index improves performance.
 
-  - `suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it see [Transition from Preview to General Release in Azure Search]() for instructions on how to transition to the new API.
+  - `suggestions` - Previous versions of the API included a `suggestions` property. This boolean property is now deprecated and no longer available in either `2015-02-28` or `2015-02-28-Preview`. Please use the [Suggesters API](#Suggesters) instead. In the `2014-07-31` version, the `suggestions` property was used to specify whether the field could be used for auto-complete for type ahead, for fields of type `Edm.String` or `Collection(Edm.String)`. The `suggestions` was `false` by default because it required extra space in your index, but if you enabled it see [Transition from Preview to General Release in Azure Search](search-transition-from-preview.md) for instructions on how to transition to the new API.
 
 `key` - Marks the field as containing unique identifiers for documents within the index. Exactly one field must be chosen as the `key` field and it must be of type `Edm.String`. Key fields can be used to look up documents directly via the [Lookup API](#LookupAPI).
 
@@ -256,7 +256,7 @@ The following attributes can be set when creating an index. For details about sc
 
 `sugggesters` - Sets the search mode and fields that are the source of the content for suggestions. See [Suggesters](#Suggesters) for details.
 
-`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of field weights and functions. See [Add scoring Profiles](https://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
+`scoringProfiles` - Defines custom scoring behaviors that let you influence which items appear higher in search results. Scoring profiles are made up of field weights and functions. See [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for more information about the attributes used in a scoring profile.
 
 <!-- This is a standalone topic in MSDN -->
 <a name="LanguageSupport"></a>
@@ -1153,7 +1153,7 @@ Currently, there is limited support for index schema updates. Any schema updates
 <a name="UpdateIndex"></a>
 ## Update Index ##
 
-You can update an existing index within Azure Search using an HTTP PUT request. Updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles. See [Add scoring Profiles](https://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for more information. You specify the name of the index to update on the request URI:
+You can update an existing index within Azure Search using an HTTP PUT request. Updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles. See [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for more information. You specify the name of the index to update on the request URI:
 
     PUT https://[search service url]/indexes/[index name]?api-version=[api-version]
     Content-Type: application/json
@@ -1169,7 +1169,7 @@ HTTPS is required for all service requests. The **Update Index** request is cons
 
 The index name must be lower case, start with a letter or number, have no slashes or dots, and be less than 128 characters. After starting the index name with a letter or number, the rest of the name can include any letter, number and dashes, as long as the dashes are not consecutive.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1178,7 +1178,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Update Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body Syntax**
 
@@ -1270,7 +1270,7 @@ The **List Indexes** operation returns a list of the indexes currently in your A
 
 HTTPS is required for all service requests. The **List Indexes** request can be constructed using the GET method.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1278,7 +1278,7 @@ The following list describes the required and optional request headers.
  
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **List Indexes** request must include an `api-key` set to an admin key (as opposed to a query key).
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1337,7 +1337,7 @@ HTTPS is required for service requests. The **Get Index** request can be constru
  
 The [index name] in the request URI specifies which index to return from the indexes collection.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1345,7 +1345,7 @@ The following list describes the required and optional request headers.
  
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index** request must include an `api-key` set to an admin key (as opposed to a query key).
 
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1371,7 +1371,7 @@ HTTPS is required for service requests. The **Delete Index** request can be cons
  
 The [index name] in the request URI specifies which index to delete from the indexes collection. 
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1379,7 +1379,7 @@ The following list describes the required and optional request headers.
  
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Delete Index** request must include an `api-key` header set to your admin key (as opposed to a query key).
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1403,7 +1403,7 @@ HTTPS is required for all services requests. The **Get Index Statistics** reques
 
 The [index name] in the request URI tells the service to return index statistics for the specified index.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 
 **Request Headers**
@@ -1412,7 +1412,7 @@ The following list describes the required and optional request headers.
  
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Get Index Statistics** request must include an `api-key` set to an admin key (as opposed to a query key).
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1435,7 +1435,7 @@ ________________________________________
 
 In Azure Search, an index is populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source. The Azure Search Adventure Works Demo sample application on Codeplex includes code that builds JSON documents using a result set from the Adventure Works sample database. You can learn more about the sample application [here](http://azure.microsoft.com/en-us/documentation/articles/search-create-first-solution/).
+Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source. The Azure Search Adventure Works Demo sample application on Codeplex includes code that builds JSON documents using a result set from the Adventure Works sample database. You can learn more about the sample application [here](search-create-first-solution.md).
 
 In the majority of application development scenarios, search data is separate and external to your application data layer. If your application uses an on-premises database for tracking inventory status, the documents persisted in Azure Search will contain similar or identical data values in terms of product name, price, and availability, but they will be stored in an inverted index in order to optimize searches. 
 
@@ -1461,7 +1461,7 @@ HTTPS is required for all service requests. You can upload, merge, merge-or-uplo
 
 The request URI includes [index name], specifying which index to post documents. You can only post documents to one index at a time.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1470,7 +1470,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Add Documents** request must include an `api-key` header set to your admin key (as opposed to a query key).
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1639,7 +1639,7 @@ The request URI specifies which index to query, for all documents that match the
 
 `scoringParameter=[string]` (zero or more) - Indicates the value for each parameter defined in a scoring function (for example, `referencePointParameter`) using the format name:value. For example, if the scoring profile defines a function with a parameter called "mylocation" the query string option would be &scoringParameter=mylocation:-122.2,44.8
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 
@@ -1649,7 +1649,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Search** request can specify either an admin key or query key for `api-key`.
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1691,7 +1691,7 @@ Status Code: 200 OK is returned for a successful response.
     
 **Examples:**
 
-You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/en-us/library/azure/dn798921.aspx) page.
+You can find additional examples on the [OData Expression Syntax for Azure Search](https://msdn.microsoft.com/library/azure/dn798921.aspx) page.
 
 1)	Search the Index sorted descending by date. 
 
@@ -1774,7 +1774,7 @@ The request URI includes an [index name] and [key], specifying which document to
 
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified or set to `*`, all fields marked as retrievable in the schema are included in the projection.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 
@@ -1784,7 +1784,7 @@ The following list describes the required and optional request headers.
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Lookup Document** request can specify either an admin key or query key for `api-key`.
  
-You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1823,7 +1823,7 @@ HTTPS is required for service requests. The **Count Documents** request can be c
 
 The [index name] in the request URI tells the service to return a count of all items in the docs collection of the specified index. 
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 **Request Headers**
 
@@ -1832,7 +1832,7 @@ The following list describes the required and optional request headers.
 - `Accept`: This value must be set to `text/plain`.
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Count Documents** request can specify either an admin key or query key for `api-key`.
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 
@@ -1883,7 +1883,7 @@ The request URI specifies the name of the index to query. It also includes the p
 
 `$select=[string]` (optional) - a list of comma-separated fields to retrieve. If unspecified, only the document key and suggestion text is returned.
 
-`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/en-us/library/azure/dn864560.aspx) for details and alternative versions.
+`api-version=[string]` (required). The preview version is `api-version=2015-02-28-Preview`. See [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details and alternative versions.
 
 Note: For this operation, the `api-version` is specified as a query parameter.
 
@@ -1893,7 +1893,7 @@ The following list describes the required and optional request headers
 
 - `api-key`: The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service URL. The **Suggestions** request can specify either an admin key or query key as the `api-key`.
 
-  You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](http://azure.microsoft.com/en-us/documentation/articles/search-get-started/) for page navigation help.
+  You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure Portal. See [Get started with Azure Search](search-get-started.md) for page navigation help.
 
 **Request Body**
 

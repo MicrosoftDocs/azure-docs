@@ -3,7 +3,7 @@
 	description="A tutorial that teaches you how to WebMatrix to develop and deploy a Node.js application to an Azure website." 
 	services="web-sites" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 # Build and deploy a Node.js website to Azure using WebMatrix
@@ -100,7 +100,7 @@ You can easily modify and republish your application. Here, you will make a simp
 
 ##Next steps
 
-To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](/en-us/documentation/articles/nodejs-specify-node-version-azure-apps/).
+To learn more about the versions of Node.js that are provided with Azure and how to specify the version to be used with your application, see [Specifying a Node.js version in an Azure application](nodejs-specify-node-version-azure-apps.md).
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure Web Sites](http://www.windowsazure.com/develop/nodejs/how-to-guides/Debug-Website/) for information on diagnosing the problem.
 
@@ -109,8 +109,8 @@ If you encounter problems with your application after it has been deployed to Az
 [WebMatrix WebSite]: http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398
 [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
-[Publishing an Azure Web site using Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[for free]: /en-us/pricing/free-trial
+[Publishing an Azure Web site using Git]: /develop/nodejs/common-tasks/publishing-with-git/
+[for free]: /pricing/free-trial
 [webmatrix-node-completed]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
 
 

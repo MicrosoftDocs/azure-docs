@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/24/2015" 
+	ms.date="03/05/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
 
-This section provides a table of contents for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
+This section provides an index for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
+
+## Policy reference index
 
 -	[Access restriction policies][]
 	-	[Check HTTP header][] - Enforces existence and/or value of a HTTP Header.
@@ -77,6 +79,6 @@ This section provides a table of contents for the policies in the [API Managemen
 
 
 
-[Policies in API Management]: ../api-management-howto-policies
+[Policies in API Management]: api-management-howto-policies.md
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 

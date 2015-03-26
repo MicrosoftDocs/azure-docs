@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use the queue service (Node.js) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from Node.js | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Node.js." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="03/11/2015" 
 	ms.author="mwasson"/>
 
 
+# How to use Queue storage from Node.js
 
-
-
-# How to Use the Queue Service from Node.js
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
@@ -336,9 +335,9 @@ to learn about more complex storage tasks.
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: /documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js Cloud Service with Storage]: /documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
+  [Node.js Cloud Service with Storage]: storage-nodejs-use-table-storage-cloud-service-app.md
+  [Node.js Web Application with Storage]: storage-nodejs-use-table-storage-web-site.md
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -347,7 +346,7 @@ to learn about more complex storage tasks.
   
   
   
-  [Node.js Cloud Service]: /documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- [Web Site with WebMatrix]: /documentation/articles/web-sites-nodejs-use-webmatrix/
+ [Web Site with WebMatrix]: web-sites-nodejs-use-webmatrix.md

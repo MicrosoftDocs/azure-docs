@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" 
-	description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." 
+	description="How to use MongoDB to store data in a Node.js application hosted on Azure." 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="wpickett" 
-	writer="" 
+	writer="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="02/19/2015" 
-	ms.author="wpickett"/>
+	ms.author="mwasson"/>
 
 
 # Create a Node.js Application on Azure with MongoDB in a Virtual Machine
@@ -30,7 +30,7 @@ You will learn:
 
 By following this tutorial, you will build a simple web-based task-management application that allows creating, retrieving and completing tasks. The tasks are stored in MongoDB.
 
-> [AZURE.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On</a>.
+> [AZURE.NOTE] This tutorial uses an instance of MongoDB installed on a virtual machine. If you would rather use a hosted MongoDB instance provided  by MongoLabs, see <a href="/develop/nodejs/tutorials/website-with-mongodb-mongolab/">Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On</a>.
  
 The project files for this tutorial will be stored in a directory named **tasklist** and the completed application will look similar to the following:
 
@@ -462,7 +462,7 @@ To test the application on your local machine, perform the following steps:
 
 The steps in this section use the Azure command-line tools to create a new Azure Website, and then use Git to deploy your application. To perform these steps you must have an Azure subscription.
 
-> [AZURE.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
+> [AZURE.NOTE] These steps can also be performed by using the Azure portal. For steps on using the Azure portal to deploy a Node.js application, see <a href="/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to an Azure Website</a>.
 
 > [AZURE.NOTE] If this is the first Azure Website you have created, you must use the Azure portal to deploy this application.
 
@@ -499,7 +499,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) allows you to perfor
 		info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/en-us/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
+	> [AZURE.NOTE> If this is the first Azure Website for your subscription, you will be instructed to use the portal to create the website. For more information, see <a href="/develop/nodejs/tutorials/create-a-website-(mac)/">Create and deploy a Node.js application to Azure Websites</a>.
 
 ###Set the MONGODB_URI environment variable
 
@@ -546,7 +546,7 @@ This will create a new application setting for the website, which will be used t
 
 While the steps in this article describe using MongoDB to store information, you can also use the Azure Table Service. See [Node.js Web Application with the Azure Table Service] for more information.
 
-To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
+To learn how to use a hosted instance of MongoDB provided by MongoLab, see [Create a Node.js Application on Azure with MongoDB using the MongoLab Add-On](/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
 
 To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 
@@ -562,16 +562,16 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[for free]: /en-us/pricing/free-trial
+[for free]: /pricing/free-trial
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /en-us/documentation/articles/virtual-machines-command-line-tools/
-[Azure Developer Center]: /en-us/develop/nodejs/
-[Create and deploy a Node.js application to Azure Web Sites]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publishing to Azure Web Sites with Git]: /en-us/develop/nodejs/common-tasks/publishing-with-git/
-[Installing MongoDB on a Linux Virtual machine]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[Node.js Web Application with the Azure Table Service]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+[Azure command-line tool for Mac and Linux]: virtual-machines-command-line-tools.md
+[Azure Developer Center]: /develop/nodejs/
+[Create and deploy a Node.js application to Azure Web Sites]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Publishing to Azure Web Sites with Git]: /develop/nodejs/common-tasks/publishing-with-git/
+[Installing MongoDB on a Linux Virtual machine]: /manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[Node.js Web Application with the Azure Table Service]: /develop/nodejs/tutorials/web-site-with-storage/
 [node-mongo-finished]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_list_empty.png
 [node-mongo-express-results]: ./media/store-mongodb-web-sites-nodejs-use-mac/express_output.png
 [node-mongo-add-item]: ./media/store-mongodb-web-sites-nodejs-use-mac/todo_add_item.png
@@ -580,7 +580,7 @@ To learn how to secure MongoDB, see [MongoDB Security][mongosecurity].
 [installguides]: http://docs.mongodb.org/manual/installation/
 [azureportal]: https://manage.windowsazure.com/
 [mongodocs]: http://docs.mongodb.org/manual/
-[xplatcli]: /en-us/documentation/articles/xplat-cli/
+[xplatcli]: xplat-cli.md
 
 [selectdepo]: ./media/web-sites-nodejs-store-data-mongodb/browsedepot.png
 [selectedimage]: ./media/web-sites-nodejs-store-data-mongodb/selectimage.png

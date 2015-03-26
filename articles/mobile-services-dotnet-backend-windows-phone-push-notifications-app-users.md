@@ -28,7 +28,7 @@ This tutorial walks you through the following process:
 2. [Updating the app to log in before registration]
 3. [Testing the app]
  
-This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps. For Windows Phone 8.1 Store apps, see the [Windows Store version of this topic](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users).
+This tutorial supports Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps. For Windows Phone 8.1 Store apps, see the [Windows Store version of this topic](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 ##Prerequisites 
 
@@ -65,8 +65,8 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 
 
 <!-- URLs. -->
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library

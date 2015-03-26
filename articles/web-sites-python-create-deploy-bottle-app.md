@@ -23,7 +23,7 @@
 
 This tutorial describes how to get started running Python on Azure Websites.  Azure Websites provide limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
 
-You will create an application using the Bottle web framework (see alternate versions of this tutorial for [Django](../web-sites-python-create-deploy-django-app) and [Flask](../web-sites-python-create-deploy-flask-app)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
+You will create an application using the Bottle web framework (see alternate versions of this tutorial for [Django](web-sites-python-create-deploy-django-app.md) and [Flask](web-sites-python-create-deploy-flask-app.md)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -404,8 +404,8 @@ For information on using Azure Table Storage and MongoDB:
 
 
 <!--Link references-->
-[Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-bottle-table-storage
-[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: ../web-sites-python-ptvs-bottle-mongodb
+[Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-table-storage.md
+[Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]: web-sites-python-ptvs-bottle-mongodb.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281

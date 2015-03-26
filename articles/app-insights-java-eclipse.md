@@ -2,8 +2,9 @@
 	pageTitle="Get started with Application Insights with Java in Eclipse" 
 	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,16 +12,18 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-02" 
+	ms.date="03/03/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
 
-The Application Insights SDK sends telemetry from your app so that you can analyze usage and performance.
+The Application Insights SDK sends telemetry from your Java web application so that you can analyze usage and performance. The Eclipse plug-in for Application Insights automatically installs the SDK in your project so that you get out of the box telemetry, plus an API that you can use to write custom telemetry.   
 
-The Application Insights Toolkit for Eclipse makes it quick and easy to add the SDK to your Java web applications. It provides a simpler alternative to manually configuring the SDK.
 
 ## Prerequisites
+
+Currently the plug-in works for Dynamic Web Projects in Eclipse. 
+([Add Application Insights to other types of Java project][java].)
 
 You'll need:
 
@@ -29,9 +32,9 @@ You'll need:
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
 
-## Install the Application Insights toolkit
+## Install the SDK on Eclipse (one time)
 
-You only have to do this one time per machine.
+You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
 
 1. In Eclipse, click Help, Install New Software.
     ![](./media/app-insights-java-eclipse/0-plugin.png)
@@ -39,25 +42,26 @@ You only have to do this one time per machine.
 3. Uncheck **Contact all update sites...**
     ![](./media/app-insights-java-eclipse/1-plugin.png)
 
-## Add Application Insights to your Java project
+Follow the remaining steps for each Java project.
 
+## Get an Application Insights instrumentation key
 
-### Get an Application Insights instrumentation key
+Your usage and performance analytics will be displayed in an Azure resource in the Azure web portal. In this step, you set up an Azure resource for your application.
 
-1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
+1. Log into the [Microsoft Azure Portal](https://portal.azure.com). (You'll need an [Azure subscription](http://azure.microsoft.com/).)
 2. Create a new Application Insights resource
 
     ![Click + and choose Application Insights](./media/app-insights-java-get-started/01-create.png)
 3. Set the application type to Java web application.
 
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-get-started/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.
+4. Find the instrumentation key of the new resource. You'll need to paste this into your project in Eclipse.
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
-## Add the SDK to your project
+## Add the SDK to your Java project
 
-1. Invoke the toolkit on your project.
+1. Add Application Insights from the context menu of your web project.
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
@@ -65,78 +69,66 @@ You only have to do this one time per machine.
 
 The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 
-## Send telemetry from your server using the API
-
-Insert a few lines of code in your Java web application to find out what users are doing with it. You can track events, metrics and exceptions.
-
-#### Import the namespace
-
-    import com.microsoft.applicationinsights.TelemetryClient;
-
-#### Track metrics
-
-Metrics are aggregated in the portal and displayed in graphical form. For example, to see the average score that users achieve in a game:
-
-    TelemetryClient client = new TelemetryClient();
-    client.trackMetric("Score", 2.1);
-
-#### Track events
-
-Events can be displayed on the portal as an aggregated count, and you can also display individual occurrences. For example, to see how many games have been won:
-
-    TelemetryClient client = new TelemetryClient();
-    client.trackEvent("WinGame");
-
-#### Track exceptions
-
-Exception telemetry allows you to see how often different types of exceptions have occurred. You can also investigate the stack trace of individual exceptions:
-
-
-    TelemetryClient client = new TelemetryClient();
-
-    try {
-       ...
-    } catch (Exception e) {
-      client.trackException(e);
-    }
-
-#### Trace logs
-
-You can [capture logs using your logging framework][javalogs] and search and filter the logs in Application Insights, along with custom events and exception reports. This is a powerful diagnostic tool.
-
-Or you can use the Application Insights trace API directly:
-    TelemetryClient client = new TelemetryClient();
-    client.trackTrace ("Log entry");
-
-#### Attach properties and measurements to telemetry
-
-You can add property values to any of the above events and other types. As well as carrying extra data, the properties can be used to [filter][diagnostic] and [segment][metrics] the events in Application Insights. 
-
-For example:
-
-    TelemetryClient telemetry = new TelemetryClient();
-    
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
-    
-    Map<String, Double> measurements = new HashMap<String, Double>();
-    measurements.put("Score", currentGame.getScore());
-    measurements.put("Opponents", currentGame.getOpponentCount());
-    
-    telemetry.trackEvent("WinGame", properties, measurements);
-
-## View your results in Application Insights
+## Run the application and see metrics
 
 Run your application.
 
 Return to your Application Insights resource in Microsoft Azure.
 
-Data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![Click through to more data](./media/appinsights/appinsights-gs-r-10-java.png)
+![](./media/app-insights-java-track-http-requests/5-results.png)
+ 
 
-Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+Click through any chart to see more detailed metrics. 
+
+![](./media/app-insights-java-track-http-requests/6-barchart.png)
+
+
+[Learn more about metrics.][metrics]
+
+ 
+
+And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
+ 
+![](./media/app-insights-java-track-http-requests/7-instance.png)
+
+
+## Client-side telemetry
+
+From the Quick Start tile on the overview blade, you can get a script to add to your web pages. 
+
+Page view, user, and session metrics will appear on the overview blade:
+
+![](./media/appinsights/appinsights-47usage-2.png)
+
+[Learn more about setting up client-side telemetry.][usage]
+
+## Availability web tests
+
+Application Insights can test your website at regular intervals to check that it's up and responding well. Click through the empty web tests chart on the overview blade, and provide your public URL. 
+
+You'll get charts of response times, plus email notifications if your site goes down.
+
+![Web test example](./media/appinsights/appinsights-10webtestresult.png)
+
+[Learn more about availability web tests.][availability] 
+
+## Diagnostic logs
+
+If you’re using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+
+[Learn more about diagnostic logs][javalogs]
+
+## Custom telemetry 
+
+Insert a few lines of code in your Java web application to find out what users are doing with it or to help diagnose problems. 
+
+You can insert code both in web page JavaScript and in the server-side Java.
+
+[Learn about custom telemetry][track]
+
+
 
 ## Next steps
 

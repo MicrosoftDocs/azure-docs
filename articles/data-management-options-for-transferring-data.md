@@ -65,7 +65,7 @@ Azure Data Factory is a fully managed service for composing data storage, proces
 
 Developers can build data-driven workflows that join, aggregate and transform semi-structured, unstructured and structured data sourced from their on-premises (via Data Management Gateway), cloud-based and internet services, and set up complex data processing through simple JSON scripting. The result data can be stored in Azure Storage or Azure SQL Database for advanced analytics.
 
-Specifically, a developer can orchestrate regular copy activities between various sources and destinations shown in the "[Supported sources and sinks](/documentation/articles/data-factory-copy-activity/#SupportedSourcesAndSinks)" section of [Copy data with Azure Data Factory](/documentation/articles/data-factory-copy-activity/), which also includes properties for different types of data stores, column mapping, serialization formats, and type handling.
+Specifically, a developer can orchestrate regular copy activities between various sources and destinations shown in the "[Supported sources and sinks](data-factory-copy-activity.md#SupportedSourcesAndSinks)" section of [Copy data with Azure Data Factory](data-factory-copy-activity.md), which also includes properties for different types of data stores, column mapping, serialization formats, and type handling.
 
 The service can handle failures with auto restart and allow format conversion when moving data from one format to the other. To define a copy activity, see [Get started with Data Factory][start]. Data store registration and gateway installation experiences are described in [Enable your pipelines to work with on-premises data][pipelines]. 
 
@@ -105,7 +105,7 @@ Alternatively, developers can leverage Azure Stream Analytics, a fully managed s
 
 See:
 
-* [Event Hubs service information](/en-us/services/event-hubs/)
+* [Event Hubs service information](/services/event-hubs/)
 * [Event Hubs Overview][overview]
 * [Introduction to Azure Stream Analytics][stream]
 
@@ -113,9 +113,9 @@ See:
 
 Hybrid Connections provides an easy and convenient way to connect Azure Websites and Azure Mobile Services to on-premises resources. Developers can build web site to move data from on-premises to Azure. See [Hybrid Connections Overview][hybrid] for details.
 
-With [Virtual Network](/en-us/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/en-us/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
+With [Virtual Network](/services/virtual-network/), you can use data integration tools running in Azure virtual machine to securely connect to on-premises SQL Server databases in your on-site datacenter. Only virtual machines and services within the same virtual network can identify or connect to each other. If you prefer, you can even create an [ExpressRoute](/services/expressroute/) direct connection to Azure through your network service provider or exchange provider and bypass the public internet altogether.
 
-[Azure Marketplace](/en-us/marketplace/?source=datamarket) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
+[Azure Marketplace](?source=datamarket.md) offers partner solutions that enable data movement to Azure, e.g. Storm Managed File Transfer.
 
 ## Choose the right data transfer option
 
@@ -248,14 +248,14 @@ Notes about the decision tree:
 
 
 <!--Link references-->
-[import-export]: ../storage-import-export-service/
-[azcopy]: ../storage-use-azcopy/
-[upload]: ../hdinsight-upload-data/#powershell
-[install]: ../install-configure-powershell/
-[start]: ../data-factory-get-started/
-[pipelines]: ../data-factory-use-onpremises-datasources/
-[copy]: ../data-factory-copy-activity/
-[intro]: ../data-factory-introduction/
+[import-export]: storage-import-export-service.md
+[azcopy]: storage-use-azcopy.md
+[upload]: hdinsight-upload-data.md#powershell
+[install]: install-configure-powershell.md
+[start]: data-factory-get-started.md
+[pipelines]: data-factory-use-onpremises-datasources.md
+[copy]: data-factory-copy-activity.md
+[intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
 [integrate]: http://msdn.microsoft.com/library/azure/jj156150.aspx
@@ -265,6 +265,6 @@ Notes about the decision tree:
 [bcp]: http://msdn.microsoft.com/library/azure/jj156153.aspx
 [migrate]: http://msdn.microsoft.com/library/azure/ee730904.aspx
 [overview]: http://msdn.microsoft.com/library/dn836025.aspx
-[stream]: ../stream-analytics-introduction/
+[stream]: stream-analytics-introduction.md
 [sync]: http://msdn.microsoft.com/library/azure/hh456371.aspx
-[hybrid]: ../integration-hybrid-connection-overview/
+[hybrid]: integration-hybrid-connection-overview.md

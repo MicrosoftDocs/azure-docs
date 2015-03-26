@@ -19,7 +19,7 @@
 
 #How to Scale Encoding
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series.
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series.
 
 ##Overview
 
@@ -51,7 +51,7 @@ To change the reserved unit type and the number of encoding reserved units, do t
 
 ##Quotas and limitations
 
-For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](../media-services-quotas-and-limitations).
+For information about quotas and limitations and how to open a support ticket, see [Quotas and limitations](media-services-quotas-and-limitations.md).
 
 
 
