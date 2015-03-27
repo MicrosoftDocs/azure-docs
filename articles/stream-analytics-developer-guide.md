@@ -3,7 +3,7 @@
 	description="Learn how to develop Azure Stream Analytics applications" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="03/28/2015" 
+	ms.author="jeffstok"/>
 
 
 # Azure Stream Analytics developer guide 
