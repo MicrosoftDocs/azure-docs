@@ -35,7 +35,7 @@ You'll need an account in [Microsoft Azure](http://azure.com). You might already
 
 What you want | What to do  | What you get
 ---|---|---
-[![](./media/appinsights/appinsights-gs-i-01-perf.png)][greenbrown]|[Add Application Insights SDK to your web project][greenbrown]<br/>![](./media/appinsights/appinsights-00arrow.png)  | [![](./media/appinsights/appinsights-gs-r-01-perf.png)][greenbrown]
+[![](./media/appinsights/appinsights-gs-i-01-perf.png)](app-insights-start-monitoring-app-health-usage.md)|[Add Application Insights SDK to your web project](app-insights-start-monitoring-app-health-usage.md)<br/>![](./media/appinsights/appinsights-00arrow.png)  | [![](./media/appinsights/appinsights-gs-r-01-perf.png)](app-insights-start-monitoring-app-health-usage.md)
 [![](./media/appinsights/appinsights-gs-i-04-red2.png)][redfield]<br/>[![](./media/appinsights/appinsights-gs-i-03-red.png)][redfield]|[Install Status Monitor on your IIS server][redfield]<br/>![](./media/appinsights/appinsights-00arrow.png) | [![](./media/appinsights/appinsights-gs-r-03-red.png)][redfield]
 [![](./media/appinsights/appinsights-gs-i-10-azure.png)][azure]|[Enable Insights in your Azure web app][azure]<br/>![](./media/appinsights/appinsights-00arrow.png)  | [![](./media/appinsights/appinsights-gs-r-03-red.png)][azure]
 [![](./media/appinsights/appinsights-gs-i-11-java.png)][java]|[Add the SDK to your Java project][java]<br/>![](./media/appinsights/appinsights-00arrow.png)  | [![](./media/appinsights/appinsights-gs-r-10-java.png)][java]
