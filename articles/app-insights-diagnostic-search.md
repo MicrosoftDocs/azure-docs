@@ -207,22 +207,24 @@ Here are the search expressions you can use:
 
 ## Save your search
 
-When you've set all the filters you want, you can save the search as a favorite:
+When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
 
 ![](./media/app-insights-diagnostic-search/08-favorite-save.png)
 
 
-To see it again, **go to the overview blade** and open Favorites:
+To see the search again, **go to the overview blade** and open Favorites:
 
 ![](./media/app-insights-diagnostic-search/09-favorite-get.png)
+
+If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
 
 
 ## Send more telemetry to Application Insights
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
-* Write code to send custom events, page views, and exceptions. 
+* Capture log traces from your favorite logging framework in [.NET][netlogs] or [Java][javalogs]. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
+* [Write code][track] to send custom events, page views, and exceptions. 
 
 [Learn how to send logs and custom telemetry to Application Insights][trace].
 
