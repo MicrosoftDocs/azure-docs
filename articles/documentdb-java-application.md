@@ -88,7 +88,7 @@ To do this, you will need to convert your project to a maven project by completi
 4. In the **Select Dependency** window, do the following:
  - In the **GroupId** box, enter com.microsoft.azure.
  - In the **Artifact Id** box enter azure-documentdb.
- - In the **Version** box enter 0.9.0.
+ - In the **Version** box enter 1.0.0.
 
 	![](./media/documentdb-java-application/image13.png)
 
@@ -97,7 +97,7 @@ To do this, you will need to convert your project to a maven project by completi
 	    <dependency>
 		    <groupId>com.microsoft.azure</groupId>
 		    <artifactId>azure-documentdb</artifactId>
-		    <version>0.9.0</version>
+		    <version>1.0.0</version>
 	    </dependency>
 
 5. Click **Ok** and Maven will install the DocumentDB Java SDK.
@@ -209,10 +209,14 @@ To do this, you will need to convert your project to a maven project by completi
 		                try {
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
+
+                                    // Configure the new collection performance tier to S2.
+		                    RequestOptions requestOptions = new RequestOptions();
+                                    requestOptions.setOfferType("S2");
 		
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
-		                            collectionDefinition, null).getResource();
+		                            collectionDefinition, requestOptions).getResource();
 		                } catch (DocumentClientException e) {
 		                    // TODO: Something has gone terribly wrong - the app wasn't
 		                    // able to query or create the collection.
