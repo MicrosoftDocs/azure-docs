@@ -26,7 +26,7 @@ Use this tutorial to help you get started with Azure Key Vault—currently in Pr
 >
 >During the Preview period, you cannot configure Azure Key Vault in the Azure Management Portal. Instead, use these Azure PowerShell instructions.
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault-whatis)
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites 
 

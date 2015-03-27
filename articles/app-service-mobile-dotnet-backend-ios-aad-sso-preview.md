@@ -111,7 +111,7 @@ You will now be able to reference the Active Directory Authentication Library in
 3. The app authenticates and returns the todo items.
 
 <!-- URLs. -->
-[How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/
+[How to configure your Mobile App with Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started-preview/
+ [Get started with Mobile Apps]: app-service-mobile-dotnet-backend-ios-get-started-preview.md

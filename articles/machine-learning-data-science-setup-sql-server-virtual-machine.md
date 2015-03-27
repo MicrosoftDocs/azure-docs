@@ -18,7 +18,7 @@
 
 # Set up an Azure SQL Server virtual machine for data science
 
-This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment.  Instructions are provided on how to set up the virtual machine as IPython Notebook server. The virtual machine runs on Windows and is configured with supporting tools such as Azure Storage Explorer and AzCopy, as well as other packages that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
+This topic shows how to provision and configure an SQL Server virtual machine to be used as part of a cloud-based data science environment. The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer and AzCopy, as well as other utilities that are useful for data science projects. Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure blob storage from your local machine or to download it to your local machine from blob storage.
 
 The Azure virtual machine gallery includes several images that contain Microsoft SQL Server. Select an SQL Server VM image that is suitable for your data needs. Recommended images are:
 
@@ -389,7 +389,9 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure SQL Server VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process. This process can include steps that move data into HDInsight, that process and sample it there in preparation for learning from the data with Azure Machine Learning.
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process. 
+
+The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 * For information on how to move data into HDInsight from Azure blob storage, see [Create and load data into Hive tables from Azure blob storage](machine-learning-data-science-hive-tables.md).
 * For information on processing data in HDInsight with Hive queries, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).

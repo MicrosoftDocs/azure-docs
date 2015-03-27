@@ -26,9 +26,9 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 Before you begin this article, you must have the following:
 
-- An Azure subscription - Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks by using your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- An Azure subscription. Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks by using your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-- A workstation with Azure PowerShell - For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
+- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
 
 
 ##Provision an HDInsight cluster

@@ -70,4 +70,4 @@ Authenticate users of your Mobile App with Azure Active Directory single sign-on
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[ios-adal]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview/
+[ios-adal]: app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md

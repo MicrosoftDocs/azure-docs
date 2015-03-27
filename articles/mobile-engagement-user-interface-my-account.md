@@ -147,7 +147,7 @@ Then, you can copy this Device ID and register it in the "UI - My Account - Devi
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
 [Link 15]: mobile-engagement-user-interface-analytics.md
 [Link 16]: mobile-engagement-user-interface-monitor.md

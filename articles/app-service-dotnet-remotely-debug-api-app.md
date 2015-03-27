@@ -24,15 +24,15 @@ Visual Studio's remote debugging capabilities have been extended to include supp
 
 This tutorial is the last in a series of three:
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API app project. 
-* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deployed the API appto your Azure subscription.
+1. In [Create an API App](app-service-dotnet-create-api-app.md) you created an API app project. 
+* In [Deploy an API App](app-service-dotnet-deploy-api-app.md) you deployed the API appto your Azure subscription.
 * In this tutorial, you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Generate an API app client 
 
 The API App tools in Visual Studio make it easy to generate C# code that calls to your Azure API Apps from desktop, store, and mobile apps. 
 
-In Visual Studio, open the solution that contains the API app from the [first](../app-service-dotnet-create-api-app/) tutorial. Right-click the solution and select the **Add** > **New Project**.
+In Visual Studio, open the solution that contains the API app from the [first](app-service-dotnet-create-api-app.md) tutorial. Right-click the solution and select the **Add** > **New Project**.
 
 ![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project-v3.png)
 

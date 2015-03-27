@@ -70,6 +70,6 @@ Go! Try it out! These articles help get you started with RemoteApp:
 - [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md)
 - [How to create a cloud collection of RemoteApp](remoteapp-create-cloud-deployment.md)
 - [How to create a hybrid collection of RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [How does licensing work in RemoteApp?](../remoteapp-licensing/)
+- [How does licensing work in RemoteApp?](remoteapp-licensing.md)
 - [Best practices for using Azure RemoteApp](remoteapp-bestpractices.md)
 - [Azure RemoteApp FAQ](remoteapp-faq.md)
