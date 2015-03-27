@@ -33,11 +33,11 @@ Then, return to this article, where you'll learn the answers to the following qu
 
 ##<a name="what-is-docdb"></a>What is Azure DocumentDB?  
 
-Modern applications produce, consume and respond quickly to very large volumes of data. These applications evolve very rapidly and so does the underlying data schema. In response to this, developers have increasingly chosen schema-free NoSQL document databases as simple, fast, elastic solutions to store and process data while preserving the ability to quickly iterate over application data models and unstructured data feeds. However, many schema-free databases do not allow non-trivial queries and transactional processing, making advanced data management difficult. This is where DocumentDB comes in. Microsoft developed DocumentDB to fulfill these requirements when managing schema-free data.
+Modern applications produce, consume and respond quickly to very large volumes of data. These applications evolve very rapidly and so does the underlying data schema. In response to this, developers have increasingly chosen schema-free NoSQL document databases as simple, fast, scalable solutions to store and process data while preserving the ability to quickly iterate over application data models and unstructured data feeds. However, many schema-free databases do not allow for complex queries and transactional processing, making advanced data management difficult. This is where DocumentDB comes in. Microsoft developed DocumentDB to fulfill these requirements when managing data for today's applications.
 
-DocumentDB is a NoSQL document database service designed for modern mobile and web applications.  DocumentDB delivers consistently fast reads and writes, schema flexibility, and the ability to easily scale a database up and down on demand. DocumentDB enables complex ad hoc queries using the SQL dialect, supports well defined consistency levels, and offers JavaScript language integrated, multi-document transaction processing using the familiar programming model of stored procedures, triggers, and UDFs. 
+DocumentDB is a NoSQL document database service designed for modern mobile and web applications.  DocumentDB delivers consistently fast reads and writes, schema flexibility, and the ability to easily scale a database up and down on demand. DocumentDB enables complex ad hoc queries using a SQL language, supports well defined consistency levels, and offers JavaScript language integrated, multi-document transaction processing using the familiar programming model of stored procedures, triggers, and UDFs. 
 
-DocumentDB natively supports JSON documents enabling easy iteration of application schema. It embraces the ubiquity of JSON and JavaScript, eliminating mismatch between the application type and database schema. Deep integration of JavaScript also allows developers to execute application logic efficiently and directly - within the database engine in a database transaction. 
+DocumentDB natively supports JSON documents enabling easy iteration of application schema. It embraces the ubiquity of JSON and JavaScript, eliminating mismatch between application defined objects and database schema. Deep integration of JavaScript also allows developers to execute application logic efficiently and directly - within the database engine in a database transaction. 
 
 Azure DocumentDB offers the following key capabilities and benefits:
 
@@ -49,7 +49,7 @@ Azure DocumentDB offers the following key capabilities and benefits:
 
 -	**Fully managed:** Eliminate the need to manage database and machine resources. As a fully-managed Microsoft Azure service, you do not need to manage virtual machines, deploy and configure software, or deal with complex data-tier upgrades. Every database is automatically backed up and protected against regional failures. You can easily add a DocumentDB account and provision capacity as you need it, allowing you to focus on your application instead of operating and managing your database.
 
--	**Elastically scalable throughput and storage:** Easily scale up or scale down DocumentDB to meet your application needs. Scaling is done through fine grained units of reserved SSD backed storage and throughput. You can elastically scale DocumentDB with predictable performance by purchasing more capacity units as your application grows. 
+-	**Elastically scalable throughput and storage:** Easily scale up or scale down DocumentDB to meet your application needs. Scaling is done through fine grained units (collections) of reserved SSD backed storage and throughput. You can elastically scale DocumentDB with predictable performance by creating more units as your application grows. 
 
 -	**Open by design:** Get started quickly by using existing skills and tools. Programming against DocumentDB is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. DocumentDB embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
 
@@ -73,6 +73,7 @@ Azure DocumentDB exposes resources through a REST API that can be called by any 
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
 -	[Node.js](http://go.microsoft.com/fwlink/?LinkID=402990)
+-  [Java](http://go.microsoft.com/fwlink/?LinkID=402380)
 -	[JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991)
 -	[Python](http://go.microsoft.com/fwlink/?LinkID=402992)
 
