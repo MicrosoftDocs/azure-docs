@@ -28,6 +28,8 @@ To run this sample, you must have an Azure Search service, which you can sign up
 
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/en-us/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
+
 > [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Create the service##
@@ -233,7 +235,7 @@ Your solution should look similar to the example shown below.
 
 2. Install the client library.
 3. Accept the additional package installations so that all dependencies are also installed.
-4. Install the Json.NET package from Newtonsoft. This library is used in AzureSearchHelper class. We recommend the stable version. You can change filters to return the stable version.
+4. Install the Json.NET package from Newtonsoft. This library is used in AzureSearchHelper class. We recommend the stable version. You can change filters to return the stable version in the list of packages.
 5. Add an assembly reference for System.Configuration. Right-click **DataIndexer** | **Add** | **Reference** | **Framework** | **System.Configuration**.  Select the check box. Click **OK**.
 
 A partial list of the assemblies used in this example is shown below.
@@ -788,7 +790,7 @@ You could also try any of these terms:
 
 ##Next steps##
 
-This is the first Azure Search tutorial based on the USGS dataset. Over time, we'll be extending this tutorial and creating new ones that demonstrate the search features you might want to use in your custom solutions.
+This is the first Azure Search tutorial based on .NET and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 

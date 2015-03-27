@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+	ms.date="03/27/2015" 
 	ms.author="heidist"/>
 
 #Get started with Azure Search in Java#
 
 Learn how to build a custom Java search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-We used the 64-bit [Eclipse Luna for Java Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar) and [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  on Windows 8.1 to develop and test this sample.
+We used the 64-bit [Eclipse Luna for Java Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar) and [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) on Windows 8.1 to develop and test this sample.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
@@ -29,6 +29,8 @@ To run this sample, you must have an Azure Search service, which you can sign up
 ##About the data##
 
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
+
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/en-us/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
 
 > [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
@@ -74,6 +76,30 @@ After the service is created, you can return to the portal to get the URL or `ap
 
 3. Copy the service URL and an admin key. You will need them later, when you add them to the app.config and web.config files in your Visual Studio projects.
 
+##Download the sample files
+
+Use either one of the following approaches to download the sample.
+
+1. Go to [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197).
+2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
+
+All subsequent file modifications and run statements will be made against files in this folder.
+
+Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchJavaIndexerDemo.git` 
+
+##Update web.xml with your Search service URL and api-keys
+
+Using the URL and api-keys that you copied earlier, specify the URL, admin-key, and query-key in configuration file.
+
+Admin keys grant full control over service operations, including creating or deleting an index and loading documents. In contrast, query keys are for read-only operations, typically used by client applications that connect to Azure Search.
+
+In this sample, we include the query key to help reinforce the best practice of using the query key in client applications.
+
+The following screenshot shows **web.xml** open in a text editor, with the relevant entries demarcated so that you can see where to update the file with the values that are valid for your search service.
+
+![][4]
+
+The admin api-key, obtained from the portal, replaces "SearchServiceApiKey". The query api-key replaces "Api-key". Service name (the first component of the URL http://<servicename>.search.windows.net) replaces "Service Name".
 
 ##Search on USGS data##
 
@@ -89,8 +115,17 @@ You could also try any of these terms:
 - Pembroke
 - goose +cape
 
+##Next steps##
+
+This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
+
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
+
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-2.PNG
 [3]: ./media/search-get-started-java/create-search-portal-3.PNG
+[4]: ./media/search-get-started-java/AzSearch-Java-webxml.PNG
 [9]: ./media/search-get-started-dotnet/rogerwilliamsschool.png
