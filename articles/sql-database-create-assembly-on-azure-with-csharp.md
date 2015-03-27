@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/25/2015" 
 	ms.author="genemi"/>
 
 
@@ -21,12 +21,12 @@
 
 
 <!--
-GeneMi , Latest edit = 2015-March-04  Wednesday  15:32pm
-HTML '&nbsp;' was treated as literal text by build system, thus change title from C# to CSharp.
+GeneMi , Latest edit = 2015-March-25  Wednesday  10:22am
+Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.aspx. And ms186755.aspx for "CREATE FUNCTION".
 -->
 
 
-This topic provides a C# code sample you can use to issue a CREATE ASSEMBLY statement to Azure SQL Database. For SQL Database, the FROM clause cannot accept the simple format of a path on the local computer that hosts the database. An alternative is to first encode the binary bits of the assembly DLL into a long string containing a hexadecimal number. Then give the string as the value on the FROM clause.
+This topic provides a C# code sample you can use to issue a [CREATE ASSEMBLY](http://msdn.microsoft.com/library/ms189524.aspx) statement to Azure SQL Database. For SQL Database, the FROM clause cannot accept the simple format of a path on the local computer that hosts the database. An alternative is to first encode the binary bits of the assembly DLL into a long string containing a hexadecimal number. Then give the string as the value on the FROM clause.
 
 
 ### Prerequisites
@@ -46,7 +46,7 @@ To understand this topic, you must have already partially know the following:
 3. Run the EXE for which the C# source code is given in this topic. Tell the EXE where your DLL file is.
  - Encodes your binary DLL into a long string containing a hexadecimal number.
  - Issues a CREATE ASSEMBLY statement with the hex string given in the FROM clause.
-4. CREATE FUNCTION to reference a method in your assembly.
+4. [CREATE FUNCTION](http://msdn.microsoft.com/library/ms186755.aspx) to reference a method in your assembly.
 5. T-SQL SELECT statement to call and test your function.
 
 

@@ -67,7 +67,7 @@ For additional details, please refer to the Connector API Reference [http://aka.
 [Using SAP connector]: app-service-logic-connector-sap.md
 [Using FTP connector]: app-service-logic-connector-ftp.md
 [Using HTTP connector]: app-service-logic-connector-http.md
-[Using Azure Storage Blob connector]: app-service-logic-connector-office365.md
-[Using Office 365 connector]: app-service-logic-connector-sharepoint.md
-[Using Sharepoint connector]: app-service-logic-connector-azurestorageblob.md
+[Using Azure Storage Blob connector]: app-service-logic-connector-azurestorageblob.md
+[Using Office 365 connector]: app-service-logic-connector-office365.md
+[Using Sharepoint connector]: app-service-logic-connector-sharepoint.md
 

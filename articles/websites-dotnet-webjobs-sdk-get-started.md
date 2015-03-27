@@ -784,14 +784,14 @@ The WebJobs SDK calls this method when a queue message is received. The method c
 
 For more information about how to write functions that use  WebJobs SDK attributes, see the following resources:
 
-* [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to)
+* [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
 * [How to use Azure blob storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 * [How to use Azure table storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-tables-how-to.md)
 * [How to use Azure Service Bus with the WebJobs SDK](websites-dotnet-webjobs-sdk-service-bus.md)
 
 >[AZURE.NOTE] 
 >* If your web app runs on multiple VMs, this program will run on each machine, and each machine will wait for triggers and attempt to run functions. In some scenarios this can lead to some functions processing the same data twice, so functions should be idempotent (written so that calling them repeatedly with the same input data doesn't produce duplicate results).
->* For information about how to implement graceful shutdown, see [Graceful Shutdown](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful).   
+>* For information about how to implement graceful shutdown, see [Graceful Shutdown](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful).   
 >* The code in the `ConvertImageToThumbnailJPG` method (not shown) uses classes in the `System.Drawing` namespace for simplicity. However, the classes in this namespace were designed for use with Windows Forms. They are not supported for use in a Windows or ASP.NET service.
 
 ### WebJobs SDK versus Cloud Service worker role without WebJobs SDK

@@ -551,7 +551,7 @@ Congratulations! You've just launched a Node.js application backed by a MongoLab
 [Git remote]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Azure command-line tool for Mac and Linux]: /documentation/articles/virtual-machines-command-line-tools/
+[Azure command-line tool for Mac and Linux]: virtual-machines-command-line-tools.md
 [Azure Developer Center]: /develop/nodejs/
 [Create and deploy a Node.js application to Azure Web Sites]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Publishing to Azure Web Sites with Git]: /develop/nodejs/common-tasks/publishing-with-git/

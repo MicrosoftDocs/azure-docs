@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/25/2015" 
 	ms.author="awills"/>
  
 # Track usage of web applications
@@ -34,18 +34,22 @@ If you haven't already configured your project for Application Insights, either:
 
 or get one directly:
 
-* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
+* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights ASP.NET or Java Web resource:
 
-![](./media/appinsights/appinsights-11newApp.png)
+
+![](./media/app-insights-web-track-usage/01-create.png)    
+
 
 
 #### Add our script to your web pages
 
-In Quick Start, get the script for web pages.
+In Quick Start, get the script for web pages:
 
-![](./media/appinsights/appinsights-06webcode.png)
+![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
+
+The script contains your instrumentation key.
 
 (If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)
 

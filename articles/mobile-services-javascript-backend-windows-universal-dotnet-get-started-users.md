@@ -95,4 +95,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
-[Register your Windows Store app package for Microsoft authentication]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md

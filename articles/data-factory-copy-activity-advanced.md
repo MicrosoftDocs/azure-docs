@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="03/26/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -261,7 +261,7 @@ The data types specified in the Structure section of the Table definition is onl
 **Note:** Azure Table only support a limited set of data types, please refer to [Understanding the Table Service Data Model][azure-table-data-type].
 
 ## Invoke stored procedure for SQL Sink
-When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
+When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters. 
 ### Example
 1. Define the JSON of output Table as follows (take Azure SQL Database table as an example):
 
@@ -289,17 +289,26 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
 	    {
 			"type": "SqlSink",
 	        "SqlWriterTableType": "MarketingType",
-	        "SqlWriterStoredProcedureName": "spOverwriteMarketing"
+		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
+			"storedProcedureParameters":
+					{
+                    	"stringData": 
+						{
+                        	"value": "str1"		
+						}
+                    }
 	    }
 
 3. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the **tableName** defined in Table JSON file.
 
-    	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY
-    	AS
-	    BEGIN
-	        INSERT [dbo].[Marketing](ProfileID, State)
-	        SELECT * FROM @Marketing
-	    END
+		CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+		AS
+		BEGIN
+			DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    		INSERT [dbo].[Marketing](ProfileID, State)
+    		SELECT * FROM @Marketing
+		END
+
 
 4. In your database, define the table type with the same name as **SqlWriterTableType**. Notice that the schema of the table type should be same as the schema returned by your input data.
 

@@ -2,21 +2,19 @@
    pageTitle="Azure Mobile Engagement Troubleshooting Guide - Service" 
    description="Troubleshooting Guides for Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
-
-# Troubleshooting Guide - Service
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
@@ -28,21 +26,16 @@
 <a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
 </div>
 
-# Service
+# Troubleshooting guide for Service issues
 
-Issues with how Azure Mobile Engagement runs.
+The following are possible issues you may encounter with how Azure Mobile Engagement runs.
 
-**Symptom List:**
+## Service Outages
 
-1. <a href="#SERVICE1">Service Outages</a>
-2. <a href="#SERVICE2">Connectivity and Incorrect Information Issues</a>
-3. <a href="#SERVICE3">Feature Requests</a>
- 
-<a name="#SERVICE1">
-## 1. Service Outages:</a>
+### Issue
+- Issues that appear to be caused by Azure Mobile Engagement Service Outages.
 
-**Causes:**
-
+### Causes
 - Issues that appear to be caused by Azure Mobile Engagement Service Outages can be caused by several different issues:
     - Isolated issues that originally appear systemic to all of Azure Mobile Engagement
     - Known issues caused by server outages (not always shows in server status):
@@ -55,7 +48,7 @@ o    Scheduling delays, Targeting errors, Badge update issues, Statistics stop c
 <GooglePlay><iTunes><Windows Phone Store><Windows Store>
 
     - Cloud Dependency Outages
-[Azure Service Status]( http://azure.microsoft.com/status/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
+[Azure Service Status]( http://status.azure.com/), [Amazon Web Services (AWS) Status]( http://status.aws.amazon.com/) 
     - Push Notification Services (PNS) Dependency Outages
 [Google - Service](http://www.google.com/appsstatus#hl=en&v=status), [Apple - Service]( http://www.apple.com/support/systemstatus/), [Android - Google GCM]( http://developer.android.com/google/gcm/index.html), [Android - Amazon ADM]( https://developer.amazon.com/appsandservices/apis/engage/device-messaging), [Apple - APNS]( https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html), [Windows Phone - WNS](http://msdn.microsoft.com/library/windows/apps/hh465407.aspx), [Windows Phone - MPNS](http://msdn.microsoft.com/library/windows/apps/ff402558(v=vs.105).aspx), [Windows - WNS](https://developer.windows.com/)
     - App Store Outages
@@ -101,9 +94,9 @@ To test if the problem is with OS upgrades to end user Devices, which require an
     - Confirm that you are using the most recent version of the SDK.
 [Troubleshooting Guide - SDK][Link 2]
  
-<a name="#SERVICE2">
-## 2. Connectivity and Incorrect Information Issues:</a>
+## Connectivity and Incorrect Information Issues
 
+### Issue
 - Problems logging into the Azure Mobile Engagement UI.
 - Connection errors with the Azure Mobile Engagement API's.
 - Problems uploading App Info Tags via the Device API.
@@ -111,8 +104,7 @@ To test if the problem is with OS upgrades to end user Devices, which require an
 - Incorrect information shown in the Azure Mobile Engagement UI.
 - Incorrect information shown in Azure Mobile Engagement logs.
 
-**Causes:**
-
+### Causes
 - For connectivity issues with Azure Mobile Engagement:
     - Confirm your user account has sufficient permissions to perform the task.
     - Confirm that the problem is not isolated to one computer or your local network.
@@ -123,24 +115,28 @@ To test if the problem is with OS upgrades to end user Devices, which require an
         - Use all capitals for Boolean values "TRUE" and "FALSE".
         - Use a file that is smaller than the maximum file size of 35MB.
 
-**See also:**
+### See also
 
 [API Documentation][Link 4], [UI Documentation - Home][Link 1]
  
-<a name="#SERVICE3">
-## 3. Feature Requests:</a>
+## Feature Requests
 
+### Issue
 - The feature you want to use doesn't appear to exist in Azure Mobile Engagement yet.
 
-**Causes:**
+### Causes
 
 To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
     - Open an Azure Mobile Engagement service request with as many details as possible about what new feature you would like to see in Azure Mobile Engagement.
 
+### See also
+
+[Mobile Engagement Feedback/Feature Requests](http://feedback.azure.com/forums/285737-mobile-engagement)
+
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -149,21 +145,21 @@ To suggest a new feature for Azure Mobile Engagement that doesn't exist yet:
 [Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-user-interface-reach-campaign/
-[Link 28]: ../mobile-engagement-user-interface-reach-criterion/
-[Link 29]: ../mobile-engagement-user-interface-reach-content/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md

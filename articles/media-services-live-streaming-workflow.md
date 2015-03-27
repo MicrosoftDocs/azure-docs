@@ -75,7 +75,7 @@ Use **Azure Management Portal** to [Create Azure Media Services Account](media-s
 
 ##Configuring streaming endpoints
 
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](./media-services-manage-origins.md)
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
 
 ##Setting up development environment  
 
@@ -95,7 +95,11 @@ For more information, see [Using 3rd Party Live Encoders with Azure Media Servic
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+
+Choose **Portal**, **.NET**, **REST API** to see examples.
+
+[AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
 
 ##Configuring asset delivery policy
 

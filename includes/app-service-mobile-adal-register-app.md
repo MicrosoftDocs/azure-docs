@@ -25,4 +25,4 @@
 Your application is now configured in AAD so that users can log in using AAD single sign-on.
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-how-to-configure-active-directory-authentication-preview/
+[How to configure your Mobile App with Azure Active Directory]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
