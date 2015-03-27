@@ -19,11 +19,11 @@
 # Connect your app to an existing SaaS connector
 
 ## Overview
-[Azure App Service](/documentation/services/app-service/) is a fully managed compute platform for professional developers that brings a rich set of capabilities to web, mobile, and integration scenarios. API apps are one part of the App Service suite and allow any technical user or developer to discover, host, manage and monetize API’s and SaaS connectors on a modern, feature rich, scalable, and globally available cloud platform. Read [What are API Apps](app-service-api-apps-why-best-platform.md) article to learn more about API Apps.  
+[Azure App Service](/documentation/services/app-service/) is a fully managed compute platform for professional developers that brings a rich set of capabilities to web, mobile, and integration scenarios. API apps are one part of the App Service suite and allow any technical user or developer to discover, host, manage and monetize API’s and SaaS connectors on a modern, feature rich, scalable, and globally available cloud platform. Read [What are API Apps](app-service-api-apps-why-best-platform.md) to learn more about API Apps.  
 
 This tutorial shows you how to consume a SaaS connector that’s in the Azure Marketplace. 
 
-This tutorial walk you through the steps that you need to take to provision and configure Dropbox connector in the Azure portal and connect to your Dropbox account to view or modify the files. 
+This tutorial walks you through the steps that you need to take to provision and configure Dropbox connector in the Azure portal and connect to your Dropbox account to view or modify the files. 
 
 You'll perform the following steps to see the files in your Dropbox account.
 
@@ -43,7 +43,7 @@ You'll perform the following steps to see the files in your Dropbox account.
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/02-Marketplace-search.png)
  
-3. Click the Dropbox icon to provision the Dropbox Connector. Click the ‘create’ button to provision the Dropbox connector. Make sure you fill in the name and desired values for all the fields before you click the ‘Create’ button. Read [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md) and [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md) articles to better understand the options you have before choosing the values. 
+3. Click the Dropbox icon to provision the Dropbox Connector. Click the Create button to provision the Dropbox connector. Make sure you fill in the name and desired values for all the fields before you click the Create button. Read [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md) and [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md) articles to better understand the options you have before choosing the values. 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/03-Dropbox-Connector-Blade.png) 
 
