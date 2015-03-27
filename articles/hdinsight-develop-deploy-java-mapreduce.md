@@ -19,7 +19,7 @@
 # Develop Java MapReduce programs for Hadoop in HDInsight
 This tutorial walks you through an end-to-end scenario for developing a word counting Hadoop MapReduce job in Java using Apache Maven. The tutorial also shows how to test the application on the HDInsight Emulator and then deploy and run it on Azure HDInsight cluster.
 
-**Prerequisites:**
+##<a name="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have completed the following:
 
@@ -29,14 +29,6 @@ Before you begin this tutorial, you must have completed the following:
 - Install and configure [Apache Maven](http://maven.apache.org/).
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
-##In this article
-
-- [Use Apache Maven to create a word counting MapReduce program in Java](#develop)
-- [Test the program on the emulator](#test)
-- [Upload data files and the application to Azure Blob storage](#upload)
-- [Run the MapReduce program on Azure HDInsight](#run)
-- [Retrieve the MapReduce results](#retrieve)
-- [Next steps](#nextsteps)
 
 ##<a name="develop"></a>Use Apache Maven to create a MapReduce program in Java
 
@@ -322,7 +314,7 @@ In this tutorial, you will create a container on a separate storage account for 
 		$containerName_Data = "<ContainerName>"
 		$location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-	The **$subscripionName** is associated with your Azure subscription. You must name the **$storageAccountName\_Data** and **$containerName\_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx). 
+	The **$subscripionName** is associated with your Azure subscription. You must name the **$storageAccountName\_Data** and **$containerName\_Data**. For the naming restrictions, see [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/windowsazure/dd135715.aspx). 
 
 3. Run the following command to create a storage account and a Blob storage container on the account
 
@@ -586,28 +578,28 @@ In this tutorial, you have learned how to develop a Java MapReduce job, how to t
 - [Connect Excel to HDInsight with Power Query][hdinsight-power-query]
 - [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][hdinsight-ODBC]
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-ODBC]: ../hdinsight-connect-excel-hive-ODBC-driver/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
-[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-emulator]: ../hdinsight-get-started-emulator/
-[hdinsight-emulator-wasb]: ../hdinsight-get-started-emulator/#blobstorage
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-emulator-wasb]: hdinsight-get-started-emulator.md#blobstorage
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 
 

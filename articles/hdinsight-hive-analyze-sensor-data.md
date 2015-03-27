@@ -3,7 +3,7 @@
 	description="Learn how to use Hive and Excel to analyze and visualize sensor data with HDInsight (Hadoop)" 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2014" 
+	ms.date="02/20/2015" 
 	ms.author="larryfr"/>
 
 #Analyzing sensor data using Hive with HDInsight
 
-Learn how to analyze sensor data using Hive with HDInsight (Hadoop), then visualize the data in Microsoft Excel using Power View.
+Learn how to analyze sensor data using the Hive Query Console with HDInsight (Hadoop), then visualize the data in Microsoft Excel using Power View.
+
+> [AZURE.NOTE] The steps in this document only work with Windows-based HDInsight clusters
 
 In this sample, you'll use Hive to process historical data produced by heating, ventilation, and air conditioning (HVAC) systems to identify systems that are not able to reliably maintain a set temperature. You will learn how to:
 
@@ -31,13 +33,13 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 ##Prerequisites:
 
-* An HDInsight (Hadoop) cluster - see [Provision Hadoop clusters in HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/) for information on creating a cluster
+* An HDInsight (Hadoop) cluster - see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md) for information on creating a cluster
 
 * Microsoft Excel 2013
 
-	> [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/en-US/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
+	> [AZURE.NOTE] Microsoft Excel is used for data visualization with [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US), which is currently only available on Windows.
 
-* [Microsoft Hive ODBC Driver](http://www.microsoft.com/en-us/download/details.aspx?id=40886)
+* [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886)
 
 ##To run the sample
 

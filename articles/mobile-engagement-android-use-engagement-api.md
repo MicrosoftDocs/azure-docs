@@ -18,7 +18,7 @@
 
 #How to Use the Engagement API on Android
 
-This document is an add-on to the document [How to Integrate Engagement on Android](../mobile-engagement-android-integrate-engagement/): it provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to Integrate Engagement on Android](mobile-engagement-android-integrate-engagement.md): it provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Activity` sub-classes inherit from the corresponding `EngagementActivity` class.
 
@@ -28,7 +28,7 @@ The Engagement API is provided by the `EngagementAgent` class. An instance of th
 
 ##Engagement concepts
 
-The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/), for the Android platform.
+The following parts refine the common [Mobile Engagement Concepts](mobile-engagement-concepts.md), for the Android platform.
 
 ### `Session` and `Activity`
 

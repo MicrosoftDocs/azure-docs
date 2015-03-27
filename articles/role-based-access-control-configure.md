@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/06/2015" 
+	ms.date="02/20/2015" 
 	ms.author="justinha"/>
 
 <!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
@@ -27,18 +27,8 @@
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-##Table of Contents##
 
-* [RBAC in Azure](#whatisrbac) 
-* [Co-existence of RBAC with subscription co-admins](#coexist)
-* [Authorization for management versus data operations](#authmgmt)
-* [How to add and remove access](#addremoveaccess)
-* [Known issues when using role-based access control](#knownissues)
-* [Built-in roles](#builtinroles)
-* [How to provide feedback](#feedback)
-* [Next steps](#next)
-
-<h2><a id="whatisrbac"></a>RBAC in Azure</h2>
+## RBAC in Azure
                                                                    
 Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using Azure Management portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
 
@@ -69,18 +59,18 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
+## Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
 If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Preview portal, you should add them to the subscription co-administrators using the full Azure Management portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
-<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+## Authorization for management versus data operations
 
 Role-based access control is supported only for management operations of the Azure resources in Azure Preview portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
-<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+## How to add and remove access
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
@@ -119,7 +109,7 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
-For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/). 
+For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md). 
 
 <h3><a id="remove"></a>Remove access</h3>
 
@@ -158,12 +148,12 @@ When you add an external user, a guest is created in the directory. Thereafter, 
 
 You can also remove a guest from any role, just as you would remove any user. Removing the guest from a role on a resource does not remove the guest from the directory. 
  
-<h2><a id="knownissues"></a>Known issues when using role-based access control</h2>
+## Known issues when using role-based access control
 
-If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/) for any known issues that may be related to the problem.
+If you encounter a problem when you use role based access control feature while it is in preview, see [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md) for any known issues that may be related to the problem.
 
 
-<h2><a id="builtinroles"></a>Built-in roles</h2>
+## Built-in roles
 
 Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
@@ -980,21 +970,21 @@ Role name  | Description
 </table>
 
 
-<h2><a id="feedback"></a>How to provide feedback</h2>
+## How to provide feedback
 
 Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback). 
 
 
-<h2><a id="next"></a>Next steps</h2>
+## Next steps
 
 Here are some additional resources to help you use role-based access control: 
 
-+ [Managing role-based access control with Windows PowerShell](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-powershell/)
-+ [Managing role-based access control with XPLAT CLI](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-xplat-cli/)
-+ [Troubleshooting role-based access control](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-troubleshooting/)
++ [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md)
++ [Managing role-based access control with XPLAT CLI](role-based-access-control-xplat-cli.md)
++ [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md)
 + [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx)
-+ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/en-us/library/azure/dn532272.aspx)
-+ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn629581.aspx)
++ [Azure Active Directory Premium and Basic](http://msdn.microsoft.com/library/azure/dn532272.aspx)
++ [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/library/azure/dn629581.aspx)
 + For an introduction to self-service group management for security groups, see the [Active Directory Team Blog](http://blogs.technet.com/b/ad/archive/2014/02/24/more-preview-enhancements-for-windows-azure-ad-premium.aspx)
 
 

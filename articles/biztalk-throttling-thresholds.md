@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Throttling thresholds in BizTalk Services | Azure" 
+	pageTitle="Learn about Throttling in BizTalk Services | Azure" 
 	description="Learn about throttling thresholds and resulting runtime behaviors for BizTalk Services. Throttling is based on memory usage and number of messages. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="02/25/2015" 
 	ms.author="mandia"/>
 
 
@@ -63,7 +63,7 @@ When Azure BizTalk Services enters a throttling state, the following occurs:
 
 - Throttling is per role instance. For example:<br/>
 RoleInstanceA is throttling. RoleInstanceB is not throttling. In this situation, messages in RoleInstanceB are processed as expected. Messages in RoleInstanceA are discarded and fail with the following error:<br/><br/>
-Server is busy. Please try again.<br/><br/>
+**Server is busy. Please try again.**<br/><br/>
 - Any pull sources do not poll or download a message. For example:<br/>
 A pipeline pulls messages from an external FTP source. The role instance doing the pull gets into a throttling state. In this situation, the pipeline stops downloading additional messages until the role instance stops throttling.
 - A response is sent to the client so the client can resubmit the message.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="03/05/2015" 
 	ms.author="tamram"/>
 
 
@@ -25,8 +25,8 @@ An Azure storage account is a secure account that gives you access to services i
 
 There are two types of storage accounts:
 
-- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/en-us/services/preview/).
-- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/en-us/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
+- A standard storage account includes Blob, Table, and Queue storage. File storage is available by request via the [Azure Preview page](/services/preview/).
+- A premium storage account currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request via the [Azure Preview page](/services/preview/). See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898) for an in-depth overview of Premium Storage.
 
 You are billed for Azure Storage usage based on your storage account. Storage costs are based on four factors: storage capacity, replication scheme, storage transactions, and data egress. 
 
@@ -35,11 +35,11 @@ You are billed for Azure Storage usage based on your storage account. Storage co
 - Transactions refer to all read and write operations to Azure Storage. 
 - Data egress refers to data transferred out of an Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate data egress charges.)  
 
-The [Storage Pricing Details](http://www.windowsazure.com/en-us/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://www.windowsazure.com/en-us/pricing/details/data-transfers/) provides detailed pricing information for data egress.
+The [Storage Pricing Details](http://azure.microsoft.com/pricing/details/#storage) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](http://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress.
 
-For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
+For details about storage account capacity and performance targets, see [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx).
 
-> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/en-us/documentation/services/virtual-machines/) for more details. <br />
+> [AZURE.NOTE] When you create an Azure virtual machine, a storage account is created for you automatically in the deployment location if you do not already have a storage account in that location. So it's not necessary to follow the steps below to create a storage account for your virtual machine disks. The storage account name will be based on the virtual machine name. See the [Azure Virtual Machines documentation](/documentation/services/virtual-machines/) for more details. <br />
 
 ## Create a storage account
 
@@ -87,13 +87,13 @@ You can see the endpoints for your storage account on the storage Dashboard in t
 
 The URL for accessing an object in a storage account is built by appending the object's location in the storage account to the endpoint. For example, a blob address might have this format: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](../storage-custom-domain-name/) for details.
+You can also configure a custom domain name to use with your storage account. See [Configure a custom domain name for blob data in a storage account](storage-custom-domain-name.md) for details.
 
 ### Service co-location with an affinity group 
 
 An *affinity group* is a geographic grouping of your Azure services and VMs with your Azure storage account. An affinity group can improve service performance by locating computer workloads in the same data center or near the target user audience. Also, no billing charges are incurred for egress when data in a storage account is accessed from another service that is part of the same affinity group.
 
-> [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
+> [AZURE.NOTE]  To create an affinity group, open the <b>Settings</b> area of the Management Portal, click <b>Affinity Groups</b>, and then click either <b>Add an affinity group</b> or the <b>Add</b> button. You can also create and manage affinity groups using the Azure Service Management API. See <a href="http://msdn.microsoft.com/library/azure/ee460798.aspx">Operations on Affinity Groups</a> for more information.
 
 
 ### Storage account replication options
@@ -105,13 +105,13 @@ An *affinity group* is a geographic grouping of your Azure services and VMs with
 
 When you create a storage account, Azure generates two 512-bit storage access keys, which are used for authentication when the storage account is accessed. By providing two storage access keys, Azure enables you to regenerate the keys with no interruption to your storage service or access to that service.
 
-> [AZURE.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](../storage-dotnet-shared-access-signature-part-1/) for more information.
+> [AZURE.NOTE] We recommend that you avoid sharing your storage account access keys with anyone else. To permit access to storage resources without giving out your access keys, you can use a *shared access signature*. A shared access signature provides access to a resource in your account for an interval that you define and with the permissions that you specify. See the [shared access signature tutorial](storage-dotnet-shared-access-signature-part-1.md) for more information.
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
 ### Copy a storage access key ### 
 
-You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
+You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **Storage**, and then click the name of the storage account to open the dashboard.
 
@@ -164,7 +164,7 @@ To remove a storage account that you are no longer using, use **Delete** on the 
 
 ## Next steps
 
-- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/en-us/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/en-us/library/gg433040.aspx). 
+- To learn more about Azure Storage, see the Azure Storage documentation on [azure.com](http://azure.microsoft.com/documentation/services/storage/) and on [MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx). 
 
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/).
 

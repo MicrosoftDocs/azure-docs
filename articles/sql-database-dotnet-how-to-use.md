@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/13/2015" 
+	ms.date="03/16/2015" 
 	ms.author="jeffreyg"/>
 
 
@@ -29,21 +29,13 @@ the database using the following .NET Framework data provider technologies:
 ADO.NET, ODBC, and EntityClient Provider.
 
 
-<h2><a name="Whatis"></a>What is SQL Database</h2>
+## What is SQL Database
 
 SQL Database provides a relational database management system for Azure and is based on SQL Server technology. With a SQL Database instance, you can easily provision and deploy relational database solutions to the cloud, and take advantage of a distributed data center that provides enterprise-class availability, scalability, and security with the benefits of built-in data protection and self-healing.
 
-## Table of Contents
 
-- [Sign in to Azure](#PreReq1)
-- [Create and Configure SQL Database](#PreReq2)
-- [Connect to SQL Database](#connect-db) 
-- [Connect Using ADO.NET](#using-sql-server)
-- [Connect Using ODBC](#using-ODBC)
-- [Connect Using EntityClient Provider](#using-entity)
-- [Next Steps](#next-steps)
 
-<h2><a name="PreReq1"></a>Sign in to Azure</h2>
+## Sign in to Azure
 
 SQL Database provides relational data storage, access, and management services on Azure. To use it, you'll need an Azure subscription.
 
@@ -52,7 +44,7 @@ SQL Database provides relational data storage, access, and management services o
 2. Your account is now created. You are ready to get started.
 
 
-<h2><a name="PreReq2"></a>Create and configure SQL Database</h2>
+## Create and configure SQL Database
 
 Next, create and configure a database and server. In the Azure Management Portal, revised workflows let you create the database first, and follow up with server provisioning. 
 
@@ -136,10 +128,14 @@ In the next step, you will configure the firewall so that connections from appli
 You now have a database instance, logical server, a firewall rule that allows inbound connections from your IP address, and an administrator login. You are now ready to connect to the database programmatically.
 
 
-<h2><a name="Connect-DB"></a>Connect to SQL Database</h2>
+## Connect to SQL Database
 
 This section shows how to connect to SQL Database instance using different
-.NET Framework data providers.
+.NET Framework data providers. For central recommendations about connecting to an SQL Database server and database, see:
+
+
+- [Connections to SQL Database: Central recommendations](../sql-database-connect-central-recommendations/).
+
 
 If you choose to use Visual Studio and your configuration doesn't
 include an Azure web application as a front-end, there are no
@@ -152,7 +148,7 @@ you to view (but not edit) database objects. The Visual Studio Entity
 Data Model Designer is fully functional and you can use it to create
 models against SQL Database for working with Entity Framework.
 
-### <a name="using-sql-server"></a>Using .NET Framework Data Provider for SQL Server
+## Using .NET Framework Data Provider for SQL Server
 
 The **System.Data.SqlClient** namespace is the.NET Framework Data
 Provider for SQL Server.
@@ -197,7 +193,7 @@ To retrieve the connection string in a configuration file, you use the
     SqlConnection conn = new SqlConnection(csBuilder.ToString());
     conn.Open();
 
-### <a name="using-ODBC"></a>Using .NET Framework Data Provider for ODBC
+## Using .NET Framework Data Provider for ODBC
 
 The **System.Data.Odbc** namespace is the.NET Framework Data Provider
 for ODBC. The following is a sample ODBC connection string:
@@ -225,7 +221,7 @@ source. Here is a code sample on how to open a connection:
 If you want to build the connection string on the runtime, you can use
 the **OdbcConnectionStringBuilder** class.
 
-### <a name="using-entity"></a>Using EntityClient Provider
+## Using EntityClient Provider
 
 The **System.Data.EntityClient** namespace is the .NET Framework Data
 Provider for the Entity Framework.
@@ -250,7 +246,7 @@ Here is a connection string sample:
 For more information, see [EntityClient Provider for the Entity
 Framework][].
 
-## <a name="next-steps"></a>Next Steps
+## Next Steps
 
 Now that you have learned the basics of connecting to SQL Database, see the
 following resources to learn more about SQL Database.
@@ -270,11 +266,11 @@ following resources to learn more about SQL Database.
   [Azure Free Trial]: {localLink:2187} "Free Trial"
   [Azure Management Portal]: http://manage.windowsazure.com
   [How to Create a SQL Database Server]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-server.aspx
-  [Management Portal for SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/gg442309.aspx
+  [Management Portal for SQL Database]: http://msdn.microsoft.com/library/windowsazure/gg442309.aspx
   [SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/sql-azure-firewall.aspx
-  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621784.aspx
+  [Tools and Utilities Support (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621784.aspx
   [How to Create a SQL Database on Azure]: http://social.technet.microsoft.com/wiki/contents/articles/how-to-create-a-sql-azure-database.aspx
   [Service Level Agreement]: {localLink:1132} "SLA"
-  [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/en-us/library/bb738561.aspx
-  [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx
-  [SQL Database]: http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx
+  [EntityClient Provider for the Entity Framework]: http://msdn.microsoft.com/library/bb738561.aspx
+  [Development: How-to Topics (SQL Database)]: http://msdn.microsoft.com/library/windowsazure/ee621787.aspx
+  [SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336279.aspx

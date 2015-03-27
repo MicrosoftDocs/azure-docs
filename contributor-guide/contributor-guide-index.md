@@ -25,10 +25,14 @@
 
 - [Linking guidelines](./create-links-markdown.md/)
 
+- [Retire or rename an article](./retire-or-rename-an-article.md)
+
 
 ##Authoring articles: markdown
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
+
+- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pdf?raw=true)
 
 - [GitHub-flavored markdown](https://help.github.com/articles/github-flavored-markdown/)
 
@@ -39,5 +43,3 @@
 - [Markdown template for technical articles](../markdown templates/markdown-template-for-new-articles.md)
 
 - [Metadata for Azure technical articles](./article-metadata.md)
-
-

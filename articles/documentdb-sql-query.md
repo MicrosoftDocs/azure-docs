@@ -13,11 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="03/24/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
 Microsoft Azure DocumentDB supports querying documents using SQL (Structured Query Language) over hierarchical JSON documents. DocumentDB is truly schema-free. By virtue of its commitment to the JSON data model directly within the database engine, it provides automatic indexing of JSON documents without requiring explicit schema or creation of secondary indexes. 
+
 While designing the query language for DocumentDB we had two goals in mind:
 
 -	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace the SQL language. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL query language provides a formal programming model for rich queries over JSON documents.
@@ -25,9 +26,11 @@ While designing the query language for DocumentDB we had two goals in mind:
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
-To learn more about the DocumentDB query language capabilities and grammar, watch the following video, or complete the tutorial that follows in this article. 
+We recommend getting started by watching the following video, where Aravind Ramachandran shows DocumentDB's querying capabilities, and by visiting our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out DocumentDB and run SQL queries against our dataset.
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+Then, return to this article, where we'll start by walking through some simple JSON documents and queries.
 
 ## Getting Started
 To see DocumentDB SQL at work, let's begin with a few simple JSON documents and walk through some simple queries against it. Consider these two JSON documents about two families. Note that with DocumentDB, we do not need to create any schemas or secondary indices explicitly. We simply need to insert the JSON documents to a DocumentDB collection and subsequently query. 
@@ -282,7 +285,7 @@ The following binary operators are currently supported and can be used in querie
 </tr>
 <tr>
 <td>Bitwise</td>	
-<td>|, &, ^</td>
+<td>|, &, ^, <<, >>, >>> (zero-fill right shift) </td>
 </tr>
 <tr>
 <td>Logical</td>
@@ -549,6 +552,25 @@ For other comparison operators such as >, >=, !=, < and <=, the following rules 
 
 If the result of the scalar expression in the filter is Undefined, the corresponding document would not be included in the result, since Undefined doesn't logically equate to "true".
 
+###BETWEEN keyword
+You can also use the BETWEEN keyword to express queries against ranges of values like in ANSI SQL. BETWEEN can be used against any JSON primitive type (numbers, strings, Booleans and nulls). 
+
+For example, this query returns all family documents in which the first child's grade is between 1-5 (both inclusive). 
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade BETWEEN 1 AND 5
+
+Unlike in ANSI-SQL, you can also use the BETWEEN clause in the FROM clause like in the following example.
+
+    SELECT (c.grade BETWEEN 0 AND 10)
+    FROM Families.children[0] c
+
+For faster query execution times, remember to create an indexing policy that uses a range index type against any numeric properties/paths that are filtered in the BETWEEN clause. 
+
+The main difference between using BETWEEN in DocumentDB and ANSI SQL is that you can express range queries against properties of mixed types – for example, you might have "grade" be a number (5) in some documents and strings in others ("grade4"). In these cases, like in JavaScript, a comparison between two different types results in "undefined", and the document will be skipped.
+
+
 ###Logical (AND, OR and NOT) operators
 Logical operators operate on Boolean values. The logical truth tables for these operators are shown in the following tables.
 
@@ -791,10 +813,36 @@ Logical operators operate on Boolean values. The logical truth tables for these 
     </tbody>
 </table>
 
+###Ternary (?) and Coalesce (??) operators:
+The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
+
+The Ternary (?) operator can be very handy when constructing new JSON properties on the fly. For example, now you can write queries to classify the class levels into a human readable form like Beginner/Intermediate/Advanced as shown below.
+ 
+     SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
+     FROM Families.children[0] c
+
+You can also nest the calls to the operator like in the query below.
+ 
+    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
+    FROM Families.children[0] c
+
+As with other query operators, if the referenced properties in the conditional expression are missing in any document, or if the types being compared are different, then those documents will be excluded in the query results.
+
+The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in a document. This is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+
+    SELECT f.lastName ?? f.surname AS familyName
+    FROM Families f
+
+Similarly, you can also query for the absence of a property ("undefined") like in the following example.
+
+    SELECT *
+    FROM classes c
+    WHERE c.lastName ?? true
+
 ##SELECT Clause
 The SELECT clause (**`SELECT <select_list>`**) is mandatory and specifies what values will be retrieved from the query, just like in ANSI-SQL. The subset that's been filtered on top of the source documents are passed onto the projection phase, where the specified JSON values are retrieved and a new JSON object is constructed, for each input passed onto it. 
 
-The following example shows a typical SELECT query: 
+The following example shows a typical SELECT query. 
 
 **Query**
 
@@ -1304,11 +1352,13 @@ Below is an example of how a UDF can be registered at the DocumentDB database, s
 The preceding example creates a UDF whose name is `SQRT`. It accepts a single JSON value `number` and calculates the square root of the number using the Math library.
 
 
-We can now use this UDF in a query in a projection.
+We can now use this UDF in a query in a projection. UDFs must be qualified with the case-sensitive prefix "udf." when called from within queries. 
+
+>[AZURE.NOTE] Prior to 3/17/2015, DocumentDB supported UDF calls without the "udf." prefix like SELECT SQRT(5). This calling pattern has been deprecated.  
 
 **Query**
 
-	SELECT SQRT(c.grade)
+	SELECT udf.SQRT(c.grade)
 	FROM c IN Families.children
 
 **Results**
@@ -1325,13 +1375,13 @@ We can now use this UDF in a query in a projection.
 	  }
 	]
 
-The UDF can also be used inside a filter as shown in the example below:
+The UDF can also be used inside a filter as shown in the example below, also qualified with the "udf." prefix :
 
 **Query**
 
 	SELECT c.grade
 	FROM c IN Familes.children
-	WHERE SQRT(c.grade) = 1
+	WHERE udf.SQRT(c.grade) = 1
 
 **Results**
 
@@ -1367,7 +1417,7 @@ Below is an example that exercises the UDF.
 
 **Query**
 
-	SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
+	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
 	FROM Families f	
 
 **Results**
@@ -1398,6 +1448,158 @@ In the DocumentDB SQL query language, unlike in traditional SQL, the types of va
 DocumentDB SQL doesn't perform implicit conversions, unlike JavaScript. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches documents which contain an Age property whose value is 21. Any other document whose Age property matches string "21", or
 other possibly infinite variations like "021", "21.0", "0021", "00021", etc. will not be matched. 
 This is in contrast to the JavaScript where the string values are implicitly casted to numbers (based on operator, ex: ==). This choice is crucial for efficient index matching in DocumentDB SQL. 
+
+##Parameterized SQL
+DocumentDB supports queries with parameters expressed with the familiar @ notation. Parameterized SQL provides robust handling and escaping of user input, preventing accidental exposure of data through SQL injection. 
+
+For example, you can write a query that takes last name and address state as parameters, and then execute it for various values of last name and address state based on user input.
+
+    SELECT * 
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+
+This request can then be sent to DocumentDB as a parameterized JSON query like shown below.
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
+        "parameters": [          
+            {"name": "@lastName", "value": "Wakefield"},         
+            {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+Parameter values can be any valid JSON (strings, numbers, Booleans, null, even arrays or nested JSON). Also since DocumentDB is schema-less, parameters are not validated against any type.
+
+##Built-in functions
+DocumentDB also supports a number of built-in functions for common operations, that can be used inside queries like user defined functions (UDFs).
+
+<table>
+<tr>
+<td>Mathematical Functions</td>	
+<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, and TRUNC</td>
+</tr>
+<tr>
+<td>Type checking functions</td>	
+<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, and IS_STRING</td>
+</tr>
+</table>  
+
+If you’re currently using a user defined function (UDF) for which a built-in function is now available, you should use the corresponding built-in function as it is going to be quicker to run and more efficiently. 
+
+###Mathematical functions
+The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value. Here’s a table of supported built-in mathematical functions.
+
+<table>
+<tr>
+<td><strong>Usage</strong></td>
+<td><strong>Description</strong></td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_abs">ABS (num_expr)</a></td>	
+<td>Returns the absolute (positive) value of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ceiling">CEILING (num_expr)</a></td>	
+<td>Returns the smallest integer value greater than, or equal to, the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_floor">FLOOR (num_expr)</a></td>	
+<td>Returns the largest integer less than or equal to the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_exp">EXP (num_expr)</a></td>	
+<td>Returns the exponent of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log">LOG (num_expr [,base])</a></td>	
+<td>Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_log10">LOG10 (num_expr)</a></td>	
+<td>Returns the base-10 logarithmic value of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_round">ROUND (num_expr)</a></td>	
+<td>Returns a numeric value, rounded to the closest integer value.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_trunc">TRUNC (num_expr)</a></td>	
+<td>Returns a numeric value, truncated to the closest integer value.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sqrt">SQRT (num_expr)</a></td>	
+<td>Returns the square root of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_square">SQUARE (num_expr)</a></td>	
+<td>Returns the square of the specified numeric expression.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_power">POWER (num_expr, num_expr)</a></td>	
+<td>Returns the power of the specified numeric expression to the value specifed.</td>
+</tr>
+<tr>
+<td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
+<td>Returns the sign value (-1, 0, 1) of the specified numeric expression.</td>
+</tr>
+</table> 
+
+For example, you can now run queries like the following:
+
+**Query**
+
+    SELECT VALUE ABS(-4)
+
+**Results**
+
+    [4]
+
+The main difference between DocumentDB’s functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a document where the Size property is missing, or has a non-numeric value like “unknown”, then the document is skipped over, instead of returning an error.
+
+###Type checking Functions
+The type checking functions allow you to check the type of an expression within SQL queries. Type checking functions can be used to determine the type of properties within documents on the fly when it is variable or unknown. Here’s a table of supported built-in type checking functions.
+
+<table>
+<tr>
+  <td><strong>Usage</strong></td>
+  <td><strong>Description</strong></td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is an array.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a Boolean.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is null.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a number.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a JSON object.</td>
+</tr>
+<tr>
+  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
+  <td>Returns a Boolean indicating if the type of the value is a string.</td>
+</tr>
+</table>
+
+Using these functions, you can now run queries like the following:
+
+**Query**
+
+    SELECT VALUE IS_NUMBER(-4)
+
+**Results**
+
+    [true]
+
 
 ##LINQ to DocumentDB SQL
 LINQ is a .NET programming model that expresses computation as queries on streams of objects. DocumentDB provides a client side library to interface with LINQ by facilitating a conversion between JSON and .NET objects and a mapping from a subset of LINQ queries to DocumentDB queries. 
@@ -1723,7 +1925,7 @@ DocumentDB offers an open RESTful programming model over HTTP. Database accounts
 
 The basic interaction model with these resources is through the HTTP verbs GET, PUT, POST and DELETE with their standard interpretation. The POST verb is used for creation of a new resource, for executing a stored procedure or for issuing a DocumentDB query. Queries are always read only operations with no side-effects.
 
-The following examples show a POST for a DocumentDB query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/sql` headers to denote that the operation is a query.
+The following examples show a POST for a DocumentDB query made against a collection containing the two sample documents we've reviewed so far. The query has a simple filter on the JSON name property. Note the use of the `x-ms-documentdb-isquery` and Content-Type: `application/query+json` headers to denote that the operation is a query.
 
 
 **Request**
@@ -1731,9 +1933,15 @@ The following examples show a POST for a DocumentDB query made against a collect
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
+        "parameters": [          
+            {"name": "@familyId", "value": "AndersenFamily"}         
+        ] 
+    }
 	
-	SELECT * FROM Families f WHERE f.id = "AndersenFamily"
 
 **Results**
 
@@ -1793,16 +2001,20 @@ The second example shows a more complex query that returns multiple results from
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
 	
-	SELECT 
-	     f.id AS familyName, 
-	     c.givenName AS childGivenName, 
-	     c.firstName AS childFirstName, 
-	     p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p in c.pets
+    {      
+        "query": "SELECT 
+				     f.id AS familyName, 
+				     c.givenName AS childGivenName, 
+				     c.firstName AS childFirstName, 
+				     p.givenName AS petName 
+				  FROM Families f 
+				  JOIN c IN f.children 
+				  JOIN p in c.pets",     
+        "parameters": [] 
+    }
+
 
 **Results**
 
@@ -1852,6 +2064,15 @@ The .NET SDK supports both LINQ and SQL querying. The following example shows ho
 	    Console.WriteLine("\tRead {0} from SQL", family);
 	}
 	
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
 	foreach (var family in (
 	    from f in client.CreateDocumentQuery(collectionLink)
 	    where f.Id == "AndersenFamily"
@@ -1972,7 +2193,7 @@ The following example show how to use the queryDocuments in the JavaScript serve
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript Specification [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8.	LINQ [http://msdn.microsoft.com/en-us/library/bb308959.aspx](http://msdn.microsoft.com/en-us/library/bb308959.aspx) 
+8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Query evaluation techniques for large databases [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
@@ -1981,5 +2202,5 @@ The following example show how to use the queryDocuments in the JavaScript serve
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
-[introduction]: ../documentdb-introduction
-[consistency-levels]: ../documentdb-consistency-levels
+[introduction]: documentdb-introduction.md
+[consistency-levels]: documentdb-consistency-levels.md

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="03/03/2015" 
 	ms.author="spelluru"/>
 
 # Use custom activities in an Azure Data Factory pipeline
@@ -97,7 +97,7 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 - Tutorial from [Get started with Azure Data Factory][adfgetstarted]. You must complete the tutorial from this article before continuing further with this walkthrough.
 - Visual Studio 2012 or 2013
-- Download and install [Windows Azure .NET SDK][azure-developer-center]
+- Download and install [Azure .NET SDK][azure-developer-center]
 - Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the walkthrough.
 - Install the latest version of [Azure PowerShell][azure-powershell-install]. Note that the Web Platform Installer installs all of the latest Azure SDK, not just Azure PowerShell. If you just want to update the Azure PowerShell, use the **Standalone installation** package.
 - Download and install NuGet package for Azure Storage. Instructions are in the walkthrough, so you can skip this step.
@@ -123,9 +123,9 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
 
 		Install-Package Microsoft.DataFactories.Runtime –Pre
 
-4. Import the Windows Azure Storage NuGet package in to the project.
+4. Import the Azure Storage NuGet package in to the project.
 
-		Install-Package WindowsAzure.Storage
+		Install-Package Azure.Storage
 
 5. Add the following **using** statements to the source file in the project.
 
@@ -491,13 +491,13 @@ Article | Description
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
 [azure-powershell-install]: https://github.com/Azure/azure-sdk-tools/releases
 
 
@@ -508,12 +508,12 @@ Article | Description
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/en-us/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
-[adfgetstarted]: ../data-factory-get-started
-[hivewalkthrough]: ../data-factory-pig-hive-activities
+[adfgetstarted]: data-factory-get-started.md
+[hivewalkthrough]: data-factory-pig-hive-activities.md
 
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 

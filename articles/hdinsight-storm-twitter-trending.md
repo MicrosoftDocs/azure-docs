@@ -127,10 +127,16 @@ After the topology starts, you should see debug information containing the hasht
 
 ##Next steps
 
-Now that you have tested the topology locally, discover how to [deploy this topology to Storm on HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Now that you have tested the topology locally, discover how to [deploy this topology to Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
 You may also be interested in the following Storm topics:
 
-* [Develop Java topologies for Storm on HDInsight using Maven](../hdinsight-storm-develop-java-topology/)
+* [Develop Java topologies for Storm on HDInsight using Maven](hdinsight-storm-develop-java-topology.md)
 
-* [Develop C# topologies for Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
+* [Develop C# topologies for Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+
+For more Storm examples for HDinsight:
+
+* [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Analyze EventHub sensor data with Storm on HDInsight](hdinsight-storm-sensor-data-analysis.md)

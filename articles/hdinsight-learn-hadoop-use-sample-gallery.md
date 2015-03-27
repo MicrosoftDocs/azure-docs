@@ -16,7 +16,7 @@
    ms.date="1/29/2015" 
    ms.author="jgao"/>
 
-# Learn Hadoop in HDInsight by using the HDInsight Getting Started Gallery
+# Learn Hadoop using the HDInsight Getting Started Gallery
 
 The HDInsight Getting Started Gallery provides an easy and quick way to run Hadoop sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the rest of the samples. Currently, there are 6 samples, with more coming soon:
 
@@ -59,5 +59,5 @@ Other ways to learn HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: ../hdinsight-learning-map/
+[hdinsight.learning.map]: hdinsight-learning-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960

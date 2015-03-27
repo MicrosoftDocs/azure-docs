@@ -382,6 +382,6 @@ Contents of `ptvs_virtualenv_proxy.py`:
 
 
 
-[Creating Websites with Bottle]: ../web-sites-python-create-deploy-bottle-app
-[Creating Websites with Django]: ../web-sites-python-create-deploy-django-app
-[Creating Websites with Flask]: ../web-sites-python-create-deploy-flask-app
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md

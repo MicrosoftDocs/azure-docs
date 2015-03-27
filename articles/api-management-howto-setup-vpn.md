@@ -13,18 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="1/29/2015"
+	ms.date="02/24/2015"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
 
 API Management's VPN support allows you to connect your API Management proxy to an Azure Virtual Network. This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
-
-## In this topic
-
--   [Enable VPN connections][]
--   [Connect to a web service behind VPN][]
--   [Related content][]
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
@@ -70,4 +64,4 @@ After your API Management service is connected to the VPN, accessing web service
 [Management Portal]: https://manage.windowsazure.com/
 
 [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity]: ../virtual-networks-create-site-to-site-cross-premises-connectivity
-[How to use the API Inspector to trace calls in Azure API Management]: ../api-management-howto-api-inspector
+[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md

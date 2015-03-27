@@ -67,13 +67,6 @@ A complete Visual Studio solution sample can be found at [https://github.com/max
 
 
 
-##In this article
-
-- [Prerequisites](#prerequisites)
-- [Create a Twitter application](#twitter)
-- [Create a simple Twitter streaming service](#streaming)
-- [Create an Azure Website to visualize Twitter sentiment](#web)
-- [Next steps](#nextsteps)
 
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -87,7 +80,7 @@ Before you begin this tutorial, you must have the following:
 	<tr><td>Cluster user password</td><td>The Hadoop cluster user password.</td></tr>
 	</table>
 
-- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/en-us/library/e2h7fzkw.aspx).
+- **A workstation** with Visual Studio 2013 installed. For instructions, see [Installing Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 
 
@@ -179,11 +172,10 @@ Create a console application to get Tweets, calculate Tweet sentiment score and 
 **To install Nuget packages and add SDK references:**
 
 1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel will open at the bottom of the page.
-2. Use the following commands to install the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API, and the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
+2. Use the following commands to install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is client library to access HBase cluster, and the [Tweetinvi](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
 
-		Install-Package TweetinviAPI
-		Install-Package protobuf-net 
 		Install-Package Microsoft.HBase.Client
+		Install-Package TweetinviAPI
 	
 3. From **Solution Explorer**, right-click **References**, and then click **Add Reference**.
 4. In the left pane, expand **Assemblies**, and then click **Framework**.
@@ -551,20 +543,20 @@ In this section, you will create a ASP.NET MVC Web application to read the real-
 	- Location: **C:\Tutorials** 
 4. Click **OK**.
 5. In **Select a template**, click **MVC**. 
-6. In **Windows Azure**, click **Manage Subscriptions**.
-7. From **Manage Windows Azure Subscriptions**, click **Sign in**.
+6. In **Microsoft Azure**, click **Manage Subscriptions**.
+7. From **Manage Microsoft Azure Subscriptions**, click **Sign in**.
 8. Enter your Azure credential. Your Azure subscription information will be shown on the Accounts tab.
-9. Click **Close** to close the Manage Windows Azure Subscriptions window.
+9. Click **Close** to close the Manage Microsoft Azure Subscriptions window.
 10. From **New ASP.NET Project - TweetSentimentWeb**, Click **OK**.
-11. From **Configure Windows Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
+11. From **Configure Microsoft Azure Site Settings**, select the **Region** that is closer to you. You don't need to specify a database server. 
 12. Click **OK**.
 
 **To install Nuget packages:**
 
 1. From the **Tools** menu, click **Nuget Package Manager**, and then click **Package Manager Console**. The console panel is opened at the bottom of the page.
-2. Use the following command to install the [Protobuf-net](https://www.nuget.org/packages/protobuf-net/) package, which is used to serialize and deserialize objects.
+2. Use the following command to install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is client library to access HBase cluster.
 
-		Install-Package protobuf-net 
+		Install-Package Microsoft.HBase.Client 
 
 **To add HBaseReader class:**
 
@@ -1321,8 +1313,8 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
-[hbase-get-started]: ../hdinsight-hbase-get-started/
-[website-get-started]: ../web-sites-dotnet-get-started/
+[hbase-get-started]: hdinsight-hbase-get-started.md
+[website-get-started]: web-sites-dotnet-get-started.md
 
 
 
@@ -1333,10 +1325,10 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 
 
 
-[hdinsight-develop-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-analyze-twitter-data]: ../hdinsight-analyze-twitter-data/
-[hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started/
+[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-analyze-twitter-data]: hdinsight-analyze-twitter-data.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-get-started.md
 
 
 
@@ -1349,16 +1341,16 @@ In this tutorial we have learned how to get Tweets, analyze the sentiment of Twe
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-install]: install-configure-powershell.md
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage-powershell]: ../hdinsight-use-blob-storage/#powershell
-[hdinsight-analyze-flight-delay-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
-[hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage-powershell]: hdinsight-use-blob-storage.md#powershell
+[hdinsight-analyze-flight-delay-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-power-query]: hdinsight-connect-excel-power-query.md
+[hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 

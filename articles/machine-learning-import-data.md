@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2015"
+	ms.date="02/26/2015"
 	ms.author="garye" />
 
 
@@ -21,15 +21,15 @@
 
 When you develop a predictive analytics solution in Azure Machine Learning Studio, you train your model using data representative of your problem space.
 There are a number of sample datasets available in ML Studio that you can use for this purpose 
-(see [Use the sample datasets in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-use-sample-datasets/)). But you can also import your own data into ML Studio for use in your experiments.
+(see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)). But you can also import your own data into ML Studio for use in your experiments.
 
-To use your own data in ML Studio, you can upload a data file from your local hard drive to create a dataset module in your workspace. 
-Or you can access data from one of several online sources using the **Reader** module:
+To use your own data in ML Studio, you can upload a data file ahead of time from your local hard drive to create a dataset module in your workspace. 
+Or you can access data from one of several online sources while your experiment is running using the **Reader** module:
 
-- Azure BLOB storage or table, or a SQL database
-- HDInsight using a Hive query
+- Azure BLOB storage, table, or SQL database
+- Hadoop using HiveQL
 - A web URL using HTTP
-- An OData feed
+- A data feed provider
 
 ML Studio is designed to work with rectangular or tabular data, such as text data that's delimited or structured data from a database, though in some circumstances non-rectangular data may be used.
 
@@ -103,7 +103,8 @@ After adding the **Reader** module to your experiment, you select the **Data sou
 For example, if you select **Web URL via HTTP**, you provide the source URL and data format.
 If you're accessing your data from Azure storage or HDInsight (using a Hive query), you provide the appropriate account information and the location of the data.
 
-See the module reference topic for the **Reader** module for more information.
+> [AZURE.NOTE] This article provides general information about the **Reader** module. For more detailed information about the types of data you can access, formats, parameters, and answers to common questions, see the module reference topic for the [**Reader**](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004) module.
+
 
 ### Getting data from Azure
 
@@ -119,20 +120,19 @@ For BLOB and table storage you supply a Shared Access Signature URI (SAS URI) or
 
 You can use the **Reader** module to read data from a web or FTP site. You need to provide:
 
-- A complete URL and file path to a CSV or ARFF file on a web or anonymous FTP site (HTTP/HTTPS/FTP/FTPS)
-- The MIME file type to be loaded (CSV, AFFF, or DotNet)
-- For CSV files, indicate if the first line in the file is a CSV header
+- A complete HTTP URL address of a file
+- The data format of the file (CSV, TSV, ARFF, or SvmLight)
+- For CSV or TSV files, indicate if the first line in the file is a header
 
+### Getting data from Hadoop
 
-<!-- Need info for Hive Query and OData
+You can use the **Reader** module to read data from distributed storage using the HiveQL query language.
+You'll need to specify the Hive database query and provide user access information on the HCatalog server.
+You also need to specify whether the data is stored in a Hadoop distributed file system (HDFS) or in Azure, and, if in Azure, the Azure account information  
 
-### Getting data from HDInsight
+### Getting data from a data feed provider
 
-
-### Getting data from an OData feed
-
-
--->
+By specifying an OData URL, you can read directly from a data feed provider. You'll need to provide the source URL and the data content type.  
 
 
 ## Saving data from your experiment

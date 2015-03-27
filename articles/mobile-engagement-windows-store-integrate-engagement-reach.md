@@ -18,7 +18,7 @@
 
 #How to Integrate Engagement Reach on Windows
 
-You must follow the integration procedure described in the [How to Integrate Engagement on Windows](../mobile-engagement-windows-store-integrate-engagement/) document before following this guide.
+You must follow the integration procedure described in the [How to Integrate Engagement on Windows](mobile-engagement-windows-store-integrate-engagement.md) document before following this guide.
 
 ##Embed the Engagement Reach SDK into your Windows project
 
@@ -149,7 +149,7 @@ Now this page uses the engagement overlay mechanism, you don't have to insert a 
 
 The Engagement overlay uses the first “Grid” element it founds in your xaml file to add two web views on your page. If you want to locate where web views will be set you can define a grid named “EngagementGrid” like this :
 
-			<Grid x:Name="EngagementGrid"></Grid>
+			<Grid x:Name="engagementGrid"></Grid>
 
 You can customize the overlay notification and announcement directly on their xaml and cs files:
 

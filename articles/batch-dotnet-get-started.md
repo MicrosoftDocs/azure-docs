@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial - Getting Started with the Azure Batch Library for .NET" 
+	pageTitle="Tutorial - Getting Started with the Azure Batch Service" 
 	description="Learn basic concepts about Azure Batch and how to use the Batch service with a simple scenario" 
 	services="batch" 
 	documentationCenter=".net" 
@@ -24,14 +24,14 @@ This article contains the following two tutorials to help you get started develo
 -	[Tutorial 2: Azure Batch Apps library for .NET](#tutorial2)  
 
 
-For background information and scenarios for Azure Batch, see [Azure Batch technical overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/).
+For background information and scenarios for Azure Batch, see [Azure Batch technical overview](batch-technical-overview.md).
 
 ##<a name="tutorial1"></a>Tutorial 1: Azure Batch library for .NET
   	
 This tutorial will show you how to create a console application that sets up distributed computation among a pool of virtual machines by using the Azure Batch service. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch Library for .NET.
 
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). 
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/). 
 >
 >You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Batch package and dependencies.
 >
@@ -56,7 +56,7 @@ The Batch service is used for scheduling scalable and distributed computation. I
 Let's start with the most basic usage.
 
 ###Create an Azure Batch account
-You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](http://azure.microsoft.com/en-us/documentation/articles/batch-technical-overview/).  
+You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](batch-technical-overview.md).  
 
 ###How to: Add a pool to an account
 A pool of task virtual machines is the first set of resources that you must create when you want to run tasks.  
@@ -420,7 +420,7 @@ Before you can run the code in this tutorial, you must have access to a storage 
 6.	Optionally, you can enable geo-replication.
 7.	Click **CREATE STORAGE ACCOUNT**.  
 
-For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/).  
+For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://www.windowsazure.com/develop/net/how-to-guides/blob-storage/).  
 
 
 ##<a name="tutorial2"></a>Tutorial 2: Azure Batch Apps Library for .NET
@@ -430,7 +430,7 @@ Batch Apps is a feature of Azure Batch that provides an application-centric way 
 
 In the Batch Apps scenario, you write code using the Batch Apps Cloud SDK to partition jobs into parallel tasks, describe any dependencies between these tasks, and specify how to execute each task.  This code is deployed to the Batch account.  Clients can then execute jobs simply by specifying the kind of job and the input files to a REST API.
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/). You can use NuGet to obtain both the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Batch Apps Cloud</a> assembly and the <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Batch Apps Client</a> assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. You can also download the Visual Studio Extension for Batch Apps which includes a project template to cloud-enable applications and ability to deploy an application <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">here</a> or via searching for **Batch Apps** in Visual Studio via the Extensions and Updates menu item.  You can also find <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">end-to-end samples on MSDN.</a>
 >
 
 ###Fundamentals of Azure Batch Apps 

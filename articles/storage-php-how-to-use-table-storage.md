@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use table storage (PHP) | Microsoft Azure" 
+	pageTitle="How to use Table storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-# How to use the Table service from PHP
+
+# How to use Table storage from PHP
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 
@@ -103,7 +106,7 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
 		// Error codes and messages can be found here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
 For information about restrictions on Table names, see [Understanding the Table Service Data Model][table-data-model].
@@ -137,7 +140,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
@@ -178,7 +181,7 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -203,7 +206,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -233,7 +236,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -265,7 +268,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -299,7 +302,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -345,7 +348,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -370,7 +373,7 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -426,7 +429,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -453,7 +456,7 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -463,14 +466,14 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 
 Now that you’ve learned the basics of the Azure Table Service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Azure] []
-- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
+[table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
-[table-data-model]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
+[table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
+[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
+[entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx

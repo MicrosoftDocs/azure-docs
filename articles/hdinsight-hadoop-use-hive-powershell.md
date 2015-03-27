@@ -22,7 +22,7 @@
 
 This document provides an example of using PowerShell to run Hive queries on a Hadoop on HDInsight cluster.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information on the HiveQL used in this example, see <a href="../hdinsight-use-hive/" target="_blank">Use Hive with Hadoop on HDInsight</a>.
+> [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information on the HiveQL used in this example, see <a href="hdinsight-use-hive.md" target="_blank">Use Hive with Hadoop on HDInsight</a>.
 
 
 ##<a id="prereq"></a>Prerequisites
@@ -31,7 +31,7 @@ To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Run Hive queries using PowerShell
@@ -117,7 +117,7 @@ The following steps demonstrate how to use these cmdlets to run a job on your HD
 	>
 	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> For more information about Here-Strings, see <a href="http://technet.microsoft.com/en-us/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+	> For more information about Here-Strings, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ##<a id="troubleshooting"></a>Troubleshooting
 
@@ -137,10 +137,10 @@ As you can see, Azure PowerShell provides an easy way to run Hive queries on an 
 
 For general information on Hive in HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

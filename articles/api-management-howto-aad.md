@@ -13,18 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/8/2015" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
 
-This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories.
+
+## Overview
+This guide shows you how to enable access to the developer portal for all users in one or more Azure Active Directories. This guide also shows you how to manage groups of Azure Active Directory users by adding external groups that contain the users of an Azure Active Directory.
 
 >To complete the steps in this guide you must first have an Azure Active Directory in which to create an application.
 
-To get started, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+## How to authorize developer accounts using Azure Active Directory
 
-![API Management console][api-management-management-console]
+To get started, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
 
@@ -44,7 +48,7 @@ Enter a name for the application, select **Web application and/or Web API**, and
 
 ![New Azure Active Directory application][api-management-new-aad-application-1]
 
-For **Sign-on URL**, copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the Management console and remove the **-aad** suffix from the end of the URL. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
+For **Sign-on URL**, copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the publisher portal and remove the **-aad** suffix from the end of the URL. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
 
 For the **App ID URL**, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it. In this example the default domain of **https://contoso5api.onmicrosoft.com** is used with the suffix of **/api** specified.
 
@@ -58,7 +62,7 @@ If multiple Azure Active Directories are going to be used for this application, 
 
 ![Application is multi-tenant][api-management-aad-app-multi-tenant]
 
-Copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the Management console and paste it into the **Reply URL** text box. 
+Copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the publisher portal and paste it into the **Reply URL** text box. 
 
 ![Reply URL][api-management-aad-reply-url]
 
@@ -76,7 +80,7 @@ Copy the **Client Id** to the clipboard.
 
 ![Client Id][api-management-aad-app-client-id]
 
-Switch back to the Management console and paste in the **Client Id** copied from the Azure Active Directory application configuration.
+Switch back to the publisher portal and paste in the **Client Id** copied from the Azure Active Directory application configuration.
 
 ![Client Id][api-management-client-id]
 
@@ -90,7 +94,7 @@ Click **Save** to save the configuration and display the key. Copy the key to th
 
 ![Key][api-management-aad-key-after-save]
 
-Switch back to the Management console and paste the key into the **Client Secret** text box.
+Switch back to the publisher portal and paste the key into the **Client Secret** text box.
 
 ![Client Secret][api-management-client-secret]
 
@@ -108,7 +112,51 @@ Once the desired configuration is specified, click **Save**.
 
 ![Save][api-management-client-allowed-tenants-save]
 
-To test the configuration, open a new browser window using the **Sign-on URL** from the Active Directory application configuration, and click **Azure Active Directory**.
+Once the changes are saved, the users in the specified Azure Active Directory can log into the Developer portal by following the steps in [Log in to the Developer portal using an Azure Active Directory account][].
+
+## How to add an external Azure Active Directory Group
+
+After enabling access for users in an Azure Active Directory, you can add Azure Active Directory groups into API Management to more easily manage the association of the developers in the group with the desired products.
+
+> In order to configure an external Azure Active Directory group, the Azure Active Directory must first be configured in the Identities tab by following the procedure in the previous section. 
+
+External Azure Active Directory groups are added from the **Visibility** tab of the product for which you wish to grant access to the group. Click **Products**, and then click the name of the desired product.
+
+![Configure product][api-management-configure-product]
+
+Switch to the **Visibility** tab, and click **Add Groups from Azure Active Directory**.
+
+![Add groups][api-management-add-groups]
+
+Select the **Azure Active Directory Tenant** from the drop-down list, and then type the name of the desired group in the **Groups** to be added text box.
+
+![Select group][api-management-select-group]
+
+This group name can be found in the **Groups** list for your Azure Active Directory, as shown in the following example.
+
+![Azure Active Directory Groups List][api-management-aad-groups-list]
+
+Click **Add** to validate the group name and add the group. In this example the **Contoso 5 Developers** external group is added. 
+
+![Group added][api-management-aad-group-added]
+
+Click **Save** to save the new group selection.
+
+Once an Azure Azure Active Directory group has been configured from one product, it is available to be checked on the **Visibility** tab for the other products in the API Management service instance.
+
+To review and configure the properties for external groups once they have been added, click on the name of the group from the **Groups** tab.
+
+![Manage groups][api-management-groups]
+
+From here you can edit the **Name** and the **Description** of the group.
+
+![Edit group][api-management-edit-group]
+
+Users from the configured Azure Active Directory can log into the Developer portal and view and subscribe to any groups for which they have visibility by following the instructions in the following section.
+
+## How to log in to the Developer portal using an Azure Active Directory account
+
+To log into the Developer portal using an Azure Active Directory account configured in the previous sections, open a new browser window using the **Sign-on URL** from the Active Directory application configuration, and click **Azure Active Directory**.
 
 ![Developer Portal][api-management-dev-portal-signin]
 
@@ -123,7 +171,6 @@ You may be prompted with a registration form if any additional information is re
 Your user is now logged into the developer portal for your API Management service instance.
 
 ![Registration Complete][api-management-registration-complete]
-
 
 
 
@@ -150,26 +197,34 @@ Your user is now logged into the developer portal for your API Management servic
 [api-management-aad-app-multi-tenant]: ./media/api-management-howto-aad/api-management-aad-app-multi-tenant.png
 [api-management-aad-reply-url]: ./media/api-management-howto-aad/api-management-aad-reply-url.png
 [api-management-permissions-form]: ./media/api-management-howto-aad/api-management-permissions-form.png
+[api-management-configure-product]: ./media/api-management-howto-aad/api-management-configure-product.png
+[api-management-add-groups]: ./media/api-management-howto-aad/api-management-add-groups.png
+[api-management-select-group]: ./media/api-management-howto-aad/api-management-select-group.png
+[api-management-aad-groups-list]: ./media/api-management-howto-aad/api-management-aad-groups-list.png
+[api-management-aad-group-added]: ./media/api-management-howto-aad/api-management-aad-group-added.png
+[api-management-groups]: ./media/api-management-howto-aad/api-management-groups.png
+[api-management-edit-group]: ./media/api-management-howto-aad/api-management-edit-group.png
 
-
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-products
-[Monitoring and analytics]: ../api-management-monitoring
-[Add APIs to a product]: ../api-management-howto-add-products/#add-apis
-[Publish a product]: ../api-management-howto-add-products/#publish-product
-[Get started with Azure API Management]: ../api-management-get-started
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
-[API Management policy reference]: ../api-management-policy-reference
-[Caching policies]: ../api-management-policy-reference/#caching-policies
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[Add APIs to a product]: api-management-howto-add-products.md#add-apis
+[Publish a product]: api-management-howto-add-products.md#publish-product
+[Get started with Azure API Management]: api-management-get-started.md
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
+[API Management policy reference]: api-management-policy-reference.md
+[Caching policies]: api-management-policy-reference.md#caching-policies
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [http://oauth.net/2/]: http://oauth.net/2/
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[Accessing the Graph API]: http://msdn.microsoft.com/en-us/library/azure/dn132599.aspx#BKMK_Graph
+[Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1
 [Configure an API to use OAuth 2.0 user authorization]: #step2
 [Test the OAuth 2.0 user authorization in the Developer Portal]: #step3
 [Next steps]: #next-steps
+
+[Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
 

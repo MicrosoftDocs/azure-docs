@@ -20,7 +20,7 @@
 # How to use the Android client library for Mobile Services
 
 <div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+  <a href="/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android" class="current">Android</a><a href="/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
 </div>
 
 
@@ -964,8 +964,8 @@ The Javadocs reference for the Android client API is at [http://dl.windowsazure.
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android/
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?linkid=280126
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://azure.microsoft.com/documentation/articles/command-line-tools/#Commands_to_manage_mobile_services

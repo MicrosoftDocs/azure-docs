@@ -4,9 +4,9 @@ When you create a website, Azure provides a friendly subdomain on the azurewebsi
 
 Optionally, you can use Azure Traffic Manager to load balance incoming traffic to your website. For more information on how Traffic Manager works with Websites, see [Controlling Azure Web Sites Traffic with Azure Traffic Manager][trafficmanager].
 
-> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+> [AZURE.NOTE] The procedures in this task apply to Azure Websites; for Cloud Services, see <a href="/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
 
-> [AZURE.NOTE] The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="/en-us/pricing/details/web-sites/">Websites Pricing Details</a> for more information.
+> [AZURE.NOTE] The steps in this task require you to configure your websites for Shared or Standard mode, which may change how much you are billed for your subscription. See <a href="/pricing/details/web-sites/">Websites Pricing Details</a> for more information.
 
 In this article:
 
@@ -106,11 +106,11 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 	* Login to the [Azure Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
 
-	* Install and configure [Azure Powershell](/en-us/manage/install-and-configure-windows-powershell/), and then use the following command:
+	* Install and configure [Azure Powershell](/manage/install-and-configure-windows-powershell/), and then use the following command:
 
 			get-azurewebsite yoursitename | select hostnames
 
-	* Install and configure the [Azure Cross-Platform Command Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+	* Install and configure the [Azure Cross-Platform Command Line Interface](/manage/install-and-configure-cli/), and then use the following command:
 
 			azure site domain list yoursitename
 
@@ -151,7 +151,7 @@ After the CNAME record for domain name has propagated, you must associate it wit
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Cross-Platform Command-Line Interface](/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -247,7 +247,7 @@ After the **awverify** CNAME record for domain name has propagated, you can then
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Cross-Platform Command-Line Interface](/en-us/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Cross-Platform Command-Line Interface](/manage/install-and-configure-cli/), and then use the following command:
 
 	azure site domain add customdomain yoursitename
 
@@ -281,9 +281,9 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 ## Next steps
 
--   [How to manage web sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
+-   [How to manage web sites](/manage/services/web-sites/how-to-manage-websites/)
 
--   [Configure an SSL certificate for Web Sites](/en-us/develop/net/common-tasks/enable-ssl-web-site/)
+-   [Configure an SSL certificate for Web Sites](/develop/net/common-tasks/enable-ssl-web-site/)
 
 
 <!-- Bookmarks -->
@@ -296,13 +296,13 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 <!-- Links -->
 
-[PricingDetails]: /en-us/pricing/details/
+[PricingDetails]: /pricing/details/
 [portal]: http://manage.windowsazure.com
 [digweb]: http://www.digwebinterface.com/
-[cloudservicedns]: ../custom-dns/
-[trafficmanager]: /en-us/documentation/articles/web-sites-traffic-manager/
-[addendpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[createprofile]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
+[cloudservicedns]: ../articles/custom-dns.md
+[trafficmanager]: ../articles/web-sites-traffic-manager.md
+[addendpoint]: http://msdn.microsoft.com/library/windowsazure/hh744839.aspx
+[createprofile]: http://msdn.microsoft.com/library/windowsazure/dn339012.aspx
 
 <!-- images -->
 

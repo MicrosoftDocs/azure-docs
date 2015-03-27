@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="cherylmc" 
 	manager="adinah" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/20/2015" 
 	ms.author="cherylmc"/>
 
 
@@ -24,9 +24,9 @@
 
 This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. 
 
-If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/en-us/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
+If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 After completing this tutorial, you will have an example cross-premises virtual network. The following figure shows the details, based on the example settings in this tutorial.
 
@@ -42,7 +42,7 @@ For information about adding a virtual machine and extending your on-premises Ac
 
 -  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-For guidelines about deploying AD DS on Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+For guidelines about deploying AD DS on Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -56,7 +56,7 @@ In this tutorial you will learn:
 
 ##  Prerequisites
 
--  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+-  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 If you are using this tutorial to configure a working cross-premises virtual network that is customized for your organization, you need the following:
 
@@ -94,9 +94,9 @@ To create an example virtual network that connects to a company network:
 
 3.	On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on the details page, see the **Virtual Network Details** section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
 
-	-  **NAME:** Name your virtual network. For the example in this tutorial, type **YourVirtualNetwork**.
+	-  **Name:** Name your virtual network. For the example in this tutorial, type **YourVirtualNetwork**.
 
-	-  **REGION:** From the drop-down list, select the desired region. Your virtual network will be created at the Azure datacenter located in the specified region.
+	-  **Location:** From the drop-down list, select the desired region. Your virtual network will be created at the Azure datacenter located in the specified region.
 
 	
 4.	On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the forward arrow on the lower right. 
@@ -114,7 +114,7 @@ To create an example virtual network that connects to a company network:
 
 	-  **NAME:** For the example in this tutorial, type **YourCorpHQ**.
 
-	-  **VPN DEVICE IP ADDRESS:** For the example in this tutorial, type **3.2.1.1**. Otherwise, enter the public IP address of your VPN device. If you don't have this information, you'll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx).
+	-  **VPN DEVICE IP ADDRESS:** For the example in this tutorial, type **3.2.1.1**. Otherwise, enter the public IP address of your VPN device. If you don't have this information, you'll need to obtain it before moving forward with the next steps in the wizard. Note that your VPN device cannot be behind a NAT. For more information about VPN devices, see [About VPN Devices for Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx).
 
 	-  **ADDRESS SPACE:** For the example in this tutorial, type **10.1.0.0/16**.
 	-  **Add address space:** This tutorial does not require additional address space.
@@ -255,17 +255,18 @@ If you want to export your virtual network settings to a network configuration f
 
 ## See Also
 
--  [Azure virtual network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-  [Azure Virtual Network Technical Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/en-us/library/windowsazure/jj156075.aspx)
+-  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
 

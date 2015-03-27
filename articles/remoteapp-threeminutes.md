@@ -1,7 +1,7 @@
 
 <properties 
     pageTitle="Try RemoteApp on your device in 3 minutes or less"
-    description="" 
+    description="Test drive RemoteApp functionality without installing the service." 
     services="remoteapp" 
     solutions="" documentationCenter="" 
     authors="lizap" 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/19/2015" 
+    ms.date="03/02/2015" 
     ms.author="mbaldwin" />
 
 
@@ -24,10 +24,10 @@ Want to see RemoteApp on your device? You can access our demo deployment for 10 
 
 Interested?
 
-1. Go to to [http://remoteapp.azure.com](http://remoteapp.azure.com). 
-3.Click **Install Client** in the upper right corner.  
-4. The system automatically detects your device and will take you to the client for your device. Install the client.
-5. Go back [http://remoteapp.azure.com](http://remoteapp.azure.com) and  sign in with your Microsoft account.
+1. Go to to [http://remoteapp.azure.com](http://remoteapp.azure.com).
+2. Click **Install Client** in the upper right corner.  
+3. The system automatically detects your device and will take you to the client for your device. Install the client.
+4. Go back [http://remoteapp.azure.com](http://remoteapp.azure.com) and  sign in with your Microsoft account.
  
 You can now access applications running in real time on RemoteApp. 
 

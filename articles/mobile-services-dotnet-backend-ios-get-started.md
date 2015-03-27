@@ -22,7 +22,7 @@
 
 This tutorial shows you how to add a cloud-based backend service to an iOS app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service uses .NET and Visual Studio for server-side business logic. To create a mobile service with server-side business logic in JavaScript, see the [JavaScript backend version] of this topic.
 
-> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/en-us/pricing/details/mobile-services/).  For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get [free mobile services that you can keep using even after your trial ends](http://azure.microsoft.com/pricing/details/mobile-services/).  For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank").
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
@@ -54,7 +54,7 @@ Now that you have created the mobile service, download projects that you can run
 
 ## <a name="next-steps"> </a>Next Steps
 
-This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-configure-iis-express).
+This shows how to run your new client app against the mobile service running in Azure. Before you can test the iOS app with the mobile service running on a local computer, you must configure the Web server and firewall to allow access from your iOS development computer. For more information, see [Configure the local web server to allow connections to a local mobile service](mobile-services-dotnet-backend-how-to-configure-iis-express.md).
 
 Learn how to perform additional important tasks in Mobile Services:
 
@@ -93,14 +93,14 @@ Learn how to perform additional important tasks in Mobile Services:
 
 
 <!-- URLs. -->
-[Add mobile services to an existing app]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Get started with offline data sync]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data
-[Add authentication to an existing app]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Add push notifications to an existing app]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
-[Troubleshoot Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Add mobile services to an existing app]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with offline data sync]: mobile-services-ios-get-started-offline-data.md
+[Add authentication to an existing app]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Add push notifications to an existing app]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Troubleshoot Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[JavaScript backend version]: /en-us/documentation/articles/mobile-services-ios-get-started
+[JavaScript backend version]: mobile-services-ios-get-started.md

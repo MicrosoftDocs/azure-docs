@@ -22,7 +22,7 @@
 
 This document provides an example of using PowerShell to submit Pig jobs to a Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs using a language (Pig Latin,) that models data transformations, rather than map and reduce functions.
 
-> [AZURE.NOTE] This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information on the Pig Latin used in this example, see <a href="../hdinsight-use-pig/" target="_blank">Use Pig with Hadoop on HDInsight</a>.
+> [AZURE.NOTE] This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information on the Pig Latin used in this example, see <a href="hdinsight-use-pig.md" target="_blank">Use Pig with Hadoop on HDInsight</a>.
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -30,7 +30,7 @@ To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ##<a id="powershell"></a>Run Pig jobs using PowerShell
@@ -134,10 +134,10 @@ As you can see, Azure PowerShell provides an easy way to run Pig jobs on an HDIn
 
 For general information on Pig in HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use MapReduce with Hadoop on HDInsight](../hdinsight-use-mapreduce/)
+* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)

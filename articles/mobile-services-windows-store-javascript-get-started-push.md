@@ -19,23 +19,23 @@
 # Add push notifications to your Mobile Services app (legacy push)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-    <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
-    <a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/en-us/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+    <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+    <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">Windows Store JavaScript</a>
+    <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> |  <a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">.NET backend</a> |  <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">JavaScript backend</a></div>		
 
 This topic shows how Visual Studio 2013 lets you use Azure Mobile Services to send push notifications to your Windows Store app. In this tutorial you add push notifications using the Windows Push Notification service (WNS) to the quickstart project, right from Visual Studio. When complete, your mobile service will send a push notification each time a record is inserted.
 
->[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]This topic supports <em>existing</em> mobile services that have <em>not yet been upgraded</em> to use Notification Hubs integration. When you create a <em>new</em> mobile service, this integrated functionality is automatically enabled. For new mobile services, see [Get started with push notifications](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md).
 >
->Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. <em>You should upgrade your existing mobile services to use Notification Hubs when possible</em>. Once you have upgraded, see this version of [Get started with push notifications](mobile-services-javascript-backend-windows-store-javascript-get-started-push.md).
 
 This tutorial walks you through these basic steps to enable push notifications:
 
@@ -136,19 +136,19 @@ Consider finding out more about the following Mobile Services topics:
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-js/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-js
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-js/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client/
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-html-js-client/
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
-[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-dotnet/
-[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
-[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Get started with Notification Hubs]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[What are Notification Hubs?]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[Send notifications to subscribers]: /manage/services/notification-hubs/breaking-news-dotnet/
+[Send notifications to users]: /manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/

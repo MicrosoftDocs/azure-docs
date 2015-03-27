@@ -12,15 +12,19 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="2/19/2015" 
 	ms.author="tdykstra"/>
 
 # Get Started with Azure Cloud Services and ASP.NET
 
+> [AZURE.SELECTOR]
+- [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+- [.NET](cloud-services-dotnet-get-started.md)
+
 ## Overview
 
-This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](/en-us/documentation/articles/fundamentals-application-models/#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
+This tutorial shows how to create a multi-tier .NET application with an ASP.NET MVC front-end, and deploy it to an [Azure cloud service](fundamentals-application-models.md#CloudServices). The application uses [Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336279), the [Azure Blob service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and the [Azure Queue service](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). You can [download the Visual Studio project](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) from the MSDN Code Gallery. 
 
 The tutorial shows you how to build and run the application locally, how to deploy it to Azure and run in the cloud, and finally how to build it from scratch. You can start by building from scratch and then do the test and deploy steps afterward if you prefer.
 
@@ -34,7 +38,7 @@ The application uses the [queue-centric work pattern](http://www.asp.net/aspnet/
 
 ## Alternative architecture: Websites and WebJobs
 
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/en-us/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](/en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in an [Azure website](/services/web-sites/) and use the [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) feature (currently in preview) for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md). For information about how to choose the services that best fit your scenario, see [Azure Websites, Cloud Services, and Virtual Machines Comparison](http://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/).
 
 ## What you'll learn
 
@@ -47,9 +51,9 @@ This tutorial shows how to run both front-end and back-end in an Azure cloud ser
 
 ## Prerequisites
 
-The tutorial assumes that you understand [basic concepts about Azure cloud services](http://azure.microsoft.com/en-us/documentation/articles/fundamentals-application-models/#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms. 
+The tutorial assumes that you understand [basic concepts about Azure cloud services](fundamentals-application-models.md#CloudServices) such as *web role* and *worker role* terminology.  It also assumes that you know how to work with [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) or [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projects in Visual Studio. The sample application uses MVC, but most of the tutorial also applies to Web Forms. 
 
-You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A55E3C668).
+You can run the app locally without an Azure subscription, but you'll need one in order to deploy the application to the cloud. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) or [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 The tutorial instructions work with either of the following products:
 
@@ -86,7 +90,7 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
 1. Press CTRL+F5 to run the application.
 
-	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/en-us/library/hh510202.aspx) database to simulate Azure cloud storage. 
+	When you run a cloud service project locally, Visual Studio automatically invokes the Azure *compute emulator* and Azure *storage emulator*. The compute emulator uses your computer's resources to simulate the web role and worker role environments. The storage emulator uses a [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) database to simulate Azure cloud storage. 
 
 	The first time you run a cloud service project, the it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
@@ -195,7 +199,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 	When the cloud service and storage account are in different datacenters (different regions), latency will increase and you will be charged for bandwidth outside the data center. Bandwidth within a data center is free.
 
-	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/en-us/library/jj156209.aspx).
+	Azure affinity groups provide a mechanism to minimize the distance between resources in a data center, which can reduce latency. This tutorial does not use affinity groups. For more information, see [How to Create an Affinity Group in Azure](http://msdn.microsoft.com/library/jj156209.aspx).
 
 6. Set the **Replication** drop-down list to **Locally redundant**. 
 
@@ -315,7 +319,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Publish menu](./media/cloud-services-dotnet-get-started/pubmenu.png)	
 
-2. In the **Sign in** step of the **Publish Windows Azure Application** wizard, click **Next**.
+2. In the **Sign in** step of the **Publish Azure Application** wizard, click **Next**.
 
 	![Sign in step](./media/cloud-services-dotnet-get-started/pubsignin.png)	
 
@@ -323,7 +327,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
 	![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)	
 
-	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/windowsazure/hh535756.aspx).
+	The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](http://msdn.microsoft.com/library/hh535756.aspx).
 
 2. In the **Summary** step, click **Publish**.
 
@@ -362,7 +366,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 1. In Visual Studio, choose **New Project** from the **File** menu.
 
-2. In the left pane of the **New Project** dialog, expand **Visual C#** and choose **Cloud** templates, and then choose the **Windows Azure Cloud Service** template.
+2. In the left pane of the **New Project** dialog, expand **Visual C#** and choose **Cloud** templates, and then choose the **Azure Cloud Service** template.
 
 3. Name the project and solution ContosoAdsCloudService, and then click **OK**.
 
@@ -597,7 +601,7 @@ Similar code gets a reference to the *images* queue.
 		queueClient.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("images");
 
-Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/en-us/library/system.web.httppostedfilebase.aspx) object to the method.
+Most of the controller code is typical for working with an Entity Framework data model using a DbContext class. An exception is the HttpPost `Create` method, which uploads a file and saves it in blob storage. The model binder provides an [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) object to the method.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
@@ -795,17 +799,17 @@ The Contoso Ads application has intentionally been kept simple for a getting-sta
 Here are some cloud service sample applications that demonstrate more real-world coding practices, listed from less complex to more complex:
 
 * [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Similar in concept to Contoso Ads but implements more features and more real-world coding practices.
-* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage Tables as well as blobs and queues, and comes with a [step-by-step tutorial series](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-storage-1-overview/).
-* [Cloud Service Fundamentals in Windows Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
+* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduces Azure Storage Tables as well as blobs and queues, and comes with a [step-by-step tutorial series](cloud-services-dotnet-multi-tier-app-storage-1-overview.md).
+* [Cloud Service Fundamentals in Microsoft Azure](http://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). A comprehensive sample demonstrating a wide range of best practices, produced by the Microsoft Patterns and Practices group.
 
-For general information about developing for the cloud, see [Building Real-World Cloud Apps with Windows Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+For general information about developing for the cloud, see [Building Real-World Cloud Apps with Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
 For a video introduction to Azure Storage best practices and patterns, see [Microsoft Azure Storage – What's New, Best Practices and Patterns](http://channel9.msdn.com/Events/Build/2014/3-628).
 
 For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Azure Cloud Services](/en-us/documentation/services/cloud-services/)
-* [Azure Storage](/en-us/documentation/services/storage/)
-* [How to use Blob Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to use Queue Storage from .NET](/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+* [Azure Cloud Services](/documentation/services/cloud-services/)
+* [Azure Storage](/documentation/services/storage/)
+* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
+* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)

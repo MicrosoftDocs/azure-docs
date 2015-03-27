@@ -18,7 +18,7 @@
 
 # Get started with Mobile Engagement
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-get-started/" title="iOS"  class="current">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-get-started/" title="Android">Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-get-started/" title="iOS"  class="current">iOS</a><a href="/documentation/articles/mobile-engagement-android-get-started/" title="Android">Android</a></div>
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application. 
 In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties.
@@ -33,7 +33,7 @@ This tutorial requires the following:
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
 
 <!--
 ##<a id="register"></a>Enable Apple Push Notification Service

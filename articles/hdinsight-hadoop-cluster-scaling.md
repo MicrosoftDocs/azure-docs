@@ -66,7 +66,7 @@ The cluster scaling operation is not supported for HBase type clusters at this t
 
 * Only clusters with an HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the cluster version from the Azure Portal by clicking the HDInsight cluster name or by running the `Get-AzureHDInsightCluster –name <clustername>` command from Azure PowerShell.
 
-* Azure PowerShell version 0.8.14 or higher is required to perform the operation from PowerShell. You can download the latest version of PowerShell from the Command-line tools section on the [Azure Downloads](http://azure.microsoft.com/en-us/downloads/) website. You can check on the Azure PowerShell version you have installed with the following command from a PowerShell window: `(get-module Azure).Version`
+* Azure PowerShell version 0.8.14 or higher is required to perform the operation from PowerShell. You can download the latest version of PowerShell from the Command-line tools section on the [Azure Downloads](http://azure.microsoft.com/downloads/) website. You can check on the Azure PowerShell version you have installed with the following command from a PowerShell window: `(get-module Azure).Version`
 
 ## How to use Cluster Scaling
 
@@ -92,7 +92,7 @@ or
 	ChangeClusterSizeAsync(string dnsName, string location, int newSize) 
 
 
-Both synchronous and asynchronous versions of this method return [ClusterDetails](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx) object.
+Both synchronous and asynchronous versions of this method return [ClusterDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterdetails_properties.aspx) object.
 
 Here is some sample code that shows how to use the synchronous version of this method:
 
@@ -140,4 +140,4 @@ Here is some sample code that shows how to use the synchronous version of this m
 	}
 
 
-Please refer to the [Provision Hadoop clusters in HDInsight using custom options](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/) topic for more information on using HDInsight .NET SDK.
+Please refer to the [Provision Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md) topic for more information on using HDInsight .NET SDK.

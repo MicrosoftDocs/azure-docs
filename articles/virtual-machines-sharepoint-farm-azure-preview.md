@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
-#SharePoint Server Farm#
+#SharePoint Server Farm
 
 With SharePoint Server Farm, the Microsoft Azure Preview Portal automatically creates a pre-configured SharePoint Server 2013 farm for you. This can save you a lot of time when you need a basic or high-availability SharePoint farm for a development and testing environment or if you are evaluating SharePoint Server 2013 as a collaboration solution for your organization.
 
@@ -32,7 +32,7 @@ The high-availability SharePoint farm consists of nine virtual machines in this 
 
 You can use this farm configuration to test higher client loads, high availability of the external SharePoint site, and SQL Server AlwaysOn for a SharePoint farm. You can also use this configuration for SharePoint app development in a high-availability environment.
  
-For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](../virtual-machines-sharepoint-farm-config-azure-preview/).
+For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ##Stepping through configuration##
 
@@ -81,10 +81,12 @@ Notes:
 
 ##Azure Resource Manager##
 
-SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
+SharePoint Server Farm uses the Azure Resource Manager and scripts to automatically create the infrastructure and the server configurations for these SharePoint farms. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 ##Additional Resources
 
 [SharePoint on Azure Infrastructure Services](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Set up a SharePoint intranet farm in a hybrid cloud for testing](http://azure.microsoft.com/en-us/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md)
+
+[Set up a SharePoint intranet farm in a hybrid cloud for testing](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)

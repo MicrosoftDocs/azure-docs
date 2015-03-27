@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/20/2015" 
 	ms.author="mimig"/>
 
 #Introduction to Microsoft Azure DocumentDB
 
 This article provides an introduction to Microsoft Azure DocumentDB, a NoSQL document database service for developers, IT Pros, and business decision makers. 
 
-We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB. (Duration: 10:02)  
+We recommend getting started by watching the following video, where Ryan CrawCour and Scott Hanselman introduce Azure DocumentDB and trying our [Query Playground](http://www.documentdb.com/sql/demo), where you can try out DocumentDB and run SQL queries against our dataset.
 
 > [AZURE.VIDEO documentdb-101-with-ryan-crawcour]
 
@@ -94,10 +94,11 @@ JavaScript execution within DocumentDB is modeled after the concepts supported b
 ##<a name="next-steps"></a>Next Steps
 To get started with Azure DocumentDB, explore these resources:
 
-- [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
--	[DocumentDB resource model and concepts](/documentation/articles/documentdb-resources/)
--	[Interact with DocumentDB resources](/documentation/articles/documentdb-interactions-with-resources/)
--	[Create a DocumentDB database account](/documentation/articles/documentdb-create-account/)
--	[Get started with the DocumentDB .NET SDK](/documentation/articles/documentdb-get-started/)
+-   [Try DocumentDB now](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [Query Playground](http://www.documentdb.com/sql/demo)
+-	[DocumentDB resource model and concepts](documentdb-resources.md)
+-	[Interact with DocumentDB resources](documentdb-interactions-with-resources.md)
+-	[Create a DocumentDB database account](documentdb-create-account.md)
+-	[Get started with the DocumentDB .NET SDK](documentdb-get-started.md)
 
 [1]: ./media/documentdb-introduction/intro.png

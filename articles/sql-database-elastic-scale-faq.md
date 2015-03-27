@@ -22,7 +22,7 @@
 The schema info object is only used to split merge scenarios. If an application is inherently single-tenant, then it does not require the Split Merge service and thus there is no need to populate the schema info object.
 
 #### I’ve provisioned a database and I already have a Shard Map Manager, how do I register this new database as a shard?
-Please see **[Adding a Shard To an Elastic Scale Application](http://azure.microsoft.com/documentation/articles/sql-database-elastic-scale-add-a-shard/)**. 
+Please see **[Adding a Shard To an Elastic Scale Application](sql-database-elastic-scale-add-a-shard.md)**. 
 
 #### How much does Elastic Scale cost?
 Using the Elastic Scale library does not incur any costs. Costs accrue only for the Azure SQL databases that you use for shards and the Shard Map Manager, as well as the web/worker roles provisioned for the Split Merge service.
@@ -31,7 +31,7 @@ Using the Elastic Scale library does not incur any costs. Costs accrue only for 
 Do not use credentials in the form of “User ID=username@servername”, instead simply use “User ID = username”.  Also, be sure that the “username” login has permissions on the shard.
 
 #### Do I need to create a Shard Map Manager and populate shards every time I start my applications?
-No—the creation of the Shard Map Manager (for example, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) is a one-time operation.  Your application should use the call **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/en-us/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** at application start-up time.  There should only one such call per application domain.
+No—the creation of the Shard Map Manager (for example, **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) is a one-time operation.  Your application should use the call **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** at application start-up time.  There should only one such call per application domain.
 
 #### I have questions about using Elastic Scale, how do I get them answered? 
 Please reach out to us on the [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).

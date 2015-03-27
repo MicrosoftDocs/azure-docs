@@ -1,6 +1,6 @@
-<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="blackmist" manager="wpickett" editor="mollybos"/>
+<properties pageTitle="Working with Node.js Modules" description="Learn how to work with Node.js modules when using Azure Web Sites or Cloud Services." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
 
 
 
@@ -15,7 +15,7 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 * Azure Webites understand **package.json** and **npm-shrinkwrap.json** files and can install modules based on entries in these files.
 * Azure Cloud Services expect all modules to be installed on the development environment, and the **node\_modules** directory to be included as part of the deployment package.
 
-> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine
+> [AZURE.NOTE] Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM will be dependent on the operating system hosted by the Virtual Machine.
 
 > [AZURE.NOTE] It is possible to enable support for installing modules using **package.json** or **npm-shrinkwrap.json** files on Azure, however this requires customization of the default scripts used by Cloud Service projects. For an example of how to accomplish this, see [Azure Startup task to run npm install to avoid deploying node modules](http://nodeblog.azurewebsites.net/startup-task-to-run-npm-in-azure)
 
@@ -34,7 +34,7 @@ While most modules are simply plain-text JavaScript files, some modules are plat
 Azure Websites does not support all native modules and might fail at compiling those with very specific prerequisites. While some popular modules like MongoDB have optional native dependencies and work just fine without them, two workarounds proved successful with almost all native modules available today:
 
 * Run **npm install** on a Windows machine that has all the native module's prerequisites installed. Then, deploy the created **node\_modules** folder as part of the application to Azure Websites.
-* Azure Websites can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For at tutorial on how to do this, see [Custom Website Deployment Scripts with Kudu].
+* Azure Websites can be configured to execute custom bash or shell scripts during deployment, giving you the opportunity to execute custom commands and precisely configure the way **npm install** is being run. For a video showing how to do this, see [Custom Website Deployment Scripts with Kudu].
 
 ###Using a package.json file
 
@@ -70,12 +70,12 @@ When your application is ready for production, you can lock-down version require
 
 Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version], [build and deploy a Node.js Web Site], and [How to use the Azure Command-Line Tools for Mac and Linux].
 
-[specify the Node.js version]: /en-us/documentation/articles/nodejs-specify-node-version-azure-apps/
-[How to use the Azure Command-Line Tools for Mac and Linux]: /en-us/documentation/articles/xplat-cli/
-[build and deploy a Node.js Web Site]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-[Node.js Web Application with Storage on MongoDB (MongoLab)]: /en-us/documentation/articles/store-mongolab-web-sites-nodejs-store-data-mongodb/
-[Publishing with Git]: /en-us/documentation/articles/web-sites-publish-source-control/
-[Build and deploy a Node.js application to an Azure Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-[Custom Website Deployment Scripts with Kudu]: en-us/documentation/videos/custom-web-site-deployment-scripts-with-kudu/
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Tools for Mac and Linux]: xplat-cli.md
+[build and deploy a Node.js Web Site]: web-sites-nodejs-develop-deploy-mac.md
+[Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
+[Publishing with Git]: web-sites-publish-source-control.md
+[Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+[Custom Website Deployment Scripts with Kudu]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
 

@@ -3,7 +3,7 @@
 	description="Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model in Microsoft Azure ML using Net#" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="" 
+	authors="jeannt" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

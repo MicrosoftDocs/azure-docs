@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/26/2014" 
+	ms.date="03/13/2015" 
 	ms.author="kenazk"/>
 
 
@@ -31,15 +31,15 @@
 
 
 ## Virtual Machine Configurations
-There are two kinds of Virtual Machine configurations: multi-instance and single-instance.  Multi-instance virtual machines are configured by placing identical virtual machines into an Availability Set. The Multi-Instance configuration provides redundancy and is recommended to ensure the availability of your application. All virtual machines in the Availability Set should be nearly identical and serve the same purpose to your application. For more information on configuring your virtual machines for high availability, refer to “<a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-manage-availability/">Manage the Availability of your Virtual Machines</a>”. 
+There are two kinds of Virtual Machine configurations: multi-instance and single-instance.  Multi-instance virtual machines are configured by placing identical virtual machines into an Availability Set. The Multi-Instance configuration provides redundancy and is recommended to ensure the availability of your application. All virtual machines in the Availability Set should be nearly identical and serve the same purpose to your application. For more information on configuring your virtual machines for high availability, refer to “<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/">Manage the Availability of your Virtual Machines</a>”. 
 
-By contrast, single-instance virtual machines are standalone virtual machines that are not placed into an Availability Set. By themselves, single-instance virtual machines do not qualify for the Service Level Agreement (SLA) which requires two or more virtual machines deployed under the same Availability Set. For more information on SLA, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](http://azure.microsoft.com/en-us/support/legal/sla/).
+By contrast, single-instance virtual machines are standalone virtual machines that are not placed into an Availability Set. By themselves, single-instance virtual machines do not qualify for the Service Level Agreement (SLA) which requires two or more virtual machines deployed under the same Availability Set. For more information on SLA, refer to the "Cloud Services, Virtual Machines and Virtual Network" section of [Service Level Agreements](http://azure.microsoft.com/support/legal/sla/).
 
 
 ## Multi-Instance Update
 During planned maintenance, the Azure platform will first update the set of host machines that are hosting the set of virtual machines in a multi-instance configuration, causing a reboot to these virtual machines. For virtual machines in a multi-instance configuration, virtual machines are updated in way that preserves availability throughout the process, assuming each machine serves a similar function as the others in the set. Each virtual machine in your Availability Set is assigned an Update Domain (UD) and a Fault Domain (FD) by the underlying Azure platform. Each UD is a group of virtual machines that will be rebooted in the same time window. Each FD is a group of virtual machines that share a common power source and network switch. 
 
-For more information on UDs and FDs, see “<a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configure multiple virtual machines in an Availability Set for redundancy</a>”.
+For more information on UDs and FDs, see “<a href="http://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy">Configure multiple virtual machines in an Availability Set for redundancy</a>”.
 
 Microsoft Azure guarantees that no planned maintenance event will cause virtual machines from two different UDs to go offline at the same time. The maintenance is performed by shutting down each virtual machine, applying the update to the host machines, restarting the virtual machine, and moving on to the next UD. The planned maintenance event ends once all UDs have been updated. The order of UDs being rebooted may not proceed sequentially during planned maintenance but only one UD will be rebooted at a time. Today, no advance notification of planned maintenance is provided for virtual machines in the multi-instance configuration.
 
@@ -68,5 +68,5 @@ For single-instance configuration virtual machines only, Azure send email commun
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: ../virtual-machines-windows-tutorial/
-[Understand planned versus unplanned maintenance]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
+[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
+[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/ 

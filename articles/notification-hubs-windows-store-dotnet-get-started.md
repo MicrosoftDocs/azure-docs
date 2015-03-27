@@ -3,29 +3,27 @@
 	description="Learn how to use Azure Notification Hubs to push notifications." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="dwrede"/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/11/2015" 
+	ms.date="03/16/2015" 
 	ms.author="wesmc"/>
 
 # Getting Started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal" class="current">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
 
 ##Overview
 
-This topic shows you how to use Azure Notification Hubs to send push notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) application. If you are targeting Windows Phone 8.1 Silverlight, please refer to the [Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/) version. 
+This topic shows you how to use Azure Notification Hubs to send push notifications to a Windows Store or Windows Phone 8.1 (non-Silverlight) application. If you are targeting Windows Phone 8.1 Silverlight, please refer to the [Windows Phone](notification-hubs-windows-phone-get-started.md) version. 
 In this tutorial you create a blank Windows Store app that receives push notifications using the Windows Push Notification service (WNS). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub.
-
-
 
 This tutorial demonstrates a simple broadcast scenario using Notification Hubs. Be sure to follow along with the next tutorial to learn how to use Notification Hubs to address specific users and groups of devices. 
 
@@ -38,7 +36,7 @@ This tutorial requires the following:
 
 + An active Windows Store account
 
-+ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
++ An active Azure account. <br/>If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F).
 
 Completing this tutorial is a prerequisite for all other Notification Hubs tutorials for Windows Store apps. 
 
@@ -188,7 +186,7 @@ Your app is now ready to receive toast notifications.
 
 ##Send notification from your back-end
 
-You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/) | [JavaScript backend](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
+You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript backend](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. Right-click the solution, select **Add** and **New Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**. 
 
@@ -267,24 +265,12 @@ In this simple example you sent broadcast notifications to all your Windows devi
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-dotnet
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
-
 [Azure Management Portal]: https://manage.windowsazure.com/
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Use Notification Hubs to push notifications to users]: /en-us/manage/services/notification-hubs/notify-users-aspnet
-[Use Notification Hubs to send breaking news]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-[toast catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx
-[tile catalog]: http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx
-[badge overview]: http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx
+[toast catalog]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
+[tile catalog]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
+[badge overview]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx

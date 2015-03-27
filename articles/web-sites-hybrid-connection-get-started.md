@@ -1,29 +1,29 @@
 <properties 
-	pageTitle="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" 
-	description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" 
-	services="web-sites" 
+	pageTitle="Access on-premises resources using hybrid connections in Azure App Service" 
+	description="Create a connection between a web app in Azure App Service and an on-premises resource that uses a static TCP port" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/12/2015" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Connect an Azure website to an on-premises resource using Hybrid Connections
+#Access on-premises resources using hybrid connections in Azure App Service
 
-You can connect a website on Microsoft Azure to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between an Azure website and an on-premises SQL Server database.
+You can connect a web app in Azure App Service to any on-premises resource that uses a static TCP port, such as SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. This article shows you how to create a hybrid connection between a web app in App Service and an on-premises SQL Server database.
 
-> [AZURE.NOTE] The Websites portion of the Hybrid Connections feature is available only in the [Azure Preview portal](https://portal.azure.com). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] The Web Apps portion of the Hybrid Connections feature is available only in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). To create a connection in BizTalk Services, see [Hybrid Connections](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ## Prerequisites
-- An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+- An Azure subscription. For a free subscription, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 - To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Using a default instance on SQL Server is recommended because it uses static port 1433. For information on installing and configuring SQL Server Express for use with hybrid connections, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
@@ -35,42 +35,43 @@ You can connect a website on Microsoft Azure to any on-premises resource that us
 > [AZURE.NOTE] The steps in this article assume that you are using the browser from the computer that will host the on-premises hybrid connection agent.
 
 
-## Create a Website in the Azure Preview Portal ##
+## Create a web app in the Azure Portal ##
 
-> [AZURE.NOTE] If you have already created a website in the Azure Preview Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
+> [AZURE.NOTE] If you have already created a web app in the Azure Portal that you want to use for this tutorial, you can skip ahead to [Create a Hybrid Connection and a BizTalk Service](#CreateHC) and start from there.
 
-1. In the lower left corner of the [Azure Preview Portal](https://portal.azure.com), click **New**, and then choose **Website**.
+1. In the lower left corner of the [Azure Portal](https://portal.azure.com), click **New** > **Web + Mobile** > **Website**.
 	
 	![New button][New]
 	
-	![New website][NewWebsite]
+	![New web app][NewWebsite]
 	
-2. On the **Website** blade, provide a name for your website, and then click **Create**. 
+2. On the **Web app** blade, provide a URL >  **Create**. 
 	
 	![Website name][WebsiteCreationBlade]
 	
-3. After a few moments, the website is created and its website blade appears. The blade is a vertically scrollable dashboard that lets you manage your site.
+3. After a few moments, the web app is created and its web app blade appears. The blade is a vertically scrollable dashboard that lets you manage your site.
 	
 	![Website running][WebSiteRunningBlade]
 	
 4. To verify the site is live, you can click the **Browse** icon to display the default page.
 	
-	![Click browse to see your website][Browse]
+	![Click browse to see your web app][Browse]
 	
-	![Default website page][DefaultWebSitePage]
+	![Default web app page][DefaultWebSitePage]
 	
-Next, you will create a hybrid connection and a BizTalk service for the website.
+Next, you will create a hybrid connection and a BizTalk service for the web app.
 
 <a name="CreateHC"></a>
 ## Create a Hybrid Connection and a BizTalk Service ##
 
-1. Back in the Preview Portal, scroll down the blade for your website and choose **Hybrid connections**.
+1. Scroll down the blade for your web app and choose **Hybrid connections**.
 	
 	![Hybrid connections][CreateHCHCIcon]
 	
 2. On the Hybrid connections blade, click **Add**.
 	
-	![Add a hybrid connnection][CreateHCAddHC]
+	<!-- ![Add a hybrid connnection][CreateHCAddHC]
+-->
 	
 3. The **Add a hybrid connection** blade opens.  Since this is your first hybrid connection, the **New hybrid connection** option is preselected, and the **Create hybrid connection** blade opens for you.
 	
@@ -83,21 +84,30 @@ Next, you will create a hybrid connection and a BizTalk service for the website.
 	- Click **Biz Talk Service**
 
 
-4. The **Create Biz Talk Service** blade opens. Enter a name for the BizTalk service, and then click **OK**.
+4. The **Create BizTalk Service** blade opens. Enter a name for the BizTalk service, and then click **OK**.
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
-	The **Create Biz Talk Service** blade closes and you are returned to the **Create hybrid connection** blade.
+	The **Create BizTalk Service** blade closes and you are returned to the **Create hybrid connection** blade.
 	
 5. On the Create hybrid connection blade, click **OK**. 
 	
 	![Click OK][CreateBTScomplete]
 	
-6. When the process completes, the Notifications area in the portal informs you that the connection has been successfully created.
+6. When the process completes, the notifications area in the portal informs you that the connection has been successfully created.
+	<!-- TODO
+
+    Everything fails at this step. I can't create a BizTalk service in the dogfood portal. I switch to the old portal
+	(full portal) and created the BizTalk service but it doesn't seem to let you connnect them - When you finish the
+	Create hybrid conn step, you get the following error
+	Failed to create hybrid connection RelecIoudHC. The 
+	resource type could not be found in the namespace 
+	'Microsoft.BizTaIkServices for api version 2014-06-01'.
 	
+	The error indicates it couldn't find the type, not the instance.
 	![Success notification][CreateHCSuccessNotification]
-	
-7. On the website blade, the **Hybrid connections** icon now shows that 1 hybrid connection has been created.
+	-->
+7. On the web app's blade, the **Hybrid connections** icon now shows that 1 hybrid connection has been created.
 	
 	![One hybrid connection created][CreateHCOneConnectionCreated]
 	
@@ -106,7 +116,7 @@ At this point, you have completed an important part of the cloud hybrid connecti
 <a name="InstallHCM"></a>
 ## Install the on-premises Hybrid Connection Manager to complete the connection ##
 
-1. On the website blade, click the Hybrid connections icon. 
+1. On the web app's blade, click the Hybrid connections icon. 
 	
 	![Hybrid connections icon][HCIcon]
 	
@@ -148,12 +158,14 @@ At this point, you have completed an important part of the cloud hybrid connecti
 
 Now that the hybrid connection infrastructure is complete, you can create a hybrid application that uses it. 
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
 <a name="NextSteps"></a>
 ## Next Steps ##
 
 - For information on creating an ASP.NET web application that uses a hybrid connection, see [Connect to an on-premises SQL Server from an Azure web site using Hybrid Connections](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- For information on using a hybrid connection with a mobile service, see [Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections](mobile-services-dotnet-backend-hybrid-connections-get-started.md).
 
 ### Additional Resources
 
@@ -161,13 +173,17 @@ Now that the hybrid connection infrastructure is complete, you can create a hybr
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
+[Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 
-[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-dashboard-monitor-scale-tabs/)
 
 [Building a Real-World Hybrid Cloud with Seamless Application Portability (Channel 9 video)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
 [Connect to an on-premises SQL Server from Azure Mobile Services using Hybrid Connections (Channel 9 video)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference on Websites and Web Apps in Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- IMAGES -->
 [New]:./media/web-sites-hybrid-connection-get-started/B01New.png

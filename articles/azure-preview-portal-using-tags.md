@@ -22,7 +22,7 @@
 
 The Azure Preview portal and the underlying Resource Manager are about organizing your resources and customizing your experience to be tailor-fit just for you. 
 
-In the full Azure portal, subscriptions are the only way to categorize and group your resources. With the preview portal, [we introduced resource groups](http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups), which enable you to group related entities. This became even more valuable when [we introduced role-based access](http://azure.microsoft.com/en-us/documentation/articles/role-based-access-control-configure). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
+In the full Azure portal, subscriptions are the only way to categorize and group your resources. With the preview portal, [we introduced resource groups](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), which enable you to group related entities. This became even more valuable when [we introduced role-based access](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
 
 Group resources by team, project, or even environment to focus on exactly what you want to see, when you need to see it. 
 
@@ -42,9 +42,9 @@ From here, you can click on each individual tag to view a list of all the resour
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+First thing's first, grab the latest [Azure PowerShell module](install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
+Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
   Switch-AzureMode AzureResourceManager
 
@@ -65,7 +65,7 @@ The process is the same for resources, except you'll use the `Get-AzureResource`
 
 ## Tagging with Resource Manager
 
-The preview portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/en-us/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
+The preview portal and PowerShell both use the [Resource Manager REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx) behind the scenes. If you need to integrate tagging into another environment, you can get tags with a GET on the resource id and update the set of tags with a PATCH call.
 
 
 ## Managing your taxonomy

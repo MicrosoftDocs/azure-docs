@@ -19,13 +19,13 @@
 
 #Create ContentKeys with REST
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
 
 Media Services enables you to create new and deliver encrypted assets. A **ContentKey** provides secure access to your **Asset**s. 
 
-When you create a new asset (for example, before you [upload files](../media-services-rest-upload-files/)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
+When you create a new asset (for example, before you [upload files](media-services-rest-upload-files.md)), you can specify the following encryption options: **StorageEncrypted**, **CommonEncryptionProtected**, or **EnvelopeEncryptionProtected**. 
 
-When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](../media-services-rest-configure-asset-delivery-policy) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
+When you deliver assets to your clients, you can [configure for assets to be dynamically encrypted](media-services-rest-configure-asset-delivery-policy.md) with one of the following two encryptions: **DynamicEnvelopeEncryption** or **DynamicCommonEncryption**.
 
 Encrypted assets have to be associated with **ContentKey**s. This article describes how to create a content key.
 
@@ -34,7 +34,7 @@ The following are general steps for generating content keys that you will associ
 1. Randomly generate a 16-byte AES key (for common and envelope encryption) or a 32-byte AES key (for storage encryption). 
 
 	This will be the content key for your asset, which means all files associated with that asset will need to use the same content key during decryption. 
-2.	Call the [GetProtectionKeyId](https://msdn.microsoft.com/en-us/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/en-us/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
+2.	Call the [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) and [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methods to get the correct X.509 Certificate that must be used to encrypt your content key.
 3.	Encrypt your content key with the public key of the X.509 Certificate. 
 
 	Media Services .NET SDK uses RSA with OAEP when doing the encryption.  You can see an example in the [EncryptSymmetricKeyData function](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
@@ -67,9 +67,9 @@ Note that examples that generate an AES key, encrypt the key, and calculate the 
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
->When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](../media-services-rest-how-to-use).
+>When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](../media-services-rest-connect_programmatically/). 
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect_programmatically.md). 
 
 ##Retrieve the ProtectionKeyId 
  

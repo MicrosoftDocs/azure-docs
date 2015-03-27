@@ -20,7 +20,9 @@
 # How to interpret model results in Azure Machine Learning 
  
 **Understanding & Visualizing 'Score Model' Output**
-This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained. 
+This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result you have obtained.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
 There are four major kinds of machine learning models in Azure Machine Learning: 
 
@@ -35,11 +37,11 @@ The modules used do prediction on top of these modules, called "scoring" them, g
 * **Assign to Clusters** module for clustering 
 * **Score Matchbox Recommender** for recommendation systems 
  
-This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-algorithm-parameters-optimize).
+This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-algorithm-parameters-optimize).
 
-This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-evaluate-model-performance).
+This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-evaluate-model-performance).
 
-If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-create-experiment/) in the Azure Machine Learning Studio. 
+If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in the Azure Machine Learning Studio. 
 
 ##Classification
 There are two sub-categories of classification problems: 
@@ -72,7 +74,7 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-5-publish-web-service/). Following this procedure provides you with a scoring experiment as shown in Figure 3.
+Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). Following this procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/3.png)
 

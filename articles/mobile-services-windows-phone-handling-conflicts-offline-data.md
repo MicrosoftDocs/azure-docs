@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 
@@ -21,25 +21,19 @@
 
 [WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
-<p>This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Azure Management Portal to view and update the database when running the app.
-</p>
+##Overview
+
+This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. In this tutorial, you will download an app that supports both offline and online data, integrate the mobile service with the app, and then login to the Azure Management Portal to view and update the database when running the app.
 
 This tutorial builds on the steps and the sample app from the previous tutorial [Get started with offline data]. Before you begin this tutorial, you must first complete [Get started with offline data].
 
 
-This tutorial walks you through these basic steps:
-
-1. [Download the Windows Phone project] 
-2. [Add a due date column for the database]
-  * [Updating the database for .NET backend mobile services]  
-  * [Updating the database for JavaScript mobile services]  
-3. [Test the app against a mobile service]
-4. [Manually update the data in the backend to create a conflict]
+##Prerequisites
 
 This tutorial requires Visual Studio 2012 and the [Windows Phone 8 SDK].
 
 
-## <a name="download-app"></a>Download the sample project
+##Download the sample project
 
 
 
@@ -63,7 +57,7 @@ The UI for this app is similar to the app in the tutorial [Get started with offl
 Note that the app is not yet connected to any mobile service, so the buttons **Push** and **Pull** will throw exceptions.
 
 
-## <a name="add-column"></a>Add a column to the data model
+##Add a column to the data model
 
 In this section you will update the database for your mobile service to include a TodoItem table with a due date column. The app allows you to change the due date for an item at runtime so that you can generate sync conflicts in a later section of this tutorial. 
 
@@ -73,7 +67,7 @@ The `TodoItem` class in the sample is defined in MainPage.xaml.cs. Notice the cl
 
 Update your database to include this table.
 
-### <a name="dotnet-backend"></a>Updating the database for .NET backend mobile services 
+###<a name="dotnet-backend"></a>Updating the database for .NET backend mobile services 
 
 If you are using the .NET backend for your mobile service, follow these steps to update the schema for your database.
 
@@ -92,7 +86,7 @@ If you are using the .NET backend for your mobile service, follow these steps to
 
     In the WebApiConfig.cs file, notice that your default database initializer class is derived from the `DropCreateDatabaseIfModelChanges` class. This means any change to the model will result in the table being dropped and recreated to accommodate the new model. So the data in the table will be lost and the table will be re-seeded. Modify the Seed method of the database initializer so that the `Seed()` initialization function as follows to initialize the new DueDate column. Save the WebApiConfig.cs file.
 
-    >[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+    >[AZURE.NOTE] When using the default database initializer, Entity Framework will drop and recreate the database whenever it detects a data model change in the Code First model definition. To make this data model change and maintain existing data in the database, you must use Code First Migrations. For more information, see [How to Use Code First Migrations to Update the Data Model](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
@@ -119,7 +113,7 @@ For JavaScript backend mobile services, you will add a new table named **TodoWit
   3. Click **Create** at the bottom of the page and create a new table named **TodoWithDate**. 
 
 
-## <a name="test-app"></a>Test the app against your  mobile service
+##Test the app against your  mobile service
 
 Now it's time to test the app against Mobile Services.
 
@@ -160,7 +154,7 @@ Now it's time to test the app against Mobile Services.
 
 9. Leave **Emulator WVGA 512MB** up and running for the next section where you will run the app in two emulators to generate a conflict.
 
-## <a name="handle-conflict"></a>Update the data in the backend to create a conflict
+##Update the data in the backend to create a conflict
 
 In a real world scenario, a sync conflict would occur when one app pushes updates to a record in the database, and then another app tries to push a change to the same record using an outdated version field in that record. If an instance of the app tries to update the same record, without pulling in the updated record, a conflict will occur and be caught as a `MobileServicePreconditionFailedException` in the app.  
 
@@ -192,7 +186,7 @@ In this section you will run two instances of the app at the same time to genera
 
     ![][8]
 
-## Review of the code for handling sync conflicts
+##Review of the code for handling sync conflicts
 
 In order to set up the offline feature to detect conflicts, you must include a version column in both your local database and your data transfer object. The class `TodoItem` has the following member:
 
@@ -222,15 +216,7 @@ This will stop the current push operation but will keep all pending changes, inc
 When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedException`, and the exception property `PushResult.Status` will have the value `MobileServicePushStatus.CancelledByOperation`. 
 
 
-<!-- Anchors. -->
-[Download the Windows Phone project]: #download-app
-[Create the mobile service]: #create-service
-[Add a due date column for the database]: #add-column
-[Updating the database for .NET backend mobile services]: #dotnet-backend  
-[Updating the database for JavaScript mobile services]: #javascript-backend
-[Test the app against a mobile service]: #test-app
-[Manually update the data in the backend to create a conflict]: #handle-conflict
-[Next Steps]:#next-steps
+
 
 <!-- Images -->
 [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
@@ -247,10 +233,9 @@ When a push is canceled, `PushAsync` will throw a `MobileServicePushFailedExcept
 
 <!-- URLs -->
 [Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=398257
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Get started with offline data]: mobile-services-windows-phone-get-started-offline-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-phone-handle-database-conflicts/#test-app
 [Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [SQLite for Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Get started with data]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+[Get started with data]: mobile-services-windows-phone-get-started-data.md

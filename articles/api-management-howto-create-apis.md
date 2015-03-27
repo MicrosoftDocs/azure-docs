@@ -13,28 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to create APIs in Azure API Management
 
-An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the management console, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
+An API in API Management represents a set of operations that can be invoked by client applications. New APIs are created in the publisher portal, and then the desired operations are added. Once the operations are added, the API is added to a product and can be published. Once an API is published, it can be used by subscribed to and used by developers.
 
 This guide shows the first step in the process: how to create and configure a new API in API Management. For more information on adding operations and publishing a product, see [How to add operations to an API][] and [How to create and publish a product][].
 
-## In this topic
-
--   [Create a new API][]
--   [Configure API settings][]
--   [Next Steps][]
-
 ## <a name="create-new-api"> </a>Create a new API
 
-To create and configure APIs, click **Management console** in the Azure Portal for your API Management service instance. This takes you to the API Management administrative portal.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![Management console][api-management-management-console]
 
 Click **APIs** from the **API Management** menu on the left, and then click **add API**.
 
@@ -94,10 +88,10 @@ Once an API is created and the settings configured, the next steps are to add th
 [Configure API operations]: #configure-api-operations
 [Next steps]: #next-steps
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[How to secure back-end services using mutual certificate authentication in Azure API Management]: ../api-management-howto-mutual-certificates
-[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: ../api-management-howto-oauth2
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[How to secure back-end services using mutual certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md

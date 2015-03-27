@@ -22,17 +22,6 @@
 ##Overview
 This topic shows how to use the <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> to serialize objects and other data structures into streams in order to persist them to memory, a database or a file, and also how to deserialize them to recover the original objects. 
 
-## In this article
-
-- [Apache Avro](#apacheAvro)
-- [The Hadoop scenario](#hadoopScenario)
-- [Serialization in the Microsoft Avro Library](#serializationMAL) 
-- [Microsoft Avro Library prerequisites](#prerequisites)
-- [Microsoft Avro Library installation](#installation)
-- [Microsoft Avro Library source code](#sourceCode)
-- [Compiling the Schema with the Microsoft Avro Library](#compiling)
-- [Guide to the samples for the Microsoft Avro Library](#samples)
-
 
 ##<a name="apacheAvro"></a>Apache Avro
 The <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> implements the Apache Avro data serialization system for the Microsoft.NET environment. Apache Avro provides a compact binary data interchange format for serialization. It uses <a href="http://www.json.org" target="_blank">JSON</a> to define language agnostic schema that underwrites language interoperability. Data serialized in one language can be read in another. Currently C, C++, C#, Java, PHP, Python, and Ruby are supported. Detailed information on the format can be found in the <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro Specification</a>. Note that the current version of the Microsoft Avro Library does not support the Remote Procedure Calls (RPC) part of this specification.
@@ -46,13 +35,13 @@ Apache Avro serialization format is widely used in Azure HDInsight and other Apa
 The .NET Library for Avro supports two ways of serializing objects:
 
 - **reflection**: The JSON schema for the types is automatically built from the data contract attributes of the .NET types to be serialized. 
-- **generic record**: A JSON schema is explicitly specified in a record represented by the [**AvroRecord**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx) class when no .NET types are present to describe the schema for the data to be serialized. 
+- **generic record**: A JSON schema is explicitly specified in a record represented by the [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) class when no .NET types are present to describe the schema for the data to be serialized. 
 
 When the data schema is known to both the writer and reader of the stream, the data can be sent without its schema. In cases when an Avro Object Container file is used, the schema is stored within the file. Other parameters such as the codec used for data compression can be specified. These scenarios are outlined in more detail and illustrated in the code examples below.
 
 
 ##<a name="prerequisites"></a> Microsoft Avro Library prerequisites
-- <a href="http://www.microsoft.com/en-us/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
+- <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework v4.0</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (v6.0.4 or later) 
 
 Note that the Newtonsoft.Json.dll dependency is downloaded automatically with the installation of the Microsoft Avro Library, the procedure for which is provided in the following section.
@@ -120,7 +109,7 @@ Here are links to the six samples discussed in the topic:
 
 <h3> <a name="Scenario1"></a>Sample 1: Serialization with reflection</h3>
  
-The JSON schema for the types can be automatically built by Microsoft Avro Library using reflection from the data contract attributes of the C# objects to be serialized. Microsoft Avro Library creates an [**IAvroSeralizer<T>**](http://msdn.microsoft.com/en-us/library/dn627341.aspx) to identify the fields to be serialized.
+The JSON schema for the types can be automatically built by Microsoft Avro Library using reflection from the data contract attributes of the C# objects to be serialized. Microsoft Avro Library creates an [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) to identify the fields to be serialized.
 
 In this example objects (a **SensorData** class with a member **Location** struct) are serialized to a memory stream and this stream is in turn deserialized. The result is then compared to the initial instance to confirm that the **SensorData** object recovered is identical to original.
 
@@ -247,7 +236,7 @@ The schema in this example is assumed to be shared between the readers and write
 
 A JSON schema can be explicitly specified in a generic record when reflection cannot be used because the data cannot be represented using .NET classes with a data contract. This method is generally slower than using reflection. In such cases, the schema for the  data may also be dynamic, i.e. not be known at compile-time. Data represented as Comma Separated Values (CSV) files whose schema is unknown until it is transformed to the Avro format at run-time is an example of this sort of dynamic scenario.
 
-This example shows how to create and use an [**AvroRecord**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx) to explicitly specify a JSON schema, how to populate it with the data, then serialize and deserialize it. The result is then compared to the initial instance to confirm that the record recovered is identical to original.
+This example shows how to create and use an [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) to explicitly specify a JSON schema, how to populate it with the data, then serialize and deserialize it. The result is then compared to the initial instance to confirm that the record recovered is identical to original.
 
 The schema in this example is assumed to be shared between the readers and writers, so the Avro object container format is not required. For an example of how to serialize and deserialize data into memory buffers using a generic record with the object container format when the schema must be included with the serialized data, see <a href="#Scenario4">Serialization using object container files with generic record</a> example.
 
@@ -369,9 +358,9 @@ The schema in this example is assumed to be shared between the readers and write
 
 <h3> <a name="Scenario3"></a>Sample 3: Serialization using object container files and serialization with reflection</h3>
 
-This example is similar to scenario in the <a href="#Scenario1"> first example</a> where the schema is implicitly specified with reflection, except that here the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and its implicitly specified schema are stored in an Avro Object Container file represented by the [**AvroContainer**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. 
+This example is similar to scenario in the <a href="#Scenario1"> first example</a> where the schema is implicitly specified with reflection, except that here the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and its implicitly specified schema are stored in an Avro Object Container file represented by the [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. 
 
-The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/en-us/library/dn627340.aspx). The result then is compared to the initial instances to insure identity.
+The data is serialized in this example with [**SequentialWriter<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx) and deserialized with [**SequentialReader<SensorData>**](http://msdn.microsoft.com/library/dn627340.aspx). The result then is compared to the initial instances to insure identity.
 
 The data in object container file is compressed using the default [**Deflate**][deflate-100] compression codec from .NET Framework 4.0. See the <a href="#Scenario5"> fifth example</a> in this topic to learn how to use a more recent and superior version of the [**Deflate**][deflate-110] compression codec available in .NET Framework 4.5.
 
@@ -611,7 +600,7 @@ The data in object container file is compressed using the default [**Deflate**][
 
 This example is similar to scenario in the <a href="#Scenario2"> second example</a> where the schema is explicitly specified with JSON, except that here the schema is not assumed to be known to the reader that deserializes it. 
 
-The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx) objects using an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. It is the [**Codex.Null**](http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used when creating the reader that specifies this data will not be compressed. 
+The test data set is collected into a list of [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) objects using an explicitly defined JSON schema and then stored in an object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. This container file creates a writer that is used to serialize the data, uncompressed, to a memory stream that is then saved to a file. It is the [**Codex.Null**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.codec.null.aspx) parameter used when creating the reader that specifies this data will not be compressed. 
 
 The data is then read from the file and deserialized into a collection of objects. This collection is compared to the initial list of Avro records to confirm that they are identical.
 
@@ -1404,7 +1393,7 @@ To clean up the cluster run the following command:
 
 
 
-[deflate-100]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx
-[deflate-110]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx
+[deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
+[deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 

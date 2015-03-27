@@ -1,33 +1,34 @@
 <properties 
-	pageTitle="How to create web test" 
+	pageTitle="How to create web tests" 
 	description="Learn how to create web tests in Azure." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
-<tags 
+<tags
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-17" 
+	ms.date="03/23/2015" 
 	ms.author="awills"/>
 
-# Web tests for Microsoft Azure Websites
-Is your Azure Website still running? Is it responding properly, and fast enough? Tests your website at regular intervals by configuring a Web test. If the site goes down or responds slowly or incorrectly, you'll receive an email alert. And you'll get graphs showing its availability and responsiveness over time.  
+# Web tests for Web Apps
+Is your web app in Microsoft Azure Web Services still running? Is it responding properly, and fast enough? Tests your website at regular intervals by configuring a web test. If the site goes down or responds slowly or incorrectly, you'll receive an email alert. And you'll get graphs showing its availability and responsiveness over time.  
 
 *Want to test any other website? Use [Application Insights web tests][availability] for non-Azure web apps.*
 
 ![Browse Hub](./media/insights-create-web-tests/Inisghts_WebTestBlade.png)
 
-You can set up availability monitoring for any Azure Website that is using a Basic or Standard plan.  You can create up to 3 Web tests and run each of these tests from up to 3 geographic locations. You don't have to alter the website in any way.
+You can set up availability monitoring for any Web App that is using a Basic or Standard plan.  You can create up to 3 Web tests and run each of these tests from up to 3 geographic locations. You don't have to alter the web app in any way.
 
 You can also pause web tests during deployments or known outages so your overall availability isn't affected.  Overall availability is calculated over all the web tests including the different locations selected.
 
 ## How to set up a web test
-1. To configure a web test, first ensure your website is either **Basic** or **Standard**.
-2. Then, choose the **Web Test** part on the **Web site** blade:  
+1. To configure a web test, first ensure your web app is either **Basic** or **Standard**.
+2. Then, choose the **Web Test** part on the **Web app** blade:  
     ![Configure Web Tests](./media/insights-create-web-tests/Insights_ConfigurePart.png)
 3. In the **Create web test** blade, name the web test and specify the URL to run the test against.  
     ![Create Web Test](./media/insights-create-web-tests/Insights_CreateTest.png)
@@ -49,8 +50,8 @@ Typically you'll want to test that the HTTP status code equals 200, which signal
 
 You cannot use wildcards in the content match string, but you can test any plain text.
 
-## Uh oh - my site is down!
-If your web test doesn't pass the success criteria then it will be marked as a failed test and reduce the overall availability for your web site. Failed tests (As well as successful tests) are shown on a scatter chat on the specific web test blade.  
+## Uh oh - my web app is down!
+If your web test doesn't pass the success criteria then it will be marked as a failed test and reduce the overall availability for your web app. Failed tests (As well as successful tests) are shown on a scatter chat on the specific web test blade.  
 
 ![Failed Test](./media/insights-create-web-tests/Insights_FailedWebTest.png)
 
@@ -64,7 +65,7 @@ Failed tests can be analyzed to determine why they failed.  Drill into a failed 
 * [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
 * [Monitor performance][azure-perf] to diagnose issues with your code's dependencies
 
-[azure-perf]: ../insights-perf-analytics/
-[azure-usage]: ../insights-usage-analytics/
-[azure-availability]: ../insights-create-web-tests/
-[availability]: ../app-insights-monitor-web-app-availability/
+[azure-perf]: insights-perf-analytics.md
+[azure-usage]: insights-usage-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[availability]: app-insights-monitor-web-app-availability.md

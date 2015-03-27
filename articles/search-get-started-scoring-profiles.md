@@ -27,9 +27,9 @@ The sample application demonstrates scoring behaviors using fictional data, call
 <a id="sub-1"></a>
 ## Prerequisites
 
-The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
+The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
-You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](../search-get-started/) for help with setting up the service.
+You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](search-get-started.md) for help with setting up the service.
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
@@ -62,7 +62,7 @@ When you are finished adding the URL and `api-key` to app.config, application se
 
 You're almost ready to build and run the app, but before you do, take a look at the JSON files used to create and populate the index.
 
-**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx).
+**Schema.json** defines the index, including the scoring profiles that are emphasized in this demo. Notice that the schema defines all of the fields used in the index, including non-searchable fields, such as `margin`, that you can use in a scoring profile. Scoring profile syntax is documented in [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** provides the data, 246 albums across a handful of genres. The data is a combination of actual album and artist information, with fictional fields like `price` and `margin` used to illustrate search operations. The data files conform to the index and are uploaded to your Azure Search service. After the data is uploaded and indexed, you can issue queries against it.
 
@@ -104,9 +104,9 @@ Now that you have experimented with scoring profiles, try changing the program t
 
 <h2 id="next-steps">Next steps</h2>
 
-Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/en-us/library/azure/dn798928.aspx) for details.
+Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
 
-Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/en-us/library/azure/dn798927.aspx) for details.
+Learn more about search syntax and query parameters. See [Search Documents (Azure Search REST API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) for details.
 
 Need to step back and learn more about index creation? [Watch this video](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) to understand the basics.
 

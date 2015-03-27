@@ -1,19 +1,27 @@
-<properties title="" pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
-description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="zhangya, bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="Feature Engineering and Selection in Azure Machine Learning | Azure" 
+	description="Explains the purposes of feature selection and feature engineering and provides examples of their role in the data enhancement process of machine learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="zhangya, bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/14/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/14/2015" 
+	ms.author="bradsev" />
 
 
 # Feature Engineering and Selection in Azure Machine Learning
 
 This topic explains the purposes of feature engineering and feature selection in the data enhancement process of machine learning. It illustrates what these processes involve using examples provided by Azure Machine Learning Studio.
 
-The training of models used in machine learning can often be enhanced by the selection or extraction of features from the raw data collected. A  example of an engineered feature in the context of learning how to classify the images of handwritten characters is a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than the raw distribution.
+The training data used in machine learning can often be enhanced by the selection or extraction of features from the raw data collected. A  example of an engineered feature in the context of learning how to classify the images of handwritten characters is a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than the raw distribution.
 
 Engineered and selected features increase the efficiency of the training process which attempts to extract the key information contained in the data. They also improve the power of these models to classify the input data accurately and to predict outcomes of interest more robustly. Feature engineering and selection can also combine to make the learning more computationally tractable. It does so by enhancing and then reducing the number of features needed to calibrate or train a model. Mathematically speaking, the features selected to train the model are a minimal set of independent variables that explain the patterns in the data and then predict outcomes successfully. 
 
@@ -30,7 +38,7 @@ Engineering and selection are the **data enhancement** step of machine learning.
 * **feature engineering** This process attempts to create additional relevant features from the existing raw features in the data, and to increase predictive power to the learning algorithm.
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem. 
 
-This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/en-us/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see the [Pre-processing Data in Azure ML Studio](http://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) video.
 
 
 ## Creating Features from Your Data - Feature Engineering
@@ -41,7 +49,7 @@ What kind of features should be created to enhance the dataset when training a m
 
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
-* A regression example [Prediction of the number of bike rentals](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-sample-prediction-of-number-of-bike-rentals/) in a supervised experiment where the target values are known 
+* A regression example [Prediction of the number of bike rentals](machine-learning-sample-prediction-of-number-of-bike-rentals.md) in a supervised experiment where the target values are known 
 * A text mining classification example using [Feature Hashing](http://help.azureml.net/Content/html/C9A82660-2D9C-411D-8122-4D9E0B3CE92A.htm)
 
 ### Example 1: Adding Temporal Features for Regression Model ###
@@ -57,7 +65,7 @@ With the goal of constructing effective features in the training data, four regr
 
 Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
 
-In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an "Execute R Script" module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second branch from the left.
+In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an "Execute R Script" module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
 
 ![create features](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png) 
 
@@ -71,7 +79,7 @@ Feature engineering is widely applied in tasks related to text mining, such as d
 
 To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
 
-In Azure Machine Learning, there is a [Feature Hashing](http://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actually review content. The goal of this "Feature Hashing" module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
+In Azure Machine Learning, there is a [Feature Hashing](http://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this "Feature Hashing" module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
 
 * First, select the column that contains the input text ("Col2" in this example). 
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number. 
@@ -90,15 +98,14 @@ Feature selection is a process that is commonly applied for the construction of 
 * First, feature selection often increases classification accuracy by eliminating irrelevant, redundant, or highly correlated features. 
 * Second, it decreases the number of features which makes model training process more efficient. This is particularly important for learners that are expensive to train such as support vector machines. 
 
-Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not usually referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them.
-
-Examples of dimensionality reduction methods include Principal Component Analysis, canonical correlation analysis, and Singular Value Decomposition.
+Although feature selection does seek to reduce the number of features in the dataset used to train the model, it is not usually referred to by the term "dimensionality reduction". Feature selection methods extract a subset of original features in the data without changing them.  Dimensionality reduction methods employ engineered features that can transform the original features and thus modify them. Examples of dimensionality reduction methods include Principal Component Analysis, canonical correlation analysis, and Singular Value Decomposition.
 
 Among others, one widely applied category of feature selection methods in a supervised context is called "filter based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Person correlation, mutual information, and the Chi squared test.
 
-In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include "Filter Based Feature Selection", "Fisher Liner Discriminant Analysis", and "Linear Discriminant Analysis".
+In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include "Filter Based Feature Selection"and "Fisher Liner Discriminant Analysis".
  
 ![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
+
 
 Consider, for example, the use of the [Filter Based Feature Selection](http://help.azureml.net/Content/html/818b356b-045c-412b-aa12-94a1d2dad90f.htm) module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the "Feature Hashing" module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module "Filter Based Feature Selection" will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
 

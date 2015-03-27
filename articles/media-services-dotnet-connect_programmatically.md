@@ -19,7 +19,7 @@
 
 # Connecting to Media Services Account using Media Services SDK for .NET
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
 
 This topic describes how to obtain a programmatic connection to Microsoft Azure Media Services when you are programming with the Media Services SDK for .NET.
 
@@ -61,9 +61,9 @@ The following example uses the public CloudMediaContext(MediaServicesCredentials
 This section shows how to reuse Access Control Service tokens by using CloudMediaContext constructors that take MediaServicesCredentials as a parameter.
 
 
-[Azure Active Directory Access Control](https://msdn.microsoft.com/en-us/library/hh147631.aspx) (also known as Access Control Service or ACS) is a cloud-based service that provides an easy way of authenticating and authorizing users to gain access to their web applications. Microsoft Azure Media Services controls access to its services though OAuth protocol that requires an ACS token. Media Services receives the ACS tokens from an authorization server.
+[Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (also known as Access Control Service or ACS) is a cloud-based service that provides an easy way of authenticating and authorizing users to gain access to their web applications. Microsoft Azure Media Services controls access to its services though OAuth protocol that requires an ACS token. Media Services receives the ACS tokens from an authorization server.
 
-When developing with the Media Services SDK, you can choose to not deal with the tokens because the SDK code managers them for you. However, letting the SDK fully manage the ACS tokens leads to unnecessary token requests. Requesting tokens takes time and consumes the client and server resources. Also, the ACS server throttles the requests if the rate is too high. The limit is 30 requests per second, see [ACS Service Limitations](https://msdn.microsoft.com/en-us/library/gg185909.aspx) for more details.
+When developing with the Media Services SDK, you can choose to not deal with the tokens because the SDK code managers them for you. However, letting the SDK fully manage the ACS tokens leads to unnecessary token requests. Requesting tokens takes time and consumes the client and server resources. Also, the ACS server throttles the requests if the rate is too high. The limit is 30 requests per second, see [ACS Service Limitations](https://msdn.microsoft.com/library/gg185909.aspx) for more details.
 
 Starting with the Media Services SDK version 3.0.0.0, you can reuse the ACS tokens. The **CloudMediaContext** constructors that take **MediaServicesCredentials** as a parameter enable sharing the ACS tokens between multiple contexts. The MediaServicesCredentials class encapsulates the Media Services credentials. If an ACS token is available and its expiration time is known, you can create a new MediaServicesCredentials instance with the token and pass it to the constructor of CloudMediaContext. Note that the Media Services SDK automatically refreshes tokens whenever they expire. There are two ways to reuse ACS tokens, as shown in the examples below.
 
@@ -166,7 +166,7 @@ For example:
 
 ## Storing Connection Values in Configuration
 
-It is a highly recommended practice to store connection values, especially sensitive values such as your account name and password, in configuration. Also, it is a recommended practice to encrypt sensitive configuration data. You can encrypt the entire configuration file by using the Windows Encrypting File System (EFS). To enable EFS on a file, right-click the file, select **Properties**, and enable encryption in the **Advanced** settings tab. Or you can create a custom solution for encrypting selected portions of a configuration file by using protected configuration. See [Encrypting Configuration Information Using Protected Configuration](https://msdn.microsoft.com/en-us/library/53tyfkaw.aspx).
+It is a highly recommended practice to store connection values, especially sensitive values such as your account name and password, in configuration. Also, it is a recommended practice to encrypt sensitive configuration data. You can encrypt the entire configuration file by using the Windows Encrypting File System (EFS). To enable EFS on a file, right-click the file, select **Properties**, and enable encryption in the **Advanced** settings tab. Or you can create a custom solution for encrypting selected portions of a configuration file by using protected configuration. See [Encrypting Configuration Information Using Protected Configuration](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 The following App.config file contains the required connection values. The values in the <appSettings> element are the required values that you got from the Media Services account setup process.
 

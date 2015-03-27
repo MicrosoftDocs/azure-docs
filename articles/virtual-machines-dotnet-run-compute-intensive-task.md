@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Compute intensive .NET task on a virtual machine - Azure" 
-	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." 
-	services="virtual-machines" 
-	documentationCenter=".net" 
-	authors="" 
-	manager="wpickett" 
+<properties
+	pageTitle="Compute intensive .NET task on a virtual machine - Azure"
+	description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely."
+	services="virtual-machines"
+	documentationCenter=".net"
+	authors=""
+	manager="wpickett"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="11/24/2014" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="11/24/2014"
 	ms.author="wpickett"/>
 
 # How to run a compute-intensive task in .NET on an Azure virtual machine
 
 With Azure, you can use a virtual machine to handle compute-intensive tasks; for example, a virtual machine could handle tasks and deliver results to client machines or mobile applications. On completing this guide, you will have an understanding of how to create a virtual machine that runs a compute-intensive .NET application that can be monitored by another .NET application.
 
-This tutorial assumes you know how to create .NET console applications. No knowledge of Azure is assumed. 
+This tutorial assumes you know how to create .NET console applications. No knowledge of Azure is assumed.
 
 You will learn:
 
@@ -49,7 +49,7 @@ The following is an example of the .NET application monitoring the compute-inten
 3. Click **Virtual machine**.
 4. Click **Quick create**.
 5. In the **Create a virtual machine** screen, enter a value for **DNS name**.
-6. From the **Image** dropdown list, select an image, such as **Windows Server 2012**.
+6. From the **Image** dropdown list, select an image, such as **Windows Server 2012 R2**.
 7. Enter a name for the administrator in the **User Name** field. Remember this name and the password you will enter next, you will use them when you remotely log in to the virtual machine.
 8. Enter a password in the **New password** field, and re-enter it in the **Confirm** field.
 9. From the **Location** drop down list, select the data center location for your virtual machine.
@@ -57,7 +57,7 @@ The following is an example of the .NET application monitoring the compute-inten
 
 <h2>To remotely log in to your virtual machine</h2>
 
-1. Log on to the [Management Portal](https://manage.windowsazure.com).
+1. Log on to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **Virtual machines**.
 3. Click the name of the virtual machine that you want to log in to.
 4. Click **Connect**.
@@ -97,22 +97,22 @@ the new namespace, you need to obtain the management credentials for the
 namespace.
 
 1.  In the left navigation pane, click the **Service Bus** node, to
-    display the list of available namespaces:   
+    display the list of available namespaces:
     ![Available namespaces screenshot][available_namespaces]
-2.  Select the namespace you just created from the list shown:   
+2.  Select the namespace you just created from the list shown:
     ![Namespace list screenshot][namespace_list]
-3. Click **Access Key**.   
+3. Click **Connection Information**.
     ![Access key button][access_key_button]
-4.  In the dialog, find the **Default Issuer** and **Default Key** entries. Make a note of these values, as you will use this information below to perform operations with the namespace. 
+4.  In the dialog, find the **Connection String** entry. Make a note of this value, as you will use this information below to perform operations with the namespace.
 
 <h2>How to create a .NET application that performs a compute-intensive task</h2>
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/en-us/develop/net/).
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for .NET](http://www.windowsazure.com/develop/net/).
 2. Create a .NET console application with the project named **TSPSolver**. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
 3. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 4. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 5. Use the example code at the end of this section for the contents of **Program.cs**.
-6. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
+6. Modify the **your\_connection\_string** placeholder to use your service bus **connection string**.
 7. Compile the application. This will create **TSPSolver.exe** in your project's **bin** folder (either **bin\release** or **bin\debug**, depending on whether you're targeting a release or debug build). You'll copy this executable and Microsoft.ServiceBus.dll to your virtual machine later.
 
 <p/>
@@ -122,10 +122,10 @@ namespace.
 	using System.Linq;
 	using System.Text;
 	using System.IO;
-	
+
 	using Microsoft.ServiceBus;
 	using Microsoft.ServiceBus.Messaging;
-	
+
 	namespace TSPSolver
 	{
 	    class Program
@@ -133,26 +133,26 @@ namespace.
 	        // Value specifying how often to provide an update to the console.
 	        private static long loopCheck = 100000000;
 	        private static long nTimes = 0, nLoops = 0;
-	
+
 	        private static double[,] distances;
 	        private static String[] cityNames;
 	        private static int[] bestOrder;
 	        private static double minDistance;
-	
+
 	        private static NamespaceManager namespaceManager;
 	        private static QueueClient queueClient;
 	        private static String queueName = "TSPQueue";
-	
+
 	        private static void BuildDistances(String fileLocation, int numCities)
 	        {
-	
+
 	            try
 	            {
 	                StreamReader sr = new StreamReader(fileLocation);
 	                String[] sep1 = { ", " };
-	
+
 	                double[,] cityLocs = new double[numCities, 2];
-	
+
 	                for (int i = 0; i < numCities; i++)
 	                {
 	                    String[] line = sr.ReadLine().Split(sep1, StringSplitOptions.None);
@@ -161,7 +161,7 @@ namespace.
 	                    cityLocs[i, 1] = Convert.ToDouble(line[2]);
 	                }
 	                sr.Close();
-	
+
 	                for (int i = 0; i < numCities; i++)
 	                {
 	                    for (int j = i; j < numCities; j++)
@@ -176,17 +176,17 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        private static double hypot(double x, double y)
 	        {
 	            return Math.Sqrt(x * x + y * y);
 	        }
-	
+
 	        private static void permutation(List<int> startCities, double distSoFar, List<int> restCities)
 	        {
 	            try
 	            {
-	
+
 	                nTimes++;
 	                if (nTimes == loopCheck)
 	                {
@@ -196,7 +196,7 @@ namespace.
 	                    Console.Write("Current time is {0}.", dateTime);
 	                    Console.WriteLine(" Completed {0} iterations of size of {1}.", nLoops, loopCheck);
 	                }
-	
+
 	                if ((restCities.Count == 1) && ((minDistance == -1) || (distSoFar + distances[restCities[0], startCities[0]] + distances[restCities[0], startCities[startCities.Count - 1]] < minDistance)))
 	                {
 	                    startCities.Add(restCities[0]);
@@ -220,14 +220,14 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        private static void newBestDistance(List<int> cities, double distance)
 	        {
 	            try
 	            {
 	                minDistance = distance;
 	                String cityList = "Shortest distance is " + minDistance + ", with route: ";
-	
+
 	                for (int i = 0; i < bestOrder.Length; i++)
 	                {
 	                    bestOrder[i] = cities[i];
@@ -243,26 +243,19 @@ namespace.
 	                throw e;
 	            }
 	        }
-	
+
 	        static void Main(string[] args)
 	        {
 	            try
 	            {
-	
-	                String serviceBusNamespace = "your_service_bus_namespace";
-	                String issuer = "your_service_bus_owner";
-	                String key = "your_service_bus_key";
-	
-	                String connectionString = @"Endpoint=sb://" +
-	                       serviceBusNamespace +
-	                       @".servicebus.windows.net/;SharedSecretIssuer=" +
-	                       issuer + @";SharedSecretValue=" + key;
-	
+
+                  String connectionString = @"your_connection_string";
+
 	                int numCities = 10; // Use as the default, if no value is specified
 	                // at the command line.
 	                if (args.Count() != 0)
 	                {
-	
+
 	                    if (args[0].ToLower().CompareTo("createqueue") == 0)
 	                    {
 	                        // No processing to occur other than creating the queue.
@@ -271,7 +264,7 @@ namespace.
 	                        Console.WriteLine("Queue named {0} was created.", queueName);
 	                        Environment.Exit(0);
 	                    }
-	
+
 	                    if (args[0].ToLower().CompareTo("deletequeue") == 0)
 	                    {
 	                        // No processing to occur other than deleting the queue.
@@ -280,19 +273,19 @@ namespace.
 	                        Console.WriteLine("Queue named {0} was deleted.", queueName);
 	                        Environment.Exit(0);
 	                    }
-	
+
 	                    // Neither creating or deleting a queue.
 	                    // Assume the value passed in is the number of cities to solve.
 	                    numCities = Convert.ToInt32(args[0]);
 	                }
-	
+
 	                Console.WriteLine("Running for {0} cities.", numCities);
-	
+
 	                queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-	
+
 	                List<int> startCities = new List<int>();
 	                List<int> restCities = new List<int>();
-	
+
 	                startCities.Add(0);
 	                for (int i = 1; i < numCities; i++)
 	                {
@@ -306,7 +299,7 @@ namespace.
 	                permutation(startCities, 0, restCities);
 	                Console.WriteLine("Final solution found!");
 	                queueClient.Send(new BrokeredMessage("Complete"));
-	
+
 	                queueClient.Close();
 	                Environment.Exit(0);
 
@@ -341,11 +334,11 @@ namespace.
 <h2>How to create a .NET application that monitors the progress of the compute-intensive task</h2>
 
 1. On your development machine, create a .NET console application using **TSPClient** as the project name. Ensure the traget framework is set for .**NET Framework 4** or later (not **.NET Framework 4 Client Profile**). The target framework can be set after you create a project by the following: In Visual Studio's menu, click **Projects**, click **Properties**, click the **Application** tab, and then set the value for **Target framework**.
-2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPSolver**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
+2. Add in the Microsoft ServiceBus library. In Visual Studio Solution Explorer, right-click **TSPClient**, click **Add Reference**, click the **Browse** tab, browse to the Azure .NET SDK (for instance at the location **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) and select **Microsoft.ServiceBus.dll** as a reference.
 3. Add in the System Runtime Serialization library. In Visual Studio Solution Explorer, right-click **TSPClient**, click **Add Reference**, click the **.NET** tab, and select **System.Runtime.Serialization** as a reference.
 4. Use the example code at the end of this section for the contents of **Program.cs**.
-5. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
-5. Compile the application. This will create **TSPClient.exe** in your project's **bin** folder (either **bin\release** or **bin\debug**, depending on whether you're targeting a release or debug build). You can run this code from your development machine, or copy this executable and Microsoft.ServiceBus.dll to a machine that will run the client application (it does not need to be on your virtual machine).
+5. Modify the **your\_connection\_string** placeholder to use your service bus **connection string**.
+6. Compile the application. This will create **TSPClient.exe** in your project's **bin** folder (either **bin\release** or **bin\debug**, depending on whether you're targeting a release or debug build). You can run this code from your development machine, or copy this executable and Microsoft.ServiceBus.dll to a machine that will run the client application (it does not need to be on your virtual machine).
 
 <p/>
 
@@ -354,62 +347,55 @@ namespace.
 	using System.Linq;
 	using System.Text;
 	using System.IO;
-	
+
 	using Microsoft.ServiceBus;
 	using Microsoft.ServiceBus.Messaging;
 	using System.Threading; // For Thread.Sleep
-	
+
 	namespace TSPClient
 	{
 	    class Program
 	    {
-	
+
 	        static void Main(string[] args)
 	        {
-	
+
 	            try
 	            {
-	
+
 	                Console.WriteLine("Starting at {0}", DateTime.Now);
-	
-	                String serviceBusNamespace = "your_service_bus_namespace";
-	                String issuer = "your_service_bus_owner";
-	                String key = "your_service_bus_key";
-	
-	                String connectionString = @"Endpoint=sb://" +
-	                       serviceBusNamespace +
-	                       @".servicebus.windows.net/;SharedSecretIssuer=" +
-	                       issuer + @";SharedSecretValue=" + key;
-	
+
+									String connectionString = @"your_connection_string";
+
 	                QueueClient queueClient = QueueClient.CreateFromConnectionString(connectionString, "TSPQueue");
-	
+
 	                BrokeredMessage message;
-	
+
 	                int waitMinutes = 3;  // Use as the default, if no value
 	                // is specified at command line.
-	
+
 	                if (0 != args.Length)
 	                {
 	                    waitMinutes = Convert.ToInt16(args[0]);
 	                }
-	
+
 	                String waitString;
 	                waitString = (waitMinutes == 1) ? "minute" : waitMinutes.ToString() + " minutes";
-	
+
 	                while (true)
 	                {
 	                    message = queueClient.Receive();
-	
+
 	                    if (message != null)
 	                    {
 	                        try
 	                        {
 	                            string str = message.GetBody<string>();
 	                            Console.WriteLine(str);
-	
+
 	                            // Remove message from queue
 	                            message.Complete();
-	
+
 	                            if ("Complete" == str)
 	                            {
 	                                Console.WriteLine("Finished at {0}.", DateTime.Now);
@@ -518,13 +504,13 @@ Run the compute-intensive application, first to create the queue, then to solve 
 		City_48, 363.68, 768.21
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
-	
+
 5. At a command prompt, change directories to c:\TSP.
 6. You'll need to create the service bus queue before you run the TSP solver permutations. Run the following command to create the service bus queue:
 
         TSPSolver createqueue
 
-7. Now that the queue is created, you can run the TSP solver permutations. For example, run the following command to run the solver for 8 cities. 
+7. Now that the queue is created, you can run the TSP solver permutations. For example, run the following command to run the solver for 8 cities.
 
         TSPSolver 8
 
@@ -534,7 +520,7 @@ The solver will run until it finishes examining all routes.
 
 > [AZURE.NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
- 
+
 <h3>How to run the monitoring client application</h3>
 1. Log on to your machine where you will run the client application. This does not need to be the same machine running the **TSPSolver** application, although it can be.
 2. Create a folder where you will run your application. For example, **c:\TSP**.
@@ -557,7 +543,7 @@ The solver will run until it finishes examining all routes.
 For both the solver and client applications, you can press **Ctrl+C** to exit if you want to end prior to normal completion.
 
 <h2>Alternative to creating and deleting the queue with TSPSolver</h2>
-Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages. 
+Instead of using TSPSolver to create or delete the queue, you can create or delete the queue using the [Azure Management Portal](https://manage.windowsazure.com). Visit the service bus section of the Management Portal to access the user interfaces for creating or deleting a queue, as well as for retrieving the connection string, issuer, and access key. You can also view a dashboard of your service bus queues, allowing you to view metrics for your incoming and outgoing messages.
 
 [solver_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
 [client_output]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

@@ -25,7 +25,7 @@ Azure Search is a cloud-based service and HTTP-based API that can be used in cus
 
 This article explains how to administer a Search service in the new [Azure Preview portal](https://portal.azure.com).
 
-Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](http://azure.microsoft.com/en-us/documentation/articles/search-get-started-management-api/) and [Azure Search Management REST API reference](http://msdn.microsoft.com/en-us/library/azure/dn832684.aspx) for details.
+Alternatively, you can use the Management REST API. See [Get started with Azure Search Management REST API](search-get-started-management-api.md) and [Azure Search Management REST API reference](http://msdn.microsoft.com/library/azure/dn832684.aspx) for details.
 
 <a id="sub-1"></a>
 ## Add search service to your subscription
@@ -38,10 +38,10 @@ Standard search is billable because you are signing up for dedicated resources a
 
 To plan for capacity and understand the billing impact, we recommend these links:
 
-+	[Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx)
++	[Limits and constraints](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Pricing Details](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-When you are ready to sign up, see [Get started with Azure Search](../search-get-started/).
+When you are ready to sign up, see [Get started with Azure Search](search-get-started.md).
 
 <a id="sub-2"></a>
 ## Administrative tasks
@@ -103,10 +103,10 @@ In this public preview, resource monitoring is limited to the information shown 
 
 On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application.
 
-Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](http://msdn.microsoft.com/en-us/library/dn798934.aspx) for details. 
+Using the Search Service API, you can get a count on documents and indexes. There are hard limits associated with these counts based on the pricing tier. See [Limits and constraints](http://msdn.microsoft.com/library/dn798934.aspx) for details. 
 
-+	[Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)
-+	[Count Documents](http://msdn.microsoft.com/en-us/library/dn798924.aspx)
++	[Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Count Documents](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [AZURE.NOTE] Caching behaviors can temporarily overstate a limit. For example, when using the shared service, you might see a document count over the hard limit of 10,000 documents. The overstatement is temporary and will be detected on the next limit enforcement check. 
 
@@ -146,7 +146,7 @@ In contrast with removing replicas, which requires no extra effort on your part,
 
 There is no detection method that tells you which index shards are stored on specific partitions. Each partition provides approximately 25 GB in storage, so you will need to reduce storage to a size that can be accommodated by the number of partitions you have. If you want to revert to one partition, all 12 shards will need to fit.
 
-To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/en-us/library/dn798942.aspx)) to see how much you actually used. 
+To help with future planning, you might want to check storage (using [Get Index Statistics](http://msdn.microsoft.com/library/dn798942.aspx)) to see how much you actually used. 
 
 
 <a id="sub-7"></a>
@@ -162,7 +162,7 @@ Stopping or starting the service does not turn off billing. You must delete the 
 <a id="sub-8"></a>
 ## Set roles on administrative access
 
-Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for details about role membership.
+Azure provides a global role-based authorization model for all services managed through the Preview Portal, or in the Azure Resource Manager API if you're using a custom administration tool. Owner, Contributor, and Reader roles set the level of service administration for the Active Directory users, groups, and security principals you assign to each role. See [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) for details about role membership.
 
 In terms of Azure Search, role-based access controls determine the following administrative tasks:
 
@@ -190,7 +190,7 @@ Subscription and service administrators have automatic membership in the Owners 
 </tr>
 </table>
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/en-us/updates/role-based-access-control-in-azure-preview-portal/) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Preview Portal](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) for more information.
 
 Roles provide access control after the service is created. Only subscription managers can add a Search service to a subscription.
 
@@ -214,7 +214,7 @@ Roles provide access control after the service is created. Only subscription man
 
 
 <!--Link references-->
-[Get started with Azure Search]: ../search-get-started/
-[Azure Search development workflow]: ../search-workflow/
-[Create your first azure search solution]: ../search-create-first-solution/
+[Get started with Azure Search]: search-get-started.md
+[Azure Search development workflow]: search-workflow.md
+[Create your first azure search solution]: search-create-first-solution.md
 

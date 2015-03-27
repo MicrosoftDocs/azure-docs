@@ -31,9 +31,9 @@ Now, you can use this API key value to enable services to authenticate with GCM 
 
 
 <!-- URLs. -->
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Management Portal]: https://manage.windowsazure.com/
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[.NET backend version]: mobile-services-dotnet-backend-windows-phone-get-started.md

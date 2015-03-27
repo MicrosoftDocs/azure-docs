@@ -21,14 +21,6 @@
 
 Learn how to define workflows and coordinators, and how to trigger the coordinator jobs based on time. It is helpful to go through [Use Oozie with HDInsight][hdinsight-use-oozie] before this article. 
 
-##In this article
-
-0. [What is Oozie](#whatisoozie)
-1. [Prerequisites](#prerequisites)
-2. [Define Oozie workflow file](#defineworkflow)
-2. [Deploy the Oozie project and prepare the tutorial](#deploy)
-3. [Run workflow](#run)
-4. [Next steps](#nextsteps)
 
 ##<a id="whatisoozie"></a>What is Oozie
 
@@ -252,9 +244,9 @@ You will run an Azure PowerShell script to perform the following:
 
 **Understand HDInsight storage**
 
-HDInsight uses Azure Blob Storage for data storage.  It is called *WASB* or *Windows Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
+HDInsight uses Azure Blob Storage for data storage.  It is called *WASB* or *Azure Storage - Blob*. WASB is Microsoft's implementation of HDFS on Azure Blob storage. For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simply the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/useoozie*. By default this container has the same name as the HDInsight cluster name. 
+When you provision an HDInsight cluster, an Azure Storage account and a specific Blob storage container from that account is designated as the default file system, just like in HDFS. In addition to this storage account, you can add additional storage accounts from either the same Azure subscription or different Azure subscriptions during the provision process. For instructions on adding additional storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. To simplify, the PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/useoozie*. By default this container has the same name as the HDInsight cluster name. 
 The WASB syntax is:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
@@ -706,39 +698,39 @@ In this tutorial, you have learned how to define an Oozie workflow, and Oozie co
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 
 
-[hdinsight-versions]:  ../hdinsight-component-versioning/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-admin-portal]: ../hdinsight-administer-use-management-portal/
+[hdinsight-versions]:  hdinsight-component-versioning.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-get-started-emulator]: ../hdinsight-get-started-emulator/
-[hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-develop-java-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-develop-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure/
-[sqldatabase-get-started]: ../sql-database-get-started/
+[sqldatabase-create-configue]: sql-database-create-configure.md
+[sqldatabase-get-started]: sql-database-get-started.md
 
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/en-us/downloads/
+[powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../install-and-configure-powershell/
-[powershell-start]: http://technet.microsoft.com/en-us/library/hh847889.aspx
-[powershell-script]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+[powershell-install-configure]: install-and-configure-powershell.md
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

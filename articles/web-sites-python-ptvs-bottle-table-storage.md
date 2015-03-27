@@ -192,14 +192,14 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs/
-[documentation]: ../storage-python-how-to-use-table-storage/
-[How to Use the Table Storage Service from Python]: ../storage-python-how-to-use-table-storage/
+[Python Developer Center]: /develop/python/
+[Azure Cloud Services]: cloud-services-python-ptvs.md
+[documentation]: storage-python-how-to-use-table-storage.md
+[How to Use the Table Storage Service from Python]: storage-python-how-to-use-table-storage.md
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com
-[Azure SDK for .NET]: http://azure.microsoft.com/en-us/downloads/
+[Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
@@ -212,5 +212,5 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 [Remote Debugging on Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Web Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Cloud Service Projects]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Azure Storage]: http://azure.microsoft.com/en-us/documentation/services/storage/
+[Azure Storage]: http://azure.microsoft.com/documentation/services/storage/
 [Azure SDK for Python]: https://github.com/Azure/azure-sdk-for-python

@@ -34,7 +34,7 @@ This tutorial walks you through these steps:
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. As such, this tutorial also requires Visual Studio 2013. 
 
->[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>. 
+>[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>. 
 
 
 ##<a id="register"></a>Enable Google Cloud Messaging
@@ -235,25 +235,25 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
-[JavaScript backend version]: /en-us/develop/mobile/tutorials/get-started-with-data-android
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Get started with Mobile Services]: mobile-services-dotnet-backend-android-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
+[JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-android
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-[How to use the Android client library for Mobile Services]: /en-us/documentation/articles/mobile-services-android-how-to-use-client-library
+[How to use the Android client library for Mobile Services]: mobile-services-android-how-to-use-client-library.md
 
-[Send push notifications to authenticated users]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-dotnet-backend-android-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /en-us/documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Send template-based notifications to subscribers]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[What are Notification Hubs?]: notification-hubs-overview.md
+[Send broadcast notifications to subscribers]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/

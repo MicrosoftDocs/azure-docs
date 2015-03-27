@@ -20,7 +20,7 @@
 
 This topic shows you how to register your app to be able to use Live Connect as an authentication provider for Azure Mobile Services. 
 
->[AZURE.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](/en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]To configure Microsoft Account authentication for a universal Windows app or to provide a single sign-on experience for a Windows Store app, see [Register your Windows Store app package for Microsoft authentication](mobile-services-how-to-register-store-app-package-microsoft-authentication.md).
 
 1. Navigate to the <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">My Applications</a> page in the Live Connect Developer Center, and log on with your Microsoft account, if required. 
 

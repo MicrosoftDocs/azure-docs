@@ -3,7 +3,7 @@
 	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="blackmist" 
+	authors="Blackmist" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,33 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/20/2015" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
 
 Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to create User Defined Functions (UDF) using a variety of programming languages. In this article, you will learn how to use a Python UDF from Hive and Pig.
 
-> [AZURE.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, and 3.1.
+> [AZURE.NOTE] The steps in this article apply to HDInsight cluster versions 2.1, 3.0, 3.1, and 3.2.
 
-##Table of contents
-
-* [Python on HDInsight](#python)
-*   [Hive and Python](#hivepython)
-*   [Pig and Python](#pigpython)
-* [Running the examples](#running)
-* [Troubleshooting](#troubleshooting)
-* [Next steps](#next)
 
 ##<a name="python"></a>Python on HDInsight
 
-Python2.7 is installed by default on HDInsight 3.0 clusters. The installation can be found in the D:\Python folder. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
+Python2.7 is installed by default on HDInsight 3.0 and later clusters. Hive can be used with this version of Python for stream processing (data is passed between Hive and Python using STDOUT/STDIN).
 
 HDInsight also includes Jython, which is a Python implementation written in Java. Pig understands how to talk to Jython without having to resort to streaming, so it's preferable when using Pig.
 
 ###<a name="hivepython"></a>Hive and Python
 
 Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement. For example, the following HiveQL invokes a Python script stored in the **streaming.py** file.
+
+**Linux-based HDInsight**
+
+	add file wasb:///streaming.py;
+	
+	SELECT TRANSFORM (clientid, devicemake, devicemodel)
+	  USING 'streaming.py' AS
+	  (clientid string, phoneLable string, phoneHash string)
+	FROM hivesampletable
+	ORDER BY clientid LIMIT 50;
+
+**Windows-based HDInsight**
 
 	add file wasb:///streaming.py;
 	
@@ -49,19 +53,20 @@ Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement
 	FROM hivesampletable
 	ORDER BY clientid LIMIT 50;
 
+> [AZURE.NOTE] On Windows-based HDInsight clusters, the **USING** clause must specify the full path to python.exe. This is always `D:\Python27\python.exe`.
+
 Here's what this example does:
 
 1. The **add file** statement at the beginning of the file adds the **streaming.py** file to the distributed cache, so it's accessible by all nodes in the cluster.
 
-2. The  **SELECT TRANSFORM ... USING 'D:\Python27\python.exe streaming.py'** statement selects data from the **hivesampletable**, and passes clientid, devicemake, and devicemodel to the **streaming.py** script.
-
-	> [AZURE.NOTE] The **USING** clause specifies the full path to python.exe, as it is not in the path.
+2. The  **SELECT TRANSFORM ... USING** statement selects data from the **hivesampletable**, and passes clientid, devicemake, and devicemodel to the **streaming.py** script.
 
 3. The **AS** clause describes the fields returned from **streaming.py**
 
-
 <a name="streamingpy"></a>
 Here's the **streaming.py** file used by the HiveQL example.
+
+	#!/usr/bin/env python
 
 	import sys
 	import string
@@ -145,12 +150,75 @@ Remember that we previously just defined the **LINE** input as a chararray becau
 
 When the data is returned to Pig, it will have a consistent schema as defined in the **@outputSchema** statement.
 
-See [Running the examples](#running) for how to run this example on your HDInsight cluster.
-
 ##<a name="running"></a>Running the examples
 
-These steps use Windows Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) before using the following steps.
+If you are using a Linux-based HDInsight cluster, use the **SSH** steps below. If you are using a Windows-based HDInsight cluster and a Windows client, use the **PowerShell** steps.
 
+###SSH
+
+For more information on using SSH, see <a href="../hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> or <a href="../hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a>.
+
+1. Using the Python examples [streaming.py](#streamingpy) and [jython.py](#jythonpy), create local copies of the files on your development machine.
+
+2. Use `scp` to copy the files to your HDInsight cluster. For example, the following would copy the files to a cluster named **mycluster**.
+
+		scp streaming.py jython.py myuser@mycluster-ssh.azurehdinsight.net:
+
+3. Use SSH to connect to the cluster. For example, the following would connect to a cluster named **mycluster** as user **myuser**.
+
+		ssh myuser@mycluster-ssh.azurehdinsight.net 
+
+4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
+
+		hadoop fs -copyFromLocal streaming.py /streaming.py
+		hadoop fs -copyFromLocal jython.py /jython.py
+
+After uploading the files, use the following steps to run the Hive and Pig jobs.
+
+####Hive
+
+1. Use the `hive` command to start the hive shell. You should see a `hive>` prompt once the shell has loaded.
+
+2. Enter the following at the `hive>` prompt.
+
+		add file wasb:///streaming.py;
+		SELECT TRANSFORM (clientid, devicemake, devicemodel)
+		  USING 'streaming.py' AS
+		  (clientid string, phoneLabel string, phoneHash string)
+		FROM hivesampletable
+		ORDER BY clientid LIMIT 50;
+
+3. After entering the last line, the job should start. Eventually it will return output similar to the following.
+
+		100041	RIM 9650	d476f3687700442549a83fac4560c51c
+		100041	RIM 9650	d476f3687700442549a83fac4560c51c
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+		100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
+
+####Pig
+
+1. Use the `pig` command to start the shell. You should see a `grunt>` prompt once the shell has loaded.
+
+2. Enter the following statements at the `grunt>` prompt.
+
+		Register wasb:///jython.py using jython as myfuncs;
+	    LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+	    LOG = FILTER LOGS by LINE is not null;
+	    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
+	    DUMP DETAILS;
+
+3. After entering the following line,the job should start. Eventually it will return output similar to the following.
+
+		((2012-02-03,20:11:56,SampleClass5,[TRACE],verbose detail for id 990982084))
+		((2012-02-03,20:11:56,SampleClass7,[TRACE],verbose detail for id 1560323914))
+		((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
+		((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
+		((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
+
+###PowerShell
+
+These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](install-configure-powershell.md) before using the following steps.
 
 1. Using the Python examples [streaming.py](#streamingpy) and [jython.py](#jythonpy), create local copies of the files on your development machine.
 
@@ -171,32 +239,11 @@ These steps use Windows Azure PowerShell. If this is not already installed and c
 
 	This script retrieves information for your HDInsight cluster, then extracts the account and key for the default storage account, and uploads the files to the root of the container.
 
-	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](/en-us/documentation/articles/hdinsight-upload-data/) document.
-
-###Using the Hive Dashboard (Hive example only)
-
-1. After uploading the file, open a browser and navigate to https://YourClusterName.azurehdinsight.net/. When prompted for credentials, enter the admin user name and password for your cluster.
-
-	> [AZURE.NOTE] You can also use the **Manage Cluster** link at the bottom of the HDInsight **Dashboard** in the Azure management portal to launch the Hive Dasboard.
-
-2. Using the **Hive Editor**, replace the `select * from hivesampletable` line with the following HiveQL.
-
-		add file wasb:///streaming.py;
-		SELECT TRANSFORM (clientid, devicemake, devicemodel)
-		  USING 'D:\Python27\python.exe streaming.py' AS
-		  (clientid string, phoneLable string, phoneHash string)
-		FROM hivesampletable
-		ORDER BY clientid LIMIT 50;
-
-3. Click the **Submit** button to submit the job. Depending on the HDInsight cluster version, you may be redirected to the Job Details page. If not, select **View Details** in the **Job Session** area at the bottom of the page.
-
-4. The **Job Details** page will refresh until the job completes. Once complete, information on the job, as well as the output, will be displayed.
-
-###Using PowerShell (Hive and Pig examples)
+	> [AZURE.NOTE] Other methods of uploading the scripts can be found in the [Upload data for Hadoop jobs in HDInsight](hdinsight-upload-data.md) document.
 
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
-**To run the Hive Job**
+####Hive
     
     # Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
@@ -204,7 +251,7 @@ After uploading the files, use the following PowerShell scripts to start the job
 	$HiveQuery = "add file wasb:///streaming.py;" +
 	             "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
 	               "USING 'D:\Python27\python.exe streaming.py' AS " +
-	               "(clientid string, phoneLable string, phoneHash string) " +
+	               "(clientid string, phoneLabel string, phoneHash string) " +
 	             "FROM hivesampletable " +
 	             "ORDER BY clientid LIMIT 50;"
 	
@@ -226,7 +273,7 @@ The output for the **Hive** job should appear similar to the following:
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 	100042	Apple iPhone 4.2.x	375ad9a0ddc4351536804f1d5d0ea9b9
 
-**To run the Pig Job**
+####Pig
 
 	# Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
@@ -277,4 +324,10 @@ The error information (STDERR,) and the result of the job (STDOUT,) are also log
 
 If you need to load Python modules that aren't provided by default, see [How to deploy a module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) for an example of how to do this.
 
-If you would like to run jobs on HDInsight remotely without using PowerShell, see [How to use Azure HDInsight from Linux](http://blogs.msdn.com/b/benjguin/archive/2014/02/18/how-to-use-hdinsight-from-linux.aspx) for an example of using Python to run jobs through the WebHCat REST API.
+For other ways to use Pig, Hive, and to learn about using MapReduce, see the following.
+
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+
+* [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)

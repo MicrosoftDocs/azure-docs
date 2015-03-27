@@ -33,7 +33,7 @@ In this sample you will use an HDInsight cluster to analyze website log files to
 
 - You must have provisioned an **HDInsight cluster**. For instructions, see [Provision HDInsight Clusters][hdinsight-provision]. 
 - You must have Microsoft Excel 2010 or Microsoft Excel 2013 installed.
-- You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/en-us/download/details.aspx?id=40886) to import data from Hive into Excel.
+- You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
 
 
 ##To run the sample
@@ -51,7 +51,7 @@ In this sample you will use an HDInsight cluster to analyze website log files to
 Try the sample on how to analyze sensor data using Azure HDInsight. See [Analyzing sensor data using Hive with HDInsight][hdinsight-sensor-data-sample].
 
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-sensor-data-sample]: hdinsight-use-hive-sensor-data-analysis.md
 
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png

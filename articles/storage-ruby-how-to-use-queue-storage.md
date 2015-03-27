@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use the queue service (Ruby) | Microsoft Azure" 
+	pageTitle="How to use Queue storage from Ruby | Microsoft Azure" 
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac" 
+	authors="tfitzmac,tamram" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
+# How to use Queue storage from Ruby
 
-
-
-# How to Use the Queue Storage Service from Ruby
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
@@ -37,7 +36,7 @@ queues**.
 ## Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure Your Application to Access Storage
 
@@ -154,8 +153,8 @@ To delete a queue and all the messages contained in it, call the **delete\_queue
 
 Now that you've learned the basics of queue storage, follow these links to learn about more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 - Visit the [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
 
-For a comparision between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/en-us/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
+For a comparision between the Azure Queue Service discussed in this article and Azure Service Bus Queues discussed in the [How to use Service Bus Queues](/develop/ruby/how-to-guides/service-bus-queues/) article, see [Azure Queues and Azure Service Bus Queues - Compared and Contrasted](http://msdn.microsoft.com/library/azure/hh767287.aspx)

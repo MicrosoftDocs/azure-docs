@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/5/2015" 
+	ms.date="01/05/2015" 
 	ms.author="tamram"/>
 
 # Getting Started with the AzCopy Command-Line Utility
@@ -876,9 +876,9 @@ For more information about Azure Storage and AzCopy, see the following resources
 
 ### Azure Storage documentation:
 
-- [Introduction to Azure Storage](http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/)
-- [Store files in Blob storage](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Create an SMB file share in Azure with File storage](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Introduction to Azure Storage](storage-introduction.md)
+- [Store files in Blob storage](storage-dotnet-how-to-use-blobs.md)
+- [Create an SMB file share in Azure with File storage](storage-dotnet-how-to-use-files.md)
 
 ### Azure Storage blog posts:
 - [AzCopy: Introducing synchronous copy and customized content type] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
@@ -888,5 +888,5 @@ For more information about Azure Storage and AzCopy, see the following resources
 - [AzCopy: Support for read-access geo-redundant storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 - [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: Using cross-account Copy Blob](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-- [AzCopy: Uploading/downloading files for Windows Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+- [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
 

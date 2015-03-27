@@ -16,18 +16,18 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
-> [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
-> - [What Happened](/documentation/articles/vs-storage-aspnet5-what-happened/)
-
-## Getting Started with Azure Storage (ASP.NET vNext Projects)
+# Getting Started with Azure Storage (ASP.NET vNext Projects)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Queues](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Tables](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
+> - [What Happened](vs-storage-aspnet5-what-happened.md)
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET") for more information.
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
+
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md/#create-table "How to use Table Storage from .NET") for more information.
 
 To programmatically access tables in ASP.NET 5 projects, you need to add the following items, if they're not already present.
 
@@ -192,4 +192,4 @@ You can delete an entity after you find it. The following code looks for a custo
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Learn more about Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
-See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).
+See also [Browsing Storage Resources in Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) and [ASP.NET 5](http://www.asp.net/vnext).

@@ -16,13 +16,13 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store" class="current">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store" class="current">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
 
 #How to Integrate Engagement on Windows
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows application.
 
-The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Store app](../mobile-engagement-windows-store-use-engagement-api/)) since these statistics are application dependent.
+The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Store app](mobile-engagement-windows-store-use-engagement-api.md)) since these statistics are application dependent.
 
 ##Supported versions
 

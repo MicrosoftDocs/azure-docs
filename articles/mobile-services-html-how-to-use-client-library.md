@@ -296,9 +296,9 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/en-us/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
+When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/en-us/documentation/articles/command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 ##<a name="modifying"></a>How to: Modify data in a mobile service
 
@@ -395,7 +395,7 @@ If you are using an identity provider other than Facebook, change the value pass
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [login] function, when complete, returns a JSON object (**user**) that exposes both the user ID and Mobile Services authentication token in the **userId** and **authenticationToken** fields, respectively. This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
 > [AZURE.NOTE] **Windows Store app**
-When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
+When you use the Microsoft Account login provider to authenticate users of your Windows Store app, you should also register the app package with Mobile Services. When you register your Windows Store app package information with Mobile Services, the client is able to re-use Microsoft Account login credentials for a single sign-on experience. If you do not do this, your Microsoft Account login users will be presented with a login prompt every time that the login method is called. To learn how to register your Windows Store app package, see [Register your Windows Store app package for Microsoft authentication](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank"). After the package information is registered with Mobile Services, call the [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") method by supplying a value of **true** for the <em>useSingleSignOn</em> parameter to re-use the credentials.
 
 ###Client flow
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider.
@@ -554,10 +554,10 @@ To control which websites are allowed to interact with and send requests to your
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
-* [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-html-get-started-data)
+* [Add Mobile Services to an existing app](mobile-services-html-get-started-data.md)
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Add authentication to your mobile services app](/en-us/documentation/articles/mobile-services-html-get-started-users)
+* [Add authentication to your mobile services app](mobile-services-html-get-started-users.md)
   <br/>Learn how to authenticate users of your app with an identity provider.
 
 <!-- Anchors. -->
@@ -585,32 +585,32 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-html
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-html
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Getting Started with Data]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
-[Get started with authentication Windows Store]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[then]: http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx
-[done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx
-[Learn more about the  differences between then and done]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx
-[how to handle errors in promises]: http://msdn.microsoft.com/en-us/library/windows/apps/hh700337.aspx
+[Getting Started with Data]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-html/
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-html
+[Get started with authentication Windows Store]: /develop/mobile/tutorials/get-started-with-users-js
+[then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
+[done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
+[Learn more about the  differences between then and done]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[how to handle errors in promises]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
-[sessionStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
-[localStorage]: http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx
+[sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
+[localStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
 
-[ListView]: http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx
-[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx
-[Windows Store JavaScript quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started
-[HTML quickstart]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html
-[Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js
-[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/
-[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js/
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-html
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-html
-[login]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx
-[Authenticate your app with single sign-in]: /en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+[ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
+[Data binding (Windows Store apps using JavaScript and HTML)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
+[Windows Store JavaScript quickstart]: http://www.windowsazure.com/develop/mobile/tutorials/get-started
+[HTML quickstart]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-html
+[Getting Started with Data in Windows Store JavaScript]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-js
+[Getting Started with Data in HTML/JavaScript]: http://www.windowsazure.com/develop/mobile/tutorials/get-started-with-data-html/
+[You can see a full example of how to set up this scenario here]: http://www.windowsazure.com/develop/mobile/tutorials/single-sign-on-windows-8-js/
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-html
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-html
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-html
+[login]: http://msdn.microsoft.com/library/windowsazure/jj554236.aspx
+[Authenticate your app with single sign-in]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
-[CLI to manage Mobile Services tables]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
+[CLI to manage Mobile Services tables]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables
 [OData system query options reference]: http://go.microsoft.com/fwlink/p/?LinkId=444502

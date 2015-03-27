@@ -104,7 +104,7 @@ During cluster creation, you select to use either an existing storage account an
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - after installing see `azure storage` for help on using storage, or `azure blob` for blob specific commands.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - after installing see `azure storage` for help on using storage, or `azure blob` for blob specific commands.
 
 * A variety of SDKs:
 
@@ -120,12 +120,12 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/en-us/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
 
 
 ##Next steps
 
-* [Use Hive with HDInsight](../hdinsight-use-hive/)
-* [Use Pig with HDInsight](../hdinsight-use-pig/)
-* [Use MapReduce jobs with HDInsight](../hdinsight-use-mapreduce)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
 

@@ -19,20 +19,20 @@
 
 #Create and upload a Windows Server VHD to Azure#
 
-This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more information about disks and images in Microsoft Azure, see [About Disks and Images in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+This article shows you how to upload a virtual hard disk (VHD) with an operating system so you can use it as an image to create virtual machines based on that image. For more information about disks and images in Microsoft Azure, see [About Disks and Images in Azure](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
-> [AZURE.NOTE] When you create a virtual machine based on an image, you can customize the operating system settings as appropriate for the applications you plan to run on the virtual machine. This configuration is saved for that virtual machine and doesn't affect the image. For instructions, see [How to Create a Custom Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-windows-tutorial/).
+> [AZURE.NOTE] When you create a virtual machine based on an image, you can customize the operating system settings as appropriate for the applications you plan to run on the virtual machine. This configuration is saved for that virtual machine and doesn't affect the image. For instructions, see [How to Create a Custom Virtual Machine](virtual-machines-windows-tutorial.md).
 
 ##Prerequisites##
 This article assumes you have the following:
 
-1. **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/).  
+1. **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).  
 
-2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://www.windowsazure.com/en-us/downloads/). A tutorial to install and configure the module is available [here](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/).You'll use the [Add-AzureVHD](http://msdn.microsoft.com/en-us/library/azure/dn495173.aspx) cmdlet to upload the VHD.
+2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://www.windowsazure.com/downloads/). A tutorial to install and configure the module is available [here](install-configure-powershell.md).You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
 
-3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solution such as Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/en-us/library/hh846766.aspx).
+3. **A supported Windows operating system stored in a .vhd file** - You have installed a supported Windows Server operating system to a virtual hard disk. Multiple tools exist to create .vhd files. You can use a virtualization solution such as Hyper-V to create a virtual machine and install the operating system. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-> [AZURE.NOTE] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/en-us/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
+> [AZURE.NOTE] The VHDX format is not supported in Microsoft Azure. You can convert the disk to VHD format using Hyper-V Manager or the [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx). A tutorial on this can be found [here](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx).
  
  The following Windows Server versions are supported:
 <P>
@@ -74,7 +74,7 @@ This task includes the following steps:
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
-Before the image can be uploaded to Azure, it must be generalized by using the Sysprep command. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/en-us/library/bb457073.aspx).
+Before the image can be uploaded to Azure, it must be generalized by using the Sysprep command. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
 From the virtual machine that the operating system was installed to, complete the following procedure:
 
@@ -173,9 +173,9 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
 
-	For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) 
+	For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-	For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell/) 
+	For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md) 
 
 
 ## <a id="upload"> </a>Step 4: Upload the .vhd file ##
@@ -189,7 +189,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 	
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
-	For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/dn495173.aspx).
+	For more information about the Add-AzureVhd cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
 ##Step 5: Add the Image to Your List of Custom Images ##
 After you upload the .vhd, you add it as an image to the list of custom images associated with your subscription.
@@ -228,7 +228,7 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 
 	![custom image](./media/virtual-machines-create-upload-vhd-windows-server/vm_custom_image.png)
 
-	This new image is now available under **My Images** when you create a virtual machine. For instructions, see [Create a Virtual Machine Running Windows Server](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-windows-tutorial/).
+	This new image is now available under **My Images** when you create a virtual machine. For instructions, see [Create a Virtual Machine Running Windows Server](virtual-machines-windows-tutorial.md).
 
 	![create VM from custom image](./media/virtual-machines-create-upload-vhd-windows-server/create_vm_custom_image.png)
 
@@ -237,7 +237,7 @@ After you upload the .vhd, you add it as an image to the list of custom images a
 ## Next Steps ##
  
 
-After creating a virtual machine, trying creating a SQL Server Virtual Machine. For instructions, see [Provisioning a SQL Server Virtual Machine on Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-provision-sql-server/). 
+After creating a virtual machine, trying creating a SQL Server Virtual Machine. For instructions, see [Provisioning a SQL Server Virtual Machine on Microsoft Azure](virtual-machines-provision-sql-server.md). 
 
 [Step 1: Prepare the image to be uploaded]: #prepimage
 [Step 2: Create a storage account in Azure]: #createstorage

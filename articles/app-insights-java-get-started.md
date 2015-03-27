@@ -2,8 +2,9 @@
 	pageTitle="Get started with Application Insights in a Java web project" 
 	description="Monitor performance and usage of your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,25 +12,22 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-29" 
+	ms.date="03/11/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
 
-By adding Application Insights to your project, you can detect and diagnose performance issues and exceptions.
+By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.
 
 In addition, you can set up web tests to monitor your application's availability, and insert code into your web pages to understand usage patterns.
 
 You'll need:
 
-* Oracle JRE 1.6 or later
+* Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
 * A subscription to [Microsoft Azure](http://azure.microsoft.com/). (You could start with the [free trial](http://azure.microsoft.com/pricing/free-trial/).)
 
-## Add Application Insights to your Java project
 
-(There will soon be plug-ins for Eclipse and IntelliJ to automate these steps, but for now you'll have to do them manually.)
-
-### Get an Application Insights instrumentation key
+## 1. Get an Application Insights instrumentation key
 
 1. Log into the [Microsoft Azure Portal](https://portal.azure.com)
 2. Create a new Application Insights resource
@@ -42,9 +40,13 @@ You'll need:
 
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-get-started/03-key.png)
 
-### Add the Application Insights SDK for Java to your project
+## 2. Add the Application Insights SDK for Java to your project
 
 *Choose the appropriate way for your project.*
+
+#### If you're creating a Dynamic Web project in Eclipse...
+
+Use the [Application Insights SDK for Java plug-in][eclipse].
 
 #### If you're using Maven...
 
@@ -61,10 +63,11 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </repositories>
 
     <dependencies>
-       <dependency>
-         <groupId>com.microsoft.azure</groupId>
-         <artifactId>applicationinsights-core</artifactId>
-         <version>[0.9,)</version>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>applicationinsights-web</artifactId>
+        <!-- or applicationinsights-core for bare API -->
+        <version>[0.9,)</version>
       </dependency>
     </dependencies>
 
@@ -79,7 +82,8 @@ Then refresh the project dependencies, to get the binaries downloaded.
     }
 
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-core', version: '0.9.+'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
+      // or applicationinsights-core for bare API
     }
 
 #### Otherwise ...
@@ -88,6 +92,8 @@ Manually add the SDK:
 
 1. Download the [Azure Libraries for Java](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)
 2. Extract the following binaries from the zip file, and add them to your project:
+ * applicationinsights-core
+ * applicationinsights-web
  * commons-codec
  * commons-io
  * commons-lang
@@ -97,104 +103,110 @@ Manually add the SDK:
  * httpcore
  * jsr305
 
-### Add an Application Insights configuration file to your project
-Add ApplicationInsights.xml to the resources folder in your project. Copy into it the following XML: 
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
-    </ApplicationInsights>
+*What's the relationship between the `-core` and `-web` components?*
+
+`applicationinsights-core` gives you the bare API with no automatic telemetry. 
+`applicationinsights-web` gives you metrics tracking HTTP request counts and response times. 
+
+
+## 3. Add an Application Insights config file
+
+Add ApplicationInsights.xml to the resources folder in your project. Copy into it the following XML.
 
 Substitute the instrumentation key that you got from the Azure portal.
 
-The key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
-
-## Send telemetry from your server using the API
-
-Insert a few lines of code in your Java web application to find out what users are doing with it. You can track events, metrics and exceptions.
-
-#### Import the namespace
-
-    import com.microsoft.applicationinsights.TelemetryClient;
-
-#### Track metrics
-
-Metrics are aggregated in the portal and displayed in graphical form. For example, to see the average score that users achieve in a game:
-
-    TelemetryClient client = new TelemetryClient();
-    client.trackMetric("Score", 2.1);
-
-#### Track events
-
-Events can be displayed on the portal as an aggregated count, and you can also display individual occurrences. For example, to see how many games have been won:
-
-    TelemetryClient client = new TelemetryClient();
-    client.trackEvent("WinGame");
-
-#### Track exceptions
-
-Exception telemetry allows you to see how often different types of exceptions have occurred. You can also investigate the stack trace of individual exceptions:
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
 
-    TelemetryClient client = new TelemetryClient();
+      <!-- The key from the portal: -->
 
-    try {
-       ...
-    } catch (Exception e) {
-      client.trackException(e);
-    }
+      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
-#### Trace logs
 
-You can [capture logs using your logging framework][javalogs] and search and filter the logs in Application Insights, along with custom events and exception reports. This is a powerful diagnostic tool.
+      <!-- HTTP request component (not required for bare API) -->
 
-Or you can use the Application Insights trace API directly:
-    TelemetryClient client = new TelemetryClient();
-    client.trackTrace ("Log entry");
+      <TelemetryModules>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+      </TelemetryModules>
 
-#### Attach properties and measurements to telemetry
+      <!-- Events correlation (not required for bare API) -->
 
-You can add property values to any of the above events and other types. As well as carrying extra data, the properties can be used to [filter][diagnostic] and [segment][metrics] the events in Application Insights. 
+      <TelemetryInitializers>
+        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+      </TelemetryInitializers>
+    </ApplicationInsights>
 
-For example:
 
-    TelemetryClient telemetry = new TelemetryClient();
-    
-    Map<String, String> properties = new HashMap<String, String>();
-    properties.put("game", currentGame.getName());
-    properties.put("difficulty", currentGame.getDifficulty());
-    
-    Map<String, Double> measurements = new HashMap<String, Double>();
-    measurements.put("Score", currentGame.getScore());
-    measurements.put("Opponents", currentGame.getOpponentCount());
-    
-    telemetry.trackEvent("WinGame", properties, measurements);
+* The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
+* The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
+* Events correlation is an addition to the HTTP request component. It assigns an identifier to each request received by the server, and adds this as a property to every item of telemetry as the property 'Operation.Id'. It allows you to correlate the telemetry associated with each request by setting a filter in [diagnostic search][diagnostic].
 
-## View your results in Application Insights
+## 4. Add an HTTP filter
+
+The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
+
+Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
+
+To get the most accurate results, the filter should be mapped before all other filters.
+
+    <filter>
+      <filter-name>ApplicationInsightsWebFilter</filter-name>
+      <filter-class>
+        com.microsoft.applicationinsights.web.internal.WebRequestTrackingFilter
+      </filter-class>
+    </filter>
+    <filter-mapping>
+       <filter-name>ApplicationInsightsWebFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+## 5. View your telemetry in Application Insights
 
 Run your application.
 
 Return to your Application Insights resource in Microsoft Azure.
 
-Data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
+HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![Click through to more data](./media/appinsights/appinsights-gs-r-10-java.png)
+![](./media/app-insights-java-track-http-requests/5-results.png)
+ 
 
-Click through any chart to see more detailed metrics. [Learn more about metrics.][perf]
+Click through any chart to see more detailed metrics. 
 
-## Next steps
+![](./media/app-insights-java-track-http-requests/6-barchart.png)
 
-#### Detect and diagnose issues
+ 
 
-* [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
+And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
+ 
+![](./media/app-insights-java-track-http-requests/7-instance.png)
+
+
+[Learn more about metrics.][metrics]
+
+## 5. Capture log traces
+
+You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalog].
+
+## 6. Send your own telemetry
+
+Now that you've installed the SDK, you can use the API to send your own telemetry. 
+
+* [Track custom events and metrics][track] to learn what users are doing with your application.
 * [Search events and logs][diagnostic] to help diagnose problems.
-* [Capture Log4J or Logback traces][javalogs]
 
-#### Track usage
+
+In addition, you can bring more features of Application Insights to bear on your application:
 
 * [Add web client telemetry][usage] to monitor page views and basic user metrics.
-* [Track custom events and metrics][track] to learn about how your application is used.
+* [Set up web tests][availability] to make sure your application stays live and responsive.
+
+
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]

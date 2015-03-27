@@ -2,8 +2,9 @@
 	pageTitle="Track usage in web applications" 
 	description="Log user activities." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="03/25/2015" 
 	ms.author="awills"/>
  
 # Track usage of web applications
@@ -33,34 +34,60 @@ If you haven't already configured your project for Application Insights, either:
 
 or get one directly:
 
-* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
+* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights ASP.NET or Java Web resource:
 
-![](./media/appinsights/appinsights-11newApp.png)
+
+![](./media/app-insights-web-track-usage/01-create.png)    
+
 
 
 #### Add our script to your web pages
 
-In Quick Start, get the script for web pages.
+In Quick Start, get the script for web pages:
 
-![](./media/appinsights/appinsights-06webcode.png)
+![](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
+The script contains your instrumentation key.
+
 (If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)
 
-## <a name="usage"></a>Usage analytics
+#### <a name="usage"></a>Usage analytics
 
 Run your web app, use it a bit to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or deploy it to your server.
 
+## Client performance overview
+
 In the application overview blade, the top chart on the Overview lens shows average load time at the browser, segmented into the time taken to request the page and the time taken to complete it:
 
-![](./media/appinsights/appinsights-47usage.png)
+![](./media/app-insights-web-track-usage/07-client-perf.png)
+
+*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
+
+This is a stacked chart which breaks the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
+
+![](./media/app-insights-web-track-usage/08-client-split.png)
+
+Note that the *network connect* time is usually lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
+
+
+### Click through to client performance by page
+
+Click the client performance chart to see a more detailed blade, which includes a grid segmented by page URL:
+
+
+![](./media/app-insights-web-track-usage/09-page-perf.png)
+
+If you'd like to see the performance of the pages over time, double-click the grid and change its chart type:
+
+![](./media/app-insights-web-track-usage/10-page-perf-area.png)
+
+## Client usage overview
 
 Scroll down to see the Usage analytics lens:
 
 ![](./media/appinsights/appinsights-47usage-2.png)
-
-*No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
 
 * **Users:** The count of distinct users over the time range of the chart. (Cookies are used to identify returning users.)
 * **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
@@ -81,7 +108,7 @@ Click a chart to see other metrics that you can display, or add a new chart and 
 
 
 
-## <a name="spa"></a> Custom page counts for single-page apps
+## Custom page counts
 
 By default, a page count occurs each time a new page loads into the client browser.  But you might want to count additional page views. For example, a page might display its content in tabs and you want to count a page when the user switches tabs. Or JavaScript code in the page might load new content without changing the browser's URL. 
 
@@ -92,13 +119,13 @@ Insert a JavaScript call like this at the appropriate point in your client code:
 The page name can contain the same characters as a URL, but anything after "#" or "?" will be ignored.
 
 
-## <a name="inspect"></a> Inspecting individual page view events
+## Inspect individual page view events
 
 Usually page view telemetry is analysed by Application Insights and you see only cumulative reports, averaged over all your users. But for debugging purposes, you can also look at individual page view events.
 
 In the Diagnostic Search blade, set Filters to Page View.
 
-![](./media/appinsights/appinsights-51searchpageviews.png)
+![](./media/app-insights-web-track-usage/12-search-pages.png)
 
 Select any event to see more detail.
 
@@ -106,13 +133,13 @@ Select any event to see more detail.
 
 > [Learn more about diagnostic search][diagnostic]
 
-## <a name="custom"></a> Detailed tracking with custom events and metrics
+## Custom usage tracking
 
 Want to find out what your users do with your app? By inserting calls in your client and server code, you can send your own telemetry to Application Insights. For example, you could find out the numbers of users who create orders without completing them, or which validation errors are hit most often, or the average score in a game.
 
 [Learn about the custom events and metrics API][track].
 
-## <a name="server"></a> Telemetry from your web server
+## Server telemetry
 
 If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
 

@@ -19,7 +19,7 @@
 
 #How to: Get a Media Processor Instance
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
 ##Overview
 
@@ -38,23 +38,28 @@ The following table provides the name and description of each available media pr
   <tbody>
     <tr>
        <td>Azure Media Encoder</td>
-       <td>Lets you run encoding tasks using the Media Encoder.</td>
-       <td><a href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
+       <td>Lets you run encoding tasks using the Azure Media Encoder.</td>
+       <td><a href="http://msdn.microsoft.com/library/jj129582.aspx"> Task Preset Strings for the Azure Media Encoder</a></td>
+    </tr>
+    <tr>
+       <td>Media Encoder Premium Workflow</td>
+       <td>Lets you run encoding tasks using Media Encoder Premium Workflow.</td>
+       <td><a href="http://azure.microsoft.com/documentation/articles/media-services-encode-with-premium-workflow/">Encode with Media Encoder Premium Workflow.</a></td>
+    </tr>    
+	<tr>
+        <td>Azure Media Indexer</td>
+        <td>Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</td>
+		<td><a href="http://azure.microsoft.com/documentation/articles/media-services-index-content/">Indexing Media Files with Azure Media Indexer</a>.</td>
     </tr>
     <tr>
         <td>Windows Azure Media Packager</td>
         <td>Lets you convert media assets from .mp4 to smooth streaming format. Also, lets you convert media assets from smooth streaming to the Apple HTTP Live Streaming (HLS) format.</td>
-		<td><a href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+		<td><a href="http://msdn.microsoft.com/library/hh973635.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>Lets you encrypt media assets using PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
-    </tr>
-    <tr>
-        <td>Azure Media Indexer</td>
-        <td>Enables you to make media files and content searchable, as well as generate closed captioning tracks and keywords.</td>
-		<td>N/A</td>
+        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
     <tr>
         <td>Storage Decryption</td>
@@ -83,6 +88,6 @@ The following method shows how to get a media processor instance. The code examp
 ##Next Steps
 Now that you know how to get a media processor instance, go to the [How to Encode an Asset][] topic which will show you how to use the Azure Media Encoder to encode an asset.
 
-[How to Encode an Asset]: ../media-services-encode-asset/
-[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/jj129582.aspx
+[How to Encode an Asset]: media-services-encode-asset.md
+[Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-set-up-computer/

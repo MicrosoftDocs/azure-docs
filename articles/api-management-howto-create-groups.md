@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to create and use groups to manage developer accounts in Azure API Management
@@ -30,20 +30,13 @@ In addition to these built-in groups, administrators can create custom groups. C
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
-## In this topic
-
--   [Create a group][]
--   [Associate a group with a product][]
--   [Associate groups with developers][]
--   [Next steps][]
-
 ## <a name="create-group"> </a>Create a group
 
-To create a new group, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To create a new group, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Click **Groups** from the **API Management** menu on the left, and then click **Add Group**.
 
@@ -106,7 +99,7 @@ Once a developer is added to a group, they can view and subscribe to the product
 [Associate groups with developers]: #associate-group-developer
 [Next steps]: #next-steps
 
-[How create and publish a product in Azure API Management]: ../api-management-howto-add-products
+[How create and publish a product in Azure API Management]: api-management-howto-add-products.md
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance

@@ -1,12 +1,20 @@
-<properties title="" pageTitle="How to evaluate model performance in Azure Machine Learning | Azure" 
-description="Explains how to evaluate model performance in Azure Machine Learning." 
-services="machine-learning"
-documentationCenter="" 
-authors="bradsev" 
-manager="paulettm" 
-editor="cgronlun"/>
+<properties 
+	pageTitle="How to evaluate model performance in Azure Machine Learning | Azure" 
+	description="Explains how to evaluate model performance in Azure Machine Learning." 
+	services="machine-learning"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/13/2015" ms.author="bradsev" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="bradsev" />
 
 
 # How to evaluate model performance in Azure Machine Learning
@@ -53,7 +61,7 @@ Figure 1. Evaluating a Regression Model.
 ###Inspecting the Evaluation Results###
 After running the experiment, you can click on the output port of the **Evaluate Model** module and select *Visualize* to see the evaluation results. The evaluation metrics available for regression models are: *Mean Absolute Error*, *Root Mean Absolute Error*, *Relative Absolute Error*, *Relative Squared Error*, and the *Coefficient of Determination*.
 
-The term "error" here represents the difference between the predicted value and the true value. The absolute value or the square of this difference are usually computed to capture the total amount of error across all instances, as the difference between the predicted and true value could be negative in some cases. The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values. Lower error values mean the model is more accurate in making predictions. An overall error metric of 0 means that the model fits the data perfectly.
+The term "error" here represents the difference between the predicted value and the true value. The absolute value or the square of this difference are usually computed to capture the total magnitude of error across all instances, as the difference between the predicted and true value could be negative in some cases. The error metrics measure the predictive performance of a regression model in terms of the mean deviation of its predictions from the true values. Lower error values mean the model is more accurate in making predictions. An overall error metric of 0 means that the model fits the data perfectly.
 
 The coefficient of determination, which is also known as R squared, is also a standard way of measuring how well the model fits the data. It can be interpreted as the proportion of variation explained by the model. A higher proportion is better in this case, where 1 indicates a perfect fit.
  
@@ -75,7 +83,7 @@ After running the experiment, you can inspect the evaluation results by clicking
 Figure 4. Cross-Validation Results of a Regression Model.
 
 ##Evaluating a Binary Classification Model##
-In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50K”, “>50K”}. In other words, the negative class represents the employees who make less than or equal to 50K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is that the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
+In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50K”, “>50K”}. In other words, the negative class represents the employees who make less than or equal to 50K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metrics Azure Machine Learning computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](http://archive.ics.uci.edu/ml/datasets/Adult) dataset to create an Azure Machine Learning experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ###Creating the Experiment###
 Add the following modules to your workspace in Azure Machine Learning Studio:
@@ -113,7 +121,7 @@ Another related metric that is often used is the **F1 Score**, which takes both 
 In addition, one can inspect the true positive rate vs. the false positive rate in the **Receiver Operating Characteristic (ROC)** curve and the corresponding **Area Under the Curve (AUC)** value. The closer this curve is to the upper left corner, the better the classifier’s performance is (that is maximizing the true positive rate while minimizing the false positive rate). Curves that are close to the diagonal of the plot, result from classifiers that tend to make predictions that are close to random guessing.
 
 ###Using Cross Validation###
-As in the regression example, we can perform cross validation to repeatedly train, score and evaluate different subsets of the data automatically. Similarly, we can use the **Cross Validate Model** module, an untrained logistic regression model, and a dataset. The label column must be set to *income* in the **Cross Validate Model **module’s properties. After running the experiment and clicking on the right output port of the **Cross Validate Model** module, we can see the binary classification metric values for each fold, in addition to the mean and standard deviation of each. 
+As in the regression example, we can perform cross validation to repeatedly train, score and evaluate different subsets of the data automatically. Similarly, we can use the **Cross Validate Model** module, an untrained logistic regression model, and a dataset. The label column must be set to *income* in the **Cross Validate Model** module’s properties. After running the experiment and clicking on the right output port of the **Cross Validate Model** module, we can see the binary classification metric values for each fold, in addition to the mean and standard deviation of each. 
  
 ![Cross-Validating a Binary Classification Model](media/machine-learning-evaluate-model-performance/8.png)
 

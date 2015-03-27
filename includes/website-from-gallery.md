@@ -1,69 +1,63 @@
-The gallery makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the gallery do not require installation of any software other than the browser used to connect to the Azure Management Portal. 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In this tutorial, you'll learn:
 
-- How to create a new site through the gallery.
+- How to create a new web app through the Azure Marketplace.
 
-- How to deploy the site through the Azure Portal.
+- How to deploy the web app through the Azure Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-## Create a website in the portal
+## Create a web app in the portal
 
-1. Login to the [Azure Management Portal](http://manage.windowsazure.com).
+1. Log in to the Azure Portal.
 
-2. Click the **New** icon on the bottom left of the dashboard.
+2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
 	
-	![Create New][5]
-
-3. Click the **Website** icon, and click **From Gallery**.
+	<!--todo:![Create New][5]-->
 	
-	![Create From Gallery][6]
+3. In the Marketplace, select **Web Apps**.
 
-4. Locate and click the WordPress icon in list, and then click **Next**.
+4. Click the **Scalable WordPress** icon.
+
+	<!--todo:![WordPress from list][7]-->
 	
-	![WordPress from list][7]
+5. After reading the description of the WordPress app, select **Create**.
 
-5. On the **Configure Your App** page, enter or select values for all fields:
+6. Click on each part (**WEB APP**, **DATABASE**, and **SUBSCRIPTION**) and enter or select values for the required fields:
 	
 - Enter a URL name of your choice	
-- Leave **Create a new MySQL database** selected in the **Database** field
 - Select the region closest to you
 
-	![configure your app][8]
+	<!--todo:![configure your app][8]-->
 
-6. Then click **Next**.
+7. When finished defining the web app, click **Create**.
 
-7. On the **Create New Database** page, you can specify a name for your new MySQL database or use the default name. Select the region closest to you as the hosting location. Select the box at the bottom of the screen to agree to ClearDB's usage terms for your hosted MySQL database. Then click the check to complete the site creation. 
+## Launch and manage your WordPress web app
 	
-	![create database][9]
+1. From the **Web Apps** blade, click on your new web app to open the dashboard.
 
-After you click **Complete** Azure will initiate build and deploy operations. While the website is being built and deployed the status of these operations is displayed at the bottom of the Websites page. After all operations are performed,  A final status message when the site has been successfully deployed.
+	<!--todo:![launch dashboard][10]-->
 
-## Launch and manage your WordPress site
+2. On the **Essentials** page, click the link under **Url** to open the web app's welcome page.
 
-1. Click on your new site from the **Websites** page to open the dashboard for the site.
+	<!--todo:![site URL][11]--> 
 
-	![launch dashboard][10]
+3. If you have not installed WordPress, enter the appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the web app's login page.
 
-2. On the **Dashboard** management page, scroll down and click the link on the left under **Site Url** to open the site's welcome page.
+	<!--todo:![login to WordPress][12]-->
 
-	![site URL][11] 
+4. Click **Login** and enter your credentials.  
+	<!--todo:screenshot-->
 
-3. Enter appropriate configuration information required by WordPress and click **Install WordPress** to finalize configuration and open the website's login page.
+5. You'll have a new WordPress web app that looks similar to the web app below.    
 
-	![login to WordPress][12]
-
-4. Login to the new WordPress website by entering the username and password that you specified on the **Welcome** page.
-
-5. You'll have a new WordPress site that looks similar to the site below.  
-
-	![your WordPress site][13]
+	<!--todo:![your WordPress site][13]-->
 
 
 
@@ -76,11 +70,4 @@ After you click **Complete** Azure will initiate build and deploy operations. Wh
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
-
-
-
-

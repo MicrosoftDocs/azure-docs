@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/16/2015" 
 	ms.author="kathydav"/>
 
 
@@ -42,7 +42,7 @@ This procedure shows you how to use the PuTTY program to access the virtual mach
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-tutorial/). 
+4. Log on to the virtual machine using the account that you specified when the machine was created. For more details on how to create a virtual machine with user name and password, see [Create a Virtual Machine Running Linux](virtual-machines-linux-tutorial.md). 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 

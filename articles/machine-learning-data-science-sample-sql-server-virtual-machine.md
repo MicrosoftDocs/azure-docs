@@ -1,7 +1,20 @@
+<properties 
+	pageTitle="Sample Data in SQL Server on Azure| Azure" 
+	description="Sample Data in SQL Server on Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<properties title="Sample Data in SQL Server on Azure" pageTitle="Sample Data in SQL Server on Azure| Azure" description="Sample Data in SQL Server on Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
-
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="fashah,garye" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
@@ -98,7 +111,7 @@ You can use the following sample code to save the down-sampled data to a file an
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

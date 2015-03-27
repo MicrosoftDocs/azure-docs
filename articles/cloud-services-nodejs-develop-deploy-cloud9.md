@@ -3,7 +3,7 @@
 	description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
-	authors="" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="wpickett"/>
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -299,7 +299,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 
   [Cloud9 IDE]: http://cloud9ide.com/ 
-  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
+  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/library/windowsazure/ee814754.aspx
+  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

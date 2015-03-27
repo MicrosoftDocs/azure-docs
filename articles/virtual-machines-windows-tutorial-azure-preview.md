@@ -23,11 +23,11 @@
 
 # Create a Virtual Machine in the Azure Preview Portal#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/virtual-machines-windows-tutorial/" title="Azure Portal">Azure Portal</a><a href="/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Azure Preview Portal" class="current">Azure Preview Portal</a></div>
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) running Windows, using as an example a Windows Server image from the Azure Marketplace in the Azure Preview Portal. The Marketplace offers a variety of images, including Windows operating systems, Linux-based operating systems, and application images. 
 
-> [AZURE.NOTE] You don't need any experience with Azure VMs to finish this tutorial. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] You don't need any experience with Azure VMs to finish this tutorial. However, you do need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 This tutorial shows you:
 
@@ -44,7 +44,7 @@ This section shows you how to use the Preview Portal to create a VM, using Windo
 > [AZURE.NOTE] The images available to you depends on your subscription. This tutorial uses a Windows Server image, but an MSDN subscription may offer additional images, including desktop images. 
  
 
-1. Sign in to the [Azure Preview Portal](https://portal.azure.com). Check out the [Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/) offer if you don't have a subscription yet.
+1. Sign in to the [Azure Preview Portal](https://portal.azure.com). Check out the [Free Trial](http://www.windowsazure.com/pricing/free-trial/) offer if you don't have a subscription yet.
 
 2. On the Hub menu, click **New**.
 
@@ -64,7 +64,7 @@ This section shows you how to use the Preview Portal to create a VM, using Windo
 	
 5. Review the default settings, such as the **Pricing Tier**, **Optional Configuration**, and **Location**. These choices affect the size of VM as well as networking options such as domain membership. For example, to try out Premium Storage on a virtual machine, you'll need to pick a region and size that supports it. 
 
-	>[AZURE.NOTE] Premium storage is in Preview, available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/).
+	>[AZURE.NOTE] Premium storage is in Preview, available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
 	
@@ -112,13 +112,13 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 To learn more about configuring Windows virtual machines on Azure, see the following articles:
 
-[How to Connect Virtual Machines in a Cloud Service](http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](cloud-services-connect-virtual-machine.md)
 
-[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
+[How to Create and Upload your own Virtual Hard Disk containing the Windows Server Operating System](virtual-machines-create-upload-vhd-windows-server.md)
 
-[Attach Data Disks to a Virtual Machine](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/)
+[Attach Data Disks to a Virtual Machine](storage-windows-attach-disk.md)
 
-[Manage the Availability of Virtual Machines](http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/)
+[Manage the Availability of Virtual Machines](manage-availability-virtual-machines.md)
 
 [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx)
 

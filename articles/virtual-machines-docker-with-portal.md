@@ -144,9 +144,9 @@ You are ready to go to the [Docker User Guide] and use your Docker VM. If you wa
 
 
 <!--Link references-->
-[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-docker-with-xplat-cli/
-[Azure Linux Agent]: ../virtual-machines-linux-agent-user-guide/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[How to use the Docker VM Extension from Azure Cross-Platform Interface (xplat-cli)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Azure Linux Agent]: virtual-machines-linux-agent-user-guide.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
 [Running Docker with https]: http://docs.docker.com/articles/https/
 [Docker User Guide]: https://docs.docker.com/userguide/

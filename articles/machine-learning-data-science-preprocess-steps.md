@@ -1,6 +1,21 @@
-<properties title="Preprocess and Clean Data" pageTitle="Preprocess and Clean Data | Azure" description="Preprocess and Clean Data" metaKeywords="data cleansing" services="data-science-process" solutions="" documentationCenter="" authors="msolhab,xibingao" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Preprocess and Clean Data | Azure" 
+	description="Preprocess and Clean Data" 
+	metaKeywords="data cleansing" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="xibingaomsft,msolhab" 
+	manager="paulettm" 
+	editor="cgronlun" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/16/2015" ms.author="msolhab,xibingao" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="xibingaomsft,msolhab" /> 
 
 
 Preprocess and Clean Data
@@ -51,27 +66,27 @@ Raw data is often noisy, unreliable and may be missing values. Using such data f
 	- Mean substitution: If the missing data is numerical, replace the missing values with the mean. 
 	- Frequent substitution: If the missing data is categorical, replace the missing values with the most frequent item 
 	- Regression substitution: Use regression method to replace missing values with regressed values.  
-<br>
+
 5. **How to normalize data?**
 	
 	Data normalization scales numerical values to a specified range. Popular data normalization methods include:
 	- Min-Max Normalization: Linearly transform the data to a range, say between 0 and 1.  And the min is scaled to 0 and max to 1.
 	- Z-score Normalization: Scale data based on mean and standard deviation: divide the difference between the data and the mean by the standard deviation.
 	- Decimal scaling: Scale the data by moving the decimal point of the attribute value.  
-<br>
+
 6. **How to discretize data?**  
 
 	Data can be discretized by converting continuous values to nominal attributes or intervals. Some ways of doing this are:
 	- Equal-Width Binning: Divide the range of all possible values of an attribute into N groups of the same size, and assign the values that fall in a bin with the bin number.
 	- Equal-Height Binning: Divide the range of all possible values of an attribute into N groups containing the same number of instances, then assign the values that fall in a bin with the bin number.  
-<br>
+
 7. **How to reduce data?**  
 
 	There are various methods to reduce data size for easier data handling. Depending on data size and the domain, the following methods can be applied: 
 	- Record Sampling: Sample the data records and only choose the representative subset from the data. 
 	- Attribute Sampling: Select only important attributes from the data.  
 	- Aggregation: Divide the data into groups and store the numbers for each group. For example, the daily revenue numbers of a restaurant chain over the past 20 years can be aggregated to monthly revenue to reduce the size of the data.  
-<br>
+
 8. **How to clean text data?**  
 
 	Text fields in tabular data may include characters which affect columns alignment and/or record boundaries. For e.g., embedded tabs in a tab-separated file cause column misalignment, and embedded new line characters break record lines. Improper text encoding handling while writing/reading text leads to information loss, inadvertent introduction of unreadable chanracters, e.g., nulls, and may also affect text parsing. Careful parsing and editing may be required in order to clean text fields for proper alignment and/or to extract structured data from unstructured or semi-structured text data.

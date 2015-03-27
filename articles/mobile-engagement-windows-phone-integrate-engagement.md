@@ -17,13 +17,13 @@
 	ms.author="kapiteir" />
 
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/en-us/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-integrate-engagement/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-integrate-engagement/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-integrate-engagement/" title="iOS">iOS</a><a href="/documentation/articles/mobile-engagement-android-integrate-engagement/" title="Android" >Android</a></div>
 
 #How to Integrate Engagement on Windows Phone
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows Phone application.
 
-The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-engagement-api/) below) since these statistics are application dependent.
+The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](mobile-engagement-windows-phone-use-engagement-api.md) below) since these statistics are application dependent.
 
 ##Supported versions
 
@@ -185,7 +185,7 @@ If you want to report some extra informations with your activity, you can add th
 			   return extra;
 			}
 
-Further details on the extra information can be found [here](../mobile-engagement-windows-phone-use-engagement-api/#extras-parameters).
+Further details on the extra information can be found [here](mobile-engagement-windows-phone-use-engagement-api.md#extras-parameters).
 
 These methods are called from within the `OnNavigatedTo` method of your page.
 
@@ -209,7 +209,7 @@ We recommend to call `StartActivity` inside your `OnNavigatedTo` method of your 
 
 Optionally, you may want to report application specific events, errors and jobs, to do so, use the others methods found in the `EngagementAgent` class. The Engagement API allows to use all of Engagement's advanced capabilities.
 
-For further informations, see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-the-engagement-api/).
+For further informations, see [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](mobile-engagement-windows-phone-use-the-engagement-api.md).
 
 ##Advanced configuration
 

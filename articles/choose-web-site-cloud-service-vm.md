@@ -50,7 +50,7 @@ Here are some common application scenarios with recommendations as to which Azur
 
 ### <a id="onprem"></a> I need a web front end with background processing and database backend to run business applications integrated with on premise assets.
 
-Azure Websites is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](../fundamentals-introduction-to-azure/#networking/) make it easy to connect back to on-premises resources. Azure Websites provides three 9's SLA and enables you to:
+Azure Websites is a great solution for complex business applications. It lets you develop apps that scale automatically on a load balanced platform, are secured with Active Directory, and connect to your on-premises resources. It makes managing those apps easy through a world-class management portal and APIs, and allows you to gain insight into how customers are using them with app insight tools. The new [Webjobs][] feature lets you run background processes and tasks as part of your web tier, while hybrid connectivity and [VNET features](fundamentals-introduction-to-azure.md#networking/) make it easy to connect back to on-premises resources. Azure Websites provides three 9's SLA and enables you to:
 
 * Run your applications reliably on a self-healing, auto-patching cloud platform. 
 * Scale automatically across a global network of datacenters.
@@ -123,7 +123,7 @@ If your open source framework is not supported on Websites, you can run it on ei
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
 
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on Websites, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/en-us/services/virtual-network/). On Websites you can use the new [VNET integration feature](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on Websites, Cloud Services, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On Websites you can use the new [VNET integration feature](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 
@@ -136,7 +136,7 @@ HTTP-based web services enable you to support a wide variety of clients, includi
 
 ##<a name="features"></a>Feature Comparison
 
-The following table compares the capabilities of Websites, Cloud Services, and Virtual Machines to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/en-us/support/legal/sla/).
+The following table compares the capabilities of Websites, Cloud Services, and Virtual Machines to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
 
 <table cellspacing="0" border="1">
 <tr>
@@ -280,14 +280,14 @@ The following table compares the capabilities of Websites, Cloud Services, and V
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Network isolation with <a href="/en-us/services/virtual-network/">Azure Virtual Network</a></p></td>
+   <td valign="middle"><p>Network isolation with <a href="/services/virtual-network/">Azure Virtual Network</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">See also <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure Websites Virtual Network Integration</a></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Support for <a href="/en-us/services/traffic-manager/">Azure Traffic Manager</a></p></td>
+   <td valign="middle"><p>Support for <a href="/services/traffic-manager/">Azure Traffic Manager</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
@@ -339,14 +339,14 @@ The following table compares the capabilities of Websites, Cloud Services, and V
 
 For more information about the three web hosting options, see the following resources:
 
-* [Introducing Azure](../fundamentals-introduction-to-azure/)
-* [Compute Hosting Options Provided by Azure](../fundamentals-application-models/)
+* [Introducing Azure](fundamentals-introduction-to-azure.md)
+* [Compute Hosting Options Provided by Azure](fundamentals-application-models.md)
 
 To get started with the option(s) you choose for your application, see the following resources:
 
-* [Azure Websites](/en-us/documentation/services/websites/)
-* [Azure Cloud Services](/en-us/documentation/services/cloud-services/)
-* [Azure Virtual Machines](/en-us/documentation/services/virtual-machines/)
+* [Azure Websites](/documentation/services/websites/)
+* [Azure Cloud Services](/documentation/services/cloud-services/)
+* [Azure Virtual Machines](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Azure Websites]: http://go.microsoft.com/fwlink/?LinkId=306051
@@ -354,13 +354,13 @@ To get started with the option(s) you choose for your application, see the follo
   [Virtual Machines]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [Storage]: http://www.windowsazure.com/documentation/services/storage/

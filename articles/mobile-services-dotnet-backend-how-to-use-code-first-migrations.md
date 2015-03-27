@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/27/2014" 
+	ms.date="02/27/2015" 
 	ms.author="glenga"/>
 
 # How to make data model changes to a .NET backend mobile service
 
 This topic shows how to use Entity Framework Code First Migrations to make data model changes to an existing Azure SQL Database to avoid losing existing data. This procedure assumes that you have already published your mobile service project to Azure, that there is existing data in your database, and that the remote and local data models are still in sync. This topic also describes the default Code First initializers implemented by Azure Mobile Services that are used during development. These initializers let you easily make schema changes without using Code First Migrations when it is not necessary to maintain you existing data. 
+
+>[AZURE.NOTE]The schema name that is used to prefix your tables in the SQL Database is defined by the <strong>MS_MobileServiceName</strong> app setting in the web.config file. When you download the starter project from the portal, this value is already set to the mobile service name. When your schema name matches the mobile service, multiple mobile services can safely share the same database instance. 
 
 ## Data model initializers
 
@@ -27,7 +29,7 @@ Mobile Services provides supports two data model initializer base classes in a .
 
 >[AZURE.NOTE]When you publish a .NET backend mobile service, the initializer is not run until a data access operation occurs. This means that for a newly published service, the data tables used for storage aren't created until a data access operation, such as a query, is requested by the client. 
 >
->You can also execute a data access operation by using the built-in API help functionality, accessed from the **Try it out** link on the start page. For more information on using the API pages to test your mobile service, see the section Test the mobile service project locally in [Add Mobile Services to an existing app](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/#test-the-service-locally).  
+>You can also execute a data access operation by using the built-in API help functionality, accessed from the **Try it out** link on the start page. For more information on using the API pages to test your mobile service, see the section Test the mobile service project locally in [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#test-the-service-locally).  
 
 Both initializer base classes delete from the database all tables, views, functions, and procedures in the schema used by the mobile service. 
 
@@ -152,8 +154,8 @@ This code calls the [AddOrUpdate] helper extension method to add seed data to th
 [2]: ./media/mobile-services-dotnet-backend-how-to-use-code-first-migrations/sql-database-drop-tables.png
 
 <!-- URLs -->
-[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/en-us/library/gg679604(v=vs.113).aspx
-[Seed]: http://msdn.microsoft.com/en-us/library/hh829453(v=vs.113).aspx
+[DropCreateDatabaseIfModelChanges]: http://msdn.microsoft.com/library/gg679604(v=vs.113).aspx
+[Seed]: http://msdn.microsoft.com/library/hh829453(v=vs.113).aspx
 [Azure Management Portal]: https://manage.windowsazure.com/
-[DbContext]: http://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx
-[AddOrUpdate]: http://msdn.microsoft.com/en-us/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx
+[DbContext]: http://msdn.microsoft.com/library/system.data.entity.dbcontext(v=vs.113).aspx
+[AddOrUpdate]: http://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx

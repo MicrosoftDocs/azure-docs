@@ -1,6 +1,22 @@
-<properties title="Process Data from SQL Azure" pageTitle="Process Data from SQL Azure | Azure" description="Process Data from SQL Azure" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="fashah" manager="jacob.spoelstra" editor="" videoId="" scriptId="" />
+<properties 
+	pageTitle="Process Data from SQL Azure | Azure" 
+	description="Process Data from SQL Azure" 
+	metaKeywords="" 
+	services="machine-learning" 
+	solutions="" 
+	documentationCenter="" 
+	authors="fashah" 
+	manager="paulettm" 
+	editor="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/27/2015" ms.author="fashah,garye" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="fashah,garye" /> 
 
 #<a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 
@@ -18,13 +34,13 @@ This document covers exploring data and generating features for data stored in a
 We describe the following data wrangling tasks in this section using SQL:
 
 1. [Data Exploration](#sql-dataexploration)
-2. [Feature Generation](#sql-featurerollout)
+2. [Feature Generation](#sql-featuregen)
 
 ####<a name="sql-dataexploration"></a>Data Exploration
 Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
 
 **Note**
-> For a practical example, you can use the [NYC Taxi dataset](#http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [INSERT TITLE HERE] for an end-to-end walk-through.
+> For a practical example, you can use the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
 
 1. Get the count of observations per day
 
@@ -87,7 +103,7 @@ Here is a brief primer on latitude/longitude location data (resourced from stack
 - The fifth decimal place is worth up to 1.1 m: it distinguish trees from each other. Accuracy to this level with commercial GPS units can only be achieved with differential correction.
 - The sixth decimal place is worth up to 0.11 m: you can use this for laying out structures in detail, for designing landscapes, building roads. It should be more than good enough for tracking movements of glaciers and rivers. This can be achieved by taking painstaking measures with GPS, such as differentially corrected GPS.
 
-The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/en-us/library/ff701710.aspx` to get the region/district information.
+The location information can can be featurized as follows, separating out region, location and city information. Note that once can also call a REST end point such as Bing Maps API available at `https://msdn.microsoft.com/library/ff701710.aspx` to get the region/district information.
 
 	select 
 		<location_columnname>
@@ -106,7 +122,7 @@ The above location based features can be further used to generate additional cou
 **TIP**
 
 > 1. You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
-> 2. Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/en-us/library/ms162802.aspx)
+> 2. Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ####<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
@@ -116,7 +132,7 @@ The newly generated feature can be added as a column to an existing table or sto
 
 ###<a name="python"></a>Using a programming language like Python
 
-Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](http://azure.microsoft.com/en-us/documentation/articles/data-science-process-process-data-blob/). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
+Using Python to explore data and generate features when the data is in SQL Server is similar to processing data in Azure blob using Python as documented [here](machine-learning-data-science-process-data-blob.md). The data needs to be loaded from the database into a pandas data frame and then can be processed further. We document the process of connecting to the database and loading the data into the data frame in this section.
 
 The following connection string format can be used to connect to a SQL Server database from Python using pyodbc (replace servername, dbname, username and password with your specific values):
 
@@ -129,10 +145,10 @@ The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of
 	# Query database and load the returned results in pandas data frame
 	data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Now you can work with the Pandas data frame as covered in section [Data Exploration and Feature Generation from Blob Source](http://azure.microsoft.com/en-us/documentation/articles/data-science-process-process-data-blob/).
+Now you can work with the Pandas data frame as covered in topics [Process Azure Blob data in you data science environment](machine-learning-data-science-process-data-blob.md).
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-process-sql-server-virtual-machine/reader_db_featurizedinput.png

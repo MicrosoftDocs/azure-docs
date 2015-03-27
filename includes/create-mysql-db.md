@@ -13,7 +13,7 @@ This guide will show you how to use [ClearDB] to create a MySQL database from th
 To create a MySQL database from the [Azure Store], do the following:
 
 1. Log in to the [Azure Management Portal][portal].
-2. Click **+NEW** at the bottom of the page, then select **STORE**.
+2. Click **+NEW** at the bottom of the page, then select **MARKETPLACE**.
 
 	![Select add-on from store](./media/create-mysql-db/select-store.png)
 
@@ -74,7 +74,7 @@ To create a MySQL database as a linked resource when you create a [Azure Web Sit
 > [AZURE.NOTE] Connection strings are accessible to your website application by connection string name. In .NET applications, connection strings are availble in the **connectionStrings** object. In other programming languages, connection strings are accessible as environment variables. For more information, see [How to Configure Web Sites][configure].
 
 [ClearDB]: http://www.cleardb.com/
-[waws]: /en-us/documentation/services/web-sites/
-[Azure Store]: /en-us/gallery/store/
+[waws]: /documentation/services/web-sites/
+[Azure Store]: ../articles/store.md
 [portal]: http://manage.windowsazure.com
-[configure]: ../web-sites-configure/
+[configure]: ../articles/web-sites-configure.md

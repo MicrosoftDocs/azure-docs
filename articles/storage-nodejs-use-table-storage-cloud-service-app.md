@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="02/25/2015" 
 	ms.author="mwasson"/>
 
 
@@ -380,7 +380,7 @@ Replace **myuniquename** with a unique name for this application. Replace **data
 After the deployment is complete, you should see a response similar to the following:
 
 	PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-	WARNING: Publishing tasklist to Windows Azure. This may take several minutes...
+	WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
 	WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
 	WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
 	WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
@@ -423,7 +423,7 @@ The following steps show you how to stop and delete your application.
 
 	Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
-  [Node.js Web Application using Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Node.js Web Application]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Node.js Web Application]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  

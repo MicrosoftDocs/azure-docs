@@ -165,9 +165,9 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /en-us/documentation/articles/mobile-services-html-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-html-get-started-users
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
+[Get started with data]: mobile-services-html-get-started-data.md
+[Get started with authentication]: mobile-services-html-get-started-users.md
+[Get started with push notifications]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532

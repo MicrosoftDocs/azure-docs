@@ -43,9 +43,9 @@ To create a PHP website using the Azure Management Portal, do the following:
 
 To create a PHP website using the Azure Command Line Tools for Mac and Linux do the following:
 
-1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](/en-us/develop/php/how-to-guides/command-line-tools/#Download).
+1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](xplat-cli.md#install).
 
-1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](/en-us/develop/php/how-to-guides/command-line-tools/#Account).
+1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](xplat-cli.md#configure).
 
 1. Run the following command from a command prompt:
 
@@ -59,15 +59,15 @@ Note that you can execute the `azure site create` command with any of the follow
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
 * `--git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
 
-For information about additional options, see [How to create and manage an Azure Web Site](/en-us/develop/php/how-to-guides/command-line-tools/#WebSites).
+For information about additional options, see [How to create and manage an Azure Web Site](virtual-machines-command-line-tools.md#Commands_to_manage_your_web_sites).
 
 <h2><a name="PowerShell"></a>Create a PHP website using the Azure PowerShell cmdlets</h2>
 
 To create a PHP website using the Azure PowerShell cmdlets, do the following:
 
-1. Install the Azure PowerShell cmdlets by following the instructions here: [Get started with Azure PowerShell](/en-us/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
+1. Install the Azure PowerShell cmdlets by following the instructions here: [Get started with Azure PowerShell](/develop/php/how-to-guides/powershell-cmdlets/#GetStarted).
 
-1. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
+1. Download and import your publish settings file by following the instructions here: [How to: Import publish settings](/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings).
 
 1. Open a PowerShell command prompt and execute the following command:
 
@@ -81,27 +81,27 @@ Note that you can execute the `New-AzureWebSite` command with any of the followi
 * `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your website.
 * `-Git`. This option allows you to use git to publish to your website by creating git repositories in both your local application directory and in your website's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your website's data center.
 
-For information about additional options, see [How to: Create and manage an Azure Web Site](/en-us/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
+For information about additional options, see [How to: Create and manage an Azure Web Site](/develop/php/how-to-guides/powershell-cmdlets/#WebSite).
 
 <h2><a name="NextSteps"></a>Next steps</h2>
 
 Now that you have created a PHP website in Azure Websites, you can manage, configure, monitor, deploy to, and scale your site. For more information, see the following links:
 
-* [How to configure Web Sites](/en-us/manage/services/web-sites/how-to-configure-websites/)
+* [How to configure Web Sites](/manage/services/web-sites/how-to-configure-websites/)
 * [How to configure PHP in Azure Web Sites][configure-php]
-* [How to manage Web Sites](/en-us/manage/services/web-sites/how-to-manage-websites/)
-* [How to monitor Web Sites](/en-us/manage/services/web-sites/how-to-monitor-websites/)
-* [How to scale Web Sites](/en-us/manage/services/web-sites/how-to-scale-websites/)
-* [Publishing with Git](/en-us/develop/php/common-tasks/publishing-with-git/)
+* [How to manage Web Sites](/manage/services/web-sites/how-to-manage-websites/)
+* [How to monitor Web Sites](/manage/services/web-sites/how-to-monitor-websites/)
+* [How to scale Web Sites](/manage/services/web-sites/how-to-scale-websites/)
+* [Publishing with Git](/develop/php/common-tasks/publishing-with-git/)
 
-For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/en-us/develop/php/tutorials/) page.
+For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/develop/php/tutorials/) page.
 
-[waws]: /en-us/manage/services/web-sites/
+[waws]: /manage/services/web-sites/
 [Azure Management Portal]: http://manage.windowsazure.com/
-[xplat-tools]: /en-us/develop/php/how-to-guides/command-line-tools/
-[powershell-cmdlets]: /en-us/develop/php/how-to-guides/powershell-cmdlets/
-[configure-php]: /en-us/develop/php/common-tasks/configure-php-web-site/
-[website-mysql-git]: /en-us/develop/php/tutorials/website-w-mysql-and-git/
-[wordpress-gallery]: /en-us/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/en-us/pricing/details/#header-1
-[scale-websites]: /en-us/manage/services/web-sites/how-to-scale-websites/
+[xplat-tools]: xplat-cli.md
+[powershell-cmdlets]: /develop/php/how-to-guides/powershell-cmdlets/
+[configure-php]: /develop/php/common-tasks/configure-php-web-site/
+[website-mysql-git]: /develop/php/tutorials/website-w-mysql-and-git/
+[wordpress-gallery]: /develop/php/tutorials/website-from-gallery/
+[websites-pricing]: http://www.windowsazure.com/pricing/details/#header-1
+[scale-websites]: /manage/services/web-sites/how-to-scale-websites/

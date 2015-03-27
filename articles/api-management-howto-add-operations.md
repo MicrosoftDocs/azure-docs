@@ -13,29 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="03/10/2015" 
 	ms.author="sdanie"/>
 
 # How to add operations to an API in Azure API Management
 
 Before an API in API Management can be used, operations must be added. This guide shows how to add and configure different types of operations to an API in API Management.
 
-## In this topic
-
--   [Add an operation][]
--   [Operation caching][]
--   [Request parameters][]
--   [Request body][]
--   [Responses][]
--   [Next steps][]
-
 ## <a name="add-operation"> </a>Add an operation
 
-Operations are added and configured to an API in the management console. To access the management console, click **Management Console** in the Azure Portal for your API Management service.
+Operations are added and configured to an API in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Select the desired API in the API Management portal and then select the **Operations** tab. 
 
@@ -166,9 +157,9 @@ Once the operations are added to an API, the next step is to associate the API w
 [Responses]: #responses
 [Next steps]: #next-steps
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to cache operation results in Azure API Management]: ../api-management-howto-cache
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md

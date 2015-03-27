@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/30/2014" 
+	ms.date="02/25/2015" 
 	ms.author="jeffreyg"/>
 
 
@@ -29,10 +29,6 @@ The School sample database is conveniently simple; all of its objects are compat
 
 **Note:** Review the SQL Database Migration Guide for detailed instructions on how to prepare an on-premises database for migration to Azure. Also, consider downloading the Azure Training Kit. It includes a lab that shows an alternative approach to migrating an on-premises database.
 
-##Table of Contents##
-* [How to: Create the school database on an on-premises server](#schooldb)
-* [How to: Deploy to SQL Database](#deploydb)
-* [How to: Verify database deployment](#verify)
 
 <h2><a id="schooldb"></a>How to: Create the school database on an on-premises server</h2>
 
@@ -557,7 +553,7 @@ Next, copy and execute the Insert Data script.
 
 8. Click **Options**.
 
-9. In Connection Properties, in Connect to database, type **master**.
+9. In Connection Properties, in **Connect to database**, type **master**.
 
 10. Click **Connect**. This step concludes the connection specification and takes you back to the wizard.
 
@@ -569,7 +565,7 @@ Next, copy and execute the Insert Data script.
 
 1. In Management Studio, in Object Explorer refresh the databases to view the new one you just created.
 
-2. Expand the Databases folder. You should see the **school** database in the list.
+2. Expand the **Databases** folder. You should see the **school** database in the list.
 
 3. Right-click on the school database and click **New Query**.
 
@@ -595,5 +591,5 @@ Next, copy and execute the Insert Data script.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Getting Started with SQL Database Administration]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Getting Started with SQL Database Administration]: /manage/services/sql-databases/getting-started-w-sql-databases/  
 

@@ -25,7 +25,7 @@ On the command bar, click **New**.
 
 13. Under **Availability Set**, for the purposes of this tutorial use the default setting of **None**. 
 
-14.	Under **Endpoints**, review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).
+14.	Under **Endpoints**, review the endpoint that's automatically created to allow Secure Shell (SSH) connections to the virtual machine. (Endpoints allow resources on the Internet or other virtual networks to communicate with a virtual machine.) You can add more endpoints now, or create them later. For instructions on creating them later, see [How to Set Up Endpoints to a Virtual Machine](../articles/virtual-machines-set-up-endpoints.md).
 
 15.  Under **VM Agent**, review the available extensions. These extensions provide various features that make it easier to use and manage a virtual machine. For details, see [Azure VM Extensions](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 

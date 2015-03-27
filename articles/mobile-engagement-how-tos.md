@@ -1,26 +1,40 @@
 <properties 
-   pageTitle="Azure Mobile Engagement How To Guides" 
-   description="How To Guides for Azure Mobile Engagement" 
+   pageTitle="Azure Mobile Engagement User Interface - Reach How To"
+   description="User Interface Overview for Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - How To Guides
+<div class="dev-center-tutorial-selector sublanding">
+<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
+<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
+<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
+<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
+<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
+<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
+<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
+<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campaign</a>
+<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterion</a>
+<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Content</a>
+<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - How To</a>
+<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
+<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
+<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
+</div>
 
-## Introduction
-
-The following How To Guides for the Azure Mobile Engagement [User Interface][Link 1] assume that you are familiar with the basic [Concepts][Link 6] of Azure Mobile Engagement and will only work after you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application. If you have difficulty with any of these Walkthroughs please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
+# How to get started using and managing pushes to reach out to your end users
+Once the SDK is fully integrated into your app, you can get started using the the Reach section of the UI to Push notifications to the users of your app.  
 
 ## Do Your First Push Notification Campaign
 -    Confirm that your Reach is integrated into your app with the SDK. 
@@ -58,7 +72,6 @@ The following How To Guides for the Azure Mobile Engagement [User Interface][Lin
 ![First7][7]
 
 ## Test Your Push Notification Campaign
- 
 ![Test1][8]
 
 -    Register your device.
@@ -88,7 +101,6 @@ As you see above the push notification content includes the marker ${rebate_code
 ![Personalize2][12]
 
 ### You can further personalize the text your notification
- 
 ![Personalize3][13]
 
 -    Including the title of the notification,
@@ -104,7 +116,6 @@ As you see above the push notification content includes the marker ${rebate_code
  
  
 ## Differentiate Your Push Notification (in or out of app)
-
 -    Choose the type of notification you will push, select your application, go to the "Reach" section, select or create a push campaign and go to the "Notification" section.
  
 -    Click on the "delivery mode" you want.
@@ -113,18 +124,15 @@ As you see above the push notification content includes the marker ${rebate_code
 ![Differentiate1][15]
 
 ### "Out of App Only" delivery mode
- 
 ![Differentiate2][16]
 
 "Out of App Only" delivery mode provides push notification when the application is closed. This is the standard push notification.
 When you select "out of app only" ,you must have already provided the certificates from the platform that your application is building on (APNS or GCM).
 
-**See also:** 
-
+### See also
 -  [Apple Push Notification Service – Certificates](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging – Certificate](http://developer.android.com/google/gcm/index.html) 
 
 ### "in-App Only" delivery mode
- 
 ![Differentiate3][17]
 
 "In-App Only" delivery mode provides push notification when the application is running.
@@ -137,25 +145,23 @@ You can choose an "Anytime" delivery mode, ensures you to reach your end-user wh
 When you select "Anytime" , you must have already provided the certificates from the platform that your application is building upon (APNS or GCM). 
  
 ## Schedule a Push Campaign
- 
 ### Plan to Start a campaign
- 
 ![Shedule1][18]
 
 It is the 21st of March and you have an announcement to make and planed for the 22nd of March at midnight. 
 You don’t have to stay in front of the interface to do a push! You can plan in advance the exact minute notifications will be sent.
 -    Un-check the "None" checkbox and select a start time 
 -    Choose the date and the time you want to start the push campaign.
+
 ### Plan to end a campaign
- 
 ![Shedule2][19]
 
 You want your campaign to stop on the 25th of March at 3.00 pm but you know you won't be there to do it.
 You don’t have to stay in front of the interface to push! You can plan in advance the exact minute your campaign will stop.
 -    Click on the "None" checkbox or select a end time
 -    Choose the date and the time you want to finish the push campaign.
+
 ### End a campaign manually
- 
 ![Shedule3][20]
 
 By default, the "None" check-boxes are selected.
@@ -164,9 +170,7 @@ This means that the campaign will start as soon as you activate it in the reach 
 > Note: Campaigns created without an end date store the push locally on the device and show it the next time the app is opened even if the campaign is manually ended.
 
 ## Enhance a Push Notification with a Text View
-
 ### What is a Text View?
- 
 ![TextView1][21]
 
 A text view is a pop-up with text content. This pop-up appears after the end-user has clicked on the push notification.
@@ -209,9 +213,7 @@ A text view allows you to present more content to your end-user. This is also th
 -    The text view appears as a pop-up allowing the user to interact with it.
 
 ## Enhance a Push Notification with a Web View
-
 ### What is a Web View?
- 
 ![WebView1][28]
 
 A web view is a pop-up with web content. This pop-up appears when the end-user has clicked on the push notification.
@@ -219,7 +221,6 @@ A web view allows you to have more interaction with the end-user.
 This is also the opportunity to present a call to action such as redirection to App Store, opening a web page, sending an e-mail, starting a geo-localized search, etc...
 
 ### Example: Web View
-
 -    Create your Push campaign in the "Reach" section and give your campaign a name.
  
 ![WebView2][29]
@@ -229,8 +230,7 @@ This is also the opportunity to present a call to action such as redirection to 
  
 ![WebView3][30]
 
-**About Announcement types:**
-
+### About Announcement types:
 - Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
 - Text announcement: It is a notification that engages the user to have a look at a text view.
 - Web announcement: It is a notification that engages the user to have a look at a web view.
@@ -291,9 +291,36 @@ Select the "Web announcement" content.
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-how-tos-first-push.md
+[Link 28]: mobile-engagement-how-tos-test-campaign.md
+[Link 29]: mobile-engagement-how-tos-personalize-push.md
+[Link 30]: mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: mobile-engagement-how-tos-text-view.md
+[Link 33]: mobile-engagement-how-tos-web-view.md

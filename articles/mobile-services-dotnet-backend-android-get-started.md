@@ -15,14 +15,14 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="02/13/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.author="ricksal"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version](/en-us/documentation/articles/mobile-services-android-get-started/) of this topic.
+This tutorial shows you how to add a cloud-based backend service to an Android app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. The mobile service that you will create uses the supported .NET languages using Visual Studio for server-side business logic and to manage the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version](mobile-services-android-get-started.md) of this topic.
 
 A screenshot from the completed app is below:
 
@@ -32,7 +32,9 @@ Completing this tutorial requires the [Android Developer Tools][Android Studio],
 
 The downloaded quickstart project contains the Mobile Services SDK for Android. 
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28).
+
+<!-- -->
 
 > [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started (Eclipse)].
 
@@ -125,13 +127,13 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [15]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started (Eclipse)]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-EC/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-push
+[Get started (Eclipse)]: mobile-services-dotnet-backend-android-get-started-EC.md
+[Get started with data]: mobile-services-dotnet-backend-android-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-android-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Troubleshoot a Mobile Services .NET backend]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Troubleshoot a Mobile Services .NET backend]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
 [Management Portal]: https://manage.windowsazure.com/

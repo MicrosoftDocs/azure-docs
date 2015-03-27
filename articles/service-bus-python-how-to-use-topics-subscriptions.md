@@ -28,7 +28,7 @@ and subscriptions, see the [Next Steps](#Next_Steps) section.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 
 ## How to create a topic
@@ -247,5 +247,5 @@ links to learn more.
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Python Azure package]: https://pypi.python.org/pypi/azure  
-[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-[SqlFilter.SqlExpression]: https://msdn.microsoft.com/en-us/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/hh367516.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx

@@ -269,7 +269,7 @@ instance.
 As I mentioned earlier, the service definition (CSDEF) file is an XML
 file that describes the various roles that make up your complete
 application. The complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][].
 The CSDEF file contains a WebRole or WorkerRole element for each role
 that you want in your application. Deploying a role as a web role (using
 the WebRole element) means that the code will run on a role instance
@@ -486,7 +486,7 @@ more useful items available to you:
 The service configuration (CSCFG) file is an XML file that describes
 settings that can be changed without redeploying your application. The
 complete schema for the XML file can be found here:
-[http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx][].
+[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][].
 The CSCFG file contains a Role element for each role in your
 application. Here are some of the items you can specify in the CSCFG
 file:
@@ -503,7 +503,7 @@ file:
     setting the osVersion attribute to a value of
     "WA-GUEST-OS-2.8\_201109-01" causes all your role instances to get
     what is described on this web page:
-    [http://msdn.microsoft.com/en-us/library/hh560567.aspx][]. For more
+    [http://msdn.microsoft.com/library/hh560567.aspx][]. For more
     information about guest OS versions, see [Managing Upgrades to the
     Azure Guests OS].
 
@@ -579,20 +579,20 @@ article.<a id="Ref" name="Ref"></a>
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Configuring a Custom Domain Name in Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-  [Data Storage Offerings in Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
+  [Configuring a Custom Domain Name in Azure]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Data Storage Offerings in Azure]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Azure Pricing]: http://www.windowsazure.com/en-us/pricing/calculator/
-  [Managing Certificates in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-  [http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-  [http://msdn.microsoft.com/en-us/library/hh560567.aspx]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
+  [Azure Pricing]: http://www.windowsazure.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Deploying and Updating Azure Applications]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-  [Migrating Applications to Azure]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-  [Configuring an Azure Application]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+  [Deploying and Updating Azure Applications]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
+  [Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Managing Hosted Services in Azure]: http://msdn.microsoft.com/library/gg433038.aspx
+  [Migrating Applications to Azure]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Configuring an Azure Application]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx

@@ -318,5 +318,5 @@ In your client application, you will need to develop a custom login screen which
 
 
 <!-- URLs. -->
-[Get Started with Users]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Get Started with Users]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md

@@ -17,8 +17,8 @@
 # Service-side Authorization of Users in Mobile Services
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](/en-us/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
-- [(Any | Javascript)](/en-us/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+- [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
+- [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
 This topic shows you how to use server-side logic to authorize users.  In this tutorial, you modify data access methods in .NET, filter queries based on user IDs, and give users access to only their own data.
 
@@ -30,7 +30,7 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 		public string UserId { get; set; }
 
-	>[AZURE.NOTE] To make this data model change and maintain existing data in the database, you must use [Code First Migrations](/en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations).
+	>[AZURE.NOTE] To make this data model change and maintain existing data in the database, you must use [Code First Migrations](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 2. In Visual Studio, expand the Controllers folder and open **TodoItemController.cs**. Locate the **PostTodoItem** method and add the following code at the beginning of the method. This code adds the user ID of the authenticated user to the item, before it is inserted into the TodoItem table.
 
@@ -67,9 +67,9 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data
-[Add Authentication to Existing Mobile Services App]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Add Authentication to Existing Mobile Services App]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md

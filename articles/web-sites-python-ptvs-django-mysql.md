@@ -36,7 +36,7 @@ See the [Python Developer Center][] for more articles that cover development of 
  - [Python 2.7 32-bit][]
 
 > [AZURE.NOTE]
-> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">sign up for a free trial</a>.
+> To complete this tutorial, you need an Azure account. You can <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activate your MSDN subscriber benefits</a> or <a href="http://azure.microsoft.com/pricing/free-trial/">sign up for a free trial</a>.
 > 
 > If you want to get started with Azure Websites before signing up for an account, go to <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, where you can immediately create a short-lived ASP.NET starter site in Azure Websites for free. No credit card required, no commitments.
 
@@ -191,8 +191,8 @@ Follow these links to learn more about Python Tools for Visual Studio, Django an
 
 
 <!--Link references-->
-[Python Developer Center]: /en-us/develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs/
+[Python Developer Center]: /develop/python/
+[Azure Cloud Services]: cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com

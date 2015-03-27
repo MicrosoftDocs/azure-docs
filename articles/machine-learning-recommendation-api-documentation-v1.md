@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
+	ms.date="2/17/2015" 
 	ms.author="v-ahgumn"/>
 
 
 #Azure Machine Learning Recommendations API Documentation
 
 Version: 1.0<br>
-Latest version can be found [here](http://azure.microsoft.com/en-us/documentation/articles/machine-learning-recommendation-api-documentation)
+Latest version can be found [here](http://azure.microsoft.com/documentation/articles/machine-learning-recommendation-api-documentation)
 
 This document depicts Azure ML Recommendations APIs.
 

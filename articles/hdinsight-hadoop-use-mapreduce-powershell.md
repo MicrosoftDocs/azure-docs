@@ -28,7 +28,7 @@ To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (either Windows or Linux-based)
 
-* <a href="http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 ##<a id="powershell"></a>Run a MapReduce job using PowerShell
 
@@ -165,10 +165,10 @@ As you can see, Azure PowerShell provides an easy way to run MapReduce jobs on a
 
 For general information on MapReduce jobs in HDInsight.
 
-* [Use MapReduce on HDInsight Hadoop](../hdinsight-use-mapreduce/)
+* [Use MapReduce on HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)

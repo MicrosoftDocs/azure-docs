@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2014" 
+	ms.date="02/19/2015" 
 	ms.author="jaymathe"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
@@ -62,10 +62,12 @@ A paid subscription is any subscription for which there is a monthly fee. When y
 You can buy or update your subscription from the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations) page on Microsoft Azure Marketplace.
 
 When you upgrade a subscription:
+
 * Transactions that are remaining on your old subscription are not added to your new subscription. 
 * You pay full price for the new subscription, even though you have unused transactions on your old subscription.
 
 Process to upgrade a subscription:
+
 * Nevigate to the [offer page] (https://datamarket.azure.com/dataset/amla/recommendations).
 * Sign in to the Marketplace if you aren't already Signed in.
 * In the right pane, all the available plans are listed. Click the radio button for the plan you want to upgrade to.
@@ -124,7 +126,7 @@ In addition, a subscription can contain up to 10 data sets (models).
 
 **Where can I get technical support for Recommendations?**
 
-Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=MachineLearning) site.
+Technical support is available on the [Microsoft Azure Support](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) site.
 
 **Where can I find the terms of use?**
 

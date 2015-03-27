@@ -7,7 +7,7 @@ Virtual machines must be in a cloud service, which acts as a container and provi
 
 If a cloud service is not in a virtual network, the virtual machines in that cloud service can only communicate with other virtual machines through the use of the other virtual machines’ public DNS names, and that traffic would travel over the Internet. If a cloud service is in a virtual network,  the virtual machines in that cloud service can communicate with all other virtual machines in the virtual network without sending any traffic over the Internet.
 
-If you place your virtual machines in the same standalone cloud service, you can take advantage of load balancing and availability sets. For details, see [Load balancing virtual machines](../../articles/load-balance-virtual-machines/) and [Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/). However, you cannot organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here is an example.
+If you place your virtual machines in the same standalone cloud service, you can take advantage of load balancing and availability sets. For details, see [Load balancing virtual machines](../articles/load-balance-virtual-machines.md) and [Manage the availability of virtual machines](../articles/manage-availability-virtual-machines.md). However, you cannot organize the virtual machines on subnets or connect a standalone cloud service to your on-premises network. Here is an example.
 
 ![Virtual machines in a standalone cloud service](./media/howto-connect-vm-cloud-service/CloudServiceExample.png)
  
@@ -15,7 +15,7 @@ If you place your virtual machines in a virtual network, you can decide how many
 
 ![Virtual machines in a virtual network](./media/howto-connect-vm-cloud-service/VirtualNetworkExample.png)
 
-Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. This enables advanced user rights delegation through Role Based Access Control (RBAC). For more information, see [Role Based Access Control in Azure Preview Portal](../../articles//role-based-access-control-configure/). However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription.
+Virtual networks are the recommended way to connect virtual machines in Azure. The best practice is to configure each tier of your application in a separate cloud service. This enables advanced user rights delegation through Role Based Access Control (RBAC). For more information, see [Role Based Access Control in Azure Preview Portal](../articles/role-based-access-control-configure.md). However, you may need to combine some virtual machines from different application tiers into the same cloud service to remain within the maximum of 200 cloud services per subscription.
 
 To connect virtual machines in a virtual network:
 
@@ -38,15 +38,15 @@ Here is an example using the Azure Management Portal for the existing cloud serv
 ![Add a virtual machine to an existing cloud service](./media/howto-connect-vm-cloud-service/Connect-VM-to-CS.png)
 
 ##Resources
-[Load balancing virtual machines](../../articles/load-balance-virtual-machines/)
+[Load balancing virtual machines](../articles/load-balance-virtual-machines.md)
 
-[Manage the availability of virtual machines](../../articles/manage-availability-virtual-machines/)
+[Manage the availability of virtual machines](../articles/manage-availability-virtual-machines.md)
 
 [Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
 After you create a virtual machine, it's a good idea to add a data disk so your services and workloads have a location to store data. See one of the following:
 
-[How to Attach a Data Disk to a Linux Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-how-to-attach-disk/)
+[How to Attach a Data Disk to a Linux Virtual Machine](../articles/virtual-machines-linux-how-to-attach-disk.md)
 
-[How to Attach a Data Disk to a Windows Virtual Machine](http://azure.microsoft.com/en-us/documentation/articles/storage-windows-attach-disk/)
+[How to Attach a Data Disk to a Windows Virtual Machine](../articles/storage-windows-attach-disk.md)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/18/2014" 
+	ms.date="02/24/2015" 
 	ms.author="sdanie"/>
 
 #What is API Management?
@@ -23,16 +23,6 @@ API Management helps organizations publish APIs to external, partner and interna
 To use API Management, administrators create APIs. Each API consists of one or more operations, and each API can be added to one or more products. To use an API, developers subscribe to a product that contains that API, and then they can call the API's operation, subject to any usage policies that may be in effect.
 
 This topic provides an overview of API Management key concepts.
-
-## In this topic
-
--   [APIs and operations][]
--   [Products][]
--   [Groups][]
--   [Developers][]
--   [Policies][]
--	[Developer portal][]
-
 
 ## <a name="apis"> </a>APIs and operations
 
@@ -89,16 +79,16 @@ You can customize the look and feel of your developer portal by adding custom co
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: ../api-management-howto-create-apis
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to create and use groups]: ../api-management-howto-create-groups
-[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
-[How create and configure advanced product settings]: ../api-management-howto-product-with-rules
-[How to create or invite developers]: ../api-management-howto-create-or-invite-developers
-[Policy reference]: ../api-management-policy-reference
-[API Management policies]: ../api-management-howto-policies
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 

@@ -18,10 +18,10 @@
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
-    	<a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
+    	<a href="notification-hubs-windows-store-dotnet-send-breaking-news.md" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-send-breaking-news/" title="Windows Phone" class="current">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-send-breaking-news/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/" title="Android">Android</a>
 </div>
 
-This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone 8.0/8.1 Silverlight app. If you are targeting Windows Store or Windows Phone 8.1 app, please refer to to the [Windows Universal](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/) version. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
+This topic shows you how to use Azure Notification Hubs to broadcast breaking news notifications to a Windows Phone 8.0/8.1 Silverlight app. If you are targeting Windows Store or Windows Phone 8.1 app, please refer to to the [Windows Universal](notification-hubs-windows-store-dotnet-send-breaking-news.md) version. When complete, you will be able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, e.g. RSS reader, apps for music fans, etc. 
 
 Broadcast scenarios are enabled by including one or more _tags_ when creating a registration in the notification hub. When notifications are sent to a tag, all devices that have registered for the tag will receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, refer to [Notification Hubs Guidance]. 
 
@@ -248,11 +248,11 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
 
 <!-- URLs.-->
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Use Notification Hubs to broadcast localized breaking news]: ./breakingnews-localized-wp8.md 
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users/
-[Mobile Service]: /en-us/develop/mobile/tutorials/get-started
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Get started with Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[Use Notification Hubs to broadcast localized breaking news]: breakingnews-localized-wp8.md 
+[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[Mobile Service]: /develop/mobile/tutorials/get-started
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??
 
 [Azure Management Portal]: https://manage.windowsazure.com/

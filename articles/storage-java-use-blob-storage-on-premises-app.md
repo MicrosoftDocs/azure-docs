@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="robmcm"/>
 
 # On-Premises Application with Blob Storage
@@ -54,8 +54,8 @@ Begin the code by including imports for the Azure core storage
 classes, the Azure blob client classes, the Java IO classes, and
 the **URISyntaxException** class:
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
@@ -119,10 +119,10 @@ container named **gettingstarted**.
 
 Create the container. This method will create the container if doesn't
 exist (and return **true**). If the container does exist, it will return
-**false**. An alternative to **createIfNotExist** is the **create**
+**false**. An alternative to **createIfNotExists** is the **create**
 method (which will return an error if the container already exists).
 
-    container.createIfNotExist();
+    container.createIfNotExists();
 
 Set anonymous access for the container.
 
@@ -261,8 +261,8 @@ the placeholder values **your\_account\_name** and
 **your\_account\_key** to use your account name and account key,
 respectively.
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
     import java.io.*;
     import java.net.URISyntaxException;
 
@@ -271,26 +271,24 @@ respectively.
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_name"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                       "AccountName=your_account_name;" + 
+                       "AccountKey=your_account_name"; 
 
-        public static void main(String[] args) 
-        {
-            try
-            {
+        public static void main(String[] args) {
+            try {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
                 CloudBlockBlob blob;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
-                container.createIfNotExist();
-                
+                container.createIfNotExists();
+
                 // Set anonymous access on the container.
                 BlobContainerPermissions containerPermissions;
                 containerPermissions = new BlobContainerPermissions();
@@ -299,7 +297,8 @@ respectively.
 
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
-                File fileReference = new File ("c:\\myimages\\image1.jpg");
+
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -309,27 +308,19 @@ respectively.
                 System.out.println("Processing complete.");
                 System.out.println("Open index.html to see the images stored in your storage account.");
 
-            }
-            catch (FileNotFoundException fileNotFoundException)
-            {
+            } catch (FileNotFoundException fileNotFoundException) {
                 System.out.print("FileNotFoundException encountered: ");
                 System.out.println(fileNotFoundException.getMessage());
                 System.exit(-1);
-            }
-            catch (StorageException storageException)
-            {
+            } catch (StorageException storageException) {
                 System.out.print("StorageException encountered: ");
                 System.out.println(storageException.getMessage());
                 System.exit(-1);
-            }
-            catch (URISyntaxException uriSyntaxException)
-            {
+            } catch (URISyntaxException uriSyntaxException) {
                 System.out.print("URISyntaxException encountered: ");
                 System.out.println(uriSyntaxException.getMessage());
                 System.exit(-1);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 System.out.print("Exception encountered: ");
                 System.out.println(e.getMessage());
                 System.exit(-1);
@@ -339,7 +330,7 @@ respectively.
         // Create an HTML page that can be used to display the uploaded images.
         // This example assumes all of the blobs are for images.
         public static void MakeHTMLPage(CloudBlobContainer container) throws FileNotFoundException, URISyntaxException
-    {
+        {
             PrintStream stream;
             stream = new PrintStream(new FileOutputStream("index.html"));
 
@@ -385,8 +376,8 @@ initializing **CloudStorageAccount**, **ClodBlobClient**,
 **createIfNotExist** method. The following is a complete example that
 deletes the container named **gettingstarted**.
 
-    import com.microsoft.windowsazure.services.core.storage.*;
-    import com.microsoft.windowsazure.services.blob.client.*;
+    import com.microsoft.azure.storage.*;
+    import com.microsoft.azure.storage.blob.*;
 
     public class DeleteContainer {
 
@@ -432,7 +423,18 @@ Use the Blob Storage Service from Java].
 
 ## Next steps
 
-  [Download the Azure SDK for Java]: http://www.windowsazure.com/en-us/develop/java/
-  [How to Create a Storage Account]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [How to Manage Storage Accounts]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [How to Use the Blob Storage Service from Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
+Follow these links to learn more about more complex storage tasks.
+
+- [Azure Storage SDK for Java]
+- [Azure Storage Client SDK Reference]
+- [Azure Storage REST API]
+- [Azure Storage Team Blog]
+
+  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [How to Create a Storage Account]: storage-create-storage-account.md#create-a-storage-account
+  [How to Manage Storage Accounts]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
+  [How to Use the Blob Storage Service from Java]: storage-java-how-to-use-blob-storage.md
+  [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+  [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/
+  [Azure Storage REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

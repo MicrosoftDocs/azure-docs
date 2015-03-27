@@ -1,62 +1,54 @@
 <properties 
-	pageTitle="Integrate an Azure Website with Azure CDN" 
-	description="A tutorial that teaches you how to deploy a website that serves content from an integrated Azure CDN endpoint" 
-	services="cdn, web-sites" 
+	pageTitle="Use Azure CDN in Azure App Service" 
+	description="A tutorial that teaches you how to deploy a web app to Azure App Service that serves content from an integrated Azure CDN endpoint" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="cdn" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/02/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
 <a name="intro"></a>
-# Integrate an Azure Website with Azure CDN #
+# Use Azure CDN in Azure App Service
 
-Azure Websites can be integrated with [Azure CDN](http://azure.microsoft.com/en-us/services/cdn/), adding to the global scaling capabilities inherent in Azure Websites by serving your website content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx). This integration dramatically increases the performance of your Azure website and significantly improves the website's user experience worldwide. 
+[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) can be integrated with [Azure CDN](/services/cdn/), adding to the global scaling capabilities inherent in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) by serving your web app content globally from server nodes near your customers (an updated list of all current node locations can be found [here](http://msdn.microsoft.com/library/azure/gg680302.aspx)). In scenarios like serving static images, this integration can dramatically increase the performance of your Azure App Service Web Apps and significantly improves your web app's user experience worldwide. 
 
-Integrating Azure Websites with Azure CDN gives you the following advantages:
+Integrating Web Apps with Azure CDN gives you the following advantages:
 
-- Integrate content deployment (images, scripts, and stylesheets) as part of your Azure website's [continuous deployment](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/) process
-- Easily upgrade the NuGet packages in your Azure website, such as jQuery or Bootstrap versions 
+- Integrate content deployment (images, scripts, and stylesheets) as part of your web app's [continuous deployment](web-sites-publish-source-control.md) process
+- Easily upgrade the NuGet packages in your web app in Azure App Service, such as jQuery or Bootstrap versions 
 - Manage your Web application and your CDN-served content from the same Visual Studio interface
 - Integrate ASP.NET bundling and minification with Azure CDN
 
-## What you will learn ##
-
-In this tutorial, you will learn how to:
-
--	[Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN](#deploy)
--	[Configure cache settings for static content in your Azure website](#caching)
--	[Serve content from controller actions through Azure CDN](#controller)
--	[Serve bundled and minified content through Azure CDN while preserving the script debugging experience in Visual Studio](#bundling)
--	[Configure fallback your scripts and CSS when your Azure CDN is offline](#fallback) 
-
 ## What you will build ##
 
-You will deploy an Azure website using the default ASP.NET MVC template in Visual Studio, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.
+You will deploy a web app to Azure App Service using the default ASP.NET MVC template in Visual Studio, add code to serve content from an integrated Azure CDN, such as an image, controller action results, and the default JavaScript and CSS files, and also write code to configure the fallback mechanism for bundles served in the event that the CDN is offline.
 
 ## What you will need ##
 
 This tutorial has the following prerequisites:
 
--	An active [Microsoft Azure account](http://azure.microsoft.com/en-us/account/)
--	Visual Studio 2013 with [Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
+-	An active [Microsoft Azure account](/account/)
+-	Visual Studio 2013 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 > [AZURE.NOTE] You need an Azure account to complete this tutorial:
-> + You can [open an Azure account for free](http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites.
-> + You can [activate MSDN subscriber benefits](http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+> + You can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F) - You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Web Apps.
+> + You can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) - Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+>
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 <a name="deploy"></a>
-## Deploy an Azure website with an integrated CDN endpoint ##
+## Deploy a web app to Azure with an integrated CDN endpoint ##
 
-In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to an Azure website, and then integrate it with a new CDN endpoint. Follow the instructions below:
+In this section, you will deploy the default ASP.NET MVC application template in Visual Studio 2013 to App Service, and then integrate it with a new CDN endpoint. Follow the instructions below:
 
 1. In Visual Studio 2013, create a new ASP.NET web application from the menu bar by going to **File > New > Project > Web > ASP.NET Web Application**. Give it a name and click **OK**.
 
@@ -75,22 +67,24 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	![](media/cdn-websites-with-cdn/4-signed-in.png)
 
-8. Assuming that you haven't created an Azure website, Visual Studio can help you create it. In the **Configure Microsoft Azure Website** dialog, make sure your site name is unique. Then, click **OK**.
+8. Assuming that you haven't created a web app in Azure, Visual Studio can help you create it. In the **Configure Microsoft Azure Website** dialog, make sure your site name is unique. Then, click **OK**.
 
+	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/5-create-website.png)
 
 9. Once your ASP.NET application is created, publish it to Azure in the Web Publish Activity pane by clicking **Publish `<app name>` to this site now**. Click **Publish** to complete the process.
 
+	<!--todo: need 2.5.1 screenshot-->
 	![](media/cdn-websites-with-cdn/6-publish-website.png)
 
-	You will see your published Azure website in the browser when publishing is complete. 
+	You will see your published web app in the browser when publishing is complete. 
 
-1. To create a CDN endpoint, log into your [Azure management portal](http://manage.windowsazure.com/). 
+1. To create a CDN endpoint, log into the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 2. Click **New** > **App Services** > **CDN** > **Quick Create**. Select **http://*&lt;sitename>*.azurewebsites.net/** and click **Create**.
 
 	![](media/cdn-websites-with-cdn/7-create-cdn.png)
 
-	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take awhile for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
+	> [AZURE.NOTE] Once your CDN endpoint is created, the Azure portal will show you its URL and the origin domain that it's integrated with. However, it can take a while for the new CDN endpoint's configuration to be fully propagated to all the CDN node locations. 
 
 3. Back in the Azure portal, in the **CDN** tab, click the name of the CDN endpoint you just created.
 
@@ -102,7 +96,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 	>[AZURE.NOTE] While enabling the query string is not necessary for this tutorial section, you want to do this as early as possible for convenience since any change here is going to take time to propagate to all the CDN nodes, and you don't want any non-query-string-enabled content to clog up the CDN cache (updating CDN content will be discussed later).
 
-2. Now, click the CDN endpoint address. If the endpoint is ready, you should see your website displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
+2. Now, click the CDN endpoint address. If the endpoint is ready, you should see your web app displayed. If you get an **HTTP 404** error, the CDN endpoint is not ready. You may need to wait up to an hour for the CDN configuration to be propagated to all the edge nodes. 
 
 	![](media/cdn-websites-with-cdn/11-access-success.png)
 
@@ -114,7 +108,7 @@ In this section, you will deploy the default ASP.NET MVC application template in
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	When you navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your Azure website. 
+	When you navigate to **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**, you will be prompted to download the bootstrap.css that came from your web app in Azure. 
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -124,20 +118,20 @@ You can similarly access any publicly accessible URL at **http://*&lt;serviceNam
 -	Any content file from the /Content path
 -	Any controller/action 
 -	If the query string is enabled at your CDN endpoint, any URL with query strings
--	The entire Azure website, if all content is public
+-	The entire Azure web app, if all content is public
 
-Note that it may not be always a good idea (or generally a good idea) to serve an entire Azure website through Azure CDN. Some of the caveats are:
+Note that it may not be always a good idea (or generally a good idea) to serve an entire Azure web app through Azure CDN. Some of the caveats are:
 
 -	This approach requires your entire site to be public, because Azure CDN cannot serve any private content.
--	If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire website goes offline unless the customers can be redirected to the origin URL **http://*&lt;sitename>*.azurewebsites.net/**. 
--	Even with the custom Cache-Control settings (see [Configure caching options for static files in your Azure website](#caching)), a CDN endpoint does not improve the performance of highly-dynamic content. If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page. Imagine what would happen to the client experience if this page contains dynamic content that must update every minute. Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint. This hurts the performance of your Azure website and defeats the purpose of a CDN.
+-	If the CDN endpoint goes offline for any reason, whether scheduled maintenance or user error, your entire web app goes offline unless the customers can be redirected to the origin URL **http://*&lt;sitename>*.azurewebsites.net/**. 
+-	Even with the custom Cache-Control settings (see [Configure caching options for static files in your Azure web app](#caching)), a CDN endpoint does not improve the performance of highly-dynamic content. If you tried to load the home page from your CDN endpoint as shown above, notice that it took at least 5 seconds to load the default home page the first time, which is a fairly simple page. Imagine what would happen to the client experience if this page contains dynamic content that must update every minute. Serving dynamic content from a CDN endpoint requires short cache expiration, which translates to frequent cache misses at the CDN endpoint. This hurts the performance of your Azure web app and defeats the purpose of a CDN.
 
-The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your Azure website. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#controller).
+The alternative is to determine which content to serve from Azure CDN on a case-by-case basis in your Azure web app. To that end, you have already seen how to access individual content files from the CDN endpoint. I will show you how to serve a specific controller action through the CDN endpoint in [Serve content from controller actions through Azure CDN](#controller).
 
 <a name="caching"></a>
-## Configure caching options for static files in your Azure website ##
+## Configure caching options for static files in your Azure web app ##
 
-With Azure CDN integration in your Azure website, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
+With Azure CDN integration in your Azure web app, you can specify how you want static content to be cached in the CDN endpoint. To do this, open *Web.config* from your ASP.NET project (e.g. **cdnwebapp**) and add a `<staticContent>` element to `<system.webServer>`. The XML below configures the cache to expire in 3 days.  
 <pre class="prettyprint">
 &lt;system.webServer&gt;
   <mark>&lt;staticContent&gt;
@@ -147,7 +141,7 @@ With Azure CDN integration in your Azure website, you can specify how you want s
 &lt;/system.webServer&gt;
 </pre>
 
-Once you do this, all static files in your Azure website will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
+Once you do this, all static files in your Azure web app will observe the same rule in your CDN cache. For more granular control of cache settings, add a *Web.config* file into a folder and add your settings there. For example, add a *Web.config* file to the *\Content* folder and replace the content with the following XML:
 
 	<?xml version="1.0"?>
 	<configuration>
@@ -167,9 +161,9 @@ In [Serve content from controller actions through Azure CDN](#controller), I wil
 <a name="controller"></a>
 ## Serve content from controller actions through Azure CDN ##
 
-When you integrate an Azure website with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Again, if you decide to serve the entire Azure website through your CDN, you don't need to do this at all since all the controller actions are reachable through the CDN already. But for the reasons I already pointed out in [Deploy an Azure website with an integrated CDN endpoint](#deploy), you may decide against this and choose instead to select the controller action you want to serve from Azure CDN. [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Windows Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
+When you integrate Web Apps with Azure CDN, it is relatively easy to serve content from controller actions through the Azure CDN. Again, if you decide to serve the entire Azure web app through your CDN, you don't need to do this at all since all the controller actions are reachable through the CDN already. But for the reasons I already pointed out in [Deploy an Azure web app with an integrated CDN endpoint](#deploy), you may decide against this and choose instead to select the controller action you want to serve from Azure CDN. [Maarten Balliauw](https://twitter.com/maartenballiauw) shows you how to do it with a fun MemeGenerator controller in [Reducing latency on the web with the Azure CDN](http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN). I will simply reproduce it here.
 
-Suppose in your website website you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
+Suppose in your web app you want to generate memes based on a young Chuck Norris image (photo by [Alan Light](http://www.flickr.com/photos/alan-light/218493788/)) like this:
 
 ![](media/cdn-cloud-service-with-cdn/cdn-5-memegenerator.PNG)
 
@@ -297,7 +291,7 @@ Follow the steps above to setup this controller action:
 		    <input class="btn" type="submit" value="Generate meme" />
 		</form>
 
-5. Publish to the Azure website again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
+5. Publish to the Azure web app again and navigate to **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** in your browser. 
 
 When you submit the form values to `/MemeGenerator/Index`, the `Index_Post` action method returns a link to the `Show` action method with the respective input identifier. When you click the link, you reach the following code:  
 <pre class="prettyprint">
@@ -321,7 +315,7 @@ public ActionResult Show(string id)
 }
 </pre>
 
-If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure website, then it will redirect to:
+If your local debugger is attached, then you will get the regular debug experience with a local redirect. If it's running in the Azure web app, then it will redirect to:
 
 	http://<yourCDNName>.vo.msecnd.net/MemeGenerator/Generate?top=<formInput>&bottom=<formInput>
 
@@ -337,14 +331,14 @@ You can then use the `OutputCacheAttribute` attribute on the `Generate` method t
 
     [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 
-Likewise, you can serve up content from any controller action in your Azure website through your Azure CDN, with the desired caching option.
+Likewise, you can serve up content from any controller action in your Azure web app through your Azure CDN, with the desired caching option.
 
 In the next section, I will show you how to serve the bundled and minified scripts and CSS through Azure CDN. 
 
 <a name="bundling"></a>
 ## Integrate ASP.NET bundling and minification with Azure CDN ##
 
-Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache. Serving the entire website through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN. However, as you may elect against this approach for the reasons described in [Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN](#deploy), I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:
+Scripts and CSS stylesheets change infrequently and are prime candidates for the Azure CDN cache. Serving the entire web app through your Azure CDN is the easiest way to integrate bundling and minification with Azure CDN. However, as you may elect against this approach for the reasons described in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy), I will show you how to do it while preserving the desired develper experience of ASP.NET bundling and minification, such as:
 
 -	Great debug mode experience
 -	Streamlined deployment
@@ -352,7 +346,7 @@ Scripts and CSS stylesheets change infrequently and are prime candidates for the
 -	Fallback mechanism when your CDN endpoint fails
 -	Minimize code modification
 
-In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with your Azure website and serve static content in your Web pages from Azure CDN](#deploy), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
+In the ASP.NET project that you created in [Integrate an Azure CDN endpoint with your Azure web app and serve static content in your Web pages from Azure CDN](#deploy), open *App_Start\BundleConfig.cs* and take a look at the `bundles.Add()` method calls.
 
     public static void RegisterBundles(BundleCollection bundles)
     {
@@ -365,7 +359,7 @@ The first `bundles.Add()` statement adds a script bundle at the virtual director
 
     @Scripts.Render("~/bundles/jquery")
 
-When this Razor code is run in the Azure website, it will render a `<script>` tag for the script bundle similar to the following: 
+When this Razor code is run in the Azure web app, it will render a `<script>` tag for the script bundle similar to the following: 
 
     <script src="/bundles/jquery?v=FVs3ACwOLIVInrAl5sdzR2jrCDmVOWFbZMY6g6Q0ulE1"></script>
 
@@ -377,7 +371,7 @@ This enables you to debug the JavaScript code in your development environment wh
 
 Follow the steps below to integration ASP.NET bundling and minification with your CDN endpoint.
 
-1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/en-us/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
+1. Back in *App_Start\BundleConfig.cs*, modify the `bundles.Add()` methods to use a different [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), one that specifies a CDN address. To do this, replace the `RegisterBundles` method definition with the following code:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -429,7 +423,7 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 
 3. Republish the ASP.NET application and access the home page.
  
-4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure website. For example:  
+4. View the HTML code for the page. You should be able to see the CDN URL rendered, with a unique version string every time you republish changes to your Azure web app. For example:  
 	<pre class="prettyprint">
 	...
 
@@ -469,11 +463,11 @@ Follow the steps below to integration ASP.NET bundling and minification with you
 <a name="fallback"></a>
 ## Fallback mechanism for CDN URLs ##
 
-When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your website due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
+When your Azure CDN endpoint fails for any reason, you want your Web page to be smart enough to access your origin Web server as the fallback option for loading JavaScript or Bootstrap. It's serious enough to lose images on your web app due to CDN unavailability, but much more severe to lose crucial page functionality provided by your scripts and stylesheets.
 
-The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/en-us/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
+The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) class contains a property called [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) that enables you to configure the fallback mechanism for CDN failure. To use this property, follow the steps below:
 
-1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/en-us/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
+1. In your ASP.NET project, open *App_Start\BundleConfig.cs*, where you added a CDN URL in each [Bundle constructor](http://msdn.microsoft.com/library/jj646464.aspx), and make the following highlighted changes to add fallback mechanism to the default bundles:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -533,7 +527,7 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 
 	This new extension method uses the same idea to inject script in the HTML to check the DOM for the a matching class name, rule name, and rule value defined in the CSS bundle, and falls back to the origin Web server if it fails to find the match.
 
-4. Publish to your Azure website again and access the home page. 
+4. Publish to your Azure web app again and access the home page. 
 5. View the HTML code for the page. You should find injected scripts similar to the following:    
 	<pre class="prettyprint">...
 	
@@ -581,11 +575,15 @@ The [Bundle](http://msdn.microsoft.com/en-us/library/system.web.optimization.bun
 
 	![](media/cdn-websites-with-cdn/13-test-fallback.png)
 
-7. Refresh your browser window for the Azure website. You should now see that the all scripts and stylesheets are properly loaded.
+7. Refresh your browser window for the Azure web app. You should now see that the all scripts and stylesheets are properly loaded.
 
 # More Information #
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Serve Content from Azure CDN in Your Web Application](http://azure.microsoft.com/en-us/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Integrate a cloud service with Azure CDN](http://azure.microsoft.com/en-us/documentation/articles/cdn-cloud-service-with-cdn/)
+- [Serve Content from Azure CDN in Your Web Application](cdn-serve-content-from-cdn-in-your-web-application.md)
+- [Integrate a cloud service with Azure CDN](cdn-cloud-service-with-cdn.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Using CDN for Azure](http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/)
+- [Using CDN for Azure](cdn-how-to-use.md)
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

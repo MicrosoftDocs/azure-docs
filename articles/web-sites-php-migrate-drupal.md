@@ -19,26 +19,19 @@
 
 # Migrating Drupal to Azure Websites
 
+## Introduction
+
 Because Azure Websites supports both PHP and MySQL, it is relatively straightforward to migrate a Drupal site to Azure Websites. And, because Drupal and PHP run on any platform, the process should work for moving Drupal to Azure Websites regardless of your current platform. With this said, Drupal installations can vary widely, so there could be some unique migration steps not covered in the following material. Note that the Drush tool is not used, because it is not supported on Azure Websites.
 
-> [AZURE.NOTE]
-> If you are moving a large and complex Drupal application, another option is to consider using Azure Cloud Services. For more information about the differences between Websites and Cloud Services, see <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure Websites, Cloud Services, and VMs: When to use which?</a>. For help on moving Drupal to Cloud Services, see <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrating a Drupal Site from LAMP to Windows Azure</a>.
-
-## Table of Contents
-
-- [Create the Azure Web Site][]
-- [Copy the Database][]
-- [Modify Settings.php][]
-- [Deploy the Drupal Code][]
-- [Related information][]
+If you are moving a large and complex Drupal application, another option is to consider using Azure Cloud Services. For more information about the differences between Websites and Cloud Services, see <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Azure Websites, Cloud Services, and VMs: When to use which?</a>. For help on moving Drupal to Cloud Services, see <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migrating a Drupal Site from LAMP to Azure</a>.
  
-##<a name="create-siteanddb"></a>1. Create an Azure Website and MySQL database
+## Create an Azure Website and MySQL database
 
 First, go through the step-by-step tutorial to learn how to create a new Website with MySQL: [Create a PHP-MySQL Azure web site and deploy using Git][]. If you intend to use Git to publish your Drupal site, then follow the steps in the tutorial that explain how to configure a Git repository. Make sure to follow the instructions in the **Get remote MySQL connection information** section as you will need that information later. You can ignore the remainder of the tutorial for the purposes of deploying your Drupal site, but if you are new to Azure Websites (and to Git), you might find the additional reading informative.
 
 After you setup a new Website with a MySQL database, you now have your MySQL database connection information and an (optional) Git repository. The next step is to copy your database to MySQL in Azure Websites.
 
-##<a name="copy-database"></a>2. Copy database to MySQL in Azure Websites
+## Copy database to MySQL in Azure Websites
 
 There are many ways to migrate a database into Azure. One way that works well with MySQL databases is to use the [MySqlDump][] tool. The following command provides and example of how to copy from a local machine to Azure Websites:
 
@@ -52,7 +45,7 @@ Depending on the size of your database, the copying process could take several m
 
 Now your Drupal database is live in Azure Websites. Before you deploy your Drupal code, you need to modify it so it can connect to the new database.
 
-##<a name="modify-settingsphp"></a>3. Modify database connection info in settings.php
+## Modify database connection info in settings.php
 
 Here, you again need your new database connection information. Open the **/drupal/sites/default/setting.php** file in a text editor, and replace the values of 'database', 'username', 'password', and 'host' in the **$databases** array with the correct values for your new database. When you are finished, you should have something similar to this:
 
@@ -74,7 +67,7 @@ Here, you again need your new database connection information. Open the **/drupa
 
 Save the **settings.php** file. Now you are ready to deploy.
 
-##<a name="deploy-drupalcode"></a>4. Deploy Drupal code using Git or FTP
+## Deploy Drupal code using Git or FTP
 
 The last step is to deploy your code to Azure Websites using Git or FTP.
 
@@ -87,7 +80,7 @@ If you are using Git, you should have set up a Git repository in the previous st
 
 After you have deployed Drupal to Azure Websites, you can continue to deploy updates via Git or FTP.
 
-##<a name="related-information"></a>Related information
+## Related information
 
 For more information, see the following posts and topics:
 
@@ -102,7 +95,7 @@ For more information, see the following posts and topics:
   [Modify Settings.php]: #modify-settingsphp
   [Deploy the Drupal Code]: #deploy-drupalcode
   [Related information]: #related-information
-  [Create a PHP-MySQL Azure web site and deploy using Git]: http://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/
+  [Create a PHP-MySQL Azure web site and deploy using Git]: http://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-git/
   
   [Azure Websites, a PHP Perspective]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
   [Azure Web Sites, Cloud Services, and VMs: When to use which?]: http://go.microsoft.com/fwlink/?LinkId=310123

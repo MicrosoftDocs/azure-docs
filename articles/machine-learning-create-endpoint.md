@@ -1,18 +1,21 @@
 <properties 
-   pageTitle="Creating Endpoints" 
-   description="Creating web service endpoints in Azure Machine Learning" 
-   services="machine-learning" 
-   authors="hiteshmadan" 
-   manager="padou" 
-   editor=""/>
+	pageTitle="Creating Endpoints" 
+	description="Creating web service endpoints in Azure Machine Learning" 
+	services="machine-learning" 
+	authors="hiteshmadan" 
+	manager="padou" 
+	editor="cgronlun"/>
+
 <tags
-   ms.service="machine-learning"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="02/19/2015"
-   ms.author="himad"/>
+	ms.service="machine-learning"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd" 
+	ms.date="02/19/2015"
+	ms.author="himad"/>
+
+
 # Creating Endpoints
 
 Azure Machine Learning allows you to create multiple endpoints for a published web service. Each endpoint is individually addressed, throttled and managed, independently of the other endpoints of that web service. There is a unique URL and authorization key for each endpoint.
@@ -33,7 +36,7 @@ This allows Azure Machine Learning users to create web services that they can th
 
 
 - Click on the Add endpoint button at the bottom. Fill in a name and description, ensure there are no other endpoints with the same name in this web service. Leave the throttle level with its’ default value unless you have special requirements.
-If you want to learn more about throttling, visit the [Scaling API Endpoints](./machine-learning-scaling-endpoints.md) page.
+If you want to learn more about throttling, visit the [Scaling API Endpoints](machine-learning-scaling-endpoints.md) page.
 ![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 

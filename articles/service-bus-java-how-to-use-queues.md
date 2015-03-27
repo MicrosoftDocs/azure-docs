@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="03/26/2015" 
 	ms.author="sethm"/>
 
 # How to use Service Bus queues
@@ -29,10 +29,10 @@ messages**, and **deleting queues**.
 
 Add the following import statements to the top of the Java file:
 
-	// Include the following imports to use service bus APIs
-	import com.microsoft.windowsazure.services.serviceBus.*;
-	import com.microsoft.windowsazure.services.serviceBus.models.*; 
-	import com.microsoft.windowsazure.services.core.*; 
+	// Include the following imports to use Service Bus APIs
+	import com.microsoft.windowsazure.services.servicebus.*;
+	import com.microsoft.windowsazure.services.servicebus.models.*; 
+	import com.microsoft.windowsazure.core.*; 
 	import javax.xml.datatype.*;
 	
 ## How to create a queue
@@ -249,7 +249,7 @@ constant across delivery attempts.
 Now that you've learned the basics of Service Bus queues, see the MSDN
 topic [Queues, Topics, and Subscriptions][] for more information.
 
-  [Azure SDK for Java]: http://azure.microsoft.com/en-us/develop/java/
+  [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -260,4 +260,4 @@ topic [Queues, Topics, and Subscriptions][] for more information.
   [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
   [Next Steps]: #bkmk_NextSteps
   [Azure Management Portal]: http://manage.windowsazure.com/
-  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Queues, Topics, and Subscriptions]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

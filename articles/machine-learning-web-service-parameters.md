@@ -3,7 +3,7 @@
 	description="How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="raymondlaghaeian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/10/2015" 
-	ms.author="garye"/>
+	ms.author="raymondl,garye"/>
 
 #Use Azure Machine Learning Web Service Parameters
 
@@ -61,6 +61,8 @@ As an example, let's assume we have an experiment with a **Writer** module that 
  
 5.	To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
 
+	![Web Service Parameter][parameter]
+
 6.	Click **Run**. 
 
 7.	Click **PUBLISH WEB SERVICE** to publish the web service.
@@ -71,9 +73,10 @@ The user of the web service can now specify a new destination for the Writer mod
 
 For a more detailed example, see the [Web Service Parameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entry in the [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
-For more information on accessing a Machine Learning web service, see [How to consume a published machine learning web service](https://acom-sandbox.azurewebsites.net/en-us/documentation/articles/machine-learning-consume-web-services/).
+For more information on accessing a Machine Learning web service, see [How to consume a published machine learning web service](machine-learning-consume-web-services.md).
 
 
 
 <!-- Images -->
 [icon]: ./media/machine-learning-web-service-parameters/icon.png
+[parameter]: ./media/machine-learning-web-service-parameters/parameter.png

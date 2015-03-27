@@ -52,11 +52,11 @@ If you want to use an existing data disk on the D drive, make sure you've also u
 [About Azure Storage Accounts]
 
 <!--Link references-->
-[How to Attach a Data Disk to a Windows Virtual Machine]: ../storage-windows-attach-disk
-[About Virtual Machine Disks in Azure]: ../http://msdn.microsoft.com/en-us/library/azure/dn790303.aspx
-[Create and Upload a Windows Server VHD to Azure]: ../virtual-machines-create-upload-vhd-windows-server/
-[How to Log on to a Virtual Machine Running Windows Server]: ../virtual-machines-log-on-windows-server/
-[How to Detach a Data Disk from a Virtual Machine]: ../storage-windows-detach-disk/
-[About Azure Storage Accounts]: ../storage-whatis-account/
+[How to Attach a Data Disk to a Windows Virtual Machine]: storage-windows-attach-disk.md
+[About Virtual Machine Disks in Azure]: http.md://msdn.microsoft.com/library/azure/dn790303.aspx
+[Create and Upload a Windows Server VHD to Azure]: virtual-machines-create-upload-vhd-windows-server.md
+[How to Log on to a Virtual Machine Running Windows Server]: virtual-machines-log-on-windows-server.md
+[How to Detach a Data Disk from a Virtual Machine]: storage-windows-detach-disk.md
+[About Azure Storage Accounts]: storage-whatis-account.md
 
 

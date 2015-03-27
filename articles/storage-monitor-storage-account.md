@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # Monitor a Storage Account in the Azure Management Portal
 
 ## Overview
 
-You can monitor your storage account from the Azure Management Portal. When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) to track metrics for you account and log request data. 
+You can monitor your storage account from the Azure Management Portal. When you configure your storage account for monitoring through the portal, Azure Storage uses [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx) to track metrics for you account and log request data. 
 
-> [AZURE.NOTE] Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
+> [AZURE.NOTE] Additional costs are associated with examining monitoring data in the Management Portal. For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 
 > The Azure File service does not currently support Storage Analytics.
 
@@ -57,7 +57,7 @@ Until you configure monitoring for a storage account, no monitoring data is coll
 
 After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the Management Portal, and which metrics to plot on metrics charts. A default set of metrics are displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
 
-Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 
 
 ## How to: Customize the dashboard for monitoring
@@ -101,7 +101,7 @@ Use the following procedures to choose which storage metrics to view in the metr
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+	> [AZURE.NOTE] Consider costs when you select the metrics. There are transaction and egress costs associated with refreshing monitoring displays. For more information, see [Storage Analytics and Billing](http://msdn.microsoft.com/library/azure/hh360997.aspx).
 
 3. Click **Add Metrics**. 
 
@@ -156,4 +156,4 @@ For each of the storage services available with your storage account (Blob, Tabl
 
 4. Click **Save**.
 
-The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+The diagnostics logs are saved in a blob container named $logs in your storage account. For information about accessing the $logs container, see [About Storage Analytics Logging](http://msdn.microsoft.com/library/azure/hh343262.aspx).
