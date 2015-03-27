@@ -249,7 +249,7 @@ special path "/" – which is explained in the next section.
             Path = "/",
             NumericPrecision = 7 });
             
-     rangeDefault = await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
+    rangeDefault = await client.CreateDocumentCollectionAsync(database.SelfLink, rangeDefault);   
 
 
 ### Index paths
@@ -415,12 +415,11 @@ The following example configures a specific path with range indexing and a
 custom precision value of 7 bytes:
 
 
-     // If you only want to specify range queries against a specific field,   
-     // then use a range index against that field. Doing so reduces the   
+    // If you only want to specify range queries against a specific field,   
+    // then use a range index against that field. Doing so reduces the   
     // amount of storage required for indexes for the collection. In this    
-     // case, the query creates an index against the JSON path                   
-     // /"CreatedTimestamp"/?    
-     // allowing queries of the form WHERE CreatedTimestamp [>] X            
+    // case, the query creates an index against the JSON path                   
+    // /"CreatedTimestamp"/? allowing queries of the form WHERE CreatedTimestamp [>] X            
     
     var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
     
@@ -496,7 +495,8 @@ operations.
         Console.WriteLine("Query batch consumed {0} request units",queryResponse.RequestCharge);
         totalRequestCharge += queryResponse.RequestCharge;
      }
-    Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
+     
+     Console.WriteLine("Query consumed {0} request units in total", totalRequestCharge);
 
 Next Steps
 ------------------
