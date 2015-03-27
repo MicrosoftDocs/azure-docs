@@ -87,7 +87,7 @@ As you can see, the Hadoop command provides an easy way to run MapReduce jobs on
 
 For general information on MapReduce jobs in HDInsight.
 
-* [Use MapReduce on HDInsight Hadoop](../hdinsight-use-mapreduce/)
+* [Use MapReduce on HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 

@@ -28,7 +28,7 @@ App Service Mobile Apps is a new way to build mobile applications using Microsof
 
 In a migration to Mobile Apps, all existing app functionality (and code) can be preserved. Moreover, new features are available to the application. In the Mobile Apps model, your code actually runs on a Web App (the new version of Azure Web Sites). You have full control over the web app and how it operates. In addition, Web Apps features which were previously unavailable to Mobile Services customers, such as Traffic Manager and Development Slots, can now be used. 
 
-The new model also addresses one of the major difficulties of working with Mobile Services. Now, any version of any NuGet package can be deployed without worrying about dependency conflicts. More about the benefits of migrating can be found in the [I already use web sites and mobile services – how does App Service help me?] topic.
+The new model also addresses one of the major difficulties of working with Mobile Services. Now, any version of any NuGet package can be deployed without worrying about dependency conflicts. More about the benefits of migrating can be found in the [I already use web sites and mobile services â€“ how does App Service help me?] topic.
 
 When you create an App Service Mobile App, you get:
 
@@ -105,12 +105,12 @@ Once your customers have had a chance to receive these updates, you can delete t
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Azure Management Portal]: https://manage.windowsazure.com/
-[What are Mobile Apps?]: /en-us/documentation/articles/app-service-mobile-value-prop-preview
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
+[What are Mobile Apps?]: app-service-mobile-value-prop-preview.md
+[I already use web sites and mobile services â€“ how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services-preview
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview
-[Add push notifications to your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview
-[Add authentication to your mobile app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview
+[Create a Mobile App]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
+[Add push notifications to your mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
+[Add authentication to your mobile app]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md
 [Azure Scheduler]: /en-us/documentation/services/scheduler/
-[Web Job]: /en-us/documentation/articles/websites-webjobs-resources/
-[Send cross-platform push notifications]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview
+[Web Job]: websites-webjobs-resources.md
+[Send cross-platform push notifications]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md

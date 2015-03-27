@@ -238,7 +238,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Azure Management Portal]: https://manage.windowsazure.com/
@@ -248,7 +248,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
+[What are Notification Hubs?]: notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
 
