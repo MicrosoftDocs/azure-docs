@@ -89,7 +89,11 @@ Depending on the input type used in the job, some additional fields with event m
 	</tr>
 </table>
 
+###Partition(s) with slow or no input data
+When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. User can also decide to only wait for a limited time, ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 
+###Partition(s) with out of order events
+When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
 For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
