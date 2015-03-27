@@ -8,11 +8,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/2/2015"
+   ms.date="02/022/2015"
    ms.author="larryfr"/>
 
 
@@ -56,7 +56,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 For more information on Virtual Network features, benefits, and capabilities, see the [Azure Virtual Network overview](http://msdn.microsoft.com/library/azure/jj156007.aspx).
 
-> [WACOM.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE] You must create the Azure Virtual Network before provisioning an HDInsight cluster. For more information, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 >
 > Azure HDInsight only supports location-based Virtual Networks, and does not currently work with Affinity Group-based Virtual Networks.
 >
