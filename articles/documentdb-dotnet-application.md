@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="03/23/2015" 
+	ms.date="03/27/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -120,8 +120,17 @@ Let's begin by creating the **M** in MVC, the model.
 
   	The **Add New Item** dialog box appears.
 
-2. Name your new class **Item** and then add the following code into the new Item.cs file.
+2. Name your new class **Item**. 
+	Open the newly created Item.cs file and replace this code 
+		
+		public class Item
+		{
+		}
 
+	With the following code snippet.
+
+		using Newtonsoft.Json;
+		
         public class Item
         {
         	[JsonProperty(PropertyName="id")]
@@ -138,14 +147,9 @@ Let's begin by creating the **M** in MVC, the model.
 		}
 
 	All data in DocumentDB is passed over the wire and stored as JSON. To control the way your objects are serialized/deserialized by JSON.NET you can use the **JsonProperty** attribute as demonstrated in the **Item** class we just created. You don't **have** to do this but I want to ensure that my properties follow the JSON camelCase naming conventions. 
-
+	
 	Not only can you control the format of the property name when it goes into JSON, but you can entirely rename your .NET properties like I did with the **Description** property. 
-
-	You can, if you like, use **JsonConverter** objects here as well to completely control how serialization is handled.  
-
-3. In order to get Visual Studio to resolve the **JsonProperty** attribute used here you need to add the following using statement to the using section of your class file.
-
-    	using Newtonsoft.Json;
+	
 
 ### <a name="_Toc395637765"></a>Add a controller
 
@@ -234,28 +238,22 @@ In this section, we'll add code to handle the following:
 
 ### <a name="_Toc395637770"></a>Listing incomplete Items
 
-1. Open the **ItemController** and remove all the code within the class (but leave the class) that Visual Studio added. We'll rebuild it piece by piece using DocumentDB.
+3. Add a new class to your project and name it **DocumentDBRepository**. 
+4. Replace the code the following code in this new **DocumentDBRepository** class 
 
-2. Add the following code snippet within the now empty **ItemController** class.
-
-    	public ActionResult Index()
-    	{
-			var items = DocumentDBRepository<Item>.GetItems(d => !d.Completed);
-			return View(items);
+		public class DocumentDBRepository
+		{
     	}
 
-	This code also uses a "pseudo repository" class called **DocumentDBRepository** that we have yet to create. This is actually just a helper class that contains all the DocumentDB specific code. For the purposes of this walk-through we aren't going to implement a full data access layer with dependency injection, and factories and repository patterns, as you would probably be doing if you were building a real world application. 
-	For the purposes of this walk-through we're just going to put all the data access logic directly into one project to keep things simple and focus on the DocumentDB specific bits.
+	with the following.
 
-3. Add a new class to your project and name it **DocumentDBRepository**. 
-4. Replace the code in the **DocumentDBRepository** class with the following.
-
-    	public static class DocumentDBRepository<T>
-    	{
-	       using Microsoft.Azure.Documents; 
-	       using Microsoft.Azure.Documents.Client; 
-	       using Microsoft.Azure.Documents.Linq; 
-		
+	    using Microsoft.Azure.Documents; 
+	    using Microsoft.Azure.Documents.Client; 
+	    using Microsoft.Azure.Documents.Linq; 
+		using System.Configuration;
+    	
+		public static class DocumentDBRepository<T>
+    	{		
      	   private static string databaseId;
      	   private static String DatabaseId
      	   {
@@ -329,17 +327,19 @@ In this section, we'll add code to handle the following:
     	        }
     	    }
     	}
+	
+	This code creates some properties for our repository class and has the logic to establish a new connection to DocumentDB, get a reference to the Database and the Collection we will use for our application. 
 
-5. Spend some time resolving all the namespaces in Visual Studio, which should include adding the following using directives to the DocumentDBRepository.cs file.
+7. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
+	
+    	<add key="endpoint" value="enter you endpoint url from the Azure Management Portal"/>
+    	<add key="authKey" value="enter one of the keys from the Azure Management Portal"/>
+    	<add key="database" value="ToDoList"/>
+    	<add key="collection" value="Items"/>
+	
+8. Now, update those values using the Keys blade of the Azure Management Portal. Use the **URI** value from the Keys blade as the value of the endpoint key, and use the **PRIMARY KEY** value from the Keys blade as the value of the authKey key.
 
-		using Microsoft.Azure.Documents;
-		using Microsoft.Azure.Documents.Client;
-		using Microsoft.Azure.Documents.Linq;
-		using System.Configuration;
-
- 	All namespaces will be easy to resolve in Visual Studio as long as the NuGet package was installed successfully. The references to the **ReadOrCreateDatabase** and **ReadOrCreateCollection** methods remain unresolved until we add them, which comes next.
- 
-6. There are two method calls used here for reading or creating DocumentDB databases and document collections. So add the following two methods to the **DocumentDBRepository** class.
+6. There are two private functions needed by the repository class for reading or creating a DocumentDB Database and a Document Collection. So add the following two methods anywhere within the **DocumentDBRepository** class definition.
 
     	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
    		{
@@ -371,18 +371,7 @@ In this section, we'll add code to handle the following:
         	return db;
     	}
 
-	This code takes care setting up the database, a [**DocumentCollection**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.aspx), and creating some code to connect to DocumentDB through the [**DocumentClient**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx). 
-
-7. We're reading some values from configuration, so open the **Web.config** file and add the following lines under the `<AppSettings>` section.
-	
-    	<add key="endpoint" value="enter you endpoint url from the Azure Management Portal"/>
-    	<add key="authKey" value="enter one of the keys from the Azure Management Portal"/>
-    	<add key="database" value="ToDoList"/>
-    	<add key="collection" value="Items"/>
-	
-8. Now, update those values using the Keys blade of the Azure Management Portal. Use the **URI** value from the Keys blade as the value of the endpoint key, and use the **PRIMARY KEY** value from the Keys blade as the value of the authKey key.
-	
-	Now let's add some code to do the work. 	
+	That takes care of wiring up the DocumentDB respository, now let's add our application logic.
 
 9. The first thing we want to be able to do with a todo list application is to display the incomplete items.  The method below does this for you so copy and paste it anywhere within the **DocumentDBRepository** class.
 
@@ -392,7 +381,17 @@ In this section, we'll add code to handle the following:
 				.Where(predicate) 
 				.AsEnumerable(); 
 		} 
-	    
+
+1. Open the **ItemController** we added in the previous section and remove all the code within the class (but leave the class & namespace definitions) that Visual Studio added. We'll now rebuild it piece by piece using DocumentDB.
+
+2. Add the following code snippet within the now empty **ItemController** class.
+
+    	public ActionResult Index()
+    	{
+			var items = DocumentDBRepository<Item>.GetItems(d => !d.Completed);
+			return View(items);
+    	}
+	
 	At this point your solution should be able to build without any errors.
 
 	If you ran the application now, you would go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start but we don't want that! Let's change the routing on this MVC application to alter this behavior.
@@ -402,7 +401,8 @@ In this section, we'll add code to handle the following:
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
 	This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
-	Now if you run the application, it will call into your **ItemController** and return the results of the **GetIncompleteItems** method to the **Views**\\**Item**\\**Index** view. 
+
+	Now if you run the application, it will call into your **ItemController** which will call in to the repsoitory class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
 
 12. If you build and run this project now, you should now see something that looks this.    
 
