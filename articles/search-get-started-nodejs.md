@@ -30,6 +30,8 @@ To run this sample, you must have an Azure Search service, which you can sign up
 
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
+
 > [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Create the service##
@@ -81,15 +83,9 @@ Use either one of the following approaches to download the sample.
 1. Go to [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198).
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
+All subsequent file modifications and run statements will be made against files in this folder.
+
 Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git` 
-
-##Host a runtime environment for the sample
-
-The sample requires an HTTP server, which you can install globally using npm. Use a PowerShell window for the following commands.
-
-1. Navigate to the folder that contains the package.json file.
-2. Type `npm install`.
-2. Type `npm install -g http-server`.
 
 ##Update the config.js. with your Search service URL and api-key
 
@@ -99,7 +95,20 @@ Admin keys grant full control over service operations, including creating or del
 
 In this sample, we include the query key to help reinforce the best practice of using the query key in client applications.
 
+The following screenshot shows **config.js** open in a text editor, with the relevant entries demarcated so that you can see where to update the file with the values that are valid for your search service.
+
 ![][5]
+
+
+##Host a runtime environment for the sample
+
+The sample requires an HTTP server, which you can install globally using npm. 
+
+Use a PowerShell window for the following commands.
+
+1. Navigate to the folder that contains the **package.json** file.
+2. Type `npm install`.
+2. Type `npm install -g http-server`.
 
 ##Build the index and run the application
 
@@ -121,6 +130,15 @@ You could also try any of these terms:
 - Pawtucket
 - Pembroke
 - goose +cape
+
+
+##Next steps##
+
+This is the first Azure Search tutorial based on NodeJS and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
+
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
 [1]: ./media/search-get-started-nodejs/create-search-portal-1.PNG
