@@ -2,8 +2,9 @@
 	pageTitle="Diagnose performance issues on a running website" 
 	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="03/25/2015" 
 	ms.author="awills"/>
  
 
@@ -19,15 +20,15 @@
 
 *Application Insights is in preview.*
 
-Got a web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
+Got an ASP.NET web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
 
-Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download latest Application Insights SDK and apply it to your application. 
+Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download the latest Application Insights SDK and apply it to your application. 
 
 Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts by turning on code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so windows performance counters can be collected by Application Insights SDK.
 
 Beside enabling of monitoring Status Monitor helps troubleshoot issues with Application Insights SDK and shows you status of monitoring of all web applications running on computer. 
 
-You need admin access to the server, and a Microsoft Azure account. 
+You need admin access to the server, and a [Microsoft Azure](http://azure.com) account. 
 
 
 ## Install Application Insights Status Monitor on your web server
@@ -66,7 +67,7 @@ After you complete the wizard, you can re-configure the agent whenever you want.
 
 ## View performance telemetry
 
-Open your account in Azure, browse Application Insights and open the resource that you created.
+Open [the Azure Preview portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![](./media/appinsights/appinsights-08openApp.png)
 

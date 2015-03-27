@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Plan Your Cloud Data Science Environment | Azure" 
+	pageTitle="Plan your Azure Machine Learning Data Science environment | Azure" 
 	description="Plan Your Cloud Data Science Environment" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -19,13 +19,13 @@
 	ms.author="mohabib;bradsev" /> 
 
 
-# Plan Your Azure Machine Learning Data Science Environment
+# Plan your Azure Machine Learning Data Science environment
 
-There are decisions about options that must be made when you set up an Azure Machine Learning data science environment. The choices that you make are going to be based on the the type, size, and source location of your data and the target destination for this data in the cloud. The Cloud Data Science Process is the end-to-end series of tasks that take you from the original data in some source through the creation and publishing of a model as an Azure web service for consumption in applications.
+You need to make certain decisions when you set up an Azure Machine Learning data science environment. The choices you make will be based on the type, size, and source location of your data and the target destination for this data in the cloud. The Cloud Data Science Process is an end-to-end series of tasks that take you from the original data in some source through the creation and publishing of a model as an Azure web service for consumption in applications.
 
-The Cloud Data Science Process workflow is presented in the **[Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about the individual steps in the Data Science Process, click the relevant items in the [map](machine-learning-data-science-how-to-create-machine-learning-service.md).
+The Cloud Data Science Process workflow is presented in the **[Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md)**. To learn more about the individual steps in the Data Science Process, click the relevant items in the map.
 
-This article discusses the questions to consider when setting up your Cloud Data Science environment, some resources and tools that are useful for this process, and provides some guidance about how to use the Cloud Data Science Process map.
+This article discusses the questions to consider when setting up your Cloud Data Science environment, enumerates resources and tools that are useful for this process, and provides guidance on how to use the Cloud Data Science Process map.
 
 ## Questions to Consider
 
@@ -71,8 +71,8 @@ Depending on your scenario, you might also need the following:
 
 ## How to Use the Cloud Data Science Process Map
 
-The Azure Machine Learning [Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. The map shows the core steps involved in a typical workflow. But not all steps are required in every data science exercise. Also, the process is iterative in nature and the sequence of steps may vary in a given exercise. Your answers to the questions above will prepare you to decide which steps are relevant and when they are needed in the process and the conditions under which iterations of the steps are required.
+The [Cloud Data Science Process map](machine-learning-data-science-how-to-create-machine-learning-service.md) presents a variety of data science exercises. The map shows the core steps involved in a typical data science workflow. Not all steps are required in every data science exercise. Also, the process is iterative in nature and the sequence of steps may vary in a given exercise. Your answers to the questions above will help you decide the steps that are relevant to your case when they are needed in the process and the conditions under which iterations of the steps are required.
 
-For sample scenarios based on original data size, data source location, and target repository in Azure, see [Cloud Data Science Process in Azure Machine Learning](hmachine-learning-data-science-plan-sample-scenarios.md).
+For sample scenarios based on original data size, data source location, and target repository in Azure, see [Cloud Data Science Process in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).
 
 

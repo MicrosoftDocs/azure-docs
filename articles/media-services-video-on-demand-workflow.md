@@ -189,9 +189,9 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 [This](media-services-how-to-scale.md) topic links to relevant topics.
 
+##Playback your content with existing players
 
-##Playback your content
+For more information, see [playing your content with existing players](media-services-playback-content-with-existing-players.md).
 
-For more information, see [playing your content with existing players](media-services-playback-content.md).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png

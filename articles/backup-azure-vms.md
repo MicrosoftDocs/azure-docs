@@ -54,8 +54,8 @@ You'll need an Azure account. If you don't have one start the with a [free trial
 
 1. In the main Recovery Services page double-click the vault to open it.
 2. On the Quick Start page click **Protect Azure Virtual Machine** > **Discover virtual machines** If you want more information about creating Azure virtual machines see:
-	- [Create a virtual machine running Windows](../virtual-machines-windows-tutorial/)
-	- [Create a virtual machine running Linux](../virtual-machines-linux-tutorial/)
+	- [Create a virtual machine running Windows](virtual-machines-windows-tutorial.md)
+	- [Create a virtual machine running Linux](virtual-machines-linux-tutorial.md)
 
 	![Register virtual machines](./media/backup-azure-vms/Backup_QuickStart.png)
 

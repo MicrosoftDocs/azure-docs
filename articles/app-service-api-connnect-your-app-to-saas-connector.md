@@ -160,4 +160,4 @@ The same flow is applicable for all SaaS connectors like Safesforce, Facebook, e
 
 ## Next steps
 
-You've seen how to protect an API app and configure the gateway to access the SaaS connector using the token store. For more information, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+You've seen how to protect an API app and configure the gateway to access the SaaS connector using the token store. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md). 

@@ -71,7 +71,7 @@ Get started with ...
 Performance monitoring
 
 <ul>
-<li><a href="../app-insights-web-monitor-performance/">Detect performance issues in web apps</a>
+<li><a href="../articles/app-insights-web-monitor-performance.md">Detect performance issues in web applications</a>
 </li>
 <li><a href="../articles/app-insights-search-diagnostic-logs.md">Search ASP.NET traces and logs</a>
 </li>

@@ -245,7 +245,7 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 <!-- URLs. -->
 
-[Create an iOS App]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started
+[Create an iOS App]: app-service-mobile-dotnet-backend-ios-get-started.md
 
 [core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
 [core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
@@ -267,14 +267,14 @@ When we wanted to synchronize the local store with the server, we used the `MSSy
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
 [Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: /en-us/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[How to use the Mobile Services client library for iOS]: mobile-services-ios-how-to-use-client-library.md
 [Offline iOS Sample]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
 [Mobile Apps sample repository on GitHub]: https://github.com/Azure/mobile-services-samples
 
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
-[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
-[Soft Delete]: /en-us/documentation/articles/mobile-services-using-soft-delete/
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Handling conflicts with offline support for Mobile Services]: mobile-services-ios-handling-conflicts-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/en-us/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

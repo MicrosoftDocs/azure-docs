@@ -19,13 +19,13 @@
 
 # Customize Azure HDInsight Hadoop Clusters for Data Science
 
-This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. It also shows how to access the headnode from which custom jobs can be submitted to the cluster.
+This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. It also shows how to access the headnode to submit custom jobs to the cluster.
 
-This makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
+This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 
-To create a customized HDInsight Hadoop cluster, users need to log on to [**Management Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window on whose pages the cluster is configured. 
+To create a customized HDInsight Hadoop cluster, users need to log on to [**Management Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
 
 ![Create workspace][1]
 
@@ -39,7 +39,7 @@ On configuration page 2, input the number of **DATA NODES**, select the **REGION
 
 ![Create workspace][3]
 
-On this configuration page 3, provide a user name and password for the HDInsight Hadoop cluster. **Do not** select the _Enter the Hive/Oozie Metastore_. Then, click the arrow to go to the next configuration page. 
+On configuration page 3, provide a user name and password for the HDInsight Hadoop cluster. **Do not** select the _Enter the Hive/Oozie Metastore_. Then, click the arrow to go to the next configuration page. 
 
 ![Create workspace][4]
 
@@ -64,11 +64,11 @@ Finally, click on the check mark to start the creation of the customized HDInsig
 
 Users must enable remote access to the Hadoop cluster in Azure before they can access the head node of the Hadoop cluster through RDP. 
 
-1. Log in to the [**Management Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
+1. Log in to the [**Management Portal of Azure**](https://manage.windowsazure.com/), select **HDInsight** on the left, select your Hadoop cluster from the list of clusters, click the **CONFIGURATION** tab, and then click the **ENABLE REMOTE** icon at the bottom of the page.
 	
 	![Create workspace][7]
 
-2. In the **Configure Remote Desktop** window, input values for the USER NAME and PASSWORD fields, and select the expiration date of the remote access. Then click the check mark to enable the remote access to the head node of the Hadoop cluster.
+2. In the **Configure Remote Desktop** window, enter the USER NAME and PASSWORD fields, and select the expiration date for remote access. Then click the check mark to enable the remote access to the head node of the Hadoop cluster.
 	
 	>[AZURE.NOTE] 
 	>
@@ -78,11 +78,13 @@ Users must enable remote access to the Hadoop cluster in Azure before they can a
 
 	![Create workspace][8]
 
-3. After the remote access is enabled, click **CONNECT** at the bottom of the page to remote into the head node. You log in to the head node of the Hadoop cluster by entering the credentials for the remote access user that you specified in this procedure.
+3. After remote access is enabled, click **CONNECT** at the bottom of the page to remote into the head node. You log on to the head node of the Hadoop cluster by entering the credentials for the remote access user that you specified earlier.
 
 	 ![Create workspace][9]
 
-Next, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md) for instructions on how to access the Python modules that are included in Anaconda from the head node of the cluster in user defined functions (UDFs) that are used to process Hive records stored in the cluster.
+The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+
+See [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-process-hive-tables.md) for instructions on how to access the Python modules that are included in Anaconda from the head node of the cluster in user defined functions (UDFs) that are used to process Hive records stored in the cluster.
 
 [1]: ./media/machine-learning-data-science-customize-hadoop-cluster/customize-cluster-img1.png
 [2]: ./media/machine-learning-data-science-customize-hadoop-cluster/customize-cluster-img2.png

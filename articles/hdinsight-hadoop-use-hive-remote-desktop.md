@@ -102,7 +102,7 @@ As you can see, the the Hive command provides an easy way to interactively run H
 
 For general information on Hive in HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
