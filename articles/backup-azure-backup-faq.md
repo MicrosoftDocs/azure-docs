@@ -59,7 +59,7 @@ A7. Yes, you can register upto 50 machines per vault. If you need to register mo
 **Q8. Is there any limits on the amount of data which can be backed up from a Windows server/client or SCDPM server?** <br/>
 A8. No.
 
-**Q9. How do I register my server to another datacenter? **<br/>
+**Q9. How do I register my server to another datacenter?**<br/>
 A9. In general the backup data is sent to the datacenter of the Backup Service to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new datacenter.
 
 **Q10. What happens if I rename a Windows server which is backing up data to Azure?** <br/>
@@ -76,7 +76,7 @@ A11. The following set of drives/volumes can be backup:
 
 + Network share: The volume must be local to the server to be backed up using online backup.
 
-**Q12. What file and folder types can I back up from my server? **<br/>
+**Q12. What file and folder types can I back up from my server?**<br/>
 A12. The following types are supported:
 
 + Encrypted
@@ -125,19 +125,19 @@ A1. As of March 2015, each data source should be less than or equal to 1.7 TB. A
 
 + Hyper-V VM
 
-**Q2. Is there are limit on number of times backup can be scheduled per day? **<br/>
+**Q2. Is there are limit on number of times backup can be scheduled per day?**<br/>
 A2. Yes, Azure Backup enables 3 backup copies per day through Windows Server/Client and 2 backup copies per day through SCDPM.
 
 **Q3. Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) backup scheduling policy?** <br/>
 A3. Yes. Using DPM, you can specify daily, weekly, monthly, yearly scheduling while from a Windows Server (without DPM), you can specify only daily, weekly schedules.
 
-**Q4. Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) retention policy? **<br/>
+**Q4. Is there a difference between DPM’s and Azure Backup’s (i.e on Windows Server without DPM) retention policy?**<br/>
 A4. No, you have the same capabilities. You can specify daily, weekly, monthly and yearly retention policies.
 
-**Q5. Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly? **<br/>
+**Q5. Can I configure my retention policies selectively – i.e. configure weekly and daily but not yearly and monthly?**<br/>
 A5. You have the full set of knobs to come up with policies which best define your compliance/retention requirements.
 
-**Q6. Can I “schedule a backup” at 6pm and specify “retention policies” at a different time? **<br/>
+**Q6. Can I “schedule a backup” at 6pm and specify “retention policies” at a different time?**<br/>
 A6. No. Retention policies can only be applied on backup points. In the below picture, the retention policy is being specified on backups taken at 12am and 6pm. <br/>
 
 ![Schedule Backup and Retention][1]
@@ -149,10 +149,10 @@ A7. No, the incremental copy is sent based on the time mentioned in the backup s
 **Q8. If backup is retained for a long duration, does it take a significant time to recover the data (say the oldest point)?** <br/>
 A8. No – the time taken to recovery the oldest or the latest point is one and the same. Each recovery point behaves like a full point.
 
-**Q9. If each recovery point is like a full point, does it impact the total billable backup storage? **<br/>
+**Q9. If each recovery point is like a full point, does it impact the total billable backup storage?**<br/>
 A9.  Typical long term retention point products store backup data as full points. However, these are storage inefficient but are easier and faster to restore. Incremental copies are storage efficient but  requires you to restore a chain of data which impacts your recovery time. Azure Backup’s unique storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This approach ensures that your (ingress and egress) bandwidth is efficiently used, storage is kept to the minimum and the time taken to recover is kept to the minimum.
 
-**Q10. Is there a limit on the number of recovery points which can be created? **<br/>
+**Q10. Is there a limit on the number of recovery points which can be created?**<br/>
 A10. As of April 2015, you can have upto 366 recovery points. You can use any permutation to arrive at a number which is less than 366. Eg – the retention points in the below picture add to 354. <br/>
 
 ![Retention screen][2]
@@ -160,21 +160,21 @@ A10. As of April 2015, you can have upto 366 recovery points. You can use any pe
 **Q11. Once Microsoft improves limit from 366, will I need to upgrade the agent or reseed the initial backup?** <br/>
 A11. No. Once we make the change in our service, you will be notified through our social media outlets (blogs, Azure announcements, portal etc). Based on your needs, you would then be required to only change the retention policy.
 
-**Q12. Why is the amount of data transferred in backup not equal to the amount of data I backed up? **<br/>
+**Q12. Why is the amount of data transferred in backup not equal to the amount of data I backed up?**<br/>
 A12. All the data that is backed up is compressed and encrypted before being transferred. You can expect 30-40% compression benefits depending on the type of data being backed up.
 
 ## Recoveries
-**Q1. How many recoveries can I perform on the data which is backed up to Azure? **<br/>
+**Q1. How many recoveries can I perform on the data which is backed up to Azure?**<br/>
 A1. There is no limit on the number of recoveries from Azure Backup.
 
-**Q2. Do I have to pay for the egress traffic from Azure data center during recoveries? **<br/>
+**Q2. Do I have to pay for the egress traffic from Azure data center during recoveries?**<br/>
 A2. No. Your recoveries are free and you are not charged for the egress traffic.
 
 ## Security
 **Q1. Is the data sent to Azure encrypted?** <br/>
 A1. Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.
 
-**Q2. Is the backup data on Azure encrypted as well? **<br/>
+**Q2. Is the backup data on Azure encrypted as well?**<br/>
 A2. Yes. The data which is sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point.
 
 **Q3. What is the minimum length of encryption key used to encrypt backup data?** <br/>
