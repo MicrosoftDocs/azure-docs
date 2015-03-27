@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Set up an Azure SQL Server virtual machine for data science" 
+	pageTitle="Set up an Azure SQL Server virtual machine for data science | Azure" 
 	description="Set up a Data Science Virtual Machine with SQL Server and IPython Server." 
 	services="machine-learning" 
 	solutions="" documentationCenter="" 
@@ -392,11 +392,6 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cloud Data Science Process. 
 
 The next steps in the data science process are mapped in the [Learning Guide: Advanced data processing in Azure](machine-learning-data-science-advanced-data-processing.md) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
-
-* For information on how to move data into HDInsight from Azure blob storage, see [Create and load data into Hive tables from Azure blob storage](machine-learning-data-science-hive-tables.md).
-* For information on processing data in HDInsight with Hive queries, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
-* For information on sampling data in HDInsight, see [Sample data in Azure HDInsight Hive tables](machine-learning-data-science-sample-data-hive.md).
-
 
 
 [1]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/selectsqlvmimg.png

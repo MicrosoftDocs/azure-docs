@@ -18,17 +18,19 @@
 
 #Get started with your first Azure Search application in .NET#
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) to build classes for the objects and operations used in this exercise.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](../search-howto-dotnet-sdk/) to build classes for the objects and operations used in this exercise.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
-> [AZURE.TIP] You can download a copy of the finished sample code at [Azure Search Demo Using USGS Data](http://go.microsoft.com/fwlink/p/?LinkId=530196). 
+> [AZURE.TIP] Download the source code for this tutorial at [Azure Search Demo Using USGS Data](http://go.microsoft.com/fwlink/p/?LinkId=530196). 
 
 ##About the data##
 
-This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Washington to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
+This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 50 MB index size limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
+
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
 ##Create the service##
 
@@ -233,7 +235,7 @@ Your solution should look similar to the example shown below.
 
 2. Install the client library.
 3. Accept the additional package installations so that all dependencies are also installed.
-4. Install the Json.NET package from Newtonsoft. This library is used in AzureSearchHelper class. We recommend the stable version. You can change filters to return the stable version.
+4. Install the Json.NET package from Newtonsoft. This library is used in AzureSearchHelper class. We recommend the stable version. You can change filters to return the stable version in the list of packages.
 5. Add an assembly reference for System.Configuration. Right-click **DataIndexer** | **Add** | **Reference** | **Framework** | **System.Configuration**.  Select the check box. Click **OK**.
 
 A partial list of the assemblies used in this example is shown below.
@@ -655,7 +657,7 @@ Replace the default code with the following example.
 	    };
 	
 	</script>
-	<h2>USGS Features Search for Washington State</h2>
+	<h2>USGS Features Search for Rhode Island</h2>
 	
 	<div class="container">
 	        <input type="search" name="q" id="q" autocomplete="off" size="100"  /> <button onclick="Search();">Search</button>
@@ -773,46 +775,22 @@ You should see a web page in your default browser, providing a search box for ac
 
 ##Search on USGS data##
 
-The USGS data set includes records that are relevant to Washington state. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
+The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
 
-Entering a search term will give the search engine something to go on. Try entering a regional name. "Snoqualmie" is city in Washington. It is also the name of a river, a scenic waterfall, mountain pass, and state parks.
+Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
 ![][9]
 
 You could also try any of these terms:
 
-- Seattle
-- Rainier
-- Seattle and Rainier
-- Seattle +Rainier -Mount (gets results for landmarks on Rainier avenue, or the Rainier club, all within the city limits of Seattle).
+- Pawtucket
+- Pembroke
+- goose +cape
 
-##Explore the code##
-
-To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](search-howto-dotnet-sdk.md) for an explanation of the most commonly used classes in the client library.
-
-The remainder of this section covers a few points about each project. Where appropriate, we'll point you towards some alternative approaches that use more advanced features.
-
-**DataIndexer Project**
-
-To keep things simple, the data is embedded within the solution, in a text file generated from data on the [United States Geological Services (USGS) web site](http://geonames.usgs.gov/domestic/download_data.htm). 
-
-Alternatives to embedding data include [indexers for DocumentDB](documentdb-search-indexer.md) or [indexers for Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
-
-You can also load data from an on premises SQL Server database. [This tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) shows you how.
-
-The **DataIndexer** program includes a **SearchDocuments** method for searching and filtering data. This method exists as a verification step, supporting the status messages output to the console window, namely those showing search results and filter behaviors. Most likely, you wouldn't need a method like this in code that you write for creating and loading an index. 
-
-**SimpleSearchMVCApp Project**
-
-The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](search-pagination-page-layout.md).
-
-Connections to Azure Search, plus execution of a query request, are defined in the **FeatureSearch.cs** file.
-
-As a final note, if you are not yet convinced of the value and simplicity of the .NET SDK, compare the source files of this sample against this one based on the REST API: [Azure Search Adventure Works Demo](https://azuresearchadventureworksdemo.codeplex.com/). The .NET SDK version described in this tutorial is much simpler, with fewer lines of code.
 
 ##Next steps##
 
-This is the first Azure Search tutorial based on the USGS dataset. Over time, we'll be extending this tutorial and creating new ones that demonstrate the search features you might want to use in your custom solutions.
+This is the first Azure Search tutorial based on .NET and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
@@ -829,4 +807,4 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [6]: ./media/search-get-started-dotnet/consolemessages.png
 [7]: ./media/search-get-started-dotnet/portalindexstatus.png
 [8]: ./media/search-get-started-dotnet/usgssearchbox.png
-[9]: ./media/search-get-started-dotnet/snoqualmie.png
+[9]: ./media/search-get-started-dotnet/rogerwilliamsschool.png

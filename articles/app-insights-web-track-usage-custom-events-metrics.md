@@ -446,17 +446,15 @@ You can set default values in a TelemetryContext. They are attached to every tel
 
     using Microsoft.ApplicationInsights.DataContracts;
 
-    var context = new TelemetryContext();
-    context.Properties["Game"] = currentGame.Name;
-    var gameTelemetry = new TelemetryClient(context);
+    var gameTelemetry = new TelemetryClient();
+    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
     // Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame");
     
 *VB*
 
-    Dim context = New TelemetryContext
-    context.Properties("Game") = currentGame.Name
-    Dim gameTelemetry = New TelemetryClient(context)
+    Dim gameTelemetry = New TelemetryClient()
+    gameTelemetry.Context.Properties("Game") = currentGame.Name
     ' Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame")
 

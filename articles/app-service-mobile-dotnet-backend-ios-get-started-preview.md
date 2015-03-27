@@ -33,7 +33,7 @@ To complete this tutorial, you need the following:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
 
-## Create a new mobile app backend
+## Create a new iOS app
 
 Now that you have created your mobile backend, you can follow an easy quickstart in the Azure Preview Portal to either create a new app or modify an existing app to connect to your mobile app backend.
 
