@@ -18,7 +18,7 @@
 
 #Get started with Azure Search in NodeJS#
 
-Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/en-us/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Learn how to build a custom NodeJS search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
 We used [NodeJS](https://nodejs.org) and NPM, [Sublime Text 3](http://www.sublimetext.com/3), and Windows PowerShell on Windows 8.1 to develop and test this code.
 

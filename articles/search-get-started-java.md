@@ -18,7 +18,7 @@
 
 #Get started with Azure Search in Java#
 
-Learn how to build a custom Java search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/en-us/library/dn798935.aspx) to construct the objects and operations used in this exercise.
+Learn how to build a custom Java search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
 We used the 64-bit [Eclipse Luna for Java Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar) and [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  on Windows 8.1 to develop and test this sample.
 
