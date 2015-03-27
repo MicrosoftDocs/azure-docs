@@ -1,9 +1,9 @@
 <properties 
-   pageTitle="article-title" 
-   description="Article description that will be displayed on landing pages and in some search results" 
+   pageTitle="Page title that displays in the browser tab and search results" 
+   description="Article description that will be displayed on landing pages and in most search results" 
    services="service-name" 
    documentationCenter="dev-center-name" 
-   authors="GitHub-alias-of-author" 
+   authors="GitHub-alias-of-only-one-author" 
    manager="manager-alias" 
    editor=""/>
 
@@ -14,17 +14,17 @@
    ms.tgt_pltfrm="may be required"
    ms.workload="required" 
    ms.date="mm/dd/yyyy"
-   ms.author="Your MSFT alias or your full email address"/>
+   ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# Markdown Template (Article Title) 
+# Markdown template (article Heading 1 or H1): Heading at the top of the article
 
 To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
 
-  ![][8]
+  ![Alt text; do not leave blank. Describe image.][8]
 
 Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
 
-## Subheading 1
+## Heading 2 (H2)
 
 Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
 
@@ -34,7 +34,7 @@ Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus 
 
 2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
  
-  	![][5]
+  	![Alt text; do not leave blank. Late-model collector car in racing red.][5]
 
 3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
 
@@ -43,7 +43,7 @@ Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus 
 
 Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
 
-## Subheading 2
+## Heading (H2)
 
 Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
 
@@ -77,7 +77,7 @@ Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odi
 
 Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
 
-## Subheading 3
+## Heading 2 (H2)
  
 1. Maecenas sed condimentum nisi. Suspendisse potenti. 
 
@@ -87,7 +87,7 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 
 2. Nullam in massa eu tellus tempus hendrerit.
 
-  	![][7]
+  	![Alt text; do not leave blank. Example of a Channel 9 video.][7]
 
 3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
 
