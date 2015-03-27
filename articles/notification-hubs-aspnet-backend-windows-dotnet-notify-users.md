@@ -114,9 +114,11 @@ In this section, you update the code in the project you completed for the [Get s
 		using Windows.UI.Popups;
 
 
-12. Add the code below for the buttons in the MainPage.xaml.cs file for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. The callback for **Log in and register** stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend. The callback for **Send Push** calls the backend to trigger a secure notification to all devices of this user. 
+12. Add the code below to the MainPage class in MainPage.xaml.cs for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. 
+ 
+	The callback for **Log in and register** stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend. The callback for **Send Push** calls the backend to trigger a secure notification to all devices of this user. 
 
-	Add the following code to MainPage.xaml.cs after the `OnNavigatedTo()` method. Be sure to replace `{backend endpoint}` with the backend endpoint obtained in the previous section:
+	Be sure to replace `{backend endpoint}` with the backend endpoint obtained previously:
 
 		private async void PushClick(object sender, RoutedEventArgs e)
         {
@@ -165,7 +167,9 @@ In this section, you update the code in the project you completed for the [Get s
             //InitNotificationsAsync();
 
 
-12. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
+12. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. 
+	
+	This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 
 13. Add the following `using` statements at the top of the RegisterClient.cs file:
