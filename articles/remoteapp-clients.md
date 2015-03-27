@@ -22,15 +22,15 @@
 
 Users need to install a client to access apps through RemoteApp. There are client applications for:
 
- - Windows 8.1, 
- - Windows 8, 
- - Windows 7 Service Pack 1, 
- - iOS, 
- - Mac OS X, 
- - Windows RT, 
+ - Windows 8.1 
+ - Windows 8 
+ - Windows 7 Service Pack 1 
+ - iOS 
+ - Mac OS X 
+ - Windows RT 
  - Android 
- - Windows Phone. 
- - Windows 10 preview.
+ - Windows Phone 
+ - Windows 10 preview
 
 [Download](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) a RemoteApp client now.
 
