@@ -3,7 +3,7 @@
 The steps in this section show how to create a new ASP.NET WebAPI backend. The new ASP.NET WebAPI backend will be updated in the sections that follow and it will have three main purposes:
 
 1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
-2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/en-us/library/azure/dn530749.aspx).
+2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
 3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
 
 
@@ -30,9 +30,9 @@ The steps in this section show how to create a new ASP.NET WebAPI backend. The n
 
 ## Authenticating Clients to the WebAPI Backend
 
-In this section, you will create a new class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/en-us/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. All requests that include an *Authorization* header will be handled by this handler. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+In this section, you will create a new class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. All requests that include an *Authorization* header will be handled by this handler. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
 
-If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller to add a [tag](https://msdn.microsoft.com/en-us/library/azure/dn530749.aspx) to the notification registration request. 
+If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request. 
 
 1. In Solution Explorer, right-click the **AppBackend** project, click **Add**, then click **Class**. Name the new class **AuthenticationTestHandler.cs**, and click **Add** to generate the class. This class will be used to authenticate users using *Basic Authentication*. Note that your app can use any authentication scheme.
 
@@ -112,7 +112,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 2. On the left-hand side, click **Online**, and search for **servicebus** in the **Search** box.
 
-3. In the results list, click **Windows Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
+3. In the results list, click **Microsoft Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
 
 	![][14]
 
