@@ -63,7 +63,8 @@ In order to access SharePoint, you need a special access token with SharePoint a
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-adal-install-nuget](../includes/app-service-mobile-dotnet-adal-install-nuget.md)]
 
-2. In your Mobile App Code project, crate a new class called SharePointUploadContext. In it, add the following:
+
+2. In your Mobile App Code project, crate a new class called SharePointUploadContext. Add a `using Microsoft.Azure.Mobile.Server.AppService;` statement to the file. Then, add the following to the class:
 
         private String accessToken;
         private String mySiteApiPath;
@@ -182,3 +183,4 @@ To create a Word document, you will use the OpenXML NuGet package. Install this 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
 [Authenticate your app with Active Directory Authentication Library Single Sign-On]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
+[Mobile Apps .NET Backend App Service Extension]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
