@@ -115,6 +115,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [Send push notifications to authenticated users]: mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
+[What are Notification Hubs?]: notification-hubs-overview.md
 
 [How to use a .NET client for Azure Mobile Services]: mobile-services-windows-dotnet-how-to-use-client-library.md
