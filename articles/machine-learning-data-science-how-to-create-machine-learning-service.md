@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Guide: Cloud data science process for machine learning | Azure" 
+	pageTitle="Cloud Data Science Process | Azure" 
 	description="Use this guide to understand the steps for using Azure for data science and machine learning in the cloud." 
 	services="machine-learning" 
 	solutions="" 
@@ -17,7 +17,8 @@
 	ms.workload="required" 
 	ms.date="02/18/2015" 
 	ms.author="sidneyh" />
-# Cloud data science process for Machine Learning
+
+# Cloud data science process
 
 This cloud data science process guide demonstrates the use of the Azure platform for data science and building operationalized models using Azure Machine Learning. The map walks a user through typical data science tasks such as ingesting data from various sources, preparing it for use in Azure Machine Learning, and using Azure Machine Learning to create operationalized models that can be consumed by end user applications (programmatically or otherwise). While the map shows the core steps involved in a typical end-to-end data science exercise, not all steps are required and their sequence can vary depending on the location, size and complexity of the data.
 
