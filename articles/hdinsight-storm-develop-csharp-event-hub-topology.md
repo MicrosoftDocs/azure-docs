@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="03/27/2015"
    ms.author="larryfr"/>
 
 #Process events from Azure Event Hub with Storm on HDInsight (C#)
 
-Azure Event Hub allows you to process massive amounts of data from websites, apps, and devices. The Event Hub Spout makes it easy to use Apache Storm on HDInsight to analyze this data in real-time. You can also write data to Event Hub from Storm using the Event Hub Bolt. 
+Azure Event Hub allows you to process massive amounts of data from websites, apps, and devices. The Event Hub Spout makes it easy to use Apache Storm on HDInsight to analyze this data in real-time. You can also write data to Event Hub from Storm using the Event Hub Bolt.
 
 In this document, you will learn how to use the HDInsight Tools for Visual Studio and the Event Hub Spout and Bolt to create two hybrid C#/Java topologies:
 
@@ -161,7 +161,7 @@ In this section, you will create a topology that writes data to Event Hub using 
 		List<string> javaDeserializerInfo =
             new List<string>() { "microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer", "java.lang.String" };
 
-	The first line reads the partition count from the properties defined earlier. The second line defines a deserializer that is used to deseralize JSON data produced by the spout, into a `java.lang.String` so that the Event Hub Bolt can consume the data.
+	The first line reads the partition count from the properties defined earlier. The second line defines a deserializer that is used to deseralize JSON data produced by the spout, into a `java.lang.String` so that Java components can consume the data.
 
 4. Find the following code.
 
@@ -187,8 +187,8 @@ In this section, you will create a topology that writes data to Event Hub using 
             DeclareCustomizedJavaDeserializer(javaDeserializerInfo);
 
 	This creates a spout and uses the Event Hub partition count as the parallelism hint for this component. This should create an instance of the spout for each partition.
-	
-	This also declares that the output stream should use the deserializer created previously.
+
+	This also associates the deserializer created previously with the output stream from this component. This allows the downstream EventHubSpout component to consume the data produced from the C# spout.
 
 5. Immediately after the previous code, add the following.
 
@@ -200,7 +200,7 @@ In this section, you will create a topology that writes data to Event Hub using 
             Properties.Settings.Default.EventHubPolicyKey,
             Properties.Settings.Default.EventHubNamespace,
             "servicebus.windows.net", //suffix for servicebus fqdn
-            Properties.Settings.Default.EventHubName, 
+            Properties.Settings.Default.EventHubName,
 			"true"));
 
 	This creates a new constructor for the Java bolt, which is used at runtime to configure a new instance of the bolt. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hub configuration information you added previously. More specifically, this code is used by HDInsight at runtime to do the following:
@@ -254,7 +254,7 @@ The Event Hub Bolt expects a single string value, which it will route to Event H
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(null, outputSchema));
         this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer());
 
-	This changes the definition of the data created by the spout to use **string** data, and a **Custom JSON serializer**.
+	This changes the definition of the data created by the spout to use **string** data, and the **CustomizedInteropJSONSerializer** declared eariler in the topology (in program.cs).
 
 2. Replace the **NextTuple** method with the following.
 
@@ -301,6 +301,8 @@ In this section, you will create a topology that reads data from Event Hub using
 
 	For **TableName**, enter the name of the table that you wish events to be stored in.
 
+  For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
+
 	These values will be used by the topology to communicate with Event Hub and Table Storage.
 
 4. Save and close the properties page.
@@ -327,7 +329,7 @@ In this section, you will create a topology that reads data from Event Hub using
 	The `JavaComponentConstructor` defines how the Java spout will be constructed at runtime. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hub configuration information you added previously. More specifically, this code is used by HDInsight at runtime to do the following:
 
 	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpoutConfig** using the Event Hub information you provide.
-	
+
 	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpout**, passing in the **EventHubSpoutConfig** instance.
 
 5. Find the following code.
@@ -348,13 +350,13 @@ In this section, you will create a topology that reads data from Event Hub using
             constructor,
             partitionCount);
 
-	This instructs the topology to use the **JavaComponentConstructor** from the previous step as the spout, and to give it a name of "EventHubSpout". This also sets the parallelisim hint for this component to the number of partitions in Event Hub. 
+	This instructs the topology to use the **JavaComponentConstructor** from the previous step as the spout, and to give it a name of "EventHubSpout". This also sets the parallelisim hint for this component to the number of partitions in Event Hub.
 
 2. Add the following immediately after the previous code.
 
          List<string> javaSerializerInfo = new List<string>() { "microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer" };
 
-	This creates a custom serializer, which will be used to serialize information produced by the Java spout into JSON format.
+	This creates a custom serializer, which will be used to serialize information produced by the Java components (such as the EventHubSpout) into a JSON format that downstream C# components can use.
 
 3. Find the following code.
 
@@ -370,11 +372,14 @@ In this section, you will create a topology that reads data from Event Hub using
             "Bolt",
             Bolt.Get,
             new Dictionary<string, List<string>>(),
-            partitionCount).
+            partitionCount,
+            true).
             DeclareCustomizedJavaSerializer(javaSerializerInfo).
             shuffleGrouping("EventHubSpout");
 
-	This code instructs the topology to use a bolt (defined in Bolt.cs). The additions instruct the topology to use the custom serializer for data consumed by this component, which comes from **EventHubSpout** - the Java spout.
+	This code instructs the topology to use a bolt (defined in Bolt.cs). The custom serializer defined earlier is used here so that this bolt can consume data produced by upstream Java components. In this case, the EventHubSpout.
+
+    > [AZURE.IMPORTANT] The last parameter for SetBolt, (with a value of `true`,) enables ACK functionality for this bolt. This is required, as the EventHubSpout component expects an ACK for data that it emits. If ACKs are not returned by downstream components, the spout will stop receiving after processing around 1000 messages.
 
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must create a helper class to write data to Table Storage, then you must modify **Bolt.cs** so that it can understand the data produced by the spout.
 
@@ -392,13 +397,13 @@ When writing data to Table Storage, you must create a class that describes the d
 		using System.Text;
 		using System.Threading.Tasks;
 		using Microsoft.WindowsAzure.Storage.Table;
-		
+
 		namespace EventHubReader
 		{
 		    class Device : TableEntity
 		    {
 		        public int value { get; set; }
-		
+
 		        public Device() { }
 		        public Device(int id)
 		        {
@@ -441,7 +446,7 @@ When writing data to Table Storage, you must create a class that describes the d
         this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
         this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());
 
-	This instructs the bolt that it will be receiving a **string** value instead of an **int**, and that the data should be deserialized using the **CustomizedInteropJSONDeserialzer**.
+	This instructs the bolt that it will be receiving a **string** value instead of an **int**, and that the data should be deserialized using the **CustomizedInteropJSONDeserialzer** that was declared in the topology earlier (in the program.cs file).
 
 3. Immediately after the previous code, add the following.
 
@@ -468,10 +473,15 @@ When writing data to Table Storage, you must create a class that describes the d
                 TableOperation insertOperation = TableOperation.Insert(device);
 
                 table.Execute(insertOperation);
+                this.ctx.Ack(tuple);
             }
         }
 
 	This uses Json.net to parse the JSON data from the spout, and then picks out the **deviceId** and **deviceValue** fields. A new **Device** object is then created, using the **deviceId** during initialization to set the Partition key for the table. The value is then set to **deviceValue**, and finally the entity is inserted into the table.
+
+    After the entity is inserted into the table, `Ack()` is called for the tuple, to inform the spout that we have successfully processed the data.
+
+    > [AZURE.IMPORTANT] The EventHubSpout component expects an ACK for each tuple from downstream components such as this bolt. If ACKS are not received, the EventHubSpout will assume processing for the tuple has failed.
 
 At this point, you have a complete topology that will read data from Event Hub, and store it in Table Storage in a table named **events**.
 
@@ -514,10 +524,3 @@ In this document, you have learned how to use the Java Event Hub Spout and Bolt 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [HDInsight Storm Examples](https://github.com/hdinsight/hdinsight-storm-examples)
-
-
-
-
-
-
-

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Deploying and managing Storm topologies on HDInsight | Azure" 
-   description="Learn how to deploy, monitor and manage Storm topologies using the Storm Dashboard included with Apache Storm on HDInsight." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="Blackmist" 
-   manager="paulettm" 
+<properties
+   pageTitle="Deploying and managing Storm topologies on HDInsight | Azure"
+   description="Learn how to deploy, monitor and manage Storm topologies using the Storm Dashboard included with Apache Storm on HDInsight."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
    editor="cgronlun"/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="02/18/2015"
+   ms.workload="big-data"
+   ms.date="03/27/2015"
    ms.author="larryfr"/>
 
 #Deploy and manage Apache Storm topologies on HDInsight
@@ -24,11 +24,11 @@ Both the Storm Dashboard and Storm features of the HDInsight Tools rely on the S
 
 ##Prerequisites
 
-* **Apache Storm on HDInsight** - see <a href="../hdinsight-storm-getting-started/" target="_blank">Getting started with Apache Storm on HDInsight</a> for steps on creating a cluster
+* **Apache Storm on HDInsight** - see <a href="../hdinsight-storm-getting-started/" target="_blank">Get started with Apache Storm on HDInsight</a> for steps on creating a cluster
 
 * For the **Storm Dashboard** - a modern web browser that supports HTML5
 
-* For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
+* For **Visual Studio** - Azure SDK 2.5.1 or newer and the HDInsight Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a> to install and configure the HDInsight tools for Visual Studio.
 
 	One of the following versions of Visual Studio:
 
@@ -54,7 +54,7 @@ From the top of the Storm Dashboard, select **Submit Topology**. Follow the inst
 
 From the Storm Dashboard, select the **Storm UI** link. This will display information on the cluster, as well as any running topologies.
 
-![the storm ui][storm-dashboard-ui] 
+![the storm ui][storm-dashboard-ui]
 
 > [AZURE.NOTE] With some versions of Internet Explorer, you may discover that the Storm UI does not refresh after you have first visited it. For example, not showing new topologies you have submitted or showing a topology as active when you have previously killed it. Microsoft is aware of this problem and is working on a solution.
 
@@ -79,13 +79,13 @@ Selecting a link from the **Topology summary** section will display the followin
 * **Topology actions** - management actions you can perform for the topology
 
 	* **Activate** - resumes processing of a deactivated topology
-	
+
 	* **Deactivate** - pauses a running topology
-	
+
 	* **Rebalance** - adjusts the parallelism of the topology. You should rebalance running topologies after you have changed the number of nodes in the cluster. This allows the topology to adjust parallelism to compensate for the increased/decreased number of nodes in the cluster
-	
+
 		For more information, see <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parllelism of a Storm topology</a>
-	
+
 	* **Kill** - terminates a Storm topology after the specified timeout
 
 * **Topology stats** - statistics about the topology. Use the links in the **Window** column to set the time frame for the remaining entries on the page.
@@ -118,7 +118,7 @@ The HDInsight Tools can be used to submit C# or hybrid topologies to your Storm 
 
 Use the following steps to deploy a sample to your Storm on HDInsight cluster, then view and manage the topology.
 
-1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
+1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
 
 2. Open Visual Studio, select **File**, **New**, and then **Project**.
 
@@ -156,7 +156,7 @@ The base URI for the REST API on HDInsight clusters is **https://&lt;clustername
 
 ###Authentication
 
-Requests to the REST API must use **basic authentication** using the HDInsight cluster administrator name and password. 
+Requests to the REST API must use **basic authentication** using the HDInsight cluster administrator name and password.
 
 > [AZURE.NOTE] Since basic authentication is sent using clear text, you should **always** use HTTPS to secure communications with the cluster.
 
