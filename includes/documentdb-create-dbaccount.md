@@ -3,21 +3,19 @@
 
 	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
 
-	Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + analytics**, choose **DocumentDB**, and then click **Create**.  
+	Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  
 	
 	![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]   
    
 
-3. In the **New DocumentDB (Preview)** blade, specify the desired configuration for the DocumentDB account. 
+3. In the **New DocumentDB** blade, specify the desired configuration for the DocumentDB account. 
  
 	![Screen shot of the New DocumentDB (Preview) blade][3] 
 
 
 	- In the **Id** box, enter a name to identify the DocumentDB account. This value becomes the host name within the URI. The Id may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that documents.azure.com is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
 
-	- The **Pricing Tier** lens is locked because the DocumentDB preview supports a single standard pricing tier. For more information, see [DocumentDB pricing](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
-
-	- The **Optional configuration** lens is used to specify the initial capacity allocated to your DocumentDB account.  DocumentDB leverages capacity units to allow you to scale your DocumentDB account, where each capacity unit includes reserved database storage and throughput.  By default, 1 capacity unit is provisioned.  You can adjust the number of capacity units available to your DocumentDB account at any time via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB). For details about DocumentDB account capacity and throughput,please see the [Manage DocumentDB capacity and performance][documentdb-manage] article.
+	- The **Account Tier** lens is locked because DocumentDB supports a single standard account tier. For more information, see [DocumentDB pricing](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
 	- In **Resource group**, select or create a resource group for your DocumentDB account.  By default, a new Resource group will be created.  You may, however, choose to select an existing resource group to which you would like to add your DocumentDB account. For more information, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
