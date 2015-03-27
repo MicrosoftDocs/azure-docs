@@ -215,12 +215,14 @@ This Walkthrough provides you with step-by-step instructions for creating a cust
                             }
 
                         }
-                        output += string.Format(CultureInfo.InvariantCulture, 
-										"{0},{1},{2},{3}\n", 
-										folderPath, 
-										count, 
-										Environment.MachineName, 
-										DateTime.UtcNow);
+                        output += string.Format(CultureInfo.InvariantCulture,
+                                        "{0},{1},{2},{3},{4}\n",
+                                        folderPath,
+                                        inputBlob.Name,
+                                        count,
+                                        Environment.MachineName,
+                                        DateTime.UtcNow);
+
                     }
                     continuationToken = result.ContinuationToken;
 
@@ -440,9 +442,9 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 
 9. If you open the output file, you should see the output similar to the following:
 	
-	adftutorial/input,2,WORKERNODE0,10/07/2014 18:34:33 
+	adftutorial/,emp.txt,2,WORKERNODE0,03/27/2015 19:23:28 
 
-	(blob location), (number of lines in the blob), (node on which the activity ran), (date time stamp)
+	(blob location), (name of the blob), (number of lines in the blob), (node on which the activity ran), (date time stamp)
 
 10.	Use the [Azure Portal][azure-preview-portal] or Azure PowerShell cmdlets to monitor your data factory, pipelines, and data sets. You can see messages from the **ActivityLogger** in the code for the custom activity in the logs you can download from the portal or using cmdlets.
 
