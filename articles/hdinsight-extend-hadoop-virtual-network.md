@@ -82,17 +82,17 @@ You must specify the cluster name and a service and component running on the clu
 
 For example, to return the FQDN from an HDInsight Hadoop cluster, you could use one of the following methods to retrieve the data for the YARN resource manager.
 
-* [Azure PowerShell](install-configure-powershell.md)
+* [Azure PowerShell](powershell-install-configure.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
 		$Password = <cluster admin password>
 		$DnsSuffix = ".azurehdinsight.net"
 		$ClusterFQDN = $ClusterDnsName + $DnsSuffix
-		
+
 		$webclient = new-object System.Net.WebClient
 		$webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password)
-		
+
 		$Url = "https://" + $ClusterFQDN + "/ambari/api/v1/clusters/" + $ClusterFQDN + "/services/yarn/		components/resourcemanager"
 		$Response = $webclient.DownloadString($Url)
 		$JsonObject = $Response | ConvertFrom-Json
@@ -109,7 +109,7 @@ To connect to HBase remotely using the Java API, you must determine the Zookeepe
 
 To get the zookeeper quorum address, use one of the following methods to query the Ambari management service.
 
-* [Azure PowerShell](install-configure-powershell.md)
+* [Azure PowerShell](powershell-install-configure.md)
 
 		$ClusterDnsName = <clustername>
 		$Username = <cluster admin username>
