@@ -341,21 +341,39 @@ Here are the common patterns for specifying index paths:
         <tr>
             <td valign="top">
                 <p>
-                    /"prop"/[]/?
+                    /"props"/[]/?
                 </p>
             </td>
             <td valign="top">
                 <p>
-                    Index path required to serve queries like the following (with Hash or Range types respectively):
+                    Index path required to serve iteration and JOIN queries against arrays of scalars like ["a", "b", "c"]:
                 </p>
                 <p>
-                    SELECT * FROM tag IN collection.prop WHERE tag = "value"
+                    SELECT tag FROM tag IN collection.props WHERE tag = "value"
                 </p>
                 <p>
-                    SELECT * FROM collection c JOIN tag IN c.prop WHERE tag = "value"
+                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5
                 </p>
             </td>
         </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    /"props"/[]/"subprop"/?
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    Index path required to serve iteration and JOIN queries against arrays of objects like [{subprop: "a"}, {subprop: "b"}]:
+                </p>
+                <p>
+                    SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"
+                </p>
+                <p>
+                    SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"
+                </p>
+            </td>
+        </tr>        
         <tr>
             <td valign="top">
                 <p>
