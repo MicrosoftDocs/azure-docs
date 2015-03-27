@@ -6,7 +6,7 @@
 	authors="rmcmurray"
 	manager="wpickett"
 	editor="mollybos"
-	tags="MySQL"/>
+	tags="mysql"/>
 
 <tags
 	ms.service="multiple"

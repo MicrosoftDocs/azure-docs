@@ -6,7 +6,7 @@
 	authors="tfitzmac"
 	manager="wpickett"
 	editor="mollybos"
-	tags="MySQL"/>
+	tags="mysql"/>
 
 <tags
 	ms.service="app-service-web"

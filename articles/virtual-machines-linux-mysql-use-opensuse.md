@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="MySQL"/>
+	tags="mysql"/>
 
 <tags
 	ms.service="virtual-machines"
