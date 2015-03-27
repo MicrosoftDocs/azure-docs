@@ -65,7 +65,7 @@ In order to access SharePoint, you need a special access token with SharePoint a
 
 2. In the NuGet Package manager, click **Online**. Enter **Microsoft.Azure.Mobile.Server.AppService** as a search term. Then click **Install** to install the [Mobile Apps .NET Backend App Service Extension] package. This package provides extension methods for working with information about the currently logged-in user.
 
-2. In your Mobile App Code project, crate a new class called SharePointUploadContext. Add a `using Microsoft.Azure.Mobile.Server.AppService;` statement to the file. Then, add the following to the class:
+2. In your Mobile App Code project, create a new class called SharePointUploadContext. Add a `using Microsoft.Azure.Mobile.Server.AppService;` statement to the file. Then, add the following to the class:
 
         private String accessToken;
         private String mySiteApiPath;
