@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Operational Insights - Search" 
-	description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
+	pageTitle="Operational Insights Search" 
+	description="You can use the Search feature in Azure Operational Insights to find the data that you’re looking for" 
 	services="operational-insights" 
 	documentationCenter="" 
 	authors="bandersmsft" 
@@ -13,25 +13,31 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/20/2015" 
-	ms.author="dmuscett"/>
+	ms.date="03/20/2015" 
+	ms.author="banders"/>
 
-# Operational Insights Seach
+# Operational Insights Search
 At the core of Microsoft Azure Operational Insights is our search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Intelligence Packs are also powered by search to bring you metrics pivoted around a particular problem area.
 
 
 ## Search for data
-You can use the Search feature in Azure Operational Insights to find data that you’re looking for. On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
+You can use the **Search** feature in Azure Operational Insights to find the data that you’re looking for. 
 
-Common search queries appear on most search pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using Search.
-Facets/Filters controls can be used to narrow your results, and we offer assisted typing/autocomplete to ease learning the syntax and being productive quickly!
+![Image of the Search tile](./media/operational-insights-search/overview-search.png)
 
-##Topics on MSDN 
+On the **Search** page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
+
+![Image of the Search page](./media/operational-insights-search/search-01.png)
+
+Common search queries appear on most search pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using **Search**.
+You can use facets and filter controls to narrow your results. Assisted typing with autocomplete helps you learn the syntax and produces results quickly.
+
+##Topics in the Azure library 
 - [Search Syntax Reference](https://msdn.microsoft.com/library/azure/dn884655.aspx  "Search Syntax Reference")
 - [Search field and facet reference](https://msdn.microsoft.com/library/azure/dn884648.aspx "Search field and facet reference")  
  
  
-## Blog posts / Tutorials to learn the search syntax
+## Blog posts and tutorials to learn the Search syntax
 - [Azure Operational Insights Search How To: Part I – How to filter big data](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-first-steps-how-to-filter-data-part-i.aspx)
 - [Azure Operational Insights Search How To: Part II – More on Filtering, using Boolean Operators, the Time Dimension, Numbers and Ranges](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-how-to-part-ii-more-on-filtering-using-boolean-operators-and-the-time-dimension.aspx)
 - [Azure Operational Insights Search How To: Part III – Manipulating Results: the pipeline “|” and Search Commands](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-search-how-to-part-iii-manipulating-results-the-pipeline-and-search-commands.aspx)
@@ -40,7 +46,7 @@ Facets/Filters controls can be used to narrow your results, and we offer assiste
 - [Azure Operational Insights Search How To: Part VI – Measure Avg(), and an exploration of Type=PerfHourly](http://blogs.msdn.com/b/dmuscett/archive/2014/10/31/azure-operational-insights-search-how-to-part-vi-measure-avg-and-an-exploration-of-type-perfhourly.aspx)
 - [Azure Operational Insights Search How To: Part VII – Measure Sum() and Where command](http://blogs.msdn.com/b/dmuscett/archive/2014/11/10/azure-operational-insights-search-hot-to-part-vii-measure-sum-and-where-command.aspx)
 
-## Blog Posts - Search Use Cases
+## Blog posts - Search use cases
 - [W3C IIS Logs Search in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx)
 - [Monitoring SQL Backup Failures with Azure Operational Insights Search and Dashboards](http://blogs.msdn.com/b/dmuscett/archive/2015/02/21/monitoring-sql-backup-failures-with-azure-operational-insights-search-and-dashboards.aspx)
 - [IIS Management Pack Event-Alerting Rules’s OpInsights Searches Equivalents](http://blogs.msdn.com/b/dmuscett/archive/2014/11/05/iis-mp-event-alerting-rules-s-opinsights-searches-equivalents.aspx)

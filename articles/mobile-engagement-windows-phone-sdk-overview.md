@@ -17,17 +17,17 @@
 	ms.author="kapiteir" />
 
 #Windows Phone SDK for Azure Mobile Engagement v2.0.0
-Start here to get all the details on how to integrate Azure Mobile Engagement in a Windows Phone App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](../mobile-engagement-windows-phone-get-started/).
+Start here to get all the details on how to integrate Azure Mobile Engagement in a Windows Phone App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-windows-phone-get-started.md).
 
-Click to see the [SDK Content](../mobile-engagement-windows-phone-sdk-content/)
+Click to see the [SDK Content](mobile-engagement-windows-phone-sdk-content.md)
 
 ##Integration procedures
 
-1. Start here: [How to integrate Mobile Engagement in your Windows Phone app](../mobile-engagement-windows-phone-integrate-engagement/)
+1. Start here: [How to integrate Mobile Engagement in your Windows Phone app](mobile-engagement-windows-phone-integrate-engagement.md)
 
-2. For Notifications: [How to integrate Reach (Notifications) in your Windows Phone app](../mobile-engagement-windows-phone-integrate-engagement-reach/)
+2. For Notifications: [How to integrate Reach (Notifications) in your Windows Phone app](mobile-engagement-windows-phone-integrate-engagement-reach.md)
 
-3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](../mobile-engagement-windows-phone-use-engagement-api/)
+3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your Windows Phone app](mobile-engagement-windows-phone-use-engagement-api.md)
 
 ##Release notes
 
@@ -36,7 +36,7 @@ Click to see the [SDK Content](../mobile-engagement-windows-phone-sdk-content/)
 -   appId/sdkKey configuration is replaced by a connection string configuration.
 -   Security improvements.
 
-For earlier version please see the [complete release notes](../mobile-engagement-windows-phone-release-notes/)
+For earlier version please see the [complete release notes](mobile-engagement-windows-phone-release-notes.md)
 
 ##Upgrade procedures
 

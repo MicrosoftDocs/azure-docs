@@ -23,7 +23,7 @@
 This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure. 
 
 >[AZURE.NOTE] 
-For an MVC version of this tutorial, see [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+For an MVC version of this tutorial, see [Deploy a Secure ASP.NET MVC 5 app with Membership, OAuth, and SQL Database to an Azure Website](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md).
 
 You can open an Azure account for free, and if you don't already have Visual Studio 2013, the SDK automatically installs Visual Studio 2013 for Web Express. You can start developing for Azure for free.
 
@@ -770,7 +770,7 @@ It is important to know how to view and modify the database directly. Knowing ho
 3. If the **Add Firewall Rule** dialog box is displayed, select **Add Firewall Rule**.  
 
 	>[AZURE.NOTE]  
-	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). As an alternative, you can also review the data of the local database by building, running, and adding data to the application locally (**CTRL+F5** from Visual Studio).  
+	If you can't expand **SQL Databases** and can't see **ContactDB** from Visual Studio, you can follow the instructions to open a firewall port or a range of ports. To do this, follow the instructions under **Set up Azure firewall rules** near the end of the [MVC tutorial](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md). As an alternative, you can also review the data of the local database by building, running, and adding data to the application locally (**CTRL+F5** from Visual Studio).  
 
 4. If the **Connect to Server** dialog box is displayed, enter the **password** you created at the beginning of this tutorial and press the **Connect** button.  
 

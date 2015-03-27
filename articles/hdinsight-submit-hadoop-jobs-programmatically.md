@@ -694,19 +694,19 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
-[hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
+[hdinsight-develop-streaming-jobs]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-gettingstarted-runmrjob]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.RunMRJob.png 
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png

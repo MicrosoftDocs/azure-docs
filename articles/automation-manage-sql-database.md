@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Manage Azure SQL Databases using Azure Automation" 
-	description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale." 
-	services="automation, sql-database" 
-	documentationCenter="" 
-	authors="jodoglevy" 
-	manager="eamono" 
+<properties
+	pageTitle="Manage Azure SQL Databases using Azure Automation"
+	description="Learn about how the Azure Automation service can be used to manage Azure SQL databases at scale."
+	services="sql-database, automation"
+	documentationCenter=""
+	authors="jodoglevy"
+	manager="eamono"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/20/2015"
 	ms.author="jolevy"/>
 
 
@@ -29,7 +29,7 @@ This guide will introduce you to the Azure Automation service, and how it can be
 
 Azure Automation provides a highly-reliable and highly-available workflow execution engine that scales to meet your needs as your organization grows. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
 
-Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation. 
+Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
 
 
 ## How can Azure Automation help manage Azure SQL databases?
@@ -43,4 +43,4 @@ Azure Automation also has the ability to communicate with SQL servers directly, 
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL databases, follow these links to learn more about Azure Automation.
 
-* Check out the Azure Automation [Getting Started Guide](http://go.microsoft.com/fwlink/?LinkId=390560)
+See the Azure Automation [Getting Started Tutorial](automation-create-runbook-from-samples.md)

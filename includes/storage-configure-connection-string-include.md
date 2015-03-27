@@ -65,8 +65,6 @@ For example, the configuration setting in your config file may be similar to:
     	</appSettings>
 	</configuration>
 
-See [Configuring Connection Strings][] for more information on storage connection strings.
-	
 You are now ready to perform the how-to tasks in this guide.
 
 [connection-string1]: ./media/storage-configure-connection-string-include/connection-string1.png

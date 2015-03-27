@@ -60,7 +60,7 @@ For more information on using Putty, see the **Use Putty to Connect to a Linux M
 
 	This starts the **wordcount** class, contained in the **hadoop-mapreduce-examples.jar** file. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored to **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] For more information about this MapReduce job and the example data, see <a href="../hdinsight-use-mapreduce/" target="_blank">Use MapReduce in Hadoop on HDInsight</a>.
+	> [AZURE.NOTE] For more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md" target="_blank">Use MapReduce in Hadoop on HDInsight</a>.
 
 2. The job will emit details as it is processed, finally returning information similar to the following when the job completes.
 
@@ -99,10 +99,10 @@ As you can see, the Hadoop command provides an easy way to run MapReduce jobs on
 
 For general information on MapReduce jobs in HDInsight.
 
-* [Use MapReduce on HDInsight Hadoop](../hdinsight-use-mapreduce/)
+* [Use MapReduce on HDInsight Hadoop](hdinsight-use-mapreduce.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)

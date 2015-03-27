@@ -19,7 +19,7 @@
 In order to connect to Azure by using ExpressRoute, you’ll need to verify that the following prerequisites have been met. You must have the following:
 
 - Microsoft Azure Account
-- A relationship with a network service provider or an exchange provider from the [supported list](../expressroute-locations) through whom connectivity needs to be facilitated. You must have an existing business relationship with the network service provider or exchange provider. You’ll need to make sure that the service you use is compatible with ExpressRoute. 
+- A relationship with a network service provider or an exchange provider from the [supported list](expressroute-locations.md) through whom connectivity needs to be facilitated. You must have an existing business relationship with the network service provider or exchange provider. You’ll need to make sure that the service you use is compatible with ExpressRoute. 
 - If you want to use a network service provider and your network service provider is not in the list above, you can still get connected to Azure. 
 -- Check with your network provider to see if they are present in any of the Exchange locations listed above.
     Have your network provider extend your network to the Exchange location of choice.

@@ -39,7 +39,7 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 
 
 
-> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) of this tutorial.
+> [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) of this tutorial.
 
 
 ## Create and Configure the Notification Hub
@@ -298,5 +298,5 @@ In this section, you update the code in the project you completed for the [Get s
 
 
 <!-- URLs. -->
-[Get started with Notification Hubs]: /documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Secure Push]: /documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/
+[Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started.md
+[Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md

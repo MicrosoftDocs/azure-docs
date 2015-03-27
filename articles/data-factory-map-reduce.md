@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="03/10/2015" 
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
@@ -109,23 +109,23 @@ Article | Description
 
 
 [data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
-[data-factory-pig-hive-activities]: ../data-factory-pig-hive-activities
+[data-factory-pig-hive-activities]: data-factory-pig-hive-activities.md
 [data-factory-copy-activity]: ..//data-factory-copy-activity
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: ../data-factory-get-started
-[adfgetstartedmonitoring]:../data-factory-get-started#MonitorDataSetsAndPipeline 
-[adftutorial]: ../data-factory-tutorial
+[adfgetstarted]: data-factory-get-started.md
+[adfgetstartedmonitoring]:data-factory-get-started.md#MonitorDataSetsAndPipeline 
+[adftutorial]: data-factory-tutorial.md
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
