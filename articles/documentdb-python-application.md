@@ -168,7 +168,7 @@ database used by the form. Do not delete any of the existing code in
        		# Create database
         	db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
         	# Create collection
-        	collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
+        	collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
         	# Create document
         	document = client.CreateDocument(collection['_self'],
             	{ 'id': config.DOCUMENTDB_DOCUMENT,
