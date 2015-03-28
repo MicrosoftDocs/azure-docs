@@ -467,5 +467,5 @@ Learn more about working with resources by using HTTP commands in [RESTful inter
 
 
 [1]: ./media/documentdb-resources/resources1.png
-[2]: ./media/documentdb-resources/resources3.png
-[3]: ./media/documentdb-resources/resources4.png
+[2]: ./media/documentdb-resources/resources2.png
+[3]: ./media/documentdb-resources/resources3.png
