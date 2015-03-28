@@ -102,6 +102,6 @@ Your app is now set up to register user device with the user login information.
 Re-publish your mobile backend project and run any of the client apps you have set up. On item insertion, the backend will send notifications to all client apps where the user is logged in.
 
 <!-- URLs. -->
-[Get started with authentication]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview/
-[Get started with push notifications]: ../articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/
+[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
+[Get started with push notifications]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview.md
 [templates]: https://msdn.microsoft.com/en-us/library/dn530748.aspx

@@ -88,7 +88,7 @@ You can check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkID=509792)
 <a id="sub-4"></a>
 ##Test service operations
 
-Confirming that your service is operational and accessible from a client application is the final step in configuring Search. You can use either approach for a code-free approach to verifying service availability.
+Confirming that your service is operational and accessible from a client application is the final step in configuring Search. You can use either of the links below for a code-free approach to verifying service availability.
 
 - [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
 - [How to use Telerik Fiddler with Azure Search](../search-fiddler/)
