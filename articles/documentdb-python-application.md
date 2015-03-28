@@ -3,7 +3,7 @@
     description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure." 
     services="documentdb" 
     documentationCenter="python" 
-    authors="crwilcox" 
+    authors="ryancraw" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="python" 
     ms.topic="article" 
-    ms.date="03/23/2015" 
-    ms.author="crwilcox"/>
+    ms.date="04/08/2015" 
+    ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
 ------------------------------------------------------------------------
@@ -99,7 +99,7 @@ we will need for our project, including pydocumentdb, the python package for Doc
     	pytz==2013b
     	flask-babel==0.8
     	flup
-    	pydocumentdb>=0.9.4-preview
+    	pydocumentdb>=1.0.0
 
 2. Right-click on **env** and click **install from requirements.txt**.
 
@@ -124,7 +124,7 @@ and start your web browser. You should see the following page.
 
 ### Create Database, Collection and Document definitions
 
-Now let's create our polling application.
+Now let's create our voting application.
 
 - Add a Python file by right-clicking on on the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  
 
@@ -140,7 +140,7 @@ Now let's create our polling application.
 ### Add the required imports to views.py
 
 - Add the following import statements at the top in **views.py**. These
-will import DocumentDB's PythonSDK and Flask packages.
+will import DocumentDB's PythonSDK and the Flask packages.
 
     	from forms import VoteForm
     	import config
