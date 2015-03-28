@@ -77,6 +77,7 @@ Valid streaming protocol options are: **Multi-bitrate RTMP** and **Multi-bitrate
 
 	The reason the secondary URL is created is to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance. 
 	
+	
 	- To improve ingest durability and fault-tolerance:
 		
 		Use one encoder to send the same data to the primary and secondary ingest URLs. Most RTMP encoders (for example, Flash Media Encoder or Wirecast) have the ability to use Primary and Secondary URLs.
