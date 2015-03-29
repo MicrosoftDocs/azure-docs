@@ -24,7 +24,7 @@ Your Azure RemoteApp subscription includes three template images:
 - Microsoft Office 365 ProPlus (Office 365 subscription required)
 - Microsoft Office 2013 Professional Plus (trial only)
 
-Regardless of the image you use, there are licensing considerations anytime you share an app with your users. Check out the [RemoteApp licensing details](../remoteapp-licensing/) for more information.
+Regardless of the image you use, there are licensing considerations anytime you share an app with your users. Check out the [RemoteApp licensing details](remoteapp-licensing.md) for more information.
 
 Read on for details on what each image contains.
 

@@ -142,7 +142,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 ##Send notification from your backend
 
-You can send notifications using Notification Hubs from any back-end using the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](./mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript backend](./mobile-services-javascript-backend-ios-get-started-push.md)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](./notification-hubs-java-backend-how-to.md) | [PHP](./notification-hubs-php-backend-how-to.md)).
+You can send notifications using Notification Hubs from any back-end using the [REST interface](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx). In this tutorial you send notifications with a .NET console application. For an example of how to send notifications from an Azure Mobile Services backend integrated with Notification Hubs, see **Get started with push notifications in Mobile Services** ([.NET backend](mobile-services-javascript-backend-ios-get-started-push.md) | [JavaScript backend](mobile-services-javascript-backend-ios-get-started-push.md)).  For an example of how to send notifications using the REST APIs, see **How to use Notification Hubs from Java/PHP** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md)).
 
 1. In Visual Studio, from the **File** menu select **New** and then **Project...**, then under **Visual C#** click **Windows** and **Console Application** and click **OK**.  
 
@@ -277,8 +277,8 @@ In this simple example you broadcast notifications to all your iOS devices. In o
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Use Notification Hubs to push notifications to users]: ./notification-hubs-ios-mobile-services-register-user-push-notifications.md
-[Use Notification Hubs to send breaking news]: ./notification-hubs-ios-send-breaking-news.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-ios-mobile-services-register-user-push-notifications.md
+[Use Notification Hubs to send breaking news]: notification-hubs-ios-send-breaking-news.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 

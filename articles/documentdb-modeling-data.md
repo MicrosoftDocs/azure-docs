@@ -264,7 +264,7 @@ Switching things around a bit would result in a model that still represents the 
 	Publisher document: 
 	{
 	    "id": "mspress",
-	    "name": "Microsoft Press
+	    "name": "Microsoft Press"
 	}
 	
 	Book documents: 

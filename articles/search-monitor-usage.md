@@ -26,7 +26,7 @@ To monitor resource usage, counts and statistics are easily viewed in the [Azure
 
 1. Sign in to the [Azure management portal](https://portal.azure.com). 
 
-2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](../search-create-service-portal) for step-by-step instructions.
+2. Open the service dashboard of your Azure Search service. Tiles for the service can be found on the Home page, or you can browse to the service from Browse on the JumpBar. See [Create a service](search-create-service-portal.md) for step-by-step instructions.
 
 The Usage section includes a meter that tells you what portion of available resources are currently in use.
 
@@ -46,7 +46,7 @@ Both the Azure Search REST API and the .NET SDK provide programmatic access to s
 
 Review [Limits and capacity](https://msdn.microsoft.com/library/azure/dn798934.aspx) to determine the combination of partitions and replicas you'll need if existing capacity is insufficient. 
 
-Visit [Manage your Search service on Microsoft Azure](../search-manage/) for more information on service administration.
+Visit [Manage your Search service on Microsoft Azure](search-manage.md) for more information on service administration.
 
 <!--Image references-->
 [1]: ./media/search-monitor-usage/AzureSearch-Monitor1.PNG

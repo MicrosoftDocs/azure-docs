@@ -536,6 +536,6 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
 [properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../java-add-certificate-ca-store
+[add_ca_cert]: java-add-certificate-ca-store.md
 
 

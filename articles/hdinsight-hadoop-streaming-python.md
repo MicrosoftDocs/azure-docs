@@ -196,6 +196,6 @@ This should display a list of words and how many times the word occurred. The fo
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the links below to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](../hdinsight-use-hive/)
-* [Use Pig with HDInsight](../hdinsight-use-pig/)
-* [Use MapReduce jobs with HDInsight](../hdinsight-use-mapreduce)
+* [Use Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

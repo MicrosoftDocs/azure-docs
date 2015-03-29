@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="How to use end user analytics" 
 	description="End user analytics for Microsoft Azure websites." 
-	services="application-insights" 
+	services="application-insights"
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="03/23/2015" 
 	ms.author="awills"/>
 
-# Performance analytics for Microsoft Azure websites
+# Performance analytics for Web Apps
 
-After enabling the Azure WebSite extension (detailed steps below) you’ll be able to see statistics and details on your code's application dependencies.  These application dependencies are automatically discovered. 
+After enabling the Azure web app extension (detailed steps below) you’ll be able to see statistics and details on the application dependencies of your web app in Microsoft Azure App Service.  These application dependencies are automatically discovered. 
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
@@ -26,7 +27,7 @@ Here's an example that shows the amount of time spent in a SQL dependency includ
 
 ## Set up Performance Analytics
 
-#### 1. Add Application Insights to your Visual Studio project
+#### 1. Add Visual Studio Application Insights to your Visual Studio project
 
 In your project in Visual Studio 2013 Update 3 or later, add Application Insights to your project.
 
@@ -75,5 +76,5 @@ Drill through to see individual requests:
 * [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
 * [Create web tests][azure-availability] to make sure your site is available and responsive
 
-[azure-usage]: ../insights-usage-analytics/
-[azure-availability]: ../insights-create-web-tests/
+[azure-usage]: insights-usage-analytics.md
+[azure-availability]: insights-create-web-tests.md

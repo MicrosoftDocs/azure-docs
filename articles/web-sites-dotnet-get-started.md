@@ -253,13 +253,13 @@ The [Azure Management Portal](/services/management-portal/) is a web interface t
 
 4. Click the **Configure** tab.
 
-	The [Configure](/documentation/articles/web-sites-configure//) tab enables you to control the .NET version used for the site, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) and [diagnostic logging](/documentation/articles/web-sites-enable-diagnostic-log/), set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/), and more. 
+	The [Configure](web-sites-configure.md) tab enables you to control the .NET version used for the site, enable features such as [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) and [diagnostic logging](web-sites-enable-diagnostic-log.md), set [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/), and more. 
 
 	![Portal web site configure tab](./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png)
   
 5. Click the **Scale** tab.
 
-	For the paid tiers of the Websites service, the [Scale](/documentation/articles/web-sites-scale/) tab enables you to control the size and number of machines that service your web application in order to handle variations in traffic.
+	For the paid tiers of the Websites service, the [Scale](web-sites-scale.md) tab enables you to control the size and number of machines that service your web application in order to handle variations in traffic.
 
 	You can scale manually or configure criteria or schedules for automatic scaling.
 
@@ -267,7 +267,7 @@ The [Azure Management Portal](/services/management-portal/) is a web interface t
 
 These are just a few of the management portal's features. You can also create new websites, delete existing sites, stop and restart sites, and manage other kinds of Azure services, such as databases and virtual machines.  
 
-**Tip:** There is a new management portal in preview which will eventually replace the one you've been using. For more information, see [Azure Preview Portal](/overview/preview-portal/).
+**Tip:** There is a new management portal in preview which will eventually replace the one you've been using. For more information, see [Azure Preview Portal](preview-portal.md).
 
 ## Next steps
 
@@ -275,7 +275,7 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * Other ways to deploy a web project
 
-	In this tutorial you saw the quickest way to create a site and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to Deploy an Azure Website](/documentation/articles/web-sites-deploy/"). 
+	In this tutorial you saw the quickest way to create a site and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to Deploy an Azure Website](".md). 
 
 	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
@@ -295,12 +295,12 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 	For information about how to use SSL and your own domain (for example www.contoso.com instead of contoso.azurewebsites.net), see the following resources:
 
-	* [Configuring a custom domain name for an Azure Website](/documentation/articles/web-sites-custom-domain-name/). 
-	* [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Configuring a custom domain name for an Azure Website](web-sites-custom-domain-name.md). 
+	* [Enable HTTPS for an Azure website](web-sites-configure-ssl-certificate.md)
 
 * How to avoid wake-up wait time after idle time-outs 
 
-	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
+	By default, websites are unloaded if they have been idle for some period of time. The first request after that has to wait for the site to be reloaded. To avoid that wait time you can  enable the AlwaysOn feature. For more information, see configuration options in [How to Configure Websites](web-sites-configure.md).
 
 * How to add real-time features such as chat
 

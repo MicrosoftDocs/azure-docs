@@ -22,7 +22,7 @@
 
 #Linux on Azure-Endorsed Distributions
 
-The distribution images on the Azure Gallery are provided by the following partners, and we are working with the various Linux communities to bring even more endorsed distributions. In the meantime, for distributions not available from the Gallery you can always Bring Your Own Linux by following the guidelines on [this page](../virtual-machines-linux-create-upload-vhd/).
+The distribution images on the Azure Gallery are provided by the following partners, and we are working with the various Linux communities to bring even more endorsed distributions. In the meantime, for distributions not available from the Gallery you can always Bring Your Own Linux by following the guidelines on [this page](virtual-machines-linux-create-upload-vhd.md).
 
 ## Canonical ##
  

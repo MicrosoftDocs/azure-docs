@@ -209,17 +209,17 @@ Consider finding out more about the following Mobile Services and Notification H
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-[Add Mobile Services to an existing app]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
 
-[Send push notifications to authenticated users]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users/
+[Send push notifications to authenticated users]: mobile-services-dotnet-backend-windows-phone-push-notifications-app-users.md
 
 [What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
-[Send broadcast notifications to subscribers]: /documentation/articles/notification-hubs-windows-phone-send-breaking-news/
-[Send template-based notifications to subscribers]: /documentation/articles/notification-hubs-windows-phone-send-localized-breaking-news/
+[Send broadcast notifications to subscribers]: notification-hubs-windows-phone-send-breaking-news.md
+[Send template-based notifications to subscribers]: notification-hubs-windows-phone-send-localized-breaking-news.md
 
 
-[Mobile Services .NET How-to Conceptual Reference]: /documentation/articles/mobile-services-html-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 [Windows Phone Silverlight 8.1 apps]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure Management Portal]: https://manage.windowsazure.com/

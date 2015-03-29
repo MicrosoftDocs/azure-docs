@@ -23,7 +23,7 @@ If you can't connect to a Linux virtual machine because of a forgotten password,
 ## Requirements
 
 - Microsoft Azure Linux Agent version 2.0.5 or later. Most Linux images in the Virtual Machine gallery include version 2.0.5. To find out which version is installed, run **waagent -version**. To update the agent, follow the instructions in the [Azure Linux Agent User Guide].
-- Azure Cross-Platform Command-Line Interface (CLI). For details on setting up the Cross-Platform CLI, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli/).
+- Azure Cross-Platform Command-Line Interface (CLI). For details on setting up the Cross-Platform CLI, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 - Azure PowerShell. You'll use commands in the Set-AzureVMExtension cmdlet to automatically load and configure the VMAccessForLinux extension. For details on setting up Azure PowerShell, see [How to install and configure Azure PowerShell].
 - A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration. 
 
@@ -244,8 +244,8 @@ To display the status of the VMAccess extension, run this command.
 
 
 <!--Link references-->
-[Azure Linux Agent User Guide]: ../virtual-machines-linux-agent-user-guide
-[How to install and configure Azure PowerShell]: ../install-configure-powershell
+[Azure Linux Agent User Guide]: virtual-machines-linux-agent-user-guide.md
+[How to install and configure Azure PowerShell]: install-configure-powershell.md
 [Azure VM Extensions and Features]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 

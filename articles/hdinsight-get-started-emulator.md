@@ -474,23 +474,23 @@ In this tutorial, you installed the HDInsight Emulator and ran some Hadoop jobs.
 
 
 [azure-sdk]: http://azure.microsoft.com/downloads/
-[azure-create-storage-account]: ../storage-create-storage-account/
+[azure-create-storage-account]: storage-create-storage-account.md
 [azure-management-portal]: https://manage.windowsazure.com/
 [netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
-[hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 
 [hdinsight-emulator-install]: http://www.microsoft.com/web/gallery/install.aspx?appid=HDINSIGHT
-[hdinsight-emulator-release-notes]: ../hdinsight-emulator-release-notes/
+[hdinsight-emulator-release-notes]: hdinsight-emulator-release-notes.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-[hdinsight-versions]: ../hdinsight-component-versioning/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-develop-deploy-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
+[hdinsight-versions]: hdinsight-component-versioning.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 

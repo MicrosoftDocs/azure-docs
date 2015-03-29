@@ -41,7 +41,7 @@ This document explains how to interpret prediction results for each of these mod
 
 This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-evaluate-model-performance).
 
-If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/) in the Azure Machine Learning Studio. 
+If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in the Azure Machine Learning Studio. 
 
 ##Classification
 There are two sub-categories of classification problems: 
@@ -74,7 +74,7 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-5-publish-web-service/). Following this procedure provides you with a scoring experiment as shown in Figure 3.
+Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that we can deploy it in various applications and be called to obtain class predictions on any new iris flower. For the procedure on how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). Following this procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/3.png)
 

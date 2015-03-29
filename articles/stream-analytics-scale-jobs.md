@@ -178,10 +178,10 @@ In this article, you have learned how to calculate streaming units and how to sc
 [azure.management.portal]: http://manage.windowsazure.com
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide/
-[stream.analytics.limitations]: ../stream-analytics-limitations/
-[stream.analytics.introduction]: ../stream-analytics-introduction/
-[stream.analytics.get.started]: ../stream-analytics-get-started/
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
+[stream.analytics.limitations]: stream-analytics-limitations.md
+[stream.analytics.introduction]: stream-analytics-introduction.md
+[stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 

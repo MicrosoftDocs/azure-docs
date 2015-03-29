@@ -33,10 +33,10 @@ When you want to create an experiment, look for examples in Machine Learning tea
 2. Browse through the Sample content, and pick one to use as a template.
 
 ## Next steps:
-- [Prepare your data](./machine-learning-import-data/)
-- [Try using R in your experiment](./machine-learning-r-quickstart/)
-- [Review sample R experiments](./machine-learning-r-csharp-web-service-examples/)
-- [Create an web service API](./machine-learning-publish-a-machine-learning-web-service/)
+- [Prepare your data](machine-learning-import-data.md)
+- [Try using R in your experiment](machine-learning-r-quickstart.md)
+- [Review sample R experiments](machine-learning-r-csharp-web-service-examples.md)
+- [Create an web service API](machine-learning-publish-a-machine-learning-web-service.md)
 - [Browse ready-to-use applications](https://datamarket.azure.com/browse?query=machine+learning)
 
 

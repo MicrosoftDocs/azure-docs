@@ -876,9 +876,9 @@ For more information about Azure Storage and AzCopy, see the following resources
 
 ### Azure Storage documentation:
 
-- [Introduction to Azure Storage](http://azure.microsoft.com/documentation/articles/storage-introduction/)
-- [Store files in Blob storage](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Create an SMB file share in Azure with File storage](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Introduction to Azure Storage](storage-introduction.md)
+- [Store files in Blob storage](storage-dotnet-how-to-use-blobs.md)
+- [Create an SMB file share in Azure with File storage](storage-dotnet-how-to-use-files.md)
 
 ### Azure Storage blog posts:
 - [AzCopy: Introducing synchronous copy and customized content type] (http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
