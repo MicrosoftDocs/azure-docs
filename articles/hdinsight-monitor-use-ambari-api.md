@@ -18,38 +18,38 @@
 
 # Monitor Hadoop clusters in HDInsight using the Ambari API
  
-Learn how to monitor HDInsight clusters versions 3.1 and 2.1 using Ambari APIs.
+Learn how to monitor HDInsight clusters versions 3.1 and 2.1 by using Ambari APIs.
 
 
 
 ## <a id="whatisambari"></a> What is Ambari?
 
-[Apache Ambari][ambari-home] is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see [Ambari API reference][ambari-api-reference].
+[Apache Ambari][ambari-home] is used for provisioning, managing, and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see [Ambari API Reference][ambari-api-reference].
 
 
-HDInsight currently only supports the Ambari monitoring feature. Ambari API v1.0 is supported by HDInsight cluster version 2.1 and 3.0.  This article covers accessing Ambari APIs on HDInsight cluster versions 3.1 and 2.1.  The key difference between the two is that some of the components have changed with the introduction of new capabilities (such as the Job History Server).
+HDInsight currently supports only the Ambari monitoring feature. Ambari API 1.0 is supported by HDInsight version 3.0 and 2.1 clusters. This article covers accessing Ambari APIs on HDInsight version 3.1 and 2.1 clusters. The key difference between the two is that some of the components have changed with the introduction of new capabilities (such as the Job History Server).
 
 
 ##<a id="prerequisites"></a>Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
-- **A workstation** with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Run Windows PowerShell scripts][powershell-script].
+- **A workstation** with Azure PowerShell installed and configured. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute Azure PowerShell scripts, you must run Azure PowerShell as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
 
-	[Curl][curl] is optional. It can be installed from [here][curl-download].
+- (Optional) [cURL][curl]. To install it, see [cURL Releases and Downloads][curl-download].
 
-	>[AZURE.NOTE] When use the curl command on Windows, use double-quotes instead of single-quotes for the option values.
+	>[AZURE.NOTE] When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
 
-- **An Azure HDInsight cluster**. For instructions on cluster provision, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
+- **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the following data to go through the tutorial:
 
 	<table border="1">
-	<tr><th>Cluster property</th><th>PowerShell variable name</th><th>Value</th><th>Description</th></tr>
+	<tr><th>Cluster property</th><th>Azure PowerShell variable name</th><th>Value</th><th>Description</th></tr>
 	<tr><td>HDInsight cluster name</td><td>$clusterName</td><td></td><td>The name of your HDInsight cluster.</td></tr>
-	<tr><td>Cluster username</td><td>$clusterUsername</td><td></td><td>Cluster username specified at provision.</td></tr>
+	<tr><td>Cluster username</td><td>$clusterUsername</td><td></td><td>Cluster user name specified at provisioning.</td></tr>
 	<tr><td>Cluster password</td><td>$clusterPassword</td><td></td><td>Cluster user password.</td></tr>
 	</table>
 
-	> [AZURE.NOTE] Fill the values into the tables.  It will be helpful for going through this tutorial.
+	> [AZURE.NOTE] Fill-in the values in the table. This will be helpful for going through this tutorial.
 
 
 
@@ -59,7 +59,7 @@ There are several ways to use Ambari to monitor HDInsight clusters.
 
 **Use Azure PowerShell**
 
-The following is a PowerShell script for getting the MapReduce jobtracker information *on a 3.1 cluster.*  The key difference here is that we will now pull these details from the YARN service (rather than Map Reduce).
+The following is an Azure PowerShell script to get the MapReduce job tracker information *in an HDInsight 3.1 cluster.*  The key difference is that we pull these details from the YARN service (rather than MapReduce).
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -75,7 +75,7 @@ The following is a PowerShell script for getting the MapReduce jobtracker inform
 	
 	$response.metrics.'yarn.queueMetrics'
 
-The following is a PowerShell script for getting the MapReduce jobtracker information *on a 2.1 cluster*:
+The following is an Azure PowerShell script for getting the MapReduce job tracker information *in an HDInsight 2.1 cluster*:
 
 	$clusterName = "<HDInsightClusterName>"
 	$clusterUsername = "<HDInsightClusterUsername>"
@@ -95,9 +95,9 @@ The output is:
 
 ![Jobtracker Output][img-jobtracker-output]
 
-**Use curl**
+**Use cURL**
 
-The following is an example of getting cluster information using Curl:
+The following is an example of getting cluster information by using cURL:
 
 	curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
@@ -118,12 +118,13 @@ The output is:
 	    "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
 	             "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-Note for the 10/8/2014 release:
-When using Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field now returns the fully qualified domain name (FQDN) of the node instead of the host name. Before the 10/8/2014 release, this example returned" simply **headnode0**". After the 10/8/2014, you get the FQDN “**headnode0.{ClusterDNS}.azurehdinsight.net**” as shown in the example above. This change was required to facilitate scenarios where multiple cluster types such as HBase and Hadoop can be deployed in one Virtual Network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
+**For the 10/8/2014 release**:
+
+When using the Ambari endpoint, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}", the *host_name* field returns the fully qualified domain name (FQDN) of the node instead of the host name. Before the 10/8/2014 release, this example returned simply "**headnode0**". After the 10/8/2014 release, you get the FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**", as shown in the previous example. This change was required to facilitate scenarios where multiple cluster types (such as HBase and Hadoop) can be deployed in one virtual network (VNET). This happens, for example, when using HBase as a back-end platform for Hadoop.
 
 ##<a id="monitor"></a>Ambari monitoring APIs
 
-The following table lists some of the most common Ambari monitoring API calls. For more information about the API, see [Ambari API reference][ambari-api-reference].
+The following table lists some of the most common Ambari monitoring API calls. For more information about the API, see [Ambari API Reference][ambari-api-reference].
 
 <table border="1">
 <tr><th>Monitor API call</th><th>URI</th><th>Description</th></tr>
@@ -151,9 +152,9 @@ The following table lists some of the most common Ambari monitoring API calls. F
 
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
 
-- [Administer HDInsight clusters using the Management portal][hdinsight-admin-portal]
-- [Administer HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
-- [Administer HDInsight clusters using command-line interface][hdinsight-admin-cli]
+- [Manage HDInsight clusters using the Management portal][hdinsight-admin-portal]
+- [Manage HDInsight clusters using Azure PowerShell][hdinsight-admin-powershell]
+- [Manage HDInsight clusters using command-line interface][hdinsight-admin-cli]
 - [HDInsight documentation][hdinsight-documentation]
 - [Get started with HDInsight][hdinsight-get-started]
 
