@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors Smart Cache design pattern" 
    description="Design pattern on how to use Service Fabric Actors as Caching infrastructure on web-based applications" 
-   services="service fabric" 
+   services="service-fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="service fabric"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"

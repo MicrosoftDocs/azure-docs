@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Azure Service Fabric Actors Resource Governance design pattern" 
    description="Design pattern on how Service Fabric Actors can be used to model application what needs to scale but use constrained resources" 
-   services="service fabric" 
+   services="service-fabric" 
    documentationCenter=".net" 
    authors="clca" 
    manager="timlt" 
    editor=""/>
 
 <tags
-   ms.service="service fabric"
+   ms.service="service-fabric"
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
