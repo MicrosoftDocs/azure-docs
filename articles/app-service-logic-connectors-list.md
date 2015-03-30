@@ -24,7 +24,7 @@ This topic lists all the available connectors and API Apps created by Microsoft.
 ## Connectors and API Apps in alphabetical order
 
 	Name  | Description
-------------- | -------------
+------------- | ------------- 
 AS2 Connector | The AS2 connector can receive and send messages using the AS2 transport protocol in business-to-business communications. Data is transported securely and reliably over the Internet using digital certificates and encryption.<br/><br/>[Business-to-Business connectors](app-service-logic-b2b-connectors.md)
 Azure HDInsight | Azure HDInsight deploys and provisions Apache Hadoop clusters in the cloud, and provides a software framework designed to manage, analyze, and report on big data. This connector creates a Hadoop cluster on Azure and submit different Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can spin a cluster, submit a job, and wait for the job to complete.<br/><br/>[App + Data Services connectors](app-service-logic-data-connectors.md)
 Azure Mobile Services | Azure Mobile Services brings together a set of Azure services that enable back-end capabilities for mobile apps. Using this connector, you can connect to Azure Mobile Services and can create, update, get, delete entries, and make custom API calls on a table. <br/><br/>[App + Data Services connectors](app-service-logic-data-connectors.md)
