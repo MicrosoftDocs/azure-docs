@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/27/2015"
+   ms.date="03/30/2015"
    ms.author="larryfr"/>
 
 #Process events from Azure Event Hub with Storm on HDInsight (C#)
@@ -431,7 +431,7 @@ When writing data to Table Storage, you must create a class that describes the d
 
 ###Modify the bolt
 
-1. In **Solution Explorer**, right-click the **EventHubReader** project and select **Manage Nuget Packages**. Search for the **Json.Net** package, then add that to the solution. This will allow us to easily process the JSON data received from the spout. Also add the **Windows Azure Storage** package, which will allow us to write to table storage.
+1. In **Solution Explorer**, right-click the **EventHubReader** project and select **Manage Nuget Packages**. Search for the **Json.Net** package, then add that to the solution. This will allow us to easily process the JSON data received from the spout. Also add the **WindowsAzure.Storage** package, which will allow us to write to table storage.
 
 1. Open **Bolt.cs** and add the following at the top of the file.
 
