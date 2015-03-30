@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use BizTalk Rules" 
+   pageTitle="BizTalk Rules" 
    description="This topic covers the features of BizTalk Rules and provides instructions on its usage" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
@@ -16,9 +16,9 @@
    ms.date="02/27/2015"
    ms.author="andalmia"/>
 
-#Use BizTalk Rules 
+#BizTalk Rules 
 
-Business rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
+Business Rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
 Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of buisness process. This allows for making required changes to business policies without impacting the rest of the business process.
 
@@ -30,7 +30,7 @@ There are 3 key reasons to use BizTalk Business Rules in business process:
 - Allow Business Analysts to have more control over business logic management
 + Changes to business logic go to production faster
 
-###Rules Concepts
+#Rules Concepts
 
 ##Vocabulary
 
@@ -92,12 +92,12 @@ Let us now use Business Rules to implement this business logic.
 
 
 ##Creation of Rules Api App
-1.	Login to the Azure Portal and get to the home page. 
-2.	Click on New->Marketplace->API Apps->Biz Talk Rules->Create
- 
-![Alt text][3]
 
-3.	In the new blade that opens, enter the following information:  
+
+1. Login to the Azure Portal and get to the home page. 
+1. Click on New->Azure Marketplace->API Apps->Biz Talk Rules->Create
+![Alt text][3]
+1. In the new blade that opens, enter the following information:  
 	1. Name – give a name for your Rules API App
 	1. App Hosting Plan – select or create a web hosting plan
 	1. Pricing Tier – Choose the pricing tier you want this App to reside in
@@ -106,12 +106,14 @@ Let us now use Business Rules to implement this business logic.
 4.	Click on Create. Within a few minutes your BizTalk Rules API App would be created.
 
 ##Vocabulary Creation
-After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. To do this follow the following steps:
-1.	Browse to the created API App by Browse->API Apps-><Your Rules API App>. This should get you to the Rules API App Dashboard similar to below:
- 
-![Alt text][4]
+After creating a BizTalk Rules API App, the next step would be to create vocabularies. The expectation is that the developer is the more common persona to be doing this exercise. To do this follow the following steps: 
 
-2.	Next Click on “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen. Click on “Add” to begin adding new vocabulary definitions.
+
+1. Browse to the created API App by Browse->API Apps-><Your Rules API App>. This should get you to the Rules API App Dashboard similar to below:
+ 
+   ![Alt text][4]
+
+2.Next Click on “Vocabulary definitions”. This would show you the Vocabulary Authoring Screen. Click on “Add” to begin adding new vocabulary definitions.
 There are 2 types of vocabulary definitions currently supported – Literal and XML.
 
 ##Literal Definition
@@ -126,11 +128,14 @@ There are 2 types of vocabulary definitions currently supported – Literal and 
     iv.	DateTime – this means that the def is of type date type. Data must be entered using this format – mm/dd/yyyy hh:mm:ss AM\PM  
     v.	Input – This is where you enter the value of your definition. The values entered here must conform to the chosen data type. User can either enter a single value, a set of values separated by commas, or a range of values using keyword to. For eg., user can enter unique value 1; a set 1, 2, 3; or a range 1 to 5. Note that range is only supported for number.
 
+![Alt text][5]
 ##XML Definition
-1.	If Vocabulary Type is chosen as XML, the following inputs needs to be specified  
+If Vocabulary Type is chosen as XML, the following inputs needs to be specified  
   a.	Schema – Clicking on this will open a new blade allowing user to either choose from a list of already uploaded schemas or allowing to upload a new one.   
   b.	XPATH – this input gets unlocked only after choosing a schema in the previous step. Clicking on this will display the schema that was selected and allows the user to select the node for which a vocabulary definition needs to be created.  
   c.	FACT – This input identifies which data object would be fed to the rules engine for processing. This is an advanced property and by default is set to the parent of the selected XPATH. FACT becomes particularly important for chaining and collection scenarios.
+
+![Alt text][6]
 
 ### Add Bulk
 The above steps have captured the experience for creating Vocabulary definitions. Once created, the created vocabulary definitions will appear in list form. There are requirements to be able to generate multiple definitions from the same schema instead of repeating the above steps every single time. This is where Add Bulk capability becomes very useful. 
@@ -138,11 +143,14 @@ Clicking on “Add Bulk” will take you to a new blade. The first step is to se
 Now the XPATHS property gets unlocked. Clicking on this will open the Schema Viewer where multiple nodes can be selected.
 The names for the multiple definitions created will default to the name of the node selected. These can always be modified after creation.
 
+![Alt text][7]
+
 ##Policy Creation
 Once the developer has created required vocabularies, the expectation is that the Business Analyst would be the one creating Business Policies via the Azure Portal.  
 	1.	On the Rules App created, there is a Policy lens clicking which the user will go into the Policy creation page.  
 	2.	This page will show the list of policies, this particular Rules App has. User can add a new Policy by simply typing a policy name and hitting tab. Multiple policies can reside in a single Rules API App.  
 	3.	Clicking on the created Policy will take the user to the Policy details page where one can see the rules that are in the policy.  
+	![Alt text][8]
 	4.	Click on “Add New” to add a new rule. This will take you to a new blade.
 
 ##Rule Creation
@@ -174,6 +182,7 @@ The Action(Then) box can contain multiple statements, one per line, to create ac
 7.	update  
 
 Condition and action boxes provide Intellisense to help user author a rule quickly. This can be triggered by hitting ctrl+space or by just starting to type. Keywords matching typed characters will automatically be filtered down and shown. The intellisense window will show all keywords and vocabulary definitions.
+![Alt text][9]
 
 ##Explicit Forward Chaining
 BizTalk Rules supports explicit forward chaining. What this means is that if users would like to re-evaluate rules in response to certain actions, they can trigger this by using certain keywords. The following are the keywords supported:  
@@ -190,17 +199,53 @@ All the rules of a policy are executed in order. The priority of execution is de
 After authoring your policy, before using it in production, there is provision for testing the policy. By using the “Test Policy” command, users can get into the Test Policy blade. In this blade you can see a list of vocabulary definitions that are used in the policy that require a user input. Users can manually add values for these inputs for their test scenario. Alternately, users can also choose to import test XMLs for inputs. Once all the inputs are in, the test can be run and the outputs for each vocabulary definition will be displayed in the output column for easy comparison. To view Business Analyst friendly logs, click on “View Logs” to view the execution logs. To save the logs, the “Save Output” option is available to store all test related data for independent analysis.
 
 ## Using Rules in Logic Apps
-Once the policy has been authored and tested, it is now ready for consumption. Users can create a new Logic App by doing New->Logic App. In the designer, BizTalk Rules is  available in the gallery to the right. This can now be dragged and dropped onto the designer surface. Once this is done, there will be an option to choose which Rules API App to target. Once this is done, the list of policies available to configure is available. Choose a specific policy after which the inputs required for the policy needs to be input. Users can use the output from the Rules API App downstream for further decision making.
+Once the policy has been authored and tested, it is now ready for consumption. Users can create a new Logic App by doing New->Logic App. In the designer, BizTalk Rules is  available in the gallery to the right. This can now be dragged and dropped onto the designer surface. Once this is done, there will be an option to choose which Rules API App(Action) to target. Actions include the list of policies that are to be executed. Choose a specific policy after which the inputs required for the policy needs to be input. Users can use the output from the Rules API App downstream for further decision making.
 
 ## Using Rules via APIs
-The Rules API App can also be invoked using a rich set of APIs available. This way users aren’t restricted to just using flows and can use Rules in any application by making REST calls.
+The Rules API App can also be invoked using a rich set of APIs available. This way users aren’t restricted to just using flows and can use Rules in any application by making REST calls. The exact REST APIs available can be viewed by clicking on the "API Definiton" lens in the Rules dashboard.
+
+![Alt text][10]
+
+Following is an example of how one might use this API in C#
+
+   			// Constructing the JSON message to use in API call to Rules Microservice
+
+			// xmlInstance is the XML message instance to be passed as input to our Policy
+            string xmlInstance = "<ns0:Patient xmlns:ns0=\"http://tempuri.org/XMLSchema.xsd\">  <ns0:Name>Name_0</ns0:Name>  <ns0:Email>Email_0</ns0:Email>  <ns0:PatientID>PatientID_0</ns0:PatientID>  <ns0:Age>10.4</ns0:Age>  <ns0:Claim>    <ns0:ClaimDate>2012-05-31T13:20:00.000-05:00</ns0:ClaimDate>    <ns0:ClaimID>10</ns0:ClaimID>    <ns0:TreatmentID>12</ns0:TreatmentID>    <ns0:ClaimAmount>10000.0</ns0:ClaimAmount>    <ns0:ClaimStatus>ClaimStatus_0</ns0:ClaimStatus>    <ns0:ClaimStatusReason>ClaimStatusReason_0</ns0:ClaimStatusReason>  </ns0:Claim></ns0:Patient>";
+
+            JObject input = new JObject();
+
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
+			// This is CASE SENSITIVE.
+            input.Add("insuranceclaimschema_Patient", xmlInstance);
+            string stringContent = JsonConvert.SerializeObject(input);
+
+
+            // Making REST call to Rules Microservice
+            HttpClient httpClient = new HttpClient();
+	
+			// The url can be constructed using the Host URL + URL specified in the API Definition
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            HttpContent httpContent = new StringContent(stringContent);
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+
+            // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object
+            var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
+
 
 ## Editing Vocabulary and Policy
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
 
 <!--Image references-->
-[1]: ./media/biztalk-rules-deploy-create-manage/InsuranceScenario.PNG	
-[2]: ./media/biztalk-rules-deploy-create-manage/InsuranceBusinessLogic.png
-[3]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg3.png
-[4]: ./media/biztalk-rules-deploy-create-manage/RulesDocImg4.png
+[1]: ./media/app-service-logic-use-biztalk-rules/InsuranceScenario.PNG	
+[2]: ./media/app-service-logic-use-biztalk-rules/InsuranceBusinessLogic.png
+[3]: ./media/app-service-logic-use-biztalk-rules/CreateRuleApiApp.png
+[4]: ./media/app-service-logic-use-biztalk-rules/RulesDashboard.png
+[5]: ./media/app-service-logic-use-biztalk-rules/LiteralVocab.PNG
+[6]: ./media/app-service-logic-use-biztalk-rules/XMLVocab.PNG
+[7]: ./media/app-service-logic-use-biztalk-rules/BulkAdd.PNG
+[8]: ./media/app-service-logic-use-biztalk-rules/PolicyList.PNG
+[9]: ./media/app-service-logic-use-biztalk-rules/RuleCreate.PNG
+[10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 
