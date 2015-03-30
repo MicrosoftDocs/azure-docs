@@ -3,7 +3,7 @@
    description="This article will help you create, disable, enable, delete, and view the history of a Traffic Manager profile."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="03/30/2015"
+   ms.author="joaoma" />
 
 # Manage a Traffic Manager Profile
 
