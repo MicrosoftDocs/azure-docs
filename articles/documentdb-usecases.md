@@ -47,7 +47,7 @@ Application event log data is often emitted in large volumes and may have varyin
    
 There are typically two major use cases related to event log data.  The first use case is to perform ad-hoc queries over a subset of data for troubleshooting.  Often, during troubleshooting, a subset of data is first retrieved from the logs, typically by time series.  Then, drill-down is performed by filtering the dataset with error levels or error messages.  This is where storing event logs in DocumentDB is an advantage.  Log data stored in DocumentDB is automatically indexed by default, and thus it is ready to be queried at any time.  In addition, log data can be persisted across data partitions as time-series.  Older logs can be rolled out to cold storage per your retention policy.          
 
-The second use case involves long running data analytics jobs performed offline over a large volume of log data.  Examples of this use case include server availability analysis, application error analysis and clickstream data analysis.  Typically, Hadoop is used to perform these types of analyses.  With the Hadoop Connector for DocumentDB, DocumentDB databases function as data sources and sinks for Pig, Hive and Map/Reduce jobs.  For detail on the Hadoop Connector for DocumentDB, please visit [Run a Hadoop job with DocumentDB and HDInsight](../documentdb-run-hadoop-with-hdinsight/).      
+The second use case involves long running data analytics jobs performed offline over a large volume of log data.  Examples of this use case include server availability analysis, application error analysis and clickstream data analysis.  Typically, Hadoop is used to perform these types of analyses.  With the Hadoop Connector for DocumentDB, DocumentDB databases function as data sources and sinks for Pig, Hive and Map/Reduce jobs.  For detail on the Hadoop Connector for DocumentDB, please visit [Run a Hadoop job with DocumentDB and HDInsight](../articles/documentdb-run-hadoop-with-hdinsight/).      
 
 ##<a id="uc_ui"></a>User personalized data##
 Nowadays, most modern web and mobile applications come with complex views and experiences. These views and experiences are usually dynamic catering to user preferences/moods and partner branding needs.  Hence, these application needs to be able to retrieve personalized settings effectively in order to render UI elements and experiences quickly. 
@@ -62,11 +62,11 @@ Microsoft Azure offers rich services that can be leveraged for IoT use cases.  A
 
 First, burst of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency.   Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics.  Next, data is loaded into DocumentDB for adhoc querying.  Once the data is loaded into DocumentDB, these data is ready to be queried.  Data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
 
-For a sample IoT solution using DocumentDB, EventHubs and Storm, please go [here]( https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotSample/README.md).
+For a sample IoT solution using DocumentDB, EventHubs and Storm, please go [here](https://github.com/hdinsight/hdinsight-storm-examples/).
 
 For more information Azure offerings for IoT, please visit [here](http://www.microsoft.com/en-us/server-cloud/internet-of-things.aspx).
 
 ##<a name="NextSteps"></a>Next steps
 
-- To get started with DocumentDB, let's create an [account]( http://azure.microsoft.com/pricing/free-trial/).
+- To get started with DocumentDB, let's create an [account](http://azure.microsoft.com/pricing/free-trial/).
 - To learn more about data modeling, please visit [Modeling Data in DocumentDB](../articles/documentdb-modeling-data).
