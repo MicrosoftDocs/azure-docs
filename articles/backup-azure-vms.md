@@ -32,7 +32,7 @@ Using Azure Backup to backup data from your Azure virtual machines provides a nu
 
 ## Before you start
 
-You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](hhttp://azure.microsoft.com/pricing/details/backup).
+You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](http://azure.microsoft.com/pricing/details/backup).
 
 
 ## Create a vault
