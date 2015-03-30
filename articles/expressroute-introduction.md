@@ -53,7 +53,7 @@ ExpressRoute providers are classified as Network Service Providers (NSPs) and Ex
 |---|---|---|
 |**Typical Connectivity model**| Point to point Ethernet links or Connectivity at a cloud exchange | Any to any connectivity through a telco VPN |
 |**Supported Bandwidths**|200 Mbps, 500 Mbps, 1 Gbps and 10 Gbps|10 Mbps, 50 Mbps, 100 Mbps, 500 Mbps, 1 Gbps|
-|**Connectivity Providers**|[Exchange Providers page](https://msdn.microsoft.com/en-us/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP)|[Network Service Providers page](https://msdn.microsoft.com/en-us/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP)|
+|**Connectivity Providers**|[Exchange Providers page](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP)|[Network Service Providers page](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP)|
 |**Routing**|BGP sessions directly with customer edge routers| BGP sessions with telco|
 |**Pricing**|[EXP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|[NSP pricing](http://azure.microsoft.com/pricing/details/expressroute/)|
 
@@ -82,6 +82,6 @@ For more information about configuration and to see real-world examples, you can
 
 
 - [ExpressRoute Service Providers and Locations](https://msdn.microsoft.com/library/azure/dn957919.aspx) 
-- [Configure an ExpressRoute Connection through a Network Service Provider](https://msdn.microsoft.com/en-us/library/azure/dn606309.aspx)
+- [Configure an ExpressRoute Connection through a Network Service Provider](https://msdn.microsoft.com/library/azure/dn606309.aspx)
 - [Configure an ExpressRoute Connection through an Exchange Provider](https://msdn.microsoft.com/library/azure/dn606306.aspx)
 
