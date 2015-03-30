@@ -3,7 +3,7 @@
    description="This article will help you create, disable, enable, delete, and view the history of a Traffic Manager profile."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="03/30/2015"
+   ms.author="joaoma" />
 
 # Manage a Traffic Manager Profile
 
@@ -21,7 +21,7 @@ You use a Traffic Manager profile to specify what cloud services or websites end
 
 ## Create a Traffic Manager Profile Using Quick Create
 
-You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
+You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a small number of endpoints. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
 
 ### To create a new Traffic Manager profile
 

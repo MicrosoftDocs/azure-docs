@@ -39,8 +39,19 @@ As part of Connector package settings, the user can specify entities the connect
 - Execute Query - Use this action to execute a SELECT query that is written in Salesforce Object Query Language (SOQL)
 
 
+##Create a SalesForce Connector API App##
+1.	Open the Azure Marketplace using the + NEW option at the bottom right of the Azure Portal.
+2.	Browse to “Web and Mobile > API apps” and search for “SalesForce”.
+3.	Configure the SalesForce Connector by providing the details for Hosting Plan, the resource group and selecting the name of the API App.
+
+	![][15]
+4. Configure the SalesForce Entities you are interested in reading/writing in the 'Package Settings'.
+
+With this, you can now create a SalesForce Conenctor API App.
+
+
 ##Create a Logic App##
-To use a Salesforce connector in your Logic app, the connector API App should have been already created or you can create one on the fly in Logic app. Let us create a simple logic app that creates an account in Salesforce and updates billing address details of the same account.
+Let us create a simple logic app that creates an account in Salesforce and updates billing address details of the same account.
 
 1.	Login to Azure Portal and click on ‘New -> Web + mobile -> Logic App’
 
@@ -58,16 +69,12 @@ To use a Salesforce connector in your Logic app, the connector API App should ha
 
     ![][4]
 
-5.	Expand ‘Create New’ in Gallery to see all the available API Apps. Select ‘Salesforce’ from the gallery and the ‘Salesforce connector’ gets added to the flow.
+5.	Expand ‘API Apps in this resource group’ in Gallery to see all the available API Apps. Select ‘Salesforce’ from the gallery and the ‘Salesforce connector’ gets added to the flow.
 
-
-6.	The default value for ‘Salesforce Entities’ is ‘Account, Lead, Opportunity, Case, Contact’. You can add other entities including custom entities available in Salesforce account and click ✓.
 
 	![][5]
 
-7.	This creates a new ‘Salesforce Connector’ API App in the same resource group as the Logic app. It will take approximately 30 seconds for the API app to get created.
-
-8.	Once the App is created, click on ‘Authorize’ to provide Salesforce login credentials.
+8.	To authorize your Logic App to access your SalesForce account, click on ‘Authorize’ to provide Salesforce login credentials.
 
 	![][6]
 
@@ -124,5 +131,6 @@ To use a Salesforce connector in your Logic app, the connector API App should ha
 [12]: ./media/app-service-logic-connector-salesforce/12_Salesforce_Update_Account.png
 [13]: ./media/app-service-logic-connector-salesforce/13_Record_ID_from_Create.png
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
+[15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
 
