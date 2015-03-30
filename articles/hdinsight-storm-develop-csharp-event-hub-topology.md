@@ -228,6 +228,13 @@ In this section, you will create a topology that writes data to Event Hub using 
 
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hub Bolt can use.
 
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
+>
+> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
+                {
+                    {"topology.workers", "1"}  //Change to set the number of workers to create
+                });```
+
 ###Modify the spout
 
 The Event Hub Bolt expects a single string value, which it will route to Event Hub. In the following example, you will modify the default **Spout.cs** file to produce a JSON string.
@@ -383,6 +390,13 @@ In this section, you will create a topology that reads data from Event Hub using
 
 At this point, you are done with the **Program.cs**. The topology has been defined, but now you must create a helper class to write data to Table Storage, then you must modify **Bolt.cs** so that it can understand the data produced by the spout.
 
+> [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
+>
+> ```topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
+                {
+                    {"topology.workers", "1"}  //Change to set the number of workers to create
+                });```
+
 ###Create a helper class
 
 When writing data to Table Storage, you must create a class that describes the data that will be written.
@@ -517,11 +531,11 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
-##EventHubSpout and EventHubBolt notes
+##Notes
 
 ###Configuration
 
-There are several overloaded methods for configuring the Bolt and Spout. Use the information below to find the one that best suits your needs.
+There are several overloaded methods when creating the EventHubSpoutConfig. Use the information below to find the one that best suits your needs.
 
 * EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
 
@@ -549,16 +563,13 @@ There are several overloaded methods for configuring the Bolt and Spout. Use the
 
     * ReceiverCredits: The number of events that are batched before being released into the Storm topology.
 
-* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String hubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
+* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
 
     In addition to the properties described previously:
 
     * MaxPendingMsgsPerPartition: The maximum number of events fetched from the hub. Default 1024.
 
     * EnqueueTimeFilter: Filters events based on the timestamp that the event was enqueued.
-
-
-* EventHubBoltConfig
 
 ###Checkpointing
 
