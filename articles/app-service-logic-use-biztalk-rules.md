@@ -217,7 +217,7 @@ Following is an example of how one might use this API in C#
 
 			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
 			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE.
+			// This is CASE SENSITIVE. 
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
@@ -225,14 +225,17 @@ Following is an example of how one might use this API in C#
             // Making REST call to Rules Microservice
             HttpClient httpClient = new HttpClient();
 	
-			// The url can be constructed using the Host URL + URL specified in the API Definition
+			// The url is the Host URL of the Rules API App
             httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
             HttpContent httpContent = new StringContent(stringContent);
             httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
 
-            // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object
+            // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
 
+Note that the above Rules API App has its security settings set to "Public Anon". This can be set  from within the API App using - All settings->Application Settings -> Access Level
+
+![Alt text][11]
 
 ## Editing Vocabulary and Policy
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
@@ -248,4 +251,5 @@ One of the main advantages of using Business Rules is that changes to business l
 [8]: ./media/app-service-logic-use-biztalk-rules/PolicyList.PNG
 [9]: ./media/app-service-logic-use-biztalk-rules/RuleCreate.PNG
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
+[11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
