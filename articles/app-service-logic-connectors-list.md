@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/30/2015" 
 	ms.author="mandia"/>
 
 
 # Connectors and API Apps List in Microsoft Azure App Service
+This topic lists all the available connectors and API Apps created by Microsoft. 
 
-The following table lists all the available connectors and API Apps created by Microsoft, in alphabetical order: 
+
+## Connectors and API Apps in alphabetical order
 
 	Name  | Description
 ------------- | ------------- 
@@ -63,6 +65,17 @@ SMTP | SMTP (Simple Mail Transfer Protocol) is the protocol used between a mail 
 SugarCRM | The SugarCRM connector connects to SugarCRM Online and can create, update, read, and delete different types of modules like accounts, contacts, products, and so on.<br/><br/>[Enterprise connectors](app-service-logic-enterprise-connectors.md)
 Twilio | Twilio is a communication oriented SaaS service. The Twilio Connector connects to Twilio and can Send Messages, Get Messages, List Messages, List Usage, Get Available Toll Free Numbers, Get Available Mobile Numbers, Get Available Local Numbers, List Incoming Phone Numbers, Get Incoming Phone Number, and Add Incoming Phone Number.<br/><br/>[Social connectors](app-service-logic-social-connectors.md)
 Twitter | Twitter is an online social networking service that enables users to send and read short 140-character messages. The Twitter Connector connects to Twitter and can Get user Timeline, Search Tweets, Get Followers, Get Friends, Search User, Get Home Timeline, Get Mentions Timeline, Post Tweet, Post Tweet to User, and Send Direct Message. The Twitter Connector also uses triggers such as Get Tweets by Keyword, Get Tweets by User Handle, and Get Tweets by Hashtag.<br/><br/>[Social connectors](app-service-logic-social-connectors.md)
+
+
+## Connectors and API Apps included in each Service Tier
+
+Standard | BizTalk EAI | BizTalk EDI | BizTalk Rules | Premium
+ --- | --- | --- | --- | ---
+<ul><li>Azure Service Bus</li><li>Azure Storage Blob</li><li>Box</li><li>Chatter</li><li>Dropbox</li><li>Facebook</li><li>File</li><li>FTP</li><li>HD Insight</li><li>HTTP Listener</li><li>Marketo</li><li>Microsoft OneDrive</li><li>Microsoft SharePoint</li><li>Microsoft SQL</li><li>POP3</li><li>QuickBooks</li><li>SalesForce</li><li>SFTP</li><li>SMTP</li><li>Twilio</li><li>Twitter</li><li>Yammer</li><li>SugarCRM</li></ul> | <ul><li>BizTalk Flat File Encoder</li><li>BizTalk JSON Encoder</li><li>BizTalk Transform Service</li><li>BizTalk XML Validator</li><li>BizTalk XPath Extractor</li></ul> | <ul><li>BizTalk Trading Partner Management</li><li>AS2 Connector</li><li>EDIFACT Service</li><li>X12</li></ul> | <ul><li>BizTalk Rules</li></ul> | <ul><li>DB2</li><li>Informix</li><li>MQ</li><li>Oracle</li><li>SAP</li></ul>
+
+
+## Create your own Connectors and API Apps
+See [Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766). 
 
 
 ## More Connectors

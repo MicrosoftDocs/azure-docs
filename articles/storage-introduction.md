@@ -3,7 +3,7 @@
 	description="An overview of Microsoft Azure Storage." 
 	services="storage" 
 	documentationCenter="" 
-	authors="tamram" 
+	authors="jeffstokes72" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
-	ms.author="tamram"/>
+	ms.date="03/30/2015" 
+	ms.author="jeffstok"/>
 
 # Introduction to Microsoft Azure Storage
 
@@ -28,7 +28,7 @@ This article provides an extended introduction to Microsoft Azure Storage for de
 - How your Azure Storage data is protected via redundancy and replication 
 - Where to go next to build your first Azure Storage application
 
-To get started with Azure Storage quickly, see [Get started with Azure Blobs, Tables, and Queues in 5 minutes](./storage-getting-started-guide.md/)
+To get started with Azure Storage quickly, see [Get started with Azure Blobs, Tables, and Queues in 5 minutes](storage-getting-started-guide.md)
 
 If you are looking for a quick high-level overview of Storage please take a look here or for a product specific overview see Azure Blobs; Azure Tables; Azure Queues, and Azure Files.
 

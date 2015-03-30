@@ -287,8 +287,7 @@ You can specify a custom Azure Resource Manager template that executes during AP
 
 ### The Metadata/UIDefinition.json file
 
-You can provide UI information such as hints and validation in the [Azure
-Marketplace format](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-items).
+You can provide UI information such as hints and validation, for use in the Azure Marketplace when the API app is selected.
 
 ### The Metadata/deploymentTemplates folder
 
