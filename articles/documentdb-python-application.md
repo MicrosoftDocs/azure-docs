@@ -183,6 +183,8 @@ database used by the form. Do not delete any of the existing code in
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
+> [AZURE.TIP] The CreateCollection method takes an optional RequestOptionsas the 3rd parameter. This can be used to specify the Offer Type for the Collection. If no offerType value is supplied then the Collection will be created using the default Offer Type. For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md)
+> 
 ### Read Database, Collection, Document, and submit form
 
 - Add the following code to **views.py**. This takes care of setting up
