@@ -2,6 +2,7 @@
 	pageTitle="Application Insights: platforms" 
 	description="Can I use Application Insights with...?" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-14" 
+	ms.date="03/29/2015" 
 	ms.author="awills"/>
  
 # Application Insights: platforms
@@ -29,6 +30,7 @@
 +	[Cordova](#cordova)
 +	[Windows Store JavaScript apps](#cordova)
 +	[Log4Net, NLog, or System.Diagnostics.Trace][diagnostic]
++	[Java, Log4J, or Logback][javalogs]
 +	[Windows Store and Phone apps][windows]
 +	[An IIS website that's already running][redfield]
 +	[An Azure website][azure]

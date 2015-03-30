@@ -37,6 +37,7 @@ The following file types are accepted:
 * .php (using php)
 * .py (using python)
 * .js (using node)
+* .jar (using java)
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 

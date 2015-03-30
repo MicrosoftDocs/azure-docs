@@ -1,36 +1,38 @@
 ## Create the WebAPI Project
 
-The steps in this section show how to create a new ASP.NET WebAPI backend. The new ASP.NET WebAPI backend will be updated in the sections that follow and it will have three main purposes:
+The new ASP.NET WebAPI backend will be updated in the sections that follow and it will have three main purposes:
 
 1. **Authenticating Clients**: A message handler will be added later to authenticate client requests and associate the user with the request.
 2. **Client Notification Registrations**: Later, you will add a controller to handle new registrations for a client device to receive notifications. The authenticated user name will automatically be added to the registration as a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx).
 3. **Sending Notifications to Clients**: Later, you will also add a controller to provide a way for a user to trigger a secure push to devices and clients associated with the tag. 
 
+The following steps show how to create the new ASP.NET WebAPI backend: 
+
 
 > [AZURE.NOTE] **Important**: Before starting this tutorial, please ensure that you have installed the latest version of the NuGet Package Manager. To check, start Visual Studio. From the **Tools** menu, click **Extensions and Updates**. Search for **NuGet Package Manager for Visual Studio 2013**, and make sure you have version 2.8.50313.46 or later. If not, please uninstall, then reinstall the NuGet Package Manager.
 > 
-> ![][4]
+> ![][B4]
 
 > [AZURE.NOTE] Make sure you have installed the Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/) for website deployment.
 
 1. Start Visual Studio or Visual Studio Express.
 2. In Visual Studio, click **File**, then click **New**, then **Project**, expand **Templates**, **Visual C#**, then click **Web** and **ASP.NET Web Application**, type the name **AppBackend**, and then click **OK**. 
 	
-	![][1]
+	![][B1]
 
 3. In the **New ASP.NET Project** dialog, click **Web API**, then click **OK**.
 
-	![][2]
+	![][B2]
 
 4. In the **Configure Azure Site** dialog, choose a subscription, region, and database to use for this project. Enter the password for your account and then click **OK** to create the project.
 
-	![][5]
+	![][B5]
 
 
 
 ## Authenticating Clients to the WebAPI Backend
 
-In this section, you will create a new class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. All requests that include an *Authorization* header will be handled by this handler. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
+In this section, you will create a new message handler class named **AuthenticationTestHandler** for the new backend. This class is derived from [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) and added as a message handler so it can process all requests coming into the backend. All requests that include an *Authorization* header will be handled by this handler. If the request uses *basic* authentication, and the user name string matches the password string, then it will be authorized by the back end. Otherwise, the request will be rejected. This is not a true authentication and authorization approach. It is just a very simple example for this tutorial.
 
 If the request message is authenticated and authorized by the `AuthenticationTestHandler`, then the basic authentication user will be attached to the current request on the [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). User information in the HttpContext will be used by another controller to add a [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) to the notification registration request. 
 
@@ -114,11 +116,11 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 3. In the results list, click **Microsoft Azure Service Bus**, and then click **Install**. Complete the installation, then close the NuGet package manager window.
 
-	![][14]
+	![][B14]
 
 4. We will now create a new class file that represents the different secure notifications that will be sent. In a complete implementation, the notifications are stored in a database. For simplicity, this tutorial stores them in memory. In the Solution Explorer, right-click the **Models** folder, click **Add**, then click **Class**. Name the new class **Notifications.cs**, then click **Add** to generate the class. 
 
-	![][6]
+	![][B6]
 
 5. In Notifications.cs, add the following `using` statement at the top of the file:
 
@@ -141,9 +143,9 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 7. Next we create a new controller, **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, then click **Add**, then click **Controller**. Click the **Web API 2 Controller -- Empty** item, and then click **Add**. Name the new class **RegisterController**, and then click **Add** again to generate the controller.
 
-	![][7]
+	![][B7]
 
-	![][8]
+	![][B8]
 
 8. In RegisterController.cs, add the following `using` statements:
 
@@ -263,7 +265,7 @@ In this section, we will add a new controller to the WebAPI backend to handle re
 
 ## Sending Notifications from the WebAPI Backend
 
-In this section you add a new controller that exposes a way for client devices to retrieve the notification securely, and provides a way for a user to trigger a secure push to devices.
+In this section you add a new controller that exposes a way for client devices to send a notification based on the username tag.
 
 
 1. Create another new controller named **NotificationsController**. Create it the same way you created the **RegisterController** in the previous section.
@@ -318,15 +320,15 @@ In this section you add a new controller that exposes a way for client devices t
     ![][B18]
 
 
-[1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
-[2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
-[3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
-[4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
-[5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
-[6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
-[7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
-[8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
-[14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
+[B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
+[B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png
+[B3]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push3.png
+[B4]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push4.png
+[B5]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push5.png
+[B6]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push6.png
+[B7]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push7.png
+[B8]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push8.png
+[B14]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push14.png
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
