@@ -16,8 +16,8 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: resource governance
-This pattern and related scenarios are easily recognisable by developers—enterprise or otherwise—who have constrained resources on-premises or in the cloud, which they cannot immediately scale or that wish to ship large scale applications and data to the cloud.
+# Azure Service Fabric Actors design pattern: resource governance
+This pattern and related scenarios are easily recognizable by developers—enterprise or otherwise—who have constrained resources on-premises or in the cloud, which they cannot immediately scale or that wish to ship large scale applications and data to the cloud.
  
 In the enterprise these constrained resources, such as databases, run on scale-up hardware. Anyone with a long enterprise history knows this is a common situation on-premises. Even at cloud scale, we have seen this situation occur when a cloud service has attempted to exceed the 64K TCP limit of connections between an address/port tuple, or when attempting to connect to a cloud-based database that limits the number of concurrent connections.
 
@@ -61,83 +61,83 @@ The User and Resolver actors look like this:
 **Resource Governance – Resolver Example**
 
 ```
-    public interface IUser : IActor
+public interface IUser : IActor
+{
+    Task UpdateProfile(string name, string country, int age);
+}
+
+ [DataContract]
+Class UserState {
+
+ [DataMember]
+ private long _userId;
+ [DataMember]
+ private string _name;
+ [DataMember]
+ private string _country;
+ [DataMember]
+ private int _age;
+ [DataMember]
+ private Resolution _resolution;
+}
+
+
+public class User : Actor<UserState>, IUser
+{
+    public override async Task ActivateAsync()
     {
-        Task UpdateProfile(string name, string country, int age);
+        State._userId = this.GetPrimaryKeyLong();
+        var resolver = ActorProxy.Create<IResolver>(0);
+        State._resolution = await resolver.ResolveAsync(State._userId);
+        await base.ActivateAsync();
     }
-
-     [DataContract]
-    Class UserState {
-
-     [DataMember]
-     private long _userId;
-     [DataMember]
-     private string _name;
-     [DataMember]
-     private string _country;
-     [DataMember]
-     private int _age;
-     [DataMember]
-     private Resolution _resolution;
-    }
-   
-
- public class User : Actor<UserState>, IUser
+    public Task UpdateProfile(string name, string country, int age)
     {
-        public override async Task ActivateAsync()
-        {
-            State._userId = this.GetPrimaryKeyLong();
-            var resolver = ActorProxy.Create<IResolver>(0);
-            State._resolution = await resolver.ResolveAsync(State._userId);
-            await base.ActivateAsync();
-        }
-        public Task UpdateProfile(string name, string country, int age)
-        {
-            Console.WriteLine("Using {0}", State._resolution.Resource.ConnectionString);
-            // this is where we use the resource...
-            return TaskDone.Done;
-        }
+        Console.WriteLine("Using {0}", State._resolution.Resource.ConnectionString);
+        // this is where we use the resource...
+        return TaskDone.Done;
     }
+}
 
 
 Resource Governance – Resolver Example
-    
-    public interface IResolver : IActor
-    {
-        Task<Resolution> ResolveAsync(long entity);
-    }
 
-    [DataContract]
-    Class ResolverState {
-    … 
+public interface IResolver : IActor
+{
+    Task<Resolution> ResolveAsync(long entity);
 }
 
-    public class Resolver : Actor<ResolverState>, IResolver
+[DataContract]
+Class ResolverState {
+… 
+}
+
+public class Resolver : Actor<ResolverState>, IResolver
+{
+    ...
+
+    public Task<Resolution> ResolveAsync(long entityKey)
     {
-        ...
+        if (State._resolutionCache.ContainsKey(entityKey))
+            return Task.FromResult(_resolutionCache[entityKey]); // return from cache
 
-        public Task<Resolution> ResolveAsync(long entityKey)
-        {
-            if (State._resolutionCache.ContainsKey(entityKey))
-                return Task.FromResult(_resolutionCache[entityKey]); // return from cache
+        var partitionKey = State._entityPartitions[entityKey]; // resolve partition;
+        var resourceKey = State._partitionResources[partitionKey]; // resolve resource;
+        var resolution = 
+            new Resolution() 
+            { 
+                Entity = State._entities[entityKey], 
+                Partition = State._partitions[partitionKey], 
+                Resource = State._resources[resourceKey]
+            }; // create resolution
 
-            var partitionKey = State._entityPartitions[entityKey]; // resolve partition;
-            var resourceKey = State._partitionResources[partitionKey]; // resolve resource;
-            var resolution = 
-                new Resolution() 
-                { 
-                    Entity = State._entities[entityKey], 
-                    Partition = State._partitions[partitionKey], 
-                    Resource = State._resources[resourceKey]
-                }; // create resolution
+        State._resolutionCache.Add(entityKey, resolution); // cache the resolution
 
-            State._resolutionCache.Add(entityKey, resolution); // cache the resolution
-
-            return Task.FromResult(resolution);
-        }
-
-        ...
+        return Task.FromResult(resolution);
     }
+
+    ...
+}
 ```
 
 Now let’s look at another example; exclusive access to precious resources such as DB, storage accounts, and file systems with finite throughput capability. 
@@ -150,175 +150,175 @@ In the sample code below, the EventProcessor actor does two things: it first dec
 **Resource Governance – Event Processor**
 
 ```   
-    public interface IEventProcessor : IActor
-    {
-        Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
-    }
- 
-    public class EventProcessor : Actor, IEventProcessor
-    {
-        public Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
-        {
-            // This where we write to constrained resource...
-            var eventWriterKey = ResolveWriter(eventType, eventTime);
-            var eventWriter = ActorProxy.Create<IEventWriter>(eventWriterKey);
+public interface IEventProcessor : IActor
+{
+    Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
+}
 
-            return eventWriter.WriteEventAsync(eventId, eventType, eventTime, payload);
-        }
+public class EventProcessor : Actor, IEventProcessor
+{
+    public Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
+    {
+        // This where we write to constrained resource...
+        var eventWriterKey = ResolveWriter(eventType, eventTime);
+        var eventWriter = ActorProxy.Create<IEventWriter>(eventWriterKey);
 
-        private long ResolveWriter(long eventType, DateTime eventTime)
-        {
-            // To simplify, we are returning event type as to identify the event writer actor.
-            return eventType; 
-        }
+        return eventWriter.WriteEventAsync(eventId, eventType, eventTime, payload);
     }
+
+    private long ResolveWriter(long eventType, DateTime eventTime)
+    {
+        // To simplify, we are returning event type as to identify the event writer actor.
+        return eventType; 
+    }
+}
 ```
 
 Now let’s have a look at the EventWriter actor. It really doesn’t do much apart from control exclusive access to the constrained resource, in this case the file and writing events to it.
 **Resource Governance – Event Writer**
 
 ```   
-    public interface IEventWriter : IActor
+public interface IEventWriter : IActor
+{
+    Task WriteEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
+    Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload);
+}
+
+[DataContract]
+Class EventWriterState {
+
+[DataMember]    
+Public string _filename;
+
+}
+
+public class EventWriter : Actor<EventWriterState>, IEventWriter
+{
+    private StreamWriter _writer;
+
+    public override Task OnActivateAsync()
     {
-        Task WriteEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
-        Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload);
+        State._filename = string.Format(@"C:\{0}.csv", this.Id);
+        _writer = new StreamWriter(_filename);
+
+        return base.OnActivateAsync();
     }
 
-    [DataContract]
-    Class EventWriterState {
-
-    [DataMember]    
-    Public string _filename;
-
+    public override Task OnDeactivateAsync()
+    {
+        _writer.Close();
+        return base.OnDeactivateAsync();
     }
 
-    public class EventWriter : Actor<EventWriterState>, IEventWriter
+    public async Task WriteEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
     {
-        private StreamWriter _writer;
-
-        public override Task OnActivateAsync()
-        {
-            State._filename = string.Format(@"C:\{0}.csv", this.Id);
-            _writer = new StreamWriter(_filename);
-
-            return base.OnActivateAsync();
-        }
-
-        public override Task OnDeactivateAsync()
-        {
-            _writer.Close();
-            return base.OnDeactivateAsync();
-        }
-
-        public async Task WriteEventAsync(long eventId, long eventType, DateTime eventTime, string payload)
-        {
-            var text = string.Format("{0}, {1}, {2}, {3}", eventId, eventType, eventTime, payload);
-            await _writer.WriteLineAsync(text);
-            await _writer.FlushAsync();
-        }
-     }
+        var text = string.Format("{0}, {1}, {2}, {3}", eventId, eventType, eventTime, payload);
+        await _writer.WriteLineAsync(text);
+        await _writer.FlushAsync();
+    }
+ }
 ```
 
 Having a single actor responsible for the resource allows us to add capabilities such as buffering. We can buffer incoming events and write these events periodically using a timer or when our buffer is full. Here is a simple timer based example:
 **Resource Governance – Event Writer with Buffer**
 
 ```    
-   [DataMember]
-   Class EventWriterState {
+[DataMember]
+Class EventWriterState {
 
-   [DataMember]
-   Public string _filename;
-   [DataMember]
-   Public Queue<CustomEvent> _buffer;
+[DataMember]
+Public string _filename;
+[DataMember]
+Public Queue<CustomEvent> _buffer;
 
-   }
+}
 
-    public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : Actor<EventWriterState>, IEventWriter
+{
+    private StreamWriter _writer;
+    private IActorTimer _timer;
+
+    public override Task OnActivateAsync()
     {
-        private StreamWriter _writer;
-        private IActorTimer _timer;
+        State._filename = string.Format(@"C:\{0}.csv", this.Id);
+        _writer = new StreamWriter(_filename);
+        State._buffer = new Queue<CustomEvent>();
+        
+        this.RegisterTimer(
+            ProcessBatchAsync,
+            null,
+            TimeSpan.FromSeconds(5),
+            TimeSpan.FromSeconds(5));
 
-        public override Task OnActivateAsync()
-        {
-            State._filename = string.Format(@"C:\{0}.csv", this.Id);
-            _writer = new StreamWriter(_filename);
-            State._buffer = new Queue<CustomEvent>();
-            
-            this.RegisterTimer(
-                ProcessBatchAsync,
-                null,
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(5));
-
-            return base.OnActivateAsync();
-        }
-
-        private async Task ProcessBatchAsync(object obj)
-        {
-            if (State._buffer.Count == 0)
-               return;
-
-            while (State._buffer.Count > 0)
-            {
-                var customEvent = State._buffer.Dequeue();
-                await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
-            }
-
-        public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
-        {
-            var customEvent = new CustomEvent()
-            {
-                EventId = eventId,
-                EventType = eventType,
-                EventTime = eventTime,
-                Payload = payload
-            };
-
-            State._buffer.Enqueue(customEvent);
-
-            return TaskDone.Done;
-        }
+        return base.OnActivateAsync();
     }
+
+    private async Task ProcessBatchAsync(object obj)
+    {
+        if (State._buffer.Count == 0)
+           return;
+
+        while (State._buffer.Count > 0)
+        {
+            var customEvent = State._buffer.Dequeue();
+            await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
+        }
+
+    public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
+    {
+        var customEvent = new CustomEvent()
+        {
+            EventId = eventId,
+            EventType = eventType,
+            EventTime = eventTime,
+            Payload = payload
+        };
+
+        State._buffer.Enqueue(customEvent);
+
+        return TaskDone.Done;
+    }
+}
 ```
 
 While the code above will work fine, clients will not know whether their event made it to the underlying store. To allow buffering and let clients be aware what is happening to their request, we introduce the following approach to let clients wait until their event is written to the .CSV file:
 **Resource Governance – Async. Batching**
 
 ```    
-    public class AsyncBatchExecutor
+public class AsyncBatchExecutor
+{
+    private readonly List<TaskCompletionSource<bool>> actionPromises;
+
+    public AsyncBatchExecutor()
     {
-        private readonly List<TaskCompletionSource<bool>> actionPromises;
+        this.actionPromises = new List<TaskCompletionSource<bool>>();
+    }
 
-        public AsyncBatchExecutor()
+    public int Count
+    {
+        get
         {
-            this.actionPromises = new List<TaskCompletionSource<bool>>();
-        }
-
-        public int Count
-        {
-            get
-            {
-                return actionPromises.Count;
-            }
-        }
-
-        public Task SubmitNext()
-        {
-            var resolver = new TaskCompletionSource<bool>();
-            actionPromises.Add(resolver);
-            return resolver.Task;
-        }
-
-        public void Flush()
-        {
-            foreach (var tcs in actionPromises)
-            {
-                tcs.TrySetResult(true);
-
-            }
-            actionPromises.Clear();
+            return actionPromises.Count;
         }
     }
+
+    public Task SubmitNext()
+    {
+        var resolver = new TaskCompletionSource<bool>();
+        actionPromises.Add(resolver);
+        return resolver.Task;
+    }
+
+    public void Flush()
+    {
+        foreach (var tcs in actionPromises)
+        {
+            tcs.TrySetResult(true);
+
+        }
+        actionPromises.Clear();
+    }
+}
 ```
 
 We will use this class to create and maintain a list of incomplete tasks (to block clients) and complete them in one go once we write the buffered events to storage.
@@ -326,62 +326,62 @@ In the EventWriter class, we need to do three things: mark the actor class as Re
 **Resource Governance – Buffering with Async. Batching**
     
 ```
-    public class EventWriter : Actor<EventWriterState>, IEventWriter
+public class EventWriter : Actor<EventWriterState>, IEventWriter
+{
+public override Task OnActivateAsync()
+{
+    State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
+    _writer = new StreamWriter(_filename);
+    State._buffer = new Queue<CustomEvent>();
+    _batchExecuter = new AsyncBatchExecutor();
+    
+    this.RegisterTimer(
+        ProcessBatchAsync,
+        null,
+        TimeSpan.FromSeconds(5),
+        TimeSpan.FromSeconds(5));
+
+    return base.OnActivateAsync();
+}
+
+private async Task ProcessBatchAsync(object obj)
+{
+    if (_batchExecuter.Count > 0)
     {
-        public override Task OnActivateAsync()
-        {
-            State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
-            _writer = new StreamWriter(_filename);
-            State._buffer = new Queue<CustomEvent>();
-            _batchExecuter = new AsyncBatchExecutor();
-            
-            this.RegisterTimer(
-                ProcessBatchAsync,
-                null,
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(5));
+        // take snapshot of the batch tasks
+        var batchSnapshot = _batchExecuter;
+        _batchExecuter = new AsyncBatchExecutor();
 
-            return base.OnActivateAsync();
+        if (State._buffer.Count == 0)
+            return;
+
+        while (State._buffer.Count > 0)
+        {
+            var customEvent = State._buffer.Dequeue();
+            await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
         }
 
-        private async Task ProcessBatchAsync(object obj)
-        {
-            if (_batchExecuter.Count > 0)
-            {
-                // take snapshot of the batch tasks
-                var batchSnapshot = _batchExecuter;
-                _batchExecuter = new AsyncBatchExecutor();
+        _batchExecuter.Flush();
+    }
+}
+...
 
-                if (State._buffer.Count == 0)
-                    return;
+public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
+{
+    var customEvent = new CustomEvent()
+    {
+        EventId = eventId,
+        EventType = eventType,
+        EventTime = eventTime,
+        Payload = payload
+    };
 
-                while (State._buffer.Count > 0)
-                {
-                    var customEvent = State._buffer.Dequeue();
-                    await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
-                }
+    State._buffer.Enqueue(customEvent);
 
-                _batchExecuter.Flush();
-            }
-        }
-        ...
-
-        public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
-        {
-            var customEvent = new CustomEvent()
-            {
-                EventId = eventId,
-                EventType = eventType,
-                EventTime = eventTime,
-                Payload = payload
-            };
-
-            State._buffer.Enqueue(customEvent);
-
-            // we are adding an incomplete task to batch executer and returning this task.
-            // this will block until task is completed when we call Flush();
-            return _batchExecuter.SubmitNext();
-        }
+    // we are adding an incomplete task to batch executer and returning this task.
+    // this will block until task is completed when we call Flush();
+    return _batchExecuter.SubmitNext();
+}
 ```
 
 Seem easy? Well it is. But the ease belies the enterprise power. With this architecture we get:

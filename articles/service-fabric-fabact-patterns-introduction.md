@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Service Fabric Actors patterns & anti-patterns" 
+   pageTitle="Azure Service Fabric Actors  introduction to patterns & anti-patterns" 
    description="design patterns that work well with Service Fabric Actors" 
    services="service-fabric" 
    documentationCenter=".net" 
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Introduction
+# Introduction to Service Fabric design patterns
 Microsoft Azure Service Fabric Actor Model is a platform built around the actor model to solve real world problems at cloud scale. Azure Service Fabric is a platform for building highly reliable, scalable applications for both cloud and on premise that are easy to develop and manage. 
 This article is intended to be a practical paper about practical problems.  after reading through the various patterns, you should be able to understand how you can use the Service Fabric Actor Model to build solutions “enterprise” or “cloud” solutions.
 ## Patterns

@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: distributed networks and graphs
+# Service Fabric Actors design pattern: distributed networks and graphs
 Azure Fabric Service Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
 
 ![][1]
@@ -31,91 +31,91 @@ Sample code populating Friends Feed:
 **Smart Cache – Social Network Friends Feed (event time)**
 
 ```
-    public interface ISocialPerson : IActor
-    {
-        Task AddFriend(long person);
-        Task RemoveFriend(long person);
-        Task<List<SocialStatus>> GetFriendsFeed();
-        Task<SocialStatus> GetStatus();
-        Task<List<SocialStatus>> GetMyFeed();
-        Task UpdateStatus(string status);
-        Task UpdateFriendFeedAsync(SocialStatus status);
-    }
-     
-    [DataContract]
-    Public class SocialPersonState {
-
-        [DataMember]
-        public string _name; // my name
-        [DataMember]
-        public List<long> _friends; // list of my friends' IDs
-        [DataMember]
-        public List<SocialStatus> _friendsFeed; // my friends feeds
-        [DataMember]
-        public List<SocialStatus> _myFeed; // this is my feed, all my status updates
-        [DataMember]
-        public SocialStatus _lastStatus; // this is my last update
+public interface ISocialPerson : IActor
+{
+Task AddFriend(long person);
+Task RemoveFriend(long person);
+Task<List<SocialStatus>> GetFriendsFeed();
+Task<SocialStatus> GetStatus();
+Task<List<SocialStatus>> GetMyFeed();
+Task UpdateStatus(string status);
+Task UpdateFriendFeedAsync(SocialStatus status);
 }
-    public class SocialPerson : Actor, ISocialPerson
+
+[DataContract]
+Public class SocialPersonState {
+
+[DataMember]
+public string _name; // my name
+[DataMember]
+public List<long> _friends; // list of my friends' IDs
+[DataMember]
+public List<SocialStatus> _friendsFeed; // my friends feeds
+[DataMember]
+public List<SocialStatus> _myFeed; // this is my feed, all my status updates
+[DataMember]
+public SocialStatus _lastStatus; // this is my last update
+}
+public class SocialPerson : Actor, ISocialPerson
+{
+
+public override Task ActivateAsync()
+{
+    CreateOrRestoreState();
+    return base.ActivateAsync();
+}
+
+public Task AddFriend(long person)
+{
+    State._friends.Add(person);
+    return TaskDone.Done;
+}
+
+public Task RemoveFriend(long person)
+{
+    State._friends.Remove(person);
+    return TaskDone.Done;
+}
+
+public Task<List<SocialStatus>> GetFriendsFeed()
+{
+    return Task.FromResult(State._friendsFeed);
+}
+
+public Task UpdateStatus(string status)
+{
+    State._lastStatus = new SocialStatus() 
+{ Name = _name, Status = status, Timestamp = DateTime.UtcNow };
+    State._myFeed.Add(_lastStatus);
+
+    var taskList = new List<Task>();
+
+    foreach(var friendId in _friends)
     {
-        
-        public override Task ActivateAsync()
-        {
-            CreateOrRestoreState();
-            return base.ActivateAsync();
-        }
-
-        public Task AddFriend(long person)
-        {
-            State._friends.Add(person);
-            return TaskDone.Done;
-        }
-
-        public Task RemoveFriend(long person)
-        {
-            State._friends.Remove(person);
-            return TaskDone.Done;
-        }
-
-        public Task<List<SocialStatus>> GetFriendsFeed()
-        {
-            return Task.FromResult(State._friendsFeed);
-        }
-
-        public Task UpdateStatus(string status)
-        {
-            State._lastStatus = new SocialStatus() 
-		{ Name = _name, Status = status, Timestamp = DateTime.UtcNow };
-            State._myFeed.Add(_lastStatus);
-
-            var taskList = new List<Task>();
-
-            foreach(var friendId in _friends)
-            {
-                var friend = ActorProxy.Create<ISocialPerson>(friendId);
-                taskList.Add(friend.UpdateFriendFeedAsync(_lastStatus));
-            }
-
-            return Task.WhenAll(taskList);
-        }
-
-        public Task UpdateFriendFeed(SocialStatus status)
-        {
-            State._friendsFeed.Add(status);
-            
-            return TaskDone.Done;
-        }
-
-        public Task<SocialStatus> GetStatus()
-        {
-            return Task.FromResult(State._lastStatus);
-        }
-
-        public Task<List<SocialStatus>> GetMyFeed()
-        {
-            return Task.FromResult(State._myFeed);
-        }
+        var friend = ActorProxy.Create<ISocialPerson>(friendId);
+        taskList.Add(friend.UpdateFriendFeedAsync(_lastStatus));
     }
+
+    return Task.WhenAll(taskList);
+}
+
+public Task UpdateFriendFeed(SocialStatus status)
+{
+    State._friendsFeed.Add(status);
+    
+    return TaskDone.Done;
+}
+
+public Task<SocialStatus> GetStatus()
+{
+    return Task.FromResult(State._lastStatus);
+}
+
+public Task<List<SocialStatus>> GetMyFeed()
+{
+    return Task.FromResult(State._myFeed);
+}
+}
 ```
 Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materialising the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimise the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update. 
 When modelling an actor in a social network, one should also consider “super users,” users with millions of followers. Developers should model the state and behaviour of such users differently to meet the demand.
@@ -125,78 +125,78 @@ Let’s take the group chat example; a set of participants create a group chat a
 **Smart Cache – GroupChat Example**
 
 ```        
-    public interface IGroupChat : IActor
+public interface IGroupChat : IActor
+{
+Task PublishMessageAsync(long participantId, string message);
+Task<List<GroupChatMessage>> GetMessagesAsync();
+Task AddParticipantAsync(long participantId);
+Task RemoveParticipantAsync(long partitipantId);
+}
+
+[DataContract]
+Public class GroupChatParticipantState {
+
+[DataMember]
+Public long _groupChatId;
+[DataMember]
+public List<GroupChatMessage> _messages;
+}
+public class GroupChatParticipant : Actor<GroupChatParticipantState>, IGroupParticipant
+{
+
+public Task SendMessageAsync(string message)
+{
+  if (State._groupChatId != -1)
+  {
+     var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
+     return groupChat.PublishMessageAsync(this.Id, message);
+  }
+
+  return TaskDone.Done;
+}
+
+...
+
+}
+
+[DataContract]
+Class GroupChatState {
+
+[DataMember]
+Public List<long> _participants;
+[DataMember]
+Public List<GroupChatMessage> _messages;
+
+public class GroupChat : Actor<GroupChatState>, IGroupChat
+{
+
+public Task PublishMessageAsync(long participantId, string message)
+{
+    var chatMessage = new GroupChatMessage()
     {
-        Task PublishMessageAsync(long participantId, string message);
-        Task<List<GroupChatMessage>> GetMessagesAsync();
-        Task AddParticipantAsync(long participantId);
-        Task RemoveParticipantAsync(long partitipantId);
-    }
+        ParticipantId = participantId,
+        Message = message,
+        Timestamp = DateTime.Now
+    };
 
-   [DataContract]
-   Public class GroupChatParticipantState {
+    State._messages.Add(chatMessage);
 
-      [DataMember]
-      Public long _groupChatId;
-      [DataMember]
-      public List<GroupChatMessage> _messages;
-   }
-   public class GroupChatParticipant : Actor<GroupChatParticipantState>, IGroupParticipant
-   {
+    var taskList = new List<Task>();
 
-        public Task SendMessageAsync(string message)
-       {
-          if (State._groupChatId != -1)
-          {
-             var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
-             return groupChat.PublishMessageAsync(this.Id, message);
-          }
-
-          return TaskDone.Done;
-       }
-
-      ...
-
-   }
-
-   [DataContract]
-   Class GroupChatState {
-
-   [DataMember]
-   Public List<long> _participants;
-   [DataMember]
-   Public List<GroupChatMessage> _messages;
-
-   public class GroupChat : Actor<GroupChatState>, IGroupChat
-   {
-
-        public Task PublishMessageAsync(long participantId, string message)
+    foreach(var id in State._participants)
+    {
+        if (id != participantId)
         {
-            var chatMessage = new GroupChatMessage()
-            {
-                ParticipantId = participantId,
-                Message = message,
-                Timestamp = DateTime.Now
-            };
-
-            State._messages.Add(chatMessage);
-
-            var taskList = new List<Task>();
-
-            foreach(var id in State._participants)
-            {
-                if (id != participantId)
-                {
-                    var participant = ActorProxy.Create<IGroupParticipant>.Create(id);
-                    taskList.Add(participant.ReceiveMessageAsync(chatMessage));
-                }
-            }
-            return Task.WhenAll(taskList);
+            var participant = ActorProxy.Create<IGroupParticipant>.Create(id);
+            taskList.Add(participant.ReceiveMessageAsync(chatMessage));
         }
-
-      ...
-
     }
+    return Task.WhenAll(taskList);
+}
+
+...
+
+}
 ```
 
 All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialisation, or routing. 
