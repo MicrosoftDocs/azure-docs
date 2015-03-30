@@ -13,16 +13,22 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/27/2015" 
+	ms.date="03/30/2015" 
 	ms.author="heidist"/>
 
 #Get started with Azure Search in Java#
 
 Learn how to build a custom Java search application that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx) to construct the objects and operations used in this exercise.
 
-We used the 64-bit [Eclipse Luna for Java Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar) and [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) on Windows 8.1 to develop and test this sample.
+We used the following software to build and test this sample:
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
+- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version.
+
+- [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+- [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+
+To run this sample, you must also have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
 > [AZURE.TIP] Download the source code for this tutorial at [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197). 
 
@@ -36,7 +42,7 @@ In this application, the **SearchServlet.java** program builds and loads the ind
 
 ##Create the service##
 
-1. Sign in to [Azure Preview portal](https://portal.azure.com).
+1. Sign in to [Azure management portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** | **Data + storage** | **Search**.
  
@@ -74,34 +80,56 @@ After the service is created, you can return to the portal to get the URL or `ap
 
   	![][3]
 
-3. Copy the service URL and an admin key. You will need them later, when you add them to the app.config and web.config files in your Visual Studio projects.
+3. Copy the service URL and an admin key. You will need them later, when you add them to the web.xml file.
 
 ##Download the sample files
 
-Use either one of the following approaches to download the sample.
-
-1. Go to [AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197).
+1. Go to [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
-All subsequent file modifications and run statements will be made against files in this folder.
+The sample files are read-only by default. Right-click the folder open the properties page and clear the read-only attribute.
 
-Alternatively, if you have GIT in your path statement, you can open a PowerShell window and type `git clone https://github.com/EvanBoyle/AzureSearchJavaIndexerDemo.git` 
+All subsequent file modifications and run statements will be made against files in this folder.  
 
-##Update web.xml with your Search service URL and api-keys
+##Import and build the project
 
-Using the URL and api-keys that you copied earlier, specify the URL, admin-key, and query-key in configuration file.
+1. In Eclipse, choose **File** | **Import** | **General** | **Existing Projects into Workspace**.
 
-Admin keys grant full control over service operations, including creating or deleting an index and loading documents. In contrast, query keys are for read-only operations, typically used by client applications that connect to Azure Search.
+    ![][4]
 
-In this sample, we include the query key to help reinforce the best practice of using the query key in client applications.
+2. In **Select root directory**, browse to the folder containing sample files. Select the folder that contains the .project folder. The project should appear in the **Projects** list as a selected item.
 
-The following screenshot shows **web.xml** open in a text editor, with the relevant entries demarcated so that you can see where to update the file with the values that are valid for your search service.
+3. Click **Finish**.
 
-![][4]
+4. Open **Project Explorer**. Click **Window** | **Show View** | **Project Explorer** or use the shortcut.
 
-The admin api-key, obtained from the portal, replaces "SearchServiceApiKey". The query api-key replaces "Api-key". Service name (the first component of the URL http://<servicename>.search.windows.net) replaces "Service Name".
+5. Double-click **config.properties** to edit the configuration settings containing the server name and api-key. The admin api-key replaces "SearchServiceApiKey". Service name (the first component of the URL http://<servicename>.search.windows.net) replaces "SearchServiceName". Both values can be obtained from the [Azure management portal](https://portal.azure.com).
 
-##Search on USGS data##
+    ![][5]
+
+6. In Project Explorer, right-click the project name and choose **Run As** | **Maven clean** to build the project.
+
+    ![][6]
+
+Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
+
+##Run the app
+
+In this last step, you will run the application in a local server runtime environment. If you haven't yet specified a server runtime environment in Eclipse, you'll need to do that first.
+
+1. In Eclipse, click **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add**.
+
+2. You should see **Apache** in the list of runtime environments. Expand **Apache** and choose **Apache Tomcat v7.0**. 
+
+3. Click **Finish**. You should see Apache Tomcat in the server runtime environments list.
+
+	![][7]
+
+4. In Project Explorer, expand **WebContent**.
+
+5. Right-click **Search.jsp** | **Run As** | **Run on Server**. Select the Apache Tomcat server, and then click **Run**.
+
+##Search on USGS data
 
 The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
 
@@ -115,7 +143,7 @@ You could also try any of these terms:
 - Pembroke
 - goose +cape
 
-##Next steps##
+##Next steps
 
 This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
@@ -127,5 +155,8 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-2.PNG
 [3]: ./media/search-get-started-java/create-search-portal-3.PNG
-[4]: ./media/search-get-started-java/AzSearch-Java-webxml.PNG
+[4]: ./media/search-get-started-java/AzSearch-Java-Import.png
+[5]: ./media/search-get-started-java/AzSearch-Java-config.png
+[6]: ./media/search-get-started-java/AzSearch-Java-build.png
+[7]: ./media/search-get-started-java/AzSearch-Java-runtime.png
 [9]: ./media/search-get-started-dotnet/rogerwilliamsschool.png
