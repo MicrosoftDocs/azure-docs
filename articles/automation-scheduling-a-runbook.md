@@ -19,17 +19,17 @@
 
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run one time or recurring every specified number of hours or days. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
-- [Creating a Schedule](#CreateSchedule)
-- [Linking a Schedule to a Runbook](#LinkSchedule)
-- [Disabling a Schedule](#DisableSchedule)
-- [Related Topics](#RelatedTopics)
+- [Creating a schedule](#CreateSchedule)
+- [Linking a schedule to a runbook](#LinkSchedule)
+- [Disabling a schedule](#DisableSchedule)
+- [Related topics](#RelatedTopics)
 
 
-## <a name="CreateSchedule"></a>Creating a Schedule
+## <a name="CreateSchedule"></a>Creating a schedule
 
 You can either create a new schedule with the Azure Management Portal or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure Management Portal.
 
-### To create a new Schedule with the Azure Management Portal
+### To create a new schedule with the Azure Management Portal
 
 1. In the Azure Management Portal, select Automation and then then click the name of an automation account.
 1. Select the **Assets** tab.
@@ -39,7 +39,7 @@ You can either create a new schedule with the Azure Management Portal or with Wi
 1. Select whether the schedule will run **One Time**, **Hourly**, or **Daily**.
 1. Specify a **Start Time** and other options depending on the type of schedule that you selected.
 
-### To create a new Schedule with Windows PowerShell
+### To create a new schedule with Windows PowerShell
 
 You can use the [New-AzureAutomationSchedule](http://aka.ms/runbookauthor/newazureschedule) cmdlet to create a new schedule in Azure Automation. You must specify the start time for the schedule and whether it should run one time, hourly, or daily.
 
@@ -49,7 +49,7 @@ The following sample commands show how to create a new schedule that runs each d
 	$scheduleName = "Sample-DailySchedule"
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime "1/20/2015 15:30:00" –DayInterval 1
 
-## <a name="LinkSchedule"></a>Linking a Schedule to a Runbook
+## <a name="LinkSchedule"></a>Linking a schedule to a runbook
 
 A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, then you can provide values for them. You must provide values for any mandatory parameters and may provide values for any optional parameters.  These values will be used each time the runbook is started by this schedule.  You can attach the same runbook to another schedule and specify different parameter values.
 
@@ -74,7 +74,7 @@ The following sample commands show how to link a schedule to a runbook with para
 	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 	Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName –Name $runbookName –ScheduleName $scheduleName –Parameters $params
 
-## <a name="DisableSchedule"></a>Disabling a Schedule
+## <a name="DisableSchedule"></a>Disabling a schedule
 
 When you disable a schedule, any runbooks linked to it will no longer run on that schedule. You can manually disable a schedule or set an expiration time for Hourly and Daily schedules when you create them. When the expiration time is reached, the schedule will be disabled.
 
@@ -97,7 +97,7 @@ The following sample commands show how to disable a schedule.
 	$scheduleName = "Sample-DailySchedule"
 	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –IsEnabled $false
 
-## <a name="RelatedTopics"></a>Related Topics
+## <a name="RelatedTopics"></a>Related topics
 
-- [Schedule Assets in Azure Automation](https://msdn.microsoft.com/en-us/library/dn940016.aspx)
+- [Schedule Assets in Azure Automation](https://msdn.microsoft.com/library/dn940016.aspx)
 - [Starting a Runbook in Azure Automation](../automation-starting-a-runbook)

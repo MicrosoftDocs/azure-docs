@@ -23,7 +23,6 @@ You can start a runbook in Azure Automation using one of the following three met
 - [Azure Management Portal](#Portal)
 - [PowerShell](#PowerShell)
 - [From another runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook)
-- [Related Topics](#RelatedTopics)
 
 The first two methods are documented below. Calling a runbook from another runbook is documented in [Starting a Runbook from Another Runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook).
 
@@ -59,7 +58,7 @@ If the runbook requires parameters, then you must provide them as a [hashtable](
 	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 	Start-AzureAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" –Parameters $params
 
-## <a name="Parameters"></a>Runbook Parameters
+## <a name="Parameters"></a>Runbook parameters
 
 When you start a runbook using the Azure Management Portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Starting a Runbook from Another Runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook).
 
@@ -147,6 +146,6 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 
 	jsmith
 
-## <a name="RelatedTopics"></a>Related Topics
+## <a name="RelatedTopics"></a>Related topics
 
 - [Starting a Runbook from Another Runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook)
