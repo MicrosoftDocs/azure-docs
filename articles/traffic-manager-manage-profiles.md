@@ -21,7 +21,7 @@ You use a Traffic Manager profile to specify what cloud services or websites end
 
 ## Create a Traffic Manager Profile Using Quick Create
 
-You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
+You can quickly create a Traffic Manager profile by using **Quick Create** in the Management Portal. Quick Create allows you to create profiles with basic configuration settings. However, you cannot use Quick Create for settings such as the set of endpoints (cloud services and websites), the failover order for the failover load balancing method, or monitoring settings. After creating your profile, you can configure these settings in the Management Portal. Traffic Manager supports up to 200 endpoints per profile. However, most usage scenarios require only a small number of endpoints. See [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx) for a list of configuration procedures.
 
 ### To create a new Traffic Manager profile
 
