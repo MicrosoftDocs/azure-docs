@@ -72,7 +72,9 @@ Now let's create our new ASP.NET project.
 7. Click **OK** and let Visual Studio do its thing around scaffolding the empty ASP.NET MVC template. 
 8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website. Supply all the additional values and continue. 
 
-  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal. 
+  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal.
+
+	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md) 
 
   	![Screen shot of the Configure Microsoft Azure Website dialog box](./media/documentdb-dotnet-application/image11_1.png)
 
@@ -197,7 +199,6 @@ Now, let's create the **V** in MVC, the views:
 	- In the **Model class** box, select ***Item (todo.Models)***.
 	- Leave the **Data context class** field empty. 
 	- In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
-	- Click **Add**.
 	
 	![Screen shot showing the Add View dialog box](./media/documentdb-dotnet-application/image18.png)
 
@@ -213,7 +214,6 @@ In the **Add View** dialog box, do the following:
 - In the **Template** box, select ***Create***.
 - In the **Model class** box, select ***Item (todo.Models)***.
 - In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
-- Click **Add**.
 
 #### <a name="_Toc395888515"></a>Add an Edit Item view
 
@@ -226,7 +226,6 @@ In the **Add View** dialog box, do the following:
 - In the **Template** box, select ***Edit***.
 - In the **Model class** box, select ***Item (todo.Models)***.
 - In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
-- Click **Add**.
 
 Once this is done, close all the cshtml documents in Visual Studio as we will return to these views later.
 
