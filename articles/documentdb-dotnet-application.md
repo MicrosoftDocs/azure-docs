@@ -78,7 +78,7 @@ Now let's create our new ASP.NET project.
 
 9. Once Visual Studio has finished creating the boilerplate MVC application you have an empty ASP.NET application that you can run locally.
 
-We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
+	We'll skip running the project locally because I'm sure we've all seen the ASP.NET "Hello World" application. Let's go straight to adding DocumentDB to this project and building our application.
 
 ## <a name="_Toc395637767"></a>Step 3: Add DocumentDB to your project
 
@@ -170,11 +170,11 @@ That takes care of the **M**, now let's create the **C** in MVC, a controller cl
 
 	![Screen shot of the Add Controller dialog box](./media/documentdb-dotnet-application/image15.png)
 
-Once the file is created, your Visual Studio solution should resemble the following with the new ItemController.cs file in **Solution Explorer**.
+	Once the file is created, your Visual Studio solution should resemble the following with the new ItemController.cs file in **Solution Explorer**.
 
-![Screen shot of Solution Explorer with the new ItemController.cs file and Item.cs file highlighted](./media/documentdb-dotnet-application/image16.png)
+	![Screen shot of Solution Explorer with the new ItemController.cs file and Item.cs file highlighted](./media/documentdb-dotnet-application/image16.png)
 
-You can close this file, we'll come back to it later. 
+	You can close this file, we'll come back to it later. 
 
 ### <a name="_Toc395637766"></a>Add views
 
@@ -189,7 +189,7 @@ Now, let's create the **V** in MVC, the views:
 
 1. In **Solution Explorer**, expand the ***Views***  folder, right-click the empty **Item** folder that Visual Studio created for you when you added the **ItemController** earlier, click **Add**, and then click **View**.
 
-![Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted](./media/documentdb-dotnet-application/image17.png)
+	![Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted](./media/documentdb-dotnet-application/image17.png)
 
 2. In the **Add View** dialog box, do the following:
 	- In the **View name** box, type ***Index***.
@@ -199,7 +199,7 @@ Now, let's create the **V** in MVC, the views:
 	- In the layout page box, type ***~/Views/Shared/_Layout.cshtml***.
 	- Click **Add**.
 	
-![Screen shot showing the Add View dialog box](./media/documentdb-dotnet-application/image18.png)
+	![Screen shot showing the Add View dialog box](./media/documentdb-dotnet-application/image18.png)
 
 3. Once all these values are set, click **Add** and let Visual Studio create a new template view. Once it is done, it will open the cshtml file created. We can close that file in Visual Studio as we will come back to it later.
 
@@ -241,6 +241,8 @@ In this section, we'll add code to handle the following:
 - [Editing Items](#_Toc395637772).
 
 ### <a name="_Toc395637770"></a>Listing incomplete Items
+
+The first thing to do here is add a class that contains all the logic to connect to and use DocumentDB. For this tutorial we'll encapsulate all this logic in to a repository class called DocumentDBRepository. 
 
 1. In Solution Explorer, right-click on the project, click **Add**, and then click **Class**. Name the new class **DocumentDBRepository** and click **Add**.
  
@@ -381,7 +383,7 @@ In this section, we'll add code to handle the following:
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
 	
     	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
-    	<add key="authKey" value="enter the PRIMAR KEY, or the SECONDAY KEY, from the Keys blade of the Azure preview portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure preview portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
@@ -399,13 +401,14 @@ That takes care of wiring up the DocumentDB repository, now let's add our applic
 				.AsEnumerable(); 
 		} 
 
-2. Open the **ItemController** we added earlier and add the following *using statements* above the namespace declaration. 
+2. Open the **ItemController** we added earlier and add the following *using statements* above the namespace declaration.
 
 		using System.Net;
 		using System.Threading.Tasks;
 		using todo.Models;
-		
-	replace this code
+
+	If your project is not named "todo", then you need to update using "todo.Models"; to reflect the name of your project.
+	Now replace this code
 
 		//GET: Item
 		public ActionResult Index()
@@ -413,7 +416,7 @@ That takes care of wiring up the DocumentDB repository, now let's add our applic
 			return View();
 		}
 
-	with the following
+	With the following
 
     	public ActionResult Index()
     	{
@@ -425,7 +428,7 @@ At this point your solution should be able to build without any errors.
 
 If you ran the application now, you would go to the **HomeController** and the **Index** view of that controller. This is the default behavior for the MVC template project we chose at the start but we don't want that! Let's change the routing on this MVC application to alter this behavior.
 
-3. Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
+Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults:" and change it to resemble the following.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
