@@ -22,10 +22,6 @@
 
 In this tutorial you create an ASP.NET Web API project in Visual Studio, and then you add NuGet packages and project metadata that enable you to publish and deploy the project as an API app in Azure App Service. The tutorial also explains how to customize the API app metadata.
 
-## Prerequisites
-
-This tutorial requires Visual Studio 2013 with Azure SDK 2.5.1.
-
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
 ## Create a Web API project
@@ -150,6 +146,8 @@ You now have a working Web API project. The simplest way to verify that it works
  
 	Only `Get` is shown because that's the only method you created in your Contacts controller. The page shows sample response JSON.
 
+9. Click the Get method to see a sample JSON response and a **Try it out** button.
+
  	![Swagger - expand Contacts](./media/app-service-dotnet-create-api-app-visual-studio/swagger1.png)
 
 9. Click **Try it out**.
@@ -162,11 +160,11 @@ Your Web API project is now ready to be deployed as an API app in Azure App Serv
 
 ## Review apiapp.json
 
-The settings in the *apiapp.json* file determine how the API App is identified and presented in the API App Gallery and the Azure Marketplace.
+The settings in the *apiapp.json* file determine how the API App is identified and how it is presented in the Azure Marketplace. In this preview release Visual Studio does not include the ability to publish API apps to the Marketplace, so many of these settings do not have an effect.
 
- ![apiapp.json in Solution Explorer](./media/app-service-dotnet-create-api-app-visual-studio/apiappjsoninse.png)
+![apiapp.json in Solution Explorer](./media/app-service-dotnet-create-api-app-visual-studio/apiappjsoninse.png)
 
- The initial contents of the file that is created when you choose the **Azure API App SDK** menu entry look like the following example:
+The initial contents of the file that is created when you choose the **Azure API App SDK** menu entry look like the following example:
 
 		{
 		  "$schema": "http://json-schema.org/schemas/2014-11-01/apiapp.json#",
@@ -185,7 +183,7 @@ The settings in the *apiapp.json* file determine how the API App is identified a
 
 The following table explains the format and usage of the fields included in the file and additional optional fields that you can add to it. 
 
-**Note:** For the initial preview release, many of these fields will have no effect because they affect how the API app is presented in the Azure Marketplace, but Visual Studio does not yet include the ability to publish API apps to the Marketplace.
+**Note:** As mentioned above, for this preview release many of these fields have no effect because they determine how the API app is presented in the Azure Marketplace, but Visual Studio does not yet include the ability to publish API apps to the Marketplace.
 
 | Name (bold=required) | Type | Comments |
 |:-----------|:------------|:------------|
@@ -248,13 +246,13 @@ The `name` property is a short description of the status, `message` is a longer 
 
 The Metadata folder can contain icons and screenshots for the API Apps Gallery, a Swagger file documenting the API, and UI configuration for the Azure portal. All of this information is optional.
 
-**Note:** As noted above for *apiapps.json*, metadata that pertains to presentation of the API app in the Azure Marketplace has no effect for this initial preview release, because Visual Studio does not yet include the ability to publish API apps to the Marketplace.
-
 <!-- todo: add later
 an Azure Resource Manager template that specifies resources required, 
 -->
 
 ![Metadata folder in Solution Explorer](./media/app-service-dotnet-create-api-app-visual-studio/metadatafolderinse.png)
+
+**Note:** As noted above for *apiapps.json*, metadata that pertains to presentation of the API app in the Azure Marketplace has no effect for this preview release, because Visual Studio does not include the ability to publish API apps to the Marketplace.
 
 ### The Metadata/icons folder
 
@@ -298,6 +296,6 @@ Visual Studio creates this folder when when you choose the **Azure API App SDK**
 
 ## Next steps
 
-Your Web API project is now ready to be deployed as an API app, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-apps/) tutorial to do that.
+Your Web API project is now ready to be deployed as an API app, and you can follow the [Deploy an API app](../app-service-dotnet-deploy-api-app/) tutorial to do that.
 
 For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)

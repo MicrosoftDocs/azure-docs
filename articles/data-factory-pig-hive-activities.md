@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="03/23/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -131,9 +131,10 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
       	}
 	}
 
-  
 
-> [AZURE.NOTE] See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
+> [ACOM.NOTE] To use the **Tez** engine to execute a Hive query, run "**set hive.execution.engine=tez**;" before running the Hive query.
+> 
+> See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
 ## <a name="ParameterizeQueries"></a>Parameterized Pig and Hive Queries
 The Data Factory Pig and Hive activities enable you to specify values for parameters used in the Pig and Hive scripts, by using **extendedProperties**. The extendedProperties section consists of the name of the parameter, and value of the parameter.
@@ -197,6 +198,8 @@ See the following example for specifying parameters for a Hive script using **ex
 		SELECT  country, state, count(*) 
 		FROM hivesampletable 
 		group by country, state;
+
+	> [ACOM.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
 		
 3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
 
@@ -362,6 +365,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2. Click **Deploy** on the command bar to deploy the pipeline.
 4. See [Monitor datasets and pipeline][adfgetstartedmonitoring] section of [Get started with Data Factory][adfgetstarted] article. 
+
 	> [AZURE.NOTE] In the **ACTIVITY RUN DETAILS** blade for a slice of an output table (select output table -> select slice -> select an activity run in the portal), you will see links to logs created by the HDInsight cluster. You can review them in the portal itself or download them to your computer.  
   
 

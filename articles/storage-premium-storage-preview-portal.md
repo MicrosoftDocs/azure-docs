@@ -330,7 +330,7 @@ This section demonstrates how to create a Premium Storage account using the Azur
 ### Create an Azure virtual machine using Premium Storage via the Azure Preview Portal
 
 This section shows how to create a Premium Storage account using the Azure Preview Portal.
-
+ 
 1.	Sign in to the [Azure Preview Portal](https://portal.azure.com/). Check out the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet. 
 
 
