@@ -25,7 +25,7 @@
 
 ##Overview
 
-Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients and to generate notifications, as shown in the guidance topic [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub that you created in the [Get started with Notification Hubs] tutorial.
+Push notification support in Azure enables you to access an easy-to-use, multiplatform, and scaled-out push infrastructure, which greatly simplifies the implementation of push notifications for both consumer and enterprise applications for mobile platforms. This tutorial shows you how to use Azure Notification Hubs to send push notifications to a specific app user on a specific device. An ASP.NET WebAPI backend is used to authenticate clients. Using the authenticated client user, and tag will be automatically added by the backend to notification registration. This tag will be used to send by the backend to generate notifications for a specific user. For more information on registering for notifications using an app backend, see the guidance topic [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). This tutorial builds on the notification hub and project that you created in the [Get started with Notification Hubs] tutorial.
 
 This tutorial is also the prerequisite to the [Secure Push] tutorial. After you have completed the steps in this tutorial, you can proceed to the [Secure Push] tutorial, which shows how to modify the code in this tutorial to send a push notification securely. 
 
@@ -34,7 +34,7 @@ This tutorial is also the prerequisite to the [Secure Push] tutorial. After you 
 
 Before you start this tutorial, you must have already completed these Mobile Services tutorials:
 
-+ [Get started with Notification Hubs]<br/>You create your notification hub and reserve the app name and register to receive notifications in this tutorial. This tutorial assumes you have already completed these steps.
++ [Get started with Notification Hubs]<br/>You create your notification hub and reserve the app name and register to receive notifications in this tutorial. This tutorial assumes you have already completed these steps. If not, please follow the steps in [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md); specifically, the sections [Register your app for the Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) and [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
 
 
@@ -42,16 +42,13 @@ Before you start this tutorial, you must have already completed these Mobile Ser
 > [AZURE.NOTE] If you are using Mobile Services as your backend service, see the [Mobile Services version](mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) of this tutorial.
 
 
-## Create and Configure the Notification Hub
-
-Before you begin this tutorial, you must already have an application name reserved. Also, the Azure Notification Hub should already be created and connected to that application. This should have been completed in the prerequisite, [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md) tutorial. If not, please follow the steps in [Getting Started with Notification Hubs (Windows Store)](notification-hubs-windows-store-dotnet-get-started.md); specifically, the sections [Register your app for the Windows Store](notification-hubs-windows-store-dotnet-get-started.md#register-your-app-for-the-windows-store) and [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). In particular, make sure that you have entered the **Package SID** and **Client Secret** values in the portal, in the **Configure** tab for your notification hub. This configuration procedure is described in the section [Configure your Notification Hub](notification-hubs-windows-store-dotnet-get-started.md#configure-your-notification-hub). This is an important step: if the credentials on the portal do not match those specified for the app name you choose, the push notification will not succeed.
 
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## Update the code for the Client project
+## Update the code for the client project
 
-In this section, you update the code in the project you completed for the [Get started with Notification Hubs] tutorial. It should already be associated with the store and configured for your notification hub.
+In this section, you update the code in the project you completed for the [Get started with Notification Hubs] tutorial. The should already be associated with the store and configured for your notification hub. In this section, you will add code to call the new WebAPI backend and use it for registering and sending notifications.
 
 1. In Visual Studio, open the the solution you created for the [Get started with Notification Hubs] tutorial.
 
