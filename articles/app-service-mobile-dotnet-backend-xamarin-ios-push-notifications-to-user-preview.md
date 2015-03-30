@@ -16,7 +16,7 @@
 	ms.date="03/17/2015"
 	ms.author="yuaxu"/>
 
-# Send x-plat push notifications to all devices of a specific user with templates
+# Send cross-platform notifications to a specific user
 
 [AZURE.INCLUDE [app-service-mobile-selector-push-users-preview](../includes/app-service-mobile-selector-push-users-preview.md)]
 

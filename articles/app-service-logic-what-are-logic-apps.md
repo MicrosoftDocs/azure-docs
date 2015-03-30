@@ -61,7 +61,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 
 [biztalk]: ../app-service-logic-what-are-biztalk-api-apps/
 [appservice]: ../app-service-value-prop-what-is/
-[create]: ../app-service-create-a-logic-app/
+[create]: ../app-service-logic-create-a-logic-app/
 
 
 

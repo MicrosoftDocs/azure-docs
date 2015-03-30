@@ -61,7 +61,7 @@ A connector can be created using the Azure portal or using REST APIs.
 
 
 ### Create a Connector using REST APIs
-http://go.microsoft.com/fwlink/p/?LinkId=529766
+[See the documentation on how to use the REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 
 ### Create a Connector in the Azure Portal
@@ -86,7 +86,8 @@ Add to Startboard | Select this to add the connector to your Starboard (the home
 
 
 	**<a name="AddProperties"></a>Enterprise system-specific Properties**
-	> [AZURE.IMPORTANT] Every connector has properties that are specific to that enterprise system. When connecting to SAP, you enter SAP-specific properties. When connecting to Salesforce, you enter Salesforce-specific properties, and so on.	The following table lists the required enterprise system properties. 
+
+> [AZURE.IMPORTANT] Every connector has properties that are specific to that enterprise system. When connecting to SAP, you enter SAP-specific properties. When connecting to Salesforce, you enter Salesforce-specific properties, and so on.	The following table lists the required enterprise system properties. 
 	
 	Enterprise System | Required Properties
 --- | ---
