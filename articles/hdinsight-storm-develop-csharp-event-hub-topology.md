@@ -517,6 +517,75 @@ To stop the topologies, select each topology in the **Storm Topology Viewer**, t
 
 ![image of killing a topology](./media/hdinsight-storm-develop-csharp-event-hub-topology/killtopology.png)
 
+##EventHubSpout and EventHubBolt notes
+
+###Configuration
+
+There are several overloaded methods for configuring the Bolt and Spout. Use the information below to find the one that best suits your needs.
+
+* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount)
+
+    * PolicyName: The name of the Shared Access Policy that can read from the specified hub.
+
+    * PolicyKey: The key for the Shared Access Policy.
+
+    * Namespace: The ServiceBus namespace that the hub exists in.
+
+    * HubName: The name of the Event Hub to read from
+
+    * PartitionCount: The number of partitions for the hub
+
+* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection)
+
+    In addition to the properties described previously:
+
+    * ZooKeeperConnection: The connection string for the ZooKeeper node. Leave blank for Storm on HDInsight servers.
+
+* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String HubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds,Int ReceiverCredits)
+
+    In addition to the properties described previously:
+
+    * CheckPointIntervalInSeconds: How often the state is persisted to Zookeeper
+
+    * ReceiverCredits: The number of events that are batched before being released into the Storm topology.
+
+* EventHubSpoutConfig(String PolicyName, String PolicyKey, String Namespace, String hubName, Int PartitionCount, String ZooKeeperConnection, Int CheckPointIntervalInSeconds, Int ReceiverCredits, Int MaxPendingMsgsPerPartition, Long EnqueueTimeFilter)
+
+    In addition to the properties described previously:
+
+    * MaxPendingMsgsPerPartition: The maximum number of events fetched from the hub. Default 1024.
+
+    * EnqueueTimeFilter: Filters events based on the timestamp that the event was enqueued.
+
+
+* EventHubBoltConfig
+
+###Checkpointing
+
+The EventHubSpout periodically checkpoints its state to the Zookeeper node, which saves the current offset for messages read from the queue. This allows the component to start receiving messages at the saved offset in the following scenarios:
+
+* The component instance fails and is restarted.
+
+* You grow or shrink the cluster by adding or removing nodes.
+
+* The topology is killed and restarted **with the same name**.
+
+You can also export and import the persisted checkpoints to WASB (the Azure Storage used by your HDInsight cluster.) The scripts to do this are located on the Storm on HDInsight cluster, at **c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**.
+
+>[AZURE.NOTE] The version number in the path may be different, as the version of Storm installed on the cluster may change in the future.
+
+The scripts in this directory are:
+
+* **stormmeta_import.cmd**: Import all Storm metadata from the cluster default storage container into Zookeeper.
+
+* **stormmeta_export.cmd**: Export all Storm metadata from Zookeeper to the cluster default storage container.
+
+* **stormmeta_delete.cmd**: Delete all Storm metadata from Zookeeper.
+
+Export an import allows you to persist checkpoint data when you need to delete the cluster, but want to resume processing from the current offset in the hub when you bring a new cluster back online.
+
+> [AZURE.NOTE] Since the data is persisted to the default storage container, the new cluster **must** use the same storage account and container as the previous cluster.
+
 ##Summary
 
 In this document, you have learned how to use the Java Event Hub Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
