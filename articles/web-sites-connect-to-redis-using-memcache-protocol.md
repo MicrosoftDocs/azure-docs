@@ -35,7 +35,7 @@ Once you have the Scalable WordPress site deployed and a Redis Cache instance pr
 
 ## Enable the Web Apps Memcache shim
 
-In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal][3], the [Old Portal][2], the [Azure PowerShell Cmdlets][4] or the [Azure Cross Platform Command-Line tools][5]. For the purposes of this post, I’m going to use the Azure Portal to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
+In order to configure Memcache shim, you must create three app settings. This can be done using a variety of methods including the [Azure Portal][4], the [Old Portal][3], the [Azure PowerShell Cmdlets][5] or the [Azure Cross Platform Command-Line tools][5]. For the purposes of this post, I’m going to use the Azure Portal to set the app settings. The following values can be retrieved from **Settings** blade of your Redis Cache instance.
 
 ![Azure Redis Cache Settings Blade](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
