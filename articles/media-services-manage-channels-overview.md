@@ -61,14 +61,41 @@ This section describes the steps involved in creating most basic live streaming 
 
 The rest of the topic describes the main components of the Media Services Channel and Program.
 
-##Channel input (ingest) configurations
+##<a id="channel_input"></a>Channel input (ingest) configurations
 
-###<a id="Ingest_Protocols"></a>Ingest streaming protocol
+###<a id="ingest_protocols"></a>Ingest streaming protocol
 
-Valid streaming protocol options are: 
+Valid streaming protocol options are: **Multi-bitrate RTMP** and **Multi-bitrate Fragmented MP4**.
 
-- Multi-bitrate Fragmented MP4 (Smooth Streaming). You can ingest live Fragmented MP4 (Smooth Streaming) content over an SSL connection.
-- Multi-bitrate RTMP. Currently, you cannot ingest RTMP over SSL.
+- **Multi-bitrate RTMP**. 
+	
+	When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
+	
+	**Primary URL**: Specifies the fully qualified URL of channel's primary RTMP ingest endpoint.
+
+	**Secondary URL**(optional): Specifies the fully qualified URL of channel's secondary RTMP ingest endpoint. 
+
+	The reason the secondary URL is created is to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance. 
+	
+	
+	- To improve ingest durability and fault-tolerance:
+		
+		Use one encoder to send the same data to the primary and secondary ingest URLs. Most RTMP encoders (for example, Flash Media Encoder or Wirecast) have the ability to use Primary and Secondary URLs.
+
+	- To handle encoder failover and fault-tolerance:
+		
+		Use multiple encoders to generate the same data and send it to the primary and secondary ingest URLs. This approach improves both ingest durability and encoder high availability. NOTE: the encoder needs to support high availability scenario and also needs to be time synchronized internally (for details, refer to your encoder manual).
+	
+	
+	Additional considerations:
+	
+	- 	Using secondary ingest URL will require additional bandwidth. To use primary/secondary ingest URL; you need ensure you have sufficient free internet connectivity to send data to the ingest points.
+	
+	- 	Currently, you cannot ingest RTMP over SSL.
+
+- **Multi-bitrate Fragmented MP4** (Smooth Streaming).  
+	
+	You can ingest live Fragmented MP4 (Smooth Streaming) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS
 
 Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also pass through, but the client applications will get a single bitrate stream.
 

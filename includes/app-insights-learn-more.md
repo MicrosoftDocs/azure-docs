@@ -71,7 +71,7 @@ Get started with ...
 Performance monitoring
 
 <ul>
-<li><a href="../app-insights-web-monitor-performance/">Detect performance issues in web apps</a>
+<li><a href="../articles/app-insights-web-monitor-performance.md">Detect performance issues in web applications</a>
 </li>
 <li><a href="../articles/app-insights-search-diagnostic-logs.md">Search ASP.NET traces and logs</a>
 </li>
@@ -103,7 +103,8 @@ Usage tracking
 [greenbrown]: ../articles/app-insights-start-monitoring-app-health-usage.md
 [redfield]: ../articles/app-insights-monitor-performance-live-website-now.md
 [perf]: ../articles/app-insights-web-monitor-performance.md
-[diagnostic]: ../articles/app-insights-diagnostic-search.md 
+[diagnostic]: ../articles/app-insights-diagnostic-search.md
+[netlogs]: ../articles/app-insights-asp-net-trace-logs.md
 [availability]: ../articles/app-insights-monitor-web-app-availability.md
 [usage]: ../articles/app-insights-web-track-usage.md
 [track]: ../articles/app-insights-web-track-usage-custom-events-metrics.md

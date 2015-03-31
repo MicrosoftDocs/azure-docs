@@ -91,13 +91,13 @@ The following diagram illustrates what's happening in these two steps.
 
 5. If you haven't already signed in to Azure, Visual Studio prompts you to do so. Sign in with the ID and password of the account that you use to manage your Azure subscription.
 	
-	When you're signed in, the **Configure Microsoft Azure web app settings** dialog box asks you what resources you want to create.
+	When you're signed in, the **Configure Microsoft Azure Web App Settings** dialog box asks you what resources you want to create.
 
 	![Signed in to Azure](./media/web-sites-dotnet-get-started-vs2013/configuresitesettings.png)
 
-3. Visual Studio provides a default **Web app name**, which Azure will use as the prefix for your application's URL. If you prefer, enter a different web app name.
+3. Visual Studio provides a default **Web App name**, which Azure will use as the prefix for your application's URL. If you prefer, enter a different web app name.
 
-	The complete URL will consist of what you enter here plus *.azurewebsites.net* (as shown next to the **Web app name** text box). For example, if the name is `MyExample6442`, the URL will be `MyExample6442.azurewebsites.net`. The URL has to be unique. If someone else has already used the one you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
+	The complete URL will consist of what you enter here plus *.azurewebsites.net* (as shown next to the **Web App name** text box). For example, if the name is `MyExample6442`, the URL will be `MyExample6442.azurewebsites.net`. The URL has to be unique. If someone else has already used the one you entered, you'll see a red exclamation mark to the right instead of a green check mark, and you'll need to enter a different name.
 
 4. In the **Region** drop-down list, choose the location that is closest to you.
 
@@ -127,7 +127,7 @@ The following diagram illustrates what's happening in these two steps.
 
 ## Deploy the application to Azure
 
-7. In the **Web Publish Activity** window, click **Publish MyExample to this web app now**.
+7. In the **Web Publish Activity** window, click **Publish MyExample to this Web App now**.
 
 	![Web app created](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
 
@@ -262,17 +262,17 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * Other ways to deploy a web project
 
-	In this tutorial you saw the quickest way to create a web app and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure web app](../web-sites-deploy/"). 
+	In this tutorial you saw the quickest way to create a web app and deploy it all in one operation. For an overview of other ways to deploy, by using Visual Studio or by [automating deployment](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) from a [source control system](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), see [How to deploy an Azure web app](web-sites-deploy.md). 
 
 	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
 * How to manage a web app in Visual Studio
 
-	For information about web app management functions that you can do in **Server Explorer**, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
+	For information about web app management functions that you can do in **Server Explorer**, see [Troubleshooting Azure web apps in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 * How to troubleshoot a web app
 
-	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
+	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure web apps in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 * How to add database and authorization functionality
 

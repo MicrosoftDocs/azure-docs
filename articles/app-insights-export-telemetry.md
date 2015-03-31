@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="03/27/2015" 
 	ms.author="awills"/>
  
 # Export telemetry from Application Insights
 
-Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties. Continuous export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download and write whatever code you need to process it.  
+Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
 
 ## <a name="setup"></a> Set up continuous export
@@ -42,8 +42,9 @@ If you want to change the event types later, just edit the export:
 
 ![Click Choose event types](./media/app-insights-export-telemetry/05-edit.png)
 
+To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
-To stop the stream, delete the export. Doing so doesn’t delete your data.
+To stop the stream permanently, delete the export. Doing so doesn’t delete your data from storage.
 
 ## <a name="analyze"></a> What events do you get?
 

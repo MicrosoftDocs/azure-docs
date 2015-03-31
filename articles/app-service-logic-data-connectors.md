@@ -16,6 +16,7 @@
 	ms.date="03/24/2015" 
 	ms.author="deonhe"/>
 
+
 # Data Connectors in Microsoft Azure App Service
 
 
@@ -116,9 +117,12 @@ Here's a brief overview of each of the App and Data Services connectors that are
 <tr>
 <td>Microsoft SQL
 <td>A Microsoft SQL connector lets you create and modify entries in Microsoft SQL Server and Azure SQL database tables.
-<td>N/A
-<td><li>Messages: send, list, get and search
-	<li>Phone numbers:buy, list, and get local and toll-free numbers
+<td>Poll data
+<td><li>Insert Into Table
+	<li>Update Table
+	<li>Select From Table
+	<li>Delete From Table
+	<li>Call Stored Procedure
 </tr>
 
 <tr>
@@ -243,6 +247,7 @@ Use the following steps to add a connector to a Logic App:
 ## Security
 Connectors use either OAuth or user names and passwords. 
 
+
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md) |
 [Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md) |
@@ -256,5 +261,5 @@ Connectors use either OAuth or user names and passwords.
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
 [Social connectors](app-service-logic-social-connectors.md) |
 [Protocol connectors](app-service-logic-protocol-connectors.md) |
-[App and Data Services connectors](app-service-logic-data-connectors) |
+[App and Data Services connectors](app-service-logic-data-connectors.md) |
 [Connectors and API Apps List](app-service-logic-connectors-list.md)
