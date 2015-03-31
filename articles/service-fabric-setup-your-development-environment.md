@@ -54,6 +54,6 @@ In a few moments you should see output that shows node information and confirmat
 
 Now that your development environment is set up, you can start building and running apps.
 
-- [Create and run for your first Service Fabric app using Visual Studio](../service-fabric-build-your-first-app-with-visual-studio)
-- [Learn the core constructs of a Service Fabric app in the WordCount tutorial](../service-fabric-wordcount-tutorial).
+- [Create and run for your first Service Fabric app using Visual Studio](../service-fabric-stateless-helloworld)
+- [Learn the core constructs of a Service Fabric app in the WordCount tutorial](../service-fabric-wordcount-tutorial)
 - [Create a cluster in Microsoft Azure to enable deployment to the cloud](../service-fabric-create-an-azure-cluster)
