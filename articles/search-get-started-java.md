@@ -207,7 +207,7 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG
 [2]: ./media/search-get-started-java/create-search-portal-2.PNG
 [3]: ./media/search-get-started-java/create-search-portal-3.PNG
-[4]: ./media/search-get-started-java/AzSearch-Java-Import.PNG
+[4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
 [5]: ./media/search-get-started-java/AzSearch-Java-config.PNG
 [6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets.PNG
 [7]: ./media/search-get-started-java/AzSearch-Java-runtime.PNG
