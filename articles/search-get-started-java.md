@@ -22,7 +22,7 @@ Learn how to build a custom Java search application that uses Azure Search for i
 
 We used the following software to build and test this sample:
 
-- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version.
+- [Eclipse IDE for Java EE Developers](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Be sure to download the EE version. One of the verification steps requires a feature that is only in this edition.
 
 - [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
@@ -36,9 +36,22 @@ To run this sample, you must also have an Azure Search service, which you can si
 
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection  information to the online data source is provided in the program code. No further configuration is necessary.
+In this application, the **SearchServlet.java** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Predefined credentials and connection  information to the online data source is provided in the program code. In terms of data access, no further configuration is necessary.
 
-> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+> [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a larger dataset. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
+
+##About the program files
+
+The following list describes the files that are relevant to this sample.
+
+- Search.jsp: UI
+- SearchServlet.java: Provides methods (similar to a controller in MVC
+- SearchServiceClient.java: Handles HTTp requests
+- SearchServiceHelper.java: A helper class that provides static methods
+- Document.java: Data model
+- config.properties: Search service URL and api-key
+- Pom.xml: Maven dependency
+
 
 ##Create the service##
 
@@ -80,18 +93,19 @@ After the service is created, you can return to the portal to get the URL or `ap
 
   	![][3]
 
-3. Copy the service URL and an admin key. You will need them later, when you add them to the web.xml file.
+3. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
 ##Download the sample files
 
 1. Go to [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
+
 2. Click **Download ZIP**, save the .zip file, and then extract all the files it contains.
 
-The sample files are read-only by default. Right-click the folder open the properties page and clear the read-only attribute.
+The sample files are read-only. Right-click the folder to open the properties page and clear the read-only attribute.
 
 All subsequent file modifications and run statements will be made against files in this folder.  
 
-##Import and build the project
+##Import project
 
 1. In Eclipse, choose **File** | **Import** | **General** | **Existing Projects into Workspace**.
 
@@ -103,31 +117,69 @@ All subsequent file modifications and run statements will be made against files 
 
 4. Open **Project Explorer**. Click **Window** | **Show View** | **Project Explorer** or use the shortcut.
 
-5. Double-click **config.properties** to edit the configuration settings containing the server name and api-key. The admin api-key replaces "SearchServiceApiKey". Service name (the first component of the URL http://<servicename>.search.windows.net) replaces "SearchServiceName". Both values can be obtained from the [Azure management portal](https://portal.azure.com).
+##Configure the service URL and Api-key
 
-    ![][5]
+1. Double-click **config.properties** to edit the configuration settings containing the server name and api-key. 
+ 
+2. Refer to the steps earlier in this article, where you found the service URL and api-key.
 
-6. In Project Explorer, right-click the project name and choose **Run As** | **Maven clean** to build the project.
+3. In **config.properties**, replace "SearchServiceApiKey" with the api-key for your service. Next, service name (the first component of the URL http://<servicename>.search.windows.net) replaces "SearchServiceName". Both values can be obtained from the [Azure management portal](https://portal.azure.com).
+
+	![][5]
+
+##Configure the project, build and runtime environments
+
+1. In Eclipse, in Project Explorer, right-click the project | **Properties** | **Project Facets**.
+
+2. Select **Dynamic Web Module**, **Java**, and **JavaScript**.
 
     ![][6]
 
+3. Click **Apply**.
+
+4. Select **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add..**.
+
+5. Expand Apache and select the version of the Apache Tomcat server you previously installed. On our system, we installed version 8.
+
+	![][7]
+
+6. Click **Finish**.
+ 
+7. Select **Window** | **Preferences** | **Java** | **Installed JREs** | **Add**.
+
+8. In **Add JRE**, in JRE home, click **Directory**.
+
+9. Navigate to **Program Files** | **Java** and select the JDK you previously installed. It's important to select the JDK as the JRE.
+
+10. In Installed JREs, choose the **JDK**. Your settings should look similar to the following screenshot.
+
+    ![][9]
+
+7. Optionally, select **Window** | **Web Browser** | **Internet Explorer** to open the application in an external browser window.
+
+    ![][8]
+
+You have now completed the configuration tasks. Next, you'll build and run the project.
+
+##Build the project
+ 
+1. In Project Explorer, right-click the project name and choose **Run As** | **Maven build...** to configure the project.
+
+    ![][10]
+
+8. In Edit Configuration, in Goals, type "clean install", and then click **Run**.
+ 
 Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
 
 ##Run the app
 
 In this last step, you will run the application in a local server runtime environment. If you haven't yet specified a server runtime environment in Eclipse, you'll need to do that first.
 
-1. In Eclipse, click **Window** | **Preferences** | **Server** | **Runtime Environments** | **Add**.
-
-2. You should see **Apache** in the list of runtime environments. Expand **Apache** and choose **Apache Tomcat v7.0**. 
-
-3. Click **Finish**. You should see Apache Tomcat in the server runtime environments list.
-
-	![][7]
-
-4. In Project Explorer, expand **WebContent**.
+1. In Project Explorer, expand **WebContent**.
 
 5. Right-click **Search.jsp** | **Run As** | **Run on Server**. Select the Apache Tomcat server, and then click **Run**.
+
+A browser window opens, providing a search box for entering terms.
 
 ##Search on USGS data
 
@@ -135,7 +187,7 @@ The USGS data set includes records that are relevant to the state of Rhode Islan
 
 Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
-![][9]
+![][11]
 
 You could also try any of these terms:
 
@@ -147,7 +199,7 @@ You could also try any of these terms:
 
 This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+If you already have some background in Azure Search, you can use this sample as a springboard for further experimentation, perhaps augmenting the [search page](../search-pagination/), or implementing [faceted navigation](../search-faceted-navigation/). You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
@@ -157,6 +209,10 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [3]: ./media/search-get-started-java/create-search-portal-3.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import.png
 [5]: ./media/search-get-started-java/AzSearch-Java-config.png
-[6]: ./media/search-get-started-java/AzSearch-Java-build.png
+[6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets.PNG
+
 [7]: ./media/search-get-started-java/AzSearch-Java-runtime.png
-[9]: ./media/search-get-started-dotnet/rogerwilliamsschool.png
+[8]: ./media/search-get-started-java/AzSearch-Java-Browser.png
+[9]: ./media/search-get-started-java/AzSearch-Java-JREPref.PNG
+[10]: ./media/search-get-started-java/AzSearch-Java-buildProject.png
+[11]: ./media/search-get-started-dotnet/rogerwilliamsschool.png
