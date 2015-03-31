@@ -33,9 +33,9 @@ R scripts can be run on Hadoop clusters in HDInsight that were customized using 
 
 A [sample script](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1) to install R on an HDInsight cluster is available from a read-only blob in Azure Storage. This section provides instructions about how to use the sample script while provisioning the cluster using the Azure portal.
 
-> [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample script was introduced with HDInsight cluster version 3.1. For more information about  HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
-1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Start provisioning a cluster by using the **CUSTOM CREATE** option, as described at [Provisioning a cluster using custom options](../hdinsight-provision-clusters/#portal). 
 2. On the **Script Actions** page of the wizard, click **Add script action** to provide details about the script actions, as follows:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "Use Script Action to customize a cluster")

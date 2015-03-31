@@ -112,7 +112,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 - [Install and use Solr on HDInsight clusters](../hdinsight-hadoop-solr-install)
 - [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
 
@@ -120,7 +120,7 @@ A straight-forward way to test a custom script before using it in the HDInsight 
 
 This section outlines the procedure for using the HDInsight Emulator locally for testing purposes, but the procedure for using a VM is similar.
 
-**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/).
+**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](../hdinsight-get-started-emulator/).
 
 **Set the execution policy for Azure PowerShell** - Open Azure PowerShell and run (as administrator) the following command to set the execution policy to *LocalMachine* and to be *Unrestricted*:
  
