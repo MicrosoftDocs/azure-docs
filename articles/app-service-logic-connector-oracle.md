@@ -129,17 +129,17 @@ Let us take a simple logic app which polls data from a Oracle table, adds the da
 You can test the Logic App by adding a new record in the table that is being polled.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-Oracle/Create.jpg
-[2]: ./media/app-service-logic-connector-Oracle/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-Oracle/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-Oracle/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-Oracle/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-Oracle/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-Oracle/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-Oracle/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-Oracle/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-Oracle/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-Oracle/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-Oracle/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-Oracle/Create.JPG
+[2]: ./media/app-service-logic-connector-Oracle/BrowseSetupIncomplete.JPG
+[3]: ./media/app-service-logic-connector-Oracle/HybridSetup.JPG
+[4]: ./media/app-service-logic-connector-Oracle/BrowseSetupComplete.JPG
+[5]: ./media/app-service-logic-connector-Oracle/LogicApp1.JPG
+[6]: ./media/app-service-logic-connector-Oracle/LogicApp2.JPG
+[7]: ./media/app-service-logic-connector-Oracle/LogicApp3.JPG
+[8]: ./media/app-service-logic-connector-Oracle/LogicApp4.JPG
+[9]: ./media/app-service-logic-connector-Oracle/LogicApp5.JPG
+[10]: ./media/app-service-logic-connector-Oracle/LogicApp6.JPG
+[11]: ./media/app-service-logic-connector-Oracle/LogicApp7.JPG
+[12]: ./media/app-service-logic-connector-Oracle/LogicApp8.JPG
 
 
