@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="03/31/2015"
    ms.author="larryfr"/>
 
 #Working with HDInsight on Linux (Preview)
@@ -29,7 +29,7 @@ The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
 	> [AZURE.NOTE] Authenticate using the cluster administrator user and password, then login to Ambari. This also uses the cluster administartor user and password
-	> 
+	>
 	> Authentication is plaintext - always use HTTPS to ensure the connection is secure.
 
 	While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive server not found errors when trying to access some features over the Internet.
@@ -43,13 +43,13 @@ The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
 	> [AZURE.NOTE] Authenticate using the cluster administrator user and password.
-	> 
+	>
 	> Authentication is plaintext - always use HTTPS to ensure the connection is secure.
 
 * **WebHCat (Templeton)** - https://&lt;clustername>.azurehdinsight.net/templeton
 
 	> [AZURE.NOTE] Authenticate using the cluster administrator user and password.
-	> 
+	>
 	> Authentication is plaintext - always use HTTPS to ensure the connection is secure.
 
 * **SSH** - &lt;clustername>-ssh.azurehdinsight.net on port 22
@@ -128,4 +128,3 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)
-

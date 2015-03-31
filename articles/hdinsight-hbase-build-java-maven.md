@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Build an HBase application using Maven" 
-	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Build an HBase application using Maven"
+	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2014" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/31/2014"
 	ms.author="larryfr"/>
 
 #Use Maven to build Java applications that use HBase with HDInsight (Hadoop)
@@ -75,6 +75,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    <plugin>
         	  <groupId>org.apache.maven.plugins</groupId>
         	  <artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
         	  <configuration>
           	    <source>1.6</source>
           	    <target>1.6</target>
@@ -98,7 +99,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		          </goals>
 		        </execution>
 		      </executions>
-		    </plugin>		
+		    </plugin>
 		  </plugins>
 		</build>
 
@@ -108,7 +109,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 	This also configures the [Maven Compiler Plugin](http://maven.apache.org/plugins/maven-compiler-plugin/) and [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/). The compiler plug-in is used to compile the topology. The shade plug-in is used to prevent license duplication in the JAR package that is built by Maven. The reason this is used is that the duplicate license files cause an error at run time on the HDInsight cluster. Using maven-shade-plugin with the `ApacheLicenseResourceTransformer` implementation prevents this error.
 
-	The maven-shade-plugin also produces an uberjar (or fatjar,) that contains all the dependencies required by the application.
+	The maven-shade-plugin also produces an uber jar (or fat jar,) that contains all the dependencies required by the application.
 
 3. Save the __pom.xml__ file.
 
@@ -166,7 +167,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 		package com.microsoft.examples;
 		import java.io.IOException;
-		
+
 		import org.apache.hadoop.conf.Configuration;
 		import org.apache.hadoop.hbase.HBaseConfiguration;
 		import org.apache.hadoop.hbase.client.HBaseAdmin;
@@ -176,11 +177,11 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		import org.apache.hadoop.hbase.client.HTable;
 		import org.apache.hadoop.hbase.client.Put;
 		import org.apache.hadoop.hbase.util.Bytes;
-		
+
 		public class CreateTable {
 		  public static void main(String[] args) throws IOException {
 		    Configuration config = HBaseConfiguration.create();
-		
+
 		    // Example of setting zookeeper values for HDInsight
 			//   in code instead of an hbase-site.xml file
 			//
@@ -188,17 +189,17 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    //            "zookeepernode0,zookeepernode1,zookeepernode2");
 		    //config.set("hbase.zookeeper.property.clientPort", "2181");
 		    //config.set("hbase.cluster.distributed", "true");
-		
+
 		    // create an admin object using the config
 		    HBaseAdmin admin = new HBaseAdmin(config);
-		
+
 		    // create the table...
 		    HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("people"));
 		    // ... with two column families
 		    tableDescriptor.addFamily(new HColumnDescriptor("name"));
 		    tableDescriptor.addFamily(new HColumnDescriptor("contactinfo"));
 		    admin.createTable(tableDescriptor);
-		
+
 		    // define some people
 		    String[][] people = {
 		        { "1", "Marcel", "Haddad", "marcel@fabrikam.com"},
@@ -207,9 +208,9 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		        { "4", "Rae", "Schroeder", "rae@contoso.com" },
 		        { "5", "Rosalie", "burton", "rosalie@fabrikam.com"},
 		        { "6", "Gabriela", "Ingram", "gabriela@contoso.com"} };
-		
+
 		    HTable table = new HTable(config, "people");
-		
+
 		    // Add each person to the table
 		    //   Use the `name` column family for the name
 		    //   Use the `contactinfo` column family for the email
@@ -234,7 +235,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 		package com.microsoft.examples;
 		import java.io.IOException;
-		
+
 		import org.apache.hadoop.conf.Configuration;
 		import org.apache.hadoop.hbase.HBaseConfiguration;
 		import org.apache.hadoop.hbase.client.HTable;
@@ -246,11 +247,11 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
 		import org.apache.hadoop.hbase.util.Bytes;
 		import org.apache.hadoop.util.GenericOptionsParser;
-		
+
 		public class SearchByEmail {
 		  public static void main(String[] args) throws IOException {
 		    Configuration config = HBaseConfiguration.create();
-		
+
 		    // Use GenericOptionsParser to get only the parameters to the class
 		    // and not all the parameters passed (when using WebHCat for example)
 		    String[] otherArgs = new GenericOptionsParser(config, args).getRemainingArgs();
@@ -258,17 +259,17 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		      System.out.println("usage: [regular expression]");
 		      System.exit(-1);
 		    }
-			
+
 			// Open the table
 		    HTable table = new HTable(config, "people");
-		
+
 			// Define the family and qualifiers to be used
 		    byte[] contactFamily = Bytes.toBytes("contactinfo");
 		    byte[] emailQualifier = Bytes.toBytes("email");
 		    byte[] nameFamily = Bytes.toBytes("name");
 		    byte[] firstNameQualifier = Bytes.toBytes("first");
 		    byte[] lastNameQualifier = Bytes.toBytes("last");
-		
+
 			// Create a new regex filter
 		    RegexStringComparator emailFilter = new RegexStringComparator(otherArgs[0]);
 			// Attach the regex filter to a filter
@@ -279,11 +280,11 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		      CompareOp.EQUAL,
 		      emailFilter
 		    );
-		
+
 			// Create a scan and set the filter
 		    Scan scan = new Scan();
 		    scan.setFilter(filter);
-		
+
 			// Get the results
 		    ResultScanner results = table.getScanner(scan);
 			// Iterate over results and print  values
@@ -311,18 +312,18 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 		package com.microsoft.examples;
 		import java.io.IOException;
-		
+
 		import org.apache.hadoop.conf.Configuration;
 		import org.apache.hadoop.hbase.HBaseConfiguration;
 		import org.apache.hadoop.hbase.client.HBaseAdmin;
-		
+
 		public class DeleteTable {
 		  public static void main(String[] args) throws IOException {
 		    Configuration config = HBaseConfiguration.create();
-		
+
 		    // Create an admin object using the config
 		    HBaseAdmin admin = new HBaseAdmin(config);
-		
+
 		    // Disable, and then delete the table
 		    admin.disableTable("people");
 		    admin.deleteTable("people");
@@ -345,7 +346,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 
 3. When the command completes, the __hbaseapp\target__ directory will contain a file named __hbaseapp-1.0-SNAPSHOT.jar__.
 
-	> [AZURE.NOTE] The __hbaseapp-1.0-SNAPSHOT.jar__ file is an uberjar (sometimes called a fatjar,) which contains all the dependencies required to run the application.
+	> [AZURE.NOTE] The __hbaseapp-1.0-SNAPSHOT.jar__ file is an uber jar (sometimes called a fat jar,) which contains all the dependencies required to run the application.
 
 ##Upload the JAR file and start a job
 
@@ -362,52 +363,52 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		.EXAMPLE
 		    Start-HBaseExample -className "com.microsoft.examples.CreateTable"
 		        -clusterName "MyHDInsightCluster"
-		
+
 		.EXAMPLE
 		    Start-HBaseExample -className "com.microsoft.examples.SearchByEmail"
 		        -clusterName "MyHDInsightCluster"
 		        -emailRegex "contoso.com"
-		
+
 		.EXAMPLE
 		    Start-HBaseExample -className "com.microsoft.examples.SearchByEmail"
 		        -clusterName "MyHDInsightCluster"
 		        -emailRegex "^r" -showErr
 		#>
-		
+
 		function Start-HBaseExample {
 		    [CmdletBinding(SupportsShouldProcess = $true)]
 		    param(
 		        #The class to run
 		        [Parameter(Mandatory = $true)]
 		        [String]$className,
-		
+
 		        #The name of the HDInsight cluster
 		        [Parameter(Mandatory = $true)]
 		        [String]$clusterName,
-		
+
 		        #Only used when using SearchByEmail
 		        [Parameter(Mandatory = $false)]
 		        [String]$emailRegex,
-		
+
 		        #Use if you want to see stderr output
 		        [Parameter(Mandatory = $false)]
 		        [Switch]$showErr
 		    )
-		
+
 		    Set-StrictMode -Version 3
-		
+
 		    # Is the Azure module installed?
 		    FindAzure
-		
+
 		    # The JAR
 		    $jarFile = "wasb:///example/jars/hbaseapp-1.0-SNAPSHOT.jar"
-		
+
 		    # The job definition
 		    $jobDefinition = New-AzureHDInsightMapReduceJobDefinition `
 		      -JarFile $jarFile `
 		      -ClassName $className `
 		      -Arguments $emailRegex
-		
+
 		    # Get the job output
 		    $job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 		    Write-Host "Wait for the job to complete ..." -ForegroundColor Green
@@ -420,7 +421,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    Write-Host "Display the standard output ..." -ForegroundColor Green
 		    Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardOutput
 		}
-		
+
 		<#
 		.SYNOPSIS
 		    Copies a file to the primary storage of an HDInsight cluster.
@@ -437,54 +438,54 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		        -ClusterName "MyHDInsightCluster"
 		        -Container "MyContainer"
 		#>
-		
+
 		function Add-HDInsightFile {
 		    [CmdletBinding(SupportsShouldProcess = $true)]
 		    param(
 		        #The path to the local file.
 		        [Parameter(Mandatory = $true)]
 		        [String]$localPath,
-		
+
 		        #The destination path and file name, relative to the root of the container.
 		        [Parameter(Mandatory = $true)]
 		        [String]$destinationPath,
-		
+
 		        #The name of the HDInsight cluster
 		        [Parameter(Mandatory = $true)]
 		        [String]$clusterName,
-		
+
 		        #If specified, overwrites existing files without prompting
 		        [Parameter(Mandatory = $false)]
 		        [Switch]$force
 		    )
-		
+
 		    Set-StrictMode -Version 3
-		
+
 		    # Is the Azure module installed?
 		    FindAzure
-		
+
 		    # Does the local path exist?
 		    if (-not (Test-Path $localPath))
 		    {
 		        throw "Source path '$localPath' does not exist."
 		    }
-		
+
 		    # Get the primary storage container
 		    $storage = GetStorage -clusterName $clusterName
-		
+
 		    # Upload file to storage, overwriting existing files if -force was used.
 		    Set-AzureStorageBlobContent -File $localPath -Blob $destinationPath -force:$force `
 		                                -Container $storage.container `
 		                                -Context $storage.context
 		}
-		
+
 		function FindAzure {
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
 		        throw "Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
 		    }
-		
+
 		    # Is there an active Azure subscription?
 		    $sub = Get-AzureSubscription -ErrorAction SilentlyContinue
 		    if(-not($sub))
@@ -492,7 +493,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		        throw "No active Azure subscription found! If you have a subscription, use the Add-AzureAccount or Import-PublishSettingsFile cmdlets to make the Azure account available to Windows PowerShell."
 		    }
 		}
-		
+
 		function GetStorage {
 		    param(
 		        [Parameter(Mandatory = $true)]
@@ -525,7 +526,7 @@ Learn how to create and build an [Apache HBase](http://hbase.apache.org/) applic
 		    # Return storage accounts to support finding all accounts for
 		    # a cluster
 		    $return.storageAccounts = $storageAccounts
-		
+
 		    return $return
 		}
 		# Only export the verb-phrase things
