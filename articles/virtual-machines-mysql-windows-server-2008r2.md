@@ -38,7 +38,7 @@ This tutorial shows you how to:
 
 After the virtual machine is created, you can optionally attach an additional data disk. This is recommended for production workloads and to avoid running out of space on the OS drive (C:), which is currently limited to 127 GB and includes the operating system.
 
-See [How to Attach a Data Disk to a Windows Virtual Machine](../storage-windows-attach-disk/) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
+See [How to Attach a Data Disk to a Windows Virtual Machine](storage-windows-attach-disk.md) and follow the instructions for attaching an empty disk. Set the host cache setting to **None** or **Read-only**.
 
 ## Log on to the virtual machine
 
@@ -91,7 +91,7 @@ Follow these steps to install, configure, and run the Community version of MySQL
 If you want the MySQL Server service to be available to MySQL client computers on the Internet, you must configure an endpoint for the TCP port on which the MySQL Server service is listening and create an additional Windows Firewall rule. This is TCP port 3306 unless you specified a different port on the Type and Networking page (step 10 of the previous procedure). 
 
 
-> [AZURE.NOTE] You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](../virtual-machines-set-up-endpoints/).
+> [AZURE.NOTE] You should carefully consider the security implications of doing this, because this will make the MySQL Server service available to all computers on the Internet. You can define the set of source IP addresses that are allowed to use the endpoint with an Access Control List (ACL). For more information, see [How to Set Up Endpoints to a Virtual Machine](virtual-machines-set-up-endpoints.md).
 
 
 To configure an endpoint for the MySQL Server service:

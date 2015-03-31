@@ -23,11 +23,11 @@ Only installing the xplat-cli and having an Azure subscription will prevent you 
 
 ## Installing the xplat-cli
 
-Follow these instructions to install the [xplat-cli](http://azure.microsoft.com/documentation/articles/xplat-cli/#install).
+Follow these instructions to install the [xplat-cli](xplat-cli.md#install).
 
 ## Connecting to Azure with the xplat-cli
 
-You can connect your xplat-cli installation with a personal Azure account, or with a work or school Azure account. To understand the differences and choose, see [How to connect to your Azure subscription](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure).
+You can connect your xplat-cli installation with a personal Azure account, or with a work or school Azure account. To understand the differences and choose, see [How to connect to your Azure subscription](xplat-cli.md#configure).
 
 ## Creating and Connecting to a VM in Azure
 
@@ -71,7 +71,7 @@ Since the example above opened the default SSH port, connecting to the VM once i
 
     ssh myadminuser@my-new-cli-vm.cloudapp.net
 
-A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/)
+A great place to see more examples of using xplat-cli to manage your Azure infrastructure is [Azure command-line tool for Mac and Linux](virtual-machines-command-line-tools.md)
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

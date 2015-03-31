@@ -48,7 +48,7 @@ Once connected to the desktop for the HDInsight cluster, use the following steps
 
 	This starts the **wordcount** class, contained in the **hadoop-mapreduce-examples.jar** file in the current directory. As input, it uses the **wasb://example/data/gutenberg/davinci.txt** document, and output is stored to **wasb:///example/data/WordCountOutput**.
 
-	> [AZURE.NOTE] for more information about this MapReduce job and the example data, see <a href="../hdinsight-use-mapreduce/">Use MapReduce in HDInsight Hadoop</a>.
+	> [AZURE.NOTE] for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
 
 2. The job will emit details as it is processed, finally returning information similar to the following when the job completes.
 
@@ -91,6 +91,6 @@ For general information on MapReduce jobs in HDInsight.
 
 For information on other ways you can work with Hadoop on HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)

@@ -152,16 +152,16 @@ Article | Description
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc…
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the Data Factory cmdlets. 
 
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[use-custom-activities]: ../data-factory-use-custom-activities
-[troubleshoot]: ../data-factory-troubleshoot
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
-[datafactorytutorial]: ./data-factory-tutorial
-[adfgetstarted]: ../data-factory-get-started
-[adfintroduction]: ../data-factory-introduction
-[useonpremisesdatasources]: ../data-factory-use-onpremises-datasources
-[usepigandhive]: ../data-factory-pig-hive-activities
+[datafactorytutorial]: data-factory-tutorial.md
+[adfgetstarted]: data-factory-get-started.md
+[adfintroduction]: data-factory-introduction.md
+[useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
+[usepigandhive]: data-factory-pig-hive-activities.md
 
 [azure-preview-portal]: http://portal.azure.com
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

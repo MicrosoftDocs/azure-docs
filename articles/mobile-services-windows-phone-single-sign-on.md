@@ -24,7 +24,7 @@
 
 This topic shows you how to use Live Connect single sign-on to authenticate users in Azure Mobile Services from a Windows Phone 8 app.  In this tutorial, you add authentication to the quickstart project using Live Connect. When successfully authenticated by Live Connect, a logged-in user is welcomed by name and the user ID value is displayed.  
 
->[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="/documentation/articles/mobile-services-windows-phone-get-started-users">Add authentication to your app</a>. 
+>[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live Connect for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="mobile-services-windows-phone-get-started-users.md">Add authentication to your app</a>. 
 
 This tutorial walks you through these basic steps to enable Live Connect authentication:
 
@@ -191,8 +191,8 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Add Mobile Services to an existing app]: /documentation/articles/mobile-services-windows-phone-get-started-data/
+[Add Mobile Services to an existing app]: mobile-services-windows-phone-get-started-data.md
 [Get started with authentication]: /documentation/articles/mobile-services-windows-phone-get-started-users
-[Authorize users with scripts]: /documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/
+[Authorize users with scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

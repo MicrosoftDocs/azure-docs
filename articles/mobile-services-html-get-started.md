@@ -154,7 +154,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 <!-- URLs. -->
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-html
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-html
-[Call a custom API from an HTML application]: /documentation/articles/mobile-services-html-call-custom-api 
+[Call a custom API from an HTML application]: mobile-services-html-call-custom-api.md 
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft Web Platform Installer]:  http://go.microsoft.com/fwlink/p/?LinkId=286333

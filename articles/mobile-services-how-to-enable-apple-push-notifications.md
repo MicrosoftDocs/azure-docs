@@ -31,7 +31,7 @@ Now, you can use this .p12 certificate to enable services to authenticate with A
 
 
 <!-- URLs. -->
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[Get started with push notifications]: mobile-services-javascript-backend-ios-get-started-push.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Management Portal]: https://manage.windowsazure.com/

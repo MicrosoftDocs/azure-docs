@@ -31,21 +31,21 @@ For example, these apps include :
 
 [Data Market Link](http://datamarket.azure.com/dataset/amla/recommendations)
 
-[Quick Start Guide](../machine-learning-recommendation-api-quick-start-guide/) 
+[Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) 
   
 ##Frequently Bought Together##
 An API that helps your customers discover items in your catalog that are frequently purchased together. Use your customer purchase history to add Frequently Bought Together recommendations to your website and to improve conversion in your digital store.
 
 [Data Market Link](https://datamarket.azure.com/dataset/amla/mba)
 
-[Documentation](../machine-learning-apps-frequently-bought-together-api/)
+[Documentation](machine-learning-apps-frequently-bought-together-api.md)
 
 ##Anomaly Detection##
 An API that can spot anomalous events in time series data (for example, server telemetry or sensor-based data).
 
 [Data Market Link](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[Documentation](../machine-learning-apps-anomaly-detection/)
+[Documentation](machine-learning-apps-anomaly-detection.md)
 
 These APIs allow you to consume powerful machine learning-based services built on Azure Machine Learning, without needing to be a data scientist or spend a lot of time developing apps yourself. Simply bring your own data and start using them.
 
@@ -54,6 +54,6 @@ This API can be used to analyze unstructured text for tasks such as sentiment an
 
 [Data Market Link](https://datamarket.azure.com/dataset/aml_labs/anomalydetection)
 
-[Documentation](../machine-learning-apps-text-analytics/)
+[Documentation](machine-learning-apps-text-analytics.md)
 
  
