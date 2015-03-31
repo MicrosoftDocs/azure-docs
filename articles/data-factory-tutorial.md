@@ -431,82 +431,82 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-author-deploy-tile]: ./media/data-factory-tutorial-using-editor/author-deploy-tile.png
-[image-editor-newdatastore-button]: ./media/data-factory-tutorial-using-editor/editor-newdatastore-button.png
-[image-editor-blob-storage-json]: ./media/data-factory-tutorial-using-editor/editor-blob-storage-json.png
-[image-editor-blob-storage-deploy]: ./media/data-factory-tutorial-using-editor/editor-blob-storage-deploy.png
+[image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
+[image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
+[image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png
+[image-editor-blob-storage-deploy]: ./media/data-factory-tutorial/editor-blob-storage-deploy.png
 
-[image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-editor/EndToEndWorkflow.png
+[image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial/EndToEndWorkflow.png
 
-[image-data-factory-tutorial-partition-game-logs-pipeline]: ./media/data-factory-tutorial-using-editor/PartitionGameLogsPipeline.png
+[image-data-factory-tutorial-partition-game-logs-pipeline]: ./media/data-factory-tutorial/PartitionGameLogsPipeline.png
 
-[image-data-factory-tutorial-enrich-game-logs-pipeline]: ./media/data-factory-tutorial-using-editor/EnrichGameLogsPipeline.png
+[image-data-factory-tutorial-enrich-game-logs-pipeline]: ./media/data-factory-tutorial/EnrichGameLogsPipeline.png
 
-[image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-editor/AnalyzeMarketingCampaignPipeline.png
+[image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-editor/EgreeDataToOnPremPipeline.png
+[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial/EgreeDataToOnPremPipeline.png
 
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-editor/SetFirewallRuleForAzureDatabase.png
+[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial/SetFirewallRuleForAzureDatabase.png
 
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-editor/PortalNewEverything.png
+[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial/PortalNewEverything.png
 
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-editor/DataStorageCacheBackup.png
+[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial/DataStorageCacheBackup.png
 
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-editor/DataServicesBlade.png
+[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial/DataServicesBlade.png
 
-[image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-editor/NewDataFactoryBlade.png
+[image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial/NewDataFactoryBlade.png
 
-[image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-editor/ResourceGroupBlade.png
+[image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial/ResourceGroupBlade.png
 
-[image-data-factory-tutorial-create-resourcegroup]: ./media/data-factory-tutorial-using-editor/CreateResourceGroup.png
+[image-data-factory-tutorial-create-resourcegroup]: ./media/data-factory-tutorial/CreateResourceGroup.png
 
-[image-data-factory-tutorial-datafactory-homepage]: ./media/data-factory-tutorial-using-editor/DataFactoryHomePage.png
+[image-data-factory-tutorial-datafactory-homepage]: ./media/data-factory-tutorial/DataFactoryHomePage.png
 
-[image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial-using-editor/CreateDataFactory.png
+[image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial/CreateDataFactory.png
 
-[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial-using-editor/LinkedServiceTile.png
+[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial/LinkedServiceTile.png
 
-[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial-using-editor/LinkedServicesAddDataStore.png
+[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial/LinkedServicesAddDataStore.png
 
-[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial-using-editor/DataStoreTypeAzureStorageAccount.png
+[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial/DataStoreTypeAzureStorageAccount.png
 
-[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial-using-editor/AzureStorageSettings.png
+[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial/AzureStorageSettings.png
 
-[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial-using-editor/StorageKeyFromAzurePortal.png
+[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial/StorageKeyFromAzurePortal.png
 
-[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial-using-editor/LinkedServicesBladeWithAzureStorage.png
+[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial/LinkedServicesBladeWithAzureStorage.png
 
-[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial-using-editor/AzureSQLDatabaseSettings.png
+[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial/AzureSQLDatabaseSettings.png
 
-[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial-using-editor/DatabaseConnectionString.png
+[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial/DatabaseConnectionString.png
 
-[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial-using-editor/LinkedServicesAll.png
+[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial/LinkedServicesAll.png
 
-[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial-using-editor/DataSetsAllTables.png
+[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial/DataSetsAllTables.png
 
-[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial-using-editor/AllPipelines.png
+[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial/AllPipelines.png
 
-[image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial-using-editor/DataFactoryDiagramLink.png
+[image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial/DataFactoryDiagramLink.png
 
-[image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial-using-editor/DiagramView.png
+[image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
 
-[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial-using-editor/MonitoringStartBoard.png
+[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
 
-[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial-using-editor/MonitoringHubEverything.png
+[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
 
-[image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial-using-editor/MonitoringBrowseDataFactories.png
+[image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial/MonitoringBrowseDataFactories.png
 
-[image-data-factory-monitoring-pipeline-consumed-produced]: ./media/data-factory-tutorial-using-editor/MonitoringPipelineConsumedProduced.png
+[image-data-factory-monitoring-pipeline-consumed-produced]: ./media/data-factory-tutorial/MonitoringPipelineConsumedProduced.png
 
-[image-data-factory-monitoring-raw-game-events-table]: ./media/data-factory-tutorial-using-editor/MonitoringRawGameEventsTable.png
+[image-data-factory-monitoring-raw-game-events-table]: ./media/data-factory-tutorial/MonitoringRawGameEventsTable.png
 
-[image-data-factory-monitoring-raw-game-events-table-dataslice-blade]: ./media/data-factory-tutorial-using-editor/MonitoringPartitionGameEventsTableDataSliceBlade.png
+[image-data-factory-monitoring-raw-game-events-table-dataslice-blade]: ./media/data-factory-tutorial/MonitoringPartitionGameEventsTableDataSliceBlade.png
 
-[image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-editor/MonitoringActivityRunDetails.png
+[image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-editor/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
 
-[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-editor/NewDataFactoryMenu.png
+[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-editor/DataFactoryCreateButton.png
+[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
