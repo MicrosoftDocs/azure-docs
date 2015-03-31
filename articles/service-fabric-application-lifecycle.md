@@ -43,11 +43,11 @@ The service model roles are:
 
 2. An *operator* uploads the application package to the cluster ImageStore using the ApplicationManagementClient.CopyApplicationPackage method or Copy-ServiceFabricApplicationPackage cmdlet. The application package contains the application manifest and the collection of service packages.  Service Fabric deploys applications from the application package stored in the ImageStore, which can be an Azure Blob store or the Service Fabric system service.
 
-3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the ApplicationManagementClient.ProvisionApplicationAsync method,  Register-ServiceFabricApplicationType cmdlet, or Create Application REST operation. For more information, see Provision an Application or How to Create an Application Instance (PowerShell).
+3. The *operator* then provisions the application type in the target cluster from the uploaded application package using the ApplicationManagementClient.ProvisionApplicationAsync method,  Register-ServiceFabricApplicationType cmdlet, or Create Application REST operation. 
 
-3. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the ApplicationManagementClient.CreateApplicationAsync method, New-ServiceFabricApplication cmdlet, or Create Application REST operation. For more information, see Create an Application Instance or How to Create an Application Instance (PowerShell).
+3. After provisioning the application, an *operator* starts the application with the parameters supplied by the *application administrator* using the ApplicationManagementClient.CreateApplicationAsync method, New-ServiceFabricApplication cmdlet, or Create Application REST operation. 
 
-4. After the application has been deployed, an *operator* uses the ServiceManagementClient.CreateServiceAsync method, New-ServiceFabricService cmdlet, or Create Application REST operation to create new service instances for the application based on available service types. For more information, see Create a Service Instance or How to Create a Service Instance (PowerShell).
+4. After the application has been deployed, an *operator* uses the ServiceManagementClient.CreateServiceAsync method, New-ServiceFabricService cmdlet, or Create Application REST operation to create new service instances for the application based on available service types. 
 
 5. The application is now running in the Service Fabric cluster. 
 
@@ -67,7 +67,7 @@ The service model roles are:
 
 5. An *operator* provisions the new version of the application in the target cluster using the ApplicationManagementClient.ProvisionApplicationAsync method, the Register-ServiceFabricApplicationType cmdlet, or Provision an Application REST operation. 
 
-6. An *operator* upgrades the target application to the new version using the ApplicationManagementClient.UpgradeApplicationAsync method, the Start-ServiceFabricApplicationUpgrade cmdlet, or the Upgrade Application by Application Type REST operation. For more information, see Upgrade an Application or How to Upgrade an Application (PowerShell).
+6. An *operator* upgrades the target application to the new version using the ApplicationManagementClient.UpgradeApplicationAsync method, the Start-ServiceFabricApplicationUpgrade cmdlet, or the Upgrade Application by Application Type REST operation. 
 
 7. An *operator* checks the progress of upgrade using the ApplicationManagementClient.GetApplicationUpgradeProgressAsync method, the Get-ServiceFabricApplicationUpgrade cmdlet, or the Get Application Upgrade Progress REST operation.
 
@@ -89,11 +89,11 @@ The service model roles are:
 5. When new nodes are added to or existing nodes are removed from the cluster, Service Fabric automatically load balances running applications across all nodes in the cluster to achieve optimal performance.
 
 ## Remove
-1. An *operator* can delete a specific instance of a running service in the cluster without removing the entire application using the ServiceManagementClient.DeleteServiceAsync method, Remove-ServiceFabricService cmdlet, or Delete Service REST operation. See Remove an Application or How To Remove a Service and Application (PowerShell) for more information. 
+1. An *operator* can delete a specific instance of a running service in the cluster without removing the entire application using the ServiceManagementClient.DeleteServiceAsync method, Remove-ServiceFabricService cmdlet, or Delete Service REST operation.  
 
-2. An *operator* can also delete an application instance and all of it’s services using the ApplicationManagementClient.DeleteApplicationAsync method, Remove-ServiceFabricApplication cmdlet, or Delete Application REST operation. See Remove an Application or How To Remove a Service and Application (PowerShell) for more information.
+2. An *operator* can also delete an application instance and all of it’s services using the ApplicationManagementClient.DeleteApplicationAsync method, Remove-ServiceFabricApplication cmdlet, or Delete Application REST operation. 
 
-3. Once the application and services have stopped, the *operator* can un-provision the application type using the ApplicationManagementClient.UnprovisionApplicationAsync method,  Remove-ServiceFabricApplication cmdlet, or Unprovision an Application  REST operation. Un-provisioning the application type does not remove the application package from the ImageStore, you must remove the application package manually. See Remove an Application or How To Remove a Service and Application (PowerShell) for more information.
+3. Once the application and services have stopped, the *operator* can un-provision the application type using the ApplicationManagementClient.UnprovisionApplicationAsync method,  Remove-ServiceFabricApplication cmdlet, or Unprovision an Application  REST operation. Un-provisioning the application type does not remove the application package from the ImageStore, you must remove the application package manually. 
 
 4. An *operator* removes the application package from the ImageStore using the ApplicationManagementClient.RemoveApplicationPackage method or Remove-ServiceFabricApplicationPackage cmdlet.
 
