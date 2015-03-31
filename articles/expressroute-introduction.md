@@ -2,17 +2,15 @@
    pageTitle="Introduction to ExpressRoute"
    description="This page provides an overview of the ExpressRoute service."
    services="expressroute"
-   documentationCenter="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn" />
+   editor="tysonn"/>
 <tags 
    ms.service="expressroute"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="3/30/2015"
-   ms.author="cherylmc" />
+   ms.date="03/30/2015"
+   ms.author="cherylmc"/>
 
 #  ExpressRoute Technical Overview
 
