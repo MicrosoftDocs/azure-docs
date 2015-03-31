@@ -199,7 +199,7 @@ For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/
 
 * [Getting Started with Storm on HDInsight][gettingstarted]
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology)
+* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 * [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="03/27/2015" 
 	ms.author="josephd"/>
 
 # Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine
@@ -98,6 +98,11 @@ Here are the set of components involved.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_0.png)
  
+Before diving into a step-by-step troubleshooting process, it is helpful to mentally review what has changed since you were able to successfully create Remote Desktop connections and use that change as a basis for correcting the problem. For example:
+
+- If you were able to create Remote Desktop connections and you changed the public IP address of the cloud service containing your virtual machine (also known as the virtual IP address [VIP]), your DNS client cache might have an entry for the DNS name of the cloud service and the *old IP address*. Flush your DNS client cache and try again. Alternately, try making the connection using the new VIP.
+- If you changed from using the Azure Management Portal or the Azure Preview Portal to using an application to manage your Remote Desktop connections, ensure that the application configuration includes the randomly-determined TCP port for the Remote Desktop traffic. 
+
 The following sections step through isolating and determining the various root causes for this problem and providing solutions and workarounds.
 
 ## Step 3: Preliminary steps before detailed troubleshooting
@@ -192,7 +197,7 @@ Try the connection from your computer again. If you are not successful, these ar
 
 To correct these possible problems, you can use a remote PowerShell session to the Azure virtual machine. First, you must install a certificate for the virtual machine's hosting cloud service. Go to [Configures Secure Remote PowerShell Access to Azure Virtual Machines](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) and download the **InstallWinRMCertAzureVM.ps1** script file to a folder on your local computer.
 
-Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](../install-configure-powershell/).
+Next, install Azure PowerShell if you haven't already. See [How to install and configure Azure PowerShell](install-configure-powershell.md).
 
 Next, open an Azure PowerShell command prompt and then change the current folder to the location of the **InstallWinRMCertAzureVM.ps1** script file. To run a PowerShell script, you must set the correct execution policy. Run the **Get-ExecutionPolicy** command to determine your current policy level. For information about setting the appropriate level, see [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx).
 

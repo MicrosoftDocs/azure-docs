@@ -33,6 +33,7 @@ Using Azure Backup to backup data from your Azure virtual machines provides a nu
 ## Before you start
 
 You'll need an Azure account. If you don't have one start the with a [free trial](http://aka.ms/try-azure). You can also read about read about [Azure Backup pricing](hhttp://azure.microsoft.com/pricing/details/backup).
+> [AZURE.NOTE] For the registration of your VMs to work they must be running before you attempt to register them.
 
 
 ## Create a vault
@@ -54,8 +55,8 @@ You'll need an Azure account. If you don't have one start the with a [free trial
 
 1. In the main Recovery Services page double-click the vault to open it.
 2. On the Quick Start page click **Protect Azure Virtual Machine** > **Discover virtual machines** If you want more information about creating Azure virtual machines see:
-	- [Create a virtual machine running Windows](../virtual-machines-windows-tutorial/)
-	- [Create a virtual machine running Linux](../virtual-machines-linux-tutorial/)
+	- [Create a virtual machine running Windows](virtual-machines-windows-tutorial.md)
+	- [Create a virtual machine running Linux](virtual-machines-linux-tutorial.md)
 
 	![Register virtual machines](./media/backup-azure-vms/Backup_QuickStart.png)
 

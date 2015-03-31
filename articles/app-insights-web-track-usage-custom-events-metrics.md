@@ -428,7 +428,7 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
 ## <a name="defaults"></a>Set default property values
 
-You can set default values in a TelemetryContext. They are attached to every telemetry item sent from the context. 
+You can set default values in a TelemetryClient. They are attached to every telemetry item sent from the context. 
 
 *JavaScript* - insert before the first call to trackPageView on each page:
 
@@ -446,17 +446,15 @@ You can set default values in a TelemetryContext. They are attached to every tel
 
     using Microsoft.ApplicationInsights.DataContracts;
 
-    var context = new TelemetryContext();
-    context.Properties["Game"] = currentGame.Name;
-    var gameTelemetry = new TelemetryClient(context);
+    var gameTelemetry = new TelemetryClient();
+    gameTelemetry.Context.Properties["Game"] = currentGame.Name;
     // Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame");
     
 *VB*
 
-    Dim context = New TelemetryContext
-    context.Properties("Game") = currentGame.Name
-    Dim gameTelemetry = New TelemetryClient(context)
+    Dim gameTelemetry = New TelemetryClient()
+    gameTelemetry.Context.Properties("Game") = currentGame.Name
     ' Now all telemetry will automatically be sent with the context property:
     gameTelemetry.TrackEvent("WinGame")
 
@@ -542,7 +540,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 
 
-## <a name="debug"></a>Debug mode
+## <a name="debug"></a>Developer mode
 
 During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately.
 

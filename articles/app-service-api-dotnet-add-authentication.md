@@ -20,7 +20,7 @@
 
 ## Overview
 
-In the [Deploy an API app](/app-service-dotnet-deploy-api-app/) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can access it.
+In the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can access it.
 
 You'll perform the following steps:
 
@@ -32,7 +32,7 @@ You'll perform the following steps:
 
 ## Prerequisites
 
-This tutorial works with the API app that you created in [Create an API app](/app-service-dotnet-create-api-app/) and deployed in [Deploy an API app](/app-service-dotnet-deploy-api-app/).
+This tutorial works with the API app that you created in [Create an API app](app-service-dotnet-create-api-app.md) and deployed in [Deploy an API app](app-service-dotnet-deploy-api-app.md).
 
 ## Use the browser to call the API app 
 
@@ -113,11 +113,11 @@ To configure your API app to accept only authenticated requests, you'll set its 
   
 3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use the [old portal]. 
 
- - [Microsoft Account](../app-service-mobile-how-to-configure-microsoft-authentication-preview/)
- - [Facebook login](../app-service-mobile-how-to-configure-facebook-authentication-preview/)
- - [Twitter login](../app-service-mobile-how-to-configure-twitter-authentication-preview/)
- - [Google login](../app-service-mobile-how-to-configure-google-authentication-preview/)
- - [Azure Active Directory](../app-service-mobile-how-to-configure-active-directory-authentication-preview/)
+ - [Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
+ - [Facebook login](app-service-mobile-how-to-configure-facebook-authentication-preview.md)
+ - [Twitter login](app-service-mobile-how-to-configure-twitter-authentication-preview.md)
+ - [Google login](app-service-mobile-how-to-configure-google-authentication-preview.md)
+ - [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
 
 As an example, the following screen shots show what you should see in the [old portal] pages and [Azure portal] blades after you have set up Azure Active Directory authentication.
 
@@ -224,7 +224,7 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 ## Next steps
 
-You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md). 
 
 [old portal]: https://manage.windowsazure.com/
 [Azure portal]: https://portal.azure.com/

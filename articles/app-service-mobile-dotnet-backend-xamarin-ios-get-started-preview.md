@@ -101,15 +101,15 @@ The final stage of this tutorial is to build and run your new app.
 [10]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with offline data sync]: /en-us/documentation/articles/app-service-mobile-xamarin-ios-get-started-offline-data-preview
-[Get started with authentication]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users
-[Get started with push notifications]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push
+[Get started with offline data sync]: app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
+[Get started with authentication]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users.md
+[Get started with push notifications]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-[JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-[Get started with data in app services using Visual Studio 2012]: /en-us/documentation/articles/app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview
-[Troubleshoot a mobile app .NET backend]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-how-to-troubleshoot-preview
+[JavaScript backend version]: partner-xamarin-mobile-services-ios-get-started.md
+[Get started with data in app services using Visual Studio 2012]: app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
+[Troubleshoot a mobile app .NET backend]: app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
 
 
 [Xamarin Studio]: http://xamarin.com/download

@@ -134,7 +134,7 @@ As you can see, Azure PowerShell provides an easy way to run Pig jobs on an HDIn
 
 For general information on Pig in HDInsight.
 
-* [Use Pig with Hadoop on HDInsight](../hdinsight-use-pig/)
+* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 

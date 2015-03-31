@@ -19,15 +19,19 @@
 # Connect your app to an existing SaaS connector
 
 ## Overview
+[Azure App Service](/documentation/services/app-service/) is a fully managed compute platform for professional developers that brings a rich set of capabilities to web, mobile, and integration scenarios. API apps are one part of the App Service suite and allow any technical user or developer to discover, host, manage and monetize API’s and SaaS connectors on a modern, feature rich, scalable, and globally available cloud platform. Read [What are API Apps](app-service-api-apps-why-best-platform.md) to learn more about API Apps.  
 
 This tutorial shows you how to consume a SaaS connector that’s in the Azure Marketplace. 
 
-You'll perform the following steps:
-- Provision Dropbox Connector.
-- Configure Dropbox API App.
-- Configure the gateway.
-- Acquire and store the token in token store. 
-- Call the Dropbox API’s and verify that authenticated access works.
+This tutorial walks you through the steps that you need to take to provision and configure Dropbox connector in the Azure portal and connect to your Dropbox account to view or modify the files. 
+
+You'll perform the following steps to see the files in your Dropbox account.
+
+* Provision Dropbox Connector 
+* Configure Dropbox API App.
+* Configure the gateway.
+* Acquire and store the token in token store. 
+* Call the Dropbox API’s and verify that authenticated access works.
 
 ## Provision Dropbox connector
 
@@ -39,7 +43,7 @@ You'll perform the following steps:
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/02-Marketplace-search.png)
  
-3. Click the Dropbox icon to provision the Dropbox Connector. Click the ‘create’ button to provision the Dropbox connector. Make sure you fill in the name and desired values for all the fields before you click the ‘Create’ button. 
+3. Click the Dropbox icon to provision the Dropbox Connector. Click the Create button to provision the Dropbox connector. Make sure you fill in the name and desired values for all the fields before you click the Create button. Read [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md) and [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md) articles to better understand the options you have before choosing the values. 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/03-Dropbox-Connector-Blade.png) 
 
@@ -51,7 +55,7 @@ You'll perform the following steps:
 	* Public (authenticated) - Only authenticated users are allowed to call the API app from outside the resource group.
 	* Internal - Only other API apps or web apps in the same resource group are allowed to call the API app.
 
-## Configure Dropbox API App
+## Configure Dropbbox API App
 
 First, configure the Dropbox to accept only authenticated requests.  You'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
@@ -61,17 +65,24 @@ First, configure the Dropbox to accept only authenticated requests.  You'll set 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/05-Dropbox-Connector.png) 
  
-2.	In the API app blade, click Settings, and then click Application settings.
+2.	In the API App blade, click Settings. 
  
 	![](./media/app-service-api-connect-your-app-to-saas-connector/06-Dropbox-connector-properties.png) 
 
+
+3.  Select the Application settings option.
+
 	![](./media/app-service-api-connect-your-app-to-saas-connector/07-dropbox-settings-dialog.png) 
 
-3.	In the **Application Settings** blade, change **Access Level** to **Public (authenticated)**. 
+4.	In the **Application Settings** blade, change **Access Level** to **Public (authenticated)**. 
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/08-public-auth-setting-blade.png) 
 
-	You have now protected the Dropbox Connector from unauthenticated access. Now it is time to setup the Dropbox Authentication. Fill in the *Client ID* and "Client Secret* details in the UI shown below (you can connect the *Client ID* and "Cleint Secret* from the [dropbox developer account](https://www.dropbox.com/developers/apps) ).
+	You have now protected the Dropbox Connector from unauthenticated access. Now it is time to setup the Dropbox Authentication. 
+    
+	To fill in the right values in the next blade, please make sure you go to [Dropbox develop portal](https://www.dropbox.com/developers/apps) and click on the *App Console*. Create a *Dropbox API app*. Click on the API app link to see the *App Key* and *App Secret*.
+
+	Fill in the *Client ID* (App Key) and "Client Secret* (App Secret) details in the UI shown below.
 
 	![](./media/app-service-api-connect-your-app-to-saas-connector/09-Dropbox-authentication-settings.png) 
 
@@ -89,11 +100,11 @@ Next you have to configure the gateway to specify which authentication provider 
 
 2. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use both the [management portal](https://manage.windowsazure.com/) and the [preview portal](https://portal.azure.com/).
   
-	- [Microsoft Account](https://github.com/Azure/azure-content-pr/blob/release-app-services/app-service-mobile-how-to-configure-microsoft-authentication-preview)
-	- [Facebook login](https://github.com/Azure/azure-content-pr/blob/release-app-services/app-service-mobile-how-to-configure-facebook-authentication-preview)
-	- [Twitter login](https://github.com/Azure/azure-content-pr/blob/release-app-services/app-service-mobile-how-to-configure-twitter-authentication-preview)
-	- [Google login](https://github.com/Azure/azure-content-pr/blob/release-app-services/app-service-mobile-how-to-configure-google-authentication-preview)
-	- [Azure Active Directory](https://github.com/Azure/azure-content-pr/blob/release-app-services/app-service-mobile-how-to-configure-active-directory-authentication-preview)
+	- [Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
+	- [Facebook login](app-service-mobile-how-to-configure-facebook-authentication-preview.md)
+	- [Twitter login](app-service-mobile-how-to-configure-twitter-authentication-preview.md)
+	- [Google login](app-service-mobile-how-to-configure-google-authentication-preview.md)
+	- [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
 
 	Look at the “Protect an API app: Add Azure Active Directory or social provider authentication” article for step by step instructions on how to do the configuration . 
 
@@ -160,4 +171,4 @@ The same flow is applicable for all SaaS connectors like Safesforce, Facebook, e
 
 ## Next steps
 
-You've seen how to protect an API app and configure the gateway to access the SaaS connector using the token store. For more information, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+You've seen how to protect an API app and configure the gateway to access the SaaS connector using the token store. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md). 

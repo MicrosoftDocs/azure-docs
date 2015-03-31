@@ -25,7 +25,7 @@ One of the challenges of developing a web app is how to provide a safe and secur
 
 ##<a name="https"></a> Secure communications
 
-If you use the ***.azurewebsites.net** domain name created for your web app, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](../web-sites-custom-domain-name/), you can upload an SSL certificate to [enable HTTPS](../web-sites-configure-ssl-certificate/) for the custom domain.
+If you use the ***.azurewebsites.net** domain name created for your web app, you can immediately use HTTPS, as an SSL certificate is provided for all ***.azurewebsites.net** domain names. If your site uses a [custom domain name](web-sites-custom-domain-name.md), you can upload an SSL certificate to [enable HTTPS](web-sites-configure-ssl-certificate.md) for the custom domain.
 
 ##<a name="develop"></a> Secure development 
 
@@ -54,7 +54,7 @@ Azure App Service allows you to store configuration information as part of the W
 
 **App settings** and **connection strings** are configurable using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) or utilities such as PowerShell or the Azure Cross-Platform Command-Line Interface.
 
-For more information on app settings and connection strings, see [Configuring web apps](../web-sites-configure/).
+For more information on app settings and connection strings, see [Configuring web apps](web-sites-configure.md).
 
 ### FTPS
 
@@ -70,7 +70,7 @@ For more information on the security of the Azure platform, information on repor
 
 For more information on **web.config** or **applicationhost.config** files in web apps, see [Configuration options unlocked in Azure App Service web apps](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
-For information on logging information for web apps, which may be useful in detecting attacks, see [Enable diagnostic logging](../web-sites-enable-diagnostic-log/).
+For information on logging information for web apps, which may be useful in detecting attacks, see [Enable diagnostic logging](web-sites-enable-diagnostic-log.md).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

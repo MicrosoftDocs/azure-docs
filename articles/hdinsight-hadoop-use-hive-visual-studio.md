@@ -89,7 +89,7 @@ As you can see, the the HDInsight tools for Visual Studio provides an easy way t
 
 For general information on Hive in HDInsight.
 
-* [Use Hive with Hadoop on HDInsight](../hdinsight-use-hive/)
+* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For information on other ways you can work with Hadoop on HDInsight.
 
