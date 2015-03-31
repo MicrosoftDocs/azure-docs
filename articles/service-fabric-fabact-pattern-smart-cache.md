@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
-# Pattern: smart cache
+# Service Fabric Actors design pattern: smart cache
 The combination of a web tier, caching tier, storage tier, and occasionally a worker tier are pretty much the standard parts of today’s applications. The caching tier is usually vital to performance and may, in fact, be comprised of multiple tiers itself.
 Many caches are simple key-value pairs while other systems like [Redis](http://redis.io) that are used as caches offer richer semantics. Still, any special, caching tier will be limited in semantics and more importantly it is yet another tier to manage.
 What if instead, objects just kept state in local variables and these objects can be snapshotted or persisted to a durable store automatically? Furthermore, rich collections such as lists, sorted sets, queues, and any other custom type for that matter are simply modelled as member variables and methods.
@@ -33,17 +33,18 @@ First let’s have a look at what the a interface may look like:
 **Smart Cache – Leaderboard Interface**
 
 ```   
-    public interface ILeaderboard : IActor
-    {
-        // Updates the leaderboard with the score - player, points
-        Task UpdateLeaderboard(Score score);
-        
-        // Returns the Top [count] from the leaderboard e.g., Top 10
-        Task<List<Score>> GetLeaderboard(int count);
-        
-        // Returns the specific position of the player relative to other players
-        Task<List<Score>> GetPosition(long player, int range); 
-    }
+public interface ILeaderboard : IActor
+{
+    // Updates the leaderboard with the score - player, points
+    Task UpdateLeaderboard(Score score);
+
+    // Returns the Top [count] from the leaderboard e.g., Top 10
+    Task<List<Score>> GetLeaderboard(int count);
+
+    // Returns the specific position of the player relative to other players
+    Task<List<Score>> GetPosition(long player, int range);
+}
+
 ```
 
 Next, we implement this interface and use the latter option and encapsulate this collection's behaviour in the actor:
@@ -51,28 +52,29 @@ Next, we implement this interface and use the latter option and encapsulate this
 **Smart Cache – Leaderboard**
 
 ```   
-   public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
-   {
-	// Specialised collection, could be part of the actor
+public class Leaderboard : Actor<LeaderboardCollection>, ILeaderboard
+{
+    // Specialised collection, could be part of the actor
 
-        public Task UpdateLeaderboard(Score score)
-        {
-            State.UpdateLeaderboard(score);
-            return TaskDone.Done;
-        }
-
-        public Task<List<Score>> GetLeaderboard(int count)
-        {
-            // Return top N from Leaderboard
-            return Task.FromResult(State.GetLeaderboard(count));
-        }
-
-        public Task<List<Score>> GetPosition(long player, int range)
-        {
-            // Return player position and other players in range from Leaderboard
-            return Task.FromResult(State.FindPosition(player, range));
-        }
+    public Task UpdateLeaderboard(Score score)
+    {
+        State.UpdateLeaderboard(score);
+        return TaskDone.Done;
     }
+
+    public Task<List<Score>> GetLeaderboard(int count)
+    {
+        // Return top N from Leaderboard
+        return Task.FromResult(State.GetLeaderboard(count));
+    }
+
+    public Task<List<Score>> GetPosition(long player, int range)
+    {
+        // Return player position and other players in range from Leaderboard
+        return Task.FromResult(State.FindPosition(player, range));
+    }
+}
+
 ```
 
 The state member of the class provides the state of the actor, in the sample code above it also provides methods to read/write data. 
@@ -80,28 +82,29 @@ The state member of the class provides the state of the actor, in the sample cod
 **Smart Cache – LeaderboardCollection**
 
 ```
-   [DataContract]   
-   public class LeaderboardCollection
-   {
-	// Specialised collection, could be part of the actor
-        [DataMember]
-        Private List<score> _leaderboard = new List<score>();
+[DataContract]   
+public class LeaderboardCollection
+{
+// Specialised collection, could be part of the actor
+    [DataMember]
+    Private List<score> _leaderboard = new List<score>();
 
-        public void UpdateLeaderboard(Score score)
-        {
-            _leaderboard.add(score);
-        }
-
-        public List<Score> GetLeaderboard(int count)
-        {
-            …
-        }
-
-        public List<Score> GetPosition(long player, int range)
-        { 
-            …
-        }
+    public void UpdateLeaderboard(Score score)
+    {
+        _leaderboard.add(score);
     }
+
+    public List<Score> GetLeaderboard(int count)
+    {
+        …
+    }
+
+    public List<Score> GetPosition(long player, int range)
+    { 
+        …
+    }
+}
+
 ```
 
 No data shipping, no locks, just manipulating remote objects in a distributed runtime, servicing multiple clients as if they were single objects in a single application servicing only one client.  
@@ -110,17 +113,17 @@ Here is the sample client:
 **Smart Cache – Leaderboard**
 
 ```   
-   // Get reference to Leaderboard
-   const string appName = "fabric:/FunnyGameApp";
-   var leaderboard = ActorProxy.Create<ILeaderboard>(1001, appName);
+// Get reference to Leaderboard
+const string appName = "fabric:/FunnyGameApp";
+var leaderboard = ActorProxy.Create<ILeaderboard>(1001, appName);
 
-   // Update Leaderboard with dummy players and scores
-   await leaderboard.UpdateLeaderboard(new Score() { Player = 1, Points = 500 });
-   await leaderboard.UpdateLeaderboard(new Score() { Player = 2, Points = 100 });
-   await leaderboard.UpdateLeaderboard(new Score() { Player = 3, Points = 1500 });
+// Update Leaderboard with dummy players and scores
+await leaderboard.UpdateLeaderboard(new Score() { Player = 1, Points = 500 });
+await leaderboard.UpdateLeaderboard(new Score() { Player = 2, Points = 100 });
+await leaderboard.UpdateLeaderboard(new Score() { Player = 3, Points = 1500 });
 
-   // Finally, Get the Leaderboard. 0 represents ALL, any other number > 0 represents TOP N
-   var result = await leaderboard.GetLeaderboard(0);
+// Finally, Get the Leaderboard. 0 represents ALL, any other number > 0 represents TOP N
+var result = await leaderboard.GetLeaderboard(0);
 ```
 
 The output looks like this:
@@ -139,13 +142,13 @@ The interface for IJobQueue looks like below:
 **Smart Cache – Job Queue Interface**
 
 ```    
-    public interface IJobQueue : IActor
-    {
-        Task Enqueue(Job item);
-        Task<Job> Dequeue();
-        Task<Job> Peek();
-        Task<int> GetCount();
-    }
+public interface IJobQueue : IActor
+{
+    Task Enqueue(Job item);
+    Task<Job> Dequeue();
+    Task<Job> Peek();
+    Task<int> GetCount();
+}
 ```
 
 We also need to define the Job item:
@@ -153,21 +156,21 @@ We also need to define the Job item:
 **Smart Cache – Job**
 
 ```
-    public class Job : IComparable<Job>
+public class Job : IComparable<Job>
+{
+    public double Priority { get; set; }
+    public string Name { get; set; }
+
+    public override string ToString()
     {
-        public double Priority { get; set; }
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("Job = {0} Priority = {1}", Name, Priority);
-        }
-
-        public int CompareTo(Job other)
-        {
-            return Priority.CompareTo(other.Priority);
-        }
+        return string.Format("Job = {0} Priority = {1}", Name, Priority);
     }
+
+    public int CompareTo(Job other)
+    {
+        return Priority.CompareTo(other.Priority);
+    }
+}
 ```   
 
 Finally, we implement the IJobQueue interface in the grain. Note that we omitted the implementation details of the priority queue here for clarity. A sample implementation can be found in the accompanying samples.
@@ -175,52 +178,54 @@ Finally, we implement the IJobQueue interface in the grain. Note that we omitted
 **Smart Cache – Job Queue**
 
 ```
-    public class JobQueue : Actor<List<Jobs>>, IJobQueue
+public class JobQueue : Actor<List<Jobs>>, IJobQueue
+{
+
+    public override Task OnActivateAsync()
+    {
+        State = new List<Job>();
+    }
+
+    public Task Enqueue(Job item)
+    {
+        // this is where we add to the queue
+
+        ...
+
+        return TaskDone.Done;
+    }
+
+    public Task<Job> Dequeue()
+    {
+        // this is where we remove from the head of the queue
+
+        ...
+
+        return Task.FromResult(frontItem);
+    }
+
+    public Task<Job> Peek()
+    {
+        // this is where we peek at the head of the queue
+
+        ...
+
+        return Task.FromResult(frontItem);
+    }
+
+    public Task<int> GetCount()
     {
 
-        public override Task OnActivateAsync()
-        {
-            State = new List<Job>();
-        }
+        // this is where we return the number of items in the queue
 
-        public Task Enqueue(Job item)
-        {
-            // this is where we add to the queue
+        return Task.FromResult(data.Count);
+    }
+}
 
-            ...
-
-            return TaskDone.Done;
-        }
-
-        public Task<Job> Dequeue()
-        {
-            // this is where we remove from the head of the queue
-
-            ...
-
-            return Task.FromResult(frontItem);
-        }
-
-        public Task<Job> Peek()
-        {
-            // this is where we peek at the head of the queue
-
-            ...
-
-            return Task.FromResult(frontItem);
-        }
-
-        public Task<int> GetCount()
-        {
-
-            // this is where we return the number of items in the queue
-
-            return Task.FromResult(data.Count);
-        }
 ```
 
 The output looks like this:
-`
+
 Job = 2 Priority = 0.0323341116459733
 Job = 3 Priority = 0.125596747792138
 Job = 4 Priority = 0.208425460480352
@@ -244,31 +249,32 @@ We can use OnActivateAsync() to populate state on-demand as in read-through, per
 **Smart Cache – Rate Converter**
 
 ```
-   ...
+...
    
-   private List<ExchangeRate> _rates;
-   private IActorTimer _timer;        
+private List<ExchangeRate> _rates;
+private IActorTimer _timer;        
    
-   public Task Activate()
-   {
-      // registering a timer that will live as long as the actor...
-      _timer = this.RegisterTimer((obj) =>
-      {
-         Console.WriteLine("Refreshing rates...");
-         return this.RefreshRates(); // call to external service/source to retrieve exchange rates
-      },
-      null, 
-      TimeSpan.FromSeconds(0), // start immediately
-      TimeSpan.FromSeconds(5)); // refresh every 5 seconds
+public Task Activate()
+{
+    // registering a timer that will live as long as the actor...
+    _timer = this.RegisterTimer((obj) =>
+    {
+        Console.WriteLine("Refreshing rates...");
+        return this.RefreshRates(); // call to external service/source to retrieve exchange rates
+    },
+    null, 
+    TimeSpan.FromSeconds(0), // start immediately
+    TimeSpan.FromSeconds(5)); // refresh every 5 seconds
    
-      return TaskDone.Done;
-   }
+    return TaskDone.Done;
+}
 
-   public Task RefreshRates()
-   {
-       // this is where we will make an external call and populate rates 
-       return TaskDone.Done;
-   }
+public Task RefreshRates()
+{
+    // this is where we will make an external call and populate rates 
+    return TaskDone.Done;
+}
+
 ```
 Essentially Smart Cache provides:
 

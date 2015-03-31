@@ -33,88 +33,88 @@ Sample code populating Friends Feed:
 ```
 public interface ISocialPerson : IActor
 {
-Task AddFriend(long person);
-Task RemoveFriend(long person);
-Task<List<SocialStatus>> GetFriendsFeed();
-Task<SocialStatus> GetStatus();
-Task<List<SocialStatus>> GetMyFeed();
-Task UpdateStatus(string status);
-Task UpdateFriendFeedAsync(SocialStatus status);
+    Task AddFriend(long person);
+    Task RemoveFriend(long person);
+    Task<List<SocialStatus>> GetFriendsFeed();
+    Task<SocialStatus> GetStatus();
+    Task<List<SocialStatus>> GetMyFeed();
+    Task UpdateStatus(string status);
+    Task UpdateFriendFeedAsync(SocialStatus status);
 }
 
 [DataContract]
 Public class SocialPersonState {
 
-[DataMember]
-public string _name; // my name
-[DataMember]
-public List<long> _friends; // list of my friends' IDs
-[DataMember]
-public List<SocialStatus> _friendsFeed; // my friends feeds
-[DataMember]
-public List<SocialStatus> _myFeed; // this is my feed, all my status updates
-[DataMember]
-public SocialStatus _lastStatus; // this is my last update
+    [DataMember]
+    public string _name; // my name
+    [DataMember]
+    public List<long> _friends; // list of my friends' IDs
+    [DataMember]
+    public List<SocialStatus> _friendsFeed; // my friends feeds
+    [DataMember]
+    public List<SocialStatus> _myFeed; // this is my feed, all my status updates
+    [DataMember]
+    public SocialStatus _lastStatus; // this is my last update
 }
 public class SocialPerson : Actor, ISocialPerson
 {
 
-public override Task ActivateAsync()
-{
-    CreateOrRestoreState();
-    return base.ActivateAsync();
-}
-
-public Task AddFriend(long person)
-{
-    State._friends.Add(person);
-    return TaskDone.Done;
-}
-
-public Task RemoveFriend(long person)
-{
-    State._friends.Remove(person);
-    return TaskDone.Done;
-}
-
-public Task<List<SocialStatus>> GetFriendsFeed()
-{
-    return Task.FromResult(State._friendsFeed);
-}
-
-public Task UpdateStatus(string status)
-{
-    State._lastStatus = new SocialStatus() 
-{ Name = _name, Status = status, Timestamp = DateTime.UtcNow };
-    State._myFeed.Add(_lastStatus);
-
-    var taskList = new List<Task>();
-
-    foreach(var friendId in _friends)
+    public override Task ActivateAsync()
     {
-        var friend = ActorProxy.Create<ISocialPerson>(friendId);
-        taskList.Add(friend.UpdateFriendFeedAsync(_lastStatus));
+        CreateOrRestoreState();
+        return base.ActivateAsync();
     }
 
-    return Task.WhenAll(taskList);
-}
+    public Task AddFriend(long person)
+    {
+        State._friends.Add(person);
+        return TaskDone.Done;
+    }
 
-public Task UpdateFriendFeed(SocialStatus status)
-{
-    State._friendsFeed.Add(status);
+    public Task RemoveFriend(long person)
+    {
+        State._friends.Remove(person);
+        return TaskDone.Done;
+    }
+
+    public Task<List<SocialStatus>> GetFriendsFeed()
+    {
+        return Task.FromResult(State._friendsFeed);
+    }
+
+    public Task UpdateStatus(string status)
+    {
+        State._lastStatus = new SocialStatus() 
+    { Name = _name, Status = status, Timestamp = DateTime.UtcNow };
+        State._myFeed.Add(_lastStatus);
+
+        var taskList = new List<Task>();
+
+        foreach(var friendId in _friends)
+        {
+            var friend = ActorProxy.Create<ISocialPerson>(friendId);
+            taskList.Add(friend.UpdateFriendFeedAsync(_lastStatus));
+        }
+
+        return Task.WhenAll(taskList);
+    }
+
+    public Task UpdateFriendFeed(SocialStatus status)
+    {
+        State._friendsFeed.Add(status);
     
-    return TaskDone.Done;
-}
+        return TaskDone.Done;
+    }
 
-public Task<SocialStatus> GetStatus()
-{
-    return Task.FromResult(State._lastStatus);
-}
+    public Task<SocialStatus> GetStatus()
+    {
+        return Task.FromResult(State._lastStatus);
+    }
 
-public Task<List<SocialStatus>> GetMyFeed()
-{
-    return Task.FromResult(State._myFeed);
-}
+    public Task<List<SocialStatus>> GetMyFeed()
+    {
+        return Task.FromResult(State._myFeed);
+    }
 }
 ```
 Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materialising the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimise the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update. 
@@ -127,45 +127,48 @@ Let’s take the group chat example; a set of participants create a group chat a
 ```        
 public interface IGroupChat : IActor
 {
-Task PublishMessageAsync(long participantId, string message);
-Task<List<GroupChatMessage>> GetMessagesAsync();
-Task AddParticipantAsync(long participantId);
-Task RemoveParticipantAsync(long partitipantId);
+    Task PublishMessageAsync(long participantId, string message);
+    Task<List<GroupChatMessage>> GetMessagesAsync();
+    Task AddParticipantAsync(long participantId);
+    Task RemoveParticipantAsync(long partitipantId);
 }
 
 [DataContract]
-Public class GroupChatParticipantState {
+public class GroupChatParticipantState {
 
-[DataMember]
-Public long _groupChatId;
-[DataMember]
-public List<GroupChatMessage> _messages;
+    [DataMember]
+    Public long _groupChatId;
+    [DataMember]
+    public List<GroupChatMessage> _messages;
 }
+
 public class GroupChatParticipant : Actor<GroupChatParticipantState>, IGroupParticipant
 {
 
-public Task SendMessageAsync(string message)
-{
-  if (State._groupChatId != -1)
-  {
-     var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
-     return groupChat.PublishMessageAsync(this.Id, message);
-  }
+    public Task SendMessageAsync(string message)
+    {
+      if (State._groupChatId != -1)
+      {
+         var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
+         return groupChat.PublishMessageAsync(this.Id, message);
+      }
 
-  return TaskDone.Done;
-}
+      return TaskDone.Done;
+    }
 
-...
+    ...
 
 }
 
 [DataContract]
-Class GroupChatState {
+public class GroupChatState {
 
-[DataMember]
-Public List<long> _participants;
-[DataMember]
-Public List<GroupChatMessage> _messages;
+    [DataMember]
+    Public List<long> _participants;
+    [DataMember]
+    Public List<GroupChatMessage> _messages;
+}
+
 
 public class GroupChat : Actor<GroupChatState>, IGroupChat
 {

@@ -36,17 +36,17 @@ Here is a very simple example—we do modulo arithmetic to determine the databas
 **Resource Governance – Static Resolution**
 
 ```
-        private static string _connectionString = "none";
+private static string _connectionString = "none";
 
-        private static string ResolveConnectionString(long userId, int region)
-        {
-            if (_connectionString == "none")
-            {
-                // an example of static mapping
-                _connectionString = String.Format("Server=SERVER_{0};Database=DB_{0}", region, userId % 4);
-            }
-            return _connectionString;
-        }
+private static string ResolveConnectionString(long userId, int region)
+{
+    if (_connectionString == "none")
+    {
+        // an example of static mapping
+        _connectionString = String.Format("Server=SERVER_{0};Database=DB_{0}", region, userId % 4);
+    }
+    return _connectionString;
+}
 ```
 
 Simple yet not very flexible. Now let’s have a look at a more advanced and useful approach. 
@@ -67,7 +67,7 @@ public interface IUser : IActor
 }
 
  [DataContract]
-Class UserState {
+public class UserState {
 
  [DataMember]
  private long _userId;
@@ -99,16 +99,18 @@ public class User : Actor<UserState>, IUser
     }
 }
 
+```
 
 Resource Governance – Resolver Example
 
+```
 public interface IResolver : IActor
 {
     Task<Resolution> ResolveAsync(long entity);
 }
 
 [DataContract]
-Class ResolverState {
+public class ResolverState {
 … 
 }
 
@@ -169,9 +171,10 @@ public class EventProcessor : Actor, IEventProcessor
     private long ResolveWriter(long eventType, DateTime eventTime)
     {
         // To simplify, we are returning event type as to identify the event writer actor.
-        return eventType; 
+        return eventType;
     }
 }
+
 ```
 
 Now let’s have a look at the EventWriter actor. It really doesn’t do much apart from control exclusive access to the constrained resource, in this case the file and writing events to it.
@@ -185,10 +188,10 @@ public interface IEventWriter : IActor
 }
 
 [DataContract]
-Class EventWriterState {
+public class EventWriterState {
 
-[DataMember]    
-Public string _filename;
+    [DataMember]    
+    public string _filename;
 
 }
 
@@ -217,6 +220,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         await _writer.FlushAsync();
     }
  }
+
 ```
 
 Having a single actor responsible for the resource allows us to add capabilities such as buffering. We can buffer incoming events and write these events periodically using a timer or when our buffer is full. Here is a simple timer based example:
@@ -224,12 +228,12 @@ Having a single actor responsible for the resource allows us to add capabilities
 
 ```    
 [DataMember]
-Class EventWriterState {
+public class EventWriterState {
 
-[DataMember]
-Public string _filename;
-[DataMember]
-Public Queue<CustomEvent> _buffer;
+    [DataMember]
+    public string _filename;
+    [DataMember]
+    public Queue<CustomEvent> _buffer;
 
 }
 
@@ -256,13 +260,14 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
     private async Task ProcessBatchAsync(object obj)
     {
         if (State._buffer.Count == 0)
-           return;
+            return;
 
         while (State._buffer.Count > 0)
         {
             var customEvent = State._buffer.Dequeue();
             await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
         }
+    }
 
     public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
     {
@@ -279,6 +284,7 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         return TaskDone.Done;
     }
 }
+
 ```
 
 While the code above will work fine, clients will not know whether their event made it to the underlying store. To allow buffering and let clients be aware what is happening to their request, we introduce the following approach to let clients wait until their event is written to the .CSV file:
@@ -319,6 +325,7 @@ public class AsyncBatchExecutor
         actionPromises.Clear();
     }
 }
+
 ```
 
 We will use this class to create and maintain a list of incomplete tasks (to block clients) and complete them in one go once we write the buffered events to storage.
@@ -328,60 +335,62 @@ In the EventWriter class, we need to do three things: mark the actor class as Re
 ```
 public class EventWriter : Actor<EventWriterState>, IEventWriter
 {
-public override Task OnActivateAsync()
-{
-    State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
-    _writer = new StreamWriter(_filename);
-    State._buffer = new Queue<CustomEvent>();
-    _batchExecuter = new AsyncBatchExecutor();
-    
-    this.RegisterTimer(
-        ProcessBatchAsync,
-        null,
-        TimeSpan.FromSeconds(5),
-        TimeSpan.FromSeconds(5));
-
-    return base.OnActivateAsync();
-}
-
-private async Task ProcessBatchAsync(object obj)
-{
-    if (_batchExecuter.Count > 0)
+    public override Task OnActivateAsync()
     {
-        // take snapshot of the batch tasks
-        var batchSnapshot = _batchExecuter;
+        State._filename = string.Format(@"C:\{0}.csv", this.GetPrimaryKeyLong());
+        _writer = new StreamWriter(_filename);
+        State._buffer = new Queue<CustomEvent>();
         _batchExecuter = new AsyncBatchExecutor();
+    
+        this.RegisterTimer(
+            ProcessBatchAsync,
+            null,
+            TimeSpan.FromSeconds(5),
+            TimeSpan.FromSeconds(5));
 
-        if (State._buffer.Count == 0)
-            return;
+        return base.OnActivateAsync();
+    }
 
-        while (State._buffer.Count > 0)
+    private async Task ProcessBatchAsync(object obj)
+    {
+        if (_batchExecuter.Count > 0)
         {
-            var customEvent = State._buffer.Dequeue();
-            await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
-        }
+            // take snapshot of the batch tasks
+            var batchSnapshot = _batchExecuter;
+            _batchExecuter = new AsyncBatchExecutor();
 
-        _batchExecuter.Flush();
+            if (State._buffer.Count == 0)
+                return;
+
+            while (State._buffer.Count > 0)
+            {
+                var customEvent = State._buffer.Dequeue();
+                await this.WriteEventAsync(customEvent.EventId, customEvent.EventType, customEvent.EventTime, customEvent.Payload);
+            }
+
+            _batchExecuter.Flush();
+        }
+    }
+    ...
+
+    public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
+    {
+        var customEvent = new CustomEvent()
+        {
+            EventId = eventId,
+            EventType = eventType,
+            EventTime = eventTime,
+            Payload = payload
+        };
+
+        State._buffer.Enqueue(customEvent);
+
+        // we are adding an incomplete task to batch executer and returning this task.
+        // this will block until task is completed when we call Flush();
+        return _batchExecuter.SubmitNext();
     }
 }
-...
 
-public Task WriteEventBufferAsync(long eventId, long eventType, DateTime eventTime, string payload)
-{
-    var customEvent = new CustomEvent()
-    {
-        EventId = eventId,
-        EventType = eventType,
-        EventTime = eventTime,
-        Payload = payload
-    };
-
-    State._buffer.Enqueue(customEvent);
-
-    // we are adding an incomplete task to batch executer and returning this task.
-    // this will block until task is completed when we call Flush();
-    return _batchExecuter.SubmitNext();
-}
 ```
 
 Seem easy? Well it is. But the ease belies the enterprise power. With this architecture we get:
