@@ -18,6 +18,21 @@
 
 # Azure Data Factory release notes
 
+## Notes for 3/31/2015 release of Data Factory
+- Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download].
+- Copying from **on-premises file system to Azure blob** is supported now. See the following topics for more information.
+	-  [On-premises File System Linked Service](https://msdn.microsoft.com/library/dn930836.aspx)
+	-  [OnPremisesFileSystemLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **FileSystemSource** properties. 
+-  Copying from **on-premises Oracle database to Azure blob** is supported now. See the following topics for more informaiton. 
+	-  [On-premises Oracle Linked Service](https://msdn.microsoft.com/library/dn948537.aspx)
+	-  [OnPremisesOracleTableLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **OracleSource** properties.
+-  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
+- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink](http://azure.microsoft.com/documentation/articles/data-factory-copy-activity-advanced/#invoke-stored-procedure-for-sql-sink) for details.   
+
+
+
 ## Notes for 2/27/2015 release of Data Factory
 
 ### New improvements
