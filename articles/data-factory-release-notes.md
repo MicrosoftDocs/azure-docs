@@ -31,7 +31,7 @@
 -  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
 - You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink](http://azure.microsoft.com/documentation/articles/data-factory-copy-activity-advanced/#invoke-stored-procedure-for-sql-sink) for details.   
 
-
+See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) for additional information including examples.  
 
 ## Notes for 2/27/2015 release of Data Factory
 
