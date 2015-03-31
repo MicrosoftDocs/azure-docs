@@ -40,7 +40,7 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run Hive queries 
 
 The following cmdlets are used when running Hive queries in a remote HDInsight cluster:
 
-* **Add-AzureAccount**: Authenticates Azure PowerShell to your Azure Subscription
+* **Add-AzureAccount**: Authenticates Azure PowerShell to your Azure subscription
 
 * **New-AzureHDInsightHiveJobDefinition**: Creates a new *job definition* by using the specified HiveQL statements
 
