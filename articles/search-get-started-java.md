@@ -204,9 +204,9 @@ If you already have some background in Azure Search, you can use this sample as 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
-[1]: ./media/search-get-started-java/create-search-portal-1.PNG
-[2]: ./media/search-get-started-java/create-search-portal-2.PNG
-[3]: ./media/search-get-started-java/create-search-portal-3.PNG
+[1]: ./media/search-get-started-java/create-search-portal-11.PNG
+[2]: ./media/search-get-started-java/create-search-portal-21.PNG
+[3]: ./media/search-get-started-java/create-search-portal-31.PNG
 [4]: ./media/search-get-started-java/AzSearch-Java-Import1.PNG
 [5]: ./media/search-get-started-java/AzSearch-Java-config1.PNG
 [6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets1.PNG
@@ -214,4 +214,4 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [8]: ./media/search-get-started-java/AzSearch-Java-Browser1.PNG
 [9]: ./media/search-get-started-java/AzSearch-Java-JREPref1.PNG
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
-[11]: ./media/search-get-started-dotnet/rogerwilliamsschool.PNG
+[11]: ./media/search-get-started-dotnet/rogerwilliamsschool1.PNG
