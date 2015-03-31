@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Move and process log files using Azure Data Factory" 
-	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service and Data Factory Editor." 
+	description="This advanced tutorial describes a near real-world scenario and implements the scenario using Azure Data Factory service." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="03/03/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory
@@ -27,6 +27,7 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
 2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options] [azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
 3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
 4.	Download [ADFWalkthrough][adfwalkthrough-download] files to **C:\ADFWalkthrough** folder **preserving the folder structure**:
@@ -45,11 +46,14 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
  	- **Azure Storage Account** - Account name and account key.  
 	- **Azure SQL Database** - Server, database, user name, and password.
 	- **Azure HDInsight Cluster**. - Name of the HDInsight cluster, user name, password, and account name and account key for the Azure storage associated with this cluster. If you want to use an on-demand HDInsight cluster instead of your own HDInsight cluster you can skip this step.  
+8. Launch **Azure PowerShell** and execute the following commands. Keep the Azure PowerShell open. If you close and reopen, you need to run these commands again.
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Preview Portal.  
+	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Preview Portal.
 	
 
 ## Overview
 The end-to-end workflow is depicted below:
-
 	![Tutorial End to End Flow][image-data-factory-tutorial-end-to-end-flow]
 
 1. The **PartitionGameLogsPipeline** reads the raw game events from a blob storage (RawGameEventsTable) and creates partitions based on year, month, and day (PartitionedGameEventsTable).
@@ -151,10 +155,12 @@ The tables, user-defined types and stored procedures are used when moving the Ma
 ## <a name="MainStep2"></a> Step 2: Create an Azure data factory
 In this step, you create an Azure data factory named **LogProcessingFactory**.
 
-1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, click **Data analytics** in the **Create** blade, and click **Data Factory** on the **Data analytics** blade. 
+1.	After logging into the [Azure Preview Portal][azure-preview-portal], click **NEW** from the bottom-left corner, and click **Data Factory** on the **New** blade. 
 
 	![New->DataFactory][image-data-factory-new-datafactory-menu] 
-
+	
+	If you do not see **Data Factory** on the **New** blade, scroll down. 
+	
 5. In the **New data factory** blade, enter **LogProcessingFactory** for the **Name**.
 
 	![Data Factory Blade][image-data-factory-tutorial-new-datafactory-blade]
@@ -186,89 +192,91 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
  
 ## <a name="MainStep3"></a> Step 3: Create linked services
 
-In this step, you will create the following linked services:
+> [ACOM.NOTE] This articles uses the Azure PowerShell to create linked services, tables, and pipelines. See [Tutorial using Data Factory Editor][adftutorial-using-editor] if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor. 
 
-- StorageLinkedService
-- AzureSqlLinkedService
-- HDInsightStorageLinkedService
-- HDInsightLinkedService. 
+In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.
 
-### Create StorageLinkedService and HDInsightStorageLinkedService
 
-1.	In the **DATA FACTORY** blade, clcik **Author and deploy** tile to launch the **Editor** for the data factory.
+1.	In the **LogProcessingFactory** blade, click **Linked Services** tile.
 
-	![Author and Deploy Tile][image-author-deploy-tile] 
+	![Linked Services Tile][image-data-factory-tutorial-linkedservice-tile]
 
-	> [AZURE.NOTE] See [Data Factory Editor][data-factory-editor] topic for detailed overview of the Data Factory editor.
+2. In the **Linked Services** blade, click **+ Data Store** from the command bar.	
 
-2.  In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop down menu. You should see the JSON template for creating an Azure storage linked service in the right pane.	
-	
-	![Editor New data store button][image-editor-newdatastore-button]
+	![Linked Services - Add Store][image-data-factory-tutorial-linkedservices-add-datstore]
 
-3. Replace **<accountname\>** and **<accountkey\>** with the account name and account key values for your Azure storage account.
+3. In the **New data store** blade, enter **StorageLinkedService** for the **Name**, click **TYPE (settings required)**, and select **Azure storage account**.
 
-	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
-	
-	> [AZURE.NOTE] See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	![Data Store Type - Azure Storage][image-data-factory-tutorial-datastoretype-azurestorage]
 
-4. Click **Deploy** on the toolbar to deploy the StorageLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar.
+4. In the **New data store** blade, you will see two new fields: **Account Name** and **Account Key**. Enter account name and account key for your **Azure Storage Account**.
 
-	![Editor Blob Storage Deploy][image-editor-blob-storage-deploy]
+	![Azure Storage Settings][image-data-factory-tutorial-azurestorage-settings]
 
-5. Repeat the steps to create another Azure Storage linked service named: **HDInsightStorageLinkedService** for the storage associated with your HDInsight cluster. In the JSON script for the linked service, change the value of the **name** property to **HDInsightStorageLinkedService**. 
+	You can get account name and account key your Azure storage account from the portal as shown below:
 
-### Create AzureSqlLinkedService
-1. In the **Data Factory Editor** , click **New data store** button on the toolbar and select **Azure SQL database** from the drop down menu. You should see the JSON template for creating the Azure SQL linked service in the right pane.
-2. Replace **<servername\>**, **<username\>@<servername\>**, and **<password\>** with names of your Azure SQL server, user account, and  password.  
-3. Replace **<databasename\>** with **MarketingCampaigns**. This is the Azure SQL database created by the scripts you ran in Step 1. You should confirm that this database was indeed created by the scripts (in case there were errors). 
-3. Click **Deploy** on the toolbar to create and deploy the AzureSqlLinkedService.
+	![Storage Key][image-data-factory-tutorial-storage-key]
+  
+5. After you click **OK** on the New data store blade, you should see **StorageLinkedService** in the list of **DATA STORES** on the **Linked Services** blade. Check **NOTIFICATIONS** Hub (on the left) to see any messages.
 
-### Create HDInsightLinkedService
-The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+	![Linked Services Blade with Storage][image-data-factory-tutorial-linkedservices-blade-storage]
+   
+6. Repeat **steps 2-5** to create another linked service named: **HDInsightStorageLinkedService**. This is the storage used by your HDInsight cluster.
+7. Confirm that you see both **StorageLinkedService** and **HDInsightStorageLinkedService** in the list in the Linked Services blade.
+8. In the **Linked Services** blade, click **Add (+) Data Store** from the command bar.
+9. Enter **AzureSqlLinkedService** for the name.
+10. Click **TYPE (settings required)**, select **Azure SQL Database**.
+11. Now, you should the following additional fields on the **New data store** blade. Enter name of the Azure SQL Database **server**, **database** name, **user name**, and **password**, and click **OK**.
+	1. Enter **MarketingCampaigns** for the **database**. This is the Azure SQL database created by the scripts you ran in Step 1. You should confirm that this database was indeed created by the scripts (in case there were errors).
+		
+ 		![Azure SQL Settings][image-data-factory-tutorial-azuresql-settings]
 
-#### To use an on-demand HDInsight cluster
-1. Click **New compute** from the command bar and select **On-demand HDInsight cluster** from the menu.
-2. Do the following in the JSON script: 
-	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
-	2. For the **jobsContainer** property, specify the name of the default container where the cluster logs will be stored. For the purpose of this tutorial, specify **adfjobscontainer**.
-	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted. 
-	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
-	5. For the **linkedServiceName**, specify **HDInsightStorageLinkedService** that you had created in the Get started tutorial. 
+		To get these values from the Azure Management Portal: click View SQL Database connection strings for MarketingCampaigns database
 
+		![Azure SQL Database Connection String][image-data-factory-tutorial-azuresql-database-connection-string]
+
+12. Confirm that you see all the three data stores you have created: **StorageLinkedService**, **HDInsightStorageLinkedService**, and **AzureSqlLinkedService**.
+13. You need to create another linked service, but this one is to a Compute service, specifically **Azure HDInsight cluster**. The portal does not support creating a compute linked service yet. Therefore, you need to use Azure PowerShell to create this linked service. 
+14. Switch to **Azure PowerShell** if you have it already open (or) launch **Azure PowerShell**. If you had closed and reopened Azure PowerShell, you need to run the following commands: 
+	- Run **Add-AzureAccount** and enter the  user name and password that you use to sign-in to the Azure Preview Portal.  
+	- Run **Get-AzureSubscription** to view all the subscriptions for this account.
+	- Run **Select-AzureSubscription** to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure Preview Portal. 
+15. Switch to **AzureResourceManager** mode as the Azure Data Factory cmdlets are available in this mode.
+
+		Switch-AzureMode AzureResourceManager
+
+16. Navigate to the **LinkedServices** subfolder in **C:\ADFWalkthrough** (or) from the folder from the location where you have extracted the files.
+17. Open **HDInsightLinkedService.json** in your favorite editor and notice that the type is set to **HDInsightOnDemandLinkedService**.
+
+
+	> [AZURE.NOTE] The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+	> The HDInsightLinkedService links an on-demand HDInsight cluster to the data factory. To use your own HDInsight cluster, update the Properties section of the HDInsightLinkedService.json file as shown below (replace clustername, username, and password with appropriate values): 
+	> 
+			"Properties": 
 			{
-		    	"name": "HDInsightLinkedService",
-				    "properties": {
-		    	    "type": "HDInsightOnDemandLinkedService",
-		    	    "clusterSize": "4",
-		    	    "jobsContainer": "adfjobscontainer",
-		    	    "timeToLive": "00:05:00",
-		    	    "version": "3.1",
-		    	    "linkedServiceName": "HDInsightStorageLinkedService"
-		    	}
-			}
+        		"Type": "HDInsightBYOCLinkedService",
+	        	"ClusterUri": "https://<clustername>.azurehdinsight.net/",
+    	    	"UserName": "<username>",
+    	    	"Password": "<password>",
+    	    	"LinkedServiceName": "HDInsightStorageLinkedService"
+    		}
+		
 
-		Note that the **type** of linked service is set to **HDInsightOnDemandLinkedService**.
+18. Use the following command to set $df variable to the name of the data factory.
 
-2. Click **Deploy** on the command bar to deploy the linked service.
-   
-   
-#### To use your own HDInsight cluster: 
+		$df = “LogProcessingFactory”
+19. Use the cmdlet **New-AzureDataFactoryLinkedService** to create a Linked Service as follows. Start with the storage account:
 
-1. Click **New compute** from the command bar and select **HDInsight cluster** from the menu.
-2. Do the following in the JSON script: 
-	1. For the **clusterUri** property, enter the URL for your HDInsight. For example: https://<clustername>.azurehdinsight.net/     
-	2. For the **UserName** property, enter the user name who has access to the HDInsight cluster.
-	3. For the **Password** property, enter the password for the user. 
-	4. For the **LinkedServiceName** property, enter **StorageLinkedService**. This is the linked service you had created in the Get started tutorial. 
-
-	Nore that the **type** of linked service is set to **HDInsightBYOCLinkedService** (BYOC stands for Bring Your Own Cluster). 
-
-2. Click **Deploy** on the command bar to deploy the linked service.
-
-
-## <a name="MainStep4"></a> Step 4: Create tables
+		New-AzureDataFactoryLinkedService -ResourceGroupName ADF -DataFactoryName $df -File .\HDInsightLinkedService.json
  
-In this step, you will create the following Data Factory tables: 
+	If you are using a different name for ResourceGroupName, DataFactoryName or LinkedService name, refer them in the above cmdlet. Also, provide the full file path of the Linked Service JSON file if the file cannot be found.
+20. You should see all the four linked services in the **Linked Services** blade as shown below. If the Linked services blade is not open, click Linked Services in the **DATA FACTORY** page for **LogProcessingFactory**. It may take a few seconds for the Linked services blade to refresh.
+
+	![Linked Services All][image-data-factory-tutorial-linkedservices-all]
+ 
+
+## <a name="MainStep4"></a> Step 4: Create tables 
+In this step, you will create the following tables: 
 
 - RawGameEventsTable
 - PartitionedGameEventsTable
@@ -282,48 +290,109 @@ In this step, you will create the following Data Factory tables:
  
 The picture above displays pipelines in the middle row and tables in the top and bottom rows. 
 
+The Azure Portal does not support creating data sets/tables yet, so you will need to use Azure PowerShell to create tables in this release.
+
 ### To create the tables
+
+1.	In the Azure PowerShell, navigate to the **Tables** folder (**C:\ADFWalkthrough\Tables\**) from the location where you have extracted the samples. 
+2.	Use the cmdlet **New-AzureDataFactoryTable** to create the Tables as follows for **RawGameEventsTable**.json	
+
+
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RawGameEventsTable.json
+
+	If you are using a different name for ResourceGroupName and DataFactoryName, refer them in the above cmdlet. Also, provide the full file path of the Table JSON file if the file cannot be found by the cmdlet.
+
+3. Repeat the previous step to create the following tables:	
+		
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionedGameEventsTable.json
+		
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefGeoCodeDictionaryTable.json
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\RefMarketingCampaignTable.json
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichedGameEventsTable.json
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessSQLTable.json
+			
+		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessBlobTable.json
+
+
+
+4. In the **Azure Preview Portal**, click **Datasets** in the **DATA FACTORY** blade for **LogProcessingFactory** and confirm that you see all the datasets (tables are rectangular datasets). 
+
+	![Data Sets All][image-data-factory-tutorial-datasets-all]
+
+	You can also use the following command from Azure PowerShell:
+			
+		Get-AzureDataFactoryTable –ResourceGroupName ADF –DataFactoryName $df
+
 	
-1. In the **Editor** for the Data Factory, click **New dataset** button on the toolbar and click **Azure Blob storage** from the drop down menu. 
-2. Replace JSON in the right pane with the JSON script from the **RawGameEventsTable.json** file from the **C:\ADFWalkthrough\Tables** folder.
-3. Click **Deploy** on the toolbar to create and deploy the table. Confirm that you see the **TABLE CREATED SUCCESSFULLY** message on the title bar of the Editor.
-4. Repeat steps 1-3 with the content from the following files: 
-	1. PartitionedGameEventsTable.json
-	2. RefGeoCodeDictionaryTable.json
-	3. RefMarketingCampaignTable.json
-	4. EnrichedGameEventsTable.json
-	5. MarketingCampaignEffectivenessBlobTable.json 
-5. Repeat steps 1-3 with the content from the following file. BUT select **Azure Sql** after you click **New dataset**.
-	1. MarketingCampaignEffectivenessSQLTable.json
-	
+
 
 ## <a name="MainStep5"></a> Step 5: Create and schedule pipelines
-In this step, you will create the following pipelines: 
+In this step, you will create the following pipelines: PartitionGameLogsPipeline, EnrichGameLogsPipeline, and AnalyzeMarketingCampaignPipeline.
 
-- PartitionGameLogsPipeline
-- EnrichGameLogsPipeline
-- AnalyzeMarketingCampaignPipeline
+1. In **Windows Explorer**, navigate to the **Pipelines** sub folder in **C:\ADFWalkthrough** folder (or from the location where you have extracted the samples).
+2.	Open **PartitionGameLogsPipeline.json** in your favorite editor, replace the highlighted with your storage account for the data storage account information and save the file.
+			
+		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
+		"PARTITIONEDOUTPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/partitionedgameevents/",
 
-### To create pipelines
+3. Repeat the step to create the following pipelines:
+	1. **EnrichGameLogsPipeline**.json (3 occurrences)
+	2. **AnalyzeMarketingCampaignPipeline**.json (3 occurrences)
 
-1. In the **Data Factory Editor**, click **New pipeline** button on the toolbar. Click **... (Ellipsis)** on the toolbar if you do not see the button. Alternatively, you can right-click **Pipelines** in the tree view and click **New pipeline**.
-2. Replace JSON in the right pane with the JSON script from the **PartitionGameLogsPipeline.json** file from the **C:\ADFWalkthrough\Pipelines** folder.
-
-	[ACOM.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
+	**IMPORTANT:** Confirm that you have replaced all <storageaccountname> with your storage account name. 
  
-3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
-4. Repeat steps 1-3 with the content from the following files: 
-	1. EnrichGameLogsPipeline.json
-	2. AnalyzeMarketingCampaignPipeline.json
+4.  In **Azure PowerShell**, navigate to the **Pipelines** sub folder in **C:\ADFWalkthrough** folder (or from the location where you have extracted the samples).
+5.  Use the cmdlet **New-AzureDataFactoryPipeline** to create the Pipelines as follows for **PartitionGameLogspeline**.json	 
+			
+		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
 
+	If you are using a different name for ResourceGroupName, DataFactoryName or Pipeline name, refer them in the above cmdlet. Also, provide the full file path of the Pipeline JSON file.
+6. Repeat the previous step to create the following pipelines:
+	1. **EnrichGameLogsPipeline**
+			
+			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EnrichGameLogsPipeline.json
 
-### Diagram view
+	2. **AnalyzeMarketingCampaignPipeline**
+				
+			New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\AnalyzeMarketingCampaignPipeline.json
 
-1. In the **DATA FACTORY** blade for the **LogProcessingFactory**, click **Diagram**.
+7. Use the cmdlet **Get-AzureDataFactoryPipeline** to get the listing of the Pipelines.
+			
+		Get-AzureDataFactoryPipeline –ResourceGroupName ADF –DataFactoryName $df
+
+8. Once the pipelines are created, you can specify the duration in which data processing will occur. By specifying the active period for a pipeline, you are defining the time duration in which the data slices will be processed based on the Availability properties that were defined for each ADF table.
+
+To specify the active period for the pipeline, you can use the cmdlet Set-AzureDataFactoryPipelineActivePeriod. In this walkthrough, the sample data is from 05/01 to 05/05. Use 2014-05-01 as the StartDateTime. EndDateTime is optional.
+			
+		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name PartitionGameLogsPipeline
+  
+9. Confirm to set the active period for the pipeline.
+			
+			Confirm
+			Are you sure you want to set pipeline 'PartitionGameLogsPipeline' active period from '05/01/2014 00:00:00' to '05/05/2014 00:00:00'?
+			[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): n
+
+10. Repeat the previous two steps to set active period for the following pipelines.
+	1. **EnrichGameLogsPipeline**
+			
+			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z –EndDateTime 2014-05-05Z –Name EnrichGameLogsPipeline
+
+	2. **AnalyzeMarketingCampaignPipeline** 
+			
+			Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name AnalyzeMarketingCampaignPipeline
+
+11. In the **Azure Preview Portal**, click **Pipelines** tile (not on the names of the pipelines) in the **DATA FACTORY** blade for the **LogProcessingFactory**, you should see the pipelines you created.
+
+	![All Pipelines][image-data-factory-tutorial-pipelines-all]
+
+12. In the **DATA FACTORY** blade for the **LogProcessingFactory**, click **Diagram**.
 
 	![Diagram Link][image-data-factory-tutorial-diagram-link]
 
-2. You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom. You can see that the output of the **PartitionGameLogsPipeline** is passed in as an input to the EnrichGameLogsPipeline and output of the **EnrichGameLogsPipeline** is passed to the **AnalyzeMarketingCampaignPipeline**. Double-click on a title to see details about the artifact that the blade represents.
+13. You can rearrange the diagram you see and here is a rearranged diagram that shows direct inputs at the top and outputs at the bottom. You can see that the output of the **PartitionGameLogsPipeline** is passed in as an input to the EnrichGameLogsPipeline and output of the **EnrichGameLogsPipeline** is passed to the **AnalyzeMarketingCampaignPipeline**. Double-click on a title to see details about the artifact that the blade represents.
 
 	![Diagram View][image-data-factory-tutorial-diagram-view]
 
@@ -341,9 +410,9 @@ In this step, you will create the following pipelines:
 	 	
 		![Monitoring Hub Everything][image-data-factory-monitoring-hub-everything]
 
-	3. In the **Browse** blade, select **Data factories** and select **LogProcessingFactory** in the **Data factories** blade.
+		In the **Browse** blade, select **Data factories** and select **LogProcessingFactory** in the **Data factories** blade.
 
-	![Monitoring Browse Datafactories][image-data-factory-monitoring-browse-datafactories]
+		![Monitoring Browse Datafactories][image-data-factory-monitoring-browse-datafactories]
 2. You can monitor your data factory in several ways. You can start with pipelines or data sets. Let’s start with Pipelines and drill further. 
 3.	Click **Pipelines** on the **DATA FACTORY** blade. 
 4.	Click **PartitionGameLogsPipeline** in the Pipelines blade. 
@@ -383,7 +452,7 @@ In the last step of log processing scenario from the walkthrough in this article
  
 In order to copy the marketing campaign effectiveness data from Azure Blob to on-premises SQL Server, you need to create additional on-premises Linked Service, Table and Pipeline introduced in the walkthrough in this article.
 
-Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises] to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.
+Practice the [Walkthrough: Using on-premises data source][tutorial-onpremises-using-powershell] to learn how to create a pipeline to copy marketing campaign effectiveness data to an on-premises SQL Server database.
  
 ## See Also
 
@@ -398,14 +467,14 @@ Article | Description
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[data-factory-editor]: data-factory-editor.md
 
+[adftutorial-using-editor]: data-factory-tutorial.md
 
 [adfgetstarted]: data-factory-get-started.md
 [adfintroduction]: data-factory-introduction.md
 [useonpremisesdatasources]: data-factory-use-onpremises-datasources.md
 [usepigandhive]: data-factory-pig-hive-activities.md
-[tutorial-onpremises]: data-factory-tutorial-extend-onpremises.md
+[tutorial-onpremises-using-powershell]: data-factory-tutorial-extend-onpremises-using-powershell.md
 [download-azure-powershell]: powershell-install-configure.md
 
 [azure-preview-portal]: http://portal.azure.com
@@ -420,82 +489,78 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
-[image-author-deploy-tile]: ./media/data-factory-tutorial-using-editor/author-deploy-tile.png
-[image-editor-newdatastore-button]: ./media/data-factory-tutorial-using-editor/editor-newdatastore-button.png
-[image-editor-blob-storage-json]: ./media/data-factory-tutorial-using-editor/editor-blob-storage-json.png
-[image-editor-blob-storage-deploy]: ./media/data-factory-tutorial-using-editor/editor-blob-storage-deploy.png
 
-[image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial-using-editor/EndToEndWorkflow.png
+[image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial/EndToEndWorkflow.png
 
-[image-data-factory-tutorial-partition-game-logs-pipeline]: ./media/data-factory-tutorial-using-editor/PartitionGameLogsPipeline.png
+[image-data-factory-tutorial-partition-game-logs-pipeline]: ./media/data-factory-tutorial/PartitionGameLogsPipeline.png
 
-[image-data-factory-tutorial-enrich-game-logs-pipeline]: ./media/data-factory-tutorial-using-editor/EnrichGameLogsPipeline.png
+[image-data-factory-tutorial-enrich-game-logs-pipeline]: ./media/data-factory-tutorial/EnrichGameLogsPipeline.png
 
-[image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial-using-editor/AnalyzeMarketingCampaignPipeline.png
+[image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline.png
 
 
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial-using-editor/EgreeDataToOnPremPipeline.png
+[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial/EgreeDataToOnPremPipeline.png
 
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial-using-editor/SetFirewallRuleForAzureDatabase.png
+[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial/SetFirewallRuleForAzureDatabase.png
 
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial-using-editor/PortalNewEverything.png
+[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial/PortalNewEverything.png
 
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial-using-editor/DataStorageCacheBackup.png
+[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial/DataStorageCacheBackup.png
 
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial-using-editor/DataServicesBlade.png
+[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial/DataServicesBlade.png
 
-[image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial-using-editor/NewDataFactoryBlade.png
+[image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial/NewDataFactoryBlade.png
 
-[image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial-using-editor/ResourceGroupBlade.png
+[image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial/ResourceGroupBlade.png
 
-[image-data-factory-tutorial-create-resourcegroup]: ./media/data-factory-tutorial-using-editor/CreateResourceGroup.png
+[image-data-factory-tutorial-create-resourcegroup]: ./media/data-factory-tutorial/CreateResourceGroup.png
 
-[image-data-factory-tutorial-datafactory-homepage]: ./media/data-factory-tutorial-using-editor/DataFactoryHomePage.png
+[image-data-factory-tutorial-datafactory-homepage]: ./media/data-factory-tutorial/DataFactoryHomePage.png
 
-[image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial-using-editor/CreateDataFactory.png
+[image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial/CreateDataFactory.png
 
-[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial-using-editor/LinkedServiceTile.png
+[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial/LinkedServiceTile.png
 
-[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial-using-editor/LinkedServicesAddDataStore.png
+[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial/LinkedServicesAddDataStore.png
 
-[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial-using-editor/DataStoreTypeAzureStorageAccount.png
+[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial/DataStoreTypeAzureStorageAccount.png
 
-[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial-using-editor/AzureStorageSettings.png
+[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial/AzureStorageSettings.png
 
-[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial-using-editor/StorageKeyFromAzurePortal.png
+[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial/StorageKeyFromAzurePortal.png
 
-[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial-using-editor/LinkedServicesBladeWithAzureStorage.png
+[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial/LinkedServicesBladeWithAzureStorage.png
 
-[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial-using-editor/AzureSQLDatabaseSettings.png
+[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial/AzureSQLDatabaseSettings.png
 
-[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial-using-editor/DatabaseConnectionString.png
+[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial/DatabaseConnectionString.png
 
-[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial-using-editor/LinkedServicesAll.png
+[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial/LinkedServicesAll.png
 
-[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial-using-editor/DataSetsAllTables.png
+[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial/DataSetsAllTables.png
 
-[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial-using-editor/AllPipelines.png
+[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial/AllPipelines.png
 
-[image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial-using-editor/DataFactoryDiagramLink.png
+[image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial/DataFactoryDiagramLink.png
 
-[image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial-using-editor/DiagramView.png
+[image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
 
-[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial-using-editor/MonitoringStartBoard.png
+[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
 
-[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial-using-editor/MonitoringHubEverything.png
+[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
 
-[image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial-using-editor/MonitoringBrowseDataFactories.png
+[image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial/MonitoringBrowseDataFactories.png
 
-[image-data-factory-monitoring-pipeline-consumed-produced]: ./media/data-factory-tutorial-using-editor/MonitoringPipelineConsumedProduced.png
+[image-data-factory-monitoring-pipeline-consumed-produced]: ./media/data-factory-tutorial/MonitoringPipelineConsumedProduced.png
 
-[image-data-factory-monitoring-raw-game-events-table]: ./media/data-factory-tutorial-using-editor/MonitoringRawGameEventsTable.png
+[image-data-factory-monitoring-raw-game-events-table]: ./media/data-factory-tutorial/MonitoringRawGameEventsTable.png
 
-[image-data-factory-monitoring-raw-game-events-table-dataslice-blade]: ./media/data-factory-tutorial-using-editor/MonitoringPartitionGameEventsTableDataSliceBlade.png
+[image-data-factory-monitoring-raw-game-events-table-dataslice-blade]: ./media/data-factory-tutorial/MonitoringPartitionGameEventsTableDataSliceBlade.png
 
-[image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial-using-editor/MonitoringActivityRunDetails.png
+[image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
 
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-using-editor/DataManagementGatewayConfigurationManager.png
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
 
-[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial-using-editor/NewDataFactoryMenu.png
+[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
 
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-editor/DataFactoryCreateButton.png
+[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
