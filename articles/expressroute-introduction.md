@@ -7,9 +7,11 @@
    editor="tysonn"/>
 <tags 
    ms.service="expressroute"
-   ms.topic="article"
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/30/2015"
+   ms.date="03/31/2015"
    ms.author="cherylmc"/>
 
 #  ExpressRoute Technical Overview
