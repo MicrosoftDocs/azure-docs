@@ -210,9 +210,8 @@ New to Azure Search? We recommend trying other tutorials to develop an understan
 [4]: ./media/search-get-started-java/AzSearch-Java-Import.png
 [5]: ./media/search-get-started-java/AzSearch-Java-config.png
 [6]: ./media/search-get-started-java/AzSearch-Java-ProjectFacets.PNG
-
 [7]: ./media/search-get-started-java/AzSearch-Java-runtime.png
 [8]: ./media/search-get-started-java/AzSearch-Java-Browser.png
-[9]: ./media/search-get-started-java/AzSearch-Java-JREPref.PNG
-[10]: ./media/search-get-started-java/AzSearch-Java-buildProject.png
+[9]: ./media/search-get-started-java/AzSearch-Java-JREPref.png
+[10]: ./media/search-get-started-java/AzSearch-Java-BuildProject.png
 [11]: ./media/search-get-started-dotnet/rogerwilliamsschool.png
