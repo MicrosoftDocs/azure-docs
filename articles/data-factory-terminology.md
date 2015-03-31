@@ -16,8 +16,7 @@
 	ms.date="03/26/2015" 
 	ms.author="spelluru"/>
 
-#Terminology
-This section introduces you to the terminology related to Azure Data Factory.
+#Azure Data Factory - Terminology
 
 ## Data factory
 An **Azure data factory** has one or more pipelines that process data in linked data stores (Azure Storage, Azure SQL Database, on-premises SQL Server etc...) by using linked compute services such as Azure HDInsight. An Azure data factory itself does not contain data within it; The data is rather stored in data stores mentioned above.  

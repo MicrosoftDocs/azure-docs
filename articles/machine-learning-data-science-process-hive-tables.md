@@ -32,7 +32,7 @@ This article assumes that you have:
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](hdinsight-get-started.md#storage) 
 * Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
-* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess). 
+* Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode). 
 
 
 ## <a name="submit"></a>How to Submit Hive Queries
@@ -101,7 +101,7 @@ To output Hive query results to a local directory on the head node, users have t
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-In the following example, the output of Hive query is written into a file `hivequeryoutput.txt` in directory `C:\apps\temp`.
+In the following example, the output of Hive query is written into a file *hivequeryoutput.txt* in directory *C:\apps\temp*.
 
 ![Create workspace][12]
 
@@ -111,7 +111,7 @@ Users can also output the Hive query results to an Azure blob, within the defaul
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you must only provide the directory name, without the blob name. An error will be thrown out if you provide both the directory and the blob name, such as `wasb:///queryoutputdir/queryoutput.txt`. 
+In the following example, the output of Hive query is written to a blob directory `queryoutputdir` within the default container of the Hadoop cluster. Here, you must only provide the directory name, without the blob name. An error will be thrown out if you provide both the directory and the blob name, such as *wasb:///queryoutputdir/queryoutput.txt*. 
 
 ![Create workspace][13]
 
@@ -123,7 +123,7 @@ The output of the Hive query can be seen in blob storage by opening the default 
 
 Users can also use the Query Console (Hive Editor) by entering the URL of the form
  
-https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor  
+*https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor*  
 
 into a web browser. Note that you will be asked to input the Hadoop cluster credentials to log in. Alternatively, you can [Submit Hive jobs using PowerShell](hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell). 
 
@@ -229,29 +229,29 @@ In this example, variables `smooth_param1` and `smooth_param2` are set to smooth
 
 After the risk table is calculated, users can assign risk values to a table by joining it with the risk table. The Hive joining query was provided in previous section.
 
-###<a name="hive-datefeature"></a>Extract features from Datetime Fields
+###<a name="hive-datefeatures"></a>Extract features from Datetime Fields
 
 Hive comes with a set of UDFs for processing datetime fields. In Hive, the default datetime format is 'yyyy-MM-dd 00:00:00' ('1970-01-01 12:21:32' for example). In this section, we show examples that extract the day of a month, the month from a datetime field, and other examples that convert a datetime string in a format other than the default format to a datetime string in default format. 
 
     	select day(<datetime field>), month(<datetime field>) 
 		from <databasename>.<tablename>;
 
-This Hive query assumes that the `<datetime field>` is in the default datetime format.
+This Hive query assumes that the *&#60;datetime field>* is in the default datetime format.
 
 If a datetime field is not in the default format, you need to convert the datetime field into Unix time stamp first, and then convert the Unix time stamp to a datetime string that is in the default format. When the datetime is in default format, users can apply the embedded datetime UDFs to extract features.
 
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-In this query, if the `<datetime field>` has the pattern like `03/26/2015 12:04:39`, the `'<pattern of the datetime field>'` should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
+In this query, if the *&#60;datetime field>* has the pattern like *03/26/2015 12:04:39*, the *'&#60;pattern of the datetime field>'* should be `'MM/dd/yyyy HH:mm:ss'`. To test it, users can run
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
 
-The `hivesampletable` in this query comes preinstalled on all Azure HDInsight Hadoop clusters by default when the clusters are provisioned. 
+The *hivesampletable* in this query comes preinstalled on all Azure HDInsight Hadoop clusters by default when the clusters are provisioned. 
 
 
-###<a name="hive-textfeature"></a>Extract features from Text Fields
+###<a name="hive-textfeatures"></a>Extract features from Text Fields
 
 When the Hive table has a text field that contains a string of words that are delimited by spaces, the following query extracts the length of the string, and the number of words in the string.
 
@@ -262,7 +262,7 @@ When the Hive table has a text field that contains a string of words that are de
 
 The query given in this section can be directly applied to the NYC Taxi Trip Data. The purpose of this query is to show how to apply an embedded mathematical functions in Hive to generate features. 
 
-The fields that are used in this query are the GPS coordinates of pickup and dropoff locations, named pickup\_longitude, pickup\_latitude, dropoff\_longitude, and dropoff\_latitude. The queries that calculate the direct distance between the pickup and dropoff coordinates are:
+The fields that are used in this query are the GPS coordinates of pickup and dropoff locations, named *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude*, and *dropoff\_latitude*. The queries that calculate the direct distance between the pickup and dropoff coordinates are:
 
 		set R=3959;
 		set pi=radians(180);
@@ -280,7 +280,7 @@ The fields that are used in this query are the GPS coordinates of pickup and dro
 		and dropoff_latitude between 30 and 90
 		limit 10; 
 
-The mathematical equations that calculate the distance between two GPS coordinates can be found on the [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) site, authored by Peter Lapisu. In his Javascript, the function toRad() is just `lat_or_lon*pi/180`, which converts degrees to radians. Here, `lat_or_lon` is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
+The mathematical equations that calculate the distance between two GPS coordinates can be found on the [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) site, authored by Peter Lapisu. In his Javascript, the function `toRad()` is just *lat_or_lon*pi/180*, which converts degrees to radians. Here, *lat_or_lon* is the latitude or longitude. Since Hive does not provide the function `atan2`, but provides the function `atan`, the `atan2` function is implemented by `atan` function in the above Hive query using the definition provided in [Wikipedia](http://en.wikipedia.org/wiki/Atan2). 
 
 ![Create workspace][1]
 
@@ -290,7 +290,7 @@ A full list of Hive embedded UDFs can be found in the **Built-in Functions** sec
 
 The default parameter settings of Hive cluster might not be suitable for the Hive queries and the data that the queries are processing. In this section, we discuss some parameters that users can tune that improve the performance of Hive queries. Users need to add the parameter tuning queries before the queries of processing data. 
 
-1. **Java heap space**: For queries involving joining large datasets, or processing long records, a typical error is **running out of heap space**. This can be tuned by setting parameters `mapreduce.map.java.opts` and `mapreduce.task.io.sort.mb` to desired values. Here is an example:
+1. **Java heap space**: For queries involving joining large datasets, or processing long records, a typical error is **running out of heap space**. This can be tuned by setting parameters *mapreduce.map.java.opts* and *mapreduce.task.io.sort.mb* to desired values. Here is an example:
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -312,7 +312,7 @@ The default parameter settings of Hive cluster might not be suitable for the Hiv
 
 	Typically, the default value of *mapred.min.split.size* is 0, that of *mapred.max.split.size* is **Long.MAX** and that of *dfs.block.size* is 64MB. As we can see, given the data size, tuning these parameters by "setting" them allows us to tune the number of mappers used. 
 
-5. A few other more **advanced options** for optimizing Hive performance are mentioned below. These allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Please keep in mind that the `mapreduce.reduce.memory.mb` cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
+5. A few other more **advanced options** for optimizing Hive performance are mentioned below. These allow you to set the memory allocated to map and reduce tasks, and can be useful in tweaking performance. Please keep in mind that the *mapreduce.reduce.memory.mb* cannot be greater than the physical memory size of each worker node in the Hadoop cluster.
 
 		set mapreduce.map.memory.mb = 2048;
 		set mapreduce.reduce.memory.mb=6144;
