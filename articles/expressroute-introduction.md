@@ -1,6 +1,7 @@
 <properties 
    pageTitle="Introduction to ExpressRoute"
    description="This page provides an overview of the ExpressRoute service."
+   documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
