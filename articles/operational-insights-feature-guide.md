@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="03/30/2015" 
 	ms.author="banders"/>
 
 #Operational Insights feature guide#
@@ -34,8 +34,7 @@ With Operational Insights, you can transform machine data into operational intel
 | ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management intelligence pack to gather event and IIS logs for searches throughout Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Malware Assessment](operational-insights-antimalware.md) | You can use the Antimalware intelligence pack in Microsoft Azure Operational Insights to help you protect the servers in your infrastructure from malware. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Security and Audit](operational-insights-security-audit.md) | You can use the Security and Audit intelligence pack to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. |
-| ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory and SQL Assessment](operational-insights-assessment.md) |
-| You can use Assessment intelligence packs to assess the risk and health of your server environments on a regular interval. |
+| ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory and SQL Assessment](operational-insights-assessment.md) | You can use Assessment intelligence packs to assess the risk and health of your server environments on a regular interval. |
 | ![](./media/operational-insights-feature-guide/alert.png) | [Alert Management](operational-insights-alerts.md) | You can use the Alert Management intelligence pack to manage alerts from servers monitored by Operations Manager. |
 
 

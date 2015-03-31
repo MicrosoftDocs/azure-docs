@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="03/30/2015"
 	ms.author="larryfr"/>
 
 
@@ -35,7 +35,7 @@ In this document, learn how to use C# with Hive and Pig.
 
 	* Visual Studio 2015 Preview
 
-* Hadoop on HDInsight cluster. See <a href="../hdinsight-get-started" target="_blank">Get started with HDInsight</a> for steps to quickly create a cluster.
+* Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
 * Hadoop Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Get started using HDInsight Hadoop Tools for Visual Studio</a> for steps on installing and configuring the tools.
 
