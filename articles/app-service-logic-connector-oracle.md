@@ -49,7 +49,7 @@ To use the Oracle Connector, you need to create an instance of the Oracle Connec
 3. Provide the generic details such as Name, App service plan, and so on in the first blade
 4. As part of Package settings, provide
 
-    - the Oracle Data Source details. For more information about data source names and tnsnames.ora, see  [Configuring the Oracle Client ](https://msdn.microsoft.com/en-us/library/dd787872.aspx\ "Configuring the Oracle Client")
+    - the Oracle Data Source details. For more information about data source names and tnsnames.ora, see  [Configuring the Oracle Client ](https://msdn.microsoft.com/library/dd787872.aspx\ "Configuring the Oracle Client")
     - Oracle server Credentials
     - an Azure Service Bus connection string which will be used to establish hybrid connectivity with your on-premise SAP. 
 	- the tables that can be modified by the connector
