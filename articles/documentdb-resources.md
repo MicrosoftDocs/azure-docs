@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="04/08/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB resource model and concepts
@@ -27,7 +27,7 @@ By reading this article, you'll be able to answer the following questions:
 - What are system defined resources versus user defined resources?
 - How do I address a resource?
 - How do I work with collections?
-- How do I work with stored procedures, triggers and UDFs(User Defined Functions)?
+- How do I work with stored procedures, triggers and User Defined Functions(UDFs)?
 
 ##Hierarchical resource model
 As the following diagram illustrates, the DocumentDB **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
@@ -37,15 +37,15 @@ As the following diagram illustrates, the DocumentDB **resource model** consists
 ![][1]  
 **Hierarchical resource model under a database account**   
 
-To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**(preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in-turn contain **stored procedures, triggers, UDFs, documents** and related **attachments** (preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 |Resource 	|Description
 |-----------|-----------
-|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments(preview feature). You can create one or more database accounts using your Azure subscription. Every Standard database account is allocated a minimum capacity of one S1 collection. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+|Database account	|A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. Every Standard database account is allocated a minimum capacity of one S1 collection. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 |Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping/partitioning permissions. 
 |Permission	|An authorization token associated with a user for authorized access to a specific resource.
-|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is assigned a performance tier with provisioned document storage and throughput. The performance tiers (S1, S2 and S3) provide 10GB of storage and a fixed amount of throughput. For more information on performance tiers, visit our performance page.
+|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is assigned a performance tier with provisioned document storage and throughput. The performance tiers (S1, S2 and S3) provide 10GB of storage and a fixed amount of throughput. For more information on performance tiers, visit our [performance page](documentdb-performance-levels.md).
 |Stored Procedure	|Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine.
 |Trigger	|Application logic written in JavaScript modeling side effects associated with insert, replace or delete operations.
 |UDF	|A side effect free, application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language.
@@ -421,7 +421,9 @@ Being a truly open database service, DocumentDB does not invent any specialized 
  
 As with all other resources, documents can be created, replaced, deleted, read, enumerated and queried easily using either REST APIs or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
 
-##(Preview) Attachments and media
+##Attachments and media
+>[AZURE.NOTE] Attachment and media resources are preview features.
+ 
 DocumentDB allows you to store binary blobs/media either with DocumentDB or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in DocumentDB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (e.g. location, author etc.) of a media stored in a remote media storage. 
 
 Consider a social reading application which uses DocumentDB to store ink annotations, and metadata including comments, highlights, bookmarks, ratings, likes/dislikes etc. associated for an e-book of a given user.   
