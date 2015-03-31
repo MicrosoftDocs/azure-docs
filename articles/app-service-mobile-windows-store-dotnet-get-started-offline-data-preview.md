@@ -2,7 +2,7 @@
 	pageTitle="Using offline data with Azure Mobile App (Windows Store) | Mobile Dev Center"
 	description="Learn how to use an Azure Mobile App to cache and sync offline data in your Windows Store application"
 	documentationCenter="windows"
-	authors="wesmc7777,christopheranderson"
+	authors="christopheranderson"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -256,7 +256,7 @@ When we wanted to synchronize the local store with the server, we used the `IMob
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
 [Update the sync behavior of the app]: #update-sync
-[Update the app to reconnect your Mobile App backend]: #update-online-app
+[Update the app to reconnect your Mobile Apps backend]: #update-online-app
 [Next Steps]:#next-steps
 
 <!-- Images -->
