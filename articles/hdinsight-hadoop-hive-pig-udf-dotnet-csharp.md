@@ -19,13 +19,13 @@
 
 #Use C# with Hive and Pig in HDInsight
 
-Hive and Pig are great for working with data in HDInsight, but sometimes you need a more general purpose language. Both Hive and Pig allow you to call external code through User Defined Functions (UDF) or streaming.
+Hive and Pig are great for working with data in Azure HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to call external code through user-defined functions (UDFs) or streaming.
 
 In this document, learn how to use C# with Hive and Pig.
 
 ##Prerequisites
 
-* Windows 7, Windows 8, or Windows 8.1
+* Windows 7, Windows 8, or Windows 8.1.
 
 * Visual Studio with the following versions:
 
@@ -33,23 +33,23 @@ In this document, learn how to use C# with Hive and Pig.
 
 	* Visual Studio 2013 Community/Professional/Premium/Ultimate with <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">Update 4</a>
 
-	* Visual Studio 2015 Preview.
+	* Visual Studio 2015 Preview
 
 * Hadoop on HDInsight cluster - see [Provision an HDInsight cluster](hdinsight-provision-clusters.md) for steps to create a cluster
 
-* Hadoop Tools for Visual Studio - see <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Get started using HDInsight Hadoop Tools for Visual Studio</a> for steps on installing and configuring the tools
+* Hadoop Tools for Visual Studio. See <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Get started using HDInsight Hadoop Tools for Visual Studio</a> for steps on installing and configuring the tools.
 
 ##.NET on HDInsight
 
-The .NET Common Language Runtime (CLR) and frameworks are installed by default on Windows-based HDInsight clusters. This allows you to use C# applications with Hive and Pig streaming (data is passed between Hive/Pig and the C# application using STDOUT/STDIN).
+The .NET common language runtime (CLR) and frameworks are installed by default on Windows-based HDInsight clusters. This allows you to use C# applications with Hive and Pig streaming (data is passed between Hive/Pig and the C# application via stdout/stdin).
 
-Currently there is no support for running .NET applications on Linux-based HDInsight clusters.
+Currently there is no support for running .NET Framework applications on Linux-based HDInsight clusters.
 
 ##.NET and streaming
 
-Streaming involves Hive and Pig passing data to an external application over stdout, and receiving the results over stdin. For C# applications, this is most easily accomplished using `Console.ReadLine()` and `Console.WriteLine()`.
+Streaming involves Hive and Pig passing data to an external application over stdout, and receiving the results over stdin. For C# applications, this is most easily accomplished via `Console.ReadLine()` and `Console.WriteLine()`.
 
-Since Hive and Pig need to invoke the application at runtime, the **Console Application** template should be used for your C# projects.
+Since Hive and Pig need to invoke the application at run time, the **Console Application** template should be used for your C# projects.
 
 ##Hive and C&#35;
 
@@ -57,7 +57,7 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 1. Open Visual Studio and create a new solution. For the project type, select **Console Application**, and name the new project **HiveCSharp**.
 
-2. Replace the contents of **Program.cs** with the following.
+2. Replace the contents of **Program.cs** with the following:
 
 		using System;
 		using System.Security.Cryptography;
@@ -90,12 +90,12 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 		        /// <returns>an MD5 hash</returns>
 		        static string GetMD5Hash(string input)
 		        {
-		            // step 1, calculate MD5 hash from input
+		            // Step 1, calculate MD5 hash from input
 		            MD5 md5 = System.Security.Cryptography.MD5.Create();
 		            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
 		            byte[] hash = md5.ComputeHash(inputBytes);
 
-		            // step 2, convert byte array to hex string
+		            // Step 2, convert byte array to hex string
 		            StringBuilder sb = new StringBuilder();
 		            for (int i = 0; i < hash.Length; i++)
 		            {
@@ -114,21 +114,21 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 3. Expand **Azure**, and then expand **HDInsight**.
 
-4. If prompted, enter your azure subscription credentials, and then click **Sign In**.
+4. If prompted, enter your Azure subscription credentials, and then click **Sign In**.
 
-5. Expand the HDInsight cluster that you wish to deploy this application to, then expand the **Default Storage Account**.
+5. Expand the HDInsight cluster that you wish to deploy this application to, and then expand **Default Storage Account**.
 
 	![Server Explorer showing the storage account for the cluster](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
-6. Double-click the **Default Container** for the cluster. This will open a new window, which displays the contents of the default container.
+6. Double-click **Default Container** for the cluster. This will open a new window that displays the contents of the default container.
 
-7. Select the upload icon, then browse to the **bin\debug** folder for the **HiveCsharp** project. Finally, select the **HiveCSharp.exe** file and select **Ok**.
+7. Click the upload icon, and then browse to the **bin\debug** folder for the **HiveCSharp** project. Finally, select the **HiveCSharp.exe** file and click **Ok**.
 
 	![upload icon](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
 8. Once the upload has finished, you will be able to use the application from a Hive query.
 
-###Hive Query
+###Hive query
 
 1. In Visual Studio, open **Server Explorer**.
 
@@ -136,7 +136,7 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 5. Right-click the cluster that you deployed the **HiveCSharp** application to, and then select **Write a Hive Query**.
 
-6. Use the follow for the Hive query.
+6. Use the following for the Hive query:
 
 		add file wasb:///HiveCSharp.exe;
 
@@ -146,11 +146,11 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 		FROM hivesampletable
 		ORDER BY clientid LIMIT 50;
 
-    This selects the `clientid`, `devicemake`, and `devicemodel` fields from the `hivesampletable`, and passes the fields to the HiveCSharp.exe application. The query expects the application to return three fields, which are stored as `clientid`, `phoneLabel`, and `phoneHash`. The query also expects to find HiveCSharp.exe in the root of the default storage container (`add file wasb:///HiveCSharp.exe`).
+    This selects the `clientid`, `devicemake`, and `devicemodel` fields from `hivesampletable`, and passes the fields to the HiveCSharp.exe application. The query expects the application to return three fields, which are stored as `clientid`, `phoneLabel`, and `phoneHash`. The query also expects to find HiveCSharp.exe in the root of the default storage container (`add file wasb:///HiveCSharp.exe`).
 
 5. Click **Submit** to submit the job to the HDInsight cluster. The **Hive Job Summary** window will open.
 
-6. Select **Refresh** to refresh the summary until the **Job Status** changes to **Completed**. To view the job output, select **Job Output**.
+6. Click **Refresh** to refresh the summary until **Job Status** changes to **Completed**. To view the job output, click **Job Output**.
 
 ###Pig and C&#35;
 
@@ -158,7 +158,7 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 1. Open Visual Studio and create a new solution. For the project type, select **Console Application**, and name the new project **PigUDF**.
 
-2. Replace the contents of the **Program.cs** file with the following.
+2. Replace the contents of the **Program.cs** file with the following:
 
 		using System;
 
@@ -178,7 +178,7 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 		                    // Trim the error info off the beginning and add a note to the end of the line
 		                    line = line.Remove(0, 21) + " - java.lang.Exception";
 		                }
-		                // Split the fields appart at tab characters
+		                // Split the fields apart at tab characters
 		                string[] field = line.Split('\t');
 		                // Put fields back together for writing
 		                Console.WriteLine(String.Join("\t",field));
@@ -189,26 +189,26 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 	This application will parse the lines sent from Pig, and reformat lines that begin with `java.lang.Exception`.
 
-3. Save **Program.cs** and then build the project.
+3. Save **Program.cs**, and then build the project.
 
 ###Upload the application
 
-1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
+1. Pig streaming expects the application to be local on the cluster file system. Enable Remote Desktop for the HDInsight cluster, and then connect to it by following the instructions at <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.
 
-2. Once connected, copy the **PigUDF.exe** from the **bin/debug** directory for the PigUDF project on your local machine, and paste it to the **%PIG_HOME%** directory on the cluster.
+2. Once connected, copy **PigUDF.exe** from the **bin/debug** directory for the PigUDF project on your local machine, and paste it to the **%PIG_HOME%** directory on the cluster.
 
 ###Use the application from Pig Latin
 
-1. From the Remote Desktop session, start the **Hadoop Command Line** using the icon on the desktop.
+1. From the Remote Desktop session, start the Hadoop command line by using the **Hadoop Command Line** icon on the desktop.
 
-2. Use the following to start the Pig command-line.
+2. Use the following to start the Pig command line:
 
 		cd %PIG_HOME%
 		bin\pig
 
 	You will be presented with a `grunt>` prompt.
 
-3. Enter the following to run a simple Pig job using the .NET application.
+3. Enter the following to run a simple Pig job by using the .NET Framework application:
 
 		DEFINE streamer `pigudf.exe` SHIP('pigudf.exe');
 		LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
@@ -220,7 +220,7 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 > [AZURE.NOTE] The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
 
-3. After entering the last line,the job should start. Eventually it will return output similar to the following.
+3. After entering the last line, the job should start. Eventually it will return output similar to the following:
 
 		(2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
 		(2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
@@ -230,9 +230,9 @@ Since Hive and Pig need to invoke the application at runtime, the **Console Appl
 
 ##Summary
 
-In this document, you have learned how to use a .NET application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](hdinsight-python.md)
+In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Hive and Pig in HDInsight](hdinsight-python.md).
 
-For other ways to use Pig, Hive, and to learn about using MapReduce, see the following.
+For other ways to use Pig and Hive, and to learn about using MapReduce, see the following:
 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 
