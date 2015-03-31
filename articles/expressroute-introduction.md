@@ -1,4 +1,4 @@
-<tags 
+<properties 
    pageTitle="Introduction to ExpressRoute"
    description="This page provides an overview of the ExpressRoute service."
    services="expressroute"
@@ -18,7 +18,7 @@ Microsoft Azure ExpressRoute lets you create private connections between Azure d
 
 ExpressRoute connections offer higher security, more reliability, faster speeds and lower latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between your on-premises network and Azure can also yield significant cost benefits. If you already have created a cross-premises connection from your on-premises network to Azure, you can migrate to an ExpressRoute connection while keeping your virtual network intact.
 
-See the [ExpressRoute FAQ](expressroute-faq.md) for more details.
+See the [ExpressRoute FAQ](https://msdn.microsoft.com/library/azure/dn606292.aspx) for more details.
 
 
 
