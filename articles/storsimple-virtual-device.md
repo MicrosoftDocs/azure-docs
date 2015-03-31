@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/30/2015"
+   ms.date="03/31/2015"
    ms.author="alkohli" />
 
 # StorSimple Virtual Device
@@ -39,7 +39,7 @@ The StorSimple virtual device is an additional capability that comes with your M
 
 ## How the virtual device differs from the physical device
 
-The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in test and small pilot scenarios.
+The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use cloud dev and test scenarios.
 
 ### Differences from the physical device
 
@@ -56,11 +56,10 @@ Keep the following security considerations in mind when you use the StorSimple v
 
 - The virtual device is secured through your Microsoft Azure subscription. This means that if you are using the virtual device and your Azure subscription is compromised, the data stored on your virtual device is also susceptible.
 
-- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure. Although they are protected, there is more of an associated risk in using the virtual device.
+- The public key of the certificate used to encrypt data stored in Azure StorSimple is securely made available to the Microsoft Azure management portal, and the private key is retained with the StorSimple device. On the StorSimple virtual device, both the public and private keys are stored in Azure. 
 
-- Because Microsoft administers the Azure environment, Microsoft does have the ability to access data stored in the virtual device since both the public and private keys are available in the subscription.
+- The virtual device is hosted in the Microsoft Azure datacenter.
 
-To minimize the attack surface of the virtual device, we recommend that it be used for disaster recovery situations and other short-term uses such as testing and piloting the service. After you have finished using the virtual device, you should delete it and then change the service data encryption keys on your physical device.
 
 ## Prerequisites for the virtual device
 
@@ -225,7 +224,7 @@ Now that you have created and configured the StorSimple virtual device, you are 
 
 The following sections discuss some of the differences you will encounter when working with the virtual device.
 
-## Maintain a StorSimple virtual device
+### Maintain a StorSimple virtual device
 
 Because it is a software-only device, maintenance for the virtual device is minimal when compared to maintenance for the physical device. You have the following options:
 
@@ -237,7 +236,7 @@ Because it is a software-only device, maintenance for the virtual device is mini
 
 Storage accounts are created for use by the StorSimple Manager service, by the virtual device, and by the physical device. When you create your storage accounts, we recommend that you use a region identifier in the friendly name to help ensure that the region is consistent throughout all of the system components. For a virtual device, it is important that all of the components be in the same region to prevent performance issues.
 
-## Deactivate a StorSimple virtual device
+### Deactivate a StorSimple virtual device
 
 Deactivating a virtual device deletes the VM and the resources created when it was provisioned. After the virtual device is deactivated, it cannot be restored to its previous state. Before you deactivate the virtual device, make sure to stop or delete clients and hosts that depend on it.
 
@@ -253,7 +252,7 @@ Deactivating a virtual device results in the following actions:
 
 As soon as the device is shown as deactivated on the StorSimple Manager service page, you can delete the virtual device from the StorSimple Manager service device list.
 
-## Remotely access a StorSimple virtual device
+### Remotely access a StorSimple virtual device
 
 After you have enabled it on the StorSimple device configuration page, you can use Windows PowerShell remoting to connect to the virtual device from another virtual machine inside the same virtual network; for example, you can connect from the host VM that you configured and used to connect iSCSI. In most deployments, you will have already opened a public endpoint to access your host VM that you can use for accessing the virtual device.
 
@@ -263,7 +262,7 @@ You should follow the procedures in [Connecting remotely using Windows PowerShel
 
 However, if you want to connect directly to the virtual device from another computer outside the virtual network or outside the Microsoft Azure environment, you need to create additional endpoints as described in the following procedure.
 
-### To create a public endpoint on the virtual device
+Perform the following steps to create a public endpoint on the virtual device.
 
 - Sign in to the Management Portal.
 
