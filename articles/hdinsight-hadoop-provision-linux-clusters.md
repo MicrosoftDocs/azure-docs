@@ -50,7 +50,7 @@ HDInsight provides the option of provisioning Linux clusters on Azure. Provision
 
 During configuration, you must specify an Azure Blob Storage account, and a default container. This is used as the default storage location by the cluster. Optionally, you can specify additional blobs that will also be associated with your cluster.
 
-For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-use-blob-storage/).
+For more information on using secondary blob stores, see [Using Azure Blob Storage with HDInsight](../hdinsight-use-blob-storage/).
 
 ### Metastore
 
@@ -366,7 +366,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 		#Run this command to create a cluster using the config file
 		azure hdinsight cluster create --config <file>
 
-	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
 
 	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]
@@ -516,7 +516,8 @@ The two most important parameters that you must set to provision Linux clusters 
 		# Create the cluster
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
-	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **
+	>Windows Azure Services**, click **Yes**, and then click **Save**.
 
 	It can take several minutes before the cluster provisioning finishes.
 
