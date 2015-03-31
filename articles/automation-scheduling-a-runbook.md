@@ -15,11 +15,11 @@
    ms.date="03/30/2015"
    ms.author="bwren" />
 
-# Scheduling a Runbook in Azure Automation
+# Scheduling a runbook in Azure Automation
 
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run one time or recurring every specified number of hours or days. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
-## <a name="CreateSchedule"></a>Creating a schedule
+## Creating a schedule
 
 You can either create a new schedule with the Azure Management Portal or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure Management Portal.
 
@@ -35,7 +35,7 @@ You can either create a new schedule with the Azure Management Portal or with Wi
 
 ### To create a new schedule with Windows PowerShell
 
-You can use the [New-AzureAutomationSchedule](http://aka.ms/runbookauthor/newazureschedule) cmdlet to create a new schedule in Azure Automation. You must specify the start time for the schedule and whether it should run one time, hourly, or daily.
+You can use the [New-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690271.aspx) cmdlet to create a new schedule in Azure Automation. You must specify the start time for the schedule and whether it should run one time, hourly, or daily.
 
 The following sample commands show how to create a new schedule that runs each day at 3:30 PM starting on January 20, 2015.
 
@@ -43,7 +43,7 @@ The following sample commands show how to create a new schedule that runs each d
 	$scheduleName = "Sample-DailySchedule"
 	New-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –StartTime "1/20/2015 15:30:00" –DayInterval 1
 
-## <a name="LinkSchedule"></a>Linking a schedule to a runbook
+## Linking a schedule to a runbook
 
 A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, then you can provide values for them. You must provide values for any mandatory parameters and may provide values for any optional parameters.  These values will be used each time the runbook is started by this schedule.  You can attach the same runbook to another schedule and specify different parameter values.
 
@@ -58,7 +58,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 
 ### To link a schedule to a runbook with Windows PowerShell
 
-You can use the [Register-AzureAutomationScheduledRunbook](http://aka.ms/runbookauthor/registerazurescheduledrunbook) to link a schedule to a runbook. You can specify values for the runbook’s parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](../automation-starting-a-runbook) for more information on specifying parameter values.
+You can use the [Register-AzureAutomationScheduledRunbook](http://msdn.microsoft.com/library/azure/dn690265.aspx) to link a schedule to a runbook. You can specify values for the runbook’s parameters with the Parameters parameter. See [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) for more information on specifying parameter values.
 
 The following sample commands show how to link a schedule to a runbook with parameters.
 
@@ -68,7 +68,7 @@ The following sample commands show how to link a schedule to a runbook with para
 	$params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 	Register-AzureAutomationScheduledRunbook –AutomationAccountName $automationAccountName –Name $runbookName –ScheduleName $scheduleName –Parameters $params
 
-## <a name="DisableSchedule"></a>Disabling a schedule
+## Disabling a schedule
 
 When you disable a schedule, any runbooks linked to it will no longer run on that schedule. You can manually disable a schedule or set an expiration time for Hourly and Daily schedules when you create them. When the expiration time is reached, the schedule will be disabled.
 
@@ -83,7 +83,7 @@ You can disable a schedule in the Azure Management Portal from the Schedule Deta
 
 ### To disable a schedule with Windows PowerShell
 
-You can use the [Set-AzureAutomationSchedule](http://aka.ms/runbookauthor/setazureschedule) cmdlet to change the properties of an existing schedule. To disable the schedule, specify **false** for the **IsEnabled** parameter.
+You can use the [Set-AzureAutomationSchedule](http://msdn.microsoft.com/library/azure/dn690270.aspx) cmdlet to change the properties of an existing schedule. To disable the schedule, specify **false** for the **IsEnabled** parameter.
 
 The following sample commands show how to disable a schedule.
 
@@ -91,7 +91,7 @@ The following sample commands show how to disable a schedule.
 	$scheduleName = "Sample-DailySchedule"
 	Set-AzureAutomationSchedule –AutomationAccountName $automationAccountName –Name $scheduleName –IsEnabled $false
 
-## <a name="RelatedTopics"></a>Related topics
+## Related articles
 
-- [Schedule Assets in Azure Automation](https://msdn.microsoft.com/library/dn940016.aspx)
-- [Starting a Runbook in Azure Automation](../automation-starting-a-runbook)
+- [Schedule Assets in Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
+- [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
