@@ -1,9 +1,9 @@
 <properties 
    pageTitle="HDInsight Connector" 
    description="How to use the HDInsight Connector" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="dwrede" 
+   authors="davidwrede" 
    manager="dwrede" 
    editor=""/>
 
