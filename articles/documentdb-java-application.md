@@ -210,9 +210,9 @@ To do this, you will need to convert your project to a maven project by completi
 		                    DocumentCollection collectionDefinition = new DocumentCollection();
 		                    collectionDefinition.setId(COLLECTION_ID);
 
-		                    // Configure the new collection performance tier to S2.
+		                    // Configure the new collection performance tier to S1.
 		                    RequestOptions requestOptions = new RequestOptions();
-		                    requestOptions.setOfferType("S2");
+		                    requestOptions.setOfferType("S1");
 		
 		                    collectionCache = documentClient.createCollection(
 		                            getTodoDatabase().getSelfLink(),
