@@ -13,10 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="03/31/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
+
+## Notes for 3/31/2015 release of Data Factory
+- Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download].
+- Copying from **on-premises file system to Azure blob** is supported now. See the following topics for more information.
+	-  [On-premises File System Linked Service](https://msdn.microsoft.com/library/dn930836.aspx)
+	-  [OnPremisesFileSystemLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **FileSystemSource** properties. 
+-  Copying from **on-premises Oracle database to Azure blob** is supported now. See the following topics for more informaiton. 
+	-  [On-premises Oracle Linked Service](https://msdn.microsoft.com/library/dn948537.aspx)
+	-  [OnPremisesOracleTableLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
+	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **OracleSource** properties.
+-  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
+- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink][adf-copy-advanced] for details.   
+
+See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) for additional information including examples.  
 
 ## Notes for 2/27/2015 release of Data Factory
 
@@ -71,6 +86,7 @@
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
+[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
