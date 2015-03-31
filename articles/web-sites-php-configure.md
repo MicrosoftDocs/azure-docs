@@ -82,7 +82,7 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 ### Changing PHP_INI_SYSTEM configuration settings
 
 1. Add an App Setting to your Web App with the key `PHP_INI_SCAN_DIR` and value `d:\home\site\ini`
-2. Create an `settings.ini` file using Kudu Console (http://<site-name>.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
+2. Create an `settings.ini` file using Kudu Console (http://&lt;site-name&gt;.scm.azurewebsite.net) in the `d:\home\site\ini` directory.
 3. Add configuration settings to the `settings.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to point the `curl.cainfo` setting to a `*.crt` file and set 'wincache.maxfilesize' setting to 512K, your `settings.ini` file would contain this text:
 
 		; Example Settings
@@ -90,25 +90,15 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 		wincache.maxfilesize=512
 
 ## How to: Enable extensions in the default PHP runtime
-As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below.
+As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below:
 
-1. Add a `bin` directory to the root directory.
-2. Put `.dll` extension files in the `bin` directory (for example, `php_mongo.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
-3. Deploy your web app.
-4. Browse to your web app in the Azure Portal and click on the **Settings** button.
-
-	![Web App Settings][settings-button]
-
-5. From the **Settings** blade select **Application Settings** and scroll to the **App settings** section.
-6. In the **App settings** section, create a **PHP_EXTENSIONS** key. The value for this key would be a path relative to website root: **bin\your-ext-file**.
-
-	![Enable extension in app settings][php-extensions]
-
-7. Click the **Save** button at the top of the **Web app settings** blade.
-
-	![Save configuration settings][save-button]
-
-Zend extensions are also supported by using a **PHP_ZENDEXTENSIONS** key. To enable multiple extensions, include a comma-separated list of `.dll` files for the app setting value.
+1. Add a `ext` directory to the `d:\home\site` directory.
+2. Put `.dll` extension files in the `ext` directory (for example, `php_mongo.dll` and `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
+3. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
+4. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
+		; Enable Extensions
+		extension=d:\home\site\ext\php_mongo.dll
+		zend_extension=d:\home\site\ext\php_xdebug.dll
 
 ## How to: Use a custom PHP runtime
 Instead of the default PHP runtime, App Service Web Apps can use a PHP runtime that you provide to execute PHP scripts. The runtime that you provide can be configured by a `php.ini` file that you also provide. To use a custom PHP runtime with Web Apps, follow the steps below.
