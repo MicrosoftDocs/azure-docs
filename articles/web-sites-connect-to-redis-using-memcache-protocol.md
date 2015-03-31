@@ -1,26 +1,26 @@
 <properties 
-   pageTitle="web-sites-connect-to-redis-using-memcache-protocol" 
-   description="Connect a Web Application to Redis Cache using the Memcached Protocol" 
-   services="websites" 
+   pageTitle="Connect a web app in Azure App Service to Redis Cache via the Memcache Protocol" 
+   description="Connect a web app in Azure App service to Redis Cache using the Memcached Protocol" 
+   services="app-service\web" 
    documentationCenter="php" 
    authors="syntaxc4" 
-   manager="yochayk" 
+   manager="wpickett" 
    editor="riande"/>
    
 <tags
-   ms.service="websites"
+   ms.service="app-service-web"
    ms.devlang="php"
    ms.topic="article"
    ms.tgt_pltfrm="windows"
-   ms.workload="websites" 
-   ms.date="03/19/2015"
+   ms.workload="web" 
+   ms.date="03/31/2015"
    ms.author="cfowler"/>
 
-# Connect a web application to Redis Cache via the Memcache Protocol
+# Connect a web app in Azure App Service to Redis Cache via the Memcache Protocol
 
-Azure App Service Web App is an open platform which provides support for a variety of programming languages including Open Source programming languages such as PHP, Python and Node.js. When building high scale applications, especially those which are distributed amongst multiple servers, a common practice is to introduce a centralized in-memory caching mechanism to offset time intensive calls to external dependencies such as third-party services or the data tier of an application. In many new scenarios [Redis][12], a popular open source data structure server, facilitates the role of an in-memory cache for the application. The Azure Redis Cache Service is the suggested first-party caching mechanism within Microsoft Azure. In many applications and application frameworks, the role of an in-memory cache is facilitated by [memcache][13], another popular scalable caching system.
+Azure App Service Web Apps is an open platform which provides support for a variety of programming languages including Open Source programming languages such as PHP, Python and Node.js. When building high scale applications, especially those which are distributed amongst multiple servers, a common practice is to introduce a centralized in-memory caching mechanism to offset time intensive calls to external dependencies such as third-party services or the data tier of an application. In many new scenarios [Redis][12], a popular open source data structure server, facilitates the role of an in-memory cache for the application. The Azure Redis Cache Service is the suggested first-party caching mechanism within Microsoft Azure. In many applications and application frameworks, the role of an in-memory cache is facilitated by [memcache][13], another popular scalable caching system.
 
-In order to service the needs of most applications, especially those which use open source languages, Web App now exposes a local memcache endpoint which proxies caching calls into the Azure Redis Cache Service. This enables any application which communicates using the memcached protocol to cache data into a centralized caching mechanism thus alleviating the application from expensive transactions. This post will outline how to configure and validate the Web App memcache shim as a centralized in-memory cache for a WordPress site. It is important to note, that this memcache shim works at the protocol level, so it isn’t specific to any particular application or application framework as long as it communicates using the memcached protocol.
+In order to service the needs of most applications, especially those which use open source languages, Web Apps now exposes a local memcache endpoint which proxies caching calls into the Azure Redis Cache Service. This enables any application which communicates using the memcached protocol to cache data into a centralized caching mechanism thus alleviating the application from expensive transactions. This post will outline how to configure and validate the Web Apps memcache shim as a centralized in-memory cache for a WordPress site. It is important to note, that this memcache shim works at the protocol level, so it isn’t specific to any particular application or application framework as long as it communicates using the memcached protocol.
 
 
 ## Prerequisites
@@ -32,11 +32,11 @@ Follow the steps outlined in these posts:
 * [Deploy a Scalable WordPress site in Azure][0]
 * [Provision an instance of the Azure Redis Cache Service][1]
 
-Once you have the Scalable WordPress site deployed and a Redis Cache instance provisioned you will be ready to proceed with enabling the memcache shim in Azure App Services Web App.
+Once you have the Scalable WordPress site deployed and a Redis Cache instance provisioned you will be ready to proceed with enabling the memcache shim in Azure App Service Web Apps.
 
 ## Enable the Azure App Service Web App memcache shim
 
-In order to configure the Web App shim, you must create three App Settings. This can be done using a variety of methods including the [Full Featured Portal][2], the [Preview Portal][3], the [Azure PowerShell Cmdlets][4] or the [Azure Cross Platform Command-Line tools][5]. For the purposes of this post, I’m going to use the Preview Portal to set the application settings. The following values can be retrieved from the Redis Cache Service Settings blade.
+In order to configure the Web Apps shim, you must create three App Settings. This can be done using a variety of methods including the [Full Featured Portal][2], the [Preview Portal][3], the [Azure PowerShell Cmdlets][4] or the [Azure Cross Platform Command-Line tools][5]. For the purposes of this post, I’m going to use the Preview Portal to set the application settings. The following values can be retrieved from the Redis Cache Service Settings blade.
 
 ![Azure Redis Cache Settings Blade](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -62,7 +62,7 @@ Set the key of the app setting to **REDIS\_KEY** and the value of the app settin
 
 ### Add MEMCACHESHIM_REDIS_ENABLE App Setting
 
-The last app setting is used to enable the Memcache Shim in Web App which will use the REDIS_HOST and REDIS_KEY to connect and proxy cache calls to the Azure Redis Cache Service. Set the key of the app setting to **MEMCACHESHIM\_REDIS\_ENABLE** and the value to **true**.
+The last app setting is used to enable the Memcache Shim in Web Apps which will use the REDIS_HOST and REDIS_KEY to connect and proxy cache calls to the Azure Redis Cache Service. Set the key of the app setting to **MEMCACHESHIM\_REDIS\_ENABLE** and the value to **true**.
 
 ![Web App AppSetting MEMCACHESHIM_REDIS_ENABLE](./media/web-sites-connect-to-redis-using-memcache-protocol/6-azure-website-appsettings-enable-shim.png)
 
@@ -78,13 +78,13 @@ Browse to [PECL][6], under the caching category, click on [memcache][7]. Under t
 
 ![PHP PECL Website](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
-Download the Non-Thread Safe (NTS) x86 link for the version of PHP enabled in Web App. (Default is PHP 5.4)
+Download the Non-Thread Safe (NTS) x86 link for the version of PHP enabled in Web Apps. (Default is PHP 5.4)
 
 ![PHP PECL Website Memcache Package](./media/web-sites-connect-to-redis-using-memcache-protocol/8-php-pecl-memcache-package.png)
 
 ### Enable the php_memcache extension
 
-After downloading the file, unzip and upload the **php\_memcache.dll** into the **d:\\home\\site\\wwwroot\\bin\\ext\\** directory. After the php_memcache.dll has been uploaded into the Web App, the extension needs to be enabled to the PHP Runtime. To enable the memcache extension, open the Application Settings blade for the Web App, then add a new App Setting with the key of **PHP\_EXTENSIONS** and the value **bin\\ext\\php_memcache.dll**.
+After downloading the file, unzip and upload the **php\_memcache.dll** into the **d:\\home\\site\\wwwroot\\bin\\ext\\** directory. After the php_memcache.dll has been uploaded into the web app, the extension needs to be enabled to the PHP Runtime. To enable the memcache extension, open the Application Settings blade for the web app, then add a new App Setting with the key of **PHP\_EXTENSIONS** and the value **bin\\ext\\php_memcache.dll**.
 
 
 > If the site requires multiple PHP extensions to be loaded the value of PHP_EXTENSIONS should be a comma delimited list of relative paths to dll files.
@@ -109,7 +109,7 @@ Find **Memcached Object Cache** in the list, then click on the **Install Now** b
 
 ### Enable the memcache WordPress Plugin
 
-> Follow the instructions in this blog on [How to enable a Site Extension in Web App][6] to install the Visual Studio Online “Monaco”.
+> Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][6] to install the Visual Studio Online “Monaco”.
 
 
 ```php
@@ -128,7 +128,7 @@ Now that the **object-cache.php** file is in the **wp-content** folder,  the Mem
 
 ## Verifying the Memcache Object Cache Plugin is Functioning
 
-All of the steps to enable the Web App Memcache shim are now complete, but there is still one additional important step, verify that the data is populating the Redis Cache Service.
+All of the steps to enable the Web Apps Memcache shim are now complete, but there is still one additional important step, verify that the data is populating the Redis Cache Service.
 
 ### Enable the Non-SSL Port Support in Azure Redis Cache Service
 
@@ -168,7 +168,7 @@ The call to list the keys should return a value, if a list of results isn’t re
 
 ## Conclusion
 
-Congratulations the application now has a centralized in-memory cache to aid in increasing throughput. Remember, the Web App Memcache Shim can be used with any memcache client regardless of programming language or application framework. To provide feedback or to ask questions about the Web App memcache shim post to the [MSDN Forums][10] or [Stackoverflow][11].
+Congratulations the application now has a centralized in-memory cache to aid in increasing throughput. Remember, the Web Apps Memcache Shim can be used with any memcache client regardless of programming language or application framework. To provide feedback or to ask questions about the Web Apps memcache shim post to the [MSDN Forums][10] or [Stackoverflow][11].
 
 [0]: http://bit.ly/1F0m3tw
 [1]: http://bit.ly/1t0KxBQ
