@@ -26,11 +26,11 @@ The samples in this section show the basics of connecting to an Azure Redis Cach
 
 The [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample shows how to read and write items from a cache using the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) .NET client.
 
-[How to use Azure Redis Cache with Node.js](../cache-nodejs-get-started/) shows you how to get started with Azure Redis Cache using Node.js and the [node_redis](https://github.com/mranney/node_redis) client.
+[How to use Azure Redis Cache with Node.js](cache-nodejs-get-started.md) shows you how to get started with Azure Redis Cache using Node.js and the [node_redis](https://github.com/mranney/node_redis) client.
 
-[How to use Azure Redis Cache with Java](../cache-java-get-started/) shows you how to get started with Azure Redis Cache using Java and the [Jedis](https://github.com/xetorthio/jedis) client.
+[How to use Azure Redis Cache with Java](cache-java-get-started.md) shows you how to get started with Azure Redis Cache using Java and the [Jedis](https://github.com/xetorthio/jedis) client.
 
-[How to use Azure Redis Cache with Python](../cache-python-get-started/) shows how to get started with Azure Redis Cache using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
+[How to use Azure Redis Cache with Python](cache-python-get-started.md) shows how to get started with Azure Redis Cache using Python and the [redis-py](https://github.com/andymccurdy/redis-py) client.
 
 The [PHP example](https://msdn.microsoft.com/library/azure/dn690470.aspx#PHPExample) shows you how to get started using Azure Redis Cache with PHP and the [predis](https://github.com/nrk/predis) client.
 

@@ -95,7 +95,7 @@ You may now treat this part as any other metric part, customizing the metrics an
 
  
 ## <a id="next"></a>Next steps
-To learn more about DocumentDB capacity and performance, see [Manage DocumentDB capacity and performance](../documentdb-manage/). 
+To learn more about DocumentDB capacity and performance, see [Manage DocumentDB capacity and performance](documentdb-manage.md). 
 
 <!--Anchors-->
 [How to view performance metrics for a DocumentDB account]: #How-to-view-performance-metrics-for-a-DocumentDB-account

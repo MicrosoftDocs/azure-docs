@@ -176,14 +176,14 @@ Article | Description
 [Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
-[adf-introduction]: ../data-factory-introduction
-[adf-getstarted]: ../data-factory-get-started
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[troubleshoot]: ../data-factory-troubleshoot
-[data-factory-introduction]: ../data-factory-introduction  
+[adf-introduction]: data-factory-introduction.md
+[adf-getstarted]: data-factory-get-started.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[data-factory-introduction]: data-factory-introduction.md  
 [developer-reference]: http://go.microsoft.com/fwlink/p/?LinkId=516908
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/

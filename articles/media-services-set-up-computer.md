@@ -20,7 +20,7 @@
 
 ##<a id="create_account"></a>Create a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/). 
+Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md). 
 
 
 ##<a id="setup_dev_env"></a>Set up development environment  

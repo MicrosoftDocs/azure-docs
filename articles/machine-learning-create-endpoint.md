@@ -36,7 +36,7 @@ This allows Azure Machine Learning users to create web services that they can th
 
 
 - Click on the Add endpoint button at the bottom. Fill in a name and description, ensure there are no other endpoints with the same name in this web service. Leave the throttle level with its’ default value unless you have special requirements.
-If you want to learn more about throttling, visit the [Scaling API Endpoints](./machine-learning-scaling-endpoints.md) page.
+If you want to learn more about throttling, visit the [Scaling API Endpoints](machine-learning-scaling-endpoints.md) page.
 ![Create endpoint](./media/machine-learning-create-endpoint/figure-4.png)
 
 

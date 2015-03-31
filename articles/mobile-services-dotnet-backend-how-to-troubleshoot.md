@@ -135,7 +135,7 @@ This problem is easy to correct: simply revert to a supported version of the req
 
 When using the Mobile Services .NET backend with a SQL Database, Entity Framework (EF) is used as the data access technology that enables you to query the database and persist objects into it. One important aspect that EF handles on behalf of the developer is how the database columns (also known as *schema*) change as the model classes specified in code change. This process is known as [Code First Migrations](http://msdn.microsoft.com/data/jj591621).
 
-Migrations can be complex and require that the database state be kept in sync with the EF model in order to succeed. For instructions on how to handle migrations with you mobile service and errors that can arise, see [How to make data model changes to a .NET backend mobile service](/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
+Migrations can be complex and require that the database state be kept in sync with the EF model in order to succeed. For instructions on how to handle migrations with you mobile service and errors that can arise, see [How to make data model changes to a .NET backend mobile service](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md).
 
 <!-- IMAGES -->
 
