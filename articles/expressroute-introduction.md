@@ -2,6 +2,7 @@
    pageTitle="Introduction to ExpressRoute"
    description="This page provides an overview of the ExpressRoute service."
    services="expressroute"
+   documentationCenter="expressroute"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
