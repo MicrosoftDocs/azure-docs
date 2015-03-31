@@ -3,7 +3,7 @@
    description="How to use the HDInsight Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
+   authors="dwrede" 
    manager="dwrede" 
    editor=""/>
 
