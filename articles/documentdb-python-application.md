@@ -3,7 +3,7 @@
     description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure." 
     services="documentdb" 
     documentationCenter="python" 
-    authors="crwilcox" 
+    authors="ryancraw" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="python" 
     ms.topic="article" 
-    ms.date="03/23/2015" 
-    ms.author="crwilcox"/>
+    ms.date="04/08/2015" 
+    ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
 ------------------------------------------------------------------------
@@ -99,7 +99,7 @@ we will need for our project, including pydocumentdb, the python package for Doc
     	pytz==2013b
     	flask-babel==0.8
     	flup
-    	pydocumentdb>=0.9.4-preview
+    	pydocumentdb>=1.0.0
 
 2. Right-click on **env** and click **install from requirements.txt**.
 
@@ -124,7 +124,7 @@ and start your web browser. You should see the following page.
 
 ### Create Database, Collection and Document definitions
 
-Now let's create our polling application.
+Now let's create our voting application.
 
 - Add a Python file by right-clicking on on the folder named **tutorial** in the Solution Explorer.  Name the file **forms.py**.  
 
@@ -140,7 +140,7 @@ Now let's create our polling application.
 ### Add the required imports to views.py
 
 - Add the following import statements at the top in **views.py**. These
-will import DocumentDB's PythonSDK and Flask packages.
+will import DocumentDB's PythonSDK and the Flask packages.
 
     	from forms import VoteForm
     	import config
@@ -168,7 +168,7 @@ database used by the form. Do not delete any of the existing code in
        		# Create database
         	db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
         	# Create collection
-        	collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
+        	collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
         	# Create document
         	document = client.CreateDocument(collection['_self'],
             	{ 'id': config.DOCUMENTDB_DOCUMENT,
@@ -183,6 +183,8 @@ database used by the form. Do not delete any of the existing code in
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
+> [AZURE.TIP] The CreateCollection method takes an optional RequestOptionsas the 3rd parameter. This can be used to specify the Offer Type for the Collection. If no offerType value is supplied then the Collection will be created using the default Offer Type. For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md)
+> 
 ### Read Database, Collection, Document, and submit form
 
 - Add the following code to **views.py**. This takes care of setting up
