@@ -96,6 +96,7 @@ As noted in the previous section, the best way to see the default PHP version, i
 2. Put `.dll` extension files in the `ext` directory (for example, `php_mongo.dll` and `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP (which is, as of this writing, PHP 5.4) and are VC9 and non-thread-safe (nts) compatible.
 3. Create an `ini` file in `d:\home\site\ini` called `extensions.ini`.
 4. Add configuration settings to the `extensions.ini` file using the same syntax you would use in a php.ini file. For example, if you wanted to enable the MongoDB and XDebug extensions, your `extensions.ini` file would contain this text:
+
 		; Enable Extensions
 		extension=d:\home\site\ext\php_mongo.dll
 		zend_extension=d:\home\site\ext\php_xdebug.dll
