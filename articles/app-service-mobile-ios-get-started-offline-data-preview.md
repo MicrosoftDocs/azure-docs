@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Enable offline sync for your Mobile App (iOS)"
-	description="Learn how to use App Service Mobile App to cache and sync offline data in your iOS application"
+	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your iOS application"
 	documentationCenter="ios"
 	authors="lindydonna"
 	manager="dwrede"
@@ -38,7 +38,7 @@ In the [Mobile Apps sample repository on GitHub], clone the repo and open the pr
 ### Beta SDK
 To add offline support to an existing app, get the latest [beta iOS SDK](http://aka.ms/gc6fex).
 
-## <a name="review-sync"></a>Review the Mobile App sync code
+## <a name="review-sync"></a>Review the Mobile Apps sync code
 
 Mobile App offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
 
@@ -54,7 +54,7 @@ This section walks through the offline sync-related code in the sample.
 
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
 
-    This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile App SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol.
+    This creates a local store using the interface `MSCoreDataStore`, which is provided in the Mobile Apps SDK. You can instead a provide a different local store by implementing the `MSSyncContextDataSource` protocol.
 
     The first parameter of `initWithDelegate` is used to specify a conflict handler. Since we have passed `nil`, we will get the default conflict handler, which fails on any conflict.
 
