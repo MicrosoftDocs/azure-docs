@@ -83,7 +83,7 @@ If you build in release configuration, events are stored in the device and sent 
 
 [Capture diagnostic logs][trace]
 
-[Troubleshooting][qna]
+[Troubleshooting](app-insights-windows-troubleshoot.md)
 
 
 

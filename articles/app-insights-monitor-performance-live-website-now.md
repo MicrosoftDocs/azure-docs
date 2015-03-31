@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="03/30/2015" 
 	ms.author="awills"/>
  
 
@@ -24,11 +24,12 @@ Got an ASP.NET web application that's misbehaving? Diagnose exceptions and perfo
 
 Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download the latest Application Insights SDK and apply it to your application. 
 
-Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts by turning on code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so windows performance counters can be collected by Application Insights SDK.
+Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts, by turning on the code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so that windows performance counters can be collected by the Application Insights SDK.
 
-Beside enabling of monitoring Status Monitor helps troubleshoot issues with Application Insights SDK and shows you status of monitoring of all web applications running on computer. 
+Beside enabling monitoring, Status Monitor helps troubleshoot issues with Application Insights SDK and shows you the status of monitoring of all web applications running on the computer. 
 
-You need admin access to the server, and a [Microsoft Azure](http://azure.com) account. 
+
+*Are you using an [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/) or [Azure Web App](websites-learning-map.md)? Just [add the monitor from the control panel](insights-perf-analytics.md).*
 
 
 ## Install Application Insights Status Monitor on your web server
