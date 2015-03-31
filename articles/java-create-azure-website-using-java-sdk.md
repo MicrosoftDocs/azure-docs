@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="03/30/2015" 
 	ms.author="v-donntr"/>
 
 
@@ -24,7 +24,9 @@ This walkthrough shows you how to create an Azure SDK for Java application that 
 - Part 1 demonstrates how to build a Java application that creates a website on Azure.
 - Part 2 demonstrates how to create a simple JSP "Hello World" application and deploy the code to the newly created website, then use an FTP client to transfer the files to the website.
 
-> **Note:**  The AzureWebDemo application code in this article was written using Azure Java SDK 0.6.0. If you installed the Azure Java SDK 0.7.0 released on January 30, 2015, this code will not compile properly. (You can verify the version of your packages in Eclipse by clicking **Help > Installation Details**.) This article will be updated with sample code that works with Azure Java SDK 0.7.0 as soon as possible.
+> **Note:**  The AzureWebDemo application code in this article was written using Azure Java SDK 0.7.0, which you can install using the [Web Platform Installer (WebPI)](http://go.microsoft.com/fwlink/?LinkID=252838). In addition, make sure to use the latest version of the [Azure Toolkit for Eclipse](https://msdn.microsoft.com/library/azure/hh690946.aspx). After you install the SDK, update the dependencies in your Eclipse project by running **Update Index** in **Maven Repositories**, then re-add the latest version of each package in the **Dependencies** window. You can verify the version of your installed software in Eclipse by clicking **Help > Installation Details**; you should have at least the following versions:
+- Package for Microsoft Azure Libraries for Java 0.7.0.20150309
+- Eclipse IDE for Java EE Developers 4.4.2.20150219
 
 
 # Prerequisites
@@ -147,6 +149,11 @@ In this section you create a workspace and a Maven project for the website creat
         com.microsoft.azure  azure-management
         com.microsoft.azure  azure-management-websites
 
+    > **Note:** If you are updating the dependencies after a new version
+    > release, you need to re-add each of the dependencies in this list.
+    > After you click **Add** and select each dependency, it appears
+    > with the new version number in the **Dependencies** list.
+
 Click **OK**. The Azure packages then appear in the **Dependencies** list.
 
 
@@ -170,10 +177,13 @@ Next, write the code that calls APIs in the Azure SDK for Java to create the Azu
 
 In Program.java, add the following imports; these imports provide access to classes in the management libraries for consuming Azure APIs:
 
-    import java.io.IOException;
+    // General imports
     import java.net.URI;
-    import java.net.URISyntaxException;
     import java.util.ArrayList;
+    
+    // Imports for Exceptions
+    import java.io.IOException;
+    import java.net.URISyntaxException;
     import javax.xml.parsers.ParserConfigurationException;
     import com.microsoft.windowsazure.exception.ServiceException;
     import org.xml.sax.SAXException;
@@ -190,93 +200,124 @@ In Program.java, add the following imports; these imports provide access to clas
     import com.microsoft.windowsazure.core.utils.KeyStoreType;
 
 
-### Provide the main entry point code
+### Define the main entry point class
 
-Provide the main entry point code that calls the Azure Service Management API to create the Azure website. The code will output the HTTP status of the response indicating success or failure, and if successful, will output the name of the created website.
+Because the purpose of the AzureWebDemo application is to create a website, name the main class for this application `WebCreator`. This class provides the main entry point code that calls the Azure Service Management API to create the Azure website.
 
-    public class Program {
+Add the following parameter definitions for the website and webspace. You will need to provide your own Azure subscription ID and certificate information.
+
+    public class WebCreator {
     
-      // Parameter definitions used for authentication
-      static String uri = "https://management.core.windows.net/";
-      static String subscriptionId = "<subscription-id>";
-      static String keyStoreLocation = "<certificate-store-path>";
-      static String keyStorePassword = "<certificate-password>";
+        // Parameter definitions used for authentication
+        private static String uri = "https://management.core.windows.net/";
+        private static String subscriptionId = "<subscription-id>";
+        private static String keyStoreLocation = "<certificate-store-path>";
+        private static String keyStorePassword = "<certificate-password>";
     
-      // Define website parameter values
-      private static String websiteName = "DemoWebsite";
-      private static String webSpaceName = WebSpaceNames.WESTUSWEBSPACE;
-      private static String hostName = ".azurewebsites.net";
+        // Define website parameter values
+        private static String websiteName = "WebDemoWebsite";
+        private static String domainName = ".azurewebsites.net";
+        private static String webSpaceName = WebSpaceNames.WESTUSWEBSPACE;
+        private static String hostingPlanName = "WebDemoHostingPlan";
 
 where:
 
 - `<subscription-id>` is the Azure subscription ID in which you want to create the resource.
 - `<certificate-store-path>` is the path and filename to the JKS file in your local certificate store directory. For example, `C:/Certificates/CertificateName.jks` for Linux and `C:\Certificates\CertificateName.jks` for Windows.
 - `<certificate-password>` is the password you specified when you created your JKS certificate.
-- `websiteName` can be any name you want; this procedure names it `DemoWebsite`. The domain name begins with the website name and ends with the host name, so in this case the full domain is `demowebsite.azurewebsites.net`.
-- `webSpaceName` and `hostName` should be specified as shown above.
+- `websiteName` can be any name you choose; this procedure uses the name `WebDemoWebsite`. The full domain name is the `websiteName` with the `domainName` appended, so in this case the full domain is `webdemowebsite.azurewebsites.net`.
+- `domainName` should be specified as shown above.
+- `webSpaceName` should be one of the values defined in the [WebSpaceNames](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/models/WebSpaceNames.html) class.
+- `hostingPlanName` should be specified as shown above.
 
+> **Note:** Each time you run this application, you need to change 
+> `websiteName` and `hostingPlanName`, or delete the website on the Azure 
+> portal, before running the application again. Otherwise, execution will 
+> fail because the same resource already exists on Azure.
 
 ### Define the web creation method
 
 Next, define a method to create the website. This method, `createWebSite`, specifies the parameters of the website and the webspace. It also creates and configures the website management client, which is defined by the [WebSiteManagementClient](http://dl.windowsazure.com/javadoc/com/microsoft/windowsazure/management/websites/WebSiteManagementClient.html) object. The website management client is key to creating websites in Azure. It provides RESTful web services that allow applications to manage Azure websites (create, update, delete, and so on) by calling the service management API.
 
     private static void createWebSite() throws Exception {
-      ArrayList<String> hostNamesValue = new ArrayList<String>();
-      hostNamesValue.add(websiteName + hostName);
 
-      // Set webspace details
-      WebSiteCreateParameters.WebSpaceDetails webSpaceDetails = new WebSiteCreateParameters.WebSpaceDetails(); 
-      webSpaceDetails.setGeoRegion(GeoRegionNames.WESTUS); 
-      webSpaceDetails.setPlan(WebSpacePlanNames.VIRTUALDEDICATEDPLAN); 
-      webSpaceDetails.setName(webSpaceName); 
+        // Specify configuration settings for the service management client.
+        Configuration config = ManagementConfiguration.configure(
+            new URI(uri),
+            subscriptionId,
+            keyStoreLocation,  // Path to the JKS file
+            keyStorePassword,  // Password for the JKS file
+            KeyStoreType.jks   // Flag that you are using a JKS keystore
+            );
 
-      // Set website parameters
-      WebSiteCreateParameters createParameters = new WebSiteCreateParameters(); 
-      createParameters.setName(websiteName);  
-      createParameters.setWebSpaceName(webSpaceName); 
-      createParameters.setWebSpace(webSpaceDetails); 
-      createParameters.setSiteMode(WebSiteMode.Basic); 
-      createParameters.setComputeMode(WebSiteComputeMode.Shared); 
-      createParameters.setHostNames(hostNamesValue); 
+        // Create the website management client to call Azure APIs
+        // and pass it the service management configuration object.
+        WebSiteManagementClient webSiteManagementClient = WebSiteManagementService.create(config);
 
-      // Configuration for the service management client
-      Configuration config = ManagementConfiguration.configure(
-        new URI(uri),
-        subscriptionId,
-        keyStoreLocation, // Path to the JKS file
-        keyStorePassword, // Password for the JKS file
-        KeyStoreType.jks  // Flag that you are using a JKS keystore
-        );
+        // Set web hosting plan parameters.
+        // This creates a web hosting plan for the webspace with the specified parameters.
+        WebHostingPlanCreateParameters hostingPlanParams = new WebHostingPlanCreateParameters();
+        hostingPlanParams.setName(hostingPlanName);
+        hostingPlanParams.setSKU(SkuOptions.Free);
+        webSiteManagementClient.getWebHostingPlansOperations().create(webSpaceName, hostingPlanParams);
 
-      // Create the website management client to call Azure APIs;
-      // pass it the service management configuration object
-      WebSiteManagementClient webSiteManagementClient = WebSiteManagementService.create(config);
+        // Set webspace parameters.
+        WebSiteCreateParameters.WebSpaceDetails webSpaceDetails = new WebSiteCreateParameters.WebSpaceDetails();
+        webSpaceDetails.setGeoRegion(GeoRegionNames.WESTUS);
+        webSpaceDetails.setPlan(WebSpacePlanNames.VIRTUALDEDICATEDPLAN);
+        webSpaceDetails.setName(webSpaceName);
 
-      // Create the website
-      WebSiteCreateResponse webSiteCreateResponse = webSiteManagementClient.getWebSitesOperations().create(webSpaceName, createParameters);
-      
-      // Output the HTTP status code of the response; 200 indicates 
-      // that the request succeeded; 4xx indicates failure
-      System.out.println("----------");
-      System.out.println("Website created - HTTP response " + webSiteCreateResponse.getStatusCode() + "\n");
+        // Set website parameters.
+        // The server farm name must be the same as the web hosting plan name.
+        WebSiteCreateParameters webSiteCreateParameters = new WebSiteCreateParameters();
+        webSiteCreateParameters.setName(websiteName);
+        webSiteCreateParameters.setServerFarm(hostingPlanName);
+        webSiteCreateParameters.setWebSpace(webSpaceDetails);
 
-      // Retrieve and output the name of the website this app created;
-      String websitename = webSiteCreateResponse.getWebSite().getName();
-      System.out.println("----------\n");
-      System.out.println("Name of website created: " + websitename + "\n");
-      System.out.println("----------\n");
+        // Set site mode and compute mode.
+        WebSiteGetUsageMetricsResponse.UsageMetric usageMetric = new WebSiteGetUsageMetricsResponse.UsageMetric();
+        usageMetric.setSiteMode(WebSiteMode.Basic);
+        usageMetric.setComputeMode(WebSiteComputeMode.Shared);
+
+        // Define the website object.
+        // The full website name is the website name concatenated with the domain name.
+        ArrayList<String> fullWebsiteName = new ArrayList<String>();
+        fullWebsiteName.add(websiteName + domainName);
+        WebSite website = new WebSite();
+        website.setHostNames(fullWebsiteName);
+
+        // Create the website.
+        WebSiteCreateResponse webSiteCreateResponse = webSiteManagementClient.getWebSitesOperations().create(webSpaceName, webSiteCreateParameters);
+
+        // Output the HTTP status code of the response; 200 indicates the request succeeded; 4xx indicates failure.
+        System.out.println("----------");
+        System.out.println("Website created - HTTP response " + webSiteCreateResponse.getStatusCode() + "\n");
+
+        // Output name of the website this app created.
+        // getName retrieves the name of the web site associated with the website response object.
+        String websitename = webSiteCreateResponse.getWebSite().getName();
+        System.out.println("----------\n");
+        System.out.println("Name of website created: " + websitename + "\n");
+        System.out.println("----------\n");
     }
+
+The code will output the HTTP status of the response indicating success or failure, and if successful, will output the name of the created website.
+
+
+### Define the main() method
+
+Provide the main() method code that calls createWebSite() to create the Azure website.
 
 Finally, call `createWebSite` from `main`:
 
     public static void main(String[] args)
-      throws IOException, URISyntaxException, ServiceException, ParserConfigurationException, SAXException, Exception {
+        throws IOException, URISyntaxException, ServiceException, ParserConfigurationException, SAXException, Exception {
 
-      // Create website
-      createWebSite();
+        // Create website
+        createWebSite();
 
-      }
-    }
+        }  // end of main()
+    }  // end of WebCreator class
 
 
 ### Run the application and verify website creation
@@ -358,7 +399,7 @@ Before you run this application, you need to configure a few properties.
 
 7. When the application runs, you should see the **JSPHello** page appear in a localhost window in Eclipse (`http://localhost:8080/JSPHello/`), displaying the following message:
 
-    `Hello World, the time is Tue Oct 28 16:56:05 PDT 2014`
+    `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
 
 
 ### Export the application as a WAR
@@ -530,7 +571,7 @@ Another tool you can use to publish the application is FileZilla, a popular thir
 
 2. When the application runs, you should see a web page with the following output:
 
-    `Hello World, the time is Tue Nov 04 19:31:44 GMT 2014`
+    `Hello World, the time is Tue Mar 24 23:21:10 GMT 2015`
 
 
 ### Clean up Azure resources
