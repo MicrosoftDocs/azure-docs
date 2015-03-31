@@ -181,13 +181,13 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
  [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
 
-Actor Model Design Patterns  **owner: claudioc**
+[Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
 
-Actor Model Pattern: Distributed Networks and Graphs **owner: claudioc**
+[Actor Model Pattern: Distributed Networks and Graphs](../service-fabric-fabact-pattern-distributed-networks-and-graphs) **owner: claudioc**
 
-Actor Model Pattern: Resource Governance **owner: claudioc**
+[Actor Model Pattern: Resource Governance](../service-fabric-fabact-pattern-resource-governance) **owner: claudioc**
 
-Actor Model Pattern: Smart Cache **owner: claudioc**
+[Actor Model Pattern: Smart Cache](../service-fabric-fabact-pattern-smart-cache) **owner: claudioc**
 
  [FabSrv Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
 
