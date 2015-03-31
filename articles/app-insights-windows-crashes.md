@@ -2,6 +2,7 @@
 	pageTitle="Monitor crashes in Windows Store and Phone apps" 
 	description="Analyze performance issues in your Windows device app with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
 	manager="kamrani"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-10" 
+	ms.date="02/28/2015" 
 	ms.author="awills"/>
 
 # Application Insights
