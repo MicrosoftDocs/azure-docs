@@ -3,6 +3,7 @@
 	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
 	headerExpose="" 
 	footerExpose="" 
+	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	manager="timlt"/>
 
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/20/2015" 
+	ms.date="3/31/2015" 
 	ms.author="adegeo"/>
 
 
