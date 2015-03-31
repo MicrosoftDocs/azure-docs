@@ -171,14 +171,15 @@ Congratulations! The WordPress app now has a centralized in-memory cache to aid 
 
 [0]: http://bit.ly/1F0m3tw
 [1]: http://bit.ly/1t0KxBQ
-[3]: http://manage.windowsazure.com
-[4]: http://portal.azure.com
+[2]: http://manage.windowsazure.com
+[3]: http://portal.azure.com
+[4]: powershell-install-configure.md
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
 [8]: http://blog.syntaxc4.net/post/2015/02/05/how-to-enable-a-site-extension-in-azure-websites.aspx
 [9]: http://redis.io/download#installation
-[10]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazurewebsitespreview
+[10]: https://social.msdn.microsoft.com/Forums/home?forum=windowsazurewebsitespreview
 [11]: http://stackoverflow.com/questions/tagged/azure-web-sites
 [12]: /services/cache/
 [13]: http://memcached.org
