@@ -39,7 +39,7 @@ The StorSimple virtual device is an additional capability that comes with your M
 
 ## How the virtual device differs from the physical device
 
-The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use cloud dev and test scenarios.
+The StorSimple virtual device is a software-only version of StorSimple that runs on a single node in a Microsoft Azure Virtual Machine. The virtual device supports disaster recovery scenarios in which your physical device is not available, and is appropriate for use in cloud dev and test scenarios.
 
 ### Differences from the physical device
 
