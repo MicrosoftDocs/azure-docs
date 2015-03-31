@@ -72,7 +72,7 @@ To complete the steps in this article, you will need the following.
 
 As you can see, the Query Console provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output. 
 
-To learn more about Hive using the Query Console, select **Getting Started** at the top of the Query Console, then use the samples that are provided. Each sample walks through the process of using Hive to analyze data, including explanations about the HiveQL statements used in the sample.
+To learn more about Hive by using the Hive Query Console, select **Getting Started** at the top of the Query Console, then use the samples that are provided. Each sample walks through the process of using Hive to analyze data, including explanations about the HiveQL statements used in the sample.
 
 ##<a id="nextsteps"></a>Next steps
 
