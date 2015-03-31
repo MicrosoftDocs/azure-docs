@@ -117,9 +117,12 @@ Here's a brief overview of each of the App and Data Services connectors that are
 <tr>
 <td>Microsoft SQL
 <td>A Microsoft SQL connector lets you create and modify entries in Microsoft SQL Server and Azure SQL database tables.
-<td>N/A
-<td><li>Messages: send, list, get and search
-	<li>Phone numbers:buy, list, and get local and toll-free numbers
+<td>Poll data
+<td><li>Insert Into Table
+	<li>Update Table
+	<li>Select From Table
+	<li>Delete From Table
+	<li>Call Stored Procedure
 </tr>
 
 <tr>

@@ -21,7 +21,7 @@
                 
 # Azure Data Science Process in Action: using HDInsight Hadoop clusters
 
-In this tutorial, you will follow the Azure Data Science Process map end-to-end using an Azure HDInsight Hadoop cluster to build and deploy a model working with a publicly available dataset, the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
+In this tutorial, you follow the Azure Data Science Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. Models of the data are build to handle a binary classification predictive task and then deployed with Azure Machine Learning.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset description
@@ -480,7 +480,7 @@ A typical training experiment consists of the following:
 
 In this exercise, we have already explored and engineered the data in Hive (steps 1-4), and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models:
 
-1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](http://msdn.microsoft.com/en-US/library/dn784775) module reference page.
+1. Get the data to Azure ML using the **Reader** module, available in the **Data Input and Output** section. For more information, see the [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) module reference page.
 
 	![Create workspace][15]
 
@@ -500,11 +500,11 @@ An example of a binary classification experiment reading data directly from the 
 
 > In this experiment, the first **Metadata Editor** module adds column names to the output data from Reader module. This module is needed since the Reader module which reads data from Hive Query does not create column names for the output data. 
 
-> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](http://msdn.microsoft.com/en-US/library/dn784740) and [Metadata Editor](http://msdn.microsoft.com/en-US/library/dn784761) reference pages.
+> To exclude unnecessary columns and/or target leaks, you may use the **Project Columns** module or the **Metadta Editor**. For more information, see [Project Columns](https://msdn.microsoft.com/library/azure/dn905883.aspx) and [Metadata Editor](https://msdn.microsoft.com/library/azure/dn905986.aspx) reference pages.
 
 ## <a name="mldeploy"></a>Deploy models in Azure Machine Learning
 
-When your model is ready, you can deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Azure Machine Learning API service operations](machine-learning-overview-of-azure-ml-process.md).
+When your model is ready, you can deploy it as a web service directly from the experiment. For more information about publishing Azure ML web services, see [Publish an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 

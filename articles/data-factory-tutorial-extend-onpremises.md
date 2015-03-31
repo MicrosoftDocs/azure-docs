@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/28/2015" 
+	ms.date="03/30/2015" 
 	ms.author="spelluru"/>
 
 
@@ -51,7 +51,7 @@ You must have at least one gateway installed in your corporate environment as we
 
 If you have an existing data gateway that you can use, skip this step.
 
-1.	Create a logical data gateway. In the **Azure Preview Portal**, click **Linked Services** on the **DATA FACTORY** blade.
+1.	Create a logical data gateway. In the **Azure Preview Portal**, click **Linked Services** on the **DATA FACTORY** blade for your data factory.
 2.	Click **Add (+) Data Gateway** on the command bar.  
 3.	In the **New data gateway** blade, click **CREATE**.
 4.	In the **Create** blade, enter **MyGateway** for the Data gateway **name**.
@@ -97,47 +97,49 @@ To start with, you need to create the SQL Server database, table, user defined t
 
 ### Create the linked service
 
-1.	In the **Azure Preview Portal**, click **Linked Services** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
-2.	In the **Linked Services** blade, click **Add (+) Data Store**.
-3.	In the **New data store** blade, enter **OnPremSqlLinkedService** for the **Name**. 
-4.	Click **Type (Settings required)** and select **SQL Server**. You should see the **DATA GATEWAY**, **Server**, **Database**, and **CREDENTIALS** settings in the **New data store** blade now. 
-5.	Click **DATA GATEWAY (configure required settings)** and select **MyGateway** you had created earlier. 
-6.	Enter **name** of the database server that hosts the **MarketingCampaigns** database. 
-7.	Enter **MarketingCampaigns** for the Database. 
-8.	Click **CREDENTIALS**. 
-9.	In the **Credentials** blade, click **Click here to set credentials securely**.
-10.	It installs a one-click application for the first time and launches the **Setting Credentials **dialog box. 
-11.	In the **Setting Credentials** dialog box, enter **User Name** and **Password**, and click **OK**. Wait until the dialog box closes. 
-12.	Click **OK** in the **New data store** blade. 
-13.	In the **Linked Services** blade, confirm that **OnPremSqlLinkedService** shows up in the list and the **status** of the linked service is **Good**.
+1.	In the **Azure Preview Portal**, click **Author & Deploy** tile on the **DATA FACTORY** blade for **LogProcessingFactory**.
+2.	In the **Data Factory Editor**, click **New data store** on the toolbar, and select **On-premises SQL Server database**.
+3.	In the JSON script, do the following: 
+	1.	Replace **<servername>** with the name of the server that hosts your SQL Server database.
+	2.	Replace **<databasename>** with **MarketingCampaigns**.
+	3.	If you are using **SQL Authentication**
+		1.	Specify **<username>** and **<password>** in the **connectionString**.
+		2.	Remove last two rows (**username** and **password** JSON properties are needed only if you are using Windows Authentication). 
+		3.	Remove **, (comma) **at the end of **gatewayName** row.
+		
+		**If you are using Windows Authentication:**
+		1. Set the value of **Integrated Security** to **True** in the **connectionString**. Remove "**User ID=<username>;Password=<password>;**" from the connectionString. 
+		2. Specify the name of the user that has access to the database for the **username** property. 
+		3. Specify **password** for the user account.   
+	4. Specify the name of the gateway (**MyGateway**) for the gatewayName property. 		  	 
+3.	Click **Deploy** on the toolbar to deploy the linked service. 
 
 ## <a name="OnPremStep3"></a> Step 3: Create table and pipeline
 
-### Ceate the on-premises logical Table
+### Create the on-premises logical Table
 
-1.	In **Azure PowerShell**, switch to the **C:\ADFWalkthrough\OnPremises** folder. 
-2.	Use the cmdlet **New-AzureDataFactoryTable** to create the Tables as follows for **MarketingCampaignEffectivenessOnPremSQLTable.json**.
-
-			
-		New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName $df –File .\MarketingCampaignEffectivenessOnPremSQLTable.json
+1.	In the **Data Factory Editor**, click **New data set** from the toolbar, and select **On-premises SQL**. 
+2. Replace JSON in the right pane with the JSON script from the **MarketingCampaignEffectivenessOnPremSQLTable.json** file from the **C:\ADFWalkthrough\OnPremises** folder.
+3. Change the name of linked service (**linkedServiceName** property) from **OnPremSqlServerLinkedService** to 	**SqlServerLinkedService**.
+4. Click **Deploy** on the toolbar to deploy the table. 
 	 
 #### Create the pipeline to copy the data from Azure Blob to SQL Server
 
-1.	Use the cmdlet **New-AzureDataFactoryPipeline** to create the Pipeline as follows for **EgressDataToOnPremPipeline.json**.
+1.	1. In the **Data Factory Editor**, click **New pipeline** button on the toolbar. Click **... (Ellipsis)** on the toolbar if you do not see the button. Alternatively, you can right-click **Pipelines** in the tree view and click **New pipeline**.
+2. Replace JSON in the right pane with the JSON script from the **EgressDataToOnPremPipeline.json** file from the **C:\ADFWalkthrough\OnPremises** folder.
+3. Add a **comma (',')** at the end of **closing square bracket (']')** in the JSON and then add the following three lines after the closing square bracket. 
 
-			
-		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\EgressDataToOnPremPipeline.json
-	 
-2. Use the cmdlet **Set-AzureDataFactoryPipelineActivePeriod** to specify the active period for **EgressDataToOnPremPipeline**.
+        "start": "2014-05-01T00:00:00Z",
+        "end": "2014-05-05T00:00:00Z",
+        "isPaused": false
 
-			
-		Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADF -DataFactoryName $df -StartDateTime 2014-05-01Z -EndDateTime 2014-05-05Z –Name EgressDataToOnPremPipeline
-
-	Press **‘Y’** to continue.
+	[ACOM.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
+ 
+3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 	
 ## <a name="OnPremStep4"></a> Step 4: Monitor pipeline and view the result
 
-You can now use the same steps introduced in [Step 6: Monitoring tables and pipelines](#MainStep6)  to monitor the new pipeline and the data slices for the new on-premises ADF table.
+You can now use the same steps introduced in the **Monitor pipelines and data slices** section of the [Main tutorial][datafactorytutorial] to monitor the new pipeline and the data slices for the new on-premises ADF table.
  
 When you see the status of a slice of the table **MarketingCampaignEffectivenessOnPremSQLTable** turns into Ready, it means that the pipeline have completed the execution for the slice. To view the results, query the **MarketingCampaignEffectiveness** table in **MarketingCampaigns** database in your SQL Server.
  
@@ -175,78 +177,5 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial-extend-onpremises/DataManagementGatewayConfigurationManager.png
 
-[image-data-factory-tutorial-end-to-end-flow]: ./media/data-factory-tutorial/EndToEndWorkflow.png
-
-[image-data-factory-tutorial-partition-game-logs-pipeline]: ./media/data-factory-tutorial/PartitionGameLogsPipeline.png
-
-[image-data-factory-tutorial-enrich-game-logs-pipeline]: ./media/data-factory-tutorial/EnrichGameLogsPipeline.png
-
-[image-data-factory-tutorial-analyze-marketing-campaign-pipeline]: ./media/data-factory-tutorial/AnalyzeMarketingCampaignPipeline.png
-
-
-[image-data-factory-tutorial-egress-to-onprem-pipeline]: ./media/data-factory-tutorial/EgreeDataToOnPremPipeline.png
-
-[image-data-factory-tutorial-set-firewall-rules-azure-db]: ./media/data-factory-tutorial/SetFirewallRuleForAzureDatabase.png
-
-[image-data-factory-tutorial-portal-new-everything]: ./media/data-factory-tutorial/PortalNewEverything.png
-
-[image-data-factory-tutorial-datastorage-cache-backup]: ./media/data-factory-tutorial/DataStorageCacheBackup.png
-
-[image-data-factory-tutorial-dataservices-blade]: ./media/data-factory-tutorial/DataServicesBlade.png
-
-[image-data-factory-tutorial-new-datafactory-blade]: ./media/data-factory-tutorial/NewDataFactoryBlade.png
-
-[image-data-factory-tutorial-resourcegroup-blade]: ./media/data-factory-tutorial/ResourceGroupBlade.png
-
-[image-data-factory-tutorial-create-resourcegroup]: ./media/data-factory-tutorial/CreateResourceGroup.png
-
-[image-data-factory-tutorial-datafactory-homepage]: ./media/data-factory-tutorial/DataFactoryHomePage.png
-
-[image-data-factory-tutorial-create-datafactory]: ./media/data-factory-tutorial/CreateDataFactory.png
-
-[image-data-factory-tutorial-linkedservice-tile]: ./media/data-factory-tutorial/LinkedServiceTile.png
-
-[image-data-factory-tutorial-linkedservices-add-datstore]: ./media/data-factory-tutorial/LinkedServicesAddDataStore.png
-
-[image-data-factory-tutorial-datastoretype-azurestorage]: ./media/data-factory-tutorial/DataStoreTypeAzureStorageAccount.png
-
-[image-data-factory-tutorial-azurestorage-settings]: ./media/data-factory-tutorial/AzureStorageSettings.png
-
-[image-data-factory-tutorial-storage-key]: ./media/data-factory-tutorial/StorageKeyFromAzurePortal.png
-
-[image-data-factory-tutorial-linkedservices-blade-storage]: ./media/data-factory-tutorial/LinkedServicesBladeWithAzureStorage.png
-
-[image-data-factory-tutorial-azuresql-settings]: ./media/data-factory-tutorial/AzureSQLDatabaseSettings.png
-
-[image-data-factory-tutorial-azuresql-database-connection-string]: ./media/data-factory-tutorial/DatabaseConnectionString.png
-
-[image-data-factory-tutorial-linkedservices-all]: ./media/data-factory-tutorial/LinkedServicesAll.png
-
-[image-data-factory-tutorial-datasets-all]: ./media/data-factory-tutorial/DataSetsAllTables.png
-
-[image-data-factory-tutorial-pipelines-all]: ./media/data-factory-tutorial/AllPipelines.png
-
-[image-data-factory-tutorial-diagram-link]: ./media/data-factory-tutorial/DataFactoryDiagramLink.png
-
-[image-data-factory-tutorial-diagram-view]: ./media/data-factory-tutorial/DiagramView.png
-
-[image-data-factory-monitoring-startboard]: ./media/data-factory-tutorial/MonitoringStartBoard.png
-
-[image-data-factory-monitoring-hub-everything]: ./media/data-factory-tutorial/MonitoringHubEverything.png
-
-[image-data-factory-monitoring-browse-datafactories]: ./media/data-factory-tutorial/MonitoringBrowseDataFactories.png
-
-[image-data-factory-monitoring-pipeline-consumed-produced]: ./media/data-factory-tutorial/MonitoringPipelineConsumedProduced.png
-
-[image-data-factory-monitoring-raw-game-events-table]: ./media/data-factory-tutorial/MonitoringRawGameEventsTable.png
-
-[image-data-factory-monitoring-raw-game-events-table-dataslice-blade]: ./media/data-factory-tutorial/MonitoringPartitionGameEventsTableDataSliceBlade.png
-
-[image-data-factory-monitoring-activity-run-details]: ./media/data-factory-tutorial/MonitoringActivityRunDetails.png
-
-[image-data-factory-datamanagementgateway-configuration-manager]: ./media/data-factory-tutorial/DataManagementGatewayConfigurationManager.png
-
-[image-data-factory-new-datafactory-menu]: ./media/data-factory-tutorial/NewDataFactoryMenu.png
-
-[image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
