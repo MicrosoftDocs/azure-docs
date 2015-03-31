@@ -141,5 +141,3 @@ You can test the Logic App by adding a new record in the table that is being pol
 [10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
-
-
