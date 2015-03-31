@@ -3,7 +3,7 @@
 	description="Learn how to develop Azure Stream Analytics applications" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="03/30/2015" 
+	ms.author="jeffstok"/>
 
 
 # Azure Stream Analytics developer guide 
@@ -46,7 +46,7 @@ Each Stream Analytics job definition must contain at least one data-stream input
 Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. In the preview release, Azure Blob storage is the only supported input source for reference data. A reference data source is limited to 100MB in size.
 
 ### Serialization
-To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV for reference data.
+To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV or JSON for reference data.
 
 ### Generated Properties
 Depending on the input type used in the job, some additional fields with event metadata will be generated. These fields can be queried against just like other input columns. If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
@@ -89,7 +89,11 @@ Depending on the input type used in the job, some additional fields with event m
 	</tr>
 </table>
 
+###Partition(s) with slow or no input data
+When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. User can also decide to only wait for a limited time, ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 
+###Partition(s) with out of order events
+When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
 For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
@@ -126,7 +130,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 - Azure Event Hubs - Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Blob storage - Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage]( http://azure.microsoft.com/documentation/articles/storage-introduction/) and [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
@@ -165,7 +169,8 @@ When starting a job, you're prompted to specify a **Start Output** value, which 
 You can adjust the following top-level settings for a Stream Analytics job:
 
 - **Start output** - Use this setting to specify when this job will start producing resulting output. If the associated query includes a window, the job will begin picking up input from the input sources at the start of the window duration required in order to produce the first output event at the specified time. There are two options, **Job Start Time** and **Custom**. The default setting is **Job Start Time**. For the **Custom** option, you must specify a date and time. This setting is useful for specifying how much historical data in the input sources to consume or for picking up data ingestion from a specific time, such as when a job was last stopped. 
-- **Out of order policy** - Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a tolerance window and also determine an action to take on events outside this window: **Drop** or **Adjust**. **Drop** will drop all events received out of order, and **Adjust** will change the System.Timestamp of out-of-order events to the timestamp of the most recently received ordered event.  
+- **Out of order policy** - Settings for handling events that do not arrive to the Stream Analytics job sequentially. You can designate a time threshold to reorder events within by specifying a tolerance window and also determine an action to take on events outside this window: **Drop** or **Adjust**. **Drop** will drop all events received out of order, and **Adjust** will change the System.Timestamp of out-of-order events to the timestamp of the most recently received ordered event. 
+- **Late arrival policy** - When reading from input sources that have multiple partitions, and one or more partitions lag behind or do not have data, the streaming job needs to decide how to handle this situation in order to keep events flowing through the system. Input setting ‘Maximum allowed arrival delay’ controls that behavior and is set by default to wait for the data indefinitely, which means events’ timestamps will not be altered, but also that events will flow based on the slowest input partition, and will stop flowing if one or more input partitions do not have data. This is useful if the data is distributed uniformly across input partitions, and time consistency among events is critical. User can also decide to only wait for a limited time, ‘Maximum allowed arrival delay’ determines the delay after which the job will decide to move forward, leaving the lagging input partitions behind, and acting on events according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps if data arrives later. This is useful if latency is critical and timestamp shift is tolerated, but input may not be uniformly distributed.
 - **Locale** - Use this setting to specify the internationalization preference for the Stream Analytics job. While timestamps of data are locale neutral, settings here impact how the job will parse, compare, and sort data. For the preview release, only **en-US** is supported.
 
 ### Status
