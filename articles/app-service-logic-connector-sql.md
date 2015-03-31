@@ -3,7 +3,7 @@
    description="How to use the SQL Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="andalmia" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -130,17 +130,17 @@ Let us take a simple logic app which polls data from a SQL table, adds the data 
 You can test the Logic App by adding a new record in the table that is being polled.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-sql/Create.JPG
-[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.JPG
-[3]: ./media/app-service-logic-connector-sql/HybridSetup.JPG
-[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.JPG
-[5]: ./media/app-service-logic-connector-sql/LogicApp1.JPG
-[6]: ./media/app-service-logic-connector-sql/LogicApp2.JPG
-[7]: ./media/app-service-logic-connector-sql/LogicApp3.JPG
-[8]: ./media/app-service-logic-connector-sql/LogicApp4.JPG
-[9]: ./media/app-service-logic-connector-sql/LogicApp5.JPG
-[10]: ./media/app-service-logic-connector-sql/LogicApp6.JPG
-[11]: ./media/app-service-logic-connector-sql/LogicApp7.JPG
-[12]: ./media/app-service-logic-connector-sql/LogicApp8.JPG
+[1]: ./media/app-service-logic-connector-sql/Create.jpg
+[2]: ./media/app-service-logic-connector-sql/BrowseSetupIncomplete.jpg
+[3]: ./media/app-service-logic-connector-sql/HybridSetup.jpg
+[4]: ./media/app-service-logic-connector-sql/BrowseSetupComplete.jpg
+[5]: ./media/app-service-logic-connector-sql/LogicApp1.jpg
+[6]: ./media/app-service-logic-connector-sql/LogicApp2.jpg
+[7]: ./media/app-service-logic-connector-sql/LogicApp3.jpg
+[8]: ./media/app-service-logic-connector-sql/LogicApp4.jpg
+[9]: ./media/app-service-logic-connector-sql/LogicApp5.jpg
+[10]: ./media/app-service-logic-connector-sql/LogicApp6.jpg
+[11]: ./media/app-service-logic-connector-sql/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-sql/LogicApp8.jpg
 
 

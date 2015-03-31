@@ -3,7 +3,7 @@
    description="How to use the Oracle Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="andalmia" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
