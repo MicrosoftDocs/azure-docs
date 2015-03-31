@@ -29,7 +29,7 @@
 	-  [OnPremisesOracleTableLocation properties in a table JSON](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx). See the updated copy matrix and **OracleSource** properties.
 -  You can specify encoding for text files in an Azure Blob. See the new [encodingName property](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob). 
-- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink](http://azure.microsoft.com/documentation/articles/data-factory-copy-activity-advanced/#invoke-stored-procedure-for-sql-sink) for details.   
+- You can invoke a stored procedure with additional parameters when copying into SQL Sink. See [Invoke stored procedure for SQL Sink][adf-copy-advanced] for details.   
 
 See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/) for additional information including examples.  
 
@@ -86,6 +86,7 @@ See the blob post: [Azure Data Factory Update - New Data Stores](http://azure.mi
 [adf-custom-activities]: data-factory-use-custom-activities.md
 [adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
+[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
