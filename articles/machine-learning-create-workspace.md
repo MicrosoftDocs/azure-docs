@@ -33,7 +33,7 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning worksp
 
 	![Quick Create of new workspace][3]
 
-5. Enter a **WORKSPACE NAME** for your workspace and specify the **WORKSPACE OWNER**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com) or organizational account.
+5. Enter a **WORKSPACE NAME** for your workspace and specify the **WORKSPACE OWNER**. The workspace owner must be a valid Microsoft account (e.g., name@outlook.com).
 
     > [AZURE.NOTE] Later, you can share the experiments you're working on by inviting others to your workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 
