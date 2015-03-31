@@ -19,12 +19,6 @@
 
 To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run one time or recurring every specified number of hours or days. A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
-- [Creating a schedule](#CreateSchedule)
-- [Linking a schedule to a runbook](#LinkSchedule)
-- [Disabling a schedule](#DisableSchedule)
-- [Related topics](#RelatedTopics)
-
-
 ## <a name="CreateSchedule"></a>Creating a schedule
 
 You can either create a new schedule with the Azure Management Portal or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure Management Portal.

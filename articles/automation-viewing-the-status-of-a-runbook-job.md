@@ -20,11 +20,6 @@
 
 When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. A single runbook may have multiple jobs, each with their own set of values for the runbook’s parameters. There are multiple ways to check the status of a particular job and all of the jobs for one or more runbooks.
 
-- [Job statuses](#jobstatuses)
-- [Viewing job status using the Azure Management Portal](#ViewPortal)
-- [Retrieving job status using Windows PowerShell](#ViewPowerShell)
-- [Related topics](#RelatedTopics)
-
 ## <a name="jobstatuses"></a>Job statuses
 
 The following table describes the different statuses that are possible for a job.

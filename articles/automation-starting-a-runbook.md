@@ -17,16 +17,9 @@
 
 # Starting a Runbook in Azure Automation
 
+Starting a runbook in Azure Automation using the Azure Management Portal and Windows PowerShell are covered in this article. Calling a runbook from another runbook is documented in [Starting a Runbook from Another Runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook).
 
-You can start a runbook in Azure Automation using one of the following three methods.
-
-- [Azure Management Portal](#Portal)
-- [PowerShell](#PowerShell)
-- [From another runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook)
-
-The first two methods are documented below. Calling a runbook from another runbook is documented in [Starting a Runbook from Another Runbook](http://aka.ms/runbookauthor/azure/startanotherrunbook).
-
-## <a name="Portal"></a>To start a runbook with the Azure Management Portal
+## <a name="Portal"></a>Starting a runbook with the Azure Management Portal
 
 1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
 1. Select the **Runbooks** tab.
@@ -34,7 +27,7 @@ The first two methods are documented below. Calling a runbook from another runbo
 1. If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. The parameter type and its default value, if it has one, is displayed under the text box. Boolean and datetime parameters have special selectors instead of the standard text box. See [Runbook Parameters](#Parameters) below for further details on parameters.
 1. Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the job’s status.
 
-## <a name="PowerShell"></a>To start a runbook with Windows PowerShell
+## <a name="PowerShell"></a>Starting a runbook with Windows PowerShell
 
 You can use the [Start-AzureAutomationRunbook](http://aka.ms/runbookauthor/cmdlet/startazurerunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
