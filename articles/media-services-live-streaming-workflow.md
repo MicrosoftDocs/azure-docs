@@ -26,6 +26,7 @@ This topic describes steps of a typical Azure Media Services (AMS) Live Streamin
 Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
 
 The following diagram shows the major parts of the Media Services platform that are involved in the Live Streaming Workflow.
+
 ![Live workflow][live-overview]
 
 
@@ -66,15 +67,15 @@ This article contains links to topics that show how to set up your development e
 
 ##Concepts
 
-For concepts related to live streaming, see [Media Services Concepts](../media-services-concepts).
+For concepts related to live streaming, see [Media Services Concepts](media-services-concepts.md).
 
 ##Creating a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](../media-services-create-account/).
+Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md).
 
 ##Configuring streaming endpoints
 
-For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](../media-services-manage-origins/)
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](./media-services-manage-origins.md)
 
 ##Setting up development environment  
 
@@ -94,7 +95,17 @@ For more information, see [Using 3rd Party Live Encoders with Azure Media Servic
 
 ##Managing Channels, Programs, Assets
 
-For more information, see [Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+
+Choose **Portal**, **.NET**, **REST API** to see examples.
+
+[AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
+
+##Configuring asset delivery policy
+
+Configure asset delivery policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Creating content key
 
@@ -108,11 +119,6 @@ Configure content protection and key authorization policy using **.NET** or **RE
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-##Configuring asset delivery policy
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 ##Publishing assets
 
@@ -121,11 +127,16 @@ Publish assets (by creating Locators) using **Azure Management Portal** or **.NE
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
 
 
+##Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+
 ##Scaling a Media Services account
 
 You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
 
-For information about scaling streaming units, see: [How to scale streaming units](../media-services-manage-origins#scale_streaming_endpoints).
+For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
+
 
 
 

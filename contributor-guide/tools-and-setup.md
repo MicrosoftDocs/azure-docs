@@ -118,7 +118,7 @@ After you enable 2FA, you have to enter the access token instead of your GitHub 
 
 We author content using simple "markdown" notation in the files, rather than complex "markup" (HTML, XML, etc.). So, you'll need to install a markdown editor. 
 
-- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use.
+- We recommend GitHub's Atom markdown editor: [http://atom.io](http://atom.io). It does not require a license for business use. **Note**: Atom defaults to using 2 spaces for tabs, but Markdown expects 4 spaces. If you leave it at the default of two, your article will look great in local preview, but not when it’s imported into Azure.
 
 - **Notepad**: You can use Notepad for a very lightweight option.
 

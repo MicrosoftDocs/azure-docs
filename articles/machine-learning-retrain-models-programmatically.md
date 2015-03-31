@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm=""
 	ms.workload="big-data" 
 	ms.date="02/20/2015"
-	ms.author="raymondl,garye"/>
+	ms.author="raymondl;garye"/>
 
 
 
@@ -66,7 +66,7 @@ Click on the Experiments icon in the left pane, then click on the experiment cal
 	We next click on the Publish Web Service button, then click Yes. This will publish the Training Experiment as a Web Service that produces trained models and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
 4. *Add a new Endpoint*  
 	The Scoring Web Service we published in Step 2 above was created with a default endpoint. The default endpoints are kept in sync with the originating experiment, and therefore a default endpoint's trained model cannot be replaced.
-To create an updatable endpoint visit the Azure Portal and click on Add Endpoint (more details [here](./machine-learning-create-endpoint.md)).	
+To create an updatable endpoint visit the Azure Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).	
 5. *Retrain the model with new data and BES*  
 	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
 

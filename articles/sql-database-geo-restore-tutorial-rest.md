@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="02/24/2015"
+   ms.date="03/17/2015"
    ms.author="elfish; v-romcal"/>
 
 # Recover an Azure SQL database using Geo-Restore with REST API
 
 > [AZURE.SELECTOR]
-- [Geo-Restore - portal](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/)
-- [Geo-Restore - PowerShell](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-powershell/)
+- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
+- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
 
 ## Overview
 
@@ -28,7 +28,7 @@ This guide shows you how to recover an Azure SQL database using REST API. Links 
 
 ## Restrictions and Security
 
-See [Recover an Azure SQL Database using Geo-Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-geo-restore-tutorial-management-portal/).
+See [Recover an Azure SQL Database using Geo-Restore in the Azure portal](sql-database-geo-restore-tutorial-management-portal.md).
 
 ## How to: Recover an Azure SQL database using REST API
 
@@ -44,9 +44,9 @@ See [Recover an Azure SQL Database using Geo-Restore in the Azure portal](http:/
 
 For more information, see the following:
 
-[Restore an Azure SQL database using Point in Time Restore in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-point-in-time-restore-tutorial-management-portal/)
+[Restore an Azure SQL database using Point in Time Restore in the Azure portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
 
-[Restore a deleted Azure SQL database in the Azure portal](http://azure.microsoft.com/documentation/articles/sql-database-restore-deleted-database-tutorial-management-portal/)
+[Restore a deleted Azure SQL database in the Azure portal](sql-database-restore-deleted-database-tutorial-management-portal.md)
 
 [Azure SQL Database Business Continuity](http://msdn.microsoft.com/library/azure/hh852669.aspx)
 

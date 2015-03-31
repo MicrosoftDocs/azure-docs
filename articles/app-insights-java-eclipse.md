@@ -2,8 +2,9 @@
 	pageTitle="Get started with Application Insights with Java in Eclipse" 
 	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-03" 
+	ms.date="03/03/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -21,7 +22,8 @@ The Application Insights SDK sends telemetry from your Java web application so t
 
 ## Prerequisites
 
-Currently the plug-in works for Dynamic Web Projects in Eclipse. [Add Application Insights to other types of Java project][java].
+Currently the plug-in works for Dynamic Web Projects in Eclipse. 
+([Add Application Insights to other types of Java project][java].)
 
 You'll need:
 
@@ -30,7 +32,7 @@ You'll need:
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
 
-## Install the SDK on Eclipse
+## Install the SDK on Eclipse (one time)
 
 You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
 

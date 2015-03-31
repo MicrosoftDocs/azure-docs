@@ -67,7 +67,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ## <a name="next-steps"> </a>Next steps
 
-In the next tutorial, [Service-side authorization of Mobile Services users](/documentation/articles/mobile-services-javascript-backend-service-side-authorization/), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Service-side authorization of Mobile Services users](mobile-services-javascript-backend-service-side-authorization.md), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -84,7 +84,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](/doc
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-phone-get-started
-[Authorize users with scripts]: /documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts
+[Get started with Mobile Services]: mobile-services-windows-phone-get-started.md
+[Authorize users with scripts]: mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Single sign-on for Windows Phone apps by using Live Connect]: /documentation/articles/mobile-services-windows-phone-single-sign-on
+[Single sign-on for Windows Phone apps by using Live Connect]: mobile-services-windows-phone-single-sign-on.md

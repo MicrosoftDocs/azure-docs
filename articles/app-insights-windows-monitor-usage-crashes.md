@@ -17,7 +17,7 @@
 # Application Insights - Windows Store and Phone apps
 
 
-This page has moved: [please go here](../app-insights-windows-get-started/).
+This page has moved: [please go here](app-insights-windows-get-started.md).
 
 
 

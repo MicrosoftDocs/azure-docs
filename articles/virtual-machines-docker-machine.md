@@ -205,6 +205,6 @@ Go to the [Docker user guide](https://docs.docker.com/userguide/) and create som
 [uploaditem]: ./media/virtual-machines-docker-machine/uploaditem.png
 
 <!--Link references--In actual articles, you only need a single period before the slash.-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

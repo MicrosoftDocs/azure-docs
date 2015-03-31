@@ -64,7 +64,7 @@ Looking at the green boxes in the previous diagram, you’ll see that the WhatTo
 
 - [Azure Search](http://azure.microsoft.com/services/search/)
 - [Azure Websites using MVC 4](http://azure.microsoft.com/services/websites/)
-- [Azure WebJobs for scheduled tasks](http://azure.microsoft.com/documentation/articles/websites-webjobs-resources/)
+- [Azure WebJobs for scheduled tasks](websites-webjobs-resources.md)
 - [Azure SQL Database](http://azure.microsoft.com/services/sql-database/)
 - [Azure BLOB Storage](http://azure.microsoft.com/services/storage/)
 - [SendGrid Email Delivery](http://azure.microsoft.com/marketplace/partners/sendgrid/sendgrid-azure/)
@@ -200,7 +200,7 @@ The greatest challenge during implementation was that it was a Preview version a
 
 One of our learnings during the proof-of-concept was to plan facets carefully upfront. After loading a lot of data into the solution, we saw that the sheer volume of facets was too high to present to the users. 
 
-We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](http://azure.microsoft.com/documentation/articles/search-faceted-navigation/).
+We solved this by constraining the facet count parameter. The count parameter imposes a hard limit on the number of facets returned to the user. A link that includes a discussion of the count parameter can be found [here](search-faceted-navigation.md).
 
 ###WebJobs for scheduling tasks
 
@@ -417,6 +417,6 @@ The following code builds the indexer mentioned in the section on building the p
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

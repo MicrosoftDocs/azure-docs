@@ -90,6 +90,6 @@ This page also gives you the information you need to be able to access the endpo
 
 You can also publish the web service to the Azure data marketplace from this page. For more information, see [Publish Azure Machine Learning Web Service to the Azure Marketplace][marketplace].
 
-[consume]: ../machine-learning-consume-web-services/
-[marketplace]: ../machine-learning-publish-web-service-to-azure-marketplace/
+[consume]: machine-learning-consume-web-services.md
+[marketplace]: machine-learning-publish-web-service-to-azure-marketplace.md
 

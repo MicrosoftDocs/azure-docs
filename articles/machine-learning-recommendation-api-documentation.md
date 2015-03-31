@@ -2644,7 +2644,7 @@ Deletes all read notifications for a model.
 
 HTTP Status code: 200
 
-###11.3. Delete User Notifications
+###13.3. Delete User Notifications
 Deletes all notifications for all models.
 
 | HTTP Method | URI |

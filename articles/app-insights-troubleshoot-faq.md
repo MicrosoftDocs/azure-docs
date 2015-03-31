@@ -178,7 +178,7 @@ Solution:
 
 
 
-[azurediagnostic]: ../insights-how-to-use-diagnostics/
+[azurediagnostic]: insights-how-to-use-diagnostics.md
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 

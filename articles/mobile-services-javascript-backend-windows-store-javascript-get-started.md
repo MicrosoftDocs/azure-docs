@@ -75,7 +75,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Add push notifications to your app] 
   <br/>Learn how to send a very basic push notification to your app.
 
-For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](/documentation/articles/mobile-services-how-to-use-multiple-clients-single-service#shared-vs).
+For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]:#getting-started
@@ -86,9 +86,9 @@ For more information about universal Windows apps, see [Supporting multiple devi
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/mobile-services-javascript-backend-windows-universal-javascript-get-started-data
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push
+[Get started with data]: mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/

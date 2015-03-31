@@ -28,7 +28,7 @@ covered include **creating queues, sending and receiving messages**, and
 
 [AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 
 ## How to create a queue

@@ -50,7 +50,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to your blob. See <a href="/documentation/articles/hdinsight-upload-data/" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how blobs in Azure storage are used with HDInsight, see <a href="/documentation/articles/hdinsight-use-blob-storage" target="_blank">Use Azure Blob Storage with HDInsight</a>.
+> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to your blob. See <a href="hdinsight-upload-data.md" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how blobs in Azure storage are used with HDInsight, see <a href="/documentation/articles/hdinsight-use-blob-storage" target="_blank">Use Azure Blob Storage with HDInsight</a>.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -103,18 +103,18 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
 
-[hdinsight-storage]: /documentation/articles/hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
-[hdinsight-get-started]: /documentation/articles/hdinsight-get-started/
-[hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/#mapreduce-sdk
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
