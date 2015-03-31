@@ -3,7 +3,7 @@
 	description="Microsoft Azure DocumentDB is a fully-managed NoSQL document database that uses a hierarchichal model of database accounts, databases, collections, stored procedures, triggers, UDFs, documents, attachments, media, users, and permissions to manage resources."  
 	services="documentdb" 
 	documentationCenter="" 
-	authors="andrewhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
