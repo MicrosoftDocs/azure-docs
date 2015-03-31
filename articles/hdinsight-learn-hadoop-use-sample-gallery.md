@@ -51,7 +51,7 @@ The following video clip shows how to run the Twitter trend analysis sample:
 ## Next steps
 Other ways to learn about HDInsight include:
 
-- [HDInsight learning map][hdinsight.learning.map]
+- [HDInsight learning map][hdinsight.learn.map]
 - [HDInsight infographic][hdinsight.infographic]
 
 <!--Image references-->
