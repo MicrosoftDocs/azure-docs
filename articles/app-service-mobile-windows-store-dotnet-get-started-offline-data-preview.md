@@ -16,22 +16,22 @@
 	ms.date="03/22/2015"
 	ms.author="chrande"/>
 
-# Using offline data sync in Azure Mobile App
+# Using offline data sync in Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../includes/app-service-mobile-selector-offline-preview.md)]
 
 
-This tutorial shows you how to add offline support to a Windows Universal Store app using an Azure Mobile App backend. Offline support will allow you to interact with a local database when your app is in an offline scenario. Once your app is online with the backend database, you sync your local changes using the offline features.
+This tutorial shows you how to add offline support to a Windows Universal Store app using an Azure Mobile Apps backend. Offline support will allow you to interact with a local database when your app is in an offline scenario. Once your app is online with the backend database, you sync your local changes using the offline features.
 
 
 
-In this tutorial, you will update the Universal app project from the [Create a Windows app] tutorial to support the offline features of Azure Mobile App. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
+In this tutorial, you will update the Universal app project from the [Create a Windows app] tutorial to support the offline features of Azure Mobile Apps. Then you will add data in a disconnected offline scenario, sync those items to the online database, and then log in to the Azure Management Portal to view changes to data made when running the app.
 
 This tutorial walks you through these basic steps:
 
 1. [Update the app to support offline features]
 2. [Update the sync behavior of the app]
-3. [Update the app to reconnect your Mobile App backend]
+3. [Update the app to reconnect your Mobile Apps backend]
 
 This tutorial requires the following:
 
