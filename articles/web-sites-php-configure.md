@@ -22,10 +22,12 @@
 
 This guide will show you how to configure the built-in PHP runtime in Web Apps for [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
-## How to: Change the built-in PHP configuration
+## How to: Change the built-in PHP version
 By default, PHP 5.4 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
 
-PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To update the PHP version, follow these steps:
+PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To update the PHP version, follow one of these methods:
+
+### Azure Portal
 
 1. Browse to your web app in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) and click on the **Settings** button.
 
@@ -38,6 +40,28 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
 3. Click the **Save** button at the top of the **Web app settings** blade.
 
 	![Save configuration settings][save-button]
+	
+### Azure PowerShell (Windows)
+
+1. Open Windows PowerShell
+2. Type `Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name <site-name>` then press enter.
+3. The PHP version is now set.
+	![Setting the PHP version with Azure PowerShell][]
+4. You can confirm these settings by typing `Get-AzureWebiste -Name <site-name>` then press enter.
+	![Verifying the PHP version with Azure PowerShell][]
+
+### Azure Command-Line Interface (Linux, Mac, Windows)
+
+>[Azure.Note] The Azure Command-Line Interface requires **Node.js** to be installed on your computer for use.
+
+1. Open Terminal.
+2. Type `azure site set --php-version [5.4 | 5.5] [site-name]` then press enter.
+3. The PHP version is now set.
+	![Setting the PHP version with Azure Command-Line Interface][]
+4. You can confirm these settings by typing `azure site show [site-name]` then press enter.
+	![Verifying the PHP version with Azure Command-Line Interface][]
+
+## How to: Change the built-in PHP configurations
 
 For any built-in PHP runtime, you can change any of the configuration options that are not system-level-only directives by following the steps below. (For information about system-level-only directives, see [List of php.ini directives].)
 
