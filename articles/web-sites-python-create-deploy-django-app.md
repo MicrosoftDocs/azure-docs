@@ -3,8 +3,9 @@
 	description="A tutorial that introduces you to running a Python website on Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
-	manager="" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -14,7 +15,7 @@
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="02/09/2015" 
-	ms.author="huvalo"/>
+	ms.author="huguesv"/>
 
 
 
