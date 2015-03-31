@@ -3,7 +3,7 @@
    description="How to use the HDInsight Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="sujayt" 
+   authors="andalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -112,14 +112,14 @@ HDInsight Connector can be used only as an action in logic app. Let us take a si
 You can click on 'Run' to start the logic app manually to test the scenario.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-HDInsight/Create.jpg
-[2]: ./media/app-service-logic-connector-HDInsight/CertNotConfigured.jpg
-[3]: ./media/app-service-logic-connector-HDInsight/CertConfigured.jpg
-[5]: ./media/app-service-logic-connector-HDInsight/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-HDInsight/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-HDInsight/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-HDInsight/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-HDInsight/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-HDInsight/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-HDInsight/LogicApp7.jpg
+[1]: ./media/app-service-logic-connector-hdinsight/Create.jpg
+[2]: ./media/app-service-logic-connector-hdinsight/CertNotConfigured.jpg
+[3]: ./media/app-service-logic-connector-hdinsight/CertConfigured.jpg
+[5]: ./media/app-service-logic-connector-hdinsight/LogicApp1.jpg
+[6]: ./media/app-service-logic-connector-hdinsight/LogicApp2.jpg
+[7]: ./media/app-service-logic-connector-hdinsight/LogicApp3.jpg
+[8]: ./media/app-service-logic-connector-hdinsight/LogicApp4.jpg
+[9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
+[10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
+[11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
 

@@ -3,7 +3,7 @@
    description="How to use the SQL Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="sujayt" 
+   authors="andalmia" 
    manager="dwrede" 
    editor=""/>
 

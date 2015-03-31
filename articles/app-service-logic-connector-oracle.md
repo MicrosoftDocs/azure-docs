@@ -3,7 +3,7 @@
    description="How to use the Oracle Connector" 
    services="app-service-logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="sujayt" 
+   authors="andalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -129,17 +129,17 @@ Let us take a simple logic app which polls data from a Oracle table, adds the da
 You can test the Logic App by adding a new record in the table that is being polled.
 
 <!--Image references-->
-[1]: ./media/app-service-logic-connector-Oracle/Create.jpg
-[2]: ./media/app-service-logic-connector-Oracle/BrowseSetupIncomplete.jpg
-[3]: ./media/app-service-logic-connector-Oracle/HybridSetup.jpg
-[4]: ./media/app-service-logic-connector-Oracle/BrowseSetupComplete.jpg
-[5]: ./media/app-service-logic-connector-Oracle/LogicApp1.jpg
-[6]: ./media/app-service-logic-connector-Oracle/LogicApp2.jpg
-[7]: ./media/app-service-logic-connector-Oracle/LogicApp3.jpg
-[8]: ./media/app-service-logic-connector-Oracle/LogicApp4.jpg
-[9]: ./media/app-service-logic-connector-Oracle/LogicApp5.jpg
-[10]: ./media/app-service-logic-connector-Oracle/LogicApp6.jpg
-[11]: ./media/app-service-logic-connector-Oracle/LogicApp7.jpg
-[12]: ./media/app-service-logic-connector-Oracle/LogicApp8.jpg
+[1]: ./media/app-service-logic-connector-oracle/Create.jpg
+[2]: ./media/app-service-logic-connector-oracle/BrowseSetupIncomplete.jpg
+[3]: ./media/app-service-logic-connector-oracle/HybridSetup.jpg
+[4]: ./media/app-service-logic-connector-oracle/BrowseSetupComplete.jpg
+[5]: ./media/app-service-logic-connector-oracle/LogicApp1.jpg
+[6]: ./media/app-service-logic-connector-oracle/LogicApp2.jpg
+[7]: ./media/app-service-logic-connector-oracle/LogicApp3.jpg
+[8]: ./media/app-service-logic-connector-oracle/LogicApp4.jpg
+[9]: ./media/app-service-logic-connector-oracle/LogicApp5.jpg
+[10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
+[11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
+[12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
 
 
