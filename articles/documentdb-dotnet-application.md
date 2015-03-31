@@ -437,7 +437,7 @@ Now if you run the application, it will call into your **ItemController** which 
 
 If you build and run this project now, you should now see something that looks this.    
 
-	![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image23.png)
+![Screen shot of the todo list web application created by this tutorial](./media/documentdb-dotnet-application/image23.png)
 
 ### <a name="_Toc395637771"></a>Adding Items
 
