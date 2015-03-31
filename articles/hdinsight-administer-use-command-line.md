@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using the Cross-Platform Command-line Interface
 
-##Overview
-
-In this article, you learn how to use the Azure Cross-Platform Command-Line Interface to manage Hadoop clusters in Azure HDInsight. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
+Learn how to use the Azure Cross-Platform Command-Line Interface to manage Hadoop clusters in Azure HDInsight. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
 
 The command-line tool is open source. The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 

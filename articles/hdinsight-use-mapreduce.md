@@ -165,7 +165,7 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 [hdinsight-samples]: hdinsight-run-samples.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[powershell-install-configure]: install-and-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 

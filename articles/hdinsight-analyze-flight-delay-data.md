@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/04/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 #Analyze flight delay data by using Hadoop in HDInsight

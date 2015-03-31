@@ -76,8 +76,6 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
-[cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
-
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
