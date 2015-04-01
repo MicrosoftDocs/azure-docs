@@ -5,6 +5,7 @@
 	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
+	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="3/31/2015" 
+	ms.date="03/31/2015" 
 	ms.author="adegeo"/>
 
 
