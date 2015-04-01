@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	services=""
+	services="virtual-machines"
 	authors="gbowerman"/>
 
 <tags
