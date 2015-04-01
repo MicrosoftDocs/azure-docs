@@ -3,7 +3,7 @@
 	description="Learn how to create Microsoft Azure Protocol Connector API Apps and add the API App to your logic App; microservices" 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="Deonhe" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
