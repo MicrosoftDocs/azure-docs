@@ -47,14 +47,39 @@ To use the Oracle Connector, you need to create an instance of the Oracle Connec
 1. Open the Azure Marketplace using the '+ NEW' option at the bottom left of the Azure Portal
 2. Browse to “Web and Mobile > API apps” and search for “Oracle Connector”
 3. Provide the generic details such as Name, App service plan, and so on in the first blade
-4. As part of Package settings, provide
+4. Provide the package settings mentioned in the table below.
 
-    - the Oracle Data Source details. For more information about data source names and tnsnames.ora, see  [Configuring the Oracle Client ](https://msdn.microsoft.com/library/dd787872.aspx\ "Configuring the Oracle Client")
-    - Oracle server Credentials
-    - an Azure Service Bus connection string which will be used to establish hybrid connectivity with your on-premise SAP. 
-	- the tables that can be modified by the connector
-	- the stored procedures, functions and package entities that can be called by the connector
-	- the data available query, poll query and post poll query to poll data when a trigger is used in the Logic App
+<style type="text/css">
+	table.tableizer-table {
+	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+} 
+.tableizer-table td {
+	padding: 4px;
+	margin: 3px;
+	border: 1px solid #ccc;
+}
+.tableizer-table th {
+	background-color: #525B64; 
+	color: #FFF;
+	font-weight: bold;
+}
+</style><table class="tableizer-table">
+<tr class="tableizer-firstrow"><th>Name</th><th>Required</th><th>Description</th></tr>
+ <tr><td>Data Source</td><td>Yes</td><td>A data source (net service) name that is specified in the tnsnames.ora file on the machine where the Oracle client is installed. For more information about data source names and tnsnames.ora, see <a href=\"https://msdn.microsoft.com/en-us/library/dd787872.aspx\" target=\"_blank\">Configuring the Oracle Client</a></td></tr>
+ <tr><td>User Name</td><td>Yes</td><td>Specify a valid user name to connect to the Oracle server.</td></tr>
+ <tr><td>Password</td><td>Yes</td><td>Specify a valid password to connect to the Oracle server.</td></tr>
+ <tr><td>Service Bus Connection String</td><td>Yes</td><td>Optional. Specify this parameter if your Oracle Server is on-premises. This should be a valid Service Bus Namespace connection string. You need to install a listener agent on a server that can access your Oracle server. You can go to your API App summary page and click on 'Hybrid Connection' to install the agent.</td></tr>
+ <tr><td>Tables</td><td>No</td><td>Optional. Specify the tables in the database that are allowed to be modified by the connector. Ex:OrdersTable,EmployeeTable</td></tr>
+ <tr><td>Stored Procedures</td><td>No</td><td>Optional. Specify the stored procedures in the database that can be called by the connector. Ex: IsEmployeeEligible,CalculateOrderDiscount</td></tr>
+ <tr><td>Functions</td><td>No</td><td>Optional. Specify the functions in the database that can be called by the connector. Ex: IsEmployeeEligible,CalculateOrderDiscount</td></tr>
+ <tr><td>Package Entities</td><td>No</td><td>Optional. Specify the packages in the database that can be called by the connector. Ex: PackageOrderProcessing.CompleteOrder,PackageOrderProcessing.GenerateBill</td></tr>
+ <tr><td>Data Available Statement</td><td>No</td><td>Optional. Specify the statement to determine whether any data is available for polling. Example: SELECT * from table_name</td></tr>
+ <tr><td>Poll Type</td><td>No</td><td>Optional. Specify the polling type. The allowed values are "Select", "Procedure", "Function" and "Package"</td></tr>
+ <tr><td>Poll Statement</td><td>No</td><td>Optional. Specify the statement to poll the Oracle Server database. Example: SELECT * from table_name</td></tr>
+ <tr><td>Post Poll Statement</td><td>No</td><td>Optional. Specify the statement to execute after the poll. Example: DELETE * from table_name.</td></tr>
+</table>
+
 
 
  ![][1]  
@@ -141,3 +166,5 @@ You can test the Logic App by adding a new record in the table that is being pol
 [10]: ./media/app-service-logic-connector-oracle/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.jpg
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.jpg
+
+

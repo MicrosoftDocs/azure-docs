@@ -28,7 +28,7 @@ Connectors can be used in Logic apps to fetch, process or push data as a part of
 For these scenarios, the following needs to be done: 
 
 1. Create an instance of the SQL Connector API App
-2. Establish hybrid connectivity for the API App to communicate with the on-premise SAP. This step is optional and required only for on-premises SQL server and not for SQL Azure.
+2. Establish hybrid connectivity for the API App to communicate with the on-premise SQL. This step is optional and required only for on-premises SQL server and not for SQL Azure.
 3. Use the created API App in a logic app to achieve the desired business process
 
 	###Basic Triggers and Actions
@@ -47,13 +47,38 @@ To use the SQL Connector, you need to create an instance of the SQL Connector' A
 1. Open the Azure Marketplace using the '+ NEW' option at the bottom left of the Azure Portal
 2. Browse to “Web and Mobile > API apps” and search for “SQL Connector”
 3. Provide the generic details such as Name, App service plan, and so on in the first blade
-4. As part of Package settings, provide
+4. Provide the package settings mentioned in the table below.	
 
-    - the SQL server Credentials
-    - an Azure Service Bus connection string (in case of on-premises SQL server) and set the value of On-Premises to "true". This will be used to establish hybrid connectivity with your on-premise SAP. 
-	- the tables that can be modified by the connector
-	- the stored procedures that can be called by the connector
-	- the data available query and poll query to poll data when a trigger is used in the Logic App
+<style type="text/css">
+	table.tableizer-table {
+	border: 1px solid #CCC; font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+} 
+.tableizer-table td {
+	padding: 4px;
+	margin: 3px;
+	border: 1px solid #ccc;
+}
+.tableizer-table th {
+	background-color: #525B64; 
+	color: #FFF;
+	font-weight: bold;
+}
+</style><table class="tableizer-table">
+<tr class="tableizer-firstrow"><th>Name</th><th>Required</th><th>Default Value</th><th>Description</th></tr>
+ <tr><td>Server Name</td><td>Yes</td><td>&nbsp;</td><td>Specify the SQL Server name. Example: "SQLserver", "SQLserver/sqlexpress", or "SQLserver.mydomain.com".</td></tr>
+ <tr><td>Port</td><td>No</td><td> 1433</td><td>Optional. The port number where the connection is established. If you do not specify a value, the connector connects through the default port.</td></tr>
+ <tr><td>User Name</td><td>Yes</td><td>&nbsp;</td><td>Specify a valid user name to connect to the SQL server.</td></tr>
+ <tr><td>Password</td><td>Yes</td><td>&nbsp;</td><td>Specify a valid password to connect to the SQL server.</td></tr>
+ <tr><td>Database Name</td><td>Yes</td><td>&nbsp;</td><td>Specify a valid database name in the SQL Server. Example: "orders" or "dbo/orders" or "myaccount/employees".</td></tr>
+ <tr><td>On-Premises</td><td>Yes</td><td>FALSE</td><td>Specify whether your SQL server is on-premises behind a firewall or not. If set to TRUE, you need to install a listener agent on a server that can access your SQL server. You can go to your API App summary page and click on 'Hybrid Connection' to install the agent.</td></tr>
+ <tr><td>Service Bus Connection String</td><td>No</td><td>&nbsp;</td><td>Optional. Specify this parameter if your SQL Server is on-premises. This should be a valid Service Bus Namespace connection string. Make sure you use 'Standard' edition of Azure Service Bus and not 'Basic'.</td></tr>
+ <tr><td>Partner Server Name</td><td>No</td><td>&nbsp;</td><td>Optional. Specify the partner server to connect to when the primary server is down.</td></tr>
+ <tr><td>Tables</td><td>No</td><td>&nbsp;</td><td>Optional. Specify the tables in the database that are allowed to be modified by the connector. Ex:OrdersTable,EmployeeTable</td></tr>
+ <tr><td>Stored Procedures</td><td>No</td><td>&nbsp;</td><td>Optional. Specify the stored procedures in the database that can be called by the connector. Ex: IsEmployeeEligible,CalculateOrderDiscount</td></tr>
+ <tr><td>Data Available Query</td><td>No</td><td>&nbsp;</td><td>Optional. Specify the SQL statement to determine whether any data is available for polling a SQL Server database table. Example: SELECT COUNT(*) from table_name.</td></tr>
+ <tr><td>Poll Data Query</td><td>No</td><td>&nbsp;</td><td>Optional. Specify the SQL statement to poll the SQL Server database table. You can specify any number of SQL statements separated by a semicolon. Example: SELECT * from table_name; DELETE from table_name. NOTE: You have to provide the poll statement in such a way that it will not end up in an infinite loop. For example, select should be followed by a delete and select based on a flag should be followed by update of the flag.</td></tr>
+</table>
 
 
  ![][1]  
