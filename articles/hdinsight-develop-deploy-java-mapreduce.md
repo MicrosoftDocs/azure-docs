@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="04/01/2015" 
 	ms.author="nitinme"/>
 
 # Develop Java MapReduce programs for Hadoop in HDInsight
@@ -23,7 +23,7 @@ This tutorial walks you through an end-to-end scenario for developing a word-cou
 
 Before you begin this tutorial, you must have completed the following:
 
-- Install the HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator].
+- Install the HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-emulator]. Make sure all the required services are running. On the computer that has HDInsight Emulator installed, launch the Hadoop Command line from the Desktop shortcut, navigate to **C:\hdp**, and run the command **start_local_hdp_services.cmd**.	
 - Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 - Install Java platform JDK 7 or higher on the emulator computer. This is already available on the emulator computer.
 - Install and configure [Apache Maven](http://maven.apache.org/).
@@ -235,6 +235,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory as the 
 1. Open the Hadoop command line from your desktop. The Hadoop command line is installed by the emulator installer.
 2. From the Hadoop command-line window, run the following command to make a directory for the input files:
 
+		hadoop fs -mkdir /WordCount
 		hadoop fs -mkdir /WordCount/Input
 
 	The path used here is the relative path. It is equivalent to the following:
@@ -393,7 +394,7 @@ In this tutorial, you will create a container on a separate Storage account for 
 		$storageAccountName_Data = "<AzureStorageAccountName>"  
 		$containerName_Data = "<ContainerName>"
 
-		$jarFile = "C:\Tutorials\WordCountJava\WordCount.jar"
+		$jarFile = "C:\Tutorials\WordCountJava\wordcountjava\target\wordcountjava-1.0-SNAPSHOT.jar"
 		$blobFolder = "WordCount/jars"
 
 	The **$storageAccountName\_Data** and **$containerName\_Data** variables are the same as you defined in the last procedure, which means you will upload both the data file and the application to the same container on the same Storage account.

@@ -51,6 +51,10 @@ The tags section uses this syntax:
 ![](./media/article-metadata/checkmark-small.png)**services**: Required for articles that deal with a service. List all the applicable services, separated by commas. The first service you list will drive the navigational breadcrumbs for the page. In articles that specify both a services value and a documentationCenter value, the services value will drive the breadcrumb. Values:
 
 - active-directory
+- app-service\api
+- app-service\logic
+- app-service\mobile
+- app-service\web
 - backup
 - biztalk-services
 - cache
@@ -58,6 +62,7 @@ The tags section uses this syntax:
 - hdinsight
 - machine-learning
 - media-services
+- mobile-engagement
 - mobile-services
 - multi-factor-authentication
 - notification-hubs
@@ -102,6 +107,11 @@ The tags section uses this syntax:
 
  - **active-directory**
  - **api-management**
+ - **app-service**: Only applies to general conceptual material on App Service
+ - **app-service-api**
+ - **app-service-logic**
+ - **app-service-mobile**
+ - **app-service-web**
  - **application-insights**	
  - **automation**	
  - **backup**	
@@ -115,7 +125,8 @@ The tags section uses this syntax:
  - **key-vault**	
  - **machine-learning**	
  - **marketplace**: Articles about the Azure marketplace
- - **media-services**	
+ - **media-services**
+ - **mobile-engagement**	
  - **mobile-services**	
  - **multi-factor-authentication**	
  - **multiple**: The page applies to multiple services equally

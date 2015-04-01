@@ -3,7 +3,7 @@
 	description="Learn how to use Azure PowerShell cmdlets to monitor and manage Stream Analytics jobs" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/16/2015" 
-	ms.author="jgao"/>
+	ms.date="04/01/2015" 
+	ms.author="jeffstok"/>
 
 
 # Monitor and manage Stream Analytics jobs by using Azure PowerShell
@@ -35,7 +35,7 @@ Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
 		Select-AzureSubscription
 
-	>[WACOM.NOTE] The following error message indicates that Azure Stream Analytics is not enabled on the subscription:
+	>[AZURE.NOTE] The following error message indicates that Azure Stream Analytics is not enabled on the subscription:
 	>
 		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
 	
@@ -125,6 +125,8 @@ If you specify an input that already exists and do not specify the –Force para
 
 If you specify the –Force parameter and specify an existing input name, the input will be replaced without confirmation.
 
+For detailed information on the JSON file structure and contents, refer to the [Create Input (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+
 **Example 1**
 
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
@@ -149,6 +151,8 @@ If you specify a job name that already exists and do not specify the –Force pa
 
 If you specify the –Force parameter and specify an existing job name, the job definition will be replaced without confirmation.
 
+For detailed information on the JSON file structure and contents, refer to the [Create Stream Analytics Job][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+
 **Example 1**
 
 	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
@@ -168,6 +172,8 @@ If you specify an output that already exists and do not specify the –Force par
 
 If you specify the –Force parameter and specify an existing output name, the output will be replaced without confirmation.
 
+For detailed information on the JSON file structure and contents, refer to the [Create Output (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+
 **Example 1**
 
 	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
@@ -186,6 +192,8 @@ The name of the transformation can be specified in the .json file or on the comm
 If you specify a transformation that already exists and do not specify the –Force parameter, the cmdlet will ask whether or not to replace the existing transformation.
 
 If you specify the –Force parameter and specify an existing transformation name, the transformation will be replaced without confirmation.
+
+For detailed information on the JSON file structure and contents, refer to the [Create Transformation (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
 
 **Example 1**
 
@@ -273,7 +281,10 @@ This command tests the connection status of the output Output in StreamingJob.
 
 [msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
-
+[msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
+[msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
+[msdn-rest-api-create-stream-analytics-output]: https://msdn.microsoft.com/library/dn835015.aspx
+[msdn-rest-api-create-stream-analytics-transformation]: https://msdn.microsoft.com/library/dn835007.aspx
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
