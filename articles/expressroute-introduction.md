@@ -70,7 +70,7 @@ If you want a direct layer 3 connection through an exchange provider, you can do
 
 No matter which way you decide, for a direct layer 3 connection, we configure a pair of cross-connections between Azure infrastructure and the connectivity provider’s infrastructure in active-active configuration to ensure that the connection is highly available and is resilient to failures. After you meet the, you can then setup BGP sessions between your routers and the Microsoft routers in order to exchange routes and have traffic flow between your network and Azure.
 
-For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute Connection through an EXP](.https://msdn.microsoft.com/library/azure/dn606306.aspx).
+For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute Connection through an EXP](https://msdn.microsoft.com/library/azure/dn606306.aspx).
 
 
 ###  Network Service Providers (NSPs)
