@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to build an AngularJS single-page app with Azure AD" 
 	description="Demonstrates the use of Active Directory Authentication Library (ADAL) for Javascript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS." 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
