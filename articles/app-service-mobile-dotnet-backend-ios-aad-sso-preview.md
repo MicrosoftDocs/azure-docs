@@ -16,7 +16,7 @@ ms.author="mahender" />
 
 # Add Azure Active Directory single sign-on to your iOS app
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.
 
@@ -31,7 +31,7 @@ This tutorial requires the following:
 
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
 ## <a name="require-authentication"></a>Configure the application to require authentication
 
