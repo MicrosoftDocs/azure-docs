@@ -1,15 +1,15 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
+   authors="telmosampaio" 
+   documentationCenter="" 
    editor=""
-   manager="jefco" 
+   manager="adinah" 
    pageTitle="Manage: Load Balancer Distribution Mode (Source IP Affinity)" 
    description="Management features for the Azure load balancer distribution mode" 
    services="virtual-network" 
    />
 
 <tags
-   ms.author="danecke"
+   ms.author="telmos"
    ms.date="02/20/2015"
    ms.devlang="na"
    ms.service="virtual-network"
