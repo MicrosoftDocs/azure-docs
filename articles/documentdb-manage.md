@@ -2,7 +2,7 @@
 	pageTitle="Manage DocumentDB capacity and performance | Azure" 
 	description="Learn how you can scale DocumentDB to meet the capacity needs of your application." 
 	services="documentdb" 
-	authors="mimig1, johnfmacintyre" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="cgronlun" 
 	documentationCenter=""/>
