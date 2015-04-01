@@ -83,7 +83,7 @@ Supported bandwidth offers:
 |**Exchange providers**|200 Mbps, 500 Mbps, 1Gbps, 10Gbps|
 
 ###  Which service providers are available?
-See [ExpressRoute Locations](https://msdn.microsoft.com/en-us/library/azure/dn957919.aspx) for the list of service providers and locations.
+See [ExpressRoute Locations](https://msdn.microsoft.com/library/azure/dn957919.aspx) for the list of service providers and locations.
 
 ##  Technical Details
 
