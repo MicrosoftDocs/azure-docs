@@ -342,7 +342,7 @@ You may optionally choose to prettify the resulting JSON, which will increase th
         "Title": "Places to see in Paris"
       }
     ]
-  }]
+	}]
 	
 
 ##<a id="ImportSummary"></a>Confirm Import Settings and View Command Line ##
