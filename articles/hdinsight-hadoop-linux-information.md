@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/31/2015"
+   ms.date="04/01/2015"
    ms.author="larryfr"/>
 
-#Working with HDInsight on Linux (Preview)
+# Working with HDInsight on Linux (Preview)
 
 Linux-based HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop on Linux installation. This document calls out specific differences that you should be aware of.
 
-##Domain names
+## Domain names
 
 The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername>.aurehdinsight.net**.
 
-##Services accessible remotely
+## Services accessible remotely
 
 * **Ambari (web)** - https://&lt;clustername>.azurehdinsight.net
 
@@ -56,13 +56,13 @@ The Fully Qualified Domain Name (FQDN) to use when connecting to the cluster is 
 
 	> [AZURE.NOTE] You can only access the cluster head node through SSH from a client-machine. Once connected, you can then access the worker nodes using SSH from the head node.
 
-##File locations
+## File locations
 
 Hadoop related files can be found on the cluster nodes at `/usr/hdp/current`.
 
 Example data and jars can be found on HDFS (WASB) at '/example' or 'wasb:///example'.
 
-##HDFS, WASB, and storage best practices
+## HDFS, WASB, and storage best practices
 
 In most Hadoop distributions, the Hadoop Distributed File System (HDFS) is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
 
@@ -82,7 +82,7 @@ HDInsight also allows you to associate multiple Blob Storage accounts with a clu
 
 	hadoop fs -ls wasb://mycontainer@mystorage.blob.core.windows.net/example/data
 
-###What blob storage is the cluster using?
+### What blob storage is the cluster using?
 
 During cluster creation, you select to use either an existing storage account and container, or to create a new one. Then, you probably forgot about it. You can find the storage account and container using the following methods.
 
@@ -100,7 +100,7 @@ During cluster creation, you select to use either an existing storage account an
 
 *Comming soon!*
 
-###How do I access blob storage?
+### How do I access blob storage?
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
@@ -122,8 +122,7 @@ Other than through the Hadoop command from the cluster, there are a variety of w
 
 * <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">Storage REST API</a>
 
-
-##Next steps
+## Next steps
 
 * [Use Hive with HDInsight](hdinsight-use-hive.md)
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
