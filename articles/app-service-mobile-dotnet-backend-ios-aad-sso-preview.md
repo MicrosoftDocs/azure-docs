@@ -100,7 +100,7 @@ You will now be able to reference the Active Directory Authentication Library in
 
 7. In the code for the `loginAndGetData` method above, replace **INSERT-REDIRECT-URI-HERE** with the /login/done endpoint for your App Service Gateway. This should be similar to https://contosogateway.azurewebsites.net/login/done.
 
-8. In the QSTodoListViewController, modify `ViewDidLoad` by replacing `[self refresh]` with the following:
+8. In the QSTodoListViewController, modify `viewDidLoad` by replacing `[self refresh]` with the following:
 
         [self loginAndGetData];
 
