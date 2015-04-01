@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Page title that displays in the browser tab and search results" 
-   description="Article description that will be displayed on landing pages and in most search results" 
-   services="service-name" 
-   documentationCenter="dev-center-name" 
-   authors="GitHub-alias-of-only-one-author" 
-   manager="manager-alias" 
+<properties
+   pageTitle="Page title that displays in the browser tab and search results"
+   description="Article description that will be displayed on landing pages and in most search results"
+   services="service-name"
+   documentationCenter="dev-center-name"
+   authors="GitHub-alias-of-only-one-author"
+   manager="manager-alias"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="may be required"
    ms.topic="article"
    ms.tgt_pltfrm="may be required"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
@@ -26,28 +26,28 @@ Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla ris
 
 ## Heading 2 (H2)
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
+Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
 
 > [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
+1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio.
 
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
- 
-  	![Alt text; do not leave blank. Late-model collector car in racing red.][5]
+2. Aenean tellus lectus, faucius in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
+  	![Alt text; do not leave blank. Collector car in racing red.][5]
 
-  	![][6]
+3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl.
+
+  	![Alt text; do not leave blank][6]
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
+Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-tutorial.md)
 
 ## Heading (H2)
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
+Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
+1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
         (NSDictionary *)launchOptions
@@ -56,9 +56,9 @@ Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odi
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
             UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
             return YES;
-        }   	 
+        }
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
+2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.
 
    	    // Because toast alerts don't work when the app is running, the app handles them.
         // This uses the userInfo in the payload to display a UIAlertView.
@@ -72,14 +72,14 @@ Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odi
         }
 
 
-    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
+    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic](web-sites-custom-domain-name.md)
 
 
 Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
 
 ## Heading 2 (H2)
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
+
+1. Maecenas sed condimentum nisi. Suspendisse potenti.
 
   + Fusce
   + Malesuada
@@ -91,21 +91,16 @@ Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus
 
 3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
 
- 
+
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
 [7]: ./media/markdown-template-for-new-articles/channel-9.png
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
