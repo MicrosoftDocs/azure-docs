@@ -84,14 +84,14 @@ Once your API app is created, you can now use the Yammer connector as a trigger/
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-yammer/img1.png
-[2]: ./media/app-service-logic-connector-yammer/img2.png
+[1]: ./media/app-service-logic-connector-yammer/img1.PNG
+[2]: ./media/app-service-logic-connector-yammer/img2.PNG
 [3]: ./media/app-service-logic-connector-yammer/img3.png
 [4]: ./media/app-service-logic-connector-yammer/img4.png
-[5]: ./media/app-service-logic-connector-yammer/img5.png
-[6]: ./media/app-service-logic-connector-yammer/img6.png
+[5]: ./media/app-service-logic-connector-yammer/img5.PNG
+[6]: ./media/app-service-logic-connector-yammer/img6.PNG
 [7]: ./media/app-service-logic-connector-yammer/img7.png
-[8]: ./media/app-service-logic-connector-yammer/img8.png
-[9]: ./media/app-service-logic-connector-yammer/img9.png
-[10]: ./media/app-service-logic-connector-yammer/img10.png
-[11]: ./media/app-service-logic-connector-yammer/img11.png
+[8]: ./media/app-service-logic-connector-yammer/img8.PNG
+[9]: ./media/app-service-logic-connector-yammer/img9.PNG
+[10]: ./media/app-service-logic-connector-yammer/img10.PNG
+[11]: ./media/app-service-logic-connector-yammer/img11.PNG

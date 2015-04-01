@@ -69,9 +69,9 @@ Once your API app is created, you can now use the Twilio connector as an action 
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-twilio/img1.png
-[2]: ./media/app-service-logic-connector-twilio/img2.png
+[1]: ./media/app-service-logic-connector-twilio/img1.PNG
+[2]: ./media/app-service-logic-connector-twilio/img2.PNG
 [3]: ./media/app-service-logic-connector-twilio/img3.png
 [4]: ./media/app-service-logic-connector-twilio/img4.png
-[5]: ./media/app-service-logic-connector-twilio/img5.png
-[6]: ./media/app-service-logic-connector-twilio/img6.png
+[5]: ./media/app-service-logic-connector-twilio/img5.PNG
+[6]: ./media/app-service-logic-connector-twilio/img6.PNG

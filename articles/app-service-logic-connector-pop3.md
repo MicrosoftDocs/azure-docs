@@ -67,9 +67,9 @@ Once your API app is created, you can now use the POP3 connector as a trigger fo
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-pop3/img1.png
-[2]: ./media/app-service-logic-connector-pop3/img2.png
+[1]: ./media/app-service-logic-connector-pop3/img1.PNG
+[2]: ./media/app-service-logic-connector-pop3/img2.PNG
 [3]: ./media/app-service-logic-connector-pop3/img3.png
-[4]: ./media/app-service-logic-connector-pop3/img4.png
-[5]: ./media/app-service-logic-connector-pop3/img5.png
-[6]: ./media/app-service-logic-connector-pop3/img6.png
+[4]: ./media/app-service-logic-connector-pop3/img4.PNG
+[5]: ./media/app-service-logic-connector-pop3/img5.PNG
+[6]: ./media/app-service-logic-connector-pop3/img6.PNG

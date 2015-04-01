@@ -67,12 +67,12 @@ Configure the input properties for "Upload File" action as follows:
 
 
 <!-- Image reference -->
-[1]: ./media/DropboxConnectorAPIApp/img1.png
-[2]: ./media/DropboxConnectorAPIApp/img2.png
-[3]: ./media/DropboxConnectorAPIApp/img3.png
-[4]: ./media/DropboxConnectorAPIApp/img4.png
-[5]: ./media/DropboxConnectorAPIApp/img5.png
-[6]: ./media/DropboxConnectorAPIApp/img6.png
-[7]: ./media/DropboxConnectorAPIApp/img7.png
-[8]: ./media/DropboxConnectorAPIApp/img8.png
-[9]: ./media/DropboxConnectorAPIApp/img9.png
+[1]: ./media/app-service-logic-connector-dropbox/img1.PNG
+[2]: ./media/app-service-logic-connector-dropbox/img2.PNG
+[3]: ./media/app-service-logic-connector-dropbox/img3.png
+[4]: ./media/app-service-logic-connector-dropbox/img4.png
+[5]: ./media/app-service-logic-connector-dropbox/img5.PNG
+[6]: ./media/app-service-logic-connector-dropbox/img6.PNG
+[7]: ./media/app-service-logic-connector-dropbox/img7.PNG
+[8]: ./media/app-service-logic-connector-dropbox/img8.PNG
+[9]: ./media/app-service-logic-connector-dropbox/img9.PNG

@@ -82,9 +82,9 @@ Once your API app is created, you can now use the SMTP connector as an action fo
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-smtp/img1.png
-[2]: ./media/app-service-logic-connector-smtp/img2.png
+[1]: ./media/app-service-logic-connector-smtp/img1.PNG
+[2]: ./media/app-service-logic-connector-smtp/img2.PNG
 [3]: ./media/app-service-logic-connector-smtp/img3.png
-[4]: ./media/app-service-logic-connector-smtp/img4.png
-[5]: ./media/app-service-logic-connector-smtp/img5.png
-[6]: ./media/app-service-logic-connector-smtp/img6.png
+[4]: ./media/app-service-logic-connector-smtp/img4.PNG
+[5]: ./media/app-service-logic-connector-smtp/img5.PNG
+[6]: ./media/app-service-logic-connector-smtp/img6.PNG

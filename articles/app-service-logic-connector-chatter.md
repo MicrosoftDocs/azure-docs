@@ -79,14 +79,14 @@ Once your API app is created, you can now use the Chatter connector as a trigger
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-chatter/img1.png
-[2]: ./media/app-service-logic-connector-chatter/img2.png
+[1]: ./media/app-service-logic-connector-chatter/img1.PNG
+[2]: ./media/app-service-logic-connector-chatter/img2.PNG
 [3]: ./media/app-service-logic-connector-chatter/img3.png
 [4]: ./media/app-service-logic-connector-chatter/img4.png
-[5]: ./media/app-service-logic-connector-chatter/img5.png
-[6]: ./media/app-service-logic-connector-chatter/img6.png
-[7]: ./media/app-service-logic-connector-chatter/img7.png
-[8]: ./media/app-service-logic-connector-chatter/img8.png
-[9]: ./media/app-service-logic-connector-chatter/img9.png
-[10]: ./media/app-service-logic-connector-chatter/img10.png
-[11]: ./media/app-service-logic-connector-chatter/img11.png
+[5]: ./media/app-service-logic-connector-chatter/img5.PNG
+[6]: ./media/app-service-logic-connector-chatter/img6.PNG
+[7]: ./media/app-service-logic-connector-chatter/img7.PNG
+[8]: ./media/app-service-logic-connector-chatter/img8.PNG
+[9]: ./media/app-service-logic-connector-chatter/img9.PNG
+[10]: ./media/app-service-logic-connector-chatter/img10.PNG
+[11]: ./media/app-service-logic-connector-chatter/img11.PNG

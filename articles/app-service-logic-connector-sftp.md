@@ -95,15 +95,15 @@ Once your API app is created, you can now use the SFTP connector as a trigger/ac
 
 
 <!-- Image reference -->
-[1]: ./media/app-service-logic-connector-sftp/img1.png
-[2]: ./media/app-service-logic-connector-sftp/img2.png
-[3]: ./media/app-service-logic-connector-sftp/img3.png
-[4]: ./media/app-service-logic-connector-sftp/img4.png
-[5]: ./media/app-service-logic-connector-sftp/img5.png
-[6]: ./media/app-service-logic-connector-sftp/img6.png
+[1]: ./media/app-service-logic-connector-sftp/img1.PNG
+[2]: ./media/app-service-logic-connector-sftp/img2.PNG
+[3]: ./media/app-service-logic-connector-sftp/img3.PNG
+[4]: ./media/app-service-logic-connector-sftp/img4.PNG
+[5]: ./media/app-service-logic-connector-sftp/img5.PNG
+[6]: ./media/app-service-logic-connector-sftp/img6.PNG
 [7]: ./media/app-service-logic-connector-sftp/img7.png
 [8]: ./media/app-service-logic-connector-sftp/img8.png
-[9]: ./media/app-service-logic-connector-sftp/img9.png
-[10]: ./media/app-service-logic-connector-sftp/img10.png
-[11]: ./media/app-service-logic-connector-sftp/img11.png
-[12]: ./media/app-service-logic-connector-sftp/img12.png
+[9]: ./media/app-service-logic-connector-sftp/img9.PNG
+[10]: ./media/app-service-logic-connector-sftp/img10.PNG
+[11]: ./media/app-service-logic-connector-sftp/img11.PNG
+[12]: ./media/app-service-logic-connector-sftp/img12.PNG

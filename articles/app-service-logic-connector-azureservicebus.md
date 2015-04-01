@@ -68,11 +68,11 @@ Once your API app is created, you can now use the Azure Service Bus connector as
 
 
 	<!--Image references-->
-[1]: ./media/app-service-logic-connector-azureservicebus/img1.png
-[2]: ./media/app-service-logic-connector-azureservicebus/img2.png
+[1]: ./media/app-service-logic-connector-azureservicebus/img1.PNG
+[2]: ./media/app-service-logic-connector-azureservicebus/img2.PNG
 [3]: ./media/app-service-logic-connector-azureservicebus/img3.png
-[4]: ./media/app-service-logic-connector-azureservicebus/img4.png
-[5]: ./media/app-service-logic-connector-azureservicebus/img5.png
-[6]: ./media/app-service-logic-connector-azureservicebus/img6.png
-[7]: ./media/app-service-logic-connector-azureservicebus/img7.png
-[8]: ./media/app-service-logic-connector-azureservicebus/img8.png
+[4]: ./media/app-service-logic-connector-azureservicebus/img4.PNG
+[5]: ./media/app-service-logic-connector-azureservicebus/img5.PNG
+[6]: ./media/app-service-logic-connector-azureservicebus/img6.PNG
+[7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
+[8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
