@@ -3,7 +3,7 @@
 	description="Learn how to create Microsoft Azure Social Connector API Apps and add the API App to your logic App; microservices" 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="MSFTMan" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/31/2015" 
-	ms.author="deonhe"/>
+	ms.author="mandia"/>
 
 # Social Connectors in Microsoft Azure App Service
 
