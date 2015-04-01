@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines between on-premises sites using SAN replication." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="raynew" 
+	authors="rayne-wiselman" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
@@ -107,7 +107,7 @@ Site Recovery orchestrates protection for virtual machines located on Hyper-V ho
 
 - [What’s New in Private Cloud](http://go.microsoft.com/fwlink/?LinkId=324952)
 - [VMM 2012 and the clouds](http://go.microsoft.com/fwlink/?LinkId=324956) on Gunter Danzeisen's blog.
-- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/en-us/library/azure/dn883636.aspx#BKMK_Fabric)
+- [Configuring the VMM cloud fabric](https://msdn.microsoft.com/library/azure/dn883636.aspx#BKMK_Fabric)
 - [Creating a private cloud in VMM](http://go.microsoft.com/fwlink/?LinkId=324953)
 - [Walkthrough: Creating private clouds](http://go.microsoft.com/fwlink/?LinkId=324954) in Keith Mayer's blog.
 
@@ -160,7 +160,7 @@ Create a replication group which includes all the LUNs that will need to replica
 
 If you want to configure network mapping do the following:
 
-1. Read about [Network mapping](https://msdn.microsoft.com/en-us/library/azure/dn801052.aspx).
+1. Read about [Network mapping](https://msdn.microsoft.com/library/azure/dn801052.aspx).
 2. Prepare VM networks in VMM:
  
 	- Learn about [setting up logical networks](http://go.microsoft.com/fwlink/?LinkId=386307).Set up logical networks—Read Configuring Logical Networking in VMM Overview.
@@ -359,5 +359,5 @@ From the **Jobs** tab you view jobs, drill down into job details and errors, run
 
 From the **Dashboard** you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.
 
-<p>For more information about interacting with jobs and the dashboard, see [Operations and monitoring](http://go.microsoft.com/fwlink/?LinkId=398534).</p>
+For more information about interacting with jobs and the dashboard, see [Operations and monitoring](http://go.microsoft.com/fwlink/?LinkId=398534).
 	
