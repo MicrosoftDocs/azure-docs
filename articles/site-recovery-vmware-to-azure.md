@@ -144,7 +144,7 @@ Protected physical servers or VMWare virtual machines running Linux should have:
 
 ### Third-party prerequisites
 
-Some deployment components in this scenario depend on third-party software to function properly. For a complete list see <a href="#thirdparty">Third Party Software Notices and Information</a>. 
+Some deployment components in this scenario depend on third-party software to function properly. For a complete list see [THIRD-PARTY SOFTWARE NOTICES AND INFORMATION](#third-party)  
 
 ## Step 1: Create a vault
 
@@ -434,7 +434,7 @@ If you want to protect machines running Linux you'll need to do the following:
 6. In **Confirm Failover** verify the failover direction (To Azure) and select the recovery point to fail over to. 
 7. Wait for the failover job to complete and then verify that the failover worked as expected and that the replicated virtual machines start successfully in Azure.
 
-<a name="thirdparty"></a><h2>THIRD-PARTY SOFTWARE NOTICES AND INFORMATION</h2>
+## THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 
 Do Not Translate or Localize
 
