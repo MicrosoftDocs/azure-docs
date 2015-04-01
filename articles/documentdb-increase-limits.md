@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/8/2015" 
+	ms.date="04/08/2015" 
 	ms.author="stbaro"/>
 
 # Request increased DocumentDB account limits #
