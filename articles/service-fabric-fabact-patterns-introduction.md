@@ -35,6 +35,7 @@ The patterns presented in this paper are not intended to be comprehensive or can
 
 [Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
 
+[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
 
 ### Learn more about Actors, a brief history 
 The [paper](http://dl.acm.org/citation.cfm?id=1624804) by Hewitt et al. that is the origin of the actor model was published in 1973 yet it is only comparatively recently that the actor model has been gaining more attention as a means of dealing with concurrency and complexity in distributed systems. 
