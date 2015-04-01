@@ -73,7 +73,7 @@ All done!  Before moving on to the next step, you need to find the App ID URI of
 
 1. Sign in once again to the [Azure management portal](https://manage.windowsazure.com).
 2. Click **Active Directory** in the left hand nav.
-3. Click the directory tenant where you wish to register the sample application.
+3. Click the tenant where you wish to register the sample application.
 4. Click the **Applications** tab.
 5. In the drawer, click **Add**.
 6. Click **Add an application my organization is developing**.
