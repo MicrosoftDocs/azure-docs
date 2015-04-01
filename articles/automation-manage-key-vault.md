@@ -33,7 +33,9 @@ Reduce operational overhead and free up IT and DevOps staff to focus on work tha
 
 ## How can Azure Automation help manage Azure Key Vault?
 
-Key Vault can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these Key Vault PowerShell cmdlets available out of the box, so that you can perform all of your Key Vault management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+Key Vault can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Azure Key Vault cmdlets](https://msdn.microsoft.com/en-us/library/azure/dn868052.aspx). Azure Automation has these cmdlets available out of the box, so that you can perform many of your Key Vault management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+
+With the Azure Key Vault cmdlets you can perform these tasks: create or import a key, create or update a secret, update attributes of a key, get a key or secret, or delete a key or secret.
 
 
 ## Next Steps
