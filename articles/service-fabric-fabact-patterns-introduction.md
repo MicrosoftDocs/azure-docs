@@ -33,6 +33,9 @@ The patterns presented in this paper are not intended to be comprehensive or can
 
 [Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
 
+[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+
+
 ### Learn more about Actors, a brief history 
 The [paper](http://dl.acm.org/citation.cfm?id=1624804) by Hewitt et al. that is the origin of the actor model was published in 1973 yet it is only comparatively recently that the actor model has been gaining more attention as a means of dealing with concurrency and complexity in distributed systems. 
 The actor model supports fine-grain individual objects—actors—that are isolated from each other. They communicate via asynchronous message passing, which enables direct communications between actors. An actor executes with single-thread semantics. Coupled with encapsulation of the actor’s state and isolation from other actors, this simplifies writing highly parallel systems by removing concurrency concerns from the actor’s code. Actors are dynamically created on the pool of available hardware resources. 
