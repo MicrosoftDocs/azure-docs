@@ -27,7 +27,7 @@ By reading this article, you'll be able to answer the following questions:
 - What are system defined resources versus user defined resources?
 - How do I address a resource?
 - How do I work with collections?
-- How do I work with stored procedures, triggers and User Defined Functions(UDFs)?
+- How do I work with stored procedures, triggers and User Defined Functions (UDFs)?
 
 ##Hierarchical resource model
 As the following diagram illustrates, the DocumentDB **resource model** consists of sets of resources under a database account, each addressable via a logical and stable URI. A set of resources will be referred to as a **feed** in this article. 
@@ -156,7 +156,7 @@ As part of provisioning and managing a database account you can configure and re
 </tr>
 
 <tr>
-<td valign="top" ><p>CurrentMediaStorageUsageInMB (READ)</p></td>
+<td valign="top" ><p>MediaStorageUsageInMB (READ)</p></td>
 <td valign="top" ><p>Current usage of media storage for the database account.</p></td>
 </tr>
 
