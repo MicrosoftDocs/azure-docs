@@ -68,7 +68,7 @@ This release contains the following updates.
 
 <tr>
 <td>YARN configuration change</td>
-<td>Changed YARN configuration yarn.resourcemanager.max-completed-applications to 1000 for all cluster types for HDInsight versions 3.1 and 3.2.</td>
+<td>Changed YARN configuration yarn.resourcemanager.max-completed-applications to 1000 for all cluster types for HDInsight versions 3.1 and 3.2. This value only controls the list of completed applications in the YARN UI. For getting information about applications that were submitted prior to the list of applications on the UI, you can directly go to the History Server.</td>
 <td>YARN</td>
 <td>All</td>
 <td>N/A</td>
