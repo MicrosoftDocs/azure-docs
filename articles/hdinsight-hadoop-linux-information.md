@@ -16,7 +16,7 @@
    ms.date="04/01/2015"
    ms.author="larryfr"/>
 
-# Working with HDInsight on Linux (Preview)
+# Working with HDInsight on Linux (preview)
 
 Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environment, running in the Azure cloud. For most things, it should work exactly as any other Hadoop-on-Linux installation. This document calls out specific differences that you should be aware of.
 
@@ -64,7 +64,7 @@ Example data and JAR files can be found on Hadoop Distributed File System (HDFS)
 
 ## HDFS, Azure Blob storage, and storage best practices
 
-In most Hadoop distributions, the Hadoop Distributed File System (HDFS) is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
+In most Hadoop distributions, the HDFS is backed by local storage on the machines in the cluster. While this is efficient, it can be costly for a cloud-based solution where you are charged hourly for compute resources.
 
 HDInsight uses Azure Blob storage as the default store, which provides the following benefits:
 
@@ -84,11 +84,11 @@ HDInsight also allows you to associate multiple Blob storage accounts with a clu
 
 ### What Blob storage is the cluster using?
 
-During cluster creation, you selected to either use an existing Azure Storage account and container, or to create a new one. Then, you probably forgot about it. You can find the Storage account and container by using the following methods.
+During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the Storage account and container by using the following methods.
 
 **Azure portal**
 
-1. In the <a href="https://manage.windowsazure.com/" target="_blank">Azure management portal</a>, select your HDInsight cluster.
+1. In the <a href="https://manage.windowsazure.com/" target="_blank">Azure portal</a>, select your HDInsight cluster.
 
 2. Select **Dashboard** at the top of the page.
 
@@ -104,7 +104,7 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - After installing see `azure storage` for help on using storage, or see `azure blob` for blob-specific commands.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a> - After installing, see `azure storage` for help on using storage, or see `azure blob` for blob-specific commands.
 
 * A variety of SDKs:
 
