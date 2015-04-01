@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="04/01/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
