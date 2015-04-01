@@ -3,7 +3,7 @@
 	description="Learn about API Apps, Connectors and BizTalk API Apps" 
 	services="app-service\logic" 
 	documentationCenter="" 
-	authors="joshtwist" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/31/2015" 
-	ms.author="jtwist"/>
+	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
 
@@ -28,7 +28,7 @@ To accelerate developers building solutions with Azure App Service, the Azure te
 
 For a complete list of all the available Connectors and API Apps, see [Connectors and API Apps List](app-service-logic-connectors-list.md). 
 
-In Azure App Service, there are different Service "Tiers" available. All Tiers include all the connectors and API Apps, including their full functionality. This greatly help developers create Apps and take advantage of these built-in features. When you use the Premium Service Tier, some connectors and API Apps are supported in production-data scenarios, including the Premium connectors, and the BizTalk Rules, BizTalk EAI, and BizTalk EDI API Apps. 
+In Azure App Service, there are different Service "Tiers" available. All Tiers include all the connectors and API Apps, including their full functionality.  
 
 [App Service Pricing](http://azure.microsoft.com/pricing/details/app-service/) describes these Services Tiers and also lists what is included in these tiers. 
 
