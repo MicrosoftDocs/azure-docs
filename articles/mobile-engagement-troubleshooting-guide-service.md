@@ -112,7 +112,7 @@ To test if the problem is with OS upgrades to end user Devices, which require an
     - Confirm that your App Info Tag files follow all of these rules:
         - Use only the UTF8 character set (the ANSI character set is not supported).
         - Use a comma "," as the separator character (you can open a service request to request to change the .csv separator character from a comma "," to another character such as a semi-colon ";").
-        - Use all capitals for Boolean values "TRUE" and "FALSE".
+        - Use all lower case for Boolean values "true" and "false".
         - Use a file that is smaller than the maximum file size of 35MB.
 
 ### See also

@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
 # Access HDInsight application logs programmatically
 
 This topic explains how to programmatically enumerate the YARN (Yet Another Resource Negotiator) applications that have finished on a Hadoop cluster in Azure HDInsight, and how to programmatically access the application logs without having to connect to your clusters by using Remote Desktop Protocol (RDP). Specifically, a new component and a new API have been added:
 
-  1. The generic application history server on HDInsight clusters has been enabled. It is a component within the YARN Timeline Server that handles the storage and retrieval of generic information about completed applications.
-  2. New APIs in the Azure HDInsight .NET SDK have been added to enable you to programmatically enumerate applications that have run on your clusters and to download the relevant application-specific or container-specific logs (in plain text) to help with debugging any application problems that occur.
+  1. The generic application history server on HDInsight clusters is enabled. It is a component within the YARN Timeline Server that handles the storage and retrieval of generic information about completed applications.
+  2. APIs in the Azure HDInsight .NET SDK are available to programmatically enumerate applications that have run on your clusters and to download the relevant application-specific or container-specific logs (in plain text) to help with debugging any application problems that occur.
 
 
 ## Prerequisites
