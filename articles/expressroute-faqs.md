@@ -1,31 +1,21 @@
-<properties
-   pageTitle="ExpressRoute FAQs"
-   description="This article is a FAQ for ExpressRoute."
-   services="expressroute"
+<properties 
+   pageTitle="ExpressRoute FAQ"
+   description="The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and additional Technical Details."
    documentationCenter="na"
+   services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn" />
+   editor="tysonn"/>
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
-   
+   ms.workload="infrastructure-services" 
+   ms.date="03/31/2015"
+   ms.author="cherylmc"/>
+
 #  ExpressRoute FAQ
-
-
-
-[What is ExpressRoute?](#WA_EXWhatis)
-
-[Supported Azure Services](#BKMK_ExpressRouteAzureServices)
-
-[Data and Connections](#BKMK_ExpressRouteDataConnections)
-
-[Technical Details](#WA_EXTech)
 
 
 ##  What is ExpressRoute?
@@ -35,13 +25,13 @@ ExpressRoute is an Azure service that lets you create private connections betwee
 ExpressRoute connections do not go over the public Internet, and offer higher security, reliability and speeds with lower and consistent latencies than typical connections over the Internet. In some cases, using ExpressRoute connections to transfer data between on-premises devices and Azure can yield significant cost benefits.
 
 ###  Where is the service available?
-See this page for service location and availability: [ExpressRoute locations](expressroute-locations.md).
+See this page for service location and availability: [ExpressRoute service providers and locations](https://msdn.microsoft.com/library/azure/dn957919.aspx).
 
 ###  How can I use ExpressRoute to connect to Azure if I don’t have partnerships with one of the ExpressRoute-carrier partners?
 You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Azure at the exchange providers’ location. Check with your NSP to see if they are present in any of the Exchange locations listed above and have your service provider extend your network to the Exchange location of choice. You can then order an ExpressRoute circuit through the Exchange provider to connect to Azure.
 
 ###  How much does ExpressRoute cost?
-Check [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=392077)
+Check [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/)
 for pricing information.
 
 ###  If I pay for an ExpressRoute circuit of a given bandwidth, does the VPN connection I purchase from my network service provider have to be the same speed?
@@ -54,7 +44,7 @@ Yes. ExpressRoute circuits are configured to support cases where you can burst u
 Yes. An ExpressRoute circuit, once setup will allow you to access services within a virtual network and other Azure services simultaneously.
 
 ###  Does ExpressRoute offer a Service Level Agreement (SLA)?
-Please refer to the [ExpressRoute SLA page](http://go.microsoft.com/fwlink/?linkid=391425&clcid=0x409) for more information.
+Please refer to the [ExpressRoute SLA page](http://azure.microsoft.com/support/legal/sla/) for more information.
 
 ##  Supported Azure Services
 Most Azure services are supported over ExpressRoute.
@@ -82,7 +72,7 @@ All other services are accessible over the public peering path. The exceptions a
 ##  Data and Connections
 
 ###  Are there limits on the amount of data that I can transfer using ExpressRoute?
-We do not set a limit on the amount of data transfer. Refer to the [Pricing Details](http://go.microsoft.com/fwlink/p/?LinkId=392077) for information on bandwidth rates.
+We do not set a limit on the amount of data transfer. Refer to the [Pricing Details](http://azure.microsoft.com/pricing/details/expressroute/) for information on bandwidth rates.
 
 ###  What connection speeds are supported by ExpressRoute?
 Supported bandwidth offers:
@@ -93,12 +83,12 @@ Supported bandwidth offers:
 |**Exchange providers**|200 Mbps, 500 Mbps, 1Gbps, 10Gbps|
 
 ###  Which service providers are available?
-See [ExpressRoute Locations](expressroute-locations.md) for the list of service providers and locations.
+See [ExpressRoute Locations](https://msdn.microsoft.com/en-us/library/azure/dn957919.aspx) for the list of service providers and locations.
 
 ##  Technical Details
 
 ###  What are the technical requirements for connecting my on-premises location to Azure?
-Please see [ExpressRoute prerequisites page](expressroute-prerequisites.md) for requirements.
+Please see [ExpressRoute prerequisites page](https://msdn.microsoft.com/library/azure/dn606309#ExpressRoute_prereq) for requirements.
 
 ###  Are connections to ExpressRoute redundant?
 Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
@@ -122,26 +112,20 @@ Yes. You can have ExpressRoute circuits with many service providers. Each Expres
 The basic steps are outlined below.
 
 - You must establish an ExpressRoute circuit and have the service provider enable it.
-- You must configure routes for private peering (if you are using an Exchange provider).
+- You must configure the BGP for private peering (if you are using an Exchange provider).
 - You must link the virtual network to the ExpressRoute circuit.
 
 The following tutorials will help you:
 
-
-- [Configure an ExpressRoute Connection through a Network Service Provider](expressroute-configuring-nsps.md)
-
-
-[Configure an ExpressRoute Connection through an Exchange Provider](expressroute-configuring-exps.md)
-
-[Configure a Virtual Network and Gateway for ExpressRoute](expressroute-configuring-vnet.md)
+- [Configure an ExpressRoute Connection through a Network Service Provider](https://msdn.microsoft.com/library/azure/dn643736.aspx)
+- [Configure an ExpressRoute Connection through an Exchange Provider](https://msdn.microsoft.com/library/azure/dn606306.aspx)
+- [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx)
 
 ###  Can I link to more than one virtual network to an ExpressRoute circuit?
 Yes. You can link up to 10 virtual networks to an ExpressRoute circuit. All virtual networks must be in the same continent as the ExpressRoute circuit.
 
 ###  Can I connect virtual networks belonging to many subscriptions to an ExpressRoute circuit?
-Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. For more details, see Enabling Multiple Subscriptions to Share an ExpressRoute Circuit.
-
-[Enabling Multiple Subscriptions to Share an ExpressRoute Circuit](http://azure.microsoft.com/blog/2014/11/18/enable-multiple-subscription-expressroute/)
+Yes. You can authorize up to 10 other Azure subscriptions to use a single ExpressRoute circuit. For more details, see [Sharing an ExpressRoute Circuit across multiple subscriptions](https://msdn.microsoft.com/en-us/library/azure/dn835110.aspx).
 
 ###  Are virtual networks connected to the same circuit isolated from each other?
 No. All virtual networks linked to the same ExpressRoute circuit are part of the same routing domain and are not isolated from each other from a routing perspective. If you need route isolation, you’ll need to create a separate ExpressRoute circuit.
@@ -175,3 +159,12 @@ Prefixes advertised through BGP must be /29 or larger. We will filter out privat
 
 ###  What happens if I exceed the BGP limits?
 BGP sessions will be dropped. They will be reset once the prefix count goes below the limit.
+
+### After I advertise the default route (0.0.0.0/0) to my virtual networks I can't activate Windows running on my Azure VMs. What can I do?
+The following steps will help Azure recognize the activation request:
+
+1. Establish the public peering for your ExpressRoute circuit.
+2. Perform a DNS lookup and find the IP address of **kms.core.windows.net**
+3. Then do one of the following two items so that the Key Management Service will recognize that the activation request comes from Azure and will honor the request.
+	- On your on-premises network, route the traffic destined for the IP address (obtained in step 2) back to Azure via the public peering.
+	- Have your NSP provider hair-pin the traffic back to Azure via the public peering. 
