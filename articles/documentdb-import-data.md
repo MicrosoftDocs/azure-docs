@@ -156,7 +156,7 @@ Here are some command line samples to import from SQL Server:
 
 The CSV file source importer option enables you to import one or more CSV files.  When adding folders that contain CSV files for import, you have the option of recursively searching for files in subfolders:
 
-![Screenshot of CSV source options](./media/documentdb-import-data/csvsource.png)
+![Screenshot of CSV source options](media/documentdb-import-data/csvsource.png)
 
 Similar to the SQL source, the nesting separator property may be used to create hierarchical relationships (sub-documents) during import.  Consider the following CSV header row and data rows:
 
