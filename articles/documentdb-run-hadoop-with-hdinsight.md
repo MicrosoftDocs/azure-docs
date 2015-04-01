@@ -2,7 +2,7 @@
 	pageTitle="Run a Hadoop job using DocumentDB and HDInsight | Azure" 
 	description="Learn how to run a simple Hive, Pig, and MapReduce job with DocumentDB and Azure HDInsight."
 	services="documentdb" 
-	authors="andrewhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="mimig"
 	documentationCenter=""/>
@@ -40,7 +40,7 @@ Don't have time to complete the tutorial and just want to get the full sample Po
 Before following the instructions in this tutorial, ensure that you have the following:
 
 - A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started].
-- Throughput. Reads and writes from HDInsight will be counted towards your Capacity Unit's (CUs) allotted request units. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
+- Throughput. Reads and writes from HDInsight will be counted towards your allotted request units for your collections. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
 - Capacity for an additional stored procedure within each output collection. The stored procedures are used for transferring resulting documents. For more information, see [Collections and provisioned throughput][documentdb-manage-document-storage].
 - Capacity for the resulting documents from the Hive, Pig, or MapReduce jobs. For more information, see [Manage DocumentDB capacity and performance][documentdb-manage-collections].
 - [*Optional*] Capacity for an additional collection. For more information, see [Provisioned document storage and index overhead][documentdb-manage-document-storage].

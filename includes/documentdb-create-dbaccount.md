@@ -1,7 +1,7 @@
 1.	Sign in to the [Azure Preview portal](https://portal.azure.com/).
 2.	In the Jumpbar, click **New**, then select **Data + storage**, and then click **DocumentDB**. 
 
-	![Screen shot of the Azure Preview portal, highlighting the **New** button, **Data + storage** in the Create blade, and **DocumentDB** in the Data + storage blade][1]   
+	![Screen shot of the Azure Preview portal, highlighting the New button, Data + storage in the Create blade, and DocumentDB in the Data + storage blade][1]   
 
 	Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  
 	
@@ -32,7 +32,7 @@
 
 	![Screen shot of the Notifications hub, showing that the DocumentDB account is being created][5]  
 
-	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deplyed to a resource group][6]
+	![Screen shot of the Notifications hub, showing that the DocumentDB account was created successfully and deployed to a resource group][6]
 
 5.	After the DocumentDB account has been created, it is ready for use with the default settings.
 
@@ -42,13 +42,13 @@
 
 
 <!--Image references-->
-[1]: ./media/documentdb-create-dbaccount/ca1.png
-[2]: ./media/documentdb-create-dbaccount/ca2.png
-[3]: ./media/documentdb-create-dbaccount/ca3.png
-[4]: ./media/documentdb-create-dbaccount/ca4.png
-[5]: ./media/documentdb-create-dbaccount/ca5.png
-[6]: ./media/documentdb-create-dbaccount/ca6.png
-[7]: ./media/documentdb-create-dbaccount/ca7.png
+[1]: media/documentdb-create-dbaccount/ca1.png
+[2]: media/documentdb-create-dbaccount/ca2.png
+[3]: media/documentdb-create-dbaccount/ca3.png
+[4]: media/documentdb-create-dbaccount/ca4.png
+[5]: media/documentdb-create-dbaccount/ca5.png
+[6]: media/documentdb-create-dbaccount/ca6.png
+[7]: media/documentdb-create-dbaccount/ca7.png
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
