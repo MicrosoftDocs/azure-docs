@@ -22,7 +22,7 @@ Azure Search is now generally available, offering a 99.9% availability service-l
 
 Watch this video for a demo and discussion of the latest features:
 
-> [AZURE.VIDEO http://azure.microsoft.com/documentation/videos/azure-search-general-availability-and-whats-new/]
+> [AZURE.VIDEO azure-search-general-availability-and-whats-new]
 
 ##How features are versioned and rolled out##
 

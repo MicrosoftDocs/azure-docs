@@ -144,7 +144,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Editor New data store button][image-editor-newdatastore-button]
     
-6. Replace **<accountname\>** and **<accountkey\>** with the account name and account key values for your Azure storage account. 
+6. Replace **accountname** and **accountkey** with the account name and account key values for your Azure storage account. 
 
 	![Editor Blob Storage JSON][image-editor-blob-storage-json]    
 	
@@ -159,7 +159,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 
 	![Editr Azure SQL Settings][image-editor-azure-sql-settings]
 
-2. Replace **<servername\>**, **<databasename\>**, **<username\>@<servername\>**, and **<password\>** with names of your Azure SQL server, database, user account, and  password. 
+2. Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and  password. 
 3. Click **Deploy** on the toolbar to create and deploy the AzureSqlLinkedService. 
    
 
