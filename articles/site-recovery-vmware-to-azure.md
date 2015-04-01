@@ -38,9 +38,9 @@ Business advantages include:
 
 This feature is currently in preview. Read the [Supplemental Terms of Use for Previews](preview-supplemental-terms).
 
-## About this guide
+## About this article
 
-The guide includes an overview and deployment prerequisites. It walks you through setting up all the deployment components and enabling protection for virtual machines and servers. It finishes up by testing failover to make sure everything's working as expected.
+The article includes an overview and deployment prerequisites. It walks you through setting up all the deployment components and enabling protection for virtual machines and servers. It finishes up by testing failover to make sure everything's working as expected.
 
 If you run into problems post your questions on the [Azure Recovery Services Forum](http://go.microsoft.com/fwlink/?LinkId=313628).
 
