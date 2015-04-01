@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="03/31/2015" 
 	ms.author="awills"/>
 
-# Performance analytics for Azure Web Apps
+# Performance analytics for Azure Web Apps and VMs
 
-After enabling the Azure web app extension (detailed steps below) you’ll be able to see statistics and details on the application dependencies of your [Azure App Service Web App](websites-learning-map.md).  These application dependencies are automatically discovered. 
+After enabling the Azure web app extension (detailed steps below) you’ll be able to see statistics and details on the application dependencies of your [Azure App Service Web App](websites-learning-map.md) or web apps in your [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/).  These application dependencies are automatically discovered. 
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
@@ -45,6 +45,10 @@ In [the Azure portal](http://portal.azure.com), open the control blade of your w
 
 ![](./media/insights-perf-analytics/05-extend.png)
 
+Or if you're using an Azure VM:
+
+![](./media/insights-perf-analytics/10-vm1.png)
+
 
 
 ## Explore the data
@@ -66,7 +70,7 @@ Drill through to see individual requests:
 ## Q & A
 
 
-*Can I automate adding the Application Insights extension to the web app?*
+*Can I automate adding the Application Insights extension?*
 
 Yes, there's a REST API for Azure web apps. In PowerShell:
 

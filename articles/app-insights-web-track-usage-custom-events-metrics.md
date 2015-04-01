@@ -424,11 +424,33 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
+## Set default properties for all telemetry
 
+You can set up a universal initializer so that all new TelemetryClients automatically use your context. 
 
-## <a name="defaults"></a>Set default property values
+This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
 
-You can set default values in a TelemetryClient. They are attached to every telemetry item sent from the context. 
+*C#*
+
+    // Telemetry initializer class
+    public class MyTelemetryInitializer : IContextInitializer
+    {
+        public void Initialize (TelemetryContext context)
+        {
+            context.Properties["AppVersion"] = "v2.1";
+        }
+    }
+
+In the app initializer such as Global.asax.cs:
+
+*C#*
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyTelemetryInitializer());
+    }
 
 *JavaScript* - insert before the first call to trackPageView on each page:
 
@@ -441,6 +463,10 @@ You can set default values in a TelemetryClient. They are attached to every tele
       // Default metric map:
       appInsights.config.measurements = {Score: game.score};
     });
+
+## <a name="defaults"></a>Set defaults for selected custom telemetry
+
+If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
 
 *C#*
 
@@ -474,33 +500,7 @@ You can set default values in a TelemetryClient. They are attached to every tele
 Individual telemetry calls can override the default values in their property dictionaries.
 
 
-### Set default properties for all new TelemetryClients
 
-You can set up a universal initializer so that all new TelemetryClients automatically use your context.
-
-This includes standard telemetry sent by the platform-specific telemetry modules, such as web server request tracking.
-
-*C#*
-
-    // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
-    {
-        public void Initialize (TelemetryContext context)
-        {
-            context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-In the app initializer such as Global.asax.cs:
-
-*C#*
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyTelemetryInitializer());
-    }
 
 ## Set instrumentation key in code
 
