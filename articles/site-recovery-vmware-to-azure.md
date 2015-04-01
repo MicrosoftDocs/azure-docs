@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises VMWare servers to Azure and between physical on-premises servers and Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="raynew" 
+	authors="rayne-wiselman" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/01/2015" 
 	ms.author="raynew"/>
 
 
