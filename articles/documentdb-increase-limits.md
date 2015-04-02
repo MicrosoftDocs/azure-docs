@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Request increased DocumentDB account limits | Azure" 
 	description="Learn how to request an adjustment to DocumentDB limits such as the number of allowed collections, stored procedures and query clauses." 
-	services="documentdb, websites" 
+	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
@@ -45,43 +45,43 @@ The following table describes the DocumentDB quotas that can be adjusted by cont
 ##<a id="RequestQuotaIncrease"></a>Request a quota adjustment ##
 The following steps show how to request a quota adjustment.
 
-1. In the [Azure preview portal](https://portal.azure.com), click **browse** and then **Help + support**:
+1. In the [Azure Preview portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
 
 	![Screenshot of the launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. Click **Get Support**:
+2. In the Help + support blade, click **Get Support**.
 
 	![Screenshot of the creating a support ticket](media/documentdb-increase-limits/getsupport.png) 
 
-3. In the new support request, choose Request Type **Quotas**:
+3. In the **New support request** blade, click **Request Type**, and then in the **Request type** blade, click **Quotas**.
 
 	![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png) 
 
-4. Choose the subscription which hosts your DocumentDB account: 
+4. In the **Subscription** blade, choose the subscription that hosts your DocumentDB account.
 
 	![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
 
-5. Choose Resource **DocumentDB Accounts**: 
+5. In the **Resources** blade, choose **DocumentDB Accounts**.
 
 	![Screenshot of support ticket resource picker](media/documentdb-increase-limits/supportrequest3.png)
 
-6. Choose Support Plan **Quotas Free Support**: 
+6. In the **Support plan** blade, choose **Quotas Free Support**.
 
 	![Screenshot of support ticket support plan picker](media/documentdb-increase-limits/supportrequest4.png)
 
-7. Choose Problem Category **Quota or Core Increase Requests DocumentDB**:
+7. In the *Problem** blade, choose the problem category **Quota or Core Increase Requests DocumentDB**.
 
 	![Screenshot of support ticket problem category picker](media/documentdb-increase-limits/supportrequest5.png)
 
-8. Enter a description of the request.  Be sure to include the specific quota adjustments you are requesting as well as the account(s) to which the adjustments should be made:
+8. In the **Description** blade, enter a description of the request.  Be sure to include the specific quota adjustments you are requesting as well as the account(s) to which the adjustments should be made.
 
 	![Screenshot of support ticket description textbox](media/documentdb-increase-limits/supportrequest6.png)
 
-9. Click **Create**:
+9. Click **Create**.
 
 	![Screenshot of support ticket create button](media/documentdb-increase-limits/supportrequest7.png)
 
-Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Support requests** in the Help + Support blade:
+Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Support requests** in the **Help + Support** blade.
 
 ![Screenshot of support requests blade](media/documentdb-increase-limits/supportrequest8.png)
   
