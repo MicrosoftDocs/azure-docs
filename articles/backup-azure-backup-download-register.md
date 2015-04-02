@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="03/31/2015"
+   ms.date="04/02/2015"
    ms.author="prvijay"/>
 
 # Download, install and register Azure Backup agent
@@ -52,6 +52,10 @@ After creating the Azure Backup vault, an agent should be installed on each of y
 
 Once you click the **Finish** button, the machine is registered successfully to the vault and you are now ready to start backing up to Microsoft Azure. You can modify the settings specified during the registration workflow by clicking on the **Change Properties** option in the Azure Backup mmc snap in. <br/>
 ![Change Properties][6]
+
+## Next Steps
++ Refer to the installation and configuration of the Azure Backup [FAQ](backup-azure-backup-faq.md) for any questions about the workflow.
+
 
 <!--Image references-->
 [1]: ./media/backup-azure-backup-download-register/quickstart.png
