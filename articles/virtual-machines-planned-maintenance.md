@@ -61,7 +61,7 @@ For example, during a planned maintenance rollout, Azure will not rollout an upd
 <!--Anchors-->
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
-[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.png
+[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.PNG
 
 
 <!--Link references-->
