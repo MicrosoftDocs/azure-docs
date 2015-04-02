@@ -359,6 +359,15 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
 
 See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
 
+## Security
+This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.
+
+For data stores offering HTTPS connection, choose HTTPS connection for the copy activity to establish secure communication over the network. For example, for **Azure Storage**, use **DefaultEndpointsProtocol=https** is in the connection string.
+
+For **Azure SQL Database**, explicitly request an encrypted connection and do not trust the server certificates to avoid the "man in the middle" attack. To achieve this, use **Encrypt=True** and **TrustServerCertificate=False** in the connection string. See Azure [SQL Database Security Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx) for details.
+
+For traditional databases such as **SQL Server**, especially when the instances are in an Azure Virtual Machine, enable encrypted connection option by configuring a signed certificate, with **Encrypt=True** and **TrustServerCertificate=False** in the connection string. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) and [Connection String Syntax.](https://msdn.microsoft.com/library/ms254500.aspx).
+
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
 - **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
