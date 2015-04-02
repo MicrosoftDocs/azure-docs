@@ -119,7 +119,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
 8. Click **Create** in the **New data factory** blade.
 
-	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial.  
+	> [AZURE.NOTE] The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialDataFactory” is not available**, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. Use this name in place of ADFTutorialFactory while performing remaining steps in this tutorial. See [Data Factory - Naming Rules][data-factory-naming-rules] topic for naming rules for Data Factory artifacts.  
 	 
 	![Data Factory name not available][image-data-factory-name-not-available]
 
@@ -432,6 +432,7 @@ Article | Description
 
 [msdn-activities]: https://msdn.microsoft.com/library/dn834988.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
+[data-factory-naming-rules]: https://msdn.microsoft.com/library/azure/dn835027.aspx
 
 [azure-preview-portal]: https://portal.azure.com/
 [download-azure-powershell]: http://azure.microsoft.com/documentation/articles/install-configure-powershell
