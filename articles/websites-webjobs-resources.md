@@ -30,7 +30,7 @@ The WebJobs dashboard in the Azure portal provides powerful management capabilit
 
 ##<a name="getstarted"></a>Getting started with WebJobs and the WebJobs SDK
 
-* [Introduction to Azure WebJobs](http://www.hanselman.comblog.md/IntroducingWindowsAzureWebJobs.aspx)
+* [Introduction to Azure WebJobs](http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx)
 * [Azure WebJobs Features](/blog/2014/10/22/webjobs-goes-into-full-production/)
 * [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md)
 * [Announcing the 1.0.0 RTM of Microsoft Azure WebJobs SDK](/blog/2014/10/25/announcing-the-1-0-0-rtm-of-microsoft-azure-webjobs-sdk/)
