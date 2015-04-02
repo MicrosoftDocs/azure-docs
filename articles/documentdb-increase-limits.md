@@ -49,7 +49,7 @@ The following steps show how to request a quota adjustment.
 
 	![Screenshot of the launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. In the Help + support blade, click **Get Support**.
+2. In the **Help + support** blade, click **Get Support**.
 
 	![Screenshot of the creating a support ticket](media/documentdb-increase-limits/getsupport.png) 
 
