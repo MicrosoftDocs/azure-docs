@@ -3,7 +3,7 @@
    description="How to get started with SQL Database Dynamic Data Masking in the Azure portal" 
    services="sql-database" 
    documentationCenter="" 
-   authors="nadavhelfman" 
+   authors="rmca14" 
    manager="jeffreyg" 
    editor="v-romcal"/>
 
