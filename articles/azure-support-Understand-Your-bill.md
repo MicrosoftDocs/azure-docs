@@ -16,7 +16,8 @@
    ms.date="04/01/2015"
    ms.author="kareni"/>
 
-# Understand Your Bill for Microsoft Azure
+
+#  Understand Your Bill for Microsoft Azure
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Ultimate with MSDN, include  monthly credits that you can use on any Azure service based on your needs.
 
@@ -46,7 +47,7 @@ To view or download a bill:
 2.	Click on the subscription in which you would like to see details and usage.
 3.	Click **Billing** History
 
-         ![Summary - billing history - 1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
+    [Summary - billing history - 1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
 
 4. The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
@@ -75,31 +76,32 @@ Detailed Usage - csv | N/A | N/A | [Sample file](http://download.microsoft.com/d
 ## Header - Customer Information
 
 The customer information section identifies pertinent information in regards to your usage and profile.
-    ![header](./media/azure-support-Understand-Your-bill/header.png)
+    ![header](./media/azure-support-Understand-Your-bill/Header.png)
 
-    ### Invoice No.
+### Invoice No.
     A unique invoice identifier for tracking purposes
 
-    ### Billing Cycle
+### Billing Cycle
     The time frame in which usage has taken place.
 
-    ### Invoice Date
+### Invoice Date
     Date that the invoice was generated.
 
-    ### Payment Method
+### Payment Method
     Type of payment used on the account (i.e. Invoice or Credit Card).
 
-    ### Bill to
+### Bill to
     Microsoft Azure payments address.
 
-    ### Account Owner Email
+### Account Owner Email
     The account email address that the Microsoft Azure account is registered under.
 
 
 
 ## Understand the Invoice Summary
 The Invoice Summary section of the bill summarizes transactions since your last bill and your current usage charges.
-    ![invoice summary](./media/azure-support-Understand-Your-bill/Invoice Summary.png)
+
+![invoice summary](./media/azure-support-Understand-Your-bill/Invoice Summary.png)
 
 The Balances, Payments & Other Credits section of the bill summarizes transactions since your last bill.
 
@@ -114,16 +116,16 @@ The Balances, Payments & Other Credits section of the bill summarizes transactio
 
 
 ##Understand the Current Charges
-The Current Charges section of the bill contains details about your monthly charges. The links are organized into the following subsections.
+    The Current Charges section of the bill contains details about your monthly charges. The links are organized into the following subsections.
 
 ### Usage Charges
-Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage.
+    Usage charges are total monthly charges on a subscription. You are billed in arrears for your past month’s usage.
 
 ### Discounts
-Service discounts on your usage would be reflected in this line item that are applied to your current bill.
+    Service discounts on your usage would be reflected in this line item that are applied to your current bill.
 
 ### Adjustments
-Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
+    Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
 
 ## Footer Information
 ![footer](./media/azure-support-Understand-Your-bill/footer information.png)
@@ -134,47 +136,47 @@ The additional information page gives you references to other resources to under
 ![additional information](./media/azure-support-Understand-Your-bill/Additional information.png)
 
 ###Detailed Usage
-A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.
+    A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.
 
 ###Additional Information and Useful Resources
-This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
+    This section has links to simple questions regarding compute instance sizes, SQL DB charges, and useful links to help you answer further questions.
 
 ###Sold To
-This is prepopulated with the profile address on the account.
+    This is prepopulated with the profile address on the account.
 
 ###Payment Instructions
-This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice.
+    This section is the payment instructions of where to send checks, wire transfers or overnight checks if your payment method is invoice.
 
 ##Understand Detailed Usage Charges
 
 Usage charges are total monthly charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  When you view a list of usage charges in your invoice, the following columns display the details of what you are being billed for.  You can download a [sample file](https://understandingyourbill.blob.core.windows.net/appendices/UnderstandDetailedUsageCharges.xlsx) that shows the values for each column.
 
 ###Service Name
-Identifies the top-level service for which this usage belongs.
+    Identifies the top-level service for which this usage belongs.
 
 ###Service Type
-Azure service may be further defined by type in this column, which can affect the rate.
+    Azure service may be further defined by type in this column, which can affect the rate.
 
 ###Resource
-Identifies the unit of measure for the resource being consumed.
+    Identifies the unit of measure for the resource being consumed.
 
 ###Region
-Regions which the usage applies and primarily relates to Cloud Services and Virtual Machines, and data transfers (excluding CDN), since these rates can vary by region. Region for CDN map to the data center location where the traffic was served.
+    Regions which the usage applies and primarily relates to Cloud Services and Virtual Machines, and data transfers (excluding CDN), since these rates can vary by region. Region for CDN map to the data center location where the traffic was served.
 
 ###Consumed
-Contains the amount of the resource that has been consumed during the billing period.
+    Contains the amount of the resource that has been consumed during the billing period.
 
 ###Included
-Identifies the amount that is included each month with your offer.
+    Identifies the amount that is included each month with your offer.
 
 ###Billable
-If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For pay-as-you-go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
+    If the Consumed amount exceeds the included amount, this column displays the difference. You are billed for this amount. For pay-as-you-go offers with no amount included with the offer, this total will be the same as the Consumed quantity.
 
 ###Rate
-Rate displays the rate you are charged per billable unit.
+    Rate displays the rate you are charged per billable unit.
 
 ###Value
-Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
+    Displays the result of multiplying the Billable column by the Rate column. If the Consumed amount does not exceed the included amount, there will be no charge in this column.
 
 ##Analyze Daily Usage Data
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click Download Usage to export daily usage data for the current billing period to a comma-separated variable file (CSV), which can then be viewed in Microsoft Office Excel and other programs.  For your reference, you can download a sample CSV file.
@@ -210,31 +212,26 @@ Value | Multiplies the Rate by the Billable column to calculate the extended cos
 Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanations of these columns. The following columns contain additional information that may be helpful. Depending on the resource, some of these columns may be empty.
 
 ### Metered Region
-Identifies the location of the datacenter for certain services that are priced based on datacenter location (e.g., data transfers).
+    Identifies the location of the datacenter for certain services that are priced based on datacenter location (e.g., data transfers).
 
 ### Metered Service
-This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.  
+    This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.  
 
 ### Metered Service Type
-Where applicable, this column identifies further the resource that is being consumed. For hosted compute services for example, this column reports the size of the Virtual Machine, if it is not already stated in Resources.
+    Where applicable, this column identifies further the resource that is being consumed. For hosted compute services for example, this column reports the size of the Virtual Machine, if it is not already stated in Resources.
 
 ### Project
-This column provides the project name that the services belongs to on your subscription
+    This column provides the project name that the services belongs to on your subscription
 
 ### Service Info 2
-This column captures 3rd party specific information.
+    This column captures 3rd party specific information.
 
-Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
+    Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
 
->> https://azurepricing.blob.core.windows.net/supplemental/YYYY_MM_Service_Download_Fields.xlsx
+>>  https://azurepricing.blob.core.windows.net/supplemental/YYYY_MM_Service_Download_Fields.xlsx
 
 
 To find the most current version, enter in the Year and Month (Looking for March 2015 file, enter in **2015_03** into the section _**“YYYY_MM”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
 
 
 <!--Image references-->
-
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
