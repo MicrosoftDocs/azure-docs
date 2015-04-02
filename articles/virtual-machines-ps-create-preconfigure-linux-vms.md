@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/02/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Linux-based Virtual Machines
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/virtual-machines-linux-tutorial/" title="Azure Portal" class="current">Azure Portal</a><a href="/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/" title="PowerShell" class="current">PowerShell</a></div>
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Linux-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Linux-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 

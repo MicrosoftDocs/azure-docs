@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="04/02/2015" 
 	ms.author="josephd"/>
 
 # Set up a simulated hybrid cloud environment for testing
@@ -49,7 +49,7 @@ If you don't already have an Azure subscription, you can sign up for a free tria
 
 ## Phase 1: Configure the TestLab virtual network
 
-Use the instructions in the [Test Lab Guide: Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
+Use the instructions in the [Test Lab Guide: Base Configuration in Azure](virtual-machines-base-configuration-test-lab-guide.md) to configure the DC1, APP1, and CLIENT1 computers in an Azure virtual network named TestLab. 
 
 From the Azure Management Portal on your local computer, connect to DC1 with the CORP\User1 credentials. To configure the CORP domain so that computers and users use their local domain controller for authentication, run these commands from an administrator-level Windows PowerShell command prompt.
 

@@ -18,6 +18,8 @@
 
 # Create a Virtual Machine Running Linux
 
+<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/virtual-machines-linux-tutorial/" title="Azure Portal" class="current">Azure Portal</a><a href="/documentation/articles/virtual-machines-ps-create-preconfigure-linux-vms/" title="PowerShell" class="current">PowerShell</a></div>
+
 Creating an Azure virtual machine (VM) that runs Linux is easy to do. This tutorial shows you how to use the Azure portal to create one quickly without installing any tools. You also can create VMs by using one of these tools:
 
 - [Azure Cross-Platform Command-Line Interface (xplat-cli)](virtual-machines-command-line-tools.md)
