@@ -1,13 +1,14 @@
 <properties 
 	pageTitle="Test Lab Guide: Base Configuration in Azure" 
 	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Azure. Use this environment for other Azure Test Lab Guides (TLGs)." 
-	documentationCenter="" 
+	documentationCenter=""
+	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machine" 
+	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -41,7 +42,7 @@ There are four phases to setting up the Corpnet subnet of the Windows Server 201
 3.	Configure APP1. 
 4.	Configure CLIENT1.
 
-If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/en-us/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 Note: Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see Virtual Machines Pricing Details and Azure Pricing Calculator. To keep costs down, see [Minimizing the costs of test lab virtual machines in Azure](#costs).
 
@@ -58,7 +59,7 @@ First, you create the TestLab Azure Virtual Network that will host the Corpnet s
 7.	In the **CIDR (Address Count)** column for the Corpnet subnet, click **/24 (256)**.
 8.	Click the Complete icon. Wait until the virtual network is created before continuing.
 
-Next, use the instructions in [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) to install Azure PowerShell on your local computer. Open an Azure PowerShell command prompt.
+Next, use the instructions in [How to install and configure Azure PowerShell](install-configure-powershell.md) to install Azure PowerShell on your local computer. Open an Azure PowerShell command prompt.
 
 First, select the correct Azure subscription with these commands. Replace everything within the quotes, including the < and > characters, with the correct name.
 

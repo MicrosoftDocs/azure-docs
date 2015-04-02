@@ -116,7 +116,7 @@ To learn more about configuring Windows virtual machines on Azure, see:
 
 [VIDEO: Getting Started with VHDs - What's Really Happening](http://azure.microsoft.com/documentation/videos/getting-started-with-azure-virtual-machines)
 
-[VIDEO: FAQ with Mark Russinovich - Does Windows Azure run Windows?](http://azure.microsoft.com/documentation/videos/mark-russinovich-windows-on-azure)
+[VIDEO: FAQ with Mark Russinovich - Does Azure run Windows?](http://azure.microsoft.com/documentation/videos/mark-russinovich-windows-on-azure)
 
 [VIDEO: Adding a new virtual machine to a Web Farm by making reusable images](http://azure.microsoft.com/documentation/videos/adding-virtual-machines-web-farm)
 
