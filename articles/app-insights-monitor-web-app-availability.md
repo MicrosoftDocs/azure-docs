@@ -2,8 +2,9 @@
 	pageTitle="Monitor any web site's availability and responsiveness" 
 	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
