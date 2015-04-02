@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Test Lab Guide: Base Configuration in Azure" 
-	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Azure. Use this environment for other Azure Test Lab Guides (TLGs)." 
+	pageTitle="Base Configuration Test Environment" 
+	description="Learn how to create a simple dev/test environment that simulates a simplified intranet in Azure." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -16,11 +16,11 @@
 	ms.date="04/02/2015" 
 	ms.author="josephd"/>
 
-# Test Lab Guide: Base Configuration in Azure
+# Base Configuration Test Environment
 
-This Microsoft Test Lab Guide (TLG) provides you with step-by-step instructions to create the Base Configuration test lab in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. With the resulting test lab, you can experiment with the new environment of Azure, use it as a basis for application development, or build test labs based on other TLGs or one of your own design.
+This topic provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. With the resulting test environment, you can experiment with the new environment of Azure, use it as a basis for application development, or build a test environment one of your own design.
  
-The Windows Server 2012 R2 Base Configuration in Azure test lab consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet. 
+The Base Configuration test environment consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet. 
 
 ![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG04.png)
 
@@ -35,7 +35,7 @@ This configuration allows DC1, APP1, CLIENT1, and additional Corpnet subnet comp
 - Connected to the Internet to install updates, access Internet resources in real time, and participate in public cloud technologies such as Microsoft Office 365 and other Azure services. 
 - Remotely managed using Remote Desktop Connections from your computer that is connected to the Internet or your organization network. 
 
-There are four phases to setting up the Corpnet subnet of the Windows Server 2012 R2 Base Configuration test lab in Azure.
+There are four phases to setting up the Corpnet subnet of the Windows Server 2012 R2 Base Configuration test environment in Azure.
 
 1.	Create the Azure Virtual Network.
 2.	Configure DC1. 
@@ -44,7 +44,7 @@ There are four phases to setting up the Corpnet subnet of the Windows Server 201
 
 If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-Note: Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see Virtual Machines Pricing Details and Azure Pricing Calculator. To keep costs down, see [Minimizing the costs of test lab virtual machines in Azure](#costs).
+Note: Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see Virtual Machines Pricing Details and Azure Pricing Calculator. To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
 ## Phase 1: Create the Azure Virtual Network
 
@@ -241,20 +241,19 @@ This is your final configuration.
 
 ![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG04.png) 
 
-Your base configuration in Azure is now ready for experimentation and additional Azure TLGs or test environments, such as the [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). For more information, see [Azure Test Lab](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx).
+Your base configuration in Azure is now ready for experimentation and additional test environments, such as the [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
 
 ## Additional Resources
 
 [Hybrid cloud test environments](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
-[Test Lab Guides](http://social.technet.microsoft.com/wiki/contents/articles/test-lab-guides.aspx)
  
-## <a id="costs"></a>Minimizing the costs of test lab virtual machines in Azure
+## <a id="costs"></a>Minimizing the costs of test environment virtual machines in Azure
 
-To minimize the cost of running the test lab virtual machines, you can do one of the following:
+To minimize the cost of running the test environment virtual machines, you can do one of the following:
 
-- Create the test lab and perform your needed testing and demonstration as quickly as possible. When complete, delete the test lab virtual machines.
-- Shut down your test lab virtual machines into a deallocated state. 
+- Create the test environment and perform your needed testing and demonstration as quickly as possible. When complete, delete the test environment virtual machines.
+- Shut down your test environment virtual machines into a deallocated state. 
 
 To shut down the virtual machines with Azure PowerShell, fill in the cloud service name and run these commands.
 
