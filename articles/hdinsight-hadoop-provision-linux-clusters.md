@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/01/2015"
+   ms.date="04/02/2015"
    ms.author="nitinme"/>
 
 
@@ -441,8 +441,10 @@ Once you have the Storage account and the Blob container prepared, you are ready
 **To provision an HDInsight cluster**
 
 The two most important parameters that you must set to provision Linux clusters are the ones where you specify the OS type and the SSH user details:
+
 - Make sure you specify the **-OSType** parameter as **Linux**.
 - To use SSH for remote sessions on the clusters, you can specify either SSH user password or the SSH public key. If you specify both the SSH user password and the SSH public key, the key will be ignored. If you want to use the SSH key for remote sessions, you must specify a blank SSH password when prompted for one.
+
 
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 
@@ -468,19 +470,22 @@ The two most important parameters that you must set to provision Linux clusters 
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $clusterCredentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
-	>[AZURE.NOTE] The values you specify for **$clusterCredentials** are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster. The values you specify for the **$sshCredentials** are used to create the SSH user for the cluster. You use this account to start a remote SSH session on the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin" and default SSH user name is "hdiuser".
 
-	It can take several minutes before the cluster provisioning finishes.
+>[AZURE.NOTE] The values you specify for **$clusterCredentials** are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster. The values you specify for the **$sshCredentials** are used to create the SSH user for the cluster. You use this account to start a remote SSH session on the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin" and default SSH user name is "hdiuser".
 
-	![HDI.CLI.Provision][image-hdi-ps-provision]
+It can take several minutes before the cluster provisioning finishes.
+
+![HDI.CLI.Provision][image-hdi-ps-provision]
 
 **To provision an HDInsight cluster by using custom configuration options**
 
 While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage container or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate the lifetime of your data and metadata from the lifetime of the cluster.
 
 The two most important parameters that you must set to provision Linux clusters are the ones where you specify the OS type and the SSH user details:
+
 - Make sure you specify the **-OSType** parameter as **Linux**.
 - To use SSH for remote sessions on the clusters, you can specify either SSH user password or the SSH public key. If you specify both the SSH user password and the SSH public key, the key will be ignored. If you want to use the SSH key for remote sessions, you must specify a blank SSH password when prompted for one.
+
 
 		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
 		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
@@ -516,11 +521,11 @@ The two most important parameters that you must set to provision Linux clusters 
 		# Create the cluster
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $clusterLocation -Version "3.2" -OSType Linux -SshCredential $sshCredentials -SshPublicKey $sshPublicKey
 
-	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
+>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Azure Services**, click **Yes**, and then click **Save**.
 
-	It can take several minutes before the cluster provisioning finishes.
+It can take several minutes before the cluster provisioning finishes.
 
-	![HDI.CLI.Provision][image-hdi-ps-config-provision]
+![HDI.CLI.Provision][image-hdi-ps-config-provision]
 
 ###<a id="sdk"></a> Using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries that makes it easier to work with HDInsight from a .NET application.

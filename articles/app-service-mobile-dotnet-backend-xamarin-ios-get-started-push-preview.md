@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Xamarin iOS app" 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede" 
 	editor=""/>
 
@@ -165,24 +165,17 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
         var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
 
-        try
-        {
-            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw;
-        }
+        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
@@ -259,7 +252,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
 Your app is now updated to support push notifications.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
