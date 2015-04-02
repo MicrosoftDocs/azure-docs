@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Logs, exceptions and custom diagnostics for ASP.NET in Application Insights" 
-	description="Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net." 
+	pageTitle="Detect and diagnose failures and exceptions in web apps" 
+	description="Detect and diagnose failures and exceptions in web apps" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -12,10 +12,34 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="03/31/2015" 
 	ms.author="awills"/>
  
-# Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
+# Diagnose failures and exceptions in web apps with Application Insights
+
+[Visual Studio Application Insights][start] is a powerful tool for detecting and diagnosing failures in applications. Here we'll focus on web applications (but you can also apply Application Insights to a [variety of other platforms][platforms]).
+
+## Set up your app with Application Insights
+
+Add the SDK to your application project. When your app is released and running, the SDK will send telemetry about the app's performance to the Application Insights portal.
+
+* [Add Application Insights to ASP.NET apps][greenbrown]
+* [Add Application Insights to Java apps][java]
+
+If your web pages have substantial scripts you'll probably also want to:
+* [Add Application Insights to web pages][track]
+
+## Track performance
+
+## Set alerts
+
+## Track Exceptions
+
+## Trace logs
+
+## Diagnostic search
+
+
 
 [Application Insights][start] includes a powerful [Diagnostic Search][diagnostic] tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application. Many events such as user page views are automatically sent by the SDK.
 
@@ -152,9 +176,7 @@ You'll see the messages in Diagnostic Search when you select the Trace filter.
 
 Getting exception reports in Application Insights provides a very powerful experience, especially since you can navigate between the failed requests and the exceptions, and read the exception stack.
 
-In some cases, you need to [insert a few lines of code][netexceptions] to make sure your exceptions are being caught automatically.
-
-You can also write explicit code to send exception telemetry:
+You can write code to send exception telemetry:
 
 JavaScript
 
@@ -225,7 +247,7 @@ You can also open Diagnostic Search directly, filter on exceptions, and choose t
 
 Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
-However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. See [Exception telemetry for ASP.NET][netexceptions] for details. 
+However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
 
 ### Correlating with a build
 

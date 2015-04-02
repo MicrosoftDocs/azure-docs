@@ -3,7 +3,8 @@
 	description="Analyse crashes and detect  and diagnose performance issues in your applications" 
 	authors="alancameronwills" 
 	services="application-insights" 
-	manager="kamrani"/>
+    documentationCenter=""
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
 
 # Detect, Triage and Diagnose with Application Insights
@@ -42,13 +43,8 @@ Application Insights works for devices apps and web applications. In this walkth
 ![](./media/app-insights-detect-triage-diagnose/03-bank.png)
 
 
-## Detection 
 
-
-There are several ways the team can use Application Insights to help find problems. 
-
-
-### Alerts on availability 
+## Detect poor availability 
 
 
 Marcela Markova is a test specialist on the OBS team, and takes the lead on monitoring online performance. She sets up several [web tests][availability]: 
@@ -57,7 +53,6 @@ Marcela Markova is a test specialist on the OBS team, and takes the lead on moni
 
 
 * A deeper multi-step test, which logs in and gets a current account listing, checking a few key details on each page. This test verifies that the link to the accounts database is working. She uses a fictitious customer id: a few of them are maintained for test purposes. 
-
 
 
 With these tests set up, Marcela is confident that the team will quickly know about any outage.  
@@ -71,11 +66,10 @@ Failures show up as red dots on the web test overview chart:
 But more importantly, an alert about any failure will be emailed to the development team. In that way, they know about it before nearly all of the customers. 
 
 
-#### Key performance metrics 
+## Monitor performance metrics 
 
 
 On the same overview page as the availability chart, there’s a chart that shows a variety of [key metrics][perf]. 
-
 
 
 ![](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
@@ -88,6 +82,7 @@ The Failed Request count indicates cases where users have seen an error – typi
 
 Marcela likes to look at these charts from time to time. The constant background of failed requests is a bit depressing, but it relates to a bug that the team is investigating, so it should fall when the fix is released. But if there is a sudden peak in failed requests, or in some of the other metrics such as server response time, Marcela wants to know about it immediately. It might indicate an unforeseen problem caused by a code release, or a failure in a dependency such as a database, or maybe an ungraceful reaction to a high load of requests. 
 
+#### Alerts
 
 So she sets two [alerts][metrics]: one for response times greater than a typical threshold, and another for a rate of failed requests greater than the current background. 
 
@@ -102,7 +97,9 @@ It’s also possible to set alerts on a wide variety of other metrics. For examp
 ![](./media/app-insights-detect-triage-diagnose/07-alerts.png)
 
 
-#### Detecting exceptions and other bad events 
+
+
+## Detecting exceptions
 
 
 Exceptions are reported to Application Insights by calling [TrackException()][api]:  
@@ -146,7 +143,7 @@ Exceptions and events show up in the [Diagnostic Search][diagnostic] blade. You 
 
 ![](./media/appinsights/appinsights-333facets.png)
 
-#### Monitoring good events 
+## Monitoring good events 
 
 
 The Fabrikam dev team like to track nice things as well as nasty ones. Partly because it’s nice to know how much niceness is occurring and where; and secondly because when nice things suddenly stop happening, that’s nasty. 
@@ -161,7 +158,7 @@ The development team inserts TrackMetric() calls at every stage in the funnel. I
 Ursula the UX specialist also keeps an eye on the good metrics. If the chart shows a sudden drop at any stage in the funnel, it indicates there’s some issue there. Maybe it’s difficult to find the right button, or maybe the text isn’t very encouraging. Or maybe there’s a bug: users hit the button but nothing happens. 
 
 
-Proactive monitoring  
+## Proactive monitoring  
 
 
 Marcela doesn’t just sit around waiting for alerts. Soon after every redeployment, she takes a look at [response times][perf] – both the overall figure and the table of slowest requests, as well as exception counts.  

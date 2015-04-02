@@ -31,9 +31,7 @@ Problems? Questions?
 
 <ul>
 <li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
-<li><a href="../articles/app-insights-troubleshoot-faq.md">Q & A and troubleshooting</a>
-</li>
-<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
+<li><a href="../articles/app-insights-javaa-troubleshoot.md">Q & A and troubleshooting</a>
 </li>
 </ul>
 
@@ -43,23 +41,13 @@ Problems? Questions?
 Get started with ...
 
 <ul>
-<li><a href="../articles/app-insights-start-monitoring-app-health-usage.md">ASP.NET web apps</a>
+<li><a href="../articles/app-insights-java-get-started.md">Java applications and web services</a>
 </li>
-<li><a href="../articles/app-insights-windows-get-started.md">Windows device apps</a>
-</li>
-<li><a href="../articles/app-insights-windows-desktop.md">Windows desktop apps</a>
-</li>
-<li><a href="../articles/app-insights-monitor-performance-live-website-now.md">ASP.NET server</a>
+<li><a href="../articles/app-insights-java-eclipse.md">Eclipse</a>
 </li>
 <li><a href="../articles/app-insights-web-track-usage.md">Web pages</a>
 </li>
 <li><a href="../articles/app-insights-monitor-web-app-availability.md">Web tests to monitor availability</a>
-</li>
-<li><a href="../articles/insights-perf-analytics.md">Azure Web Apps and VMs</a>
-</li>
-<li><a href="../articles/app-insights-java-get-started.md">Java applications and web services</a>
-</li>
-<li><a href="../articles/app-insights-platforms.md">Other platforms</a>
 </li>
 </ul>
 
@@ -68,8 +56,6 @@ Performance monitoring
 
 <ul>
 <li><a href="../articles/app-insights-web-monitor-performance.md">Detect performance issues in web applications</a>
-</li>
-<li><a href="../articles/app-insights-search-diagnostic-logs.md">Search ASP.NET traces and logs</a>
 </li>
 <li><a href="../articles/app-insights-java-trace-logs.md">Search Java traces and logs</a>
 </li>
