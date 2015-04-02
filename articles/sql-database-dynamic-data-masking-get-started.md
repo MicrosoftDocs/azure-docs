@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="03/25/2015"
+   ms.date="04/02/2015"
    ms.author="nadavh; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Preview portal)
@@ -97,7 +97,7 @@ You can also change the **SECURITY ENABLED ACCESS** setting from **OPTIONAL** to
 
 6. Click **Add Mask** to open the **Add Masking Rule** configuration blade.
 	
-7. Choose **Mask By** to indicate if the masking is done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.
+7. Choose **Mask By** to indicate if the masking is done at the source or destination. Masking can be configured at the source level by identifying the **Table** name and the **Column** name, or at the results level by identifying the **Alias** which is used in the query. Please notice that the **Table** name refers to all of the schemas in the database and should not include a schema prefix. If you are familiar with the data architecture of your database and want to limit the exposure of all query results, you may prefer a source mask rule. You may add a results mask rule when you want to limit the exposure to query results without analyzing the database data architecture or for a field that may arrive from different sources.
 
 8. Type the **Table** name and **Column** name, or **Alias** name, to define the designated fields that will be masked.
 
