@@ -58,7 +58,7 @@ For single-instance configuration virtual machines only, Azure send email commun
 <!--Image reference-->
 ![][image1]
 
-### Region Pairs
+## Region Pairs
 Azure organizes a set of region pairs and guarantees that only one region of the pair will undergo planned maintenance. Azure will not rollout an update on paired regions simultaneously during a planned maintenance. 
 Please refer to the table below for information regarding current region pairs:
 
