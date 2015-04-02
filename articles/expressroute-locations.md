@@ -15,7 +15,7 @@
    ms.date="03/31/2015"
    ms.author="cherylmc" />
 
-#Connectivity Providers and Peering Locations
+# Connectivity Providers and Peering Locations
 ExpressRoute is supported across all Azure regions and locations. The map below provides a list of Azure regions and ExpressRoute locations. ExpressRotue locations refer to those where Microsoft peers with several service providers.
  
 ![](./media/expressroute-locations/expressroute-locations-map.png)
@@ -54,7 +54,7 @@ If your connectivity provider is not in the list above sections, you can still c
 - Order an ExpressRoute circuit through the Exchange provider to connect to Azure
 	- Follow steps in [Configure your EXP connection](https://msdn.microsoft.com/library/azure/dn606306.aspx) to set up connectivity.
 
-##Next Steps
+## Next Steps
 - Verify that you meet the [ExpressRoute prerequisites](https://msdn.microsoft.com/library/azure/dn606309#ExpressRoute_prereq).
 - Visit the [FAQ](https://msdn.microsoft.com/library/azure/dn606292.aspx) for more information.
 - Select your provider and configure your connection. See 

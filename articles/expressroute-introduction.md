@@ -15,7 +15,7 @@
    ms.date="03/31/2015"
    ms.author="cherylmc"/>
 
-#  ExpressRoute Technical Overview
+# ExpressRoute Technical Overview
 
 Microsoft Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure that’s on your premises or in a co-location environment. With ExpressRoute, you can establish connections to Azure at an ExpressRoute partner co-location facility, or directly connect to Azure from your existing WAN network (such as a MPLS VPN provided by a network service provider). Use ExpressRoute to extend your network to Azure and unlock hybrid IT scenarios.
 
@@ -26,7 +26,7 @@ See the [ExpressRoute FAQ](https://msdn.microsoft.com/library/azure/dn606292.asp
 
 
 
-##  How does an ExpressRoute connection work?
+## How does an ExpressRoute connection work?
 
 In order to connect your WAN and services hosted in Azure (compute, storage, media services, websites and other services), you must order a dedicated circuit through a connectivity provider. There are two connectivity provider types to choose from: direct layer 3 through an exchange provider, or layer 3 through a network service provider. You can choose to enable one or both types of connectivity through your circuit to your Azure subscription. You will be able to connect to all supported Azure services through the circuit only if you configure both direct layer 3 and layer 3 connectivity. Note the following:
 
@@ -45,7 +45,7 @@ The following traffic is isolated:
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
 
-##  Exchange Providers and Network Service Providers
+## Exchange Providers and Network Service Providers
 ExpressRoute providers are classified as Network Service Providers (NSPs) and Exchange providers (EXPs).
 
 ![](./media/expressroute-introduction/expressroute-nsp-exp.png)
@@ -73,14 +73,13 @@ No matter which way you decide, for a direct layer 3 connection, we configure a 
 For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure an ExpressRoute Connection through an EXP](https://msdn.microsoft.com/library/azure/dn606306.aspx).
 
 
-###  Network Service Providers (NSPs)
+### Network Service Providers (NSPs)
 
 We partner with Telcos such as AT&T, and British Telecom to offer connectivity between Azure and your WAN. We offer circuit bandwidths from 10 Mbps to 1 Gbps. If you use VPN services from any of the network service providers we partner with, they can extend the networks into Azure without having to deploy any new hardware or making major configuration changes to your existing networks.
 
 For more information about configuration and to see real-world examples, you can follow this step by step guidance: [Configure ExpressRoute circuits through NSPs](https://msdn.microsoft.com/library/azure/dn643736.aspx).
 
-##Next Steps
-
+## Next Steps
 
 
 - [ExpressRoute Service Providers and Locations](https://msdn.microsoft.com/library/azure/dn957919.aspx) 
