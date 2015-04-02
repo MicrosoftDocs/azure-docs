@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/03/2015" 
 	ms.author="josephd"/>
 
 # SharePoint Farms Hosted in Azure Infrastructure Services
@@ -24,30 +24,21 @@ Set up your first or next dev/test or production SharePoint farm in Microsoft Az
 
 You can use the [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md) template in the Azure Preview Portal to create a basic dev/test farm for an Internet-facing SharePoint web site.
 
-![](./media/virtual-machines-sharepoint-infrastructure-services/SP_Azure_IaaS01.png)
-
 The automatically-created environment consists of three servers for a domain controller, a SQL server, and the SharePoint server in a cloud-only Azure Virtual Network.
 
 ## Highly-available SharePoint dev/test farm
 
 You can also use the [SharePoint Server Farm](virtual-machines-sharepoint-farm-azure-preview.md) template in the Azure Preview Portal to create a high-availability SharePoint dev/test farm for an Internet-facing SharePoint web site.
 
-![](./media/virtual-machines-sharepoint-infrastructure-services/SP_Azure_IaaS02.png)
- 
 The automatically-created environment consisting of nine servers in a cloud-only Azure Virtual Network: two for domain controllers, three for a SQL server cluster, two application tier SharePoint servers, and two web tier SharePoint servers.
 
 ## Hybrid cloud dev/test farm
 
 With the [SharePoint intranet farm in a hybrid cloud dev/test environment](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md), you create a simulated hybrid cloud configuration that hosts a simple, two-tier SharePoint farm, which you can use to test an intranet SharePoint farm hosted in Azure from your location on the Internet.
 
-![](./media/virtual-machines-sharepoint-infrastructure-services/SP_Azure_IaaS03.png)
- 
 ## Highly-available, intranet SharePoint production farm
 
 With [Deploying SharePoint 2013 with SQL Server AlwaysOn Availability Groups in Azure](https://msdn.microsoft.com/library/dn275959.aspx), you build out a production-ready, highly-available, intranet SharePoint Server 2013 farm in Azure.
-
-![](./media/virtual-machines-sharepoint-infrastructure-services/SP_Azure_IaaS04.png)
-
 
 ## Additional Resources
 
