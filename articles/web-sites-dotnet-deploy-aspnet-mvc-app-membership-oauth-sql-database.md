@@ -39,13 +39,13 @@ You'll build a simple contact list web app that is built on ASP.NET MVC 5 and us
 
 >[AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can <a href="/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">activate your MSDN subscriber benefits</a> or <a href="/en-us/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">sign up for a free trial</a>.
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+>If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+To set up your development environment, you must install [Visual Studio 2013 Update 4](http://go.microsoft.com/fwlink/?LinkId=390521) or higher, and the latest version of the [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409). This article was written for Visual Studio Update 4 and SDK 2.5.1.
 
-To use the new SSL certificate for localhost, you will need to install [Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?LinkId=390521) or higher.
+To use the new SSL certificate for localhost, you will need to install 
 
-<h2><a name="bkmk_createmvc4app"></a>Create an ASP.NET MVC 5 application</h2>
+## Create an ASP.NET MVC 5 application
 
 ### Create the project
 
@@ -179,7 +179,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	 ![FireFox Cert Warning](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss30.PNG)
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Deploy the application to Azure</h2>
+## Deploy the application to Azure
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -195,7 +195,7 @@ This is all you need to do for now to create the application that you'll deploy 
 
 	![Running in Cloud](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss4.PNG)
 
-<h2><a name="bkmk_addadatabase"></a>Add a database to the application</h2>
+## Add a database to the application
 
 Next, you'll update the app to add the ability to display and update contacts and store the data in a database. The app will use the Entity Framework (EF) to create the database and to read and update data.
 
@@ -235,7 +235,7 @@ The **Contacts** class defines the data that you will store for each contact, pl
 
 The ASP.NET MVC scaffolding feature can automatically generate code that performs create, read, update, and delete (CRUD) actions.
 
-<h2><a name="bkmk_addcontroller"></a>Add a Controller and a view for the data</h2>
+## Add a Controller and a view for the data
 
 1. Build the project **(Ctrl+Shift+B)**. (You must build the project before using the scaffolding mechanism.) 
 1. In **Solution Explorer**, right-click the Controllers folder and click **Add**, and then click **Controller**.
@@ -355,7 +355,7 @@ The next task is to enable the [Code First Migrations](http://msdn.microsoft.com
 
 
 
-<h2><a name="addOauth"></a>Add an OAuth2 Provider</h2>
+## Add an OAuth2 Provider
 
 [OAuth](http://oauth.net/ "http://oauth.net/") is an open protocol that allows secure authorization in a simple and standard method from web, mobile, and desktop applications. The ASP.NET MVC internet template uses OAuth to expose Facebook, Twitter, Google and Microsoft as authentication providers. Although this tutorial uses only Google as the authentication provider, you can easily modify the code to use any of these providers. The steps to implement other providers are very similar to the steps you will see in this tutorial. To use Facebook as an authentication provider, see my tutorial [MVC 5 App with Facebook, Twitter, LinkedIn and Google OAuth2 Sign-on ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on).
 
@@ -363,7 +363,7 @@ In addition to authentication, the tutorial will also use roles to implement aut
 
 Follow the instructions in my tutorial [MVC 5 App with Facebook, Twitter, LinkedIn and Google OAuth2 Sign-on ](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog)  under **Creating a Google app for OAuth 2 to set up a Google app for OAuth2**. Run and test the app to verify you can log on using Google authentication.
 
-<h2><a name="mbrDB"></a>Using the Membership API</h2>
+## Using the Membership API
 In this section you will add a local user and the *canEdit* role to the membership database. Only those users in the *canEdit* role will be able to edit data. A best practice is to name roles by the actions they can perform, so *canEdit* is preferred over a role called *admin*. When your application evolves you can add new roles such as *canDeleteMembers* rather than the less descriptive *superAdmin*.
 
 1. Open the *migrations\configuration.cs* file and add the following `using` statements:
@@ -552,7 +552,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
 
 1. Verify you can make data changes.
 
-<h2><a name="bkmk_deploytowindowsazure11"></a>Deploy the app to Azure</h2>
+## Deploy the app to Azure
 
 1. In Visual Studio, right-click the project in **Solution Explorer** and select **Publish** from the context menu.
 
@@ -692,13 +692,13 @@ Finally, you can connect to the SQL Database instance from SQL Server Object Exp
 1. From the **Connection Strings** page, copy the **Server**  and **User ID**.
  
 	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
-1. Past the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
+1. Paste the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
 
 	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
 
 You can now navigate to the Contact DB using the instructions given earlier.
 
-<h2><a name="nextsteps"></a>Next steps</h2>
+## Next steps
 
 Follow my tutorials which build on this sample:
 

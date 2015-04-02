@@ -60,6 +60,7 @@ The tags section uses this syntax:
 - biztalk-services
 - cache
 - cloud-services
+- documentdb
 - hdinsight
 - machine-learning
 - media-services
