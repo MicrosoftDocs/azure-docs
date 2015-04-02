@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure proxy and firewall settings"
+   pageTitle="Configure proxy and firewall settings for Operational Insights"
    description="Learn about the proxy and firewall settings that you need to configure for the type of agent that you use with Operational Insights"
    services="operational-insights"
    documentationCenter=""
@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="04/02/2015"
    ms.author="banders" />
 
-# Configure proxy and firewall settings
+# Configure proxy and firewall settings for Operational Insights
 
-Actions needed to configure proxy and firewall settings differ when you use Operations Manager and it’s agents versus Microsoft Monitoring agents that connect directly to servers. Review the following sections for the type of agent that you use.
+Actions needed to configure proxy and firewall settings for Operational Insights differ when you use Operations Manager and it’s agents versus Microsoft Monitoring agents that connect directly to servers. Review the following sections for the type of agent that you use.
 
 ## Configure proxy and firewall settings with the Microsoft Monitoring agent
 
-For the Microsoft Monitoring agent to connect to and register with the Microsoft Azure Operational Insights service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. The following tables list the ports that Operational Insights needs.
+For the Microsoft Monitoring agent to connect to and register with the Operational Insights service, it must have access to the port number of your domains and the URLs. If you use a proxy server for communication between the agent and the Operational Insights service, you’ll need to ensure that the appropriate resources are accessible. If you use a firewall to restrict access to the Internet, you need to configure your firewall to permit access to Operational Insights. The following tables list the ports that Operational Insights needs.
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -88,7 +88,7 @@ For an Operations Manager management group to connect to and register with the O
 
 >[AZURE.NOTE] Some of the following resources mention Advisor. However, the listed resources will change in the future.
 
-
+<p>
 
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
@@ -130,7 +130,7 @@ For an Operations Manager management group to connect to and register with the O
     </tr>
     </tbody>
     </table>
-
+<p>
 <table border="1" cellspacing="4" cellpadding="4">
     <tbody>
     <tr align="left" valign="top">
