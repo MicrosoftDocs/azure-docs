@@ -1,16 +1,16 @@
 1.	Sign in to the [Azure Preview portal](https://portal.azure.com/).
 2.	In the Jumpbar, click **New**, then select **Data + storage**, and then click **DocumentDB**. 
 
-	![Screen shot of the Azure Preview portal, highlighting the New button, Data + storage in the Create blade, and DocumentDB in the Data + storage blade][1]   
+	![Screen shot of the Preview portal, highlighting the New button, Data + storage in the Create blade, and DocumentDB in the Data + storage blade][1]   
 
 	Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  
 	
-	![Screen shot of the Azure Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]   
+	![Screen shot of the Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]   
    
 
 3. In the **New DocumentDB** blade, specify the desired configuration for the DocumentDB account. 
  
-	![Screen shot of the New DocumentDB (Preview) blade][3] 
+	![Screen shot of the New DocumentDB blade][3] 
 
 
 	- In the **Id** box, enter a name to identify the DocumentDB account. This value becomes the host name within the URI. The **Id** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. 
@@ -36,7 +36,7 @@
 
 5.	After the DocumentDB account has been created, it is ready for use with the default settings.
 
-	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [preview management portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
+	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
  
 ![Screen shot of the Resource Group blade][7]  
 
