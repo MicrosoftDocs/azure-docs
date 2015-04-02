@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2015"
+   ms.date="04/02/2015"
    ms.author="banders" />
 
 # Configure proxy and firewall settings for Operational Insights
