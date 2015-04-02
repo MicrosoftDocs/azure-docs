@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Microsoft Azure API Apps Protocol Connectors | API Apps microservice" 
 	description="Learn how to create Microsoft Azure Protocol Connector API Apps and add the API App to your logic App; microservices" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
-	authors="Deonhe" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/31/2015" 
 	ms.author="deonhe"/>
 
 
@@ -34,7 +34,7 @@ The following protocol connectors are available in the Auzre Marketplace:
 - SMTP
 - File
 
-Here's a brief description of each of the protocol connectors. 
+Here's a brief description of each of the protocol connectors:
 
 <table>
 <tr>
@@ -99,14 +99,16 @@ Let's get started.
 
 ## Create a Connector
 
-A Connector can be created using the Azure portal or using REST APIs [Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+A Connector can be created using the Azure portal or using REST APIs.
+
+[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ### Create a Connector in the Azure Portal
 
 Let's walk through the creation of an SMTP connector using the Azure Marketplace
 
-1. Login to the Microsoft Azure [portal](https://manage.windowsazure.com)
-2. Select **NEW** > **Web + mobile** > **Azure Marketplace** >
+1. Sign in to the Microsoft Azure [portal](https://manage.windowsazure.com).
+2. Select **NEW** > **Web + mobile** > **Azure Marketplace**.
 3. In the **Search box** then enter **protocol** then press **Enter**. You can also select it from the list. Once selected, a new blade or window opens. Select **Create**. 
 4. Enter the following properties:
 
@@ -160,4 +162,5 @@ Connectors use either OAuth or user names and passwords.
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
 [Social connectors](app-service-logic-social-connectors.md) |
 [App and Data Services connectors](app-service-logic-data-connectors.md) |
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

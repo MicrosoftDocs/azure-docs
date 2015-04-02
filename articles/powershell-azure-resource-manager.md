@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="04/01/2015" 
 	ms.author="tomfitz"/>
 
 # Using Windows PowerShell with Resource Manager #
@@ -334,43 +334,47 @@ And, the task is easily automated.
 
 After creating a resource group, you can use the cmdlets in the AzureResourceManager module to manage the resource group, change it, add resources to it, remove it.
 
-- To get the resource groups in your subscription, use the **Get-AzureResourceGroup** cmdlet:
+- To get all of the resource groups in your subscription, use the **Get-AzureResourceGroup** cmdlet:
 
 		PS C:>Get-AzureResourceGroup
 
 		ResourceGroupName : TestRG
 		Location          : eastasia
 		ProvisioningState : Succeeded
-		Resources         :
-	                    Name                   Type                                  Location
-	                    =====================  ====================================  =========
-	                    ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-	                    TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	                    TestSite               microsoft.insights/components         centralus
-	                    testserver             Microsoft.Sql/servers                 westus
-	                    TestDB                 Microsoft.Sql/servers/databases       westus
-	                    TestPlan               Microsoft.Web/serverFarms             westus
-	                    TestSite               Microsoft.Web/sites                   westus
+		Tags              :
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		
+		...
 
 - To get the resources in the resource group, use the **Get-AzureResource** cmdlet and its ResourceGroupName parameter. Without parameters, Get-AzureResource gets all resources in your Azure subscription.
 
 		PS C:\> Get-AzureResource -ResourceGroupName TestRG
 		
-		Name                   ResourceType                          Location
-		----                   ------------                          --------
-		ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-	    TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	    TestSite               microsoft.insights/components         centralus
-	    testserver             Microsoft.Sql/servers                 westus
-	    TestDB                 Microsoft.Sql/servers/databases       westus
-	    TestPlan               Microsoft.Web/serverFarms             westus
-	    TestSite               Microsoft.Web/sites                   westus
-
+		ResourceGroupName : TestRG
+		Location          : eastasia
+		ProvisioningState : Succeeded
+		Tags              :
+		
+		Resources         :
+				Name                   Type                          Location
+				----                   ------------                  --------
+				ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
+	        	TestSite               microsoft.insights/components         centralus
+	         	testserver             Microsoft.Sql/servers                 westus
+	        	TestDB                 Microsoft.Sql/servers/databases       westus
+	        	TestPlan               Microsoft.Web/serverFarms             westus
+	        	TestSite               Microsoft.Web/sites                   westus
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 
 - To add a resource to the resource group, use the **New-AzureResource** cmdlet. This command adds a new website to the TestRG resource group. This command is a bit more complex, because it does not use a template. 
 
         PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
+
+- To move an existing resource to the resource group, use the **Move-AzureResource** command.
+
+		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
 
 - To add a new template-based deployment to the resource group, use the **New-AzureResourceGroupDeployment** command. 
 
