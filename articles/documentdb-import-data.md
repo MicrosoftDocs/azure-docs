@@ -50,7 +50,7 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ##<a id="Install"></a>Installing the DocumentDB Data Migration Tool ##
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/en-us/download/default.aspx).  You may either compile the solution or simply download and extract the compiled version to a directory of your choice.  Then run either:
+The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool) and a compiled version is available from [Microsoft Download Center](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d).  You may either compile the solution or simply download and extract the compiled version to a directory of your choice.  Then run either:
 
 - Dtui.exe: Graphical interface version of the tool
 - Dt.exe: Command-line version of the tool
@@ -156,7 +156,7 @@ Here are some command line samples to import from SQL Server:
 
 The CSV file source importer option enables you to import one or more CSV files.  When adding folders that contain CSV files for import, you have the option of recursively searching for files in subfolders:
 
-![Screenshot of CSV source options](./media/documentdb-import-data/csvsource.png)
+![Screenshot of CSV source options](media/documentdb-import-data/csvsource.png)
 
 Similar to the SQL source, the nesting separator property may be used to create hierarchical relationships (sub-documents) during import.  Consider the following CSV header row and data rows:
 
