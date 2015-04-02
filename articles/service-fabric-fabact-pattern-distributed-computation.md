@@ -35,9 +35,10 @@ In the following example, we simply calculate Pi using a Monte Carlo Simulation.
 
 * Finaliser responsible calculating the final result and printing on screen.
 
-**Distributed Computation – Monte Carlo Simulation**
+##Distributed computation code sample – Monte Carlo simulation
 
 ```
+
 public interface IProcessor : IActor
 {
     Task ProcessAsync(int tries, int seed, int taskCount);
@@ -92,7 +93,7 @@ public class PooledTask : Actor, IPooledTask
 A common way of aggregating results in Azure Service Fabric is to use timers. We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops. 
 Here is how the Aggregator and Finaliser look:
 
-**Distributed Computation – Monte Carlo Simulation**
+##Distributed computation code sample – aggregator
 
 ```   
   
@@ -186,6 +187,21 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
 At this point, it should be clear how we could potentially enhance the Leaderboard example with an aggregator for scale and performance.
 
 We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing. There are some things it is just built to handle better than others. However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.
+
+## Next Steps
+[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
+
+[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+
+[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+
+[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+
+[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+
+[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+
+[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
 
 
 <!--Image references-->

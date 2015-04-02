@@ -31,6 +31,8 @@ There are essentially two scenarios usually composed together:
 
 * *Pushing device behavior and configuration to a single or set of devices*. Think about home solar power devices where the vendor pushes different configurations based on consumption patterns and seasonality.
 
+##Telemetry data and device grouping
+
 First let’s have a look at the case where devices, think tens of thousands, are grouped together and are all sending telemetry data to their associated group. In the following example, the customer has deployed devices to each region.
 When the device is switched on, the first thing it does is send an ActivateMe message with relevant information such as location, version, and so on. In turn, the actor associated with the device (through the Device Id) sets up the initial state for the device, such as saving state locally (could have been persisted also) and registering a group actor. In this case, we assign a random group for our simulation.
 
@@ -38,7 +40,7 @@ As part of the initialization process, we can configure the device by retrieving
 
 All the devices periodically send their telemetry information to the corresponding actor. If the actor is already activated then the same actor will be used. Otherwise it will be activated. At this point it can recover state from a stable store if required. When the actor receives telemetry information it stores it to a local variable. We are doing this to simplify the sample. In a real implementation we would probably save it to an external store to allow operations to monitor and diagnose device health and performance. Finally, we push telemetry data to the group actor that the device actor logically belongs to.
 
-**IoT – Telemetry**
+##IoT code sample – Telemetry
 
 ```
 public interface IThing : IActor
@@ -102,7 +104,7 @@ public class Thing : Actor<ThingState>, IThing
 At the group level, as per our sample, our goal is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to specific regions where there are a certain number of fault devices. Of course our customer would like to reduce costs by minimising engineering time spent on the road. For this reason, each group actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to replace/repair these devices.
 Let’s have a look how it is done:
 
-**IoT – Telemetry**
+##IoT code sample – grouping and aggregation
 
 ```
 public interface IThingGroup : IActor
@@ -189,6 +191,7 @@ There is a point of caution here: Device State vs. Reporting/Analysis. This is w
 
 * Maintain an explicit store that is designed for reporting. An aggregator can buffer and periodically push data to a reporting store for further querying and analysis.
 
+##Device operation
 So far so good, but how about operations on these devices? Like for devices, actors can expose operational interfaces so an administrator can carry out operations on devices. For example, an administrator wants to push a new configuration to a group of home solar energy devices (yep, another real life scenario) based on seasonal/regional changes. 
 
 The key idea here is we have granular control over each device using “Thing” actors as well as group operations using “ThingGroup” actors —whether it is aggregating data coming in from devices such as telemetry or sending data such as configuration to large number of devices. The platform takes care of distribution of the device actors and messaging between them, which is totally transparent to the developer. 
@@ -200,6 +203,21 @@ When it comes to machine to machine (M2M) communications, both the Hub and Spoke
 Azure Service Fabric Actors also takes care of the lifetime of the Actors. Think of it this way, we will have always-on devices and we will have occasionally-connected devices. Why would we keep the actor that looks after the device that connects every 14 hours in memory? Azure Service Fabric allow save and restore of device state when we want it and where we want it.
 
 We conclude that more and more customers will look at Azure Service Fabric Actors as a key building block for their IoT implementations.
+
+##Next Steps
+[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
+
+[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+
+[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+
+[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+
+[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+
+[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+
+[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-fabact/internet-of-things-1.png
