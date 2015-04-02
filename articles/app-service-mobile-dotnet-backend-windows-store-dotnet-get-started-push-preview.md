@@ -113,19 +113,12 @@ Now that push notifications are enabled in the app, you must update your app bac
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // windows payload
         var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
 
-        try
-        {
-            await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw ex;
-        }
+        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
@@ -157,7 +150,7 @@ Now that push notifications are enabled in the app, you must update your app bac
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
             
-            var result = MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.

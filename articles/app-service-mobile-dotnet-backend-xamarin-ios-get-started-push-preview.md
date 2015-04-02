@@ -165,19 +165,12 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // iOS payload
         var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
 
-        try
-        {
-            await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw;
-        }
+        await Hub.Push.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
