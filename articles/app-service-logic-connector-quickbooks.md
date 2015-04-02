@@ -168,6 +168,6 @@ Let us create a simple logic app that creates an account in QuickBooks and updat
 [10]: ./media/app-service-logic-connector-quickbooks/10_QuickBooks_Update_Account.png
 [11]: ./media/app-service-logic-connector-quickbooks/11_Record_ID_from_Create.png
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
-[13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_QuickBooks_connector.png
+[13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickBooks_connector.png
 
 
