@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Windows Universal app." 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -123,7 +123,7 @@ Now that push notifications are enabled in the app, you must update your app bac
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 

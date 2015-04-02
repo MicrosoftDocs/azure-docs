@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Xamarin iOS app" 
 	services="app-service\mobile" 
 	documentationCenter="xamarin" 
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede" 
 	editor=""/>
 
@@ -175,7 +175,7 @@ Later, you will use this certificate to generate a .p12 file and upload it to yo
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
