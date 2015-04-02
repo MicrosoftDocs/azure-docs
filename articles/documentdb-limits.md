@@ -18,7 +18,7 @@
 
 
 #DocumentDB Limits and Quotas
-The following table describes the limits and quota enforcements of DocumentDB. Quotas listed with an asterisk (*) can be adjusted by contacting Azure support.    
+The following table describes the limits and quota enforcements of DocumentDB. Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits).    
 
 |Entity |Quota (Standard Offer)|
 |-------|--------|
@@ -45,3 +45,5 @@ The following table describes the limits and quota enforcements of DocumentDB. Q
 |Maximum number of JOINs per query*    |2
 |Maximum number of AND clauses per query*      |5
 |Maximum number of OR clauses per query*       |5
+|Maximum number of collection creates per minute*      |5
+|Maximum number of scale operations per minute*       |5
