@@ -1,8 +1,9 @@
 <properties 
    pageTitle="Configure VPN connection between two Azure virtual networks | Azure" 
    description="Learn how to configure VPN connections between two Azure virtual networks, how to configure domain name resolution between two virtual networks, and how to configure HBase geo-replication" 
+   services="hdinsight" 
    documentationCenter="" 
-   authors="jgao" 
+   authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
 
@@ -217,7 +218,7 @@ The Vnet gateways use a shared key to authenticate connections between the virtu
 
 **To set the keys**
 
-1. From your workstation, open **PowerShell ISE** or the Windows PowerShell console.
+1. From your workstation, open **Windows PowerShell ISE** or the Windows PowerShell console.
 2. Update the parameters in this follow script and run it:
 
 		Add-AuzreAccount

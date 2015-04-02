@@ -3,7 +3,7 @@
    description="Learn how to configure VPN connections between two Azure virtual networks, how to configure domain name resolution between two virtual networks, and how to configure HBase geo-replication" 
    services="hdinsight" 
    documentationCenter="" 
-   authors="jgao" 
+   authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
 

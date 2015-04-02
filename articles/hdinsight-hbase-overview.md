@@ -3,7 +3,7 @@
 	description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="jgao" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/31/2015" 
-	ms.author="mumian"/>
+	ms.author="jgao"/>
 
 
 

@@ -3,7 +3,7 @@
    description="Learn how to configure VPN connections between two Azure virtual networks, how to configure domain name resolution between two virtual networks, and how to configure HBase geo-replication" 
    services="hdinsight" 
    documentationCenter="" 
-   authors="jgao" 
+   authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
 
@@ -102,7 +102,7 @@ DNS servers requires static IP addresses.  This step can't be done from the Azur
 
 **To configure static IP address for the two virtual machines**
 
-1. Open Windows Azure PowerShell ISE.
+1. Open Windows PowerShell ISE.
 2. Run the following cmdlets.  
 
 		Add-AzureAccount
