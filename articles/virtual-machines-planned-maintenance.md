@@ -28,6 +28,7 @@
 * [Multi-Instance Update]
 * [Single-Instance Update]
 * [Email Notification]
+* [Region Pairs]
 
 
 ## Virtual Machine Configurations
@@ -57,14 +58,25 @@ For single-instance configuration virtual machines only, Azure send email commun
 <!--Image reference-->
 ![][image1]
 
+### Region Pairs
+Azure organizes a set of region pairs and guarantees that only one region of the pair will undergo planned maintenance. Azure will not rollout an update on paired regions simultaneously during a planned maintenance. 
+Please refer to the table below for information regarding current region pairs:
+
+<!--Image reference-->
+![][image3]
+
+For example, during a planned maintenance rollout, Azure will not rollout an update to West US if East US is under maintenance at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US.
+
 <!--Anchors-->
 [Why azure performs planned maintenance]: #why-azure-performs-planned-maintenance
 [Virtual Machine Configurations]: #virtual-machine-configurations
 [Multi-Instance Update]: #multi-instance-update
 [Single-Instance Update]: #single-instance-update
 [Email notification]: #email-notification
+[Region Pairs]: #region-pairs
 [image1]: ./media/virtual-machines-planned-maintenance/vmplanned1.png
 [image2]: ./media/virtual-machines-planned-maintenance/EventViewerPostReboot.png
+[image3]: ./media/virtual-machines-planned-maintenance/RegionPairs.png
 
 
 <!--Link references-->
