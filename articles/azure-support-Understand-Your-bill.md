@@ -8,11 +8,11 @@
    editor=""/>
 
 <tags
-   ms.service="Azure Bill"
-   ms.devlang="Azure bill"
+   ms.service="na"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="Azure Bill"
-   ms.workload="Azure Bill"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
    ms.date="04/01/2015"
    ms.author="kareni"/>
 
@@ -47,7 +47,7 @@ To view or download a bill:
 2.	Click on the subscription in which you would like to see details and usage.
 3.	Click **Billing** History
 
-    [Summary - billing history - 1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
+    ![Summary - billing history -1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
 
 4. The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
@@ -211,20 +211,29 @@ Value | Multiplies the Rate by the Billable column to calculate the extended cos
 
 Please refer to the detail descriptions of the above columns in the **Usage Charges** section for complete explanations of these columns. The following columns contain additional information that may be helpful. Depending on the resource, some of these columns may be empty.
 
-### Metered Region
-    Identifies the location of the datacenter for certain services that are priced based on datacenter location (e.g., data transfers).
+### Usage Date
+    The date the usage was emitted
 
-### Metered Service
+### ResourceGUID
+    The billed meter GUID
+
+### Sub Region
+    Identifies the specific location of the service being omitted (i.e. data center location).
+
+### Service
     This column is utilized to track the individual Azure platform service that may not be specifically identified in the Name column. This Service column will indicate which specific service the usage pertains.  
 
-### Metered Service Type
+### Component
     Where applicable, this column identifies further the resource that is being consumed. For hosted compute services for example, this column reports the size of the Virtual Machine, if it is not already stated in Resources.
 
-### Project
+### Service Info 1
     This column provides the project name that the services belongs to on your subscription
 
 ### Service Info 2
     This column captures 3rd party specific information.
+
+### Additional Info
+    This column shows additional data for some of the services.
 
     Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
 
