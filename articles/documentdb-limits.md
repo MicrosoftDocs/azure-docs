@@ -27,7 +27,7 @@ The following table describes the limits and quota enforcements of DocumentDB. Q
 |Number of users per database account – across all databases |500,000
 |Number of permissions per database account – across all databases   |2,000,000
 |Attachment storage per database account (Preview Feature)      |2 GB
-|Maximum Request Units / sec per collection   |2500
+|Maximum Request Units / second per collection   |2500
 |Number of stored procedures, triggers and UDFs per collection*       |25 each
 |Maximum execution time for stored procedure and trigger     |5 seconds
 |Provisioned document storage / collection |10 GB
