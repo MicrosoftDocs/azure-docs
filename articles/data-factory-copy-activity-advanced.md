@@ -317,7 +317,17 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
     	    [State] [varchar](256) NOT NULL,
     	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters]. 
+The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters].
+
+## Specify encoding for text files
+Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) for valid encoding names.  
+
+## See Also
+
+- [Examples for using Copy Activity][copy-activity-examples]
+- [Copy data with Azure Data Factory][adf-copyactivity]
+- [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
+
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
@@ -327,6 +337,8 @@ The stored procedure feature takes advantage of [Table-Valued Parameters][table-
 [adfgetstarted]: data-factory-get-started.md
 [adf-copyactivity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx

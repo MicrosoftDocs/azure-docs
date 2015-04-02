@@ -357,6 +357,8 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
+See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
+
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
 - **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
@@ -371,6 +373,7 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
 ## See Also
+- [Copy Activity - Examples][copy-activity-examples]
 - [Copy Activity topic on MSDN Library][msdn-copy-activity]
 - [Linked Services topic on MSDN Library][msdn-linkedservices]
 - [Tables topic on MSDN Library][msdn-tables-topic]
@@ -385,6 +388,8 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
 [copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

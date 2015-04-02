@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="04/01/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -35,7 +35,7 @@ To be able to add an on-premises data source as a linked service to a data facto
 
 Data Management Gateway has a full range of on-premises data connection capabilities that include the following:
 
-- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure.
+- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure. 
 - **Encrypt credentials with your certificate** – Credentials used to connect to data sources are encrypted with a certificate fully owned by a user. Without the certificate, no one can decrypt the credentials into plain text, including Microsoft.
 
 ### Considerations for using Data Management Gateway
@@ -43,8 +43,16 @@ Data Management Gateway has a full range of on-premises data connection capabili
 2.	You can have **only one instance of Data Management Gateway** installed on your machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
 3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
 4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories. 
-5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine.
 
+### Ports and security considerations 
+- The Data Management Gateway installation program opens **8050** and **8051** ports on the gateway machine. These ports are used by the **Credentials Manager** (ClickOnce application), which allows you to set credentials for an on-premises linked service and to test connection to the data source. These ports cannot be reached from internet and you do not need have these opened in the corporate firewall.
+- While copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:
+ 
+	- Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**
+	- Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway machine** to the **allowed IP addresses**.
+
+- You must launch the **Credentials Manager** application on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
 
 ### Gateway installation - prerequisites 
 
@@ -183,7 +191,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
   
-
+> [ACOM.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
  
