@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Trace usage and events in your app with Application Insights API" 
-	description="Insert a few lines of code to track usage and diagnose issues." 
+	pageTitle="Custom events and metrics with the Application Insights API" 
+	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="03/31/2015" 
 	ms.author="awills"/>
 
-# Write custom events and metrics with Application Insights API
+# Custom events and metrics with the Application Insights API
 
 *Application Insights is in preview.*
 
@@ -48,7 +48,7 @@ If you haven't done these yet:
  * [Windows project][windows]
  * [Java project][java]    
 
-* To monitor web pages, [add the Application Insights script to each page][usage]. The JavaScript initialization code should be included in every web page you want to monitor. 
+* To monitor web pages, [add the Application Insights script to each page][client]. The JavaScript initialization code should be included in every web page you want to monitor. 
 
 * In your device or web server code, include:
 
@@ -72,7 +72,7 @@ If you haven't done these yet:
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-
+We recommend you reuse one instance of TelemetryClient, except in cases where you want to set different default properties or use a different TelemetryConfiguration.
 
 ## <a name="pageViews"></a>Page views, users and sessions
 
@@ -263,6 +263,22 @@ Use the Search field to see event occurrences with a particular property value.
 ![](./media/appinsights/appinsights-23-customevents-5.png)
 
 [Learn more about search strings][diagnostic]
+
+#### Alternative way to set properties and metrics
+
+If it's more convenient, you can collect the parameters of an event in a separate object:
+
+    var event = new EventTelemetry();
+
+    event.Name = "WinGame";
+    event.Metrics["processingTime"] = stopwatch.Elapsed.TotalMilliseconds;
+    event.Properties["game"] = currentGame.Name;
+    event.Properties["difficulty"] = currentGame.Difficulty;
+    event.Metrics["Score"] = currentGame.Score;
+    event.Metrics["Opponents"] = currentGame.Opponents.Length;
+
+    telemetry.TrackEvent(event);
+
 
 ## <a name="timed"></a> Timed events
 
