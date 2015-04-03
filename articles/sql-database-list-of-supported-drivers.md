@@ -1,7 +1,8 @@
 These are libraries that can be used to communicate with Microsoft SQL Server and Microsoft Azure SQL Database. 
 
-The following table contains libraries that are released by Microsoft.
+
 ####Microsoft Libraries
+The following table contains libraries that are released by Microsoft.
 
 | Platform | OS/Runtime | Libraries | Description | Version |
 | :--- | :--- | :--- | :--- | :--- |
@@ -12,9 +13,8 @@ The following table contains libraries that are released by Microsoft.
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/en-us/download/details.aspx?id=34687) |Microsoft ODBC Driver for SQL Server | 11.0+ |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/en-us/download/details.aspx?id=34687) |Microsoft ODBC Driver for SQL Server | 11.0+ |
 
-The following table contains libraries that are release by 3rd parties.
-
 ####Third Party Libraries - [Wikipedia - Microsoft SQL Server Libraries/Drivers](https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers)
+The following table contains libraries that are release by 3rd parties.
 
 | Platform | Libraries 
 | :--- | :--- | 
