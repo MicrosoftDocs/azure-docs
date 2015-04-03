@@ -55,7 +55,7 @@ Ensure that **Allow access to Azure services** setting turned **ON** for your Az
 1. Click **BROWSE** hub on the left and click **SQL servers**.
 2. Select **your server**, and click **SETTINGS** on the **SQL SERVER** blade.
 3. In the **SETTINGS** blade, click **Firewall**.
-4. In the **Firewalll settings** blade, click **ON** for **Allow access to Azure services**.
+4. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
 5. Close all the blades by clicking **X**.
 	
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
@@ -124,7 +124,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	 
 	![Data Factory name not available][image-data-factory-name-not-available]
 
-9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFCATIONS** blade if it is open. 
+9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
 10. After the creation is complete, you will see the **DATA FACTORY** blade as shown below.
 
     ![Data factory home page][image-data-factory-get-stated-factory-home-page]
@@ -135,7 +135,7 @@ Linked services link data stores or compute services to an Azure data factory. A
 In this step, you will create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. StorageLinkedService linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the **ADFTutorialDataFactory**. You will create a pipeline later in this tutorial that copies data from a blob container in StorageLinkedService to a SQL table in AzureSqlLinkedService.
 
 ### Create a linked service for the Azure storage account
-1.	In the **DATA FACTORY** blade, clcik **Author and deploy** tile to launch the **Editor** for the data factory.
+1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
@@ -215,7 +215,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
 
 	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. See the sample files in the [tutorial][adf-tutorial] for examples.
  
-	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid\>.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
