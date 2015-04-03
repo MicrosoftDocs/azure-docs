@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="FTP Connector"
 	description="Get started with FTP Connector"
-	authors="rajeshramabathiran" 
+	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
