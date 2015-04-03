@@ -17,5 +17,7 @@ The following table contains libraries that are release by 3rd parties.
 
 | Platform | Libraries | Link |
 | :--- | :--- | :--- |
-| Python | pymysql | Link to Wikipedia |
-| Python | pymysql | |
+| Python | pymysql | [Wikipedia:Microsoft SQL Server Libraries/Drivers](https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers) |
+| Nodejs | Tedious | |
+| Nodejs | Node-MSSQL | |
+| Nodejs | Edge.js | |
