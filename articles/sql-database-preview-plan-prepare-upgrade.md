@@ -68,7 +68,7 @@ Starting with V12, Azure SQL Database will support only the service tiers named 
 For detailed information about the Basic, Standard, and Premium service tiers, see:
 
 
-- [Upgrade SQL Database Web/Business Databases to New Service Tiers](http://azure.microsoft.com/documentation/articles/sql-database-upgrade-new-service-tiers/)
+- [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-new-service-tiers.md)
 - [Azure SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/)
 
 
