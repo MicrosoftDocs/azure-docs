@@ -1,9 +1,9 @@
-
 <properties 
     pageTitle="How to migrate from a RemoteApp VNET to an Azure VNET"
     description="Learn how to migrate from a RemoteApp VNET to an Azure VNET" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    solutions="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 

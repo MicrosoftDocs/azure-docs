@@ -3,7 +3,8 @@
     pageTitle="Using Office 365 with Azure RemoteApp" 
     description="Learn how Office 365 and Azure RemoteApp work together" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    solutions="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
