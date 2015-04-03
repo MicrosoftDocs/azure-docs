@@ -92,7 +92,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, go to [Configure network interfaces](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
-![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
+ ![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
 
 7. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
@@ -126,13 +126,15 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 	- PDO Remove Period = 20
 	- Retry Interval = 1
 	- Path Verify Enabled = Unchecked.
+
+
 >[AZURE.NOTE] **Please do not modify the default parameters.**
 
 ## Step 4: Configure MPIO for high availability and load balancing
 
 For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
->[AZURE.IMPORTANT] **Keep in mind that you cannot mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
+>[AZURE.IMPORTANT] **We recommend that you do notI am  mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
 
 The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
 
