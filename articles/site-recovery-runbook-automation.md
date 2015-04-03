@@ -98,7 +98,7 @@ Next create the following assets in the Account
 
 4.  Define the variable value depending on your Azure Subscription name
 
-> ![](media/site-recovery-runbook-automation/07.png)
+	![](media/site-recovery-runbook-automation/07_1.png)
 
 You can identify the name of your subscription from the settings page of
 your account.
