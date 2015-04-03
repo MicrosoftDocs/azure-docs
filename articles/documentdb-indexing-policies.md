@@ -503,6 +503,6 @@ Next Steps
 Try out the samples below for managing indexing policy, and learn more about DocumentDB's query language in the links below.
 
 1.	[DocumentDB .NET Index Management code samples](https://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af/sourcecode?fileId=134860&pathId=1399591856)
-2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/en-us/library/azure/dn782195.aspx)
+2.	[DocumentDB REST API Collection Operations](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3.	[Query with DocumentDB SQL](documentdb-sql-query.md)
 

@@ -3,7 +3,7 @@
     description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure." 
     services="documentdb" 
     documentationCenter="python" 
-    authors="ryancraw" 
+    authors="ryancrawcour" 
     manager="jhubbard" 
     editor="cgronlun"/>
 
