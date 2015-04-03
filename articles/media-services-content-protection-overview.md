@@ -18,7 +18,7 @@
 
 #Protecting Content Overview
 
-Microsoft Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
+Microsoft Azure Media Services enables you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady DRM. Media Services also provides a service for delivering keys and PlayReady licenses to authorized clients. 
 
 ![content-protection][content-protection]
 
@@ -72,7 +72,9 @@ When configuring the token restricted policy, you must specify the primary verif
 
 For more information, see [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 
-##Common tasks
+##Common content encryption tasks
+
+>[AZURE.NOTE]If you content is storage encrypted make sure to configure asset delivery policy.
 
 ###Configuring streaming endpoints
 
