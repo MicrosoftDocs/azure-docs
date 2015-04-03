@@ -128,7 +128,7 @@ Now both the settings are available in your assets
 
 More information about how to connect to your subscription via
 powershell is given
-[here](http://azure.microsoft.com/en-in/documentation/articles/install-configure-powershell/#Connect).
+[here](install-configure-powershell.md).
 
 Next, create a recovery plan for our application.
 
