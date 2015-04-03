@@ -3,7 +3,7 @@
 	description="Get a visual map of the resources available to go from 0 to 60 on Azure DocumentDB."
 	services="documentdb" 
 	documentationCenter="" 
-	authors="anhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="mimig"/>
 
