@@ -188,13 +188,13 @@ When you use the Windows PowerShell interface to access the virtual device, you 
 
 Perform the following steps to configure the device administrator password for your StorSimple virtual device.
 
-- On your virtual device, go to **Devices > Configure**.
+1. On your virtual device, go to **Devices > Configure**.
+ 
+1. Scroll down to the **Device Administrator password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
 
-- Scroll down to the **Device Administrator password** section. Provide an administrator password that contains from 8 to 15 characters. The password must be a combination of uppercase, lowercase, numeric, and special characters.
-
-- Confirm the password.
-
-- Click **Save** at the bottom of the page.
+1. Confirm the password.
+ 
+1. Click **Save** at the bottom of the page.
 
 The device administrator password should now be updated. You will use this modified password to access the the Windows PowerShell interface on your virtual device.
 
@@ -207,17 +207,17 @@ You can choose to connect over HTTP or HTTPS. For security reasons, we recommend
 Perform the following steps to configure remote management for your StorSimple virtual device.
 
 
-- On your virtual device, go to **Devices > Configure**.
+1. On your virtual device, go to **Devices > Configure**.
 
-- Scroll down to the **Remote Management** section.
+2. Scroll down to the **Remote Management** section.
 
-- Set **Enable Remote Management** to **Yes**.
+3. Set **Enable Remote Management** to **Yes**.
 
-- You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
+4. You can now choose to connect using HTTP. The default is to connect over HTTPS. Connecting over HTTP is acceptable only on trusted networks.
 
-- Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
+5. Click **Download Remote Management Certificate** to download a remote management certificate. You will specify a location in which to save this file. This certificate then needs to be installed on the client or host machine that you will use to connect to the virtual device.
 
-- Click **Save** at the bottom of the page.
+6. Click **Save** at the bottom of the page.
 
 
 ## Work with the StorSimple virtual device
