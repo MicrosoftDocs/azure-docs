@@ -9,18 +9,18 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
 #Run Hive queries using the HDInsight tools for Visual Studio
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to use the HDInsight tools for Visual Studio to remotely submit Hive queries to an HDInsight cluster.
+In this article, you will learn how to submit Hive queries to an HDInsight cluster using the HDInsight tools for Visual Studio.
 
 > [AZURE.NOTE] This document does not provide a detailed description of what the HiveQL statements used in the examples do. For information about the HiveQL that is used in this example, see <a href="hdinsight-use-hive.md" target="_blank">Use Hive with Hadoop on HDInsight</a>.
 
@@ -30,7 +30,7 @@ To complete the steps in this article, you will need the following.
 
 * An Azure HDInsight (Hadoop on HDInsight) cluster (Linux or Windows-based)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=43721" target="_blank">Update 3</a>, or <a href="http://www.microsoft.com/download/details.aspx?id=43722" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">Update 4</a>, Visual Studio 2013 <a href="http://go.microsoft.com/fwlink/?LinkId=390465" target="_blank">Update 3</a>, or <a href="http://www.microsoft.com/download/details.aspx?id=40769" target="_blank">Visual Studio Express 2013</a>
 
 ##<a id="run"></a> Run Hive queries using the HDInsight tools for Visual Studio
 
