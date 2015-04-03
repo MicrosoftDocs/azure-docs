@@ -157,7 +157,7 @@ In the old portal, the **Configure** tab for the application you created in the 
 
 	You can get the gateway URL from the **Gateway** blade in the [Azure portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
 
-	![Gateway URL](./media/app-service-api-connect-your-app-to-saas-connector/gatewayurl.png)
+	![Gateway URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
 	The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.
 
@@ -182,13 +182,12 @@ In the old portal, the **Configure** tab for the application you created in the 
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo:replace with image showing fictional names-->
 
 ## Use Postman to send a Post request
 
 When you log in to the gateway, the gateway sends back an authentication token.  This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
 
-So you can see what is happening in the background, in this section you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header.
+So you can see what is happening in the background, in this section of the tutorial you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header. This section is optional: in the previous section you already verified that the API app accepts only authenticated access.
 
 These instructions show how to use the Postman tool in the Chrome browser, but you could do the same thing with any REST client tool and browser developer tools.
 
