@@ -319,7 +319,7 @@ In this step, you will create the following pipelines:
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[ACOM.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
+	[AZURE.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
  
 3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 4. Repeat steps 1-3 with the content from the following files: 
