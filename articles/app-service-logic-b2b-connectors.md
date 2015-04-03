@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/31/2015" 
 	ms.author="mandia"/>
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
@@ -210,4 +210,5 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 [Social connectors](app-service-logic-social-connectors.md)<br/>
 [Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
 [App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

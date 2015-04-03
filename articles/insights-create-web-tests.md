@@ -65,7 +65,6 @@ Failed tests can be analyzed to determine why they failed.  Drill into a failed 
 * [Monitor usage][azure-usage] to find out how many users you have, how often they visit, and how the pages perform on their browsers
 * [Monitor performance][azure-perf] to diagnose issues with your code's dependencies
 
-[azure-perf]: insights-perf-analytics.md
-[azure-usage]: insights-usage-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[availability]: app-insights-monitor-web-app-availability.md
+
+[AZURE.INCLUDE [app-insights-azure-learn-more](../includes/app-insights-azure-learn-more.md)]
+

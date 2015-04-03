@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
@@ -205,6 +205,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory.
 **To deploy the mapper and the reducer to the emulator's file system**
 
 1. Open a Hadoop command line from your desktop and create the /Apps folder in HDFS:
+
 		hadoop fs -mkdir /WordCount/Apps
 
 2. Run the following commands:
@@ -547,7 +548,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
 

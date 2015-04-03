@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Key Vault | Overview" 
 	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure." 
-	services="Key-Vault" 
+	services="key-vault" 
 	documentationCenter="" 
 	authors="cabailey" 
 	manager="mbaldwin"/>

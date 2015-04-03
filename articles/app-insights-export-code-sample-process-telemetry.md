@@ -36,7 +36,9 @@ To get started:
 
 1. Get an [account in Microsoft Azure](http://azure.microsoft.com/pricing/).
 2. In the [Azure portal][portal], add a new Application Insights resource for your app:
-    ![](./media/app-insights-export-code-sample-process-telemetry/01-new-asp.png)
+
+    ![](./media/app-insights-export-code-sample-process-telemetry/010-new-asp.png)
+
     (Your app type and subscription might be different.)
 3. Open Quick Start to find how to set up the SDK for your app type.
     ![](./media/app-insights-export-code-sample-process-telemetry/020-quick.png)
@@ -243,7 +245,7 @@ Search for and install these packages:
     }
     }
 
-#### Prepare a dictionary for each JSONn document
+#### Prepare a dictionary for each JSON document
 
 
     private void GenerateDictionary(System.Dynamic.ExpandoObject output, Dictionary<string, object> dict, string parent)

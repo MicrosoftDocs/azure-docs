@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 # Submit Hadoop jobs in HDInsight
 
-In this article, you will learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to use the HDInsight .NET SDK to submit MapReduce, Hadoop streaming, and Hive jobs.
+Learn how to use Azure PowerShell to submit MapReduce and Hive jobs, and how to use the HDInsight .NET SDK to submit MapReduce, Hadoop streaming, and Hive jobs.
 
 ##Prerequisites
 
@@ -28,7 +28,7 @@ Before you begin this article, you must have the following:
 * Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
-##<a id="mapreduce-powershell"></a> Submit MapReduce jobs by using Azure PowerShell
+##Submit MapReduce jobs by using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information about using Azure PowerShell with HDInsight, see [Manage HDInsight by using PowerShell][hdinsight-admin-powershell].
 
 Hadoop MapReduce is a software framework for writing applications that process vast amounts of data. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-examples.jar*), which contains several MapReduce examples. 
@@ -255,7 +255,7 @@ One of the examples is for counting word frequencies in source files. In this se
 
 
 
-##<a id="hive-powershell"></a> Submit Hive jobs by using Azure PowerShell
+##Submit Hive jobs by using Azure PowerShell
 [Apache Hive][apache-hive] provides a means of running MapReduce job through an SQL-like scripting language, called *HiveQL*, which can be applied to summarize, query, and analyze large volumes of data. 
 
 HDInsight clusters come with a sample Hive table called *hivesampletable*. In this session, you will use Azure PowerShell to run a Hive job to list some data from the Hive table. 
@@ -285,11 +285,16 @@ HDInsight clusters come with a sample Hive table called *hivesampletable*. In th
 
 For more information about Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 
-##<a id="sqoop-powershell"></a>Submit Sqoop jobs by using Azure PowerShell
+
+## Submit Hive jobs by using Visual Studio
+
+See [Get started using HDInsight Hadoop Tools for Visual Studio][hdinsight-visual-studio-tools].
+
+##Submit Sqoop jobs by using Azure PowerShell
 
 See [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
-##<a id="mapreduce-sdk"></a> Submit MapReduce jobs using HDInsight .NET SDK
+##Submit MapReduce jobs using HDInsight .NET SDK
 The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-examples.jar*), which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information about developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
 
 
@@ -305,7 +310,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 **To create a Visual Studio console application**
 
-1. Open Visual Studio 2012.
+1. Open Visual Studio.
 
 2. From the **File** menu, click **New**, and then click **Project**.
 
@@ -442,7 +447,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
 
 While the application is open in Visual Studio, press **F5** to run the application. A console window should open and display the status of the application and the application output. 
 
-##<a id="streaming-sdk"></a> Submit Hadoop streaming jobs using HDInsight .NET SDK
+##Submit Hadoop streaming jobs using HDInsight .NET SDK
 HDInsight clusters come with a word-counting Hadoop stream program, which is developed in C#. The mapper program is */example/apps/cat.exe*, and the reduce program is */example/apps/wc.exe*. In this session, you will learn how to create a .NET application to run the word-counting sample. 
 
 For the details about creating a .NET application for submitting MapReduce jobs, see [Submit MapReduce jobs using HDInsight .NET SDK](#mapreduce-sdk).
@@ -545,7 +550,7 @@ For more information about developing and deploying Hadoop streaming jobs, see [
 
 
 
-##<a id="hive-sdk"></a> Submit Hive jobs by using HDInsight .NET SDK 
+##Submit Hive jobs by using HDInsight .NET SDK 
 HDInsight clusters come with a sample Hive table called *hivesampletable*. In this session, you will create a .NET application to run a Hive job to list the Hive tables that are created in an HDInsight cluster. For more information about using Hive, see [Use Hive with HDInsight][hdinsight-use-hive].
 
 The following procedures are needed to provision an HDInsight cluster by using the SDK:
@@ -560,7 +565,7 @@ You can install the latest published build of the SDK from [NuGet](http://nuget.
 
 **To create a Visual Studio console application**
 
-1. Open Visual Studio 2012.
+1. Open Visual Studio.
 
 2. From the **File** menu, click **New**, and then click **Project**.
 
@@ -686,7 +691,7 @@ While the application is open in Visual Studio, press **F5** to run the applicat
 
 
 
-##<a id="nextsteps"></a> Next steps
+##Next steps
 In this article, you have learned several ways to provision an HDInsight cluster. To learn more, see the following articles:
 
 * [Get started with Azure HDInsight][hdinsight-get-started]
@@ -700,6 +705,7 @@ In this article, you have learned several ways to provision an HDInsight cluster
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
+[hdinsight-visual-studio-tools]: hdinsight-hadoop-visual-studio-tools-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
