@@ -15,7 +15,7 @@ The following table contains libraries that are released by Microsoft.
 
 
 <br>
-####Third Party Libraries - [Wikipedia - Microsoft SQL Server Libraries/Drivers](https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers)
+####Third Party Libraries
 The following table contains libraries that are release by 3rd parties.
 
 <table>
