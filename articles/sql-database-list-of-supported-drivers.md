@@ -13,12 +13,32 @@ The following table contains libraries that are released by Microsoft.
 | ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/en-us/download/details.aspx?id=34687) |Microsoft ODBC Driver for SQL Server | 11.0+ |
 | ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/en-us/download/details.aspx?id=34687) |Microsoft ODBC Driver for SQL Server | 11.0+ |
 
+
+<br>
 ####Third Party Libraries - [Wikipedia - Microsoft SQL Server Libraries/Drivers](https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers)
 The following table contains libraries that are release by 3rd parties.
 
-| Platform | Libraries 
-| :--- | :--- | 
-| Python | pymysql |
-| Nodejs | Tedious |
-| Nodejs | Node-MSSQL | 
-| Nodejs | Edge.js | 
+<table>
+<tr>
+  <td><b>Platform</b></td>
+  <td><b>Libraries</b></td>
+  <td><b>Links</b></td>
+</tr>
+<tr>
+  <td>Python</td>
+  <td>pymysql</td>
+  <td rowspan=4><a href="https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers">Wikipedia - Microsoft SQL Server Libraries/Drivers</a></td>
+</tr>
+<tr>
+  <td>Nodejs</td>
+  <td>Tedious</td>
+</tr>
+<tr>
+  <td>Nodejs</td>
+  <td>Node-MSSQL</td>
+</tr>
+<tr>
+  <td>Nodejs</td>
+  <td>Edge.js</td>
+</tr>
+</table>
