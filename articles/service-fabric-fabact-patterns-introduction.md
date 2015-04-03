@@ -31,13 +31,20 @@ The patterns presented in this paper are not intended to be comprehensive or can
 
 [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
 
+[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+
+[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+
+[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+
+[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
 
 ### Learn more about Actors, a brief history 
 The [paper](http://dl.acm.org/citation.cfm?id=1624804) by Hewitt et al. that is the origin of the actor model was published in 1973 yet it is only comparatively recently that the actor model has been gaining more attention as a means of dealing with concurrency and complexity in distributed systems. 
 The actor model supports fine-grain individual objects—actors—that are isolated from each other. They communicate via asynchronous message passing, which enables direct communications between actors. An actor executes with single-thread semantics. Coupled with encapsulation of the actor’s state and isolation from other actors, this simplifies writing highly parallel systems by removing concurrency concerns from the actor’s code. Actors are dynamically created on the pool of available hardware resources. 
 [Erlang](http://www.erlang.org/)  is the most popular implementation of the actor model. Developers have started rediscovering the actor model, which stimulated renewed interest in Erlang and creation of new Erlang-like solutions: [Scala](http://www.scala-lang.org/) actors, [Akka](http://akka.io), [Akka.net](http://getakka.net/), [DCell](http://research.microsoft.com/pubs/75988/dcell.pdf).
 
-### Brief Look at Azure Service Fabric
+## Brief Look at Azure Service Fabric
 Azure Fabric Actors is an implementation of the actor model that borrows some ideas from Erlang and distributed objects systems, adds a layer of actor indirection, and exposes them in an integrated, programming model that leverages the Azure Service Fabric platform. 
 The main benefits of Azure Fabric Actors are: 1) **developer productivity**, even for non-expert programmers; and 2) **transparent scalability by default** with no special effort from the programmer. Azure Fabric Actors is a.NET library that runs on top of Azure Fabric and tools that make development of complex distributed applications much easier and make the resulting applications scalable by design. We expand on each of these benefits below.
 The Azure Fabric Actors programming model raises productivity of both expert and non-expert programmers by providing the following key abstractions, guarantees and system services.
