@@ -26,7 +26,7 @@ The following table contains libraries that are release by 3rd parties. Check th
 </tr>
 <tr>
   <td>Python</td>
-  <td>pymysql</td>
+  <td>pymssql</td>
   <td rowspan=4><a href="https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers">Wikipedia - Microsoft SQL Server Libraries/Drivers</a></td>
 </tr>
 <tr>
