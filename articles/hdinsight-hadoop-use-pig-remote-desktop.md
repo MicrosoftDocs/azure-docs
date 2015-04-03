@@ -9,18 +9,20 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
-#Run Pig jobs using the Pig command (Remote Desktop)
+#Run Pig jobs from a Remote Desktop connection
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-This document provides a walkthrough for using the Pig command to run Pig Latin statements interactively, or as a batch job, on a Linux-based Hadoop on HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
+This document provides a walkthrough for using the Pig command to run Pig Latin statements from a Remote Desktop connection to a Windows-based HDInsight cluster. Pig Latin allows you to create MapReduce applications by describing data transformations, rather than map and reduce functions.
+
+In this document, learn how to
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -42,7 +44,7 @@ Enable Remote Desktop for the HDInsight cluster, then connect to it by following
 
 		%pig_home%\bin\pig
 
-	You will be presented with a `grunt>` prompt. 
+	You will be presented with a `grunt>` prompt.
 
 3. Enter the following statement:
 
@@ -119,7 +121,7 @@ You can also use the Pig command to run Pig Latin that is contained in a file.
 
 ##<a id="summary"></a>Summary
 
-As you can see, the Pig command allows you to interactively run MapReduce operations using Pig Latin, and run statements that are stored in a batch file.
+As you can see, the Pig command allows you to interactively run MapReduce operations, or run Pig Latin jobs that are stored in a batch file.
 
 ##<a id="nextsteps"></a>Next steps
 
