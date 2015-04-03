@@ -285,8 +285,8 @@ You can verify that replication is taking place by scanning the tables from both
 
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
 
-- [HDInsight service page](http://azure.microsoft.com/en-us/services/hdinsight/)
-- [HDInsight documentation](http://azure.microsoft.com/en-us/documentation/services/hdinsight/)
+- [HDInsight service page](http://azure.microsoft.com/services/hdinsight/)
+- [HDInsight documentation](http://azure.microsoft.com/documentation/services/hdinsight/)
 - [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
 - [HDInsight HBase overview][hdinsight-hbase-overview]
 - [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]

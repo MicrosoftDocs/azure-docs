@@ -29,7 +29,7 @@ Azure virtual network site-to-site connectivity uses a VPN gateway to provide a 
 - Regional multi-tier applications with strong isolation boundary 
 - Cross subscription, inter-organization communication in Azure
 
-For more information, see [Configure a VNet to VNet connection](https://msdn.microsoft.com/en-us/library/azure/dn690122.aspx).
+For more information, see [Configure a VNet to VNet connection](https://msdn.microsoft.com/library/azure/dn690122.aspx).
 
 This tutorial is a part of the [series][hdinsight-hbase-replication] on creating HBase geo-replication. 
 
@@ -79,7 +79,7 @@ Before you begin this tutorial, you must have the following:
 
 	- **DNS SERVER**: (Leave it blank) 
 	
-		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/en-us/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
+		You will need your own DNS server for name resolution within virtual networks. For more information on when to use Azure-provided name resolution and when to use your own DNS server, see [Name Resolution (DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx). For instructions to configure name resolution between VNets, see [Configure DNS between two Azure virtual networks][hdinsight-hbase-dns].
   
 	- **Configure a point-to-site VPN**: (unchecked)
 
