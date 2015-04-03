@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
