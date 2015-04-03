@@ -35,7 +35,7 @@ In the following example, we simply calculate Pi using a Monte Carlo Simulation.
 
 * Finaliser responsible calculating the final result and printing on screen.
 
-##Distributed computation code sample – Monte Carlo simulation
+## Distributed computation code sample – Monte Carlo simulation
 
 ```
 
@@ -93,7 +93,7 @@ public class PooledTask : Actor, IPooledTask
 A common way of aggregating results in Azure Service Fabric is to use timers. We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops. 
 Here is how the Aggregator and Finaliser look:
 
-##Distributed computation code sample – aggregator
+## Distributed computation code sample – aggregator
 
 ```   
   

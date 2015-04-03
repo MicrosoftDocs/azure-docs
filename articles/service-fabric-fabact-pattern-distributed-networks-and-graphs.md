@@ -27,7 +27,7 @@ The Actor model provides flexibility to approach the materialization problem. We
 ![][2]
  
 
-##Smart Cache code sample – Social Network Friends Feed (event time)
+## Smart Cache code sample – Social Network Friends Feed (event time)
 
 Sample code populating Friends Feed:
 
@@ -123,7 +123,7 @@ When modelling an actor in a social network, one should also consider “super u
 Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well. Group chat or game hosting scenarios are two examples.
 Let’s take the group chat example; a set of participants create a group chat actor that can distribute messages from one participant to the group as in the example below:
 
-##Smart Cache code sample – GroupChat
+## Smart Cache code sample – GroupChat
 
 ```        
 public interface IGroupChat : IActor
@@ -205,7 +205,7 @@ public Task PublishMessageAsync(long participantId, string message)
 
 All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialisation, or routing. 
 
-##Next Steps
+## Next Steps
 [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
 
 [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
