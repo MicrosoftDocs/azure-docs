@@ -18,11 +18,15 @@
 
 # Base Configuration Test Environment
 
-This topic provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. With the resulting test environment, you can experiment with the new environment of Azure, use it as a basis for application development, or build a test environment one of your own design.
+This topic provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. You can use the resulting test environment:
+
+- For Application development and testing.
+- The [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- And extend it with additional virtual machines and Azure services for a test environment of your own design.
  
 The Base Configuration test environment consists of the Corpnet subnet in a cloud-only Azure Virtual Network named TestLab that simulates a simplified, private intranet connected to the Internet. 
 
-![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG04.png)
+![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
 It contains:
 
@@ -44,14 +48,14 @@ There are four phases to setting up the Corpnet subnet of the Windows Server 201
 
 If you do not already have an Azure account, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Azure benefit for MSDN subscribers](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-Note: Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see Virtual Machines Pricing Details and Azure Pricing Calculator. To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
+> [AZURE.NOTE] Virtual machines in Azure incur an ongoing monetary cost when they are running. This cost is billed against your free trial, MSDN subscription, or paid subscription. For more information about the costs of running Azure virtual machines, see [Virtual Machines Pricing Details](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/) and [Azure Pricing Calculator](http://azure.microsoft.com/pricing/calculator/). To keep costs down, see [Minimizing the costs of test environment virtual machines in Azure](#costs).
 
 ## Phase 1: Create the Azure Virtual Network
 
 First, you create the TestLab Azure Virtual Network that will host the Corpnet subnet of the base configuration.
 
 1.	In the task bar of the Azure Management Portal, click **New > Network Services > Virtual Network > Custom Create**.
-2.	On the Virtual Network Details page, type **TestLab** in Name.
+2.	On the Virtual Network Details page, type **TestLab** in **Name**.
 3.	In **Location**, select the appropriate region.
 4.	Click the Next arrow.
 5.	On the DNS Servers and VPN Connectivity page, in **DNS servers**, type **DC1** in **Select or enter name**, type **10.0.0.4** in **IP address**, and then click the Next arrow.
@@ -97,7 +101,7 @@ If this command returns "False", your proposed name is unique. Then, create the 
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG01.png)
+![](./media/virtual-machines-base-configuration-test-environment/BC_TLG01.png)
 
 ## Phase 2: Configure DC1
 
@@ -170,7 +174,7 @@ Next, to allow traffic for the Ping tool, run this command at an administrator-l
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG02.png)
+![](./media/virtual-machines-base-configuration-test-environment/BC_TLG02.png)
 
 ## Phase 3: Configure APP1
 
@@ -203,7 +207,7 @@ Next, create a shared folder and a text file within the folder on APP1 with thes
 
 This is your current configuration.
 
-![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG03.png)
+![](./media/virtual-machines-base-configuration-test-environment/BC_TLG03.png)
 
 ## Phase 4: Configure CLIENT1
 
@@ -239,7 +243,7 @@ Next, verify that you can access web and file share resources on APP1 from CLIEN
 
 This is your final configuration.
 
-![](./media/virtual-machines-base-configuration-test-lab-guide/BC_TLG04.png) 
+![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png) 
 
 Your base configuration in Azure is now ready for experimentation and additional test environments, such as the [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
 
