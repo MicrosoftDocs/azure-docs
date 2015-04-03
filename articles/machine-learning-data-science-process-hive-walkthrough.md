@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/03/2015" 
 	ms.author="hangzh;bradsev" /> 
 
                 
@@ -83,9 +83,9 @@ To set up your Azure Data Science environment for this approach that uses Azure 
 
 2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-3. [Provision a Data Science **Windows** Virtual Machine](machine-learning-data-science-setup-virtual-machine.md).
+3. [Provision a Data Science **Windows** Virtual Machine (**Optional** for this walkthrough)](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] The sample scripts will be downloaded to your Data Science virtual machine during the virtual machine setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library located at *C:\Users\<user_name>\Documents\Data Science Scripts*  This sample folders is referred to as **Sample Scripts** below. The sample Hive queries are contained in files with the .hql extension in the **Sample Scripts** folder. Note that the *<user_name>* referred to in the path to this folder is your VM's Windows login name, not your Azure username.
+	> [AZURE.NOTE] The sample scripts will be downloaded to your Data Science virtual machine during the virtual machine setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library located at *C:\Users\<user_name>\Documents\Data Science Scripts*  This sample folders is referred to as **Sample Scripts** below. The sample Hive queries are contained in files with the .hql extension in the **Sample Scripts** folder. Note that the *<user_name\>* referred in the path to this folder is your VM's Windows login name, not your Azure username.
 
 4. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md). This step will create an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. After the customized Hadoop cluster is created, enable remote access to the head node of the Hadoop cluster in the Azure portal using the procedure outlined in this customization topic.
 
@@ -102,13 +102,14 @@ To copy the data using AzCopy:
 
 3. From a Command Prompt window, run the following AzCopy commands, replacing <path_to_data_folder> with the path to your data folder created in (2):
 
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxitrip /Dest:<path_to_data_folder> /S
-
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxifare /Dest:<path_to_data_folder> /S
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
 	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
+	
+	>[AZURE.NOTE] *Source:https://nyctaxitrips.blob.core.windows.net/data* specify a public Azure container that is used to share the zipped NYC Taxi data with users. Reading from this public Azure container does not require an access key. 
 
-	>[AZURE.NOTE] *Source:https://getgoing.blob.core.windows.net/nyctaxitrip* and *Source:https://getgoing.blob.core.windows.net/nyctaxifare* specify two public Azure containers that are used to share the unzipped NYC Taxi data with users. Reading from these two public Azure containers does not require an access key. 
+4. **Unzip** the downloaded files. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_unzipped_data\_files\>.
+
 
 ## <a name="upload"></a>Upload the data to the default container of Azure HDInsight Hadoop cluster
 
@@ -121,9 +122,9 @@ From a Command Prompt or a Windows PowerShell window in your virtual machine, ru
 
 Note that if ***nyctaxitripraw*** or ***nyctaxifareraw*** referenced in this command do not exist, they will be created in the container. 
 
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_data_folder> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
 		
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_data_folder> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
 
@@ -329,9 +330,13 @@ Here is the content of *sample_hive_tip_range_frequencies.hql* for inspection.
 
 This example computes the direct trip distance (in miles). The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
-Run the following command from Hadoop Command Line console:
+Run the following commands from Hadoop Command Line console:
+
+	hadoop dfs -mkdir wasb:///queryoutputdir
 
 	hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
+
+The first command is a Hadoop command which creates a blob directory in the default container of the Hadoop cluster. This command is necessary since otherwise the second command will fail by complaining that the directory `queryoutputdir` cannot be found. In the *sample_hive_trip_direct_distance.hql* file, you can also specify any other existing blob directory within the default container of the Hadoop cluster. 
 
 Here is the content of *sample_hive_trip_direct_distance.hql* file for inspection.
 
@@ -339,6 +344,7 @@ Here is the content of *sample_hive_trip_direct_distance.hql* file for inspectio
     set pi=radians(180);
 	
 	insert overwrite directory 'wasb:///queryoutputdir'
+
     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
         ${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
         *${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
