@@ -32,7 +32,7 @@ To run this sample, you must also have an Azure Search service, which you can si
 
 > [AZURE.TIP] Download the source code for this tutorial at [Azure Search Java demo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github. 
 
-##About the data##
+## About the data
 
 This sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
@@ -40,7 +40,7 @@ In this application, the **SearchServlet.java** program builds and loads the ind
 
 > [AZURE.NOTE] We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply, and you can modify this code to use a bigger dataset. For details about capacity for each pricing tier, see [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx).
 
-##About the program files
+## About the program files
 
 The following list describes the files that are relevant to this sample.
 
@@ -53,7 +53,7 @@ The following list describes the files that are relevant to this sample.
 - Pom.xml: A Maven dependency
 
 
-##Create the service##
+## Create the service
 
 1. Sign in to [Azure management portal](https://portal.azure.com).
 
@@ -83,7 +83,7 @@ The following list describes the files that are relevant to this sample.
 Watch for notifications in the Jumpbar. A notice will appear when the service is ready to use.
 
 <a id="sub-2"></a>
-##Find the service name and api-key of your Azure Search service
+## Find the service name and api-key of your Azure Search service
 
 After the service is created, you can return to the portal to get the URL and `api-key`. Connections to your Search service require that you have both the URL and an `api-key` to authenticate the call. 
 
@@ -95,7 +95,7 @@ After the service is created, you can return to the portal to get the URL and `a
 
 3. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
-##Download the sample files
+## Download the sample files
 
 1. Go to [AzureSearchJavaDemo](http://go.microsoft.com/fwlink/p/?LinkId=530197) on Github.
 
@@ -105,7 +105,7 @@ After the service is created, you can return to the portal to get the URL and `a
 
 All subsequent file modifications and run statements will be made against files in this folder.  
 
-##Import project
+## Import project
 
 1. In Eclipse, choose **File** | **Import** | **General** | **Existing Projects into Workspace**.
 
@@ -119,7 +119,7 @@ All subsequent file modifications and run statements will be made against files 
 
 4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** | **Show View** | **Project Explorer** or use the shortcut to open it.
 
-##Configure the service URL and Api-key
+## Configure the service URL and Api-key
 
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and api-key. 
  
@@ -129,7 +129,7 @@ All subsequent file modifications and run statements will be made against files 
 
 	![][5]
 
-##Configure the project, build and runtime environments
+## Configure the project, build and runtime environments
 
 1. In Eclipse, in Project Explorer, right-click the project | **Properties** | **Project Facets**.
 
@@ -169,7 +169,7 @@ All subsequent file modifications and run statements will be made against files 
 
 You have now completed the configuration tasks. Next, you'll build and run the project.
 
-##Build the project
+## Build the project
  
 1. In Project Explorer, right-click the project name and choose **Run As** | **Maven build...** to configure the project.
 
@@ -179,7 +179,7 @@ You have now completed the configuration tasks. Next, you'll build and run the p
  
 Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
 
-##Run the app
+## Run the app
 
 In this last step, you will run the application in a local server runtime environment. 
 
@@ -195,7 +195,7 @@ When you run the application, you should see a browser window, providing a searc
 
 Wait about one minute before clicking **Search** to give the service time to create and load the index. If you get an HTTP 404 error, you just need to wait a little bit longer before trying again.
 
-##Search on USGS data
+## Search on USGS data
 
 The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default. 
 
@@ -209,7 +209,7 @@ You could also try any of these terms:
 - Pembroke
 - goose +cape
 
-##Next steps
+## Next steps
 
 This is the first Azure Search tutorial based on Java and the USGS dataset. Over time, we'll be extending this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
