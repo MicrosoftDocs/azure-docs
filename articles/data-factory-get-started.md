@@ -54,7 +54,7 @@ Ensure that **Allow access to Azure services** setting turned **ON** for your Az
 1. Click **BROWSE** hub on the left and click **SQL servers**.
 2. Select **your server**, and click **SETTINGS** on the **SQL SERVER** blade.
 3. In the **SETTINGS** blade, click **Firewall**.
-4. In the **Firewalll settings** blade, click **ON** for **Allow access to Azure services**.
+4. In the **Firewall settings** blade, click **ON** for **Allow access to Azure services**.
 5. Close all the blades by clicking **X**.
 	
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
@@ -123,7 +123,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 	 
 	![Data Factory name not available][image-data-factory-name-not-available]
 
-9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFCATIONS** blade if it is open. 
+9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
 10. After the creation is complete, you will see the **DATA FACTORY** blade as shown below.
 
     ![Data factory home page][image-data-factory-get-stated-factory-home-page]
@@ -134,7 +134,7 @@ Linked services link data stores or compute services to an Azure data factory. A
 In this step, you will create two linked services: **StorageLinkedService** and **AzureSqlLinkedService**. StorageLinkedService linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the **ADFTutorialDataFactory**. You will create a pipeline later in this tutorial that copies data from a blob container in StorageLinkedService to a SQL table in AzureSqlLinkedService.
 
 ### Create a linked service for the Azure storage account
-1.	In the **DATA FACTORY** blade, clcik **Author and deploy** tile to launch the **Editor** for the data factory.
+1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
