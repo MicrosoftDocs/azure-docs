@@ -246,7 +246,7 @@ In addition, you can bring more features of Application Insights to bear on your
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 

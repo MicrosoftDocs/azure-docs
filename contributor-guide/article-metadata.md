@@ -56,6 +56,7 @@ The tags section uses this syntax:
 - app-service\mobile
 - app-service\web
 - backup
+- batch
 - biztalk-services
 - cache
 - cloud-services

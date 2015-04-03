@@ -89,6 +89,6 @@ If you build in release configuration, events are stored in the device and sent 
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
 
 

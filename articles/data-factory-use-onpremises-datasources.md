@@ -191,7 +191,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
   
-> [ACOM.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
+> [AZURE.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
  

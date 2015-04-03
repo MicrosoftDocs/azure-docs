@@ -86,10 +86,6 @@ Yes, there's a REST API for Azure web apps. In PowerShell:
 * [Set performance alerts](app-insights-metrics-explorer.md)
 
 
-## Learn more 
 
-* [Azure App Service Web App](websites-learning-map.md)
-* [Application Insights](app-insights-get-started.md)
+[AZURE.INCLUDE [app-insights-azure-learn-more](../includes/app-insights-azure-learn-more.md)]
 
-[azure-usage]: insights-usage-analytics.md
-[azure-availability]: insights-create-web-tests.md
