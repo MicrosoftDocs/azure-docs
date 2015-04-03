@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2015"
+   ms.date="04/03/2015"
    ms.author="alkohli" />
 
 # Configure MPIO for your StorSimple device
@@ -66,11 +66,14 @@ MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to
 
 2. In the **MPIO Properties** dialog box, select the **Discover Multi-Paths** tab.
 
-3. Select **Add support for iSCSI devices**, and then click **Add**.![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+3. Select **Add support for iSCSI devices**, and then click **Add**.  
+![MPIO Properties Discover Multi Paths](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 
 4. Reboot the server when prompted.
-5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
-6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number.You can get the device serial number by accessing your StorSimple Manager service and navigating to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
+![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number.You can get the device serial number by accessing your StorSimple Manager service and navigating to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.
+![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reboot the server when prompted.
 
 ## Step 3: Mount StorSimple volumes on the host
@@ -89,7 +92,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 4. Repeat steps 2-3 for a second network interface (for example, DATA 1) on your device. Keep in mind that these interfaces should be enabled for iSCSI. To learn more about this, go to [Configure network interfaces](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05).
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. You should see the StorSimple device target IQN under **Discovered Targets**.
-<br>![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
+![iSCSI Initiator Properties Targets Tab](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. Click **Connect** to establish an iSCSI session with your StorSimple device. A **Connect to Target** dialog box will appear.
 
 7. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
@@ -110,9 +113,11 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 12. Open **Computer Management** by navigating to **Server Manager > Dashboard > Computer Management**. In the left pane, click **Storage > Disk Management**. The volume(s) created on the StorSimple device that are visible to this host will appear under **Disk Management** as new disk(s).
 
-13. Initialize the disk and create a new volume. During the format process, select a block size of 64 KB.![Disk Management](./media/storsimple-configure-mpio-windows-server/IC741008.png)
+13. Initialize the disk and create a new volume. During the format process, select a block size of 64 KB.
+![Disk Management](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Under **Disk Management**, right-click the **Disk** and select **Properties**.
-15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO tab**.![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. In the StorSimple Model #### **Multi-Path Disk Device Properties** dialog box, click the **MPIO tab**.
+![StorSimple 8100 Multi-Path Disk DeviceProp.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 
 16. In the **DSM Name** section, click **Details** and verify that the parameters are set to the default parameters.The default parameters are:
 
