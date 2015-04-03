@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Plan and prepare to upgrade to SQL Database V12" 
-	description="Describes the preparations and limitations involved in upgrading to the newer version of Azure SQL Database." 
+	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,16 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/02/2015" 
 	ms.author="genemi"/>
 
 
 # Plan and prepare to upgrade to SQL Database V12
 
 
-<!--
-GeneMi , 2015-March-10 Tuesday 08:44am
-Voice, per J.G., and remove C.4.1 bacpac issue text.
+<!-- What is being changed this time?:
+GeneMi , 2015-April-02 Thursday 20:11pm
+Feedbacks from PMs Sonia Parchani, Keith Elmore, Eric Kang.
 -->
 
 
@@ -81,16 +81,6 @@ If your Azure SQL database is configured for geo-replication, you should documen
 The strategy is to leave the source intact and test on a copy of the database.
 
 
-### Upgrade in-place vs. Copy database to new server
-
-
-You have two techniques to choose from for upgrading your Azure SQL database from V11 to V12:
-
-
-- Upgrade in-place: When this process is completed, your V11 database no longer exists. The SQL Database server is at V12.
-- Copy database to V12 server: This process leaves your V11 database undisturbed, and creates an upgraded copy of your V11 database on a V12 Azure SQL Database server.
-
-
 ## Preparation actions
 
 
@@ -112,7 +102,7 @@ If your V11 Azure SQL database is a Web or Business database, the upgrade proces
 You can reduce the steps necessary during upgrade by switching your V11 database away from the Web-and-Business tier before you start the upgrade. You can do this by using the [Azure preview portal](http://portal.azure.com/).
 
 
-If you are unsure which service tier to switch to, the S0 level of the Standard tier might be a sensible initial choice.
+If you are unsure which service tier to switch to, the S2 level of the Standard tier might be a sensible initial choice. Any lesser tier will have fewer resources than the Web and Business tier had.
 
 
 ### Suspend geo-replication during upgrade
@@ -127,19 +117,28 @@ After the upgrade completes you can configure your database to again use geo-rep
 ##<a id="limitations"></a>Limitations during and after upgrade to V12
 
 
-### Preview portal for V12
+### Portals for V12
 
 
-Only the first of the following two Azure management portals supports upgrading to V12 databases:
+There are three portals for Azure, and each has different abilities regarding SQL Database V12.
 
 
-- [http://portal.azure.com/](http://portal.azure.com/)
- - This newer portal is at preview status and is not yet at General Availability (GA).<br/><br/>
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)
- - This older portal will not be updated to support V12.
+- [http://portal.azure.com/](http://portal.azure.com/)<br/>This Azure Preview Portal is new and is still at preview status. This portal is not yet at General Availability (GA). This portal:
+ - Can manage your V12 server and database.
+ - Can upgrade your V11 database to V12.
 
 
-We encourage you to connect to their Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
+- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)<br/>This Azure Portal might eventually be phased out. This portal:
+ - Can manage your V12 server and database.
+ - Can *not* upgrade your V12 database to V12.
+
+
+- (http://*yourservername*.database.windows.net)<br/>
+Azure SQL Database Management Portal:
+ - Can*not* manage V12 servers.
+
+
+We encourage you to connect to your Azure SQL databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
 
 
 - To run a Transact-SQL statement.
@@ -161,11 +160,9 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 
 | Limitation | Description |
 | :--- | :--- |
-| Duration of upgrade | For a very large database of perhaps greater than 50 GB in size, the upgrade process can take up to 24 hours. |
+| Duration of upgrade | The duration of upgrade depends on the number, size, and edition of databases in the server. The upgrade process can run for 1 to 4 days for servers with databases that are both:<br/><br/>* Larger than 50 GB<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | DNS entry update delay | After the upgrade completes, it takes several minutes for the system to update the DNS entry for your V12 database, for connectivity from your client application. |
-| No creating a database | While the upgrade is in progress the following actions for creating a database are unavailable on the destination V12 Azure SQL Database server: <br/><br/>* Creating a new database <br/> * Copying a database to the server <br/> * Restoring a deleted database <br/> * Restoring a database to a point-in-time <br/><br/> However, support for point-in-time restore during upgrade is a feature that might be supported before the end of the V12 preview period. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
-| Alert rules | Alert rules cannot be added to a V12 database. |
 
 
 ### Limitation *after* upgrade to V12
@@ -181,7 +178,7 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 ### Export and import *after* upgrade to V12
 
 
-You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
+You can export or import a V12 database by using the [Azure Preview Portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
 
 
 - SQL Server Management Studio (SSMS)
@@ -198,6 +195,12 @@ However, to use the tools, you must first install their latest updates to ensure
 
 
 > [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
+
+
+#### Automated Export
+
+
+Automated Export continues to be available as preview.  No client tool updates are required when using Automated Export.  If you choose to take the resulting file and import to an on-premise server, the tooling updates listed above are needed to import successfully.
 
 
 ### Restore to V12 of a deleted V11 database
