@@ -54,7 +54,7 @@ protected.
 2.  Ensure that the virtual machine has completed initial replication
     and is replicating.
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/01.png)
+![](media/site-recovery-runbook-automation/01.png)
 ---------------------
 
 Here Fabrikam-HRweb-frontend and Fabrikam-Hrweb-backend are two virtual
@@ -72,7 +72,7 @@ on the failed over IAAS virtual machine to serve webpages at port 80.
 
 You need an Azure Automation account to create runbooks. If you do not
 already have an account, navigate to Azure Automation tab denoted by
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/02.png)and create a new account.
+![](media/site-recovery-runbook-automation/02.png)and create a new account.
 
 1.  Give the account a name to identify with.
 
@@ -81,24 +81,24 @@ already have an account, navigate to Azure Automation tab denoted by
 It is recommended to place the account in the same region as the ASR
 vault.
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/03.png)
+![](media/site-recovery-runbook-automation/03.png)
 
 Next create the following assets in the Account
 
 ### Add a subscription name as asset
 
-1.  Add a new setting ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/04.png) in the Azure Automation
-    Assets and select to ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/05.png)
+1.  Add a new setting ![](media/site-recovery-runbook-automation/04.png) in the Azure Automation
+    Assets and select to ![](media/site-recovery-runbook-automation/05.png)
 
 2.  Select the variable type as **String**
 
 3.  Give the variable the **AzureSubscriptionName**
 
-    ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/06.png)
+    ![](media/site-recovery-runbook-automation/06.png)
 
 4.  Define the variable value depending on your Azure Subscription name
 
-> ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/07.png)
+> ![](media/site-recovery-runbook-automation/07.png)
 
 You can identify the name of your subscription from the settings page of
 your account.
@@ -111,20 +111,20 @@ authenticate using your Microsoft account or a work or school account.
 You can store the account credentials in an asset to be used securely by
 the runbook.
 
-1.  Add a new setting ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/04.png) in the Azure Automation
-    Assets and select to ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/09.png)
+1.  Add a new setting ![](media/site-recovery-runbook-automation/04.png) in the Azure Automation
+    Assets and select to ![](media/site-recovery-runbook-automation/09.png)
 
 2.  Select the Credential type as **Windows PowerShell Credential**
 
 3.  Give the name as **AzureCredential**
 
-    ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/10.png)
+    ![](media/site-recovery-runbook-automation/10.png)
 
 4.  Specify the username and password to sign-in with
 
 Now both the settings are available in your assets
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/11.png)
+![](media/site-recovery-runbook-automation/11.png)
 
 More information about how to connect to your subscription via
 powershell is given
@@ -141,7 +141,7 @@ start first, and then the virtual machine in group 2 will follow.
 
 Create a Plan that looks like below.
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/12.png)
+![](media/site-recovery-runbook-automation/12.png)
 
 To read more about the recovery plans read
 <https://msdn.microsoft.com/en-us/library/azure/dn788799.aspx>
@@ -196,7 +196,7 @@ To identify the VMM VM ID – which is the VmMap Key in the context you
 can also go to the VM properties page in ASR and look at the VM GUID
 property.
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/13.png)
+![](media/site-recovery-runbook-automation/13.png)
 
 ## Author an Automation runbook
 
@@ -205,7 +205,7 @@ Now create the runbook to open port 80 on the frontend virtual machine.
 1.  Create a new runbook in the Azure Automation account with the name
     **OpenPort80**
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/14.png)
+![](media/site-recovery-runbook-automation/14.png)
 
 2.  Navigate to the Author view of the runbook and enter the draft mode.
 
@@ -317,7 +317,7 @@ The complete script is given below for your reference
 Once the script is ready, you can add it to the recovery plan.
 
 1.  In the recovery plan you created, choose to add a script after the
-    group 2. ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/15.png)
+    group 2. ![](media/site-recovery-runbook-automation/15.png)
 
 2.  Specify a script name
 
@@ -326,7 +326,7 @@ Once the script is ready, you can add it to the recovery plan.
 
 4.  In the Azure Runbooks, select the runbook you authored
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/16.png)
+![](media/site-recovery-runbook-automation/16.png)
 
 ## Test the recovery plan
 
@@ -340,18 +340,18 @@ there are no errors.
 2.  During the plan execution, you can see whether the runbook has
     executed or not via its status.
 
-    ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/17.png)
+    ![](media/site-recovery-runbook-automation/17.png)
 
 3.  During execution you can see the actual runbook execution status on
     the Azure Automation jobs page for that runbook.
 
-    ![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/18.png)
+    ![](media/site-recovery-runbook-automation/18.png)
 
 4.  After the failover completes, you can see whether the execution is
     successful or not by visiting the Azure IAAS page and looking at the
     endpoints
 
-![](media/hyper-v-recovery-manager-runbook-to-asr-recovery-plans/19.png)
+![](media/site-recovery-runbook-automation/19.png)
 
 ## Sample scripts
 
