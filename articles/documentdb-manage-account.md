@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/08/2015" 
 	ms.author="stbaro"/>
 
 #How to manage a DocumentDB account
@@ -110,7 +110,7 @@ Level](http://go.microsoft.com/fwlink/p/?LinkId=402365) section.*
 
 ### To specify the default consistency for a DocumentDB Account
 
-1.      In the [Azure Ppreview
+1.      In the [Azure Preview
 portal](https://portal.azure.com/), access your DocumentDB account. 
 
 2.      In the **Configuration** lens, click **Default Consistency**.
@@ -133,11 +133,6 @@ consistency setting takes affect across your DocumentDB account.*
 ## <a id="delete"></a> How to: Delete a DocumentDB account
 To remove a DocumentDB account that you are no longer using, use the
 **Delete** command on the **DocumentDB Account** blade.
-
-> [AZURE.WARNING] In the preview release, there is no way to restore the content from a
-deleted DocumentDB account.  Deleting a DocumentDB account will delete
-all of the account’s resources, including databases, collections,
-documents and attachments.*
 
 ![](./media/documentdb-manage-account/image009.png)
 
