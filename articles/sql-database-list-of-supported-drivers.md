@@ -16,7 +16,7 @@ The following table contains libraries that are released by Microsoft.
 
 <br>
 ####Third Party Libraries
-The following table contains libraries that are release by 3rd parties.
+The following table contains libraries that are release by 3rd parties. Check the wikipedia link for the latest information on these libraries.
 
 <table>
 <tr>
