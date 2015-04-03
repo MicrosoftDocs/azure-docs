@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="4/06/2015" 
+    ms.date="04/06/2015" 
     ms.author="elizapo" />
 
 # How to add a user in RemoteApp

@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="2/17/2015" 
+    ms.date="04/06/2015" 
     ms.author="elizapo" />
 
 # Using redirection in Azure RemoteAppp
