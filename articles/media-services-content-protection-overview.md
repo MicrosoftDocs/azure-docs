@@ -74,7 +74,7 @@ For more information, see [How to integrate Azure PlayReady License service with
 
 ##Common content encryption tasks
 
->[AZURE.NOTE]If you content is storage encrypted make sure to configure asset delivery policy.
+>[AZURE.NOTE]If your content is storage encrypted, be sure to configure asset delivery policy.
 
 ###Configuring streaming endpoints
 
