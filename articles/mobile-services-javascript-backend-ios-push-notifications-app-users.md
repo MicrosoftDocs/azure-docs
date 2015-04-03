@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="04/02/2015"
 	ms.author="krisragh"/>
 
 # Send Push Notifications to Authenticated Users
@@ -33,10 +33,13 @@ In this tutorial, you require users to authenticate first, register with the not
 Replace the `insert` function with the following code, then click **Save**. This insert script uses the user ID tag to send a push notification to all iOS app registrations from the logged-in user:
 
 ```
+// Get the ID of the logged-in user.
+var userId = user.userId; 
+
 function insert(item, user, request) {
     request.execute();
     setTimeout(function() {
-        push.apns.send(null, {
+        push.apns.send(userId, {
             alert: "Alert: " + item.text,
             payload: {
                 "Hey, a new item arrived: '" + item.text + "'"
@@ -68,4 +71,4 @@ function insert(item, user, request) {
 [Get started with push notifications]: mobile-services-javascript-backend-ios-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md

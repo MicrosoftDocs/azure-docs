@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Track usage in web applications" 
-	description="Log user activities." 
+	pageTitle="Add Application Insights to web pages to track usage and performance" 
+	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in web page scripts." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -15,11 +15,11 @@
 	ms.date="03/25/2015" 
 	ms.author="awills"/>
  
-# Track usage of web applications
+# Add Application Insights to web pages to track usage and performance
 
-Find out how your web application is being used. Set up usage analytics and you'll find out how many users experience your service, how many of them come back,  how often they visit your site, and which pages they look at most. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
+Find out how your web application is being used. Add Visual Studio Application Insights to your web pages, and you'll find out how many users experience your service, how many of them come back,  how often they visit your site, and which pages they look at most. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
 
-Here you'll learn about collecting telemetry from the page running in the browser, but if you also set up server telemetry, the two streams will be integrated in  the Application Insights portal. 
+Here you'll learn about collecting telemetry from the page running in the browser. If you also set up server telemetry (for [ASP.NET][greenbrown] or [Java][java] servers), the two streams will be integrated in the Application Insights portal. 
 
 
 ## <a name="webclient"></a> Setting up web client analytics
@@ -143,7 +143,8 @@ Want to find out what your users do with your app? By inserting calls in your cl
 
 If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
 
-[Learn about adding Application Insights to your server][start].
+* [Add Application Insights to an ASP.NET app][greenbrown]
+* [Add Application Insights to a Java web app][java]
 
 ## <a name="video"></a> Video: Tracking Usage
 

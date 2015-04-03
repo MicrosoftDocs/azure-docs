@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="03/31/2015" 
+	ms.date="04/08/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -59,7 +59,7 @@ Now that you have an account, let's create our new ASP.NET project.
 
   	![Screen shot of the New Project dialog box with the ASP.NET Web Application project type highlighted](./media/documentdb-dotnet-application/image10.png)
 
-3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namepsace, you need to adjust the provided code samples to use whatever you named your application. 
+3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, you need to adjust the provided code samples to use whatever you named your application. 
 
 4. Click **Browse** to navigate to the folder where you would like to create the project, and then click **OK**.
 
@@ -449,7 +449,7 @@ Open ***App\_Start\RouteConfig.cs*** and locate the line starting with "defaults
 
 This now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior that instead of **Home**, use **Item** as the controller and user **Index** as the view.
 
-Now if you run the application, it will call into your **ItemController** which will call in to the repsoitory class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
+Now if you run the application, it will call into your **ItemController** which will call in to the repository class and use the GetItems method to return all the incomplete items to the **Views**\\**Item**\\**Index** view. 
 
 If you build and run this project now, you should now see something that looks this.    
 

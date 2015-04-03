@@ -13,12 +13,12 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="NA" 
 	ms.workload="data-services" 
-	ms.date="03/30/2015" 
+	ms.date="04/08/2015" 
 	ms.author="andrl"/>
 
 # Build a Java web application using DocumentDB #
 
-This tutorial shows you how to use the [Microsoft Azure DocumentDB (Preview)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
+This tutorial shows you how to use the [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) service to store and access data from a Java application hosted on Azure Websites. In this topic, you will learn:
 
 - How to build a basic JSP application in Eclipse.
 - How to work with the Azure DocumentDB service using the [DocumentDB Java SDK](https://github.com/Azure/azure-documentdb-java).

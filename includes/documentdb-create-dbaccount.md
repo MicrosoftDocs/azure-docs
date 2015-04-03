@@ -38,7 +38,7 @@
 
 	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
  
-![Screen shot of the Resource Group blade][7]  
+    ![Screen shot of the Resource Group blade][7]  
 
 
 <!--Image references-->

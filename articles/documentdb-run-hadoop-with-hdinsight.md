@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="04/08/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight

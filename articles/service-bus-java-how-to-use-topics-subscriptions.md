@@ -51,12 +51,12 @@ and delete topics. The example below shows how a **ServiceBusService** object
 can be used to create a topic named "TestTopic", with a namespace named "HowToSample":
 
     Configuration config = 
-    	ServiceBusConfiguration.configureWithWrapAuthentication(
+    	ServiceBusConfiguration.configureWithSASAuthentication(
           "HowToSample",
-          "your_service_bus_owner",
-          "your_service_bus_key",
-          ".servicebus.windows.net",
-          "-sb.accesscontrol.windows.net/WRAPv0.9");
+          "SAS_key_name",
+          "SAS_key_value",
+          ".servicebus.windows.net"
+          );
 
 	ServiceBusContract service = ServiceBusService.create(config);
     TopicInfo topicInfo = new TopicInfo("TestTopic");

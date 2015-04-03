@@ -69,7 +69,11 @@ Once your API app is created, you can now use the SFTP connector as a trigger/ac
 4.	You can drop the SFTP Connector API app into the editor by clicking on the “SFTP Connector”
  
 	
-6.	You can now use SFTP connector in the flow. You can use the File retrieved from the SFTP trigger ("TriggerOnFileAvailable") in other actions in the flow. Configure the input properties for SFTP trigger as Follows:
+6.	You can now use SFTP connector in the flow. You can use the File retrieved from the SFTP trigger ("TriggerOnFileAvailable") in other actions in the flow. 
+
+	**Note:** The SFTP trigger "TriggerOnFileAvailable" will delete the retrieved file after processing the file.
+
+8.	Configure the input properties for SFTP trigger as Follows:
 
 	- **Folder Path** - Specify the path of the Folder from which Files needs to be retieved.
 	- **The type of the file: text or binary** - Select the type of the file.
