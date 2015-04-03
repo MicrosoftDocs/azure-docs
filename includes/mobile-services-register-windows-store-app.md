@@ -3,7 +3,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
 
-2. Type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
+2. Select **Create a new app by reserving a unique name** and click **Continue**, then type a name for your app in **App name**, click **Reserve app name**, and then click **Save**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png)
 
@@ -33,23 +33,19 @@
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-edit2-app.png) 
 
-9. In **App settings**, make a note of the values of **Client ID**, **Client secret**, and **Package security identifier (SID)**. 
+9. Click **API Settings**, enable **Enhanced redirection security**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/` in **Redirect URL**, then click **Save**.
+
+	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
+
+10. In **App settings**, make a note of the values of **Client ID**, **Client secret**, and **Package security identifier (SID)**. 
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth.png)
 
     >[AZURE.NOTE]The client secret and package SID are important security credentials. Do not share these secrets with anyone or distribute them with your app.
 
-10. (Optional) Click **API Settings**, enable **Enhanced redirection security**, supply a value of `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` in **Redirect URL**, then click **Save**.
-
-	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
-
-	This enables Microsoft Account authentication for your app.
-
 11. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
-   	![](./media/mobile-services-register-windows-store-app/mobile-services-selection.png)
-
-12. Click the **Push** tab, enter the **Client Secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
+12. Click the **Identity** tab, enter the **Client Secret** and **Package SID** values obtained from WNS in Step 4, and then click **Save**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-push-tab.png)
 
@@ -57,7 +53,7 @@
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-identity-tab.png)
  
-You are now ready to use a Microsoft Account for authentication in your app.  
+You are now ready to use a Microsoft account for authentication in your app.  
 
 <!-- Anchors. -->
 
