@@ -116,7 +116,7 @@ Frequently the easiest way to find the cause of the error is to enable detailed 
 
 Editing the Web.config file is only one example of scenarios in which the ability to read and edit files on your Azure web app make troubleshooting easier.
 
-## <a name="remotedebug"></a>Remote debugging wb apps
+## <a name="remotedebug"></a>Remote debugging web apps
 
 If the detailed error message doesn't provide enough information, and you can't re-create the error locally, another way to troubleshoot is to run in debug mode remotely. You can set breakpoints, manipulate memory directly, step through code, and even change the code path. 
 
