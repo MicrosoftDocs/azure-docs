@@ -47,8 +47,6 @@ Get started with ...
 </li>
 <li><a href="../articles/app-insights-windows-get-started.md">Windows device apps</a>
 </li>
-<li><a href="../articles/app-insights-windows-desktop.md">Windows desktop apps</a>
-</li>
 <li><a href="../articles/app-insights-monitor-performance-live-website-now.md">ASP.NET server</a>
 </li>
 <li><a href="../articles/app-insights-web-track-usage.md">Web pages</a>
