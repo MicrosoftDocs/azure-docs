@@ -44,25 +44,30 @@ In the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions
 
 To view or download a bill:
 
-1.  Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
-2.  Click on the subscription in which you would like to see details and usage.
-3.  Click **Billing** History
+- Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
+2. Click on the subscription in which you would like to see details and usage.
+3. Click **Billing** History
 
 ![Summary - billing history -1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
 
-4.  The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+- The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
 ![Summary-billing history 2](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 2.png)
 
-5.  Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+- Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
 ![Summary-billing history 3](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 3.png)
-![Summary-billing history 4](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 4.png)
+    ![Summary-billing history 4](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 4.png)
 
 
-6.  Click **Download Invoice** to view a copy of your previous bill.
+
+
+- Click **Download Invoice** to view a copy of your previous bill.
+
+
 
 ![Summary-billing history 5](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 5.png)
+
 
 
 **Below are sample invoices of the Visual Studio Ultimate with MSDN and Pay-As-You-Go offers.**
@@ -238,7 +243,7 @@ This column captures 3rd party specific information.
 ### Additional Info
 This column shows additional data for some of the services.
 
-    Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
+Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
 
 >>  https://azurepricing.blob.core.windows.net/supplemental/YYYY_MM_Service_Download_Fields.xlsx
 
