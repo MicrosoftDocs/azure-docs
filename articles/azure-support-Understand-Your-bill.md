@@ -54,12 +54,12 @@ To view or download a bill:
 
 ![Summary-billing history 2](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 2.png)
 
-5.	Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+5. Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
 ![Summary-billing history 3](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 3.png)
 ![Summary-billing history 4](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 4.png)
 
-6.	Click **Download Invoice** to view a copy of your previous bill.
+6. Click **Download Invoice** to view a copy of your previous bill.
 
 ![Summary-billing history 5](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 5.png)
 
