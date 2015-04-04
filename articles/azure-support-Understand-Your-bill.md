@@ -45,8 +45,8 @@ In the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions
 To view or download a bill:
 
 1.	Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
-2.	Click on the subscription in which you would like to see details and usage.
-3.	Click **Billing** History
+2. Click on the subscription in which you would like to see details and usage.
+3. Click **Billing** History
 
 ![Summary - billing history -1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
 
