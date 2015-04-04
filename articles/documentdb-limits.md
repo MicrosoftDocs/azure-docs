@@ -38,7 +38,6 @@ The following table describes the limits and quota enforcements of DocumentDB. Q
 |Maximum request size of document and attachment       |512KB
 |Maximum request size of stored procedure, trigger and UDF        |256KB
 |Maximum response size |1MB
-|Maximum number of unique paths per collection*       |100
 |String |All strings must conform to the UTF-8 encoding. Since UTF-8 is a variable width encoding, string sizes are determined using the UTF-8 bytes.
 |Maximum length of property or value  |No practical limit
 |Maximum number of UDFs per query*     |1
