@@ -19,7 +19,7 @@
 
 #  Understand Your Bill for Microsoft Azure
 
-The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Ultimate with MSDN, include  monthly credits that you can use on any Azure service based on your needs.
+The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, such as the Visual Studio Ultimate with MSDN, include monthly credits that you can use on any Azure service based on your needs.
 
 Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
