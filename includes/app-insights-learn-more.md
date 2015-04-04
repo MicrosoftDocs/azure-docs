@@ -109,6 +109,7 @@ Usage tracking
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
 [export]: ../articles/app-insights-export-telemetry.md
+[exportcode]: ../articles/app-insights-code-sample-export-telemetry-sql-database.md
 [azure]: ../articles/insights-perf-analytics.md
 [metrics]: ../articles/app-insights-metrics-explorer.md
 [trace]: ../articles/app-insights-search-diagnostic-logs.md
