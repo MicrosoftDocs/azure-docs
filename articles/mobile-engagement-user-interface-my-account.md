@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - My Account" 
-   description="User Interface Overview for the My Account section of Azure Mobile Engagement" 
+   description="Learn how to manage your account profile and test devices using Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="v-micada" 
@@ -16,27 +16,24 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# How to manage your account profile and test devices
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campaign</a>
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterion</a>
-<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Content</a>
-<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - How To</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
-# My Account
- 
+# How to manage your account profile and test devices 
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
 ### See also

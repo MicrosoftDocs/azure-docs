@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Settings" 
-   description="User Interface Overview for the Settings section of Azure Mobile Engagement" 
+   description="Learn how to manage the global settings of your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="v-micada" 

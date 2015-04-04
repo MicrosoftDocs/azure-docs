@@ -16,22 +16,21 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campaign</a>
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterion</a>
-<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Content</a>
-<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - How To</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
 # How to use the Azure Mobile Engagement User Interface (UI)
  
@@ -115,9 +114,9 @@ Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your app
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
