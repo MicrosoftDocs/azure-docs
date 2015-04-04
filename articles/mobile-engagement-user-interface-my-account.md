@@ -2,30 +2,34 @@
    pageTitle="Azure Mobile Engagement User Interface - My Account" 
    description="User Interface Overview for the My Account section of Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - User Interface
+# How to manage your account profile and test devices
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
 <a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" class="current" title="My Account">My Account</a>
+<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
+<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
 <a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
 <a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
 <a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
+<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campaign</a>
+<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterion</a>
+<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Content</a>
+<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - How To</a>
 <a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
 <a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
@@ -35,17 +39,15 @@
  
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
-**See also:** 
+### See also
+-  [Troubleshooting Guide - Service][Link 24]
 
--  [Troubleshooting Guide - Service][Link 2]
- 
 ![MyAccount1][7]  
 
 ## Profile:
 You can view or change any of your account settings: Password, First Name, Last Name, Organization, Phone Number, Time Zone, or E-mail opt-in or opt-out of e-mail updates. You can also give another user permission to use your application based on their e-mail address from “home”.
 
-**See also:** 
-
+### See also
 -  [UI Documentation - Home][Link 13]
 
 ![MyAccount2][8]  
@@ -94,20 +96,20 @@ Then, you can copy this Device ID and register it in the "UI - My Account - Devi
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
