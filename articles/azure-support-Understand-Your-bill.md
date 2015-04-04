@@ -44,22 +44,23 @@ In the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions
 
 To view or download a bill:
 
-1. Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
-2. Click on the subscription in which you would like to see details and usage.
-3. Click **Billing** History
+1.  Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
+2.  Click on the subscription in which you would like to see details and usage.
+3.  Click **Billing** History
 
 ![Summary - billing history -1](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 1.png)
 
-4. The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+4.  The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
 ![Summary-billing history 2](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 2.png)
 
-5. Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+5.  Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
 ![Summary-billing history 3](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 3.png)
 ![Summary-billing history 4](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 4.png)
 
-6. Click **Download Invoice** to view a copy of your previous bill.
+
+6.  Click **Download Invoice** to view a copy of your previous bill.
 
 ![Summary-billing history 5](./media/azure-support-Understand-Your-bill/Content - View a Bill for MA 5.png)
 
