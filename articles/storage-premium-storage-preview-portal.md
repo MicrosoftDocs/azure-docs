@@ -25,7 +25,7 @@ Welcome to the Public Preview of **Azure Premium Storage for Disks**!
 
 With the introduction of new Premium Storage, Microsoft Azure now offers two types of durable storage: **Premium Storage** and **Standard Storage**. Premium Storage stores data on the latest technology Solid State Drives (SSDs) whereas Standard Storage stores data on Hard Disk Drives (HDDs). 
 
-Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 50,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations. Premium Storage is currently available only for storing data on disks used by Azure Virtual Machines. 
+Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. You can attach several Premium Storage disks to a virtual machine (VM). With Premium Storage, your applications can have up to 35 TB of storage per VM and achieve 50,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations. Premium Storage is currently available only for storing data on disks used by Azure Virtual Machines. 
 
 To sign up for the Azure Premium Storage preview, visit the [Azure Preview](http://azure.microsoft.com/services/preview/) page.
 
@@ -39,7 +39,7 @@ The following is a list of important things to consider before or when using Pre
 
 - Premium Storage is currently available in the [Microsoft Azure Preview Portal](https://portal.azure.com/) and accessible via the following SDK libraries: [Storage REST API](http://msdn.microsoft.com//library/azure/dd179355.aspx) version 2014-02-14 or later; [Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx) version 2014-10-01 or later; and [Azure PowerShell](install-configure-powershell.md) version 0.8.10 or later. 
 
-- Premium Storage is available for limited preview in the following regions: West US, East US 2, and West Europe.
+- Premium Storage is available for limited preview in the following regions: West US, East US 2, West Europe and East China.
 
 - Premium Storage supports only Azure page blobs, which are used to hold persistent disks for Azure Virtual Machines (VMs). For information on Azure page blobs, see [Understanding Block Blobs and Page Blobs](http://msdn.microsoft.com/library/azure/ee691964.aspx). Premium Storage does not support the Azure Block Blobs, Azure Files, Azure Tables, or Azure Queues.
 
@@ -65,7 +65,7 @@ To leverage the benefits of Premium Storage, create a Premium Storage account us
 
 ### Important notes:
 
-- For details about the capacity and bandwidth preview limits for Premium Storage accounts, see the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section. If the needs of your application exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts. For example, if you want to attach 51 terabytes (TB) disks across a number of VMs, spread them across two storage accounts since 32 TB is the limit for a single Premium storage account. Make sure that a single Premium Storage account has never more than 32 TB of provisioned disks.
+- For details about the capacity and bandwidth preview limits for Premium Storage accounts, see the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) section. If the needs of your application exceed the scalability targets of a single storage account, build your application to use multiple storage accounts, and partition your data across those storage accounts. For example, if you want to attach 51 terabytes (TB) disks across a number of VMs, spread them across two storage accounts since 35 TB is the limit for a single Premium storage account. Make sure that a single Premium Storage account has never more than 35 TB of provisioned disks.
 - By default, disk caching policy is "Read-Only" for all the Premium data disks, and "Read-Write" for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s I/Os. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance.
 - Make sure that there is sufficient bandwidth available on your VM to drive the disk traffic. For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth available for Premium Storage disk traffic. That means, a P10 Premium Storage disk attached to this VM can only go up to 32 MB per second but not up to 100 MB per second that the P10 disk can provide. Similarly, a STANDARD_DS13 VM can go up to 256 MB per second across all disks. Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. You might get higher throughput than this depending on the mix of read and write IOs in your disk traffic.
 
@@ -200,7 +200,7 @@ The following table describes the scalability targets for Premium storage accoun
 <tr>
 	<td>
 	<ul>
-       <li type=round>Disk capacity: 32 TB</li>
+       <li type=round>Disk capacity: 35 TB</li>
        <li type=round>Snapshot capacity: 10 TB</li>
     </ul>
 	</td>
@@ -259,7 +259,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
 
-Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -302,8 +302,25 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td>CoreOS-Beta-584.0.0</td>
 </tr>
 <tr>
-	<td><strong>CentOS/Oracle</strong></td>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 7.0</td>
 	<td></td>
+	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+</tr>
+<tr>
+	<td>7.1</td>
+	<td>3.10.0-229.1.2.el7</td>
+	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Recommended </a></td>
+</tr>
+
+<tr>
+	<td rowspan="2"><strong>Oracle</strong></td>
+	<td>6.4</td>
+	<td></td>
+	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+</tr>
+<tr>
+	<td>7.0</td>
 	<td></td>
 	<td>Contact Support for details</td>
 </tr>
