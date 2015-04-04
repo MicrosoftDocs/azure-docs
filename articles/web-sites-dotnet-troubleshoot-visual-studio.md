@@ -110,19 +110,17 @@ Frequently the easiest way to find the cause of the error is to enable detailed 
 
 4. Refresh the browser that is showing the unhelpful error message, and now you get a detailed error message, such as the following example:
 
-	![Detailed error messaeg](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
+	![Detailed error message](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
 	(The error shown was created by adding the line shown in red to *Views\Home\Index.cshtml*.)
 
 Editing the Web.config file is only one example of scenarios in which the ability to read and edit files on your Azure web app make troubleshooting easier.
 
-<h2><a name="remotedebug"></a>Remote debugging</h2>
+## <a name="remotedebug"></a>Remote debugging wb apps
 
 If the detailed error message doesn't provide enough information, and you can't re-create the error locally, another way to troubleshoot is to run in debug mode remotely. You can set breakpoints, manipulate memory directly, step through code, and even change the code path. 
 
 Remote debugging does not work in Express editions of Visual Studio.
-
-### Remote debugging web apps
 
 This section shows how to debug remotely using the project you create in [Getting started with Azure and ASP.NET][GetStarted].
 
@@ -195,9 +193,9 @@ This section shows how to debug remotely using the project you create in [Gettin
 
 	![About page with new value](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-### <a name="remotedebugwj"></a> Remote debugging WebJobs
+## <a name="remotedebugwj"></a> Remote debugging WebJobs
 
-This section shows how to debug remotely using the project and web app you create in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md). The features shown on in this section are available only in Visual Studio 2013 with Update 4.
+This section shows how to debug remotely using the project and web app you create in [Get Started with the Azure WebJobs SDK](websites-dotnet-webjobs-sdk.md). The features shown on in this section are available only in Visual Studio 2013 with Update 4. Remote debugging only works with continuous WebJobs. Scheduled and on-demand WebJobs don't support debugging.
 
 1. Open the web project that you created in [Get Started with the Azure WebJobs SDK][GetStartedWJ].
 
@@ -255,7 +253,7 @@ This section shows how to debug remotely using the project and web app you creat
 
 If your function [wrote logs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#logs), you could click **ToggleOutput** to see them.
 
-### Notes about remote debugging
+## Notes about remote debugging
 
 * Running in debug mode in production is not recommended. If your production web app is not scaled out to multiple server instances, debugging will prevent the web server from responding to other requests. If you do have multiple web server instances, when you attach to the debugger you'll get a random instance, and you have no way to ensure that subsequent browser requests will go to that instance. Also, you typically don't deploy a debug build to production, and compiler optimizations for release builds might make it impossible to show what is happening line by line in your source code. For troubleshooting production problems, your best resource is application tracing and web server logs.
 
