@@ -3,7 +3,7 @@
 	description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="jgao" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
@@ -54,7 +54,6 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 - [Provision HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
 - [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
-- [C# HBase SDK][cs-hbase-sdk]
 
 ##<a name="see-also"></a>See also
 
@@ -75,8 +74,6 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
-
-[cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

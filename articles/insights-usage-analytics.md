@@ -51,11 +51,4 @@ The Analytics part shows:
 * [Create web tests][azure-availability] to make sure your site is available and responsive
 
 
-## Learn more 
-
-* [Azure App Service Web App](websites-learning-map.md)
-* [Application Insights](app-insights-get-started.md)
-
-
-[azure-perf]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
+[AZURE.INCLUDE [app-insights-azure-learn-more](../includes/app-insights-azure-learn-more.md)]

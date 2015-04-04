@@ -132,7 +132,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 	}
 
 
-> [ACOM.NOTE] To use the **Tez** engine to execute a Hive query, run "**set hive.execution.engine=tez**;" before running the Hive query.
+> [AZURE.NOTE] To use the **Tez** engine to execute a Hive query, run "**set hive.execution.engine=tez**;" before running the Hive query.
 > 
 > See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
@@ -199,7 +199,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		FROM hivesampletable 
 		group by country, state;
 
-	> [ACOM.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
+	> [AZURE.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
 		
 3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
 

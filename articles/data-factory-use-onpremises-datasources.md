@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -47,10 +47,12 @@ Data Management Gateway has a full range of on-premises data connection capabili
 
 ### Ports and security considerations 
 - The Data Management Gateway installation program opens **8050** and **8051** ports on the gateway machine. These ports are used by the **Credentials Manager** (ClickOnce application), which allows you to set credentials for an on-premises linked service and to test connection to the data source. These ports cannot be reached from internet and you do not need have these opened in the corporate firewall.
-- While copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:
+- When copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:
  
 	- Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**
 	- Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway machine** to the **allowed IP addresses**.
+
+- When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/en-us/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.  
 
 - You must launch the **Credentials Manager** application on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
 
@@ -191,7 +193,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
   
-> [ACOM.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
+> [AZURE.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
  
