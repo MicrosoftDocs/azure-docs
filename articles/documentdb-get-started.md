@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="04/08/2015" 
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -22,40 +22,48 @@ This guide shows you how to get started using [Microsoft Azure DocumentDB](https
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
 
+## <a name="_Toc395637760"></a>Prerequisites
+
+Before following the instructions in this article, you should ensure that you have the following:
+
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
+- [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
+
 ##<a id="CreateAccount"></a>Create a DocumentDB account
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
 ##<a id="SetupVS"></a>Setup your Visual Studio Solution
 
-1. **Open** Visual Studio on your computer
-2. **Navigate** to File -> New -< Project
-3. **Click** Templates -> Visual C# -> Console Application
-4. **Right click** on your new Console Application in the **Solution Explorer**
-5. **Click** Manage NuGet Packages...
-6. **Search** for **DocumentDB Client Library** in Online -> nuget.org
-7. **Click** install
-> [AZURE.NOTE] You may need to **include pre-release** in your search to find the DocumentDB Client Library.
+1. Open **Visual Studio** on your computer.
+2. Select **New** from the **File menu**, and choose **Project**.
+3. In the New Project Dialog, select **Templates** / **Visual C#** / **Console Application**.
+4. In the **Solution Explorer**, right click on your **new Console Application**, which is under your Visual Studio Solution.
+5. Then without leaving the menu, click on **Manage NuGet Packages...**
+6. On the left most panel of the **Manage NuGet Packages** window, click **Online** / **nuget.org**.
+7. In the **Search Online** input box, search for **DocumentDB Client Library**.
+8. Within the results, find **Microsoft Azure DocumentDB Client Library** and click **Install**.
 
 Great! You are now ready to start working with DocumentDB.
 
 ##<a id="Connect"></a>Connect to a DocumentDB account
 
-We'll start by creating a new instance of the [DocumentClient](https://go.microsoft.com/fwlink/p/?linkid=522477) class in order to establish a connection to our DocumentDB account.   We'll need the following references in our C# application:  
+We'll start by creating a new instance of the [DocumentClient](https://go.microsoft.com/fwlink/p/?linkid=522477) class in order to establish a connection to our DocumentDB account.   We'll need the following references at the beginning of our C# application:  
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
+	using Newtonsoft.Json;
  
-Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following:   
+Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following : 
 
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
-    
+
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. 
+> [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. Take a look at our sample application on [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) for an example on storing credentials outside of the source code.
 
 The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Preview portal](https://portal.azure.com) blade for your DocumentDB account. 
 
@@ -66,7 +74,7 @@ These keys grant administrative access to your DocumentDB account and the resour
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
-A database can be created by using the [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) method of the **DocumentClient** class. For more information regarding Databases, visit our [resource model page](documentdb-resources/#databases).
+A [database](documentdb-resources/#databases) can be created by using the [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -77,7 +85,9 @@ A database can be created by using the [CreateDatabaseAsync](https://go.microsof
 
 ##<a id="CreateColl"></a>Create a collection  
 
-A collection can be created by using the [CreateDocumentCollectionAsync](https://go.microsoft.com/fwlink/p/?linkid=522479) method of the **DocumentClient** class.  The database created in the previous step has a number of properties, one of which is the [CollectionsLink](https://go.microsoft.com/fwlink/p/?linkid=522481) property.  With that information, we can now create a collection. For more information regarding Collections, visit our [resource model page](documentdb-resources/#collections).
+> [AZURE.WARNING] *CreateDocumentCollectionAsync* will create a new *S1* collection, which has pricing implications. For more details, please visit our [pricing page](http://azure.microsoft.com/pricing/details/documentdb/).
+
+A [collection](documentdb-resources/#collections) can be created by using the [CreateDocumentCollectionAsync](https://go.microsoft.com/fwlink/p/?linkid=522479) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels). The database created in the previous step has a number of properties, one of which is the [CollectionsLink](https://go.microsoft.com/fwlink/p/?linkid=522481) property.  With that information, we can now create a collection.
 
   	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
@@ -87,7 +97,7 @@ A collection can be created by using the [CreateDocumentCollectionAsync](https:/
   		    });
     
 ##<a id="CreateDoc"></a>Create documents	
-A document can be created by using the [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) method of the **DocumentClient** class.  The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like to view our sample Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs). For more information on Documents, visit our [resource model page](documentdb-resources/#documents).
+A [document](documentdb-resources/#documents) can be created by using the [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like see how we set up our Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs).
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -149,7 +159,7 @@ A document can be created by using the [CreateDocumentAsync](https://go.microsof
 
 ##<a id="Query"></a>Query DocumentDB resources
 
-DocumentDB supports rich queries against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. For more information on querying, check out our [querying article](documentdb-sql-query/). 
+DocumentDB supports rich [queries](documentdb-sql-query/) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. 
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
@@ -207,6 +217,13 @@ DocumentDB supports rich queries against JSON documents stored in each collectio
     {
         Console.WriteLine(item);
     }
+
+##<a id="DeleteDatabase"></a>Delete the database
+
+Deleting the created database will remove the database, as well as, all children resources (collections, documents, etc.). If you'd like to remove the demo database, add the following code snippet to your application:
+
+	// Clean up/delete the database
+    await client.DeleteDatabaseAsync(database.SelfLink);
 	
 ##<a id="GetSolution"></a>Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
