@@ -53,9 +53,9 @@ We'll start by creating a new instance of the [DocumentClient](https://go.micros
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
-	using Newtonsoft.Json;
+    using Newtonsoft.Json;
  
-Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following : 
+Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following: 
 
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
@@ -220,9 +220,9 @@ DocumentDB supports rich [queries](documentdb-sql-query/) against JSON documents
 
 ##<a id="DeleteDatabase"></a>Delete the database
 
-Deleting the created database will remove the database, as well as, all children resources (collections, documents, etc.). If you'd like to remove the demo database, add the following code snippet to your application:
+Deleting the created database will remove the database, as well as, all children resources (collections, documents, etc.). If you'd like to remove the get started database, add the following code snippet to your application:
 
-	// Clean up/delete the database
+    // Clean up/delete the database
     await client.DeleteDatabaseAsync(database.SelfLink);
 	
 ##<a id="GetSolution"></a>Get the complete solution
