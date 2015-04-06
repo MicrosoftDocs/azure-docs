@@ -18,7 +18,7 @@
 
 
 #DocumentDB Limits and Quotas
-The following table describes the limits and quota enforcements of DocumentDB. Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits).    
+The following table describes the limits and quota enforcements of DocumentDB. Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md).    
 
 |Entity |Quota (Standard Offer)|
 |-------|--------|

@@ -16,7 +16,7 @@
 	ms.date="04/08/2015" 
 	ms.author="mimig"/>
 
-#Manage DocumentDB capacity
+#Manage DocumentDB capacity needs
 DocumentDB is a fully managed, scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
 You can get started with DocumentDB by creating a database account through the [Azure Preview portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection includes 10GB of database storage with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
