@@ -9,11 +9,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
 # Run Hive queries using the Query Console
@@ -38,10 +38,10 @@ To complete the steps in this article, you will need the following.
 
     > [AZURE.NOTE] You can also reach the Query Console by entering **https://CLUSTERNAME.azurehdinsight.net** in your browser.
 
-2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster. 
-	
+2. From the links at the top of the page, select **Hive Editor**. This displays a form that can be used to enter the HiveQL statements that you want to run in the HDInsight cluster.
+
 	![the hive editor](./media/hdinsight-hadoop-use-hive-query-console/queryconsole.png)
-	
+
 	Replace the text `Select * from hivesampletable` with the following HiveQL statements:
 
         DROP TABLE log4jLogs;
@@ -70,9 +70,9 @@ To complete the steps in this article, you will need the following.
 
 ##<a id="summary"></a>Summary
 
-As you can see, the Query Console provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output. 
+As you can see, the Query Console provides an easy way to run Hive queries in an HDInsight cluster, monitor the job status, and retrieve the output.
 
-To learn more about Hive by using the Hive Query Console, select **Getting Started** at the top of the Query Console, then use the samples that are provided. Each sample walks through the process of using Hive to analyze data, including explanations about the HiveQL statements used in the sample.
+To learn more about using Hive Query Console to run Hive jobs, select **Getting Started** at the top of the Query Console, then use the samples that are provided. Each sample walks through the process of using Hive to analyze data, including explanations about the HiveQL statements used in the sample.
 
 ##<a id="nextsteps"></a>Next steps
 

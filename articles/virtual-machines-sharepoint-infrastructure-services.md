@@ -2,7 +2,7 @@
 	pageTitle="SharePoint Farms Hosted in Azure Infrastructure Services" 
 	description="Get to the key topics that describe how to set up a dev/test or production SharePoint 2013 farm in Azure infrastructure services." 
 	documentationCenter="" 
-	services="virtual machines"
+	services="virtual-machines"
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="04/06/2015" 
 	ms.author="josephd"/>
 
 # SharePoint Farms Hosted in Azure Infrastructure Services
@@ -46,4 +46,4 @@ With [Deploying SharePoint 2013 with SQL Server AlwaysOn Availability Groups in 
 
 [Planning for SharePoint 2013 on Azure Infrastructure Services](https://msdn.microsoft.com/library/dn275958.aspx)
 
-[Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309(v=office.15).aspx)
+[Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx)
