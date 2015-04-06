@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connections to Azure SQL Database: Central recommendations" 
-	description="A central topic that provides links to more specific topics about various drivers, such as ADO.NET and PHP, for connecting to Azure SQL Database." 
+	pageTitle="Connecting to SQL Database: Links, Best Practices and Design Guidelines" 
+	description="A starting point topic that gathers together links and recommendations for client programs that connect to Azure SQL Database from technologies such as ADO.NET and PHP." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/19/2015" 
+	ms.date="04/01/2015" 
 	ms.author="genemi"/>
 
 
-#Connections to SQL Database: Central recommendations
+#Connecting to SQL Database: Links, Best Practices and Design Guidelines
 
 
 <!--
-GeneMi , 2015-March-19 Thursday 15:41pm
+GeneMi , 2015-April-01 Wednesday 20:44pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
-Re SqlException, not .HResult, rather .Number.
+Fix broken link to Troubleshooting topic. Remove link to retired blog post 4235 about throttling. Change title as suggested by PMs PehTeh and LFSantos (but not changing HTTP URL). Remove second definitions for 'persistent' versus 'transient'. Tweak subheading over Elastic Scale links.
 -->
 
 
-This topic provides links to code samples for various technologies that you can use to connect to and interact with Azure SQL Database. The technologies include Enterprise Library, JDBC, and PHP. Recommendations are given that apply generally regardless of the specific connection technology.
+This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. Recommendations are given that apply generally regardless of the specific connection technology or programming language.
 
 
 ##Technology-independent recommendations
@@ -91,13 +91,6 @@ Regardless of which connection technology you use, certain firewall settings for
 ###Transient errors
 
 
-Some SQL Database connection errors are persistent and there is no reason to immediately retry connecting. Other errors are transient, and a few automated retry attempts by your program are recommended. Examples:
-
-
-- *Persistent:* If you misspell the name of your SQL Database server when you try to connect, there is no sense in retrying.
-- *Transient:* If your working connection to SQL Database is later forcibly terminated by Azure throttling or load balancing systems, trying to reconnect is recommended.
-
-
 The [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) thrown by the call to SQL Database contains a numeric error code in its **Number** property. If the error code is one that is listed as a transient error, your program should retry the call.
 
 
@@ -108,7 +101,7 @@ The [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqle
 For further assistance when you encounter a connection error, either persistent or transient, see:
 
 
-- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/en-us/kb/2980233/en-us)
+- [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
 
 ##Technologies
@@ -126,20 +119,11 @@ For ADO.NET with Enterprise Library and the Transient Fault Handling classes, se
 - [How to: Reliably connect to Azure SQL Database](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 
 
-For Elastic Scale, see:
+For information about connectivity to Elastic Scale databases, see:
 
 
 - [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
-
-
-##Incomplete or outdated posts
-
-
-The links in this section are to blog posts or similar sources, so they might be incomplete or be outdated. Yet they might have some background value.
-
-
-- [Retry Logic for Transient Failures in Microsoft Azure SQL Database](http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-windows-azure-sql-database.aspx)
 
 <!-- -->
 

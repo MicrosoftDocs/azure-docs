@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
-   description="User Interface Overview for the Reach section of Azure Mobile Engagement" 
+   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="v-micada" 

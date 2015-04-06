@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="03/31/2015"
+	 ms.date="04/02/2015"
 	 ms.author="prvijay"/>
 
 # Backup and restore from a Windows server or Windows client machine

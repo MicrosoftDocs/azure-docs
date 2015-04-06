@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="1/29/2015" 
+   ms.date="03/31/2015" 
    ms.author="jgao"/>
 
 # Learn Hadoop by using the HDInsight Getting Started Gallery
@@ -51,7 +51,7 @@ The following video clip shows how to run the Twitter trend analysis sample:
 ## Next steps
 Other ways to learn about HDInsight include:
 
-- [HDInsight learning map][hdinsight.learning.map]
+- [HDInsight learning map][hdinsight.learn.map]
 - [HDInsight infographic][hdinsight.infographic]
 
 <!--Image references-->
@@ -59,5 +59,5 @@ Other ways to learn about HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: hdinsight-learning-map.md
+[hdinsight.learning.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
