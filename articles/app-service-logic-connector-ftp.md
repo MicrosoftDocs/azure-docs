@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="FTP Connector"
 	description="Get started with FTP Connector"
-	authors="rajeshramabathiran" 
+	authors="anuragdalmia" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -77,7 +77,11 @@ In the empty flow designer, click on FTP connector from the right gallery pane.
 
 ![Choose FTP Trigger][6]
 
-FTP Connector has one trigger - TriggerOnFileAvailable. This will trigger whenever a new file is uploaded to a specific folder in the FTP Server.
+FTP Connector has one trigger - TriggerOnFileAvailable. This trigger 
+
+- Polls the folder path for new files
+- Instantiates the logic flow whenever for every new file
+- Deletes the file from the folder path after the logic flow has been instantiated
 
 Click on 'TriggerOnFileAvailable' trigger.
 
@@ -102,13 +106,6 @@ Provide the inputs and click on the tick mark to complete input configuration.
 ![Basic inputs FTP Trigger][9]
 
 Note that the configured FTP trigger shows both input parameters configured, as well as the output of FTP trigger. 
-
-Once the logic app is created, the FTP trigger 
-
-
-- Polls the folder path for new files
-- Instantiates the logic flow whenever for every new file
-- Deletes the file from the folder path after the logic flow has been instantiated
 
 ####Using the output of FTP trigger in subsequent actions
 The output of FTP Connector can be used as the input of some other actions in the flow. 

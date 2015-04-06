@@ -13,12 +13,12 @@
    ms.tgt_pltfrm="na" 
    ms.devlang="na" 
    ms.topic="article" 
-   ms.date="1/29/2015" 
+   ms.date="03/31/2015" 
    ms.author="jgao"/>
 
-# Learn Hadoop using the HDInsight Getting Started Gallery
+# Learn Hadoop by using the HDInsight Getting Started Gallery
 
-The HDInsight Getting Started Gallery provides an easy and quick way to run Hadoop sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the rest of the samples. Currently, there are 6 samples, with more coming soon:
+The HDInsight Getting Started Gallery provides an easy and quick way to run Hadoop sample applications in HDInsight. Some of the samples come with sample data. You can supply your own data for the remaining samples. Currently, there are the following six samples (with more coming):
 
 - Solutions with your Azure data
 	- Microsoft Azure website log analysis
@@ -38,20 +38,20 @@ The following video clip shows how to run the Twitter trend analysis sample:
 
 **To run a sample from the Getting Started Gallery**
 
-1.	Sign in to the [Azure Management portal][azure.management.portal].
-2.	Click **HDInsight** from the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters. 
+1.	Sign in to the [Azure portal][azure.management.portal].
+2.	Click **HDInsight** in the left menu. You will see a list of existing HDInsight clusters, including Hadoop, Storm, and HBase clusters. 
 3.	Click the cluster where you want to run the sample.
-4.	Click **QUERY CONSOLE** from the bottom.
+4.	Click **QUERY CONSOLE** at the bottom of the page.
 5.	Enter the Hadoop user name and password for the cluster.
-6.	Click **Getting Started Gallery** from the top.
+6.	Click **Getting Started Gallery** at the top of the page.
 7.	Click one of the samples. Each sample gives detailed steps for running it. The following image shows the Twitter trend analysis sample:
 
 	![HDInsight Twitter trend analysis sample][hdinsight.twitter.sample]
 
 ## Next steps
-Other ways to learn HDInsight include:
+Other ways to learn about HDInsight include:
 
-- [HDInsight learning map][hdinsight.learning.map]
+- [HDInsight learning map][hdinsight.learn.map]
 - [HDInsight infographic][hdinsight.infographic]
 
 <!--Image references-->
@@ -59,5 +59,5 @@ Other ways to learn HDInsight include:
 [hdinsight.twitter.sample]: ./media/hdinsight-learn-hadoop-use-sample-gallery/HDInsight-Twitter-Trend-Analysis-sample.png
 
 <!--Link references-->
-[hdinsight.learning.map]: hdinsight-learning-map.md
+[hdinsight.learning.map]: hdinsight-learn-map.md
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960

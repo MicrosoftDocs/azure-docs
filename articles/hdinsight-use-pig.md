@@ -104,7 +104,7 @@ Now that you have learned how to use Pig with HDInsight, use the following links
 [curl]: http://curl.haxx.se/
 
 [hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-upload-data]: /documentation/articles/hdinsight-upload-data/
+[hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 

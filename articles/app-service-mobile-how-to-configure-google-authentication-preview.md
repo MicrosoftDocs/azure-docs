@@ -32,7 +32,7 @@ To complete the procedure in this topic, you must have a Google account that has
 
 4. Once more under **API & Auth**, select **Credentials**, and then **Create new Client ID**.
 
-5. Select **Web application**. Type your App Services gateway URL in **Authorized JavaScript Origins**, and then replace the generated URL in **Authorized Redirect URI** with the URL of your gateway appended with the path, _/signin-google_. For example, `https://contoso.azurewebsites.net/signin-google`. Then click **Create client ID**.
+5. Select **Web application**. Type your App Services gateway URL in **Authorized JavaScript Origins**, and then replace the generated URL in **Authorized Redirect URI** with the URL of your gateway appended with the path, _/signin-google_. For example, `https://contoso.azurewebsites.net/signin-google`. Make sure that you are using the HTTPS scheme. Then click **Create client ID**.
 
      ![][0]
 

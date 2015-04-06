@@ -71,6 +71,9 @@ Then refresh the project dependencies, to get the binaries downloaded.
       </dependency>
     </dependencies>
 
+
+* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.2<\version>`
+
 #### If you're using Gradle...
 
 If your project is already set up to use Gradle for build, merge the following snippet of code to your build.gradle file.
@@ -85,6 +88,8 @@ Then refresh the project dependencies, to get the binaries downloaded.
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
       // or applicationinsights-core for bare API
     }
+
+* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.2'`
 
 #### Otherwise ...
 
@@ -134,10 +139,15 @@ Substitute the instrumentation key that you got from the Azure portal.
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
+      <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
         <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+
       </TelemetryInitializers>
     </ApplicationInsights>
 
@@ -165,6 +175,30 @@ To get the most accurate results, the filter should be mapped before all other f
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+#### If you're using MVC 3.1 or later
+
+Edit these elements to include the Application Insights package:
+
+    <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+#### If you're using Struts 2
+
+Add this item to the Struts configuration file (usually named struts.xml or struts-default.xml):
+
+     <interceptors>
+       <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
+     </interceptors>
+     <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+
+(If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
+
 ## 5. View your telemetry in Application Insights
 
 Run your application.
@@ -191,7 +225,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 ## 5. Capture log traces
 
-You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalog].
+You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
 
 ## 6. Send your own telemetry
 
@@ -207,9 +241,12 @@ In addition, you can bring more features of Application Insights to bear on your
 * [Set up web tests][availability] to make sure your application stays live and responsive.
 
 
+## Questions? Problems?
+
+[Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 

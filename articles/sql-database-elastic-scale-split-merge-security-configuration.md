@@ -5,16 +5,18 @@
     metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
-    authors="torsteng@microsoft.com"/>
+    authors="sidneyh"/>
 
 <tags 
     ms.service="sql-database" 
     ms.workload="sql-database" 
     ms.tgt_pltfrm="na" 
-    ms.devlang="na" ms.topic="article" ms.date="03/20/2015" 
+    ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/01/2015" 
     ms.author="sidneyh" />
 
-# Split/Merge security configuration  
+# Split-Merge security configuration  
 
 To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 

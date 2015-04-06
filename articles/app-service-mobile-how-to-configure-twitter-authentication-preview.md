@@ -26,7 +26,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 1. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
 
-2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosogateway.azurewebsites.net/signin-twitter`.
+2. Type the **Name**, **Description**, and **Website** values for your app. Then, in in **Callback URL**, type the URL of your gateway appended with the path, _/signin-twitter_. For example, `https://contosogateway.azurewebsites.net/signin-twitter`. Make sure that you are using the HTTPS scheme.
 
     ![][0]
 
@@ -64,4 +64,4 @@ You are now ready to use Twitter for authentication in your app.
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure Management Portal]: https://portal.azure.com/
-[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
+[xamarin]: app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md
