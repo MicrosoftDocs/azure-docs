@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -135,7 +135,7 @@ This command will upload the fare data to ***nyctaxifareraw*** directory in the 
 
 ## <a name="#download-hql-files"></a>Log in to the head node of Hadoop cluster and download .hql files to C:\temp 
 
-To access and run the Hive queries used in this walkthrough, [log on to the head node of the Hadoop cluster](https://azure.microsoft.com/en-us/documentation/articles/machine-learning-data-science-customize-hadoop-cluster/#headnode). In this walkthrough, some long Hive queries are stored in .hql files, you need to download these .hql files from the [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) repository to a local directory (C:\temp in this walkthrough) in the head node. In the head node of the Hadoop cluster, open the **Command Prompt**, and run the following two commands:
+To access and run the Hive queries used in this walkthrough, [log on to the head node of the Hadoop cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode). In this walkthrough, some long Hive queries are stored in .hql files, you need to download these .hql files from the [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) repository to a local directory (C:\temp in this walkthrough) in the head node. In the head node of the Hadoop cluster, open the **Command Prompt**, and run the following two commands:
 
 	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
