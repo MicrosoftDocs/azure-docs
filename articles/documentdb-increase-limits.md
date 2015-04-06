@@ -47,11 +47,11 @@ The following steps show how to request a quota adjustment.
 
 1. In the [Azure Preview portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
 
-	![Screenshot of the launching help and support](media/documentdb-increase-limits/helpsupport.png)
+	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
 2. In the **Help + support** blade, click **Get Support**.
 
-	![Screenshot of the creating a support ticket](media/documentdb-increase-limits/getsupport.png) 
+	![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png) 
 
 3. In the **New support request** blade, click **Request Type**, and then in the **Request type** blade, click **Quotas**.
 
