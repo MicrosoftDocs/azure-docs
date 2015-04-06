@@ -51,7 +51,9 @@ To use the SFTP connector, you need to first create an instance of the SFTP conn
 6. Click on "Security" component to configure Security (User Name, Password, Private Key, PPK File password) for SFTP connector. 
 Select "Password" or "Privatekey" or "MutliFactor" authorization tab under Security and provide the required properties.
 
-	![][3]![][4]![][5]
+	![][3]
+	![][4]
+	![][5]
 6. Once the security configuration is saved, you can create a logic App in the same resource group to use the SFTP connector. 
 
 ## Using the SFTP Connector in your Logic App ##
@@ -81,7 +83,8 @@ Once your API app is created, you can now use the SFTP connector as a trigger/ac
 	- **Exclude File Mask** - Specify the file mask to be applied for excluding files. If the "File Mask" property is also set, the Exclude File Mask will be applied first.
 
  
-	![][9] ![][10]
+	![][9] 
+	![][10]
 
 7.	In the similar way you can use the SFTP actions in the flow. You can use the "upload File" action to upload a file to SFTP server. Configure the input properties for "Upload File" action as follows:
 
@@ -92,7 +95,8 @@ Once your API app is created, you can now use the SFTP connector as a trigger/ac
 	- **Append If Exists **- Specify "true" or "false". When set to "true", the data is appended to the file if it exists. When set to "false", the file is overwritten if it exists
 	- **Temporary Folder** - If provided, the adapter will upload the file to the 'Temporary Folder Path' and once the upload is done the file will be moved to 'Folder Path'. The 'Temporary Folder Path' should be on the same physical disk as the 'Folder Path' to make sure that the move operation is atomic. Temporary folder can be used only when 'Append If Exist' property is disabled.
 
-	![][11]![][12]
+	![][11]
+	![][12]
 
 
 
