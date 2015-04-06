@@ -18,7 +18,7 @@
 
 #Get started with the DocumentDB .NET SDK  
 
-This guide shows you how to get started using [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) and the [DocumentDB .NET SDK](https://go.microsoft.com/fwlink/p/?linkid=402989). DocumentDB is a NoSQL document database service, which has a [number of APIs and SDKs available](https://go.microsoft.com/fwlink/p/?linkid=522476). The code samples in this article are written in C# and use the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package. 
+This guide shows you how to get started using [Microsoft Azure DocumentDB](http://azure.microsoft.com/en-us/services/documentdb/) and the [DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/). DocumentDB is a NoSQL document database service, which has a [number of APIs and SDKs available](https://msdn.microsoft.com/library/dn781482.aspx). The code samples in this article are written in C# and use the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package. 
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
 
@@ -26,7 +26,7 @@ The scenarios covered in this article include creating and configuring a Documen
 
 Before following the instructions in this article, you should ensure that you have the following:
 
-- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](../../pricing/free-trial/).
+- An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
 
 ##<a id="CreateAccount"></a>Create a DocumentDB account
@@ -36,8 +36,8 @@ Before following the instructions in this article, you should ensure that you ha
 ##<a id="SetupVS"></a>Setup your Visual Studio Solution
 
 1. Open **Visual Studio** on your computer.
-2. Select **New** from the **File menu**, and choose **Project**.
-3. In the New Project Dialog, select **Templates** / **Visual C#** / **Console Application**.
+2. Select **New** from the **File** menu, and choose **Project**.
+3. In the **New Project Dialog**, select **Templates** / **Visual C#** / **Console Application**, name your project, and then click **Add**.
 4. In the **Solution Explorer**, right click on your **new Console Application**, which is under your Visual Studio Solution.
 5. Then without leaving the menu, click on **Manage NuGet Packages...**
 6. On the left most panel of the **Manage NuGet Packages** window, click **Online** / **nuget.org**.
@@ -48,33 +48,35 @@ Great! You are now ready to start working with DocumentDB.
 
 ##<a id="Connect"></a>Connect to a DocumentDB account
 
-We'll start by creating a new instance of the [DocumentClient](https://go.microsoft.com/fwlink/p/?linkid=522477) class in order to establish a connection to our DocumentDB account.   We'll need the following references at the beginning of our C# application:  
+We'll start by creating a new instance of the [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) class in order to establish a connection to our DocumentDB account.   We'll need the following references at the beginning of our C# application:  
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
  
-Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Create the client using code similar to the following: 
+Next, a **DocumentClient** can be instantiated using the DocumentDB account endpoint and either the primary or secondary access key associated with the account. Add these properties to your class.
 
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
+
+And then create the client using code similar to the following within the Main method. 
 
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
 > [AZURE.WARNING] Never store credentials in source code. To keep this sample simple, the credentials are shown in the source code. See [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) for information on how to store credentials in a production environment. Take a look at our sample application on [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs) for an example on storing credentials outside of the source code.
 
-The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Preview portal](https://portal.azure.com) blade for your DocumentDB account. 
+The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for your DocumentDB account, which can be obtained from the [Keys](https://portal.azure.com) blade for your DocumentDB account. 
 
 ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
  
-These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the Permissions section of [DocumentDB Resource Model and Concepts](documentdb-resources.md).
+These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the [Permissions](documentdb-resources.md#permissions) and [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
 
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
-A [database](documentdb-resources/#databases) can be created by using the [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
+A [database](documentdb-resources#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -87,7 +89,7 @@ A [database](documentdb-resources/#databases) can be created by using the [Creat
 
 > [AZURE.WARNING] *CreateDocumentCollectionAsync* will create a new *S1* collection, which has pricing implications. For more details, please visit our [pricing page](http://azure.microsoft.com/pricing/details/documentdb/).
 
-A [collection](documentdb-resources/#collections) can be created by using the [CreateDocumentCollectionAsync](https://go.microsoft.com/fwlink/p/?linkid=522479) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels). The database created in the previous step has a number of properties, one of which is the [CollectionsLink](https://go.microsoft.com/fwlink/p/?linkid=522481) property.  With that information, we can now create a collection.
+A [collection](documentdb-resources#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). The database created in the previous step has a number of properties, one of which is the [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx) property.  With that information, we can now create a collection.
 
   	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
@@ -97,7 +99,7 @@ A [collection](documentdb-resources/#collections) can be created by using the [C
   		    });
     
 ##<a id="CreateDoc"></a>Create documents	
-A [document](documentdb-resources/#documents) can be created by using the [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like see how we set up our Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs).
+A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like see how we set up our Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs).
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -234,7 +236,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the GetStarted solution in Solution Explorer, and then click Enable NuGet Package Restore. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect). 
 
 ##<a id="NextSteps"></a>Next steps
--	Learn how to [monitor a DocumentDB account](https://go.microsoft.com/fwlink/p/?LinkId=402378).
+-	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](http://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../documentation/services/documentdb/).
 

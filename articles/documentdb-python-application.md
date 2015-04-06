@@ -17,7 +17,6 @@
     ms.author="ryancraw"/>
 
 # Build a web application with Python and Flask (MVC) using DocumentDB
-------------------------------------------------------------------------
 
 To highlight how customers can efficiently leverage Azure DocumentDB to
 store and query JSON documents, this document provides an end-to-end
