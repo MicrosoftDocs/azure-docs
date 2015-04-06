@@ -3,7 +3,7 @@
     description="Learn how to use the table storage service in Azure. Samples are written in C++." 
     services="storage" 
     documentationCenter=".net" 
-    authors="Selcin" 
+    authors="tamram" 
     manager="adinah" 
     editor=""/>
 
