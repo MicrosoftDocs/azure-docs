@@ -102,4 +102,4 @@
 </tr>
 </table>
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits).
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](../articles/documentdb-increase-limits.md).
