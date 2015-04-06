@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
-	ms.author="mimig"/>
+	ms.date="04/03/2015" 
+	ms.author="h0n"/>
 
 #RESTful interactions with DocumentDB resources 
 
@@ -48,115 +48,114 @@ As illustrated in the following diagram, POST can only be issued against a feed 
 ##Create a new resource using POST 
 To get a better feel for the interaction model, let’s consider the case of creating a new resource (aka INSERT). In order to create a new resource you are required to issue an HTTP POST request with the request body containing the representation of the resource against the URI of the container feed the resource belongs to. The only required property for the request is the id of the resource.  
 
-As an example, in order to create a new database, you POST a database resource (by setting the id property with a unique name) against /dbs, similarly, in order to create a new collection, you POST a collection resource against /dbs/_rid/colls/ and so on. The response contains the fully committed resource with the system generated properties including the _self link of the resource using which you can navigate to other resources. As an example of the simple HTTP based interaction model, a client can issue an HTTP request to create a new database within an account.  
+As an example, in order to create a new database, you POST a database resource (by setting the id property with a unique name) against /dbs. Similarly, in order to create a new collection, you POST a collection resource against /dbs/_rid/colls/ and so on. The response contains the fully committed resource with the system generated properties including the _self link of the resource using which you can navigate to other resources. As an example of the simple HTTP based interaction model, a client can issue an HTTP request to create a new database within an account.  
 
-	POST http://fabrikam.documents.azure.net/dbs
+	POST https://fabrikam.documents.azure.com/dbs
 	{
 	      "id":"MyDb"
 	}
 
 The DocumentDB service responds with a successful response and a status code indicating successful creation of the database.  
 
-	[201 Created]
+	HTTP/1.1 201 Created
+	Content-Type: application/json
+	x-ms-request-charge: 4.95
+	...
+
 	{
 	      "id": "MyDb",
 	      "_rid": "UoEi5w==",
-	      "_self": "dbs/MyDb/",
+	      "_self": "dbs/UoEi5w==/",
 	      "_ts": 1407370063,
-	      "_etag": "\"00002100-0000-0000-0000-50e71fda0000\"",
+	      "_etag": "00000100-0000-0000-0000-54b636600000",
 	      "_colls": "colls/",
 	      "_users": "users/"
 	}
   
 ##Register a stored procedure using POST
-As another example of creating and executing a resource, consider the following stored procedure written entirely in JavaScript.   
+As another example of creating and executing a resource, consider a simple "HelloWorld" stored procedure written entirely in JavaScript.   
 
-	function sproc(docToCreate, addedPropertyName, addedPropertyValue) {
-	    var collectionManager = getContext().getCollection();
-	    collectionManager.createDocument(collectionManager.getSelfLink(), docToCreate,   
-	    function(err, docCreated) {
-	        if(err) throw new Error('Error while creating document: ' + err.message);
-	        
-	        docCreated.addedPropertyName = addedPropertyValue;
-	        getContext().getResponse().setBody(docCreated);
-	    });
-	}
+ 	function HelloWorld() {
+ 	var context = getContext();
+ 	var response = context.getResponse();
+ 	
+        response.setBody("Hello, World");
+     }
 
 The stored procedure can be registered to a collection under MyDb by issuing a POST against /dbs/_rid-db/colls/_rid-coll/sprocs. 
 
-	POST /dbs/MyDb/colls/MyColl/sprocs HTTP/1.1
+	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
 	{
-	  "id": "sproc1",
-	  "body": "function (docToCreate, addedPropertyName, addedPropertyValue) {
-	                var collectionManager = getContext().getCollection();
-	                collectionManager.createDocument(collectionManager.getSelfLink(), 
-	                            docToCreate, function(err, docCreated) {
-	                    if(err) throw new Error('Error while creating document: ' + 
-	                                                     err.message);
-	                    
-	                    docCreated.addedPropertyName = addedPropertyValue;
-	                    getContext().getResponse().setBody(docCreated);
-	                });
-	            }"
+	  "id": "HelloWorld",
+	  "body": "function HelloWorld() {
+	           var context = getContext();
+ 	           var response = context.getResponse();
+ 	           
+ 	           response.setBody("Hello, World");
+        	   }"
 	}
 The DocumentDB service responds with a successful response and a status code indicating successful registration of the stored procedure.  
 
-	[201 Created]
+	HTTP/1.1 201 Created
+	Content-Type: application/json
+	x-ms-request-charge: 4.95
+	...
+
 	{
-	      "id": "sproc1",
-	      "_rid": "EoEi5w==",
-	      "_self": "dbs/MyDb/colls/MyColl/sprocs/sproc1",
-	      "_etag": "\"00002100-0000-0000-0000-50f71fda0000\"",
-	       ...
+	       "body": "function HelloWorld() {
+	           var context = getContext();
+ 	           var response = context.getResponse();
+ 	           
+ 	           response.setBody("Hello, World");
+        	   }",
+	      "id": "HelloWorld"
+	      "_rid": "UoEi5w+upwABAAAAAAAAgA==",
+	      "_ts" :  1421227641
+	      "_self": "dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/",
+	      "_etag": "00002100-0000-0000-0000-50f71fda0000"
 	}
 
 ##Execute a stored procedure using POST
-Finally, to execute the stored procedure in the above example, one needs to issue a POST against the URI of the stored procedure resource (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). This is illustrated in the following code.  
+Finally, to execute the stored procedure in the above example, one needs to issue a POST against the URI of the stored procedure resource (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) as illustrated below.
 
-	POST /dbs/MyDb/colls/MyColl/sprocs/sproc1 HTTP/1.1
-	 [ { "id": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
- 
-
+	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
+	
 The DocumentDB service responds with the following response.  
 
 	HTTP/1.1 200 OK
-	 { 
-	  "id": "TestDocument",  
-	  "_rid": "ZTlcANiwqwIBAAAAAAAAAA==",
-	  "_ts": 1407370063,
-	  "_self": "dbs/ZTlcAA==/colls/ZTlcANiwqwI=/docs/ZTlcANiwqwIBAAAAAAAAAA==/",
-	  "_etag": "00000900-0000-0000-0000-53e2c34f0000",
-	  "_attachments": "attachments/",
-	  "book": "Autumn of the Patriarch", 
-	  "price": 200
-	}
+	
+	"Hello World"
 
 Note that the POST verb is used for creation of a new resource, for executing a stored procedure, and for issuing a SQL query. To illustrate the SQL query execution, consider the following.  
 
-	POST /dbs/MyDb/colls/MyColl/docs HTTP/1.1
+	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	x-ms-documentdb-query-enable-scan: True
+	Content-Type: application/query+json
+	...
 	
-	SELECT * FROM root.children
+	{"query":"SELECT f.LastName AS Name, f.Address.City AS City FROM Families f WHERE f.id='AndersenFamily' OR f.Address.City='NY'"}
 
 The service responds with the results of the SQL query.   
 
 	HTTP/1.1 200 Ok
+	...
 	x-ms-activity-id: 83f9992c-abae-4eb1-b8f0-9f2420c520d2
 	x-ms-item-count: 2
-	x-ms-session-token: 81
-	x-ms-request-charge: 1.43
-	Content-Length: 287
-	
-	{"_rid":"sehcAIE2Qy4=","Documents":[[{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}],[{"familyName":"Merriam","givenName":"Jesse","gender":"female","grade":1},{"familyName":"Miller","givenName":"Lisa","gender":"female","grade":8}]],"count":2}
+	x-ms-session-token: 4
+	x-ms-request-charge: 3.1
+	Content-Type: application/json1
+	...
+	{"_rid":"UoEi5w+upwA=","Documents":[{"Name":"Andersen","City":"Seattle"},{"Name":"Wakefield","City":"NY"}],"_count":2}
+
 
 
 ##Using PUT, GET, and DELETE
 Replacing or reading a resource amounts to issuing PUT (with a valid request body) and GET verbs against the _self link of the resource respectively. Likewise, deleting a resource amounts to issuing a DELETE verb against the _self link of the resource. It is worth pointing out that the hierarchical organization of resources in the DocumentDB’s resource model necessitates the support for cascaded deletes wherein deleting the owner resource causes deletion of the dependent resources. The dependent resources may be distributed across other nodes than the owner resources and so the deletion could happen lazily. Regardless of mechanics of the garbage collection, upon deletion of a resource, the quota is instantly freed up and is available for you to use. Note that the referential integrity is preserved by the system. For instance, you cannot insert a collection to a database which is deleted or replace or query a document of a collection which no longer exists.  
  
-Issuing a GET against a feed of resources or querying a collection may result into potentially millions of items, thus making it impractical for both server to materialize them and clients to consume them as part of a single roundtrip/ request and response exchange. To address this, DocumentDB allows the clients to paginate over the large feed page-at-a-time. The clients can use the [x-ms-continuationToken] response header as a cursor to navigate to the next page.   
+Issuing a GET against a feed of resources or querying a collection may result into potentially millions of items, thus making it impractical for both server to materialize them and clients to consume them as part of a single roundtrip/ request and response exchange. To address this, DocumentDB allows the clients to paginate over the large feed page-at-a-time. The clients can use the [x-ms-continuation] response header as a cursor to navigate to the next page.   
 
 ##Optimistic concurrency control
 Most web applications rely on entity tag based optimistic concurrency control to avoid the infamous “Lost Update” and “Lost Delete” problems. The entity tag is a HTTP friendly, logical timestamp associated with a resource. DocumentDB natively support the optimistic concurrency control by ensuring that every HTTP response contains the version (durably) associated with the specific resource. The concurrency control conflicts are correctly detected for the following cases:  
@@ -213,10 +212,7 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
             </td>
             <td width="150" valign="top">
                 <p>
-                    REST APIs
-                </p>
-                <p>
-                    .NET, JavaScript, Node.js, Python
+                    REST API, .NET, Node.js, Java, Python, JavaScript
                 </p>
             </td>
         </tr>
@@ -252,15 +248,15 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
 Explore the [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481.aspx) to learn more about working with resources using the REST API.
 
 ##References
--   [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
--	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
--	JSON specification  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
--	HTTP specification [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
--	Entity Tags [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Query DocumentDB](documentdb-sql-query.md)
--	[DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
--	[DocumentDB Programming: Stored procedures, triggers, and UDFs](../documentdb-programming/)
--	[DocumentDB Reference Documentation](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
+- [Query DocumentDB](../documentdb-sql-query/)
+- [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+- [DocumentDB Programming: Stored procedures, triggers, and UDFs](../documentdb-programming/)
+- [DocumentDB Reference Documentation](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- JSON specification  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
+- HTTP specification [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+- Entity Tags [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
