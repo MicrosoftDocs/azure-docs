@@ -22,9 +22,9 @@ When you create a new Azure Media Services account, you are also asked to select
 
 When a new storage account is created, Azure generates two 512-bit storage access keys, which are used to authenticate access to your storage account. To keep your storage connections more secure, it is recommended to periodically regenerate and rotate your storage access key. Two access keys (primary and secondary) are provided in order to enable you to maintain connections to the storage account using one access key while you regenerate the other access key. This procedure is also called "rolling access keys".
 
-Media Services has dependency on one of the storage keys. Specifically, the locators that are used to stream or download your assets depend on the access key. By default, the primary storage key is used by Media Services, but you can specify to use either primary or secondary storage key. When rolling storage access keys, you also need to make sure to update your locators so there will no interruption in your streaming service.
+Media Services has dependency on one of the storage keys (primary or secondary). Specifically, the locators that are used to stream or download your assets depend on the access key. When rolling storage access keys, you also need to make sure to update your locators so there will no interruption in your streaming service.
 
->[AZURE.NOTE]Whenever you decide to regenerate a storage key, you must make sure to synchronize the update with Media Services. 
+>[AZURE.NOTE]After you regenerate a storage key, you must make sure to synchronize the update with Media Services. 
 
 This topic describes steps you would take to roll storage keys and update Media Services to use the appropriate storage key. Note, if you have multiple storage accounts, you would perform this procedure with each storage account.
 
@@ -81,7 +81,7 @@ Update Media Services to use the secondary storage access key. You can use one o
 
 After this update existing locators (that have dependency on the old storage key) will still work and you will be able to download or stream using the existing URLs.
 
->[AZURE.NOTE]Wait for 30 minutes before performing any operations using Media Services (for example, creating new locators).
+>[AZURE.NOTE]Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
 
 ##Step 3: Create new locators that will take dependency on the updated secondary storage key
 

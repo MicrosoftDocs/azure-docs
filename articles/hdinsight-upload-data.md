@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
@@ -313,8 +313,8 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: storage-create-storage-account.md
-[azure-azcopy-download]: http://aka.ms/WaCopy
-[azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
+[azure-azcopy-download]: storage-use-azcopy.md
+[azure-azcopy]: storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 

@@ -202,7 +202,7 @@ The following sample JSON can be used to create a linked service named **FolderD
 	    }
 	}
 
-> [ACOM.NOTE] Remember to use the escape character '\' for names of the host and folders in JSON files. For **\\Contoso**, use **\\\\Contoso**.
+> [AZURE.NOTE] Remember to use the escape character '\' for names of the host and folders in JSON files. For **\\Contoso**, use **\\\\Contoso**.
 
 See [On-premises File System Linked Service](https://msdn.microsoft.com/library/dn930836.aspx) for details about JSON elements to define an on-premises file system linked service. 
 
@@ -307,7 +307,7 @@ The following pipeline JSON defines a pipeline with a Copy Activity that copies 
 
 The pipeline in this example copies the content as binary, without any parsing or performing any transformations. Notice that you can leverage **concurrency** to copy slices of files in parallel. This is useful when you want to move the slices already happened in the past.
 
-> [ACOM.NOTE] Concurrent copy activities with the same host via UNC path with different user accounts may lead to errors such as "multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed”. This is the restriction of the operating system for security reasons. Either schedule the copy activities with different gateways, or install the gateway within the host and use “localhost” or “local” instead of UNC path.
+> [AZURE.NOTE] Concurrent copy activities with the same host via UNC path with different user accounts may lead to errors such as "multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed”. This is the restriction of the operating system for security reasons. Either schedule the copy activities with different gateways, or install the gateway within the host and use “localhost” or “local” instead of UNC path.
 
 See [Pipeline JSON reference](https://msdn.microsoft.com/library/dn834988.aspx) for details about JSON elements to define a Data Factory pipeline and [Supported Sources and Sinks](https://msdn.microsoft.com/library/dn894007.aspx) for properties of FileSystemSource and BlobSink.
 

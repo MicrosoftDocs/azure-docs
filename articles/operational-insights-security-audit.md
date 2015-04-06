@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/31/2015"
+   ms.date="04/02/2015"
    ms.author="banders" />
 
 # Explore Operational Insights security and audit data
@@ -32,15 +32,15 @@ In this article, you will:
 2. On the **Overview** page, review information displayed in the **Security and Audit** tile and then click it.
  ![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-dash02.png)
 3. On the **Security and Audit** page, review the information in the **NOTABLE ISSUES** blade. In the example image, you'll see 6 notable issues for today, with 2 from yesterday. In this example, there is 1 suspicious executable. Click **Suspicious Executables** in the **NOTABLE ISSUES** blade.
- ![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-dash03.png)
+ ![Image of the Security and Audit page](./media/operational-insights-security-audit/sec-audit-dash03.png)
 4. Search displays the query and results for the suspicious executable that you clicked. In the example, there is 1 result and its file hash is displayed. Click the **FILEHASH** ID.
- ![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-search01.png) 
+ ![Image of Search results filehash](./media/operational-insights-security-audit/sec-audit-search01.png) 
 5. Search displays additional information about the executable file, including its file path and process name. Click the **Process &lt;file name&gt;**. In the example, this is HEXEDIT.EXE.
-![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-search02.png) 
+![Image of Search results process](./media/operational-insights-security-audit/sec-audit-search02.png) 
 6. Search appends the name of the process in quotations marks to the query. "**HEXEDIT.EXE"**, in this example.
- ![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-search03.png)
+ ![Image of the Search query](./media/operational-insights-security-audit/sec-audit-search03.png)
 7. In the Search query box, remove everything but the process name and quotation marks and then click the Search icon.
- ![Image of the Overview page](./media/operational-insights-security-audit/sec-audit-search04.png)
+ ![Image of detailed search information](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. Search displays detailed information about the process, including the computers where the process ran, the user account that the process ran under, and the date and time that an event was created for the process.
 9. Using the information that you find, you can take corrective action as needed. For example, if you determine that the executable is malware then you'll want to take action to remove it from all the computer systems that it affects. After the executable is removed and Operational Insights receives updated log and audit events for your computer systems, values on the NOTABLE ISSUES blade will change on the following day.
 
@@ -70,7 +70,7 @@ You should also enable AppLocker events, to get rich information about process e
 
 The Windows computing environment gives you the ability to configure the capture-level of security-related records. For example, you can configure your environment so that anytime someone accesses a file, reads a file, or opens a file, an event is generated. The level of detail that you want to collect will vary, depending on your needs. However, every option that you enable comes with some sort of cost because you need to store all the information that you collect. For this reason, in many organization’s IT environments, people decide not to enable object read or object write data collection. Every time someone accesses any file, thousands of events might be generated, some of which are useless noise. The collection level that you decide upon depends on the your best judgment.
 
->[AZURE.NOTE] If you are using the direct agent and you have a proxy server in your organization, you should configure it to allow the agent to access Operational Insights. For more information, see [Configure proxy and firewall settings](operational-insights-proxy-filewall.md).
+>[AZURE.NOTE] If you are using the direct agent and you have a proxy server in your organization, you should configure it to allow the agent to access Operational Insights. For more information, see [Configure proxy and firewall settings](operational-insights-proxy-firewall.md).
 
 ## Best practices for security breach pattern investigations
 
