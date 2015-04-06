@@ -4,7 +4,8 @@
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="guanhu"/>
 
 <tags 
 	ms.service="cloud-services" 

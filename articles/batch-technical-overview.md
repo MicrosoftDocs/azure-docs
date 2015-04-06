@@ -4,7 +4,8 @@
 	services="batch" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="fayora"/>
 
 <tags 
 	ms.service="batch" 

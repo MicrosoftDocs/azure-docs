@@ -4,9 +4,10 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="coreysa"/>
 
-<tags 
+<tags
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="vm-windows" 
