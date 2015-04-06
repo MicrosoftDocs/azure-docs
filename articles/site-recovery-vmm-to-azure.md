@@ -260,7 +260,7 @@ To test your deployment you can run a test failover for a single virtual machine
 
 	![Create recovery plan](./media/site-recovery-vmm-to-azure/ASRE2AVMM_SelectVMRP.png)
 
-After a recovery plan has been created it appears in the **Recovery Plans** tab.
+After a recovery plan has been created it appears in the **Recovery Plans** tab. You can also add [Azure Automation Runbooks](site-recovery-runbook-automation.md) to the recovery plan to automate failover time actions.
 
 ### Run a test failover
 
