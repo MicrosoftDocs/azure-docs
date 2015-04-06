@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="04/08/2015" 
 	ms.author="h0n"/>
 
-#RESTful interactions with DocumentDB resources 
+# RESTful interactions with DocumentDB resources 
 
 DocumentDB supports the use of HTTP methods to create, read, replace, get, and delete DocumentDB resources.
 
@@ -28,7 +28,7 @@ By reading this article, you'll be able to answer the following questions:
 - How does DocumentDB support currency control?
 - What are the connectivity options for HTTPS and TCP?
 
-##Overview of HTTP verbs
+## Overview of HTTP verbs
 DocumentDB resources support the following HTTP verbs with their standard interpretation:
 
 1.	POST means create a new item resource. 
@@ -45,7 +45,7 @@ As illustrated in the following diagram, POST can only be issued against a feed 
 
 **Interaction model using the standard HTTP methods**
 
-##Create a new resource using POST 
+## Create a new resource using POST 
 To get a better feel for the interaction model, let’s consider the case of creating a new resource (aka INSERT). In order to create a new resource you are required to issue an HTTP POST request with the request body containing the representation of the resource against the URI of the container feed the resource belongs to. The only required property for the request is the id of the resource.  
 
 As an example, in order to create a new database, you POST a database resource (by setting the id property with a unique name) against /dbs. Similarly, in order to create a new collection, you POST a collection resource against /dbs/_rid/colls/ and so on. The response contains the fully committed resource with the system generated properties including the _self link of the resource using which you can navigate to other resources. As an example of the simple HTTP based interaction model, a client can issue an HTTP request to create a new database within an account.  
@@ -72,7 +72,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	      "_users": "users/"
 	}
   
-##Register a stored procedure using POST
+## Register a stored procedure using POST
 As another example of creating and executing a resource, consider a simple "HelloWorld" stored procedure written entirely in JavaScript.   
 
  	function HelloWorld() {
@@ -116,7 +116,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	      "_etag": "00002100-0000-0000-0000-50f71fda0000"
 	}
 
-##Execute a stored procedure using POST
+## Execute a stored procedure using POST
 Finally, to execute the stored procedure in the above example, one needs to issue a POST against the URI of the stored procedure resource (/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/) as illustrated below.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
@@ -152,18 +152,18 @@ The service responds with the results of the SQL query.
 
 
 
-##Using PUT, GET, and DELETE
+## Using PUT, GET, and DELETE
 Replacing or reading a resource amounts to issuing PUT (with a valid request body) and GET verbs against the _self link of the resource respectively. Likewise, deleting a resource amounts to issuing a DELETE verb against the _self link of the resource. It is worth pointing out that the hierarchical organization of resources in the DocumentDB’s resource model necessitates the support for cascaded deletes wherein deleting the owner resource causes deletion of the dependent resources. The dependent resources may be distributed across other nodes than the owner resources and so the deletion could happen lazily. Regardless of mechanics of the garbage collection, upon deletion of a resource, the quota is instantly freed up and is available for you to use. Note that the referential integrity is preserved by the system. For instance, you cannot insert a collection to a database which is deleted or replace or query a document of a collection which no longer exists.  
  
 Issuing a GET against a feed of resources or querying a collection may result into potentially millions of items, thus making it impractical for both server to materialize them and clients to consume them as part of a single roundtrip/ request and response exchange. To address this, DocumentDB allows the clients to paginate over the large feed page-at-a-time. The clients can use the [x-ms-continuation] response header as a cursor to navigate to the next page.   
 
-##Optimistic concurrency control
+## Optimistic concurrency control
 Most web applications rely on entity tag based optimistic concurrency control to avoid the infamous “Lost Update” and “Lost Delete” problems. The entity tag is a HTTP friendly, logical timestamp associated with a resource. DocumentDB natively support the optimistic concurrency control by ensuring that every HTTP response contains the version (durably) associated with the specific resource. The concurrency control conflicts are correctly detected for the following cases:  
 
 1.	If two clients simultaneously issue mutating requests (via PUT/ DELETE verbs) on a resource with the latest version of the resource (specified via the [if-match] request header), the DocumentDB database engine subjects them to the transactional concurrency control.
 2.	If a client presents with an older version of the resource (specified via the [if-match] request header), its request is rejected.  
 
-##Connectivity options
+## Connectivity options
 DocumentDB exposes a logical addressing model wherein each resource has a logical and stable URI identified by its _self link. As a distributed storage system spread across regions, the resources under various database accounts in DocumentDB are partitioned across numerous machines and each partition is replicated for high availability. The replicas managing the resources of a given partition register physical addresses. While the physical addresses change over the course of time due to failures, their logical addresses remain stable and constant. The logical to physical address translation is kept in a routing table which is also internally available as a resource. DocumentDB exposes two connectivity modes:  
 
 1.	**Gateway Mode:** The clients are shielded from the translation between logical to physical addresses or the details of the routing; they simply deal with logical URIs and RESTfully navigate the resource model. The clients issue the requests using logical URI and the edge machines translate the logical URI to the physical address of the replica which manages the resource and forwards the request. With the edge machines caching (and periodically refreshing) the routing table, routing is extremely efficient. 
@@ -244,10 +244,10 @@ DocumentDB exposes a logical addressing model wherein each resource has a logica
     </tbody>
 </table>
 
-##Next steps
+## Next steps
 Explore the [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481.aspx) to learn more about working with resources using the REST API.
 
-##References
+## References
 - [Azure DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 - [Query DocumentDB](../documentdb-sql-query/)
 - [DocumentDB SQL Reference](https://msdn.microsoft.com/library/azure/dn782250.aspx)
