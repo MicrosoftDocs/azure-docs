@@ -3,7 +3,7 @@
 	description="This topic describes steps of a typical Media Services Live Streaming workflow." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
