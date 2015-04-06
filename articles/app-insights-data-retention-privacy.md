@@ -125,7 +125,7 @@ Application Insights does not filter or delete your data. You should manage the 
 
 ## Data sent by Application Insights
 
-The SDKs very between platforms, and there are are several components that you can install. (Refer to [Application Insights - get started][start].) Each component sends different data.
+The SDKs vary between platforms, and there are are several components that you can install. (Refer to [Application Insights - get started][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
 
