@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="03/31/2015"
+	ms.date="04/06/2015"
 	ms.author="cherylmc"/>
 
-#Configure a virtual network using a network configuration file
+# Configure a virtual network using a network configuration file
 
-##Overview
+## Overview
 
 To configure your virtual network, you can use the Management Portal wizard, or you can create and import a network configuration file. Azure uses the network configuration file to define your virtual network settings. 
 
@@ -26,7 +26,7 @@ You might prefer to use the Management Portal wizard to initially create your vi
 
 Or, if you want to make changes to your network configuration settings before deploying cloud services or virtual machines to the network, you can export the file, edit it, and then import it back to Azure. You can also use a network configuration file to backup your network configuration settings if you want to recreate your virtual network.
 
-##Creating and modifying a network configuration file 
+## Creating and modifying a network configuration file 
 The easiest way to author a network configuration file is to export the network settings from an existing virtual network configuration, then modify the file to contain the settings that you want to configure for your virtual networks. You can also obtain a sample file and modify it.
 
 To edit the network configuration file, you can simply open the file, make the appropriate changes, and save them. You can use any *xml* editor to make changes to the network configuration file. 
@@ -37,17 +37,17 @@ Azure considers a subnet that has something deployed to it as "in use". When a s
 
 
 
-##Export and import virtual network settings using the Management Portal  
+## Export and import virtual network settings using the Management Portal  
 You can import an export network configuration settings contained in your network configuration file by using PowerShell or the Management Portal. The instructions below will help you export and import using the Management Portal. 
 
-###To export your network settings
+### To export your network settings
 When you export, all of the settings for the virtual networks in your subscription will be written to an .xml file. 
 
 1. Log into the **Management Portal**.
 2. In the Management Portal, on the bottom of the **networks** page, click **Export**. 
 3. On the **Export network configuration** window, verify that you have selected the subscription for which you want to export your network settings. Then, click the checkmark on the lower right. 
 4. When you are prompted, save the *NetworkConfig.xml* file to the location of your choice.
-###To import your network settings
+### To import your network settings
 
 
 1. In the **Management Portal**, in the navigation pane on the bottom left, click **New**.
@@ -56,7 +56,7 @@ When you export, all of the settings for the virtual networks in your subscripti
 4. On the **Building your network** page, you'll see information on the screen showing which sections of your network configuration will be changed or created. If the changes look correct to you, click the checkmark to proceed to update or create your virtual network. 
 
 
-##See Also
+## See Also
 For more information about virtual network, see:
 
 -  [Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
