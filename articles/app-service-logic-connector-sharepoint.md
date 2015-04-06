@@ -3,7 +3,7 @@
    description="Using the SharePoint Connector in your logic app" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
