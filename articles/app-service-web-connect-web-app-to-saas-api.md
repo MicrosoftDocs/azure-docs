@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a business-to-employee multi-channel app" 
+   pageTitle="Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service" 
    description="This tutorial shows you how to consume a SaaS API App from an ASP.NET hosted in Azure App Service Web Apps." 
    services="app-service\web" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="03/24/2015"
    ms.author="cfowler"/>
 
-# Create a business-to-employee multi-channel app
+# Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service
 
 This tutorial shows you how to consume an API App from an ASP.NET hosted in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 

@@ -60,7 +60,7 @@ B2B API Apps can be created using the Azure portal or using REST APIs.
 
 
 ### Create the API Apps using REST APIs
-http://go.microsoft.com/fwlink/p/?LinkId=529766
+[See the documentation on how to use the REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 
 ### Create the B2B API Apps in the Azure Portal
@@ -165,7 +165,7 @@ In the Azure Management Portal, open your TPM API App. In the **Operations** sec
 
 - View Informational and Error events
 - View memory usage and thread count of the worker process (w3wp)
-- View the Application and web server logs\
+- View the Application and web server logs
 
 More at [Monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md).
 

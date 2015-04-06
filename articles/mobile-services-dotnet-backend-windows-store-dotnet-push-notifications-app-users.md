@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/22/2015" 
+	ms.date="03/23/2015" 
 	ms.author="glenga"/>
 
 # Send push notifications to authenticated users

@@ -22,6 +22,13 @@
 
 This tutorial shows you how to create an iOS app with Azure App Service Mobile Apps. You will create a new mobile app backend and a simple _To do list_ app that stores app data. The tutorial uses .NET and Visual Studio for server-side logic.
 
+To complete this tutorial, you need the following:
+
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter mobile app in App Service. No credit cards required; no commitments.
+
 ## <a name="create-new-service"> </a>Create a new mobile app backend
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-preview](../includes/app-service-mobile-dotnet-backend-create-new-service-preview.md)]
@@ -38,7 +45,7 @@ Now that you have created your mobile backend, you can follow an easy quickstart
 
 	This displays steps to create a iOS app connected to your mobile app backend.
 
-3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine.  
+3. If you haven't already done so, download and install <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> on your local computer or virtual machine. 
 
 4. Download and install [Xcode] v4.4 or a later version and [Xamarin Studio]. You can also use Xamarin for Visual Studio.
 

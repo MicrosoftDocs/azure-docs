@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="BizTalk Integration API Apps in Microsoft Azure App Service | Azure" 
 	description="Learn how to create and configure the BizTalk integration API Apps; microservices architecture" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="dwrede" 
@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mandia"/>
+
 
 # BizTalk Integration API Apps in Microsoft Azure App Service
 Microsoft Azure App Service (or App Service for short) includes many BizTalk API Apps that are vital to integration environments. These API Apps are based on concepts and tools used within BizTalk Server, but are now available as part of Azure App Service. 
@@ -122,21 +123,21 @@ The following steps add BizTalk API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 
 ## More Integration API Apps resources
-[Create an EAI Logic App using VETR](app-service-logic-create-EAI-logic-app-using-VETR.md)
-[Transform XML documents](app-service-logic-transform-xml-documents.md)
-[Use BizTalk Rules](app-service-logic-use-biztalk-rules.md)
+[Create an EAI Logic App using VETR](app-service-logic-create-EAI-logic-app-using-VETR.md)<br/>
+[Transform XML documents](app-service-logic-transform-xml-documents.md)<br/>
+[Use BizTalk Rules](app-service-logic-use-biztalk-rules.md)<br/>
 [What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## Read about Logic Apps and Web Apps
-[What are Logic Apps?](app-service-logic-what-are-logic-apps.md) 
+[What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
 [Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
 
 
 ## More Connectors
-[Enterprise connectors](app-service-logic-enterprise-connectors.md)
-[Business-to-Business connectors](app-service-logic-b2b-connectors.md)
-[Social connectors](app-service-logic-social-connectors.md)
-[Protocol connectors](app-service-logic-protocol-connectors.md)
-[App + Data Services connectors](app-service-logic-data-connectors)
+[Enterprise connectors](app-service-logic-enterprise-connectors.md)<br/>
+[Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
+[Social connectors](app-service-logic-social-connectors.md)<br/>
+[Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors)<br/>
 [Connectors and API Apps List](app-service-logic-connectors-list.md)

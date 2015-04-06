@@ -20,7 +20,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
-You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and websites.
+You can use Windows PowerShell to perform a variety of tasks in Azure, either interactively at a command prompt or automatically through scripts. Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform. In most cases, you can use the cmdlets to perform the same tasks that you can perform through the Azure Management Portal. For example, you can create and configure cloud services, virtual machines, virtual networks, and web apps. 
 
 The module is distributed as a downloadable file and the source code is managed through a publicly available repository. A link to the downloadable files is provided in the installation instructions later in this topic. For information about the source code, see [Azure PowerShell code repository](https://github.com/Azure/azure-powershell).
 
@@ -156,29 +156,29 @@ To get your Azure subscriptions, type:
 
 ## <a id="Ex"></a>How to use the cmdlets: An example ##
 
-After you've installed the module and configured your computer to connect to your subscription, you can create an Azure website. This example will get you started using the Azure cmdlets.
+After you've installed the module and configured your computer to connect to your subscription, you can create an Azure web app. This example will get you started using the Azure cmdlets.
 
 1. Start the Azure PowerShell console.
 
-2. Choose a name for your website. Pick a name that conforms to DNS naming conventions. Valid names can contain only letters 'a' through 'z', numbers '0' through '9', and a hyphen ('-').
+2. Choose a name for your web app. Pick a name that conforms to DNS naming conventions. Valid names can contain only letters 'a' through 'z', numbers '0' through '9', and a hyphen ('-'). 
 
-	The website name must be unique in Azure. We'll use "mySite" in this example, but be sure to choose a different name, such as your account name followed by a number.  
+	The web app name must be unique in Azure. We'll use "mySite" in this example, but be sure to choose a different name, such as your account name followed by a number.  
 
-	After you pick a name, type a command similar to the following. Substitute your website name for "mySite".
+	After you pick a name, type a command similar to the following. Substitute your web app name for "mySite".
 
 		New-AzureWebsite mySite
 
-	The cmdlet creates the website and returns an object that represents the new website. The object properties include useful information about the website.
+	The cmdlet creates the web app and returns an object that represents the new web app. The object properties include useful information about the web app.
 
-3. To get information about the website, type this command. It returns a bit of information about all websites in the subscription, including the one that you just created.
+3. To get information about the web app, type this command. It returns a bit of information about all web apps in the subscription, including the one that you just created.
 
 		Get-AzureWebsite
 
-4. To get more information about your website, include the website name in the command. Be sure to substitute the name of your website for "mySite".
+4. To get more information about your web app, include the web app name in the command. Be sure to substitute the name of your web app for "mySite".
 
 		Get-AzureWebsite -Name mySite
 
-5. Websites are started after they are created. To stop the website, type this command, including the name of your website.
+5. Web apps are started after they are created. To stop the web app, type this command, including the name of your web app.
 
 		Stop-AzureWebsite -Name mySite
 
@@ -186,11 +186,11 @@ After you've installed the module and configured your computer to connect to you
 
 		Get-AzureWebsite
 
-7. To complete this test, delete the website. Type:  
+7. To complete this test, delete the web app. Type:  
 
 		Remove-AzureWebsite -Name mySite
 
-7. To complete the task, confirm that the website is deleted.
+7. To complete the task, confirm that the web app is deleted.
 
 		Get-AzureWebsite -Name mySite
 

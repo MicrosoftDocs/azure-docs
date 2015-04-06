@@ -1,7 +1,7 @@
 <properties 
    pageTitle="SAP Connector" 
    description="How to use the SAPConnector" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="harishkragarwal" 
    manager="dwrede" 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Publish an Azure API App" 
-	description="Learn how to publish an Azure API App to the Azure API Apps Gallery using Visual Studio." 
+	pageTitle="Deploy an Azure App Service API App" 
+	description="Learn how to deploy an API App project to your Azure subscription." 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -16,58 +16,108 @@
 	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Publish an API App
+# Deploy an Azure App Service API App
 
 ## Overview
 
-This is the second tutorial in a series of four:
+If you're actively developing your own API app using Visual Studio and need to test your API in the cloud, you can create a new API app in your Azure subscription and deploy your code using Visual Studio's convenient App Service deployment features. 
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you create an Azure API App project and prepare it to be published as an API App in the Azure API Marketplace.
-* In this tutorial you publish the API app you created to the Marketplace, where other application developers can find it and use it in their APIs.
-* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deploy the API app you created to your Azure subscription.
-* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/) you use Visual Studio to remotely debug the code while it runs in Azure.
+This is the second tutorial in a series of three:
 
-## Publish the API App
+1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API App project. 
+* In this tutorial, you will deploy the API app to your Azure subscription.
+* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you will use Visual Studio to remotely debug the code while it runs in Azure.
 
-1. In **Solution Explorer**, right-click the project (not the solution), and then in the context menu click **Publish**. 
+## Deploy the API app 
 
-	![](./media/app-service-dotnet-publish-api-app/12-publish-gesture-v2.png) 
+In **Solution Explorer**, right-click the project (not the solution) and click **Publish...**. 
 
-2. In the **Profile** tab of the **Publish Web** wizard, click **Microsoft Azure API Marketplace**. 
+![Project publish menu option](./media/app-service-dotnet-deploy-api-app/20-publish-gesture-v3.png)
 
-	![](./media/app-service-dotnet-publish-api-app/13-select-api-marketplace.png)
+Click the **Profile** tab and click **Microsoft Azure API Apps (Preview)**. 
 
-3. In the **API App ID** field add some characters to make the ID unique. A red exclamation mark will appear to the right of the field if the ID is not unique. The ID must be at least 8 characters long.
+![Publish Web dialog](./media/app-service-dotnet-deploy-api-app/21-select-api-apps-for-deployment-v2.png)
 
-4. In the **Author** field enter your name.
+Click **New** to provision a new API App in your Azure subscription.
 
-5. In the **Description** field enter a value such as "My first API App.".
+![Select Existing API Services dialog](./media/app-service-dotnet-deploy-api-app/23-publish-to-apiapps-v3.png)
 
-4. Get the **Api Key** value by creating an account at [http://ema-gallery.azurewebsites.net](http://ema-gallery.azurewebsites.net). Once you've created the account, click your profile name in the upper-right corner. The key will be displayed in the Credentials section of the page. Paste this value into the **Api Key** field.
+In the **Create an API App** dialog, enter the following:
 
-5. Click **OK**.
+- Under **API App Name**, enter a name for the app. 
+- If you have multiple Azure subscriptions, select the one you want to use.
+-Under App Service Plan, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
+- Under **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
+- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure Portal.
+- Select a region.  
 
-	![](./media/app-service-dotnet-publish-api-app/17-gallery-publish.png)
+![Configure Microsoft Azure Web App dialog](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog-v3.png)
 
-	You've now provided the basic gallery information so that users can more easily search for and find your API in the API Marketplace.  
+Click **OK** to create the API App in your subscription. The process can take a few minutes, so Visual Studio shows a dialog notifying you that the process has initiated. 
 
-5. If your API code has any app settings or connection strings in the Web.config file, a **Settings** dialog box will provide the opportunity to select which settings portal users will have the ability to customize when they're installing your API from the API Marketplace. Click **OK** on this dialog.
- 
-	![](./media/app-service-dotnet-publish-api-app/16-final-settings-screen.png)
+![API Service Creation Started confirmation message](./media/app-service-dotnet-deploy-api-app/25-api-provisioning-started-v3.png)
 
-7. In the Preview tab of the Publish Web wizard, click **Publish**. 
+The provisioning process creates the resource group and API App in your Azure subscription. Visual Studio shows the progress in the **Azure App Service Activity** window. 
 
-	The API is now packaged as a NuGet package and published into the gallery. When the process completes, Visual Studio displays messages in the **Web Publish Activity** and **Output** windows. 
+![Status notification via the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-provisioning-success-v3.png)
 
-	![](./media/app-service-dotnet-publish-api-app/19-gallery-publish-complete.png)
+Once the API App is provisioned, right-click the project in Solution Explorer and select **Publish** to re-open the publish dialog. The publish profile created in the previous step should be pre-selected. Click **Publish** to begin the deployment process. 
 
-	When the the publish phase completes, the NuGet gallery page for your new package will appear in the browser. 
+![Deploying the API App](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v3.png)
 
-	![](./media/app-service-dotnet-publish-api-app/19.5-gallery-nuget-visibility.png)
+The **Azure App Service Activity** window shows the deployment progress. 
 
+![Status notification of the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
+
+## View the app in the Azure Portal
+
+In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app. With each deployment, the portal will reflect the changes you're making to your API app. 
+
+In your browser, navigate to the [Azure Portal](https://portal.azure.com). 
+
+Click the **Browse** button on the sidebar and select **API Apps**.
+
+![Browse options on Azure portal](./media/app-service-dotnet-deploy-api-app/27-browse-in-portal-v3.png)
+
+Select the API you created from the list of API apps in your subscription.
+
+![API Apps list](./media/app-service-dotnet-deploy-api-app/28-view-api-list-v3.png)
+
+Click **API Definition**. The app's **API Definition** blade shows the list of API operations that you defined when you created the app. 
+
+![API Definition](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
+
+Now go back to the project in Visual Studio. Add the following code to the **ContactsController.cs** file.  
+
+	[HttpPost]
+	public HttpResponseMessage Post([FromBody] Contact contact)
+	{
+		// todo: save the contact somewhere
+		return Request.CreateResponse(HttpStatusCode.Created);
+	}
+
+This code adds a **Post** method that can be used to post new `Contact` instances to the API. 
+
+![Adding the Post method to the controller](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
+
+In **Solution Explorer**, right-click the project and select **Publish**. 
+
+![Project Publish context menu](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+
+Select the **Debug** configuration from **Configuration** drop-down and click **Publish** to redeploy the API app. 
+
+![Publish Web settings](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+
+In the **Preview** tab of the **Publish Web** wizard, click **Publish**.  
+
+![Publish Web dialog](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
+
+Once the publish process has completed, go back to the portal, and close and reopen the **API Definition** blade. You will see the new API endpoint you just created and deployed directly into your Azure subscription.
+
+![API Definition](./media/app-service-dotnet-deploy-api-app/38-portal-with-post-method-v4.png)
 
 ## Next steps
 
-At this point the API has been published into the Gallery and can be installed or deployed by users from the Azure portal. 
+You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly. In the [next tutorial](../app-service-dotnet-remotely-debug-api-app/), you'll see how to debug your API app while it runs in Azure.
 
-In the meantime, you may have other development you need to do, tests you'd like to run, or additional features to add. To make your live testing easier, Visual Studio also provides the functionality for deploying directly to existing API Apps in your subscription, or to provision new API Apps. The [next tutorial](../app-service-dotnet-deploy-api-app/) covers direct provisioning and deployment of your API Apps using Visual Studio. 
+
