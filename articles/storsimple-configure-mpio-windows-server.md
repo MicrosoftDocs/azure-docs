@@ -71,9 +71,9 @@ MPIO needs to be configured to identify StorSimple volumes. To configure MPIO to
 
 4. Reboot the server when prompted.
 5. In the **MPIO Properties** dialog box, click the **MPIO Devices** tab. Click **Add**.
-![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+	</br>![MPIO Properties MPIO Devices](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. In the **Add MPIO Support** dialog box, under **Device Hardware ID**, enter your device serial number.You can get the device serial number by accessing your StorSimple Manager service and navigating to **Devices > Dashboard**. The device serial number is displayed in the right **Quick Glance** pane of the device dashboard.
-![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
+	</br>![Add MPIO Support](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Reboot the server when prompted.
 
 ## Step 3: Mount StorSimple volumes on the host
@@ -134,7 +134,7 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 
 For multi-path based high availability and load balancing, multiple sessions must be manually added to declare the different paths available. For example, if the host has two interfaces connected to SAN and the device has two interfaces connected to SAN, then you need four sessions configured with proper path permutations (only two sessions will be required if each DATA interface and host interface is on a different IP subnet and is not routable).
 
->[AZURE.IMPORTANT] **We recommend that you do notI am  mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
+>[AZURE.IMPORTANT] **We recommend that you do not mix 1 GbE and 10 GbE network interfaces. If you use two network interfaces, both interfaces should be the identical type.**
 
 The following procedure describes how to add sessions when a StorSimple device with two network interfaces is connected to a host with two network interfaces.
 
