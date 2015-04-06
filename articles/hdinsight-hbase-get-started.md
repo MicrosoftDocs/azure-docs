@@ -55,7 +55,7 @@ Before you begin this tutorial, you must have the following:
 
 4. Click the checkmark icon in the lower right to create the HBase cluster.
 
->[WACOM.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob. The new cluster will pick up the HBase tables you created in the original cluster.
+>[AZURE.NOTE] After an HBase cluster is deleted, you can create another HBase cluster by using the same default blob. The new cluster will pick up the HBase tables you created in the original cluster.
 
 ## Create an HBase sample table from the HBase shell
 This section describes how to use the HBase shell to create HBase tables, add rows, and list rows. To access the HBase shell, you must first enable Remote Desktop Protocol (RDP), and then make an RDP connection to the HBase cluster. For instructions, see [Manage Hadoop clusters in HDInsight using the Azure Portal][hdinsight-manage-portal].
