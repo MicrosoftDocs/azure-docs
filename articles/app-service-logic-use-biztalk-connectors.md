@@ -64,6 +64,9 @@ The following articles provide examples of how some of the out of box connectors
 * [Using DropBox connector]
 * [Using Chatter connector]
 * [Using HDInsight connector]
+* [Using Azure Service Bus connector]
+* [Using Oracle connector]
+* [Using SQL connector]
 
 For additional details, please refer to the Connector API Reference [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
@@ -90,5 +93,7 @@ For additional details, please refer to the Connector API Reference [http://aka.
 [Using DropBox connector]: app-service-logic-connector-dropbox.md
 [Using Chatter connector]: app-service-logic-connector-chatter.md
 [Using HDInsight connector]: app-service-logic-connector-hdinsight.md
-
+[Using Azure Service Bus connector]: app-service-logic-connector-azureservicebus.md
+[Using Oracle connector]: app-service-logic-connector-oracle.md
+[Using SQL connector]: app-service-logic-connector-sql.md
 
