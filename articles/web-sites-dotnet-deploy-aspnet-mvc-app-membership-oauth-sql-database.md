@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/06/2015" 
 	ms.author="riande"/> 
 
 
@@ -63,21 +63,17 @@ To set up your development environment, you must install [Visual Studio 2013 Upd
 
 	![New ASP.NET Project dialog box](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newproject.png)
 
-1. The configuration wizard will suggest a unique name based on *ContactManager*. You must decide whether to create a new App Service plan and resource group. For guidance on deciding whether to create a new plan or resource group, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For this tutorial, you will probably want to create at least a new resource group. 
-
-   Select a region near you. You can use [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") to find the lowest latency data center.
-
-   You will set up the database in the next step so do not click **OK** yet.
+1. The configuration wizard will suggest a unique name based on *ContactManager*. You must decide whether to create a new App Service plan and resource group. For guidance on deciding whether to create a new plan or resource group, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For this tutorial, you will probably want to create at least a new resource group. Select a region near you. You can use [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com") to find the lowest latency data center. You will set up the database in the next step so do not click **OK** yet.
 
    ![New plan and resource group](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newplanandgroup.png)
  
 2. If you haven't created a database server before, select **Create new server**, enter a database name, user name, and password.
 
-	![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newdb.png)
+   ![Use new database](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/newdb.png)
 
-   If you have a database server, use that to create a new database. Database servers are a precious resource, and you generally want to create multiple databases on the same server for testing and development rather than creating a database server per database. Make sure your web app and database are in the same region.
+3. If you have a database server, use that to create a new database. Database servers are a precious resource, and you generally want to create multiple databases on the same server for testing and development rather than creating a database server per database. Make sure your web app and database are in the same region.
 
-    ![Configure an Azure web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/useexistingdb.png)
+    ![Use exsiting database](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/useexistingdb.png)
 
 ### Set the page header and footer
 
@@ -589,7 +585,7 @@ In this section you will apply the [Authorize](http://msdn.microsoft.com/library
 
 	Alternatively, from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), you can select the web app, then click the **stop** icon at the bottom of the page.
 
-	![stop web app](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
+	![stop web app portal](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/stopweb.png)
 
 ### Remove AddToRoleAsync, Publish, and Test
 
@@ -634,7 +630,11 @@ If you have not filled out the first and last name of your Google account inform
  
 	![open in SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
  
-**Note:** If you can't expand **SQL Databases** and *can't* see the **ContactDB** from Visual Studio, you will have to follow the instructions below to open a firewall port or a range of ports. Follow the instructions under **Set up Azure firewall rules**. You may have to wait for a few minutes to access the database after adding the firewall rule.
+3. If you haven't connected to this database previously, you may be prompted to add a firewall rule to enable access for your current IP address. The IP address will be pre-filled. Simply, click **Add Firewall Rule** to enable access.
+
+  ![add firewall rule](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/addfirewallrule.png)
+        
+  Then, log in to the database with the user name and password that you specified when creating the database. 
  
 1. Right click on the **AspNetUsers** table and select **View Data**.
 
@@ -650,58 +650,6 @@ If you have not filled out the first and last name of your Google account inform
  
 Verify the **UserId**s are from *user1@contoso.com* and the Google account you registered. 
 
-
-## Set up Azure firewall rules ##
-
-Follow the steps in this section if you can't connect to SQL Azure from Visual Studio or if you get an error dialog stating "Cannot open server".
-
-![firewall error](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
-
-You will need to add your IP address to the allowed IPs.
-
-1. In the Azure Portal, Select **SQL Databases** in the left tab.
-
-	![Select SQL][rx6]
-
-1. Click on the **ContactDB**.
-
-1. Click the **Set up Azure firewall rules for this IP address** link.
-
-	![firewall rules][rx7]
-
-1. When you are prompted with "The current IP address xxx.xxx.xxx.xxx is not included in existing firewall rules. Do you want to update the firewall rules?", click **Yes**. Adding this address is often not enough behind some corporate firewalls, you will need to add a range of IP addresses.
-
-The next step is to add a range of allowed IP addresses.
-
-1. In the Azure Portal, Click **SQL Databases**.
-1. Select the **Servers** tab, and then click on the server you wish to configure.
-
-	![Servers tab in Azure ](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss25.PNG)
-
-1. Click the **Configure** tab.
-
-1. Add a rule name, starting and ending IP addresses.
-
-	![ip range][rx9]
-
-1. At the bottom of the page, click **Save**.
-1. Please leave feedback and let me know if you needed to add a range of IP address to connect.
-
-Finally, you can connect to the SQL Database instance from SQL Server Object Explorer (SSOX)
-
-1. From the View menu, click **SQL Server Object Explorer**.
-1. Right click **SQL Server** and select **Add SQL Server**.
-1. In the **Connect to Server** dialog box, set the **Authentication** to **SQL Server Authentication**. You will get the **Server name** and **Login** from the Azure Portal.
-1. In your browser, navigate to the portal and select **SQL Databases**.
-1. Select the **ContactDB**, and then click **View SQL Database connection strings**.
-1. From the **Connection Strings** page, copy the **Server**  and **User ID**.
- 
-	![con string](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss21.PNG)
-1. Paste the **Server** and **User ID** values into the **Connect to Server** dialog in Visual Studio. The **User ID** value goes into the **Login** entry. Enter the password you used to create the SQL DB.
-
-	![Connect to Server DLG](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
-
-You can now navigate to the Contact DB using the instructions given earlier.
 
 ## Next steps
 

@@ -3,7 +3,7 @@
    description="Using the SharePoint Connector in your logic app" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -151,6 +151,8 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 ##  Triggers
 Use triggers if you want to initiate a logic app 
+
+**NOTE**: Triggers will delete the files after reading them. To preserve these files, please provide a value for the archive location. 
 
 ### 1.	New Document In Shared Documents (JSON)
 This trigger is fired when a new document is available in 'Shared Documents'. 

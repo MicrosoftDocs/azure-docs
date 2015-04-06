@@ -47,7 +47,8 @@ Get started with ...
 </li>
 <li><a href="../articles/app-insights-windows-desktop.md">Windows desktop apps</a>
 </li>
-<li><a href="../articles/app-insights-get-started.md">Web apps</a>
+<li><a href="app-insights-platforms.md#cordova">Cordova</a></li>
+<li><a href="../articles/app-insights-get-started.md">ASP.NET</a>
 </li>
 <li><a href="../articles/app-insights-platforms.md">Other platforms</a>
 </li>
@@ -67,6 +68,8 @@ Performance monitoring
 
 Usage tracking
 <ul>
+
+<li><a href="../articles/app-insights-windows-usage.md">Monitor usage in Windows apps</a></li>
 <li><a href="../articles/app-insights-custom-events-metrics-api.md">Create custom events and metrics with the API</a>
 </li>
 <li><a href="http://msdn.microsoft.com/library/azure/dn887942.aspx">API Reference</a>
@@ -94,7 +97,7 @@ Usage tracking
 [track]: ../articles/app-insights-custom-events-metrics-api.md
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
-[export]: ../articles/app-insights-export-telemetry.md
+[export]: ../articles/app-insights-export-telemetry.md[exportcode]: ../articles/app-insights-code-sample-export-telemetry-sql-database.md
 [azure]: ../articles/insights-perf-analytics.md
 [metrics]: ../articles/app-insights-metrics-explorer.md
 [trace]: ../articles/app-insights-search-diagnostic-logs.md
