@@ -29,41 +29,7 @@ The following diagram shows the major parts of the Media Services platform that 
 
 ![Live workflow][live-overview]
 
-
-##Common Scenarios: Delivering Live Streaming.
-
-###Deliver live streaming media using on-premises encoder
-
-1. Create and start a channel.
-1. Retrieve the channel ingest URL.
-1. Start and configure the live transcoder of your choice.
-1. Retrieve the channel’s preview endpoint and verify that your channel is properly receiving the live stream.
-2. Create an asset.
-1. Configure asset delivery policy (used by dynamic packaging).
-3. Create a program and specify to use the asset that you created.
-1. Publish the asset associated with the program by creating an OnDemand locator.  
-
-	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
-1. Start the program when you are ready to start streaming and archiving.
-1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).  
-
-###Deliver live streaming media that is dynamically encrypted 
-
-To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
-
-1. Same steps as described in the earlier scenario until the step where you create an asset. 
-2. Create an asset that you want to encrypt. 
-1. Create encryption content key for the asset you want to be dynamically encrypted during playback.
-2. Configure content key authorization policy.
-1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
-3. Create a program and specify to use the asset that is configured for dynamic encryption.
-4. Publish the asset associated with the program by creating an OnDemand locator.  
-1. Start the program when you are ready to start streaming and archiving.
-1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).  
-
-This article contains links to topics that show how to set up your development environment and perform tasks mentioned above.
+This topic describes concepts related to live streaming and links to topics that demonstrate how to achieve live streaming tasks.
 
 ##Concepts
 
@@ -89,12 +55,14 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
+
+##Using On-premises Live Encoders to Output Multi-bitrate Stream to a Channel
+
 ##Working with 3rd Party Live Transcoders
 
 For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Managing Channels, Programs, Assets
-
 For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
 
 Choose **Portal**, **.NET**, **REST API** to see examples.
