@@ -71,20 +71,12 @@ The values for EndpointUrl and AuthorizationKey are the URI and PRIMARY KEY for 
 
 ![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
  
-<<<<<<< HEAD
-These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see our [permissions page](documentdb-resources.md/#Permissions).
-=======
 These keys grant administrative access to your DocumentDB account and the resources in it. DocumentDB also supports the use of resource keys that allow clients to read, write, and delete resources in the DocumentDB account according to the permissions you've granted, without the need for an account key. For more information about resource keys, see the [Permissions](documentdb-resources.md#permissions) and [View, copy, and regenerate access keys](documentdb-manage-account.md#keys).
->>>>>>> 1f727771e3a88f543816f421e382ed94542af849
 
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
-<<<<<<< HEAD
-A [database](documentdb-resources.md/#databases) can be created by using the [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) method of the **DocumentClient** class. It is the logical container of document storage partitioned across collections.
-=======
-A [database](documentdb-resources#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections.
->>>>>>> 1f727771e3a88f543816f421e382ed94542af849
+A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. It is the logical container of document storage partitioned across collections.
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -106,12 +98,8 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
   			    Id = "FamilyCollection"
   		    });
     
-##<a id="CreateDoc"></a>Create documents	
-<<<<<<< HEAD
-A [document](documentdb-resources.md/#documents) can be created by using the [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like see how we set up our Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs).
-=======
+##<a id="CreateDoc"></a>Create documents
 A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents.  For the purposes of this example, we'll assume that we have a Family class that describes the attributes of a family such as name, gender, and age. If you'd like see how we set up our Family class, visit our [GitHub repo](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs).
->>>>>>> 1f727771e3a88f543816f421e382ed94542af849
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -248,13 +236,8 @@ To build the GetStarted solution that contains all the samples in this article, 
 To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the GetStarted solution in Solution Explorer, and then click Enable NuGet Package Restore. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect). 
 
 ##<a id="NextSteps"></a>Next steps
-<<<<<<< HEAD
--	Learn how to [monitor a DocumentDB account](https://go.microsoft.com/fwlink/p/?LinkId=402378).
--	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
-=======
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
--	Run queries against our sample dataset in the [Query Playground](http://www.documentdb.com/sql/demo).
->>>>>>> 1f727771e3a88f543816f421e382ed94542af849
+-	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../documentation/services/documentdb/).
 
 
