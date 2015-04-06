@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/02/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
+
+> [AZURE.SELECTOR]
+- [Azure Portal](virtual-machines-windows-tutorial.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial-azure-preview.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 

@@ -357,7 +357,7 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
+> [AZURE.NOTE] See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
 
 ## Security
 This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.

@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="hangzh-msft" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -15,13 +15,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/06/2015" 
 	ms.author="hangzh;bradsev" /> 
 
                 
 # Azure Data Science Process in Action: using HDInsight Hadoop clusters
 
-In this tutorial, you follow the Azure Data Science Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. Models of the data are build to handle a binary classification predictive task and then deployed with Azure Machine Learning.
+In this tutorial, you follow the Azure Data Science Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. Models of the data are built to handle a binary classification predictive task and then deployed with Azure Machine Learning.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset description
@@ -83,61 +83,79 @@ To set up your Azure Data Science environment for this approach that uses Azure 
 
 2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-3. [Provision a Data Science **Windows** Virtual Machine](machine-learning-data-science-setup-virtual-machine.md).
+3. [Provision a Data Science **Windows** Virtual Machine (**Optional** for this walkthrough)](machine-learning-data-science-setup-virtual-machine.md).
 
-	> [AZURE.NOTE] The sample scripts will be downloaded to your Data Science virtual machine during the virtual machine setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library located at *C:\Users\<user_name>\Documents\Data Science Scripts*  This sample folders is referred to as **Sample Scripts** below. The sample Hive queries are contained in files with the .hql extension in the **Sample Scripts** folder. Note that the *<user_name>* referred to in the path to this folder is your VM's Windows login name, not your Azure username.
+	> [AZURE.NOTE] The sample scripts will be downloaded to your Data Science virtual machine during the virtual machine setup process. When the VM post-installation script completes, the samples will be in your VM's Documents library located at *C:\Users\<user_name>\Documents\Data Science Scripts*  This sample folders is referred to as **Sample Scripts** below. The sample Hive queries are contained in files with the .hql extension in the **Sample Scripts** folder. Note that the *<user_name\>* referred in the path to this folder is your VM's Windows login name, not your Azure username.
 
 4. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md). This step will create an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. After the customized Hadoop cluster is created, enable remote access to the head node of the Hadoop cluster in the Azure portal using the procedure outlined in this customization topic.
 
+In the remainder of this walkthrough, word "machine" refers to the computer where you carry out the steps. The computer can be a virtual machine on Azure, or your own local computer. 
 
 ## <a name="getdata"></a>Get the data from a public source
 
-To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your new virtual machine.
+In this and next steps, you need to have **AzCopy** installed on your machine in order to transfer files between your machine and Azure blobs storage. If AzCopy is not installed, please click on [this link](http://aka.ms/downloadazcopy) to download the installer and install it. We also assume that you install it in the path `"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`, which is the default installation path for Windows machines. If you are using the  virtual machine provisioned by following the instructions in [Provision a Data Science **Windows** Virtual Machine](machine-learning-data-science-setup-virtual-machine.md), AzCopy has already been installed. 
+
+To get the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset from its public location, you may use any of the methods described in [Move Data to and from Azure Blob Storage](machine-learning-data-science-move-azure-blob.md) to copy the data to your machine.
 
 To copy the data using AzCopy:
 
-1. Log in to your virtual machine (VM)
+1. Log in to your machine
 
-2. Create a new directory in the VM's data disk (Note: Do not use the Temporary Disk which comes with the VM as a Data Disk).
+2. Create a new directory in the machine's data disk (Note: If it is a virtual machine, do not use the Temporary Disk which comes with the virtual machine as a Data Disk).
 
 3. From a Command Prompt window, run the following AzCopy commands, replacing <path_to_data_folder> with the path to your data folder created in (2):
 
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxitrip /Dest:<path_to_data_folder> /S
-
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://getgoing.blob.core.windows.net/nyctaxifare /Dest:<path_to_data_folder> /S
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
 	When the AzCopy completes, a total of 24 zipped CSV files (12 for trip\_data and 12 for trip\_fare) should be in the data folder.
+	
+	>[AZURE.NOTE] *Source:https://nyctaxitrips.blob.core.windows.net/data* specify a public Azure container that is used to share the zipped NYC Taxi data with users. Reading from this public Azure container does not require an access key. 
 
-	>[AZURE.NOTE] *Source:https://getgoing.blob.core.windows.net/nyctaxitrip* and *Source:https://getgoing.blob.core.windows.net/nyctaxifare* specify two public Azure containers that are used to share the unzipped NYC Taxi data with users. Reading from these two public Azure containers does not require an access key. 
+4. **Unzip** the downloaded files to the **same** directory on your machine. Note the folder where the uncompressed files reside. This folder will be referred to as the <path\_to\_unzipped_data\_files\>.
+
 
 ## <a name="upload"></a>Upload the data to the default container of Azure HDInsight Hadoop cluster
 
-From a Command Prompt or a Windows PowerShell window in your virtual machine, run the following AzCopy command, replacing the following parameters with the values that you specified when creating the Hadoop cluster. So replace:
+From a Command Prompt or a Windows PowerShell window in your machine, run the following AzCopy command, replacing the following parameters with the values that you specified when creating the Hadoop cluster. So replace:
 
 * ***&#60;path_to_data_folder>*** with the data folder you created in the previous section 
 * ***&#60;storage account name of Hadoop cluster>*** with the storage account used by your cluster
 * ***&#60;default container of Hadoop cluster>*** with the default container used by your cluster
 * ***&#60;storage account key>*** with the key for the storage account used by your cluster
 
-Note that if ***nyctaxitripraw*** or ***nyctaxifareraw*** referenced in this command do not exist, they will be created in the container. 
+Note that if ***nyctaxitripraw*** or ***nyctaxifareraw*** referenced in this command do not exist, they will be created in the container. Please keep in mind that you need to upload the trip data and the fare data to two ***different*** directories ***nyctaxitripraw*** and ***nyctaxifareraw***, respectively. Otherwise, the future step of loading data to Hive tables "trip" and "fare" will not load data correctly. 
 
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_data_folder> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+This command will upload the trip data to ***nyctaxitripraw*** directory in the default container of the Hadoop cluster.
+
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+
+This command will upload the fare data to ***nyctaxifareraw*** directory in the default container of the Hadoop cluster.
 		
-		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_data_folder> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+
+## <a name="#download-hql-files"></a>Log in to the head node of Hadoop cluster and download .hql files to C:\temp 
+
+To access and run the Hive queries used in this walkthrough, [log on to the head node of the Hadoop cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode). In this walkthrough, some long Hive queries are stored in .hql files, you need to download these .hql files from the [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) repository to a local directory (C:\temp in this walkthrough) in the head node. In the head node of the Hadoop cluster, open the **Command Prompt**, and run the following two commands:
+
+	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
+
+	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
+
+These two commands will download all .hql files needed in this walkthrough to the local directory ***C:\temp&#92;*** in the head node. 
 
 ## <a name="#hive-db-tables"></a>Create Hive database and tables partitioned by month
 
-To access and run the Hive queries used in this walkthrough, log into the head node of the Hadoop cluster, open the Hadoop Command Line on the desktop of the head node, and enter the Hive directory by entering the command
+In the head node of the Hadoop cluster, open the ***Hadoop Command Line*** on the desktop of the head node, and enter the Hive directory by entering the command
 
     cd %hive_home%\bin
 
 If you need any additional assistance with these procedures or alternative ones, see the section [Submit Hive queries directly from the Hadoop Command Line ](machine-learning-data-science-process-hive-tables.md#submit). 
 
-If you have created an Azure virtual machine by following the instructions [Set up the Azure Data Science Environment](#setup), the example Hive queries should have already been downloaded to your virtual machine in the **Sample Scripts** folder. Alternatively, users can check out the .hql files from [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). 
+Enter the following command in Hadoop Command Line of the head node to submit the Hive query to create Hive database and tables:
+	
+	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-In order to submit the Hive queries in .hql files, you need to transfer the .hql files to a local directory in the head node of the Hadoop cluster. In the following examples, we assume that the .hql files have been transferred to ***C:\temp&#92;*** directory in the head node.
-
-Here is the content of the ***C:\temp\sample_hive_create_db_and_tables.hql*** file which creates Hive database ***nyctaxidb*** and tables ***trip*** and ***fare***.
+Here is the content of the ***C:\temp\sample\_hive\_create\_db\_and\_tables.hql*** file which creates Hive database ***nyctaxidb*** and tables ***trip*** and ***fare***.
 
 	create database if not exists nyctaxidb;
 
@@ -178,20 +196,16 @@ Here is the content of the ***C:\temp\sample_hive_create_db_and_tables.hql*** fi
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
 	STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
 
-Enter the following command in Hadoop Command Line of the head node to submit these Hive queries:
-	
-	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
-
 
 ## <a name="#load-data"></a>Load Data to tables by partitions
 Run the following PowerShell commands in Hadoop Command Line to load data to the Hive tables by partitioned by month:
 
 	for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-Here is content of the *sample_hive_load_data_by_partitions.hql* file for inspection.
+Here is content of the *sample\_hive\_load\_data\_by\_partitions.hql* file for inspection.
 
 	LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
-	LOAD DATA INPATH 'wasb:///nyctaxifareraw/fare_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
+	LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
 ### <a name="#show-db"></a>Show databases in HDInsight Hadoop cluster
 
@@ -237,11 +251,11 @@ Run the following command in Hadoop Command Line console to view the number of r
 
 ### Exploration: Trip distribution by medallion
 
-This example identifies the medallion (taxi numbers) with more than 100 trips within a given time period. The query benefits from the partitioned table access since it is conditioned by the partition variable **month**. 
+This example identifies the medallion (taxi numbers) with more than 100 trips within a given time period. The query benefits from the partitioned table access since it is conditioned by the partition variable **month**. The query results are written to a local file queryoutput.tsv in `C:\temp` on the head node.
 
-	hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql"
+	hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-Here is the content of *sample_hive_trip_count_by_medallion.hql* file for inspection.
+Here is the content of *sample\_hive\_trip\_count\_by\_medallion.hql* file for inspection.
 
 	SELECT medallion, COUNT(*) as med_count
 	FROM nyctaxidb.fare
@@ -254,9 +268,11 @@ Here is the content of *sample_hive_trip_count_by_medallion.hql* file for inspec
 
 Here is an example of grouping by multiple columns of the table, in this case by the medallion and hack_license columns. Run the following command from Hadoop Command Line console:
 
-	hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql"
+	hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
-Here is the content of *sample_hive_trip_count_by_medallion_license.hql* file for inspection.
+The query results are written to a local file queryoutput.tsv in `C:\temp` on the head node.
+
+Here is the content of *sample\_hive\_trip\_count\_by\_medallion\_license.hql* file for inspection.
 	
     SELECT medallion, hack_license, COUNT(*) as trip_count
 	FROM nyctaxidb.fare
@@ -275,16 +291,14 @@ Run the following command from Hadoop Command Line console:
 
 The *-S* argument included in this command suppresses the status screen printout of the Hive Map/Reduce jobs. This is useful because it makes the screen print of the Hive query output more readable. 
 
-Here is the content of *sample_hive_quality_assessment.hql* file for inspection.
+Here is the content of *sample\_hive\_quality\_assessment.hql* file for inspection.
 
     	SELECT COUNT(*) FROM nyctaxidb.trip
     	WHERE month=1
-    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND 90
-    	OR    CAST(pickup_latitude AS float) NOT BETWEEN -90 AND 90
-	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND 90
-	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN -90 AND 90
-	    OR    (pickup_longitude = '0' AND pickup_latitude = '0')
-	    OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'));
+    	AND  (CAST(pickup_longitude AS float) NOT BETWEEN -90 AND -30
+    	OR    CAST(pickup_latitude AS float) NOT BETWEEN 30 AND 90
+	    OR    CAST(dropoff_longitude AS float) NOT BETWEEN -90 AND -30
+	    OR    CAST(dropoff_latitude AS float) NOT BETWEEN 30 AND 90);
 
 ### Exploration: Frequencies of tipped and not tipped trips
 
@@ -294,7 +308,7 @@ Run the following command from Hadoop Command Line console:
 
 	hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
-Here is the content of *sample_hive_tipped_frequencies.hql* file for inspection.
+Here is the content of *sample\_hive\_tipped\_frequencies.hql* file for inspection.
 
     SELECT tipped, COUNT(*) AS tip_freq 
     FROM 
@@ -312,7 +326,7 @@ Run the following command from Hadoop Command Line console:
 
 	hive -f "C:\temp\sample_hive_tip_range_frequencies.hql"
 
-Here is the content of *sample_hive_tip_range_frequencies.hql* for inspection.
+Here is the content of *sample\_hive\_tip\_range\_frequencies.hql* for inspection.
 
 	SELECT tip_class, COUNT(*) AS tip_freq 
     FROM 
@@ -329,16 +343,21 @@ Here is the content of *sample_hive_tip_range_frequencies.hql* for inspection.
 
 This example computes the direct trip distance (in miles). The example limits the results to valid coordinates only using the data quality assessment query covered earlier.
 
-Run the following command from Hadoop Command Line console:
+Run the following commands from Hadoop Command Line console:
+
+	hdfs dfs -mkdir wasb:///queryoutputdir
 
 	hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
-Here is the content of *sample_hive_trip_direct_distance.hql* file for inspection.
+The first command is a Hadoop command which creates a blob directory in the default container of the Hadoop cluster. This command is necessary since otherwise the second command will fail by complaining that the directory `queryoutputdir` cannot be found. In the *sample_hive_trip_direct_distance.hql* file, you can also specify any other existing blob directory within the default container of the Hadoop cluster. 
+
+Here is the content of *sample\_hive\_trip\_direct\_distance.hql* file for inspection.
 
     set R=3959;
     set pi=radians(180);
 	
 	insert overwrite directory 'wasb:///queryoutputdir'
+
     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
         ${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
         *${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
@@ -353,7 +372,7 @@ Here is the content of *sample_hive_trip_direct_distance.hql* file for inspectio
         and dropoff_longitude between -90 and -30
         and dropoff_latitude between 30 and 90;
 
-After the query completes, the results are written into an Azure blob ***queryoutputdir/000000_0*** under the default container of the Hadoop cluster. If you use the Azure Storage Explorer, you should be able to see this blob in the default container of the Hadoop cluster, as shown in the following figure.
+After the query completes, the results are written into 9 Azure blobs ***queryoutputdir/000000_0*** to  ***queryoutputdir/000008_0*** under the default container of the Hadoop cluster. If you use the Azure Storage Explorer, you should be able to see these blobs in the default container of the Hadoop cluster, as shown in the following figure.
 
 ![Create workspace][2]
 
@@ -365,15 +384,20 @@ After the query completes, you can use the Azure SDK to read the query output fr
 
 The query provided in this section joins the **nyctaxidb.trip** and **nyctaxidb.fare** tables, generates a binary classification label **tipped** and a multi-class classification label **tip\_class**. This query can be copied then pasted directly into the [Azure Machine Learning Studio](https://studio.azureml.net) Reader module for direct data ingestion from the **Hive Query** in Azure. This query also excludes records with incorrect latitude and/or longitude coordinates.
 
-This query applies Hive embedded UDFs directly to generate several features from Hive records, including the hour, week of year, and weekday (1 stands for Monday, and 7 stands for Sunday) of the field _pickup_datetime_. Users can refer to [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) for a complete list of embedded Hive UDFs.
+This query applies Hive embedded UDFs directly to generate several features from Hive records, including the hour, week of year, weekday (1 stands for Monday, and 7 stands for Sunday) of the field _pickup_datetime_, and the direct distance between the pickup and dropoff locations. Users can refer to [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) for a complete list of embedded Hive UDFs.
 
 This query also down-samples the data so that the query results can fit in the Azure Machine Learning Studio. Only about 1% is imported into the Studio.
 
 Submit the query by running the following command from Hadoop Command Line console:
 
-	hive -f "C:\temp\sample_hive_prepare_for_aml.hql"
+	hive -f "C:\temp\sample_hive_prepare_for_aml.hql" > C:\temp\queryoutput.tsv
 
-Here is the content of *sample_hive_prepare_for_aml.hql* file for inspection.
+The query results are written to a local file queryoutput.tsv in `C:\temp` on the head node.
+
+Here is the content of *sample\_hive\_prepare\_for\_aml.hql* file for inspection.
+
+	set R=3959;
+    set pi=radians(180);
 	
     select 
         t.medallion, 
@@ -393,6 +417,7 @@ Here is the content of *sample_hive_prepare_for_aml.hql* file for inspection.
         t.pickup_latitude,
         t.dropoff_longitude,
         t.dropoff_latitude,
+		t.direct_distance,
         f.payment_type, 
         f.fare_amount, 
         f.surcharge, 
@@ -421,12 +446,18 @@ Here is the content of *sample_hive_prepare_for_aml.hql* file for inspection.
             pickup_latitude,
             dropoff_longitude,
             dropoff_latitude,
+			${hiveconf:R}*2*2*atan((1-sqrt(1-pow(sin((dropoff_latitude-pickup_latitude)
+        		*${hiveconf:pi}/180/2),2)-cos(pickup_latitude*${hiveconf:pi}/180)
+        		*cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
+        		/sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
+        		+cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*
+        		pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance,
             rand() as sample_key 
         from nyctaxidb.trip
-        where pickup_latitude between 30 and 60
-            and pickup_longitude between -90 and -60
-            and dropoff_latitude between 30 and 60
-            and dropoff_longitude between -90 and -60
+        where pickup_latitude between 30 and 90
+            and pickup_longitude between -90 and -30
+            and dropoff_latitude between 30 and 90
+            and dropoff_longitude between -90 and -30
     )t
     join
     (
@@ -486,7 +517,7 @@ In this exercise, we have already explored and engineered the data in Hive (step
 
 2. Select **Hive Query** as the **Data source** in the **Properties** panel.
 
-3. Enter the HDInsight Hadoop cluster information as follows. The **Azure storage account name** has to be the storage account that is used to create the HDInsight Hadoop cluster, and **Azure container name** has to be the default container of the Hadoop cluster. 
+3. Enter the HDInsight Hadoop cluster information as follows. The **Azure storage account name** has to be the storage account that is used to create the HDInsight Hadoop cluster, and **Azure container name** has to be the default container of the Hadoop cluster. The ***Hadoop user account name*** and the ***Hadoop user account password*** should be the ***Cluster*** user name and password, respectively, not the ***head node*** remote access user name and password. 
 
 	![Create workspace][11]
 
@@ -538,6 +569,7 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 •	[Andrés Monroy NYC Taxi Trips Download Page](http://www.andresmh.com/nyctaxitrips/)  
 •	[FOILing NYC’s Taxi Trip Data by Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
 •	[NYC Taxi and Limousine Commission Research and Statistics](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
 [11]: ./media/machine-learning-data-science-process-hive-walkthrough/hive-reader-properties.png

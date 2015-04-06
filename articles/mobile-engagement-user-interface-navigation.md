@@ -1,56 +1,56 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Navigation" 
-   description="User Interface Overview for the Navigation section of Azure Mobile Engagement" 
+   description="Lean how to navigate the user interface of the Azure Mobile Engagement portal" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - User Interface
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" class="current" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
-# Navigation
- 
+# How to navigate the user interface
 The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ contains the following navigation elements: a header, a footer, a sidebar, cookie crumb navigation, and an app-specific ribbon.
  
 ![Navigation1][1] 
 
-## Header:
+## Header
 - **Azure Mobile Engagement (Logo)** – The Home page of your Azure Mobile Engagement App
 - **Your Name** – My Account Profile
 - **Documentation** – [Azure Mobile Engagement Documentation][Link 10]
 - **Sign Out** – Sign Out of Azure Mobile Engagement
  
-## Footer:
+## Footer
 - **Terms of Service** [http://azure.microsoft.com/support/legal/](http://azure.microsoft.com/support/legal/)
 - **Privacy & Cookies** [http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx](http://www.microsoft.com/privacystatement/OnlineServices/Default.aspx)
  
-## Cookie Crumb:
+## Cookie Crumb
 - Navigate quickly to the previous pages that lead to your current location.
  
-## Ribbon:
+## Ribbon
 - [Analytics][Link 15]
 - [Monitor][Link 16]
 - [Reach][Link 17]
@@ -79,20 +79,20 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -120,9 +120,9 @@ The UI Frontend Portal at: https://YourApp.portal.mobileengagementwindows.net/ c
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
+[Link 1]: ../mobile-engagement-user-interface/
+[Link 2]: ../mobile-engagement-troubleshooting-guide/
+[Link 3]: ../mobile-engagement-how-tos/
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555

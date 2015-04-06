@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Code sample: process telemetry exported from Application Insights" 
+	pageTitle="Code sample: export telemetry to SQL Database from Application Insights" 
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,22 +15,22 @@
 	ms.date="03/30/2015" 
 	ms.author="awills"/>
  
-# Code sample: process telemetry exported from Application Insights 
+# Code sample: export telemetry to SQL Database from Application Insights
 
 
 If you’d like to use your own code to analyze telemetry from [Visual Studio Application Insights][start], set up [Continuous Export][export]. This feature pipes your telemetry into Azure Storage. There you can read it or write code to process it in any way you like. Here we’ll walk through the complete process of setting up the export, and show you how to write code to move the telemetry into a SQL database.
 
 We’ll have to do a few things before we write the code:
 
-* Set up Application Insights for the application we’re monitoring
+* Add Application Insights SDK to the application we’re monitoring
 * Create some Azure Storage to receive the continuous export
 * Switch on continuous export
 * Create a SQL database
 * Then we can write the code to move the telemetry from Storage into the SQL database
 
-## Set up Application Insights
+## Add Application Insights SDK
 
-To monitor your application, you [add an Application Insights SDK][start] to your application. There are different SDKs and helper tools for different platforms, IDEs and languages. You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds. All the SDKs send telemetry to the [Application Insights portal][portal], where you can use our powerful analysis and diagnostic tools, or export the data to storage.
+To monitor your application, you [add an Application Insights SDK][start] to your application. There are different SDKs and helper tools for different platforms, IDEs and languages. You can monitor web pages, Java or ASP.NET web servers, and mobile devices of several kinds. All the SDKs send telemetry to the [Application Insights portal][portal], where you can use our powerful analysis and diagnostic tools, and export the data to storage.
 
 To get started:
 
@@ -76,7 +76,7 @@ And also, the data will export to your storage, where you can inspect the conten
 
 ![](./media/app-insights-export-code-sample-process-telemetry/087-explorer.png)
 
-The content of the blobs is JSON. So we’d like to write some code to read that content and parse it. There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database. That will make it easy to run lots of interesting queries.
+The events are written to blob files in JSON format. Each file may contain one or more events. So we’d like to write some code to read that content and parse it. There are all kinds of things we could do with the data, but our plan today is to write some code to move the data to a SQL database. That will make it easy to run lots of interesting queries.
 
 ## Create an Azure SQL Database
 
@@ -91,33 +91,46 @@ Make sure that the database server allows access to Azure services:
 ![](./media/app-insights-export-code-sample-process-telemetry/100-sqlaccess.png)
 
 
-## Parsing the blobs
+## Code to move events to SQL
 
-Now we can write some code to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we’ll run the code in an Azure worker role.
+Now we can write [some code](https://sesitai.codeplex.com/) to parse the JSON in the exported blobs, and create records in the database. Since the export store and the database are both in Azure, we’ll run the code in an Azure worker role.
 
 1.	In Visual Studio, create a new project for the worker role:
     ![](./media/app-insights-export-code-sample-process-telemetry/110-cloud.png)
 
     ![](./media/app-insights-export-code-sample-process-telemetry/120-worker.png)
 
-1.	Configure the worker role settings with the Storage account connection string:
+Configure the worker role settings with the Storage account connection string:
 
 
-    ![](./media/app-insights-export-code-sample-process-telemetry/130-connection-string.png)
+![](./media/app-insights-export-code-sample-process-telemetry/130-connection-string.png)
 
-2.	In Solution Explorer, right-click your Worker Role project and choose Manage NuGet Packages.
+
+#### Packages
+
+In Solution Explorer, right-click your Worker Role project and choose Manage NuGet Packages.
 Search for and install these packages: 
+
  * EntityFramework 6.1.2 or later - We’ll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
  * JsonFx -	We’ll use this for flattening the JSON to C# class properties.
 
+Also add:
 
-## Code
+ * [JSON C# class generator](http://jsonclassgenerator.codeplex.com/)
+
 
 #### Imports
 
     using Microsoft.WindowsAzure.Storage;
 
     using Microsoft.WindowsAzure.Storage.Blob;
+
+#### Retrieve the storage connection string
+
+    private static string GetConnectionString()
+    {
+      return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnection-String");
+    }
 
 #### Replacement for the worker role Run method
 
