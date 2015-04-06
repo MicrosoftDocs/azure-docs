@@ -20,7 +20,7 @@
 
 This topic provides you with step-by-step instructions to create the Base Configuration test environment in a Microsoft Azure Virtual Network, using computers running Windows Server 2012 R2. You can use the resulting test environment:
 
-- For Application development and testing.
+- For application development and testing.
 - The [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
 - And extend it with additional virtual machines and Azure services for a test environment of your own design.
  
@@ -245,7 +245,7 @@ This is your final configuration.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png) 
 
-Your base configuration in Azure is now ready for experimentation and additional test environments, such as the [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
+Your base configuration in Azure is now ready for application developement and testing or for additional test environments, such as the [simulated hybrid cloud environment](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md). 
 
 ## Additional Resources
 
