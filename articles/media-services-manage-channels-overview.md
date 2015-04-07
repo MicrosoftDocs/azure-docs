@@ -24,7 +24,7 @@ In Azure Media Services (AMS), a **Channel** represents a pipeline for processin
 
 When working with Live Streaming, one of the components that is involved in the workflow is a live video encoder that converts signals from the camera to streams that are sent to a live streaming service. A **Channel** can receive live input streams from an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. You can use the following live encoders that output Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. The live encoder can also ingest a single bitrate stream, but since the stream is not processed, the client applications will also receive a single bitrate stream (this option is not recommended). Once the received content is published, it can be streamed to client playback applications through one or more **Streaming Endpoint**s. The following adaptive streaming protocols can be used to play the stream: HLS,  MPEG DASH, Smooth Stream,HDS. 
 
-A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved units for applications in production environment. For more information, see  [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
+A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
 The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
 
@@ -77,9 +77,9 @@ Media Services supports ingesting live feeds using the following streaming proto
 
 	When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
 	
-	**Primary URL**: Specifies the fully qualified URL of channel's primary RTMP ingest endpoint.
+	**Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
 
-	**Secondary URL**(optional): Specifies the fully qualified URL of channel's secondary RTMP ingest endpoint. 
+	**Secondary URL**(optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
 
 	Use the secondary URL to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance. 
 	
@@ -99,10 +99,10 @@ For information about RTMP live encoders, see [Azure Media Services RTMP Support
 
 The following considerations apply:
 
-- Make sure you have sufficient free internet connectivity to send data to the ingest points. 
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels aka layers is 10, and maximum of 5 audio tracks.
-- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
-- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
+- Make sure you have sufficient free Internet connectivity to send data to the ingest points. 
+- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (aka layers), and a maximum of 5 audio tracks.
+- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps.
+- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps.
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 
 
@@ -116,7 +116,7 @@ You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream ov
 
 ###<a id="keyframe_interval"></a>Keyframe interval
 
-When using an on-premise live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
+When using an on-premises live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
 
 The following table shows how the segment duration is being calculated:
 
@@ -140,7 +140,7 @@ If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Servi
 
 You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’). 
 
-If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
+If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 ##Channel preview 
 
@@ -189,7 +189,7 @@ If you do want to retain the archived content, but not have it available for str
 The current state of channel. Possible values include:
 
 - Stopped. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- Starting. Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- Starting. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
 - Running. The Channel is capable of processing live streams.
 - Stopping. The channel is being stopped. No updates or streaming is allowed during this state.
 - Deleting. The Channel is being deleted. No updates or streaming is allowed during this state. 
@@ -207,7 +207,7 @@ The following table demonstrates supported closed captioning and ad insertion st
 
 ##Considerations
 
-When using an on-premise live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
+When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
 
 - Make sure you have sufficient free internet connectivity to send data to the ingest points. 
 - The incoming multi-bitrate stream can have a maximum of 10 video quality levels aka layers is 10, and maximum of 5 audio tracks.
