@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Set up a web-based LOB application in a hybrid cloud for testing" 
 	description="Learn how to create a web-based, line of business application in a hybrid cloud environment for IT pro or development testing." 
-	services="virtual-machines" 
+	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-network" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 

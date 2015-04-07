@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Set up a SharePoint intranet farm in a hybrid cloud for testing" 
 	description="Learn how to create a SharePoint intranet farm in a hybrid cloud environment for development or IT pro testing." 
-	services="virtual-machines" 
+	services="virtual-network" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
+	ms.service="virtual-network" 
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
