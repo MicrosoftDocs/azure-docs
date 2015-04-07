@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,8 +22,9 @@
 
 
 <!-- What is being changed this time?:
-GeneMi , 2015-April-02 Thursday 20:11pm
-Feedbacks from PMs Sonia Parchani, Keith Elmore, Eric Kang.
+GeneMi , 2015-April-06 Monday 18:54pm
+
+Adding near end the important remark that V11 db remains available during upgrade to V12, per customer feedback in WhatsNew topic. The duplicate content about Cautions during upgrade in WhatsNew are being deleted from WhatsNew and replaced by a pointer to here.
 -->
 
 
@@ -214,13 +215,18 @@ The following scenario explains that a deleted V11 Azure SQL database can be res
 5. You can switch the database to any supported service tier, if S0 is not your preference.
 
 
-
 ## Failure resolution
+
 
 If the upgrade fails for any odd reason, your V11 database remains active and available as normal.
 
 
+> [AZURE.NOTE]
+> The pre-V12 database *remains available* for data access during the upgrade to V12.
+
+
 ## Related links
+
 
 - Microsoft Azure [Preview features](http://azure.microsoft.com/services/preview/)
 
