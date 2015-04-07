@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Application Lifecycle"
-   description="Azure Service Fabric Application Lifecycle"
+   pageTitle="Azure Service Fabric Application Life-cycle"
+   description="Azure Service Fabric Application Life-cycle"
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/31/2015"
+   ms.date="04/6/2015"
    ms.author="ryanwi"/>
 
 
-# Application lifecycle
-Similar to other platforms, an application on Service Fabric usually goes through the following phases: design, development, test, deployment, upgrade, maintenance, and removal. Service Fabric provides first class support for the full application lifecycle of cloud applications: from development to deployment, to daily management, to maintenance, and to eventual decommissioning. The service model enables several different roles to participate independently in the application lifecycle. This article provides an overview of the APIs used by the different roles throughout the phases of the Service Fabric application lifecycle.
+# Service Fabric application life-cycle
+Similar to other platforms, an application on Service Fabric usually goes through the following phases: design, development, test, deployment, upgrade, maintenance, and removal. Service Fabric provides first class support for the full application life-cycle of cloud applications: from development to deployment, to daily management, to maintenance, and to eventual decommissioning. The service model enables several different roles to participate independently in the application life-cycle. This article provides an overview of the APIs used by the different roles throughout the phases of the Service Fabric application lifecycle.
 
 ## Service model roles
 The service model roles are:
 
 - **Service Developer**- Develops modular and generic services that can be re-purposed and used in multiple applications of the same type or different types. For example, a queue service can be used for creating a ticketing application (helpdesk) or an e-commerce application (shopping cart).
  
-- **Application Developer**- Creates applications by integrating a collection of services to satisfy certain specific requirements or scenarios. For example, an e-commerce website might integrate “JSON Stateless Frontend Service,” “Auction Stateful Service,” and “Queue Stateful Service” to build an auctioning solution.
+- **Application Developer**- Creates applications by integrating a collection of services to satisfy certain specific requirements or scenarios. For example, an e-commerce website might integrate “JSON Stateless Front-end Service,” “Auction Stateful Service,” and “Queue Stateful Service” to build an auctioning solution.
  
 - **Application Administrator**- Makes decisions on the application configuration (filling in the configuration template parameters), deployment (mapping to available resources), and quality of service. For example, an application administrator decides the language locale (English for US or Japanese for Japan, for example) of the application. Another deployed application can have different settings.
  
