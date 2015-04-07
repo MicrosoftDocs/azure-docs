@@ -2,7 +2,7 @@
 	pageTitle="Learn how to secure access to data in DocumentDB | Azure" 
 	description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
 	documentationCenter=""/>

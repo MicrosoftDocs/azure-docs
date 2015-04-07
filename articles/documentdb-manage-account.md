@@ -3,7 +3,7 @@
 	description="Learn how to manage your DocumentDB account." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="stephbaron" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 

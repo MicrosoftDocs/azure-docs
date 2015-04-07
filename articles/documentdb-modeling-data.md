@@ -2,7 +2,7 @@
 	pageTitle="Modeling data in Azure DocumentDB" 
 	description="Learn how to model data for a NoSQL document database like Azure DocumentDB." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="mimig1" 
 	documentationCenter=""/>

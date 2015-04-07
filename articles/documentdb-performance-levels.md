@@ -2,7 +2,7 @@
 	pageTitle="Performance levels in DocumentDB | Azure" 
 	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="johnfmacintyre" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
