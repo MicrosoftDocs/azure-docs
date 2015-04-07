@@ -98,7 +98,7 @@ The following table describes the scalability targets for Premium Storage accoun
 <th>Total Bandwidth for a Locally Redundant Premium Storage Account</th>
 <tr>
 <td><ul>
-<li>Disk capacity: 32 TB</li>
+<li>Disk capacity: 35 TB</li>
 <li>Snapshot capacity: 10 TB</li>
 </td>
 <td>Up to 50 gigabits per second for Inbound + Outbound</td>
