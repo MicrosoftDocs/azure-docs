@@ -3,7 +3,7 @@
 	description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within your NoSQL document database account." 
 	services="documentdb" 
 	documentationCenter=".net" 
-	authors="mimig1" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
