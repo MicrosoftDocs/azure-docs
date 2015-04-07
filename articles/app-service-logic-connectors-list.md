@@ -42,11 +42,6 @@ The following table lists all the available connectors and API Apps created by M
 </tr>
 
 <tr>
-<td>Azure Mobile Services</td>
-<td>Azure Mobile Services brings together a set of Azure services that enable back-end capabilities for mobile apps. Using this connector, you can connect to Azure Mobile Services and can create, update, get, delete entries, and make custom API calls on a table.</td>
-</tr>
-
-<tr>
 <td>Azure Service Bus</td>
 <td>Azure Service Bus is a generic, cloud-based messaging system for connecting just about anything. It enables the exchange of messages in a loosely coupled way for improved scale and reliability. Using this connector, you can send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.</td>
 </tr>
@@ -156,11 +151,6 @@ The following table lists all the available connectors and API Apps created by M
 <tr>
 <td>Marketo</td>
 <td>Marketo develops marketing automation software that provides inbound marketing, social marketing, CRM, and other related services. The Marketo Connector connects to Marketo and can Create/Update Leads, Get Lead Changes, Schedule Campaign, Request Campaign, Get Leads, Get Campaigns/List info, Add Leads to List, and Remove Leads from List.</td>
-</tr>
-
-<tr>
-<td>MongoDB</td>
-<td>The MongoDB connector connects to Mongo Server Database (cloud or on-premises) and create, update, get, and delete entries on a MongoDB collection.</td>
 </tr>
 
 <tr>
