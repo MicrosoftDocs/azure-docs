@@ -22,7 +22,7 @@ An **App Service plan** represents a set of features and capacity that you can s
 
 In this article we'll explore the key characteristics such as tier and scale of an App Service plan and how they come into play while managing your apps.
 
-##Apps, and App Service plan
+##Apps, and App Service plans
 
 An app in App Service can be associated with only one App Service plan at any given time. 
 
@@ -46,27 +46,25 @@ Having the capacity to move apps across plans also allows you to change the way 
  
 Finally, if you want to create a new app in a different region, and that region doesn't have an existing plan, you will have to create a new plan in that region to be able to host your app there.
 
-##App Service Plan F.A.Q.
+## Create an App Service plan
 
-**Question**: How do I create an App Service plan?
-
-**Answer**: You can't create an empty App Service plan, however, a new plan is can be explicitly created during app creation.
+You can't create an empty App Service plan. However, you can explicitly create a new plan during app creation.
 
 To do this in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. You can then select or create the App Service plan for the new app.
  
 ![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
 
-**Question**: How do I assign an app to an **App Service Plan**?
+##Assign an app to an App Service plan
 
-**Answer**: Apps can be assigned to an existing plan during the creation process.
+Apps can be assigned to an existing plan during the creation process.
 
 To do this in the [Azure Portal](http://portal.azure.com), click **NEW**, then select **Web + mobile**, then select **Web Apps**, **Mobile Apps**, **Logic Apps** or **API Apps**. You can then select or create the App Service plan for the new app. Clicking **Or select existing** will give you the list of existing plan you can choose from.
 
 ![App Service Plan F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
  
-**Question**: How can I move an app to a different App Service plan?
+## Move an app to a different App Service plan
 
-**Answer**: You can move an app to a different app service plan in the [Azure Portal](http://portal.azure.com). Apps can be moved between plans in the same geographical region.
+You can move an app to a different app service plan in the [Azure Portal](http://portal.azure.com). Apps can be moved between plans in the same geographical region.
 
 To move an app to another plan, navigate to the app you want to move, then click **Change App Service Plan**.
  
@@ -76,9 +74,9 @@ This will open the App Service Plan blade. At this point, you can either pick an
 
 Note that each plan has its own pricing tier. When you move a site from a **Free** tier to a **Standard** tier, your app will be able to leverage all the features and resources of the **Standard** tier.
 
-**Question**: How can I Scale an App Service plan?
+## Scale an App Service plan
 
-**Answer**: There are three ways to scale a plan:
+There are three ways to scale a plan:
 
 - Change the plan’s **pricing tier**. For example, a plan in the **Basic** tier can be converted into a **Standard** or **Premium** tier and all apps associated with that plan will be able to leverage the features offered in the new service tier.
 - Change the plan’s **instance size**, as an example a plan in the **Basic** tier using **small** instances can be changed to use **large** instances. All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance size.
