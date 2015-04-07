@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="04/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -21,8 +21,8 @@
 
 
 <!--
-GeneMi , 2015-March-09 Monday 15:15pm
-Voice, per J.G.
+GeneMi , 2015-April-06 Monday 18:33pm
+Cautions During Upgrade: changes requested by PM Sonia Parchani.
 -->
 
 
@@ -187,82 +187,7 @@ For the latest pricing details about V12 see [SQL Database Pricing](http://azure
 ## Cautions for the V12 preview
 
 
-Be aware of the following cautions regarding upgrade and post-upgrade to SQL Database V12.
-
-
-### Preview portal for V12
-
-
-Only the first of the following two Azure management portals supports V12 databases:
-
-
-- [http://portal.azure.com/](http://portal.azure.com/)
- - This newer portal is at preview status and is not yet at General Availability (GA).<br/><br/>
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)
- - This older portal will not be updated to support V12.
-
-
-We encourage you to connect to your SQL Database databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
-
-
-- To run a Transact-SQL statement.
-- To design a schema.
-- To develop a database, either online or offline.
-
-
-You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
-
-
-In the older Azure management portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
-
-
-For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
-
-
-### Cautions *during* upgrade to V12
-
-
-> [AZURE.NOTE]
-> The pre-V12 database *remains available* for data access during the upgrade to V12.
-
-
-- For databases larger than 50 GB, the upgrade to V12 can take up to 24 hours.
-- During the upgrade of a database to a Azure SQL Database V12 server, you cannot perform the following actions on the server until the upgrade completes:
- - Create a new database.
- - Copy a database to the server.
- - Restore a deleted database.
- - Restore a database to a point in time.
- - Geo-replication.
-- From the moment an upgrade to V12 completes, the system needs several minutes to update the domain name system (DNS) entry to your V12 database. Your client application can connect to your database after the DNS update occurs.
-- The Web and Business service pricing tier is not supported on V12. Nor will it be supported in any future version.
-
-
-### Cautions *after* upgrade to V12
-
-
-- Any database that is upgraded in-place to the V12 cannot be reverted back to the earlier version.
-
-
-### Export and import *after* upgrade to V12
-
-
-You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
-
-
-- SQL Server Management Studio (SSMS) 2014
-- Visual Studio 2013
-- Data-Tier Application Framework (DacFx)
-
-
-However, to use the tools, you must first install their latest updates to ensure they support the new V12 features:
-
-
-- [Cumulative Update 6 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3031047)
-- [February 2015 Update for SQL Server Database Tooling in Visual Studio 2013](https://msdn.microsoft.com/data/hh297027)
-- [February 2015 Data-Tier Application Framework (DacFx) for Azure SQL Database V12](http://www.microsoft.com/download/details.aspx?id=45886)
-
-
-> [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
+There are important things to know about limitations during and after an upgrade of your V11 database to V12. You can read the details at this link to a [midpoint](sql-database-preview-plan-prepare-upgrade.md#limitations) in the *Plan and prepare to upgrade to SQL Database V12* topic.
 
 
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
