@@ -37,7 +37,7 @@ This tutorial requires the following:
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps. 
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 <!--
 ##<a id="register"></a>Enable Apple Push Notification Service
@@ -172,7 +172,7 @@ This section shows you how to make sure your app connects to the Mobile Engageme
 
 5. If it worked, you should now see 1 session in the monitor! 
 
-**Congratulations!** You suceeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
+**Congratulations!** You succeeded the first step of this tutorial and have an app that connects to the Mobile Engagement backend, and that is already sending data
 
 6. Clicking the Home button of the simulator will bring back the number of sessions in the monitor back to 0 as shown above
 
@@ -259,7 +259,7 @@ You're all set, now we will verify that you have correctly done this basic integ
 
 ##<a id="send"></a>How to send a notification to your app
 
-We will now create a simple Push Notification campaign that will send a puh to our app:
+We will now create a simple Push Notification campaign that will send a push to our app:
 
 1. Navigate to the Reach tab in your Mobile Engagement portal
 

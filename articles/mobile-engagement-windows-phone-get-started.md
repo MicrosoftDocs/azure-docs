@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 	
 # Get Started with Azure Mobile Engagement for Windows Phone Silverlight Apps
@@ -34,7 +34,7 @@ This tutorial requires the following:
 + Visual Studio 2013
 + The [Mobile Engagement Windows Phone SDK]
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Phone Silverlight apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Phone Silverlight apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Phone Silverlight App
 

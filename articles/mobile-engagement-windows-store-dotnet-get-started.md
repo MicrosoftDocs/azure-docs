@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Engagement for Windows Universal Apps" 
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Windows Universal Apps."
 	services="mobile-engagement" 
-	documentationCenter="windows" 
+	documentationCenter="mobile" 
 	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
@@ -32,7 +32,7 @@ This tutorial requires the following:
 + Visual Studio 2013
 + The [Mobile Engagement Windows Universal SDK]
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Universal Apps. To complete it - you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Windows Universal Apps. To complete it - you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 ##<a id="setup-azme"></a>Setup Mobile Engagement for your Windows Universal App
 
@@ -53,7 +53,7 @@ This tutorial requires the following:
 	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.
 	- **Collection Name**: This represents your group of applications. It will also ensure all your apps are in a group that will allow aggregated calculations of metrics. You should use your company name or department here if applicable.
 
-	>[AZURE.TIP] If your Universal App is going to target both Windows and Windows Phone platform then you should still create two Mobile Engagement Applications one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform. 
+	> [AZURE.TIP] If your Universal App is going to target both Windows and Windows Phone platform then you should still create two Mobile Engagement Applications one for each supported platforms. This is to ensure that you are able to create proper segmentation of the audience and are able to send appropriately targeted notifications for each platform. 
 
 4. Select the app you just created in the **Applications** tab.
 

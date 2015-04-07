@@ -11,14 +11,14 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight Reach SDK Integration
 
-You must follow the integration procedure described in the [Windows Phone Silverlight Engagement SDK Integration](mobile-engagement-windows-phone-integrate-engagement) before following this guide.
+You must follow the integration procedure described in the [Windows Phone Silverlight Engagement SDK Integration](mobile-engagement-windows-phone-integrate-engagement.md) before following this guide.
 
 ##Embed the Engagement Reach SDK into your Windows Phone Silverlight project
 

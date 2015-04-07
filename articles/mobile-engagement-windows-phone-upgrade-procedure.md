@@ -11,9 +11,9 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK Upgrade Procedures
