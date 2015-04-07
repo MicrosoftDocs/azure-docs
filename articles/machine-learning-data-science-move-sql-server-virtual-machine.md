@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/07/2015" 
-	ms.author="fashah,garye" /> 
+	ms.author="fashah;garye;mohabib" /> 
 
 #Move data to SQL Server on Azure
 
