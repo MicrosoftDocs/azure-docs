@@ -22,7 +22,7 @@ This guide shows you how to get started using [Microsoft Azure DocumentDB](https
 
 The scenarios covered in this article include creating and configuring a DocumentDB account, creating databases, creating collections, and storing JSON documents within the account. Each of these samples are part of a complete solution available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). You can [download the solution](#GetSolution) to view the sample code in context, or you can just review the samples in this article.
 
-## <a name="_Toc395637760"></a>Prerequisites
+## <a name="Prequisites"></a>Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following:
 
@@ -60,7 +60,7 @@ Next, a **DocumentClient** can be instantiated using the DocumentDB account endp
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
 
-Let's now create a new asynchronous task called *GetStartedDemo* in your class. Within this new task, create your Document Client.
+Let's now create a new asynchronous task called *GetStartedDemo* in your class. Within this new task, create and set up your Document Client.
 	private static async Task GetStartedDemo()
     {
 		// Create a new instance of the DocumentClient.
@@ -92,7 +92,7 @@ These keys grant administrative access to your DocumentDB account and the resour
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
-A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. It is the logical container of document storage partitioned across collections. Create your new database in your *GetStartedDemo* method after your Document Client creation.
+A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Create your new database in your *GetStartedDemo* method after your Document Client creation.
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -115,8 +115,8 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
   		    });
     
 ##<a id="CreateDoc"></a>Create documents
-A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents. First,
-we need to create a *Parent*, *Child*, *Pet*, *Address*, and *Family* class. Create these classes by adding the following sub-classes. 
+A [document](documentdb-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. The collection created in the previous step has a number of properties, one of which is the [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) property.  With that information, we can now insert one or more documents. 
+First, we need to create a *Parent*, *Child*, *Pet*, *Address* and *Family* class. Create these classes by adding the following internal sub-classes. 
 
     internal sealed class Parent
     {
@@ -156,7 +156,7 @@ we need to create a *Parent*, *Child*, *Pet*, *Address*, and *Family* class. Cre
         public bool IsRegistered { get; set; }
     }
 
-Next, create your documents within your *GetStartedDemo* method.
+Next, create your documents within your *GetStartedDemo* async method.
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -287,9 +287,146 @@ Deleting the created database will remove the database and all children resource
 
 ##<a id="Run"></a>Run your application!
 
-You are now ready to run your application. You should see these results:
+You are now ready to run your application. At the end of your *Main* method, add the following line of code:
 
-> [AZURE.NOTE] If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use. In order to avoid this, you can check to see if a database, collection, or document with the same id exists. For a reference on how this can be achieved, visit our [GitHub page](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
+	Console.ReadLine();
+
+This will let you read the Console output before the application finishes running.
+
+You should see the following results:
+
+	Read {
+	  "id": "AndersenFamily",
+	  "LastName": "Andersen",
+	  "Parents": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Thomas"
+		},
+    	{
+		  "FamilyName": null,
+		  "FirstName": "Mary Kay"
+		}
+	  ],
+	  "Children": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Henriette Thaulow",
+		  "Gender": "female",
+		  "Grade": 5,
+		  "Pets": [
+			{
+			  "GivenName": "Fluffy"
+			}
+		  ]
+		}
+	  ],
+	  "Address": {
+		"State": "WA",
+		"County": "King",
+		"City": "Seattle"
+	  },
+	  "IsRegistered": true,
+	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+	  "_ts": 1428372205,
+	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_attachments": "attachments/"
+	} from SQL
+	Read {
+	  "id": "AndersenFamily",
+	  "LastName": "Andersen",
+	  "Parents": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Thomas"
+		},
+		{
+		  "FamilyName": null,
+		  "FirstName": "Mary Kay"
+		}
+	  ],
+	  "Children": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Henriette Thaulow",
+		  "Gender": "female",
+		  "Grade": 5,
+		  "Pets": [
+			{
+			  "GivenName": "Fluffy"
+			}
+		  ]
+		}
+	  ],
+	  "Address": {
+		"State": "WA",
+		"County": "King",
+		"City": "Seattle"
+	  },
+	  "IsRegistered": true,
+	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+	  "_ts": 1428372205,
+	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_attachments": "attachments/"
+	} from LINQ
+	Read {
+	  "id": "AndersenFamily",
+	  "LastName": "Andersen",
+	  "Parents": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Thomas"
+		},
+		{
+		  "FamilyName": null,
+		  "FirstName": "Mary Kay"
+		}
+	  ],
+	  "Children": [
+		{
+		  "FamilyName": null,
+		  "FirstName": "Henriette Thaulow",
+		  "Gender": "female",
+		  "Grade": 5,
+		  "Pets": [
+			{
+			  "GivenName": "Fluffy"
+			}
+		  ]
+		}
+	  ],
+	  "Address": {
+		"State": "WA",
+		"County": "King",
+		"City": "Seattle"
+	  },
+	  "IsRegistered": true,
+	  "_rid": "ybVlALUoqAEBAAAAAAAAAA==",
+	  "_ts": 1428372205,
+	  "_self": "dbs/ybVlAA==/colls/ybVlALUoqAE=/docs/ybVlALUoqAEBAAAAAAAAAA==/",
+	  "_etag": "\"0000400c-0000-0000-0000-55233aed0000\"",
+	  "_attachments": "attachments/"
+	} from LINQ query
+	{
+	  "id": "AndersenFamily",
+ 	  "child": "Henriette Thaulow"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Jesse"
+	}
+	{
+	  "id": "WakefieldFamily",
+	  "child": "Lisa"
+	}
+	{ family = AndersenFamily, child = Henriette Thaulow }
+	{ family = WakefieldFamily, child = Jesse }
+	{ family = WakefieldFamily, child = Lisa }
+
+
+> [AZURE.NOTE] If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use. To avoid this, you can check to see if a database, collection, or document with the same id already exists. For a reference on how this can be achieved, visit our [GitHub page](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 	
 ##<a id="GetSolution"></a>Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
