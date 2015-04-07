@@ -95,9 +95,9 @@ To try this poll trigger
 
 1. Deploy the API App as public anonymous.
 2. Call the **touch** operation to touch a file. Below is a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.png)
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
 3. Call the poll trigger with triggerState set to a time stamp prior to step 2 to see the result. Below is a sample request via Postman.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.png)
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### Push trigger
 
@@ -201,17 +201,17 @@ To try this push trigger
 1. Deploy the API App as public anonymous.
 2. Go to http://requestb.in/ to create a RequestBin which will serve as your callback URL.
 3. Call the push trigger with a GUID as **triggerId** and the RequestBin URL as **callbackUrl**.
-   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.png)
+   ![Call Push Trigger via Postman](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
 4. Call the **touch** operation to touch a file. Below is a sample request via Postman.
-   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.png)
+   ![Call Touch Operation via Postman](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
 5. Check your RequestBin to see that the push trigger callback is invoked with property output.
-   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.png)
+   ![Call Poll Trigger via Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### Describe triggers in API Definition
 
 After implementing the triggers and deploy your API App to Azure, navigate to the **API Definition** blade in Azure portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API App.
 
-![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.png)
+![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
 If you click the **Download Swagger** button and open the JSON file, you'll see something like this.
 
@@ -249,11 +249,11 @@ Following is the convention used by API App gateway:
 
 Now if you create an Logic App in the same resource group, you will be able to see this API App show up on the right side list. Click it to add it to the designer canvas. Then you should see something like this.
 
-![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.png)
+![Triggers in Logic App Designer](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
-![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.png)
+![Configure Poll Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepolltriggerinlogicappdesigner.PNG)
 
-![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.png)
+![Configure Push Trigger in Logic App Designer](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ### Optimize API app triggers for Logic apps
 
