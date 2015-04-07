@@ -36,7 +36,8 @@ When you create a PHP web app in the Azure Portal, you have three options:
 - **Create with database** - see [Create a PHP-MySQL web app in Azure App Service and deploy using Git] 
 - **From the Marketplace** - see [Create a WordPress web app in Azure App Service]
 
-<h2><a name="XplatTools"></a>Create a PHP web app using the Azure Command Line Tools for Mac and Linux</h2>
+<a name="XplatTools"></a>
+## Create a PHP web app using the Azure Command Line Tools for Mac and Linux
 
 To create a PHP web app using the Azure Command Line Tools for Mac and Linux do the following:
 
@@ -56,7 +57,8 @@ Note that you can execute the `azure site create` command with any of the follow
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
 * `--git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-<h2><a name="PowerShell"></a>Create a PHP web app using the Azure PowerShell cmdlets</h2>
+<a name="PowerShell"></a>
+## Create a PHP web app using the Azure PowerShell cmdlets
 
 To create a PHP web app using the Azure PowerShell cmdlets, do the following:
 
@@ -76,7 +78,8 @@ Note that you can execute the `New-AzureWebsite` command with any of the followi
 * `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
 * `-Git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-<h2><a name="NextSteps"></a>Next steps</h2>
+<a name="NextSteps"></a>
+## Next steps
 
 Now that you have created a PHP web app in Azure App Service, you can manage, configure, monitor, deploy to, and scale your app. For more information, see the following links:
 

@@ -3,7 +3,7 @@
 	description="Learn how App Service plans for Azure App Service work, and how they benefit your management experience." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="btardif" 
+	authors="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
