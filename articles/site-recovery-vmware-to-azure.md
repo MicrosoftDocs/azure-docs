@@ -426,7 +426,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![Add virtual machines](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
 
-3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts.
+3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts. The scripts when recovering to Azure can be added by using [Azure Automation Runbooks](site-recovery-runbook-automation.md).
 
 	![Customize recovery plan](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
 
