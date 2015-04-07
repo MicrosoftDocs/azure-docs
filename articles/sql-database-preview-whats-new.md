@@ -181,7 +181,7 @@ Version numbers like V12 refer to the value returned by the following Transact-S
 - 12.0.2000.8 *(or a bit higher, V12)*
 
 
-For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database/).
+For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
 
 
 ## Cautions for the V12 preview
