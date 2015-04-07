@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Business-to-Business Connectors and API Apps in Microsoft Azure App Service | Azure" 
 	description="Learn how to create and configure EDI, EDIFACT, AS2, and TPM connectors; microservices architecture" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="03/31/2015" 
 	ms.author="mandia"/>
 
 # Business-to-Business Connectors and API Apps in Microsoft Azure App Service
@@ -107,7 +107,7 @@ Name | Enter any name for the AS2 connector. For example, you can name it *AS2Co
 Package Settings | Enter the settings specific to that API App, like the TPM Instance name. <br/><br/>See [Add AS2 Package Settings](#AddAS2Conn) in this topic for the specific properties. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. [Using resource groups](../azure-preview-portal-using-resource-groups) explains this property. 
+Resource Group | Create a new one or use an existing group. [Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).
@@ -136,7 +136,7 @@ Name | Enter any name for the B2B API App. For example, you can name it *EDI850A
 Package Settings | Enter the settings specific to that API App, like the TPM Instance name. <br/><br/>See [X12 or EDIFACT Package Settings](#AddX12) in this topic for the specific properties. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. [Using resource groups](../azure-preview-portal-using-resource-groups) explains this property. 
+Resource Group | Create a new one or use an existing group. [Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).
@@ -196,12 +196,12 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 [Creating a B2B process](app-service-logic-create-a-b2b-process.md)<br/>
 [Creating a Trading Partner Agreement](app-service-logic-create-a-trading-partner-agreement.md)<br/>
-[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)<br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)
 
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)<br/>
+[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
 
 
 ## More Connectors
@@ -209,5 +209,6 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 [Enterprise connectors](app-service-logic-enterprise-connectors.md)<br/>
 [Social connectors](app-service-logic-social-connectors.md)<br/>
 [Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
-[App + Data Services connectors](app-service-logic-data-connectors)<br/>
-[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/>
+[App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Key Vault | Overview" 
 	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure." 
-	services="Key-Vault" 
+	services="key-vault" 
 	documentationCenter="" 
 	authors="cabailey" 
 	manager="mbaldwin"/>
@@ -26,7 +26,7 @@ Use this tutorial to help you get started with Azure Key Vault—currently in Pr
 >
 >During the Preview period, you cannot configure Azure Key Vault in the Azure Management Portal. Instead, use these Azure PowerShell instructions.
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault-whatis)
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites 
 

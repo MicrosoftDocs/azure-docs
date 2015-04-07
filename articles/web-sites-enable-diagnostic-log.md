@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/29/2015" 
 	ms.author="cephalin"/>
 
 # Enable diagnostics logging for web apps in Azure App Service
@@ -22,7 +22,7 @@
 
 Azure provides built-in diagnostics to assist with debugging a web app hosted in an [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [AZURE.NOTE] This article uses the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
+> [AZURE.NOTE] This article uses the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 
@@ -44,7 +44,7 @@ Application diagnostics allow you to capture information produced by a web appli
 
 Application diagnostics allows you to troubleshoot your running application by emitting information when certain pieces of code are used. This is most useful when you are trying to determine why a specific path is being taken by the code, usually when the path results in an error or other undesirable behavior.
 
-For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](../troubleshoot-web-sites-in-visual-studio/).
+For information on working with Application Diagnostics using Visual Studio, see [Troubleshooting Azure web apps in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 > [AZURE.NOTE] Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
 
@@ -117,11 +117,24 @@ This will save the logs for the web app named 'webappname' to a file named **dia
 
 > [AZURE.NOTE] If you have not installed the Azure Command-Line Tools, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Tools](xplat-cli.md).
 
+## How to: View logs in Application Insights
+
+Visual Studio Application Insights provides tools for filtering and searching logs, and for correlating the logs with requests and other events.
+
+1. Add the Application Insights SDK to your project in Visual Studio. 
+ * In Solution Explorer, right click your project and choose Add Application Insights. You'll be guided through steps that include creating an Application Insights resource. [Learn more](app-insights-start-monitoring-app-health-usage.md)
+2. Add the Trace Listener package to your project.
+ * Right click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](app-insights-asp-net-trace-logs.md)
+3. Upload your project and run it to generate log data.
+4. In [the Azure portal](http://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](app-insights-diagnostic-search.md)
+
+[Learn more about performance tracking with Application Insights](insights-perf-analytics.md)
+
 ##<a name="streamlogs"></a> How to: Stream logs
 
 While developing an application, it is often useful to see logging information in near-real time. This can be accomplished by streaming logging information to your development environment using either Azure PowerShell or the Azure Command-Line Tools.
 
-> [AZURE.NOTE] Some types of logging buffer writes to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
+> [AZURE.NOTE] Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
 
 > [AZURE.NOTE] Log streaming will also stream information written to any text file stored in the **D:\\home\\LogFiles\\** folder.
 

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/03/2015" 
+	ms.date="03/27/2015" 
 	ms.author="awills"/>
  
 # Exploring Metrics in Application Insights
@@ -115,11 +115,21 @@ In particular, notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
+## Save your metrics blade
+
+When you've created some charts, save them as a favorite. You can choose whether to share it with other team members, if you use an organizational account.
+
+![](./media/app-insights-metrics-explorer/21-favorite-save.png)
+
+To see the blade again, **go to the overview blade** and open Favorites:
+
+![](./media/app-insights-metrics-explorer/22-favorite-get.png)
+
+If you chose Relative time range when you saved, the blade will be updated with the latest metrics. If you chose Absolute time range, it will show the same data every time.
+
 ## Reset the blade
 
-When you click on a chart, for example on the overview blade, it opens a relevant set of charts and grids to show you more detail.
-
-If, after your edits, you'd like to get back to that default set, just click Reset.
+If you edit a blade but then you'd like to get back to the original saved set, just click Reset.
 
 ![In the buttons at the top of Metric Explorer](./media/app-insights-metrics-explorer/17-reset.png)
 

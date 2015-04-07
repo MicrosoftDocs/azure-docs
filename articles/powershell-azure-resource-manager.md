@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="04/03/2015" 
 	ms.author="tomfitz"/>
 
 # Using Windows PowerShell with Resource Manager #
@@ -48,7 +48,7 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 	Get-Help Add-AzureAccount -Detailed
 
 ## About the Azure PowerShell Modules
-Beginning in version 0.8.0, the Azure PowerShell installation includes several Windows PowerShell modules. The Azure and Azure Resource Manager modules are not designed to be used in the same Windows PowerShell session. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
+Beginning in version 0.8.0, the Azure PowerShell installation includes more than one PowerShell module. You must explicitly decide whether to use the commands that are available in the Azure module or the Azure Resource Manager module. To make it easy to switch between them, we have added a new cmdlet, **Switch-AzureMode**, to the Azure Profile module.
 
 When you use Azure PowerShell, the cmdlets in the Azure module are imported by default. To switch to the Azure Resource Manager module, use the Switch-AzureMode cmdlet. It removes the Azure module from your session and imports the Azure Resource Manager and Azure Profile modules.
 
@@ -290,83 +290,50 @@ When you enter the command, you are prompted for the missing mandatory parameter
 	(Type !? for Help.)
 	administratorLoginPassword: **********
 
-**New-AzureResourcGroup** returns the resource group that it created and deployed. Here is the output of the command, including the verbose output.
-
-	VERBOSE: 3:47:30 PM - Create resource group 'TestRG' in location 'East Asia'
-	VERBOSE: 3:47:30 PM - Template is valid.
-	VERBOSE: 3:47:31 PM - Create template deployment 'Microsoft.WebSiteSQLDatabase.0.2.6-preview'
-	using template https://gallerystoreprodch.blob.core.windows.net/prod-microsoft-windowsazure-gallery/8D6B920B-10F4-4B5A-B3DA-9D398FBCF3EE.PUBLICGALLERYITEMS.Microsoft.WebSiteSQLDatabase.0.2.6-preview/DeploymentTemplates/Website_NewHostingPlan_SQL_NewDB-Default.json.
-	VERBOSE: 3:47:43 PM - Resource Microsoft.Sql/servers 'testserver' provisioning status is succeeded
-	VERBOSE: 3:47:43 PM - Resource Microsoft.Web/serverFarms 'TestPlan' provisioning status is
-	succeeded
-	VERBOSE: 3:47:47 PM - Resource Microsoft.Sql/servers/databases 'testserver/TestDB' provisioning status is succeeded
-	VERBOSE: 3:47:47 PM - Resource microsoft.insights/autoscalesettings 'TestPlan-TestRG'
-	provisioning status is succeeded
-	VERBOSE: 3:47:47 PM - Resource Microsoft.Sql/servers/firewallrules
-	'testserver/AllowAllWindowsAzureIps' provisioning status is succeeded
-	VERBOSE: 3:47:50 PM - Resource Microsoft.Web/Sites 'TestSite' provisioning status is succeeded
-	VERBOSE: 3:47:54 PM - Resource Microsoft.Web/Sites/config 'TestSite/web' provisioning status is succeeded
-	VERBOSE: 3:47:54 PM - Resource microsoft.insights/alertrules 'ServerErrors-TestSite' provisioning
-	status is succeeded
-	VERBOSE: 3:47:57 PM - Resource microsoft.insights/components 'TestSite' provisioning status is succeeded
-	
-	
-	ResourceGroupName : TestRG
-	Location          : eastasia
-	ProvisioningState : Succeeded
-	Resources         :
-                    Name                   Type                                  Location
-                    =====================  ====================================  =========
-                    ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-                    TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-                    TestSite               microsoft.insights/components         centralus
-                    testserver             Microsoft.Sql/servers                 westus
-                    TestDB                 Microsoft.Sql/servers/databases       westus
-                    TestPlan               Microsoft.Web/serverFarms             westus
-                    TestSite               Microsoft.Web/sites                   westus
-
+**New-AzureResourcGroup** returns the resource group that it created and deployed. 
 
 In just a few steps, we created and deployed the resources required for a complex website. 
 The gallery template provided almost all of the information that we needed to do this task.
 And, the task is easily automated. 
 
-## Manage a Resource Group
+## Get information about your resource groups
 
-After creating a resource group, you can use the cmdlets in the AzureResourceManager module to manage the resource group, change it, add resources to it, remove it.
+After creating a resource group, you can use the cmdlets in the AzureResourceManager module to manage your resource groups.
 
-- To get the resource groups in your subscription, use the **Get-AzureResourceGroup** cmdlet:
+- To get all of the resource groups in your subscription, use the **Get-AzureResourceGroup** cmdlet:
 
 		PS C:>Get-AzureResourceGroup
 
 		ResourceGroupName : TestRG
 		Location          : eastasia
 		ProvisioningState : Succeeded
-		Resources         :
-	                    Name                   Type                                  Location
-	                    =====================  ====================================  =========
-	                    ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-	                    TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	                    TestSite               microsoft.insights/components         centralus
-	                    testserver             Microsoft.Sql/servers                 westus
-	                    TestDB                 Microsoft.Sql/servers/databases       westus
-	                    TestPlan               Microsoft.Web/serverFarms             westus
-	                    TestSite               Microsoft.Web/sites                   westus
+		Tags              :
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+		
+		...
 
 - To get the resources in the resource group, use the **Get-AzureResource** cmdlet and its ResourceGroupName parameter. Without parameters, Get-AzureResource gets all resources in your Azure subscription.
 
 		PS C:\> Get-AzureResource -ResourceGroupName TestRG
 		
-		Name                   ResourceType                          Location
-		----                   ------------                          --------
-		ServerErrors-TestSite  microsoft.insights/alertrules         eastus
-	    TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
-	    TestSite               microsoft.insights/components         centralus
-	    testserver             Microsoft.Sql/servers                 westus
-	    TestDB                 Microsoft.Sql/servers/databases       westus
-	    TestPlan               Microsoft.Web/serverFarms             westus
-	    TestSite               Microsoft.Web/sites                   westus
+		ResourceGroupName : TestRG
+		Location          : eastasia
+		ProvisioningState : Succeeded
+		Tags              :
+		
+		Resources         :
+				Name                   Type                          Location
+				----                   ------------                  --------
+				ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
+	        	TestSite               microsoft.insights/components         centralus
+	         	testserver             Microsoft.Sql/servers                 westus
+	        	TestDB                 Microsoft.Sql/servers/databases       westus
+	        	TestPlan               Microsoft.Web/serverFarms             westus
+	        	TestSite               Microsoft.Web/sites                   westus
+		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
-
+## Add to a resource group
 
 - To add a resource to the resource group, use the **New-AzureResource** cmdlet. This command adds a new website to the TestRG resource group. This command is a bit more complex, because it does not use a template. 
 
@@ -381,6 +348,13 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		-hostingPlanName TestDeploy2 `
 		-siteLocation "North Europe" 
 
+## Move a resource
+
+- To move an existing resource to the resource group, use the **Move-AzureResource** command.
+
+		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+
+## Delete a resource group
 
 - To delete a resource from the resource group, use the **Remove-AzureResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
@@ -397,7 +371,7 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
 
-## Troubleshoot a Resource Group
+## Troubleshoot a resource group
 As you experiment with the cmdlets in the AzureResourceManager modules, you are likely to encounter errors. Use the tips in this section to resolve them.
 
 ### Preventing errors

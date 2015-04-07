@@ -3,7 +3,7 @@
 	description="Get started using Azure Stream Analytics to process and transform events in Azure Service Bus Event Hub and store the results to Azure SQL Database." 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao" />
+	ms.date="03/27/2015" 
+	ms.author="jeffstok" />
 
 
 # Get started using Azure Stream Analytics
@@ -75,8 +75,8 @@ This sample application requires an Azure Storage account or a storage emulator 
  	![insert image here][img.stream.analytics.event.hub.client.output] 
 7. After the events have been sent, press **ENTER** to close the application. 
  
-### Create a shared access policy for the event hub
-While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only.
+### Create an event hub consumer group and shared access policy
+While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group.  We will walk you through the process of creating a Consumer Group below and you can learn more about them [here](https://msdn.microsoft.com/library/azure/dn836025.aspx).
 
 1.	From the Azure portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
@@ -86,7 +86,9 @@ While there is already a shared access policy on the Service Bus namespace that 
 
 	![][img.stream.analytics.event.hub.shared.access.policy.config]
 6.	Click **SAVE** at the bottom of the page.
-7.	If the event hub is in a different subscription than the Stream Analytics job will be in, you will need to copy and save the connection information for later. To do this, click **DASHBOARD**, and then click **CONNECTION INFORMATION** at the bottom of the page and save the connection string.
+7.	Click **CONSUMER GROUPS** at the top of the page.
+8.	Click **CREATE** at the bottom of the page and supply a Consumer Group Name in the Create a Consumer Group dialog
+9.	If the event hub is in a different subscription than the Stream Analytics job will be in, you will need to copy and save the connection information for later. To do this, click **DASHBOARD**, and then click **CONNECTION INFORMATION** at the bottom of the page and save the connection string.
 
 
 ## Prepare an Azure SQL database for storing output data
@@ -127,7 +129,7 @@ If you already have an Azure SQL database to use for this tutorial, skip this se
 		CREATE CLUSTERED INDEX [AvgReadings]
 		    ON [dbo].[AvgReadings]([DeviceId] ASC);
 
-	>[WACOM.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
+	>[AZURE.NOTE] Clustered indexes are required on all SQL Database tables in order to insert data.
 	   
 ## Create a Stream Analytics job
 
@@ -160,7 +162,7 @@ After you have created the Azure Service Bus event hub, the Azure SQL database a
 
 		If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **SERVICE BUS NAMESPACE**, **EVENT HUB NAME**, **EVENT HUB POLICY NAME**, **EVENT HUB POLICY KEY**, and **EVENT HUB PARTITION COUNT**.  
 
-		>[WACOM.NOTE] This sample uses the default number of partitions, which is 16.
+		>[AZURE.NOTE] This sample uses the default number of partitions, which is 16.
 		
 	- **EVENT HUB NAME** - Select the name of the Azure event hub you created. For this tutorial use **devicereadings**.
 	- **EVENT HUB POLICY NAME** - Select the event-hub policy created earlier in this tutorial.

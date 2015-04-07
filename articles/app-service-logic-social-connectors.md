@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Microsoft Azure API Apps Social Connectors | API Apps microservice" 
 	description="Learn how to create Microsoft Azure Social Connector API Apps and add the API App to your logic App; microservices" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
-	authors="MSFTMan" 
+	authors="MandiOhlinger" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="deonhe"/> 
+	ms.date="03/31/2015" 
+	ms.author="mandia"/>
 
 # Social Connectors in Microsoft Azure App Service
 
@@ -28,9 +28,9 @@ The following social connectors are available from Microsoft:
 - Twitter
 - Chatter
 - Yammer
-- Twilio.
+- Twilio
 
-Here's a brief description of each of the social connectors. 
+Here's a brief description of each of the social connectors:
 
 <table>
 <tr>
@@ -87,7 +87,7 @@ Here's a brief description of each of the social connectors.
 
 Now that you have an idea of what our social connectors can do, let's look at some simple use cases for these connectors.
 
-##Why Use Connectors?
+## Why Use Connectors?
 
 Connectors accelerate app development and even allow non-developers to create fully functional, enterprise grade applications without having to learn a programming language or write any code. 
 
@@ -97,7 +97,7 @@ Imagine your company recently released a new app and the team wants to know what
 Let's get started. 
 
 
-##Create a Connector
+## Create a Connector
 
 There are two ways to create connectors:
 
@@ -106,7 +106,7 @@ There are two ways to create connectors:
 
 ### Create a Social Connector in the Microsoft Azure Portal
 
-1. In the Azure portal, select **NEW** > **Web + mobile** > **Azure Marketplace**
+1. In the Azure portal, select **NEW** > **Web + mobile** > **Azure Marketplace**.
 2. **Search** for the connector or select it from the list. Once selected, a new blade or window opens. Select **Create**. 
 3. Enter the following properties for the connector: 
 	<table>
@@ -163,5 +163,6 @@ Connectors use either OAuth or user names and passwords.
 [Enterprise connectors](app-service-logic-enterprise-connectors.md) |
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
 [Protocol connectors](app-service-logic-protocol-connectors.md) |
-[App and Data Services connectors](app-service-logic-data-connectors.md) |
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[App + Data Services connectors](app-service-logic-data-connectors.md) |
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

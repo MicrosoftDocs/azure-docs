@@ -18,7 +18,7 @@
 
 #Azure App Service plans in-depth overview#
 
-An **App Service plan** represents a set of features and capacity that you can share across multiple apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), including Web Apps, Mobile Apps, Logic Apps or API Apps. These plans support 5 pricing tiers (**Free**, **Shared**, **Basic**, **Standard** and **Premium**) where each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps sharing a plan can leverage all the capabilities and features defined by the plan's tier. All apps associated with a given plan run on the resources defined by the plan. For example, if your plan is configured to use two "small" instances in the standard service tier, all apps associated with that plan will run on both instances and will have access to the standard service tier functionality. Plan instances on witch apps are running on are fully managed and highly available.
+An **App Service plan** represents a set of features and capacity that you can share across multiple apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), including Web Apps, Mobile Apps, Logic Apps or API Apps. These plans support 5 pricing tiers (**Free**, **Shared**, **Basic**, **Standard** and **Premium**) where each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps sharing a plan can leverage all the capabilities and features defined by the plan's tier. All apps associated with a given plan run on the resources defined by the plan. For example, if your plan is configured to use two "small" instances in the standard service tier, all apps associated with that plan will run on both instances and will have access to the standard service tier functionality. Plan instances on which apps are running on are fully managed and highly available.
 
 In this article we'll explore the key characteristics such as tier and scale of an App Service plan and how they come into play while managing your apps.
 
@@ -28,13 +28,13 @@ An app in App Service can be associated with only one App Service plan at any gi
 
 Both apps and plans are contained in a resource group. A resource group serves as the life-cycle boundary for every resource contained within it. Resource groups enable you to manage all the pieces of an application together.
 
-The ability to have multiple App Service plans in a single resource group allows you to allocate different apps to different physical resources. For example, this allows separation of resources between dev, test and production environments. A scenario for this is when you might want to allocate one plan with its own dedicated set of resources for your production apps, and a second plan for your dev and test environments. In this way, load testing against a new version on your apps will not compete for the same resources as your production apps, which are serving real customers.
+The ability to have multiple App Service plans in a single resource group allows you to allocate different apps to different physical resources. For example, this allows separation of resources between dev, test and production environments. A scenario for this is when you might want to allocate one plan with its own dedicated set of resources for your production apps, and a second plan for your dev and test environments. In this way, load testing against a new version of your apps will not compete for the same resources as your production apps, which are serving real customers.
 
 Having multiple plans in a single resource group also enables you to define an application that spans across geographical regions. For example, a highly available app running in two regions will include two plans, one for each region, and one app associated with each plan. In such a situation, all the copies of the app will be associated with a single resource group. Having a single view of a resource group with multiple plans and multiple apps makes it easy to manage, control and view the health of the application.
 
 ## Create a new App Service plan vs. use an existing plan
 
-When creating a new app, you should consider creating a new resource group when the app you are about to create represents a new application. In this case, creating a new resource group, plan, and app is the right choice.
+When creating a new app, you should consider creating a new resource group when the app you are about to create represents a brand new project. In this case, creating a new resource group, plan, and app is the right choice.
 
 If the app you are about to create is a component for a larger application, then this web app should be created within the resource group allocated for that larger application.
 
@@ -82,7 +82,7 @@ Note that each plan has its own pricing tier. When you move a site from a **Free
 
 - Change the plan’s **pricing tier**. For example, a plan in the **Basic** tier can be converted into a **Standard** or **Premium** tier and all apps associated with that plan will be able to leverage the features offered in the new service tier.
 - Change the plan’s **instance size**, as an example a plan in the **Basic** tier using **small** instances can be changed to use **large** instances. All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance size.
-- Change the plan’s **instance count**. For example, a plan scaled out to 3 instances can be scaled to 10 instances. All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance count.
+- Change the plan’s **instance count**. For example, a **Standard** plan scaled out to 3 instances can be scaled to 10 instances, and a **Premium** (preview) plan can be scaled out to 20 instances (under some restrictions). All apps associated with that plan will be able to leverage the additional memory and CPU resources offered by the larger instance count.
 
 In the image below you can see the **App Service Plan** blade as well as the **Pricing Tier** blade. Clicking on the **Pricing Tier** part in the **App Service Plan** blade expands the **Pricing Tier** blade, where you can change the pricing tier and instance size for the plan.
  

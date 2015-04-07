@@ -24,15 +24,15 @@ Visual Studio's remote debugging capabilities have been extended to include supp
 
 This tutorial is the last in a series of three:
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API app project. 
-* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deployed the API appto your Azure subscription.
-* In this tutorial, you will use Visual Studio to remotely debug the code while it runs in Azure.
+1. In [Create an API App](app-service-dotnet-create-api-app.md) you created an API app project. 
+* In [Deploy an API App](app-service-dotnet-deploy-api-app.md) you deployed the API appto your Azure subscription.
+* In this tutorial, you use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Generate an API app client 
 
 The API App tools in Visual Studio make it easy to generate C# code that calls to your Azure API Apps from desktop, store, and mobile apps. 
 
-In Visual Studio, open the solution that contains the API app from the [first](../app-service-dotnet-create-api-app/) tutorial. Right-click the solution and select the **Add** > **New Project**.
+In Visual Studio, open the solution that contains the API app from the [first](app-service-dotnet-create-api-app.md) tutorial. Right-click the solution and select the **Add** > **New Project**.
 
 ![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project-v3.png)
 
@@ -52,7 +52,7 @@ The wizard will download the API metadata file and generate a typed interface fo
 
 ![Generation Happening](./media/app-service-dotnet-remotely-debug-api-app/05-metadata-downloading-v3.png)
 
-Once code generation is complete, you'll see a new folder in Solution Explorer, with the name of the API app. This folder contains the code that implements that client and data models. 
+Once code generation is complete, you'll see a new folder in Solution Explorer, with the name of the API app. This folder contains the code that implements the client and data models. 
 
 ![Generation Complete](./media/app-service-dotnet-remotely-debug-api-app/06-code-gen-output-v3.png)
 
@@ -82,7 +82,7 @@ Open the **Program.cs** file from the project root and replace the **Main** meth
         Console.ReadLine();
     }
 
-From the **View** menu, select **Server Explorer**. In the Server Explorer window, expand the **App Service** node. Find the resource group that you created when you deployed your API app. Right-click the **API App** node and select **Attach Debugger**. 
+From the **View** menu, select **Server Explorer**. In the Server Explorer window, expand the *Azure > App Service** node. Find the resource group that you created when you deployed your API app. Right-click the node for your API app and select **Attach Debugger**. 
 
 ![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
