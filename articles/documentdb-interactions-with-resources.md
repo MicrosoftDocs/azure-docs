@@ -2,7 +2,7 @@
 	pageTitle="RESTful interactions with DocumentDB resources | Azure" 
 	description="Learn how to perform RESTful interactions with Microsoft Azure DocumentDB resources by using HTTP verbs." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="h0n" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>

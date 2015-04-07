@@ -308,7 +308,7 @@ You are now ready to run your application. At the end of your **Main** method, a
 
 Now hit F5 in Visual Studio to build the application in debug mode. 
 
-You should see the following results, which contain the results of the queries. 
+You should now see the output of your get started app. The output will show the results of the queries we added and should match the example text below. 
 
 	Read {
 	  "id": "AndersenFamily",
