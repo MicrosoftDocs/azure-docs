@@ -15,7 +15,7 @@
 
 	- In the **Id** box, enter a name to identify the DocumentDB account. This value becomes the host name within the URI. The **Id** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. 
 	
-		> [AZURE.NOTE] Note that documents.azure.com is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
+		> [AZURE.NOTE] *documents.azure.com* is appended to the endpoint name you choose, the result of which will become your DocumentDB account endpoint.
 
 	- The **Account Tier** lens is locked because DocumentDB supports a single standard account tier. For more information, see [DocumentDB pricing](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409).
 
