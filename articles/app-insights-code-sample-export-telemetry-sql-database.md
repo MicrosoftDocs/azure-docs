@@ -3,8 +3,8 @@
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
-	authors="mazharmicrosoft" 
-	manager="klin"/>
+	authors="alancameronwills" 
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -19,7 +19,7 @@
 
 This article shows how to move your telemetry from [Visual Studio Application Insights][start] into an Azure SQL database by using [Continuous Export][export] and a small amount of code. 
 
-Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSOn objects and create rows in a database table.
+Continuous export moves your telemetry into Azure Storage in JSON format, so we'll write some code to parse the JSON objects and create rows in a database table.
 
 (More generally, Continuous Export is the way to do your own analysis of the telemetry your apps send to Application Insights. You could adapt this code sample to do other things with the exported telemetry.)
 
