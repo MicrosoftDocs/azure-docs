@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/28/2015" 
-    ms.author="selcint"/>
+    ms.date="04/06/2015" 
+    ms.author="tamram"/>
 
 #How to use Queue Storage from C++  
 
