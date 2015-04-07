@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="04/07/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -85,7 +85,7 @@ The interpretation of this test is as follows. Assuming the goal of the data is 
 
 ##Creation of web service
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-overview-of-azure-ml-process.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](./machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” were pulled onto the workspace. The data schema was created with a simple “Execute R Script”, which defines the input data schema for the web service. This module is then linked to the second “Execute R Script” module, which does major work. This module does data preprocessing, model building, and predictions. In the data preprocessing step, the input data represented by a long string is transformed and converted into a data frame. In the model building step, an external R package “survival_2.37-7.zip” is first installed for conducting survival analysis. Then the “coxph” function is executed after a series data processing tasks. The details of the “coxph” function for survival analysis can be read from the R documentation. In the prediction step, a testing instance is supplied into the trained model with the “surfit” function, and the survival curve for this testing instance is produced as “curve” variable. Finally, the probability of the time of interest is obtained. 
 

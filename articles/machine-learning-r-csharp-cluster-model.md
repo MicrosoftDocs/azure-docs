@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -72,7 +72,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 
 ##Creation of web service  
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-overview-of-azure-ml-process.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](./machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created and two “Execute R Scripts” pulled onto the workspace. The data schema was created with a simple “Execute R Script”. Then, the data schema was linked to the cluster model section, again created with an “Execute R Script”. In the “Execute R Script” used for the cluster model, the web service then utilizes the “k-means” function, which is prebuilt into the “Execute R Script” of Azure Machine Learning.    
    
