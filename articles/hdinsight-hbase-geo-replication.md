@@ -19,7 +19,7 @@
 # Configure HBase geo-replication
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNET.md)
+- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
  
@@ -65,9 +65,9 @@ Before you begin this tutorial, you must have the following:
 
 ##Provision HBase clusters in HDInsight
 
-In [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center. The two virtual network are connected via VPN. In this session, you will provision an HBase cluster in each of the virtual networks. Later in this tutorial, you will make one of the HBase cluster to replicate the other HBase cluster.
+In [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center. The two virtual network are connected via VPN. In this session, you will provision an HBase cluster in each of the virtual networks. Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.
 
-The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
+The Azure portal doesn't support provisioning HDInsight clusters with custom configuration options. For example, set *hbase.replication* to *true*. If you set the value in the configuration file after a cluster is provisioned, you will lose the setting after the cluster is being reimaged. For more information see [Provision Hadoop clusters in HDInsight][hdinsight-provision]. One of the options to provision HDInsight cluster with custom options is using Azure PowerShell.
 
 
 **To provision an HBase Cluster in Contoso-VNet-EU** 
@@ -80,7 +80,7 @@ The Azure portal doesn't support provisioning HDInsight clusters with custom con
 		$azureSubscriptionName = "[AzureSubscriptionName]"
 		
 		$hbaseClusterName = "Contoso-HBase-EU" # This is the HBase cluster name to be used.
-		$hbaseClusterSize = 1   # Use one node cluster to cut down cost.
+		$hbaseClusterSize = 1   # You must provision a cluster that contains at least 3 nodes for high availability of the HBase services.
 		$hadoopUserLogin = "[HadoopUserName]"
 		$hadoopUserpw = "[HadoopUserPassword]"
 		
@@ -150,22 +150,22 @@ The Azure portal doesn't support provisioning HDInsight clusters with custom con
 
 # Configure DNS conditional forwarder
 
-In [Configure DNS for the virtual networks][hdinsight-hbase-replication-dns], you have configured DNS for the two networks. The HBase clusters have different domain suffixes. So you need to configure additional DNS conditional forwarders.
+In [Configure DNS for the virtual networks][hdinsight-hbase-replication-dns], you have configured DNS servers for the two networks. The HBase clusters have different domain suffixes. So you need to configure additional DNS conditional forwarders.
 
-To configure conditional forwarder, you need to know the domain suffixes of the two HBase cluster. 
+To configure conditional forwarder, you need to know the domain suffixes of the two HBase clusters. 
 
 **To find the domain suffixes of the two HBase clusters**
 
-1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal].
+1. RDP into **Contoso-HBase-EU**.  For instructions, see [Manage Hadoop clusters in HDInsight by using the Azure portal][hdinsight-manage-portal]. It is actually headnode0 of the cluster.
 2. Open a Windows PowerShell console, or a command prompt.
 3. Run **ipconfig**, and write down **Connection-specific DNS suffix**.
-4. Please don't close the RDP session.  You will need it to test domain name resolution.
+4. Please don't close the RDP session.  You will need it later to test domain name resolution.
 5. Repeat the same steps to find out the **Connection-specific DNS suffix** of **Contoso-HBase-US**.
 
 
 **To configure DNS forwarders**
  
-1.	RDP into **Contoso-DNS-EU**. It is actually headnode0 of the cluster.
+1.	RDP into **Contoso-DNS-EU**. 
 2.	Click the Windows key on the lower left.
 2.	Click **Administrative Tools**.
 3.	Click **DNS**.
@@ -175,7 +175,7 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 	- **DNS Domain**: enter the DNS suffix of the Contoso-HBase-US. For example: Contoso-HBase-US.f5.internal.cloudapp.net.
 	- **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-US’s IP address. Please verify the IP. Your DNS server can have a different IP address.
 6.	Press **ENTER**, and then click **OK**.  Now you will be able to resolve the Contoso-DNS-US’s IP address from Contoso-DNS-EU.
-7.	Repeat the steps to add a DNS forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:
+7.	Repeat the steps to add a DNS conditional forwarder to the DNS service on the Contoso-DNS-US virtual machine with the following values:
 	- **DNS Domain**: enter the DNS suffix of the Contoso-HBase-EU. 
 	- **IP addresses of the master servers**: enter 10.2.0.4, which is the Contoso-DNS-EU’s IP address.
 
@@ -192,7 +192,7 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 4. Don't close the RDP session. You will still need it later in the tutorial.
 5. Repeat the same steps to ping the headnode0 of the Contoso-HBase-EU from the Contoso-HBase-US.
 
-DNS must work before you can proceed to the next steps.
+>[AZURE.IMPORTANT] DNS must work before you can proceed to the next steps.
 
 ##Enable replication between HBase tables
 
@@ -219,7 +219,7 @@ Create HBase tables with the same names and column families on both the source a
 	
 **To create an HBase table on Contoso-HBase-US**
 
-- Repeat the same steps to create the same table on Contoso-HBase-US
+- Repeat the same steps to create the same table on Contoso-HBase-US.
 
 
 **To add Contoso-HBase-US as a replication peer**
@@ -259,7 +259,7 @@ The content of the file:
 		4761	Caleb Alexander	670-555-0141	4775 Kentucky Dr.
 		16443	Terry Chander	998-555-0171	771 Northridge Drive
 
-You can upload the same data file into your HBase table.
+You can upload the same data file into your HBase cluster and import the data from there.
 
 1. Switch to the **Contoso-HBase-EU** RDP window.
 2. From the desktop, click **Hadoop Command Line**.
