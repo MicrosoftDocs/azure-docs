@@ -28,8 +28,8 @@ The Web Apps Memcache shim can be used with any application provided it communic
 
 Follow the steps outlined in these posts:
 
-* [Deploy a Scalable WordPress site in Azure][0]
 * [Provision an instance of the Azure Redis Cache Service][1]
+* [Deploy a Scalable WordPress site in Azure][0]
 
 Once you have the Scalable WordPress site deployed and a Redis Cache instance provisioned you will be ready to proceed with enabling the Memcache shim in Azure App Service Web Apps.
 
@@ -108,8 +108,9 @@ Find **Memcached Object Cache** in the list, then click on the **Install Now** b
 
 ### Enable the Memcache WordPress plugin
 
->[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][6] to install Visual Studio Online.
+>[AZURE.NOTE] Follow the instructions in this blog on [How to enable a Site Extension in Web Apps][8] to install Visual Studio Online.
 
+In the `wp-config.php` file, add the following code snippet above the stop editing comment near the end of the file.
 
 ```php
 $memcached_servers = array(
@@ -117,7 +118,9 @@ $memcached_servers = array(
 );
 ```
 
-Drag and drop **object-cache.php** from **wp-content/memcached** folder to the **wp-content** folder to enable the Memcache Object Cache functionality.
+Once this code snippet has been pasted, monaco will automatically save the document.
+
+The next step is to enable the object-cache plugin. This is done by dragging and dropping **object-cache.php** from **wp-content/memcached** folder to the **wp-content** folder to enable the Memcache Object Cache functionality.
 
 ![Locate the memcache object-cache.php plugin](./media/web-sites-connect-to-redis-using-memcache-protocol/13-locate-memcache-object-cache-plugin.png)
 

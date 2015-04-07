@@ -16,7 +16,6 @@
 	ms.date="04/08/2015" 
 	ms.author="stbaro"/>
 
-<!--The next line renders the page title on the page. Update as appropriate, using sentence casing and an action verb for all titles and subtitles.-->
 # Import data to DocumentDB #
 
 This article shows you how to use the open source DocumentDB data migration tool to import data to [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) from various sources, including JSON files, CSV files, SQL, MongoDB, and DocumentDB collections.
@@ -306,7 +305,7 @@ The DocumentDB - Sequential record importer has the following additional advance
 
 > [AZURE.TIP] The import tool defaults to connection mode DirectTcp.  If you experience firewall issues, switch to connection mode Gateway, as it only requires port 443.
 
-##<a id="JSONTarget"></a>Export to JSON file ##
+## Export to JSON file
 
 The DocumentDB JSON exporter allows you to export any of the available source options to a JSON file that contains an array of JSON documents.  The tool will handle the export for you, or you can choose to view the resulting migration command and run the command yourself.
 
@@ -345,7 +344,7 @@ You may optionally choose to prettify the resulting JSON, which will increase th
 	}]
 	
 
-##<a id="ImportSummary"></a>Confirm Import Settings and View Command Line ##
+## Confirm Import Settings and View Command Line
 
 1. After specifying source and target information, review the migration information and, optionally, view/copy the resulting migration command (copying the command is useful to automate import operations):
 
@@ -361,7 +360,7 @@ You may optionally choose to prettify the resulting JSON, which will increase th
 
 	![Screenshot of DocumentDB JSON export option](./media/documentdb-import-data/newimport.png)
 
-##<a name="NextSteps"></a>Next steps
+## Next steps
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).
 

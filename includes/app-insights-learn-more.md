@@ -47,8 +47,6 @@ Get started with ...
 </li>
 <li><a href="../articles/app-insights-windows-get-started.md">Windows device apps</a>
 </li>
-<li><a href="../articles/app-insights-windows-desktop.md">Windows desktop apps</a>
-</li>
 <li><a href="../articles/app-insights-monitor-performance-live-website-now.md">ASP.NET server</a>
 </li>
 <li><a href="../articles/app-insights-web-track-usage.md">Web pages</a>
@@ -111,6 +109,7 @@ Usage tracking
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
 [export]: ../articles/app-insights-export-telemetry.md
+[exportcode]: ../articles/app-insights-code-sample-export-telemetry-sql-database.md
 [azure]: ../articles/insights-perf-analytics.md
 [metrics]: ../articles/app-insights-metrics-explorer.md
 [trace]: ../articles/app-insights-search-diagnostic-logs.md
