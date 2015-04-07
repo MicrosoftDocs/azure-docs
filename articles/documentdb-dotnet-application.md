@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="03/31/2015" 
+	ms.date="04/08/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -96,7 +96,7 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Docu
 
     The **Manage NuGet Packages** dialog box appears.
 
-2. Select **Include Prerelease** in the left drop-down filter, and then in the **Search Online** box, type ***Azure DocumentDB***. 
+2. In the **Search Online** box, type ***Azure DocumentDB***. 
     
     From the results, install the **Microsoft Azure DocumentDB Client Library** package. This will download and install the DocumentDB package as well as all dependencies, like Newtonsoft.Json.
 
@@ -104,7 +104,7 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Docu
 
   	Alternatively you can use the Package Manager Console to install the package. To do so, on the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**. At the prompt, type the following.
 
-    	Install-Package Microsoft.Azure.Documents.Client -Pre
+    	Install-Package Microsoft.Azure.Documents.Client
 
 3. Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
 
@@ -276,6 +276,7 @@ The first thing to do here is add a class that contains all the logic to connect
     	
 		public static class DocumentDBRepository<T>
     	{
+			//Use the Database if it exists, if not create a new Database
 	    	private static Database ReadOrCreateDatabase()
 	    	{
 	        	var db = Client.CreateDatabaseQuery()
@@ -291,6 +292,7 @@ The first thing to do here is add a class that contains all the logic to connect
 	        	return db;
 	    	}
 			
+			//Use the DocumentCollection if it exists, if not create a new Collection
 	    	private static DocumentCollection ReadOrCreateCollection(string databaseLink)
 	   		{
 	    	    var col = Client.CreateDocumentCollectionQuery(databaseLink)
@@ -300,15 +302,19 @@ The first thing to do here is add a class that contains all the logic to connect
 		
 	        	if (col == null)
 	        	{
-	        	    col = Client.CreateDocumentCollectionAsync(databaseLink, new DocumentCollection { Id = CollectionId }).Result;
+					var collectionSpec = new DocumentCollection { Id = CollectionId };
+					var requestOptions = new RequestOptions {OfferType = "S1" };
+					
+	        	    col = Client.CreateDocumentCollectionAsync(databaseLink, collectionSpec, requestOptions).Result;
 	        	}
 				
 	        	return col;
 	    	}
-					
-     	   private static string databaseId;
-     	   private static String DatabaseId
-     	   {
+			
+			//Expose the "database" value from configuration as a property for internal use
+     	   	private static string databaseId;
+     	   	private static String DatabaseId
+     	   	{
 				get
 				{
 					if (string.IsNullOrEmpty(databaseId))
@@ -319,7 +325,8 @@ The first thing to do here is add a class that contains all the logic to connect
 					return databaseId;
 				}
        	 	}
-			  
+			
+			//Expose the "collection" value from configuration as a property for internal use
     	    private static string collectionId;
     	    private static String CollectionId
     	    {
@@ -333,7 +340,8 @@ The first thing to do here is add a class that contains all the logic to connect
 					return collectionId;
 				}
     	    }
-					
+			
+			//Use the ReadOrCreateDatabase function to get a reference to the database.
     	    private static Database database;
     	    private static Database Database
     	    {
@@ -348,6 +356,7 @@ The first thing to do here is add a class that contains all the logic to connect
 				}
     	    }
 			
+			//Use the ReadOrCreateCollection function to get a reference to the collection.
     	    private static DocumentCollection collection;
     	    private static DocumentCollection Collection
     	    {
@@ -362,6 +371,9 @@ The first thing to do here is add a class that contains all the logic to connect
 				}
     	    }
 			
+			//This property establishes a new connection to DocumentDB the first time it is used, 
+			//and then reuses this instance for the duration of the application avoiding the
+			//overhead of instantiating a new instance of DocumentClient with each request
     	    private static DocumentClient client;
     	    private static DocumentClient Client
     	    {
@@ -380,15 +392,7 @@ The first thing to do here is add a class that contains all the logic to connect
     	    }
     	}
 
-	There is a lot of code here, but if we break it down the code we just pasted in does the following: 
-
-	- Defines a private method, **ReadOrCreateDatabase**, which first executes a query to look for a Database. If the Database is not there, the code will create a new Database for you. If a Database was found, it uses that. 
-	- Defines a private method, **ReadOrCreateCollection**, which does a very similar job to **ReadOrCreateDatabase** just this time with a **DocumentCollection** object.
-	- Defines a private property, **DatabaseId**, as a String. This property uses the **database** configuration value.
-	- Defines a private property, **CollectionId**, as a String. This property uses the **collection** configuration value.
-	- Defines a private property, **Database**, as a Database object. This property uses the **ReadOrCreateDatabase** function to get a reference to the database. 
-	- Defines a private property, **Collection**, as a DocumentCollection object. This property uses the **ReadOrCreateCollection** function to get a reference to the collection. 
-	- Defines a private property, **Client**, as a DocumentClient object. This property establishes a new connection to DocumentDB the first time it is used, and then reuses this instance for the duration of the application.
+	> [AZURE.TIP] When creating a new DocumentCollection you can supply an optional RequestOptions parameter of OfferType, which allows you to specify the performance level of the new collection. If this parameter is not passed the default offer type will be used. For more on DocumentDB offer types please refer to [DocumentDB Performance Levels](documentdb-performance-levels.md)
 
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
 	
