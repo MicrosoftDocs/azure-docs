@@ -192,7 +192,7 @@ In this step, you create an Azure data factory named **LogProcessingFactory**.
  
 ## <a name="MainStep3"></a> Step 3: Create linked services
 
-> [ACOM.NOTE] This articles uses the Azure PowerShell to create linked services, tables, and pipelines. See [Tutorial using Data Factory Editor][adftutorial-using-editor] if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor. 
+> [AZURE.NOTE] This articles uses the Azure PowerShell to create linked services, tables, and pipelines. See [Tutorial using Data Factory Editor][adftutorial-using-editor] if you want to perform this tutorial using Azure Portal, specifically Data Factory Editor. 
 
 In this step, you will create the following linked services: StorageLinkedService, AzureSqlLinkedService, HDInsightStorageLinkedService, and HDInsightLinkedService.
 

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
 # Use Oozie with Hadoop in HDInsight
 
 ##Overview
-Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time].
+Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
 
 ##What is Oozie?
 
@@ -577,6 +577,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 
 
+[azure-data-factory-pig-hive]: data-factory-pig-hive-activities.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
@@ -609,7 +610,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: install-and-configure-powershell.md
+[powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
 

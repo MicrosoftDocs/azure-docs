@@ -43,31 +43,11 @@ Here's a brief overview of each of the App and Data Services connectors that are
 </tr>
 
 <tr>
-<td>Azure Mobile Services
-<td>An Azure Mobile Services connector lets you create and modify data and call custom APIs.
-<td>None
-<td><li>Query
-<li>Insert
-<li>Delete
-<li>Update
-<li>Custom API call
-
-</tr>
-
-<tr>
 <td>Azure Service Bus
 <td>Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 <td>New messages
 <td>Send message
 </tr>
-
-<tr>
-<td>Azure Storage Blob
-<td>Azure Storage Blob lets you connect to Blob storage and perform various actions.
-<td>New file added
-<td><li>Upload <li>Get <li>Delete <li>List <li>Copy <li>Snapshot
-</tr>
-
 <tr>
 <td>Azure Storage Table
 <td>Azure Storage Table Connector lets you connect to Azure Storage Table and perform various actions such as Get Entity, Query Entities, Insert Entity, Update Entity, Delete Entity and a trigger to retrieve data.

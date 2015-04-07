@@ -9,22 +9,22 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="03/03/2015"
    ms.author="larryfr"/>
 
 #Run MapReduce jobs with Hadoop on HDInsight using Curl
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 
-In this document, you will learn how to use Curl to run MapReduce jobs on a Hadoop on HDInsight cluster. 
+In this document, you will learn how to use Curl to run MapReduce jobs on a Hadoop on HDInsight cluster.
 
 Curl is used to demonstrate how you can interact with HDInsight by using raw HTTP requests to run MapReduce jobs. This works by using the WebHCat REST API (formerly known as Templeton) provided by your HDInsight cluster.
 
-> [AZURE.NOTE] If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see <a href="../hdinsight-hadoop-linux-information/" target="_blank">What you need to know about Linux-based Hadoop on HDInsight</a>.
+> [AZURE.NOTE] If you are already familiar with using Linux-based Hadoop servers, but you are new to HDInsight, see [What you need to know about Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-information.md).
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -39,12 +39,12 @@ To complete the steps in this article, you will need the following:
 ##<a id="curl"></a>Run MapReduce jobs using Curl
 
 > [AZURE.NOTE] When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the HDInsight cluster administrator user name and password. You must also use the cluster name as part of the URI that is used to send the requests to the server.
-> 
+>
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> 
+>
 > The REST API is secured by using <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic access authentication</a>. You should always make requests by using HTTPS to ensure that your credentials are securely sent to the server.
 
-1. From a command-line, use the following command to verify that you can connect to your HDInsight cluster: 
+1. From a command-line, use the following command to verify that you can connect to your HDInsight cluster:
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
@@ -57,7 +57,7 @@ To complete the steps in this article, you will need the following:
     * **-u**: Indicates the user name and password used to authenticate the request
     * **-G**: Indicates that this is a GET request
 
-    The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests. 
+    The beginning of the URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, is the same for all requests.
 
 2. To submit a MapReduce job, use the following command:
 
@@ -82,7 +82,7 @@ To complete the steps in this article, you will need the following:
 
 	If the job is complete, the state will be "SUCCEEDED".
 
-    > [AZURE.NOTE] This Curl request returns a JSON document with information about the job; jq is used to retrieve only the state value. 
+    > [AZURE.NOTE] This Curl request returns a JSON document with information about the job; jq is used to retrieve only the state value.
 
 4. When the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file; in this case, **wasb:///example/curl**. This address stores the output of the job in the **example/curl** directory in the default storage container used by your HDInsight cluster.
 
@@ -94,7 +94,7 @@ To download a file, use the following:
 
 	azure storage blob download <container-name> <blob-name> <destination-file>
 
-> [AZURE.NOTE] You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See <a href="../hdinsight-upload-data/" target="_blank" for more information.
+> [AZURE.NOTE] You must specify the storage account name that contains the blob by using the `-a` and `-k` parameters, or set the **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** environment variables. See [how to upload data to HDInsight](hdinsight-upload-data.md) for more information.
 
 ##<a id="summary"></a>Summary
 

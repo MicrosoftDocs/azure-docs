@@ -30,15 +30,15 @@ To configure your connection string in the Azure service configuration:
 4.  Click the **...** button at the right end of the **Setting1** entry.
     The **Storage Account Connection String** dialog will open.
 
-5.  Choose whether you want to target the storage emulator (Windows
+5.  Choose whether you want to target the storage emulator (Microsoft
     Azure storage simulated on your local machine) or a storage
     account in the cloud. The code in this guide works with either
     option. 
 
-	> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Windows Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
+	> [AZURE.NOTE] You can target the storage emulator to avoid incurring any costs associated with Azure Storage. However, if you do choose to target an Azure storage account in the cloud, costs for performing this tutorial will be negligible.
 
 	If you are targeting a storage account in the cloud, then enter the primary access key for that storage account. To learn how to copy your primary access key via the Azure Management Portal, see 	
-	[View, copy, and regenerate storage access keys](http://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys).
+	[View, copy, and regenerate storage access keys](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 	
     ![Select target environment][connection-string4]
 

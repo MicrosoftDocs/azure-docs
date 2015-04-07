@@ -1,51 +1,50 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Dashboard" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="Learn how to view and manage charts of data about your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - User Interface
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" class="current" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
-# Dashboard
-
+# How to view and manage charts of data about your application
 The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
 
-**See also:** 
+### See also
+-  [Troubleshooting Guide - Analytics][Link 21]
 
--  [Troubleshooting Guide - Analytics][Link 2]
- 
-## Dashboard:
+## Dashboard
 - You can add charts to an empty dashboard by choosing the "Send to dashboard" action from the gear menu of any chart in the Analytics section of the UI that you'd like to see on a dashboard.
  
-## +  (Add a Dashboard):
+## + (Add a Dashboard)
 - You can use the "+" ribbon menu item to create a new dashboard that will show on the ribbon menu.
  
-## Gear Menu:
+## Gear Menu
 - You can use the gear menu of a dashboard to Delete, Rename, Share, or Schedule (E-mail Reception) of your dashboard. You can use the Schedule option to define the schedule at which you would like to receive your custom dashboard by email. You can schedule to receive it daily, weekly, or monthly. You can choose the time of the day, and the day of the week, or day of the month when you would like to receive the e-mail. Your e-mail address and time zone are based on the settings you have configured in the My Account section of the UI.
  
  ![dashboard1][34]
@@ -70,20 +69,20 @@ The Dashboard section of the UI allows customers to create customized charts to 
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
