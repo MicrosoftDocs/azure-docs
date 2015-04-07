@@ -86,7 +86,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ##Creation of web service 
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](./machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created. Sample input data was uploaded with a predefined data schema. Linked to the data schema is an “Execute R Script” module that generates the ETS forecasting model by using ‘ets’ and ‘forecast’ functions from R. 
 
@@ -131,7 +131,7 @@ From within Azure Machine Learning, a new blank experiment was created. Sample i
 This is a very simple example for ETS forecasting. As can be seen from the example code above, no error catching is implemented, and the service assumes that all the variables are continuous/positive values and the frequency should be an integer greater than 1. The length of the date and value vectors should be the same. The date variable should adhere to the format ‘mm/dd/yyyy’.
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img1.png
 [2]: ./media/machine-learning-r-csharp-forecasting-exponential-smoothing/ets-img2.png

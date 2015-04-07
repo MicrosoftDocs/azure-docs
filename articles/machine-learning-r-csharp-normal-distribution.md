@@ -165,7 +165,7 @@ There are multiple ways of consuming the service in an automated fashion (exampl
 
 
 ##Creation of web service 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](./machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). 
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). 
 
 Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
@@ -260,7 +260,7 @@ Experiment flow:
 These are very simple examples surrounding the normal distribution. As can be seen from the example code above, little error catching is implemented.
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png

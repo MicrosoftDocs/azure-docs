@@ -81,7 +81,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 ##Creation of web service
 
->This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](./machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
+>This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
 From within Azure Machine Learning, a new blank experiment was created with two “Execute R Scripts”. In the first module the data schema is defined, while the second module uses the prop.test command within R to perform the hypothesis test for 2 proportions. 
 
@@ -120,7 +120,7 @@ From within Azure Machine Learning, a new blank experiment was created with two 
 This is a very simple example for a test of difference in 2 proportions. As can be seen from the example code above, no error catching is implemented and the service assumes that all the variables are continuous.
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Azure Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png
