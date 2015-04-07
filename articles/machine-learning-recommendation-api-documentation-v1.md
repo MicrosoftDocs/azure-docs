@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations API Documentation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="oranms" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 <tags 

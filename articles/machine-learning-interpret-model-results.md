@@ -3,7 +3,7 @@
 	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="garye" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 

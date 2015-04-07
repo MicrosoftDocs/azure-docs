@@ -3,7 +3,7 @@
 	description="Move Data to and from  Azure Blob Storage" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="sunliangms,sachouks" 
+	authors="sunliangms" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
