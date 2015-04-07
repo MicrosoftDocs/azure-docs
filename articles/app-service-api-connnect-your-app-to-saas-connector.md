@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/20/2015" 
+	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
 # Configure and test a SaaS connector in Azure App Service
