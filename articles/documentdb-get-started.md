@@ -18,7 +18,7 @@
 
 #Get started with the DocumentDB .NET SDK  
 
-This tutorial shows you how to get started using [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) and the [DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/), by creating a console application that creates and queries DocumentDB resources, and writes the output to the console window. 
+This tutorial shows you how to get started using [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) and the [DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/). You'll build a console application that creates and queries DocumentDB resources, and writes the output to the console window. 
 
 DocumentDB is a NoSQL document database service, which has a [number of APIs and SDKs available](https://msdn.microsoft.com/library/dn781482.aspx). The code in this article is written in C# and uses the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package. 
 
@@ -28,7 +28,7 @@ The following scenarios are covered in this article:
 - Adding DocumentDB to your Visual Studio solution
 - Creating databases
 - Creating collections
-- Storing JSON documents within the account
+- Creating JSON documents
 - Querying resources 
 - Deleting databases 
 
@@ -233,7 +233,7 @@ Next, create your documents within your **GetStartedDemo** async method.
 
 ##<a id="Query"></a>Query DocumentDB resources
 
-DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these to your **GetStartedDemo** async method.
+DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these queries to your **GetStartedDemo** async method.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
