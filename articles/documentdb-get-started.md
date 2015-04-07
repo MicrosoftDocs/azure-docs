@@ -32,7 +32,7 @@ The following scenarios are covered in this article:
 - Querying resources 
 - Deleting databases 
 
-Don't have time to complete the tutorial and just want to get the working solution? No worries. The complete solution is available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). See [download the solution](#GetSolution) for quick instructions.
+Don't have time to complete the tutorial and just want to get the working solution? No worries. The complete solution is available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). See [Get the complete solution](#GetSolution) for quick instructions.
 
 ## <a name="Prequisites"></a>Prerequisites
 
@@ -72,7 +72,7 @@ Next, a **DocumentClient** can be instantiated using the DocumentDB account endp
     private static string EndpointUrl = "<your endpoint URI>";
     private static string AuthorizationKey = "<your key>";
 
-Let's now create a new asynchronous task called *GetStartedDemo* in your class. Within this new task, create and set up your Document Client.
+Let's now create a new asynchronous task called **GetStartedDemo** in your class. Within this new task, create and set up your **DocumentClient**.
 
 	private static async Task GetStartedDemo()
     {
@@ -106,7 +106,7 @@ These keys grant administrative access to your DocumentDB account and the resour
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
 ##<a id="CreateDB"></a>Create a database
-A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Create your new database in your *GetStartedDemo* method after your Document Client creation.
+A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Create your new database in your **GetStartedDemo** method after your **DocumentClient** creation.
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -117,7 +117,7 @@ A [database](documentdb-resources.md#databases) can be created by using the [Cre
 
 ##<a id="CreateColl"></a>Create a collection  
 
-> [AZURE.WARNING] *CreateDocumentCollectionAsync* will create a new S1 collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> [AZURE.WARNING] **CreateDocumentCollectionAsync** will create a new S1 collection, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 
 A [collection](documentdb-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic. The newly created collection will be mapped to a [S1 performance level](documentdb-performance-levels.md). The database created in the previous step has a number of properties, one of which is the [CollectionsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.database.collectionslink.aspx) property.  With that information, we can now create a collection after our database creation.
 
@@ -452,6 +452,7 @@ To build the GetStarted solution that contains all the samples in this article, 
 To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect). 
 
 ##<a id="NextSteps"></a>Next steps
+-   Want a more complex ASP.NET MVC sample? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../documentation/services/documentdb/).
