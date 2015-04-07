@@ -69,7 +69,7 @@ The following steps show how to request a quota adjustment.
 
 	![Screenshot of support ticket support plan picker](media/documentdb-increase-limits/supportrequest4.png)
 
-7. In the *Problem** blade, choose the problem category **Quota or Core Increase Requests DocumentDB**.
+7. In the **Problem** blade, choose the problem category **Quota or Core Increase Requests DocumentDB**.
 
 	![Screenshot of support ticket problem category picker](media/documentdb-increase-limits/supportrequest5.png)
 
