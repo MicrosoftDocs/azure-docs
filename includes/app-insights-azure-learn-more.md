@@ -1,8 +1,6 @@
 ## Application Insights - learn more
 
 
-<table width="100%"><tr valign="top"><td>
-
 Overview
 
 <ul>
@@ -28,16 +26,6 @@ Working with Data
 </li>
 </ul>
 
-Problems? Questions?
-
-<ul>
-<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
-<li><a href="../articles/app-insights-troubleshoot-faq.md">Q & A and troubleshooting</a>
-</li>
-</ul>
-
-
-</td><td>
 
 
 Get started with ...
@@ -80,8 +68,14 @@ Usage tracking
 </li>
 </ul>
 
-</td><td>
-</td></tr></table>
+Problems? Questions?
+
+<ul>
+<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
+<li><a href="../articles/app-insights-troubleshoot-faq.md">Q & A and troubleshooting</a>
+</li>
+</ul>
+
 
 
 
@@ -98,6 +92,7 @@ Usage tracking
 [client]: ../articles/app-insights-web-track-usage.md
 [usage]: ../articles/app-insights-web-track-usage.md
 [api]: ../articles/app-insights-custom-events-metrics-api.md
+[apiproperties]: ../articles/app-insights-custom-events-metrics-api.md#properties
 [track]: ../articles/app-insights-custom-events-metrics-api.md
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
