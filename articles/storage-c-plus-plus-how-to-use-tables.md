@@ -18,6 +18,8 @@
 
 # How to use Table Storage from C++
 
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
+
 ## Overview  
 This guide will show you how to perform common scenarios using the Azure Table Storage Service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). The scenarios covered include **creating and deleting a table**, as well as **working with table entities**.
 

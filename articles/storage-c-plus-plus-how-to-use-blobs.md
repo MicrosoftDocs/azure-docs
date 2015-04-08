@@ -18,6 +18,8 @@
 
 # How to use Blob Storage from C++  
 
+[AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
+
 ## Overview
 This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
 
