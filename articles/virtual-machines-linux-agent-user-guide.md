@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="04/07/2015" 
 	ms.author="szark"/>
 
 
@@ -190,10 +190,7 @@ A sample configuration file is shown below:
 	OS.RootDeviceScsiTimeout=300
 	OS.OpensslPath=None
 
-The various configuration options are described in detail below. 
-Configuration options are of three types : Boolean, String or Integer. 
-The Boolean configuration options can be specified as "y" or "n". 
-The special keyword "None" may be used for some string type configuration entries as detailed below.
+The various configuration options are described in detail below. Configuration options are of three types; Boolean, String or Integer. The Boolean configuration options can be specified as "y" or "n". The special keyword "None" may be used for some string type configuration entries as detailed below.
 
 **Role.StateConsumer:**
 
@@ -222,6 +219,8 @@ Type: Boolean
 Default: y
 
 This allows the user to enable or disable the provisioning functionality in the agent. Valid values are "y" or "n". If provisioning is disabled, SSH host and user keys in the image are preserved and any configuration specified in the Azure provisioning API is ignored.
+
+	Note that this parameter defaults to "n" on Ubuntu Cloud Images that use cloud-init for provisioning.
 
 **Provisioning.DeleteRootPassword:**
 
@@ -315,4 +314,26 @@ Type: String
 Default: None
 
 This can be used to specify an alternate path for the openssl binary to use for cryptographic operations.
+
+
+
+##Ubuntu Cloud Images
+
+Note that Ubuntu Cloud Images utilize [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) to perform many configuration tasks that would otherwise be managed by the Azure Linux Agent.  Please note the following differences:
+
+
+- **Provisioning.Enabled** defaults to "n" on Ubuntu Cloud Images that use cloud-init to perform provisioning tasks.
+
+- The following configuration parameters have no effect on Ubuntu Cloud Images that use cloud-init to manage the resource disk and swap space:
+
+ - **ResourceDisk.Format**
+ - **ResourceDisk.Filesystem**
+ - **ResourceDisk.MountPoint**
+ - **ResourceDisk.EnableSwap**
+ - **ResourceDisk.SwapSizeMB**
+
+- Please see the following resources to configure the resource disk mount point and swap space on Ubuntu Cloud Images during provisioning:
+
+ - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+ - [Injecting Custom Data into an Azure Virtual Machine](./virtual-machines-how-to-inject-custom-data.md)
 
