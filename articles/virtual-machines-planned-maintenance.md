@@ -53,8 +53,17 @@ For single-instance configuration virtual machines only, Azure send email commun
 Azure organizes a set of region pairs and guarantees that only one region of the pair will undergo planned maintenance. Azure will not rollout an update on paired regions simultaneously during a planned maintenance. 
 Please refer to the table below for information regarding current region pairs:
 
-<!--Image reference-->
-![][image3]
+Region 1 | Region 2
+:----- | ------:
+North Central US | South Central US
+East US | West US
+US East 2 | Central US
+North Europe | West Europe
+South East Asia | East Asia
+East China | North China
+Japan East | Japan West
+Brazil South | South Central US
+Australia Southeast | Australia East
 
 For example, during a planned maintenance rollout, Azure will not rollout an update to West US if East US is under maintenance at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US.
 
