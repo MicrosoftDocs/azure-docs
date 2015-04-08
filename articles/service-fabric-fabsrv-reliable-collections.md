@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Collections"
-   description="Reliable Collections Dictionary Queue Isolation"
+   description="Reliable Collections Dictionary Queue Isolation Lock"
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -13,21 +13,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="04/07/2015"
+   ms.date="04/08/2015"
    ms.author="mcoskun@microsoft.com"/>
 
 # Reliable Collections
 
 Reliable Collections enable you to write highly available, scalable, and low latency
-cloud applications as though you are writing single machine applications. The classes
-in the Microsoft.ServiceFabric.Data.Collections namespace provide a set of out-of-the-box
-state providers that automatically make your state highly available. Developers
-need only to program to the Reliable Collection APIs and let Reliable Collections
+cloud applications as though you are writing single machine applications.
+The classes in the Microsoft.ServiceFabric.Data.Collections namespace provide a set of out-of-the-box
+state providers that automatically make your state highly available.
+Developers need only to program to the Reliable Collection APIs and let Reliable Collections
 manage the replicated and local state.
 
-The key difference between Reliable Collections and other high-availability technologies
-(such as Redis, Azure Table service, and Azure Queue service) is that the state
-is kept locally in the service instance while also being made highly available.
+The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service)
+is that the state is kept locally in the service instance while also being made highly available.
 This means that:
 1. All reads are local, which results in low latency and high throughput reads.
 2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
@@ -39,31 +38,33 @@ Collection classes: a new set of collections that are designed for the cloud and
 applications without increasing complexity for the developer.
 As such, they are
 1. Replicated: Replicates the state changes for high availability,
-2. Persisted: Collections are persisted to disk to survive cluster or partition wide black outs. Note that all state in Reliable Collections is also in-memory for fast access.
+2. Persisted: Collections are persisted to disk to survive situations where in-memory state would be lost (such as datacenter power outage). Note that all state in Reliable Collections is also in-memory for fast access.
 3. Asynchronous: Asynchronous APIs to ensure threads are not blocked when incurring IO.
 4. Transactional: Utilize the abstraction of transactions to allow you to manage multiple distributed collections within a service easily.
 
 Reliable Collections provide strong consistency guarantees out of the box in order
-to make reasoning about application state easier.This is achieved by transaction
-commits only completing after the entire transactions has been applied on quorum
-of replicas including the primary.
+to make reasoning about application state easier.
+This is achieved by transaction commits only completing after the entire transactions
+has been applied on quorum of replicas including the primary.
 To achieve weaker consistency application can acknowledge back to the client / requester
 before ITransaction.CommitAsync returns.
 
 The Reliable Collections APIs are a straightforward evolution of concurrent collections
 (found in the System.Collections.Concurrent namespace):
 1. Asynchronous: Returns a Task since, unlike distributed collections, the operations are replicated and persisted.
-2. No out parameters: Uses ConditionalResult to return bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to a struct.
-3. Transaction object: Uses a transaction object to enable the user to group actions in a transaction.
+2. No out parameters: Uses ConditionalResult<T> to return bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to a struct.
+3. Transaction object: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
-Today, Microsoft.ServiceFabric.Collections.Distributed contains two collections:
-1. Reliable Dictionary: Represents a replicated, transactional and asynchronous collection of key/value pairs. Similar to ConcurrentDictionary, both the key and the value can be of any type.
+Today, Microsoft.ServiceFabric.Data.Collections contains two collections:
+1. Reliable Dictionary: Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to ConcurrentDictionary, both the key and the value can be of any type.
 2. Reliable Queue: Represents a replicated, transactional and asynchronous strict first-in first-out (FIFO) queue. Similar to ConcurrentQueue, the value can be of any type.
 
 ## Isolation Levels
-Reliable Collections automatically choose the isolation level to use for a given read operation depending on the operation and the role of the replica.
+Reliable Collections automatically choose the isolation level to use for a given
+read operation depending on the operation and the role of the replica.
 
-Isolation means that a transaction behaves as it would in a system that only allows one transaction to be in-flight at any given point of time.
+Isolation means that a transaction behaves as it would in a system that only allows
+one transaction to be in-flight at any given point of time.
 
 Isolation level is a measure of the degree isolation is achieved.
 
@@ -72,42 +73,45 @@ There are two isolation levels that are supported in Reliable Collections:
 - **Snapshot**: "Specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. The transaction can only recognize data modifications that were committed before the start of the transaction. Data modifications made by other transactions after the start of the current transaction are not visible to statements executing in the current transaction. The effect is as if the statements in a transaction get a snapshot of the committed data as it existed at the start of the transaction. (https://msdn.microsoft.com/en-us/library/ms173763.aspx)"
 
 Both the Reliable Dictionary and the Reliable Queue support Read Your Writes.
-In other words, any write within a transaction will be visible to a following read that belongs to the same transaction.
+In other words, any write within a transaction will be visible to a following read
+that belongs to the same transaction.
 
 ### Reliable Dictionary
 | Operation \ Role      | Primary          | Secondary        |
 | --------------------- | :--------------- | :--------------- |
 | Single Entity Read    | Repeatable Read  | Snapshot         |
-| Scan                  | Snapshot         | Snapshot         |
+| Enumeration \ Count   | Snapshot         | Snapshot         |
 
 ### Reliable Queue
 | Operation \ Role      | Primary          | Secondary        |
 | --------------------- | :--------------- | :--------------- |
 | Single Entity Read    | Snapshot         | Snapshot         |
-| Scan                  | Snapshot         | Snapshot         |
+| Enumeration \ Count   | Snapshot         | Snapshot         |
 
 ## Persistence Model
-Reliable Collections follows a persistence model that builds on logging and checkpointing.
+Reliable Object State Manager (ROSM) and Reliable Collections follow a persistence model that is called Log and Checkpoint.
 This is a model where each state change is logged on disk and only applied in memory.
-The complete state itself is only persisted occasionally. Benefit it provides is  
-- Deltas are turned into sequential append only writes on disk (performance improvement)  
+The complete state itself is only persisted occasionally (aka. Checkpoint).
+Benefit it provides is  
+- Deltas are turned into sequential append only writes on disk for improved performance.
 
-Let’s first look at the infinite disk and memory scenario. Reliable Collections log
-every operation before it is replicated. This allows persisted services only to apply
-operations in memory. Since logs are persisted, even when the service fails and needs
-to be restarted, the replicator has enough information in its logs to replay all the
-operations the service replica has lost. As disk is infinite, log records never need to be removed
-and as the memory is infinite, the service is always able to apply the delta operations in memory successfully.
+To better understand the log and checkpoint model, let’s first look at the infinite disk scenario.
+ROSM logs every operation before it is replicated.
+This allows the Reliable Collection to only apply the operation in memory.
+Since logs are persisted, even when the replica fails and needs to be restarted, the Reliable Object State Manager
+has enough information in its logs to replay all the operations the replica has lost.
+As disk is infinite, log records never need to be removed and the Reliable Collection only needs to manage the in-memory state.
 
-Now let’s look at finite disk and memory scenario. At one point the replicator will
-run out of disk space. Before that happens the replicator needs to clean its oldest
-log records to make room for the newer records. So it will call checkpoint on the service.
-It is the state provider's responsibility to persist its state up to that checkpoint.
-Once service completes the checkpoint, replicator can truncate the log (remove oldest log records to free up necessary space).
-This way, when the service needs to be restarted, service will recover its checkpointed
-state and the replicator will recover and play back all the states that occurred after the checkpoint.
+Now let’s look at the finite disk scenario.
+At one point the replicator will run out of disk space.
+Before that happens the ROSM needs to truncate its log to make room for the newer records.
+So it will call checkpoint on the Reliable Collection.
+It is the Reliable Collection's responsibility to persist its state up to that point.
+Once Reliable Collection completes the checkpoint, ROSM can truncate the log.
+This way, when the replica needs to be restarted, Reliable Collections will recover their checkpointed
+state and the ROSM will recover and play back all the states that occurred after the checkpoint.
 
-## Lock Modes
+## Locking
 In Reliable Collections, all transactions are two-phased: Transaction does not release
 the locks it has acquired until the transaction terminates with either
 Abort or CommitAsync.
@@ -117,8 +121,9 @@ For reads, the locking is dependent on couple of factors.
 Any read operation done using Shapshot Isolation is lock free.
 Any Repeatable read operation by default takes Shared locks.
 However, for any read operation that supports Repeatable Read, user can ask for a
-Update lock instead of the Shared lock. Update lock is an asymmetric lock used to
-prevent a category of deadlocks.
+Update lock instead of the Shared lock.
+Update lock is an asymmetric lock used to prevent a common form of deadlock that
+occurs when multiple transaction lock resources for potential update at a later time.
 
 Lock compatibility matrix can be found below;
 
@@ -128,6 +133,12 @@ Lock compatibility matrix can be found below;
 | Update            | No Conflict  | No Conflict  | Conflict    | Conflict     |
 | Exclusive         | No Conflict  | Conflict     | Conflict    | Conflict     |
 
+Note that timeout argument in the Reliable Collections API is used as a deadlock detection.
+For example if two transactions (T1 and T2) are trying to read and update K1, it is possible for them to deadlock because they can both end up having the Shared lock but not being able to upgrade it to Exclusive for updating. In this case, one or
+both of the operations will timeout.
+
+Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.
+
 ## Recommendations
 - **DO NOT** modify an object of custom type returned by read operations (e.g TryPeekAsync ir TryGetAsync). Reliable Collections return a reference to the objects and not a copy.
 - **DO** deep copy returned object of custom type before modifying it. Since, built-in types are pass-by-value, you do not need to do a deep copy them.
@@ -135,7 +146,7 @@ Lock compatibility matrix can be found below;
 - **DO NOT** create a transaction within another transaction’s using statement because it can cause deadlocks.
 
 Here are some things to keep in mind:
-- The default timeout is 4 seconds for all the Reliable Collection APIs.
+- The default timeout is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
 - The default CancellationToken is None in all Reliable Collections APIs.
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections is not consistent across collections.
-- To achieve high availability for the Reliable Collections, each service partition should have at least target and minimum replica set size of 3.
+- To achieve high availability for the Reliable Collections, each service should have at least target and minimum replica set size of 3.
