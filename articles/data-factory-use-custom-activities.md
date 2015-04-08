@@ -19,15 +19,10 @@
 # Use custom activities in an Azure Data Factory pipeline
 Azure Data Factory supports built-in activities such as **Copy Activity** and **HDInsight Activity** to be used in pipelines to move and process data. You can also create a custom activity with your own transformation/processing logic and use the activity in a pipeline. The custom activity runs as a map-only job on an HDInsight cluster, so you will need to link an HDInsight cluster for the custom activity in your pipeline. 
 
-> [AZURE.NOTE] 
- 
 This article describes how to create a custom activity and use it in an Azure Data Factory pipeline. It also provides a detailed walkthrough with step-by-step instructions for creating and using a custom activity.
 
 ## Prerequisites
-2.	Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
-
-> [AZURE.NOTE] In the 12/11/2014 release of Azure Data Factory, a breaking change was introduced. The **ICustomActivity** interface was renamed to **IDotNetActivity**. The **type** of custom activity in the JSON definition has changed from **CustomActivity** to **DotNetActivity**. The **CustomActivity** and **CustomActivityProperties** classes were renamed to **DotNetActivity** and **DotNetActivityProperties** with the same set of properties.
-
+Download the latest [NuGet package for Azure Data Factory][nuget-package] and Install it. Instructions are in the [walkthrough](#SupportedSourcesAndSinks) in this article.
 
 ## Creating a custom activity
 
@@ -461,11 +456,6 @@ See [Get started with Azure Data Factory][adfgetstarted] for detailed steps for 
 
 Article | Description
 ------ | ---------------
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. You can try out the examples in the article on the ADFTutorialDataFactory.
 [Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
