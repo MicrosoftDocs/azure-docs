@@ -20,7 +20,7 @@
 
 When you start a runbook in Azure Automation, a job is created. A job is a single execution instance of a runbook. An Azure Automation worker is assigned to run each job. While workers are shared by multiple Azure accounts, jobs from different Automation accounts are isolated from one another. You do not have control over which worker will service the request for your job.  A single runbook can have multiple jobs running at one time. When you view the list of runbooks in the Azure portal, it will list the status of the last job that was started for each runbook. You can view the list of jobs for each runbook in order to track the status of each. For a description of the different job statuses, see [Job Statuses](automation-viewing-the-status-of-a-runbook-job.md#job-statuses).
 
-![Job Statuses](./media/automation-runbook-concepts/job-statuses.png)
+![Job Statuses](./media/automation-runbook-execution/job-statuses.png)
 
 
 Your jobs will have access to your Azure resources by making a connection to your Azure subscription. They will only have access to resources in your data center if those resources are accessible from the public cloud.
