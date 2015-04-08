@@ -54,7 +54,7 @@ The Azure Active Directory Audit Report helps customers identify privileged acti
 | Remove delegation entry		| Removed a delegation entry from the directory.																|
 | Set DirSyncEnabled flag on company	| Set the property that enables a directory for Azure AD Sync.															|
 | Set Password Policy			| Set length and character constraints for user passwords.															|
-| Set Company Information		| Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/en-us/library/azure/dn194126.aspx) PowerShell cmdlet for more details.	|
+| Set Company Information		| Updated the company-level information. See the [Get-MsolCompanyInformation](https://msdn.microsoft.com/library/azure/dn194126.aspx) PowerShell cmdlet for more details.	|
 | Set force change user password	| Set the property that forces a user to change their password on login.													|
 
 <!--- 
@@ -92,4 +92,4 @@ Promote tenant to partner
 | StrongAuthenticationUserDetails	| The user’s phone number, alternative phone number and email address used for Multi-Factor Authentication and password reset verification.			|
 | TelephoneNumber			| The user's telephone number.																	|
 
-Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer’s exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](http://azure.microsoft.com/en-us/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
+Audit records are a required control for many compliance regulations. For customers using the Azure Active Directory Audit Report to meet their compliance regulations, it is recommended that the customer submit a copy of this help topic with the copy of the customer’s exported audit report to help explain the report details. If the auditor would like to understand the compliance regulations that Azure currently meets, direct the auditor to the [Compliance page](http://azure.microsoft.com/support/trust-center/compliance/) of the Microsoft Azure Trust Center.
