@@ -2,7 +2,7 @@
     pageTitle="Common DocumentDB use cases | Azure" 
     description="Learn about the top five use cases for DocumentDB: user generated content, event logging, catalog data, user preferences data, and  Internet of Things (IoT)." 
     services="documentdb" 
-    authors="mimig1" 
+    authors="h0n" 
     manager="jhubbard" 
     editor="monicar" 
     documentationCenter=""/>
