@@ -24,6 +24,21 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
+## Account Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Maximum Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">Subscriptions</a> per <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">account</a></td>
+   <td valign="middle"><p>Unlimited</p></td>
+   <td valign="middle"><p>Unlimited</p></td>
+</tr>
+</table>
+
 ## Subscription Limits
 
 <table cellspacing="0" border="1">
@@ -109,7 +124,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 <sup>2</sup>Each virtual network supports a single virtual network gateway.
 
-## Cloud Service Limits
+## Cloud Services Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -141,7 +156,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 <sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling). 
 
-## Virtual Machine Limits
+## Virtual Machines Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -165,7 +180,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
 
-## Websites Limits
+## Web Apps (Websites) Limits
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
