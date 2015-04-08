@@ -16,15 +16,15 @@
     ms.date="04/06/2015" 
     ms.author="tamram"/>
 
-#How to use Blob Storage from C++  
+# How to use Blob Storage from C++  
 
-##Overview
+## Overview
 This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
 
 >[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 0.5.0 and above. The recommended version is Storage Client Library 0.5.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
 
-[AZURE.INCLUDE storage-blob-concepts-include]
-[AZURE.INCLUDE storage-create-account-include]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## Create a C++ application
 In this guide, you will use storage features which can be run within a C++ application.  
@@ -38,13 +38,13 @@ To install the Azure Storage Client Library for C++, you can use the following m
 
 		Install-Package wastorage -Pre
 
-##Configure your application to access Blob Storage  
+## Configure your application to access Blob Storage  
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
 
 	#include "was/storage_account.h"
 	#include "was/blob.h"
 
-##Setup an Azure storage connection string
+## Setup an Azure storage connection string
 An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the storage access key for the storage account listed in the Management Portal for the *AccountName* and *AccountKey* values. For information on storage accounts and access keys, see [About Azure Storage Accounts](storage-create-storage-account.md). This example shows how you can declare a static field to hold the connection string:  
 
 	// Define the connection-string with your values.
@@ -59,7 +59,7 @@ To start the Azure storage emulator, Select the **Start** button or press the **
 
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
-##Retrieve your connection string
+## Retrieve your connection string
 You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.  
 
 	// Retrieve storage account from connection string.
@@ -70,7 +70,7 @@ Next, get a reference to a **cloud_blob_client** class as it allows you to retri
 	// Create the blob client.
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
-##How to: Create a container
+## How to: Create a container
 Every blob in Azure storage must reside in a container. This example shows how to create a container if it does not already exist:  
 
 	try 
@@ -101,7 +101,7 @@ By default, the new container is private and you must specify your storage acces
 
 Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.  
 
-##How to: Upload a blob into a container
+## How to: Upload a blob into a container
 Azure Blob Storage supports block blobs and page blobs. In the majority of cases, block blob is the recommended type to use.  
 
 To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **upload_from_stream** method. This operation will create the blob if it didn't previously exist, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.  
@@ -134,7 +134,7 @@ To upload a file to a block blob, get a container reference and use it to get a 
 
 Alternatively, you can use the **upload_from_file** method to upload a file to a block blob.
 
-##How to: List the blobs in a container
+## How to: List the blobs in a container
 To list the blobs in a container, first get a container reference. You can then use the container's **list_blobs_segmented** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a returned **blob_result_segment**, you must call the **blob_result_segment.blobs** property to get a  **cloud_blob** object, or the **blob_result_segment.directories** property to get a  cloud_blob_directory object. The following code demonstrates how to retrieve and output the URI of each item in the **my-sample-container** container:  
 
 	// Retrieve storage account from connection string.
@@ -168,7 +168,7 @@ To list the blobs in a container, first get a container reference. You can then 
 	} while (!token.empty());  
 
 
-##How to: Download blobs
+## How to: Download blobs
 To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.  
 
 	// Retrieve storage account from connection string.
@@ -212,7 +212,7 @@ In addition, you can also use the **download_text** method to download the conte
 	// Download the contents of a blog as a text string.
 	utility::string_t text = text_blob.download_text();
 
-##How to: Delete blobs
+## How to: Delete blobs
 To delete a blob, first get a blob reference and then call the **delete_blob** method on it.  
 
 	// Retrieve storage account from connection string.
@@ -230,7 +230,7 @@ To delete a blob, first get a blob reference and then call the **delete_blob** m
 	// Delete the blob.
 	blockBlob.delete_blob();
 
-##Next steps
+## Next steps
 Now that you've learned the basics of blob storage, follow these links to learn more about Azure Storage.  
 
 -	[How to use Queue Storage from C++](storage-c-plus-plus-how-to-use-queues.md)
