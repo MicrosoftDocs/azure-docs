@@ -177,7 +177,6 @@ The following table lists all the available API Apps created by Microsoft that a
 	Name  | Description
 ------------- | -------------
 BizTalk Flat File Encoder | Provides interoperability between flat file data (like excel and csv) and XML data. This API App can convert a flat file instance to XML and vice versa.
-BizTalk JSON Encoder | Provides interoperability between JSON and XML data. This API App can convert a JSON instance to XML and vice versa.
 BizTalk Transform Service | The BizTalk Transform API App converts data from one format to another format. You can also upload an existing map (.trfm file), view the graphical representation of the map that shows the links between the source and target schemas, and use 'Test’ functionality with a sample input XML content. Different built-in functions are also available, including string manipulations, conditional assignment, arithmetic expressions, date time formatters, looping, and so on.
 BizTalk XML Validator | The Validator API App validates XML data against predefined XML schemas. You can use existing schemas or generate schemas based on a flat file instance, JSON instance, or existing connectors.
 BizTalk XPath Extractor | The Extractor API App looks up and extracts data from XML content based on a given XPath.
