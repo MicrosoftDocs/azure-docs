@@ -223,6 +223,7 @@ We will now create a simple Push Notification campaign that will send a push not
 
 <!-- URLs. -->
 [Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664
+[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
 <!-- Images. -->
 [7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
