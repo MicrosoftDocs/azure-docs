@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="04/08/2015" 
 	ms.author="johnmac"/>
 
 # Performance levels in DocumentDB #
 
 This article provides an overview of performance levels in [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
-
-> [AZURE.IMPORTANT] Performance levels will be available with the general availability of Azure DocumentDB. This release is scheduled for April 2015.
 
 After reading this article, you'll be able to answer the following questions:  
 
@@ -78,15 +76,15 @@ Request units are reserved for each collection based on the performance level se
 > [AZURE.NOTE] When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
 ##<a id="Sub3"></a>Working with performance levels##
-DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Refer to the [partitioning data documentation](documentdb-partition-data.md) for more details on partitioning data with DocumentDB. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding on whether separate collections should be used for data include:
+DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Refer to the [partitioning data documentation](documentdb-partition-data.md) for more details on partitioning data with DocumentDB. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding whether separate collections should be used include:
 
 - Queries – A collection is the scope for query execution. If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.
 - Transactions – A collection is the transaction domain for stored procedures and triggers. All transactions are scoped to a single collection. 
 - Performance – A collection has an associated performance level. This ensures that each collection has a predictable performance through reserved RUs. Data can be allocated to different collections, with different performance levels, based on access frequency.
 
-> [AZURE.IMPORTANT] It is important to understand you will be billed at full standard rates based on the number of collections created within your application.
+> [AZURE.IMPORTANT] It is important to understand you will be billed at full standard rates based on the number of collections created by your application.
 
-It is recommended that your application makes use of a small number of collections and that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
+It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
 ##<a name="NextSteps"></a>Next steps
 
