@@ -126,7 +126,7 @@ To send a message to a Service Bus queue, your application will call the **Servi
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\models\BrokeredMessage;
+	use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 
 	// Create Service Bus REST proxy.
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
@@ -176,7 +176,7 @@ The example below demonstrates how a message can be received and processed using
 
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
-	use WindowsAzure\ServiceBus\models\ReceiveMessageOptions;
+	use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 
 	// Create Service Bus REST proxy.
 	$serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
