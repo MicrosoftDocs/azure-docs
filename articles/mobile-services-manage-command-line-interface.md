@@ -2,7 +2,7 @@
 	pageTitle="Administering a Mobile Service at the command line - Azure tutorial" 
 	description="Learn how to create, deploy, and manage your Azure Mobile Service using command-line tools." 
 	services="mobile-services" 
-	documentationCenter="" 
+	documentationCenter="Mobile" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,31 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/07/2015" 
 	ms.author="glenga"/>
 
 # Automate mobile services with command-line tools 
 
-This topic shows you how to use the Azure command-line tools to automate the creation and management of Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform the following Mobile Services tasks:
+##Overview
 
--	[Create a new mobile service] 
--	[Create a new table]
--   [Register a script to a table operation][Register a new table script]
--   [List tables]
-- 	[Delete an existing table]
--	[List mobile services]
--   [Delete an existing mobile service]
+This topic shows you how to use the Azure command-line tools to automate the creation and management of Azure Mobile Services. This topic shows you how to install and get started using the command-line tools and use them to perform key Mobile Services.
  
 When combined into a single script or batch file, these individual commands automate the creation, verification, and deletion process of a mobile service. 
-
-To use the Azure command-line tools to manage Mobile Services, you need an Azure account that has the Azure Mobile Services feature enabled.
-
-+ If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">Azure Free Trial</a>.
-
-+ If you have an existing account but need to enable the Azure Mobile Services preview, see <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Enable Azure preview features</a>.
 
 This topic covers a selection of common administration tasks supported by the Azure command-line tools. For more information, see [Azure command-line tools documentation][reference-docs].
 
@@ -42,7 +30,7 @@ This topic covers a selection of common administration tasks supported by the Az
 
 + (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
-<h2><a name="install"></a>Install the Azure Command-Line Tools</h2>
+##Install the Azure Command-Line Tools
 
 The following list contains information for installing the command-line tools, depending on your operating system:
 
@@ -55,7 +43,8 @@ The following list contains information for installing the command-line tools, d
 		npm install azure-cli -g
 
 To test the installation, type `azure` at the command prompt. When the installation is successful, you will see a list of all the available `azure` commands.
-<h2><a name="import-account"></a>How to download and import publish settings</h2>
+
+##How to download and import publish settings
 
 To get started, you must first download and import your publish settings. Then you can use the tools to create and manage Azure Services. To download your publish settings, use the `account download` command:
 

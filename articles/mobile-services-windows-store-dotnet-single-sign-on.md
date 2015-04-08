@@ -13,22 +13,17 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/08/2015" 
 	ms.author="glenga"/>
 
 # Authenticate your Windows Store app using a Microsoft account with client flow
 
 [AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)]	
 
-This topic shows you how to obtain an authentication token for Microsoft account using the Live SDK from a Windows Store app. You then use this token to authenticate users in Azure Mobile Services.  In this tutorial, you add Microsoft account authentication to an existing project using the Live SDK. When successfully authenticated, a logged-in user is welcomed by name and the user ID value is displayed.  
+##Overview
+This topic shows you how to obtain an authentication token for Microsoft account using the Live SDK from a universal Windows app. You then use this token to authenticate users with Azure Mobile Services.  In this tutorial, you add Microsoft account authentication to an existing project using the Live SDK. When successfully authenticated, a logged-in user is welcomed by name and the user ID value is displayed.  
 
->[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by the Live SDK. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic [Get started with authentication](mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md). 
-
-This tutorial walks you through these basic steps to enable Microsoft account authentication using the Live SDK:
-
-1. [Register your app for authentication and configure Mobile Services]
-2. [Restrict table permissions to authenticated users]
-3. [Add authentication to the app]
+>[AZURE.NOTE]This tutorial demonstrates the benefits of using client-directed authentication and the Live SDK. This enables you to more easily authenticate an already logged-on user with you mobile service. Service-directed authentication provides a more generalized experience and supports multiple authentication providers. For more information about service-directed authentication, see the topic [Get started with authentication](mobile-services-javascript-backend-windows-universal-dotnet-get-started-users.md). 
 
 This tutorial requires the following:
 
@@ -36,11 +31,11 @@ This tutorial requires the following:
 + Microsoft Visual Studio 2013 Update 3, or a later version.
 + You must also first complete either [Get started with Mobile Services](mobile-services-javascript-backend-windows-store-dotnet-get-started.md) or [Add Mobile Services to an existing app] tutorials.
 
-##<a name="register"></a>Register your app for the Windows Store
+##Register your app to use a Microsoft account login
 
-To be able to authenticate users, you must submit your app to the Windows Store. You must then register the client secret to integrate Live Connect with Mobile Services.
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service:
 
-[AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
++ [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
@@ -52,7 +47,7 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 2. In the left pane, select the **Online** category, search for **LiveSDK**, click **Install** on the **Live SDK** package, select all projects, then accept the license agreements. 
 
-  	This adds the Live SDK to the project.
+  	This adds the Live SDK to the solution.
 
 3. Open the shared project file MainPage.xaml.cs and add the following using statement:
 
@@ -63,11 +58,12 @@ To be able to authenticate users, you must submit your app to the Windows Store.
         private LiveConnectSession session;
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
-            // Build the redirect URL of a JavaScript backend mobile service.
-            var redirectUrl = App.MobileService.ApplicationUri.ToString() + "login/microsoftaccount/";
 
-            // Create the authentication client using the redirect URL.
-            LiveAuthClient liveIdClient = new LiveAuthClient(redirectUrl);
+            // Get the URL the mobile service.
+            var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
+
+            // Create the authentication client using the mobile service URL.
+            LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
 
             while (session == null)
             {
@@ -110,17 +106,19 @@ To be able to authenticate users, you must submit your app to the Windows Store.
 
 	>[AZURE.NOTE]You should try to use cached Live authentiction tokens or Mobile Services authorization tokens before requesting new tokens from the services. If you don't do this, you might have usage-relates issues should many customers try to start your app at the same time. For an example of how to cache this token, see [Get started with authentication](mobile-services-windows-store-dotnet-get-started-users.md#tokens)
 
-8. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **Authenticate** method:
+5. Replace the existing **OnNavigatedTo** event handler with the handler that calls the new **AuthenticateAsync** method:
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             await AuthenticateAsync();
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 9. Press the F5 key to run the app and sign into Live Connect with your Microsoft account. 
 
    When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+
+9. Right-click the Windows Phone Store app project, click **Set as StartUp Project**, then repeat the previous step to verify that the Windows Phone Store app also runs correctly.
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -140,7 +138,7 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 
 [Add Mobile Services to an existing app]: mobile-services-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
-[Authorize users with scripts]: mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
+[Authorize users with scripts]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
