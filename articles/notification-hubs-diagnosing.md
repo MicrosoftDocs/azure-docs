@@ -2,7 +2,7 @@
 	pageTitle="Azure Notification Hubs - Diagnosis Guidelines" 
 	description="Guidelines on how to diagnose common issues with Azure Notification Hubs." 
 	services="notification-hubs" 
-	documentationCenter="" 
+	documentationCenter="Mobile" 
 	authors="piyushjo" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,10 +10,10 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="04/07/2015" 
 	ms.author="piyushjo"/>
 
 #Azure Notification Hubs - Diagnosis guidelines
@@ -226,8 +226,8 @@ More details here -
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Notification Hubs Overview]: http://azure.microsoft.com/documentation/articles/notification-hubs-overview/
-[Getting Started Tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Notification Hubs Overview]: notification-hubs-overview.md
+[Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started.md
 [Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [GCM guidance]: http://developer.android.com/google/gcm/adv.html
