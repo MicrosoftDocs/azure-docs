@@ -92,6 +92,7 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 		; Example Settings
 		curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
 		wincache.maxfilesize=512
+4. Restart your Web App to load the changes.
 
 ## How to: Enable extensions in the default PHP runtime
 As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below:
