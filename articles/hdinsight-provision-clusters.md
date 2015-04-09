@@ -46,7 +46,7 @@ HDInsight provides the option of configuring Linux clusters on Azure. Configure 
 
 During configuration, you must specify an Azure Blob storage account and a default container. This is used as the default storage location by the cluster. Optionally, you can specify an additional Azure Storage account that will also be associated with the cluster.   
 
->[WACOM.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported. 
+>[AZURE.NOTE] Don't share one Blob storage container for multiple clusters. This is not supported. 
 
 For more information on using secondary Blob stores, see [Using Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
@@ -130,7 +130,7 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 	<tr><td>Data Node Size</td><td><p>Select a VM size for the data nodes.</p></td></tr>
 	</table>
 
-	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard-tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
+	>[AZURE.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard-tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
 
 
 5. On the **Configure Cluster User** page, provide the following values:
@@ -153,7 +153,7 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 			<td>Specify the SQL database user password.</td></tr>
 	</table>
 
-	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
 
     Click the right arrow.
 
@@ -195,7 +195,7 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
     Here again, you have the option to choose from existing storage, create new storage, or use storage from another Azure subscription. The procedure to provide the values is similar to the previous step.
 
-    > [WACOM.NOTE] Once an Azure Storage account is chosen for your HDInsight cluster, you can neither delete the account nor change the account to a different account.
+    > [AZURE.NOTE] Once an Azure Storage account is chosen for your HDInsight cluster, you can neither delete the account nor change the account to a different account.
 
 8. On the **Script Actions** page, click **add script action** to provide details about the custom script that you want to run to customize a cluster, as the cluster is being created. For example, you can use a script action to customize a cluster to install <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>. For more information, see [Customize HDInsight clusters using Script Action][hdinsight-customize-cluster]. 
 	
@@ -218,7 +218,7 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 ##<a id="powershell"></a> Using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This section provides instructions on how to provision an HDInsight cluster by using Azure PowerShell. For information on configuring a workstation to run HDInsight Windows PowerShell cmdlets, see [Install and configure Azure PowerShell][powershell-install-configure]. For more information on using Azure PowerShell with HDInsight, see [Administer HDInsight using PowerShell][hdinsight-admin-powershell]. For the list of the HDInsight Windows PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
-> [WACOM.NOTE] While the scripts in this section can be used to configure an HDInsight cluster on an Azure virtual network, they will not create an Azure virtual network. For information on creating an Azure virtual network, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
+> [AZURE.NOTE] While the scripts in this section can be used to configure an HDInsight cluster on an Azure virtual network, they will not create an Azure virtual network. For information on creating an Azure virtual network, see [Virtual Network configuration tasks](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 The following procedures are needed to provision an HDInsight cluster by using Azure PowerShell:
 
@@ -269,7 +269,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 **To provision an HDInsight cluster**
 
-> [WACOM.NOTE] The Azure PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster. Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching. Configuration values set via Azure PowerShell will be preserved if the cluster is patched.
+> [AZURE.NOTE] The Azure PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster. Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching. Configuration values set via Azure PowerShell will be preserved if the cluster is patched.
 
 - Run the following commands from an Azure PowerShell console window:
 
@@ -296,7 +296,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credential -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
 
-	>[WACOM.NOTE] The $hadoopUserName and $hadoopUserPassword commands are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin". Don't confuse this account with the Remote Desktop Protocol (RDP) user account. The RDP user account has to be different from the Hadoop user account. For more information, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
+	>[AZURE.NOTE] The $hadoopUserName and $hadoopUserPassword commands are used to create the Hadoop user account for the cluster. You will use this account to connect to the cluster and run jobs. If you use the Quick Create option from the Azure portal to provision a cluster, the default Hadoop user name is "admin". Don't confuse this account with the Remote Desktop Protocol (RDP) user account. The RDP user account has to be different from the Hadoop user account. For more information, see [Manage Hadoop clusters in HDInsight using the Azure Management Portal][hdinsight-admin-portal].
 
 	It can take several minutes before the cluster provisioning finishes.
 
@@ -308,7 +308,7 @@ Once you have the Storage account and the Blob container prepared, you are ready
 
 While provisioning a cluster, you can use the other configuration options such as connecting to more than one Azure Blob storage container, using a virtual network, or using an Azure SQL database for Hive and Oozie metastores. This allows you to separate the lifetime of your data and metadata from the lifetime of the cluster.
 
-> [WACOM.NOTE] The Windows PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster. Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching. Configuration values set via Azure PowerShell will be preserved if the cluster is patched.
+> [AZURE.NOTE] The Windows PowerShell cmdlets are the only recommended way to change configuration variables in an HDInsight cluster. Changes made to Hadoop configuration files while connected to the cluster via Remote Desktop may be overwritten in the event of cluster patching. Configuration values set via Azure PowerShell will be preserved if the cluster is patched.
 
 - Run the following commands from a Windows PowerShell window:
 
@@ -351,7 +351,7 @@ While provisioning a cluster, you can use the other configuration options such a
 		    Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore |
 		        New-AzureHDInsightCluster -Name $clusterName -Location $location -VirtualNetworkId $vnetID -SubnetName $subNetName
 
-	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
 
 **To list HDInsight clusters**
 
@@ -362,7 +362,7 @@ While provisioning a cluster, you can use the other configuration options such a
 
 ##<a id="cli"></a> Using a cross-platform command line
 
-> [WACOM.NOTE] As of 8/29/2014, the cross-platform command-line interface (CLI) cannot be used to associate a cluster with an Azure virtual network.
+> [AZURE.NOTE] As of 8/29/2014, the cross-platform command-line interface (CLI) cannot be used to associate a cluster with an Azure virtual network.
 
 Another option for provisioning an HDInsight cluster is the cross-platform command-line interface. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac and Linux. You can install the CLI from the following locations:
 
@@ -405,7 +405,7 @@ Perform the following procedures to set up your Linux computer to use Azure comm
 
 Before using the command-line interface, you must configure connectivity between your workstation and Azure. Your Azure subscription information is used by the command-line interface to connect to your account. This information can be obtained from Azure in a publish settings file. The publish settings file can then be imported as a persistent local config setting that the command-line interface will use for subsequent operations. You need to import your publish settings only once.
 
-> [WACOM.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker Drive Encryption. 
+> [AZURE.NOTE] The publish settings file contains sensitive information. Microsoft recommends that you delete the file or take additional steps to encrypt the user folder that contains the file. On Windows, modify the folder properties or use BitLocker Drive Encryption. 
 
 
 1.	Open a terminal window.
@@ -442,7 +442,7 @@ The command-line interface can be installed via NPM or Windows Installer. Micros
 
 		npm install -g https://github.com/Azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz
 
-	> [WACOM.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
+	> [AZURE.NOTE] If you get an error saying the NPM command is not found, verify that the following paths are in the PATH environment variable: <i>C:\Program Files (x86)\nodejs;C:\Users\[username]\AppData\Roaming\npm</i> or <i>C:\Program Files\nodejs;C:\Users\[username]\AppData\Roaming\npm</i>
 
 5.	Run the following command to verify the installation:
 
@@ -556,7 +556,7 @@ Typically, you provision an HDInsight cluster, run the jobs, and then delete the
 		#Run this command to create a cluster by using the config file
 		azure hdinsight cluster create --config <file>
 
-	>[WACOM.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
+	>[AZURE.NOTE] The Azure SQL database used for the metastore must allow connectivity to other Azure services, including Azure HDInsight. On the Azure SQL database dashboard, on the right side, click the server name. This is the server on which the SQL database instance is running. Once you are on the server view, click **Configure**, and then for **Windows Azure Services**, click **Yes**, and then click **Save**.
 
 
 	![HDI.CLIClusterCreationConfig][image-cli-clustercreation-config]

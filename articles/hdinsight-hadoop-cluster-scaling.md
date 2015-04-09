@@ -82,7 +82,7 @@ To change the Hadoop cluster size by using Azure PowerShell, run the following c
 
 	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>	
 
-> [WACOM.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
+> [AZURE.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
 
 ### SDK
 To change the Hadoop cluster size by using the HDInsight SDK, use one of the following methods: 

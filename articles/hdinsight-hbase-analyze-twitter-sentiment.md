@@ -103,7 +103,7 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
 
-	> [WACOM.NOTE] The Twitter application name must be an unique name.  
+	> [AZURE.NOTE] The Twitter application name must be an unique name.  
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 

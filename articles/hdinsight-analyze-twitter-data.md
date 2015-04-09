@@ -21,7 +21,7 @@
 ##Overview
 Social websites are one of the major driving forces for big-data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [WACOM.NOTE] A similar sample is added to the HDInsight Sample Gallery. The following Channel 9 video shows how to run the sample:
+> [AZURE.NOTE] A similar sample is added to the HDInsight Sample Gallery. The following Channel 9 video shows how to run the sample:
 
 <center><iframe width="854" height="510" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
 
@@ -82,7 +82,7 @@ The following table lists the files used in this tutorial:
 
 In this tutorial, you will use the [Twitter streaming APIs][twitter-streaming-api]. The specific Twitter streaming API you will use is [statuses/filter][twitter-statuses-filter].
 
->[WACOM.NOTE] A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files. 
+>[AZURE.NOTE] A file containing 10,000 tweets and the Hive script file (covered in the next section) have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files. 
 
 [Tweets data](https://dev.twitter.com/docs/platform-objects/tweets) is stored in the JavaScript Object Notation (JSON) format that contains a complex nested structure. Instead of writing many lines of code by using a conventional programming language, you can transform this nested structure into a Hive table, so that it can be queried by a Structured Query Language (SQL)-like language called HiveQL. 
 
@@ -267,7 +267,7 @@ As a validation procedure, you can check the output file, **/tutorials/twitter/d
 
 Using Azure PowerShell, you can run multiple HiveQL statements one at a time, or package the HiveQL statement into a script file. In this tutorial, you will create a HiveQL script. The script file must be uploaded to Azure Blob storage. In the next section, you will run the script file by using Azure PowerShell.
 
->[WACOM.NOTE] The Hive script file and a file containing 10,000 tweets have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files.
+>[AZURE.NOTE] The Hive script file and a file containing 10,000 tweets have been uploaded in a public Blob container. You can skip this section if you want to use the uploaded files.
 
 The HiveQL script will perform the following:
 
@@ -466,7 +466,7 @@ You have finished all the preparation work. Now, you can invoke the Hive script 
 
 Use the following Windows PowerShell script to run the Hive script. You will need to set the first variable.
 
->[WACOM.NOTE] To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
+>[AZURE.NOTE] To use the tweets and the HiveQL script you uploaded in the last two sections, set $hqlScriptFile to "/tutorials/twitter/twitter.hql". To use the ones that have been uploaded to a public blob for you, set $hqlScriptFile to "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 	#region variables and constants
 	$clusterName = "<HDInsightClusterName>"
