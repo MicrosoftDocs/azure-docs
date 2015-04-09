@@ -35,15 +35,18 @@ In this article:
 -   [Add a DNS record for your custom domain](#bkmk_configurecname)
 -   [Enable Traffic Manager for your web app](#enabledomain)
 
-<h2><a name="understanding-records"></a>Understanding DNS records</h2>
+<a name="understanding-records"></a>
+## Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
 
-<h2><a name="bkmk_configsharedmode"></a>Configure your web apps for standard mode</h2>
+<a name="bkmk_configsharedmode"></a>
+## Configure your web apps for standard mode
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-<a name="bkmk_configurecname"></a><h2>Add a DNS record for your custom domain</h2>
+<a name="bkmk_configurecname"></a>
+## Add a DNS record for your custom domain
 
 To associate your custom domain with a web app in Azure App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by the domain registrar that you purchased your domain name from. Use the following steps to locate and use the DNS tools.
 
@@ -59,6 +62,13 @@ To associate your custom domain with a web app in Azure App Service, you must ad
 
 6. Once you have finished adding or modifying DNS records at your registrar, save the changes.
 
-<h2><a name="enabledomain"></a>Enable Traffic Manager</h2>
+<a name="enabledomain"></a>
+## Enable Traffic Manager
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)

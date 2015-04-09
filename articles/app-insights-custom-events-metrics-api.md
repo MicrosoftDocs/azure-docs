@@ -186,6 +186,8 @@ You can attach properties and measurements to your metrics, events, page views, 
 
 **Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
 
+Metric values should be >= 0 to be correctly displayed.
+
 *JavaScript*
 
     appInsights.trackEvent // or trackPageView, trackMetric, ...
@@ -323,6 +325,8 @@ This feature isn't built in to the other SDKs. But you can write your own code s
 Use TrackMetric to send metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. 
 
 Metrics are displayed as statistical charts in metric explorer, but unlike events, you can't search for individual occurrences in diagnostic search.
+
+Metric values should be >= 0 to be correctly displayed.
 
 
 *JavaScript*

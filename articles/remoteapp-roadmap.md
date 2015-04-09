@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="04/08/2015" 
     ms.author="elizapo" />
 
 # What's coming in RemoteApp
 
 We are always working to improve RemoteApp based on your feedback. Here are rough time lines for feature availability. 
 
-|Feature|Q1 2015|Q2 2015|Q3 2015|Q4 2015|
+|Feature|July-Sep 2014|Oct-Dec 2014|Jan-March 2015|Apr-June 2015|
 |-----------|-------|-------|-------|-------|
 |Upload line-of-business (LOB) applications to a cloud collection, as well as in a hybrid collection|X| | | |
 |Support for Windows Phone| |X|	| |

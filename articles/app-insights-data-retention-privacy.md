@@ -129,14 +129,14 @@ The SDKs vary between platforms, and there are are several components that you c
 
 #### Classes of data sent in different scenarios
 
-Your action  | Data collected
+Your action  | Data classes collected (see next table)
 ---|---
 [Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
 [Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
 [Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session
 [Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
 [Add SDK to Windows Store app][windows]|DeviceContext<br/>**Auth users**<br/>Crashes
-[Define default properties][api#properties]|**Properties** on all standard and custom events
+[Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
 [Call Track*][api]|Event name<br/>**Properties**
 [Call TrackException][api]|**Exception**
@@ -145,7 +145,7 @@ For [SDKs for other platforms][platforms], see their documents.
 
 #### The classes of collected data
 
-Collected data class | What it is 
+Collected data class | Includes (not an exhaustive list) 
 ---|---|---
 ServerContext |Machine name, locale, OS, 
 ClientContext |Browser type, OS, locale, language, network, window resolution
