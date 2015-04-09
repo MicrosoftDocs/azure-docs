@@ -18,7 +18,7 @@
 
 #Get started with the DocumentDB .NET SDK  
 
-This tutorial shows you how to get started using [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) and the [DocumentDB .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Documents.Client/). You'll build a console application that creates and queries DocumentDB resources, and writes the output to the console window. 
+This tutorial shows you how to get started using [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) and the [DocumentDB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). You'll build a console application that creates and queries DocumentDB resources, and writes the output to the console window. 
 
 DocumentDB is a NoSQL document database service, which has a [number of APIs and SDKs available](https://msdn.microsoft.com/library/dn781482.aspx). The code in this article is written in C# and uses the DocumentDB .NET SDK, which is packaged and distributed as a NuGet package. 
 
