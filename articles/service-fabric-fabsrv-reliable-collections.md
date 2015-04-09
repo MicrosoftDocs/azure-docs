@@ -21,12 +21,13 @@
 Reliable Collections enable you to write highly available, scalable, and low latency
 cloud applications as though you are writing single machine applications.
 The classes in the Microsoft.ServiceFabric.Data.Collections namespace provide a set of out-of-the-box
-Reliable Objects that automatically make your state highly available.
+collections that automatically make your state highly available.
 Developers need only to program to the Reliable Collection APIs and let Reliable Collections
 manage the replicated and local state.
 
-The key difference between Reliable Collections and other high-availability technologies (such as Redis, Azure Table service, and Azure Queue service)
-is that the state is kept locally in the service instance while also being made highly available.
+The key difference between Reliable Collections and other high-availability technologies
+(such as Redis, Azure Table service, and Azure Queue service) is that the state is
+kept locally in the service instance while also being made highly available.
 This means that:
 1. All reads are local, which results in low latency and high throughput reads.
 2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
@@ -49,7 +50,7 @@ has been applied on quorum of replicas including the primary.
 To achieve weaker consistency application can acknowledge back to the client / requester
 before ITransaction.CommitAsync returns.
 
-The Reliable Collections APIs are an evolution of concurrent collections
+The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the System.Collections.Concurrent namespace):
 1. Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.
 2. No out parameters: Uses ConditionalResult<T> to return bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to a struct.
@@ -141,7 +142,7 @@ In this case, one or both of the operations will timeout.
 Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.
 
 ## Recommendations
-- **DO NOT** modify an object of custom type returned by read operations (e.g TryPeekAsync or TryGetAsync). Reliable Collections return a reference to the objects and not a copy.
+- **DO NOT** modify an object of custom type returned by read operations (e.g TryPeekAsync or TryGetAsync). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 - **DO** deep copy returned object of custom type before modifying it. Since, built-in types are pass-by-value, you do not need to do a deep copy them.
 - **DO NOT** use MaxValue for timeouts. Timeouts should be used to detect deadlocks.
 - **DO NOT** create a transaction within another transaction’s using statement because it can cause deadlocks.
