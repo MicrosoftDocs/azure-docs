@@ -18,7 +18,7 @@
 
 #Get started with your first Azure Search application in .NET#
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](../search-howto-dotnet-sdk/) to build classes for the objects and operations used in this exercise.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/en-us/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
