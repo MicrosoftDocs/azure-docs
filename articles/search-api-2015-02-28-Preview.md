@@ -18,7 +18,7 @@
 
 # Azure Search Service REST API: Version 2015-02-28-Preview #
 
-This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current locked version, [api-version=2015-02-28](https://msdn.microsoft.com/en-us/library/dn798935.aspx), by providing the following experimental features:
+This article is the reference documentation for `api-version=2015-02-28-Preview`. This preview extends the current locked version, [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
 
 - [Natural language processors](#LanguageSupport) from Microsoft (the same ones used by Office and Bing) offer greater precision over query results and more languages.
 - `moreLikeThis` is a a query parameter used in [Search operations](#SearchDocs) that finds other documents that are relevant to another specific document.
@@ -1449,7 +1449,7 @@ ________________________________________
 
 In Azure Search, an index is populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source. The Azure Search Adventure Works Demo sample application on Codeplex includes code that builds JSON documents using a result set from the Adventure Works sample database. You can learn more about the sample application [here](http://azure.microsoft.com/documentation/articles/search-create-first-solution/).
+Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source. The Azure Search Adventure Works Demo sample application on Codeplex includes code that builds JSON documents using a result set from the Adventure Works sample database.
 
 In the majority of application development scenarios, search data is separate and external to your application data layer. If your application uses an on-premises database for tracking inventory status, the documents persisted in Azure Search will contain similar or identical data values in terms of product name, price, and availability, but they will be stored in an inverted index in order to optimize searches. 
 
@@ -1597,7 +1597,7 @@ A **Search** operation is issued as a GET request and specifies query parameters
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin key]
 
-As a best practice, remember to [URL-encode](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.encode.aspx) the query string when calling the REST API directly.
+As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.encode.aspx) the query string when calling the REST API directly.
 
 **Request**
 
