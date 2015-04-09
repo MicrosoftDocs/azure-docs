@@ -104,7 +104,7 @@ this solution, let's get to the real purpose of this tutorial, adding Azure Docu
 
   	Alternatively you can use the Package Manager Console to install the package. To do so, on the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**. At the prompt, type the following.
 
-    	Install-Package Microsoft.Azure.Documents.Client
+    	Install-Package Microsoft.Azure.DocumentDB
 
 3. Once the package is installed, your Visual Studio solution should resemble the following with two new references added, Microsoft.Azure.Documents.Client and Newtonsoft.Json.
 
