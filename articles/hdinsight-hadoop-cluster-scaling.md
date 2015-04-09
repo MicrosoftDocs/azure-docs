@@ -3,7 +3,7 @@
    description="Change the number of data nodes in a cluster that is running on HDInsight without having to delete and recreate the cluster."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="04/02/2015"
-   ms.author="bradsev"/>
+   ms.author="jgao"/>
 
 #Cluster scaling in HDInsight
 

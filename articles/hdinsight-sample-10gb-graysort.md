@@ -45,7 +45,7 @@ The input and output format, used by all three applications, reads and writes th
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
-<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
+##Run the sample with Azure PowerShell
 
 Three tasks are required by the sample, each corresponding to one of the MapReduce programs described in the introduction:
 
@@ -130,7 +130,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		$teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
 
 
-<h2><a id="java-code"></a>The Java code for the TeraSort MapReduce program</h2>
+##The Java code for the TeraSort MapReduce program
 
 The code for the TeraSort MapReduce program is presented for inspection in this section.
 
@@ -401,11 +401,11 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
 	}
 
 
-<h2><a id="summary"></a>Summary</h2>
+##Summary
 
 This sample has demonstrated how to run a series of MapReduce jobs by using Azure HDInsight, where the data output for one job becomes the input for the next job in the series.
 
-<h2><a id="next-steps"></a>Next steps</h2>
+##Next steps
 
 For tutorials that guide you through running other samples and that provide instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
