@@ -357,6 +357,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 In this tutorial you learned how to provision an HBase cluster. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Provision Hadoop clusters in HDInsight][hdinsight-provision] 
 - [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]

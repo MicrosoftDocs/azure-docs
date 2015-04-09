@@ -1307,6 +1307,7 @@ Optionally, you can deploy the application to Azure Websites. For instructions, 
 In this tutorial, you learned how to get tweets, analyze the sentiment of tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Bing maps. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analyze Twitter data with Hadoop in HDInsight][hdinsight-analyze-twitter-data]
 - [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
