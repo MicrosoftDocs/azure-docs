@@ -83,8 +83,8 @@ Once your API app is created, you can now use the File connector as an action fo
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
 [2]: ./media/app-service-logic-connector-file/img2.PNG
-[3]: ./media/app-service-logic-connector-file/img3.png
-[4]: ./media/app-service-logic-connector-file/img4.png
+[3]: ./media/app-service-logic-connector-file/img3.PNG
+[4]: ./media/app-service-logic-connector-file/img4.PNG
 [5]: ./media/app-service-logic-connector-file/img5.PNG
 [6]: ./media/app-service-logic-connector-file/img6.PNG
 [7]: ./media/app-service-logic-connector-file/img7.PNG
