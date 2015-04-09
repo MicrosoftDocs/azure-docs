@@ -365,7 +365,7 @@ Ready for the next step? The following links take you to additional material tha
 
 - [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
-- [Azure Search .NET SDK](https://msdn.microsoft.com/en-us/library/azure/dn951165.aspx)
+- [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
 - [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 

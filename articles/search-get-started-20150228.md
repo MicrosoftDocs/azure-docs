@@ -18,7 +18,7 @@
 
 #Create your first Azure Search application in .NET#
 
-This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/en-us/library/azure/dn951165.aspx) to build classes for the objects and operations used in the sample.
+This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in the sample.
 
 You can download the sample from codeplex at [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) to follow the steps in this tutorial. The sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Washington. We'll use this data to build a search application based on data about landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 

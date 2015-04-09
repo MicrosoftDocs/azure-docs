@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with your first Azure Search application in .NET" 
+	pageTitle="Get started with your first Azure Search application in .NET | Microsoft Azure" 
 	description="Tutorial on how to build a Visual Studio solution using the .NET client library from the Azure Search .NET SDK." 
 	services="search" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+	ms.date="04/09/2015" 
 	ms.author="heidist"/>
 
 #Get started with your first Azure Search application in .NET#
 
-Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/en-us/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise.
+Learn how to build a custom .NET search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in this exercise.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
