@@ -163,3 +163,8 @@ Configure asset delivery policy using **.NET** or **REST API**.
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
 [AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
+
+
+##Related topics
+
+[Update Media Services locators after rolling storage keys](media-services-roll-storage-access-keys.md)
