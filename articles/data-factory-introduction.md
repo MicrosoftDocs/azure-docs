@@ -13,13 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/08/2015" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service
 <!--
 The **Azure Data Factory** service is a fully managed service for composing data storage, processing, and movement services into streamlined, scalable, and reliable data production pipelines.  Developers can use Data Factory to transform semi-structured, unstructured and structured data from on-premises and cloud sources into trusted information. Developers build data-driven workflows (pipelines) that join, aggregate and transform data sourced from their on-premises, cloud-based and internet services, and set up complex data processing through simple JSON scripting. The Azure Data Factory service provides monitoring and management of these pipelines at a glance with a rich visual experience offered through the Azure Preview Portal. The information produced by pipelines can be easily consumed using BI and analytics tools, and other applications to reliably drive key business insights and decisions.
 -->
+
 
 The **Azure Data Factory** service is a fully managed service for composing data storage, data processing, and data movement services into streamlined, scalable, and reliable data production pipelines. The Data Factory service allows you to: 
 
@@ -29,6 +30,8 @@ The **Azure Data Factory** service is a fully managed service for composing data
 - Set up complex data processing through simple JSON scripting.
 - Monitor and manage pipelines at a glance with a rich visual experience offered through the Azure Preview Portal.  
 
+The following video provides a quick overview of the Azure Data Factory service.
+> [AZURE.VIDEO azure-data-factory-overview]
 
 <!--
 This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
