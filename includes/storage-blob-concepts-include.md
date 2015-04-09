@@ -34,7 +34,7 @@ The Blob service contains the following components:
     in size. This tutorial uses block blobs. Page blobs, another blob
     type, can be up to 1 TB in size, and are more efficient when ranges
     of bytes in a file are modified frequently. For more information
-    about blobs, see [Understanding Block Blobs and Page Blobs][].
+    about blobs, see [Understanding Block Blobs and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 -   **URL format:** Blobs are addressable using the following URL
     format:   

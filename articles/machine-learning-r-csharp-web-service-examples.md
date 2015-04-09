@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
+	ms.date="04/07/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -40,7 +40,7 @@ A user works with a generic model that can be applied to a new user’s data, su
 * [Cluster Model](machine-learning-r-csharp-cluster-model.md)
 * [Multivariate Linear Regression](machine-learning-r-csharp-multivariate-linear-regression.md)
 * [Forecasting - Exponential Smoothing](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-* [ETS + STL Forecasting](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-retail-demand-forecasting/)
+* [ETS + STL Forecasting](machine-learning-r-csharp-retail-demand-forecasting.md)
 * [Forecasting - Autoregressive Integrated Moving Average (ARIMA)](machine-learning-r-csharp-arima.md)
 * [Survival Analysis](machine-learning-r-csharp-survival-analysis.md)
 
@@ -60,7 +60,7 @@ A user provides advanced calculations or simulations that don’t require any tr
 * [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
 
 ##FAQ
-For frequently asked questions on consumption of the web service or publishing to the Marketplace, see [here](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
+For frequently asked questions on consumption of the web service or publishing to the Marketplace, see [here](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/base1.png
 

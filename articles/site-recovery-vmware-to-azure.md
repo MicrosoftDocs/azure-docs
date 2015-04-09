@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises VMWare servers to Azure and between physical on-premises servers and Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="raynew" 
+	authors="rayne-wiselman" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/01/2015" 
 	ms.author="raynew"/>
 
 
@@ -38,9 +38,9 @@ Business advantages include:
 
 This feature is currently in preview. Read the [Supplemental Terms of Use for Previews](preview-supplemental-terms).
 
-## About this guide
+## About this article
 
-The guide includes an overview and deployment prerequisites. It walks you through setting up all the deployment components and enabling protection for virtual machines and servers. It finishes up by testing failover to make sure everything's working as expected.
+The article includes an overview and deployment prerequisites. It walks you through setting up all the deployment components and enabling protection for virtual machines and servers. It finishes up by testing failover to make sure everything's working as expected.
 
 If you run into problems post your questions on the [Azure Recovery Services Forum](http://go.microsoft.com/fwlink/?LinkId=313628).
 
@@ -144,7 +144,7 @@ Protected physical servers or VMWare virtual machines running Linux should have:
 
 ### Third-party prerequisites
 
-Some deployment components in this scenario depend on third-party software to function properly. For a complete list see <a href="#thirdparty">Third Party Software Notices and Information</a>. 
+Some deployment components in this scenario depend on third-party software to function properly. For a complete list see [THIRD-PARTY SOFTWARE NOTICES AND INFORMATION](#third-party)  
 
 ## Step 1: Create a vault
 
@@ -426,7 +426,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![Add virtual machines](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
 
-3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts.
+3. If required you can customize the plan to create groups and sequence the order in which machines in the recovery plan are failed over. You can also add prompts for manual actions and scripts. The scripts when recovering to Azure can be added by using [Azure Automation Runbooks](site-recovery-runbook-automation.md).
 
 	![Customize recovery plan](./media/site-recovery-vmware-to-azure/ASRVMWare_RP2.png)
 
@@ -434,7 +434,7 @@ If you want to protect machines running Linux you'll need to do the following:
 6. In **Confirm Failover** verify the failover direction (To Azure) and select the recovery point to fail over to. 
 7. Wait for the failover job to complete and then verify that the failover worked as expected and that the replicated virtual machines start successfully in Azure.
 
-<a name="thirdparty"></a><h2>THIRD-PARTY SOFTWARE NOTICES AND INFORMATION</h2>
+## THIRD-PARTY SOFTWARE NOTICES AND INFORMATION
 
 Do Not Translate or Localize
 

@@ -16,15 +16,14 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-troubleshooting-guide-analytics/" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-troubleshooting-guide-apis/" title="APIs">APIs</a>
-<a href="../mobile-engagement-troubleshooting-guide-push-reach/" title="Push/Reach">Push/Reach</a>
-<a href="../mobile-engagement-troubleshooting-guide-service/" title="Service">Service</a>
-<a href="../mobile-engagement-troubleshooting-guide-sdk/" title="SDK">SDK</a>
-<a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
-</div>
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-troubleshooting-guide.md)
+- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
+- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
+- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
+- [Service](mobile-engagement-troubleshooting-guide-service.md)
+- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
+- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
 
 # Troubleshooting guide for Service issues
 
@@ -112,7 +111,7 @@ To test if the problem is with OS upgrades to end user Devices, which require an
     - Confirm that your App Info Tag files follow all of these rules:
         - Use only the UTF8 character set (the ANSI character set is not supported).
         - Use a comma "," as the separator character (you can open a service request to request to change the .csv separator character from a comma "," to another character such as a semi-colon ";").
-        - Use all capitals for Boolean values "TRUE" and "FALSE".
+        - Use all lower case for Boolean values "true" and "false".
         - Use a file that is smaller than the maximum file size of 35MB.
 
 ### See also

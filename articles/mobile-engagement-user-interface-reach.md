@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Reach" 
-   description="User Interface Overview for the Reach section of Azure Mobile Engagement" 
+   description="Learn how to reach out to the users of your application with push notifications using Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="v-micada" 

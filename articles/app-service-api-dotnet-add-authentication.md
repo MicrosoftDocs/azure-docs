@@ -81,6 +81,8 @@ When you go to the resource group's blade in the [Azure portal], you can see you
 
 ![Resource group diagram](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
 
+### Configure the API app to require authentication
+
 To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
 1. Go back to the **API App** blade for the API app that you want to protect.
@@ -96,6 +98,8 @@ To configure your API app to accept only authenticated requests, you'll set its 
 	![Click Basic settings](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
 
 	You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
+
+### <a id="gateway"></a>Configure the gateway to use an authentication provider
 
 4. Scroll left back to the **API App** blade, and then click the link to the gateway.
 
@@ -137,25 +141,31 @@ In the old portal, the **Configure** tab for the application you created in the 
 
 (The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
 
-## Verify that authentication works 
+## Verify that authentication works
 
+**Note:** If you have a problem logging in when you do the following steps, try opening a private or incognito window.
+ 
 1. Open a browser window, and in the address bar enter the URL that calls your API app's `Get` method, as you did earlier.
 
 	This time the attempt to access the API app results in an error message.
 
 	![Chrome Get response fail](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
 
-2. In the browser, go to the login URL: 
+2. In the browser, go to the login URL. The URL follows this pattern: 
 
-    	http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
+    	http://[gatewayurl]/login/[providername]
 
-	For example, if you named your resource group myfirstrg and you configured the gateway for Azure Active Directory authentication, the URL would be the following:
+	You can get the gateway URL from the **Gateway** blade in the [Azure portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
 
-    	http://myfirstrggateway.azurewebsites.net/login/aad
+	![Gateway URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
+
+	The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.
+
+	Here is a sample login URL for Azure Active Directory:
+
+		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
 
 	Notice that unlike the earlier URL, this one does not include your API app name:  the gateway is authenticating you, not the API app.  The gateway handles authentication for all API apps in the resource group.
-
-	(If you have a problem signing in, try opening a private or incognito window.)
 
 3. Enter your credentials when the browser displays a login page. 
  
@@ -172,13 +182,12 @@ In the old portal, the **Configure** tab for the application you created in the 
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo:replace with image showing fictional names-->
 
 ## Use Postman to send a Post request
 
 When you log in to the gateway, the gateway sends back an authentication token.  This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
 
-So you can see what is happening in the background, in this section you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header.
+So you can see what is happening in the background, in this section of the tutorial you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header. This section is optional: in the previous section you already verified that the API app accepts only authenticated access.
 
 These instructions show how to use the Postman tool in the Chrome browser, but you could do the same thing with any REST client tool and browser developer tools.
 

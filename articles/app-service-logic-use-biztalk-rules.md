@@ -20,7 +20,7 @@
 
 Business Rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
-Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of buisness process. This allows for making required changes to business policies without impacting the rest of the business process.
+Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of the business process. This allows for making required changes to business policies without impacting the rest of the business process.
 
 ##Why Rules
 
@@ -203,7 +203,39 @@ Once the policy has been authored and tested, it is now ready for consumption. U
 
 ## Using Rules via APIs
 The Rules API App can also be invoked using a rich set of APIs available. This way users aren’t restricted to just using flows and can use Rules in any application by making REST calls. The exact REST APIs available can be viewed by clicking on the "API Definiton" lens in the Rules dashboard.
+
 ![Alt text][10]
+
+Following is an example of how one might use this API in C#
+
+   			// Constructing the JSON message to use in API call to Rules API App
+
+			// xmlInstance is the XML message instance to be passed as input to our Policy
+            string xmlInstance = "<ns0:Patient xmlns:ns0=\"http://tempuri.org/XMLSchema.xsd\">  <ns0:Name>Name_0</ns0:Name>  <ns0:Email>Email_0</ns0:Email>  <ns0:PatientID>PatientID_0</ns0:PatientID>  <ns0:Age>10.4</ns0:Age>  <ns0:Claim>    <ns0:ClaimDate>2012-05-31T13:20:00.000-05:00</ns0:ClaimDate>    <ns0:ClaimID>10</ns0:ClaimID>    <ns0:TreatmentID>12</ns0:TreatmentID>    <ns0:ClaimAmount>10000.0</ns0:ClaimAmount>    <ns0:ClaimStatus>ClaimStatus_0</ns0:ClaimStatus>    <ns0:ClaimStatusReason>ClaimStatusReason_0</ns0:ClaimStatusReason>  </ns0:Claim></ns0:Patient>";
+
+            JObject input = new JObject();
+
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
+			// This is CASE SENSITIVE. 
+            input.Add("insuranceclaimschema_Patient", xmlInstance);
+            string stringContent = JsonConvert.SerializeObject(input);
+
+
+            // Making REST call to Rules API App
+            HttpClient httpClient = new HttpClient();
+	
+			// The url is the Host URL of the Rules API App
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            HttpContent httpContent = new StringContent(stringContent);
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+
+            // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
+            var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
+
+Note that the above Rules API App has its security settings set to "Public Anon". This can be set  from within the API App using - All settings->Application Settings -> Access Level
+
+![Alt text][11]
 
 ## Editing Vocabulary and Policy
 One of the main advantages of using Business Rules is that changes to business logic can be pushed out to production a lot faster. Any change made to vocabulary and policies is immediately applied in production. User simply needs to browse to the respective vocabulary definition or policy and make the change to have it come into effect.
@@ -219,4 +251,6 @@ One of the main advantages of using Business Rules is that changes to business l
 [8]: ./media/app-service-logic-use-biztalk-rules/PolicyList.PNG
 [9]: ./media/app-service-logic-use-biztalk-rules/RuleCreate.PNG
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
+[11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
+
 

@@ -2,8 +2,9 @@
 	pageTitle="Track HTTP requests in a Java web application" 
 	description="Application Insights lets you measure performance of your web Java web application" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-02" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
 # Track HTTP requests in a Java web application
@@ -126,7 +127,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 
