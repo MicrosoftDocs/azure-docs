@@ -56,7 +56,7 @@ Windows Store apps must first be registered with the Windows Dev Center.
 
 7. In the Services page, click **Live Services site** under **Azure Mobile Services**.
 
-	![](./media/mobile-services-how-to-register-microsoft-authentication//mobile-services-win8-edit2-app.png) 
+	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit2-app.png) 
 
 This displays the Microsoft account page for your app.
 

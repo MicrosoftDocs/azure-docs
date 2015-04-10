@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -31,7 +31,7 @@ This tutorial requires the following:
 + Microsoft Visual Studio 2013 Update 3, or a later version
 + You must also first complete the tutorial [Add Mobile Services to an existing app].
 
-##Register your app to use a Microsoft account login
+##Register your app to use Microsoft account 
 
 To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service.
 
