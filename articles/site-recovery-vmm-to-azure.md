@@ -3,7 +3,7 @@
 	description="Azure Site Recovery coordinates the replication, failover and recovery of Hyper-V virtual machines located in on-premises VMM clouds to Azure."
 	services="site-recovery"
 	documentationCenter=""
-	authors="raynew"
+	authors="rayne-wiselman"
 	manager="jwhit"
 	editor="tysonn"/>
 
