@@ -69,10 +69,8 @@ Here's a brief description of each of the social connectors:
 <td>Yammer
 <td>A Yammer connector allows you to post and read messages from Yammer groups.
 <td>New messages
-<td><li>Post message
-	<li>Tweet
-	<li>Get User Timeline
-	<li>Retweet
+<td><li>Post message	
+	<li>Get message from group\feed	
 </tr>
 
 <tr>

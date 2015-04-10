@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/13/2015" 
+	ms.date="02/13/2015" 
 	ms.author="stbaro"/>
 
 # Create, edit, and run SQL queries against a DocumentDB collection using Query Explorer #

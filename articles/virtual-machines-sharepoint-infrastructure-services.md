@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SharePoint Farms Hosted in Azure Infrastructure Services" 
+	pageTitle="SharePoint farms hosted in Azure infrastructure services" 
 	description="Get to the key topics that describe how to set up a dev/test or production SharePoint 2013 farm in Azure infrastructure services." 
 	documentationCenter="" 
 	services="virtual-machines"
@@ -16,7 +16,7 @@
 	ms.date="04/06/2015" 
 	ms.author="josephd"/>
 
-# SharePoint Farms Hosted in Azure Infrastructure Services
+# SharePoint farms hosted in Azure infrastructure services
 
 Set up your first or next dev/test or production SharePoint farm in Microsoft Azure infrastructure services, where you can take advantage of ease of configuration and the ability to quickly expand the farm to include new capacity or optimization of key functionality. 
 

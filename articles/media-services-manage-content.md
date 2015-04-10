@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to manage media content - Azure Media Services" 
+	pageTitle="How to manage media content wtih Azure Media Services" 
 	description="Learn how to manage your media content in Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="04/08/2015" 
 	ms.author="juliako"/>
 
 
-# How to Manage Content in Media Services #
+# How to: Manage Content with Azure Media Services 
 
 This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
@@ -29,9 +29,10 @@ This topic shows how to perform the following content operations directly from t
 - Upload new content
 - Index content
 - Encode content
-- Play content
 - Encrypt
 - Publish/Unpublish content
+- Play content
+
 
 ##<a id="upload"></a>How to: Upload content 
 
@@ -134,23 +135,58 @@ If you want for Media Services to dynamically encrypt your asset with an AES key
 
 ##<a id="publish"></a>How to: Publish content
 
-When you publish the content, you will be provided with a streaming or progressive download URL. You client would be able to playback your videos using this URL.
+###Overview
 
-1. Click an asset which you want to be published. 
+To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) locators, used to download media files.
+
+When you use the Azure Management Portal to publish your assets, the locators are created for you and you are provided with an OnDemantOrigin based URL (if your asset contains an .ism file) or a SAS URL. 
+
+A SAS URL has the following format:
+
+	{blob container name}/{asset name}/{file name}/{SAS signature}
+
+A streaming URL has the following format and you can use it to play Smooth Streaming assets:
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+
+To build an HLS streaming URL, append (format=m3u8-aapl) to the URL.
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+
+To build an MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
+
+	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+
+
+Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
+
+>[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
+
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://msdn.microsoft.com/library/jj574410(v=azure.10).aspx ) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
+
+###Publish
+
+To use Portal to publish an asset, do the following: 
+
+1. Select the asset. 
 2. Then, click the publish button. 
 	
-	Once the content is published to a URL, the URL can be opened by a client player capable of rendering the encoded content.
-
  ![PublishedContent][publishedcontent]
+
 
 ## How to: Play content from the portal
 
-The Management Portal provides a Media Services Content Player that you can use to test your video.
+The **Azure Management Portal** provides a content player that you can use to test your video.
 
-Click on the desired video content and click the **Play** button at the bottom of the portal. 
+Click on the desired video and click the **Play** button at the bottom of the portal. 
  
-Only content that has been published is playable from the portal. Also, the encoding must be supported by your browser.
+Some considerations apply:
 
+- Make sure the video has been published.
+- The **MEDIA SERVICES CONTENT PLAYER** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+ 
+
+![AMSPlayer][AMSPlayer]
 
 <!-- Images -->
 [portaloverview]: ./media/media-services-manage-content/media-services-content-page.png
@@ -163,3 +199,4 @@ Only content that has been published is playable from the portal. Also, the enco
 [process]: ./media/media-services-manage-content/media-services-process-video.png
 [process2]: ./media/media-services-manage-content/media-services-process-video2.png
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
+[AMSPlayer]: ./media/media-services-players/media-services-portal-player.png
