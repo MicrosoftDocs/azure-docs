@@ -54,10 +54,10 @@ You can use the **Backup Catalog** page to restore your device from a specific b
     ![Backup catalog](./media/storsimple-restore-from-backup-set/HCS_Restore.png)
 
 2. Select a backup set as follows:
-   1. Select the appropriate device.
-   2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
-   3. Specify the time range.
-   4. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) to execute this query.
+  1. Select the appropriate device.
+  2. In the drop-down list, choose the volume or backup policy for the backup that you wish to select.
+  3. Specify the time range.
+  4. Click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png) to execute this query.
  
     The backups associated with the selected volume or backup policy should appear in the list of backup sets.
 
