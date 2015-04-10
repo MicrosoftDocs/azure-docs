@@ -32,7 +32,7 @@ This means that:
 1. All reads are local, which results in low latency and high throughput reads.
 2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
 
-![Image of Evolution of Collections.](./media/service-fabric-fabsrv-reliable-collections\ReliableCollectionsEvolution.png)
+![Image of Evolution of Collections.](media/service-fabric-fabsrv-reliable-collections\ReliableCollectionsEvolution.png)
 
 Reliable Collections can be thought of as the natural evolution of the System.Collections
 classes: a new set of collections that are designed for the cloud and multi-machine
