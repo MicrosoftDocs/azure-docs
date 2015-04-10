@@ -43,7 +43,7 @@ To provide your user with a URL that can be used to stream or download your cont
 
 An **Access Policy** is used to define the permissions (such as read, write, and list) and duration that a client has access to a given asset. Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
 
-Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
+Locators have an expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
 
 >[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
 
