@@ -338,7 +338,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
 ## Schema (information only)
 
-This is the schema for the table that will be generated. 
+This is the schema for the table that will be generated for PageView.
 
 > [AZURE.NOTE] You don't have to run this script. The attributes in the JSON determine the columns in the table.
 

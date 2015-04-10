@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/01/2015"
+   ms.date="04/07/2015"
    ms.author="kareni"/>
 
 
@@ -24,7 +24,7 @@ The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans
 
 Please note that up to 24 hours of latent usage from your prior billing period can be reported in your current billing period.
 
-For more information about consumption, usage, and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/en-us/pricing/purchase-options/).
+For more information about consumption, usage, and rate plans, see the [Microsoft Azure Purchase Options page](http://azure.microsoft.com/pricing/purchase-options/).
 
 ## Content:
 
@@ -45,32 +45,28 @@ In the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions
 
 To view or download a bill:
 
-1.Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
+1. Sign in to the [Usage and Billing Portal](https://account.windowsazure.com/subscriptions) using your Microsoft Account ID or Work or School Account ID.
 
-2.Click on the subscription in which you would like to see details and usage.
+2. Click on the subscription in which you would like to see details and usage.
 
-3.Click **Billing** History
+3. Click **Billing** History
 
- ![Summary - billing history -1](./media/azure-billing-understand-your-bill/Content - View a Bill for MA 1.png)
+    ![Summary - billing history -1](./media/azure-billing-understand-your-bill/ContentViewaBillforMA1.png)
 
 
-4.The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+4. The **Billing History** section lists your statements for the last six billing periods plus the current unbilled period. The statement for the current period is an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
-![Summary-billing history 2](./media/azure-billing-understand-your-bill/Content - View a Bill for MA 2.png)
+    ![Summary-billing history 2](./media/azure-billing-understand-your-bill/ContentViewaBillforMA2.png)
 
-5.Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
+5. Click **View Current Statement** to view an estimate of your charges as of the time the estimate was generated. This information is only updated daily and may not include all of your usage incurred to date. Your monthly bill may differ from this estimate.
 
-![Summary-billing history 3](./media/azure-billing-understand-your-bill/Content - View a Bill for MA 3.png)
+    ![Summary-billing history 3](./media/azure-billing-understand-your-bill/ContentViewaBillforMA3.png)
 
-![Summary-billing history 4](./media/azure-billing-understand-your-bill/Content - View a Bill for MA 4.png)
+    ![Summary-billing history 4](./media/azure-billing-understand-your-bill/ContentViewaBillforMA4.png)
 
-<br> <br/>
+6. Click **Download Invoice** to view a copy of your previous bill.
 
-6.Click **Download Invoice** to view a copy of your previous bill.
-
-<br> <br/>
-
-![Summary-billing history 5](./media/azure-billing-understand-your-bill/Content - View a Bill for MA 5.png)
+    ![Summary-billing history 5](./media/azure-billing-understand-your-bill/ContentViewaBillforMA5.png)
 
 
 
@@ -113,7 +109,7 @@ The account email address that the Microsoft Azure account is registered under.
 ## Understand the Invoice Summary
 The Invoice Summary section of the bill summarizes transactions since your last bill and your current usage charges.
 
-![invoice summary](./media/azure-billing-understand-your-bill/Invoice Summary.png)
+![invoice summary](./media/azure-billing-understand-your-bill/InvoiceSummary.png)
 
 The Balances, Payments & Other Credits section of the bill summarizes transactions since your last bill.
 
@@ -140,12 +136,12 @@ Service discounts on your usage would be reflected in this line item that are ap
 Miscellaneous adjustments are miscellaneous credits or outstanding charges applied to your current bill. For example, if you have the Visual Studio Ultimate with MSDN offer, you would see a monthly credit in this line item. If you cancel your subscription, you would see charges for monthly usage in excess of the monthly credit included in your offer from the start of your current billing period to your subscription cancellation date.
 
 ## Footer Information
-![footer](./media/azure-billing-understand-your-bill/footer information.png)
+![footer](./media/azure-billing-understand-your-bill/footerinformation.png)
 
 ## Understand the Additional Information
 The additional information page gives you references to other resources to understand your invoice, and links to view your usage as well as other relevant information for your bill.
 
-![additional information](./media/azure-billing-understand-your-bill/Additional information.png)
+![additional information](./media/azure-billing-understand-your-bill/AdditionalInformation.png)
 
 ### Detailed Usage
 A link in the description under Detailed Usage directs you the Azure Usage and Billing Portal where you can view your detailed usage for this subscription.
@@ -194,11 +190,11 @@ Displays the result of multiplying the Billable column by the Rate column. If th
 Depending on your usage, there can be thousands of rows of daily usage data. If you want to analyze this data, click Download Usage to export daily usage data for the current billing period to a comma-separated variable file (CSV), which can then be viewed in Microsoft Office Excel and other programs.  For your reference, you can download a sample CSV file.
 
 
-![Summary PAYG](./media/azure-billing-understand-your-bill/Analyze Daily usage Data 1.png)
+![Summary PAYG](./media/azure-billing-understand-your-bill/AnalyzeDailyUsageData1.png)
 
 In the CSV file, the items are broken down to display a list of how much of each resource was consumed within the current billing period.
 
-![csv snapshot](./media/azure-billing-understand-your-bill/csv snapshot_portal.png)
+![csv snapshot](./media/azure-billing-understand-your-bill/csvsnapshotportal.png)
 
 The following columns display details that affect the rates at the beginning of the billing period:
 

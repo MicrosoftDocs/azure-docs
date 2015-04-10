@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="remoteapp" 
-	ms.workload="tbd" 
+	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/17/2015" 
+	ms.date="04/08/2015" 
 	ms.author="elizapo"/>
 
 # What is Azure RemoteApp?
@@ -45,7 +45,7 @@ As part of the RemoteApp trial, we provide you with the Office 365 ProPlus or Of
 
 An additional advantage of using the cloud collection with the Office apps is that the apps and operating system (upon which your service is built) are always kept up to date through regular updates, and Microsoft Anti-Malware endpoint protection provides continuous defense. Your end users use their Microsoft accounts or corporate credentials to access the apps. All that you, the administrator, need to worry about is figuring out who should have access to which apps.
 
-You can also create a cloud collection to share a custom application or set of applications for your users. To do this, you need to [create a custom template image](remoteapp-create-custom-image.md) (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your collection. 
+You can also create a cloud collection to share a custom application or set of applications for your users. To do this, you need to [create a custom image](remoteapp-imageoptions.md) (which is how we publish apps to RemoteApp) and simply choose that image (instead of the Office 2013 image) when you create your collection. 
 
 ### Hybrid collection
 The [hybrid RemoteApp collection](remoteapp-create-hybrid-deployment.md) lets you provide both a custom set of applications to your users and access to the data and resources in your local network. Unlike a custom image used with the cloud collection, the image you create for a hybrid collection runs apps in a domain-joined environment, granting full access to your local network and data.
@@ -67,7 +67,7 @@ Azure RemoteApp is supported on the RemoteApp client apps for Windows and Window
 ## Next steps
 Go! Try it out! These articles help get you started with RemoteApp:
 
-- [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md)
+- [Create a RemoteApp image](remoteapp-imageoptions.md)
 - [How to create a cloud collection of RemoteApp](remoteapp-create-cloud-deployment.md)
 - [How to create a hybrid collection of RemoteApp](remoteapp-create-hybrid-deployment.md)
 - [How does licensing work in RemoteApp?](remoteapp-licensing.md)

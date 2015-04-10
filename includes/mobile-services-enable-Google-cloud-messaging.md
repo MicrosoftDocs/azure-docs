@@ -15,7 +15,7 @@
 
 	Later in the tutorial you set this value as the PROJECT_ID variable in the client.
 
-4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android** and accept the terms of service. 
+4. In the left column, expand **APIs & auth**, click **APIs** then scroll down and click the toggle to enable **Google Cloud Messaging for Android**. Then on the next page click **Enable API** and accept the terms of service. 
 
 	![](./media/notification-hubs-android-get-started/mobile-services-google-enable-GCM.png)
 

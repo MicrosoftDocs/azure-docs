@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
+	ms.date="04/07/2015" 
 	ms.author="bradsev"/>
 
 
@@ -31,7 +31,7 @@ The serialized representation of an object in the Avro system consists of two pa
 ##<a name="hadoopScenario"></a>The Hadoop scenario 
 The Apache Avro serialization format is widely used in Azure HDInsight and other Apache Hadoop environments. Avro provides a convenient way to represent complex data structures within a Hadoop MapReduce job. The format of Avro files (Avro object container file) has been designed to support the distributed MapReduce programming model. The key feature that enables the distribution is that the files are “splittable” in the sense that one can seek any point in a file and start reading from a particular block. 
  
-##<a name="serializationMAL"></a> Serialization in the Microsoft Avro Library
+##<a name="serializationMAL"></a>Serialization in the Microsoft Avro Library
 The .NET Library for Avro supports two ways of serializing objects:
 
 - **reflection** - The JSON schema for the types is automatically built from the data contract attributes of the .NET types to be serialized. 
@@ -41,6 +41,7 @@ When the data schema is known to both the writer and reader of the stream, the d
 
 
 ##<a name="prerequisites"></a> Microsoft Avro Library prerequisites
+
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 or later) 
 
@@ -50,8 +51,8 @@ Note that the Newtonsoft.Json.dll dependency is downloaded automatically with th
 The Microsoft Avro Library is distributed as a NuGet package that can be installed from Visual Studio via the following procedure: 
 
 1. Select the **Project** tab -> **Manage NuGet Packages...**
-2. Search for "Microsoft.Hadoop.Avro" in the **Online Search** box.
-3. Click the **Install** button next to **Microsoft Avro Library**. 
+2. Search for "Microsoft.Hadoop.Avro" in the **Search Online** box.
+3. Click the **Install** button next to **Microsoft Azure HDInsight Avro Library**. 
 
 Note that the Newtonsoft.Json.dll (>=6.0.4) dependency is also downloaded automatically with the Microsoft Avro Library.
 
@@ -66,8 +67,11 @@ The Microsoft Avro Library source code is available at the <a href="https://hado
 The Microsoft Avro Library contains a code generation utility that allows creating C# types automatically based on the previously defined JSON schema. The code generation utility is not distributed as a binary executable, but can be easily built via the following procedure:
 
 1. Download the .zip file with the latest version of HDInsight SDK source code from <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">Microsoft .NET SDK For Hadoop</a>. (Click the **Download** icon.)
+
 2. Extract the HDInsight SDK to a directory on the machine with .NET Framework 4 installed and connected to the Internet for downloading necessary dependency NuGet packages. Below we will assume that the source code is extracted to C:\SDK.
+
 3. Go to the folder C:\SDK\src\Microsoft.Hadoop.Avro.Tools and run build.bat. (The file will call MSBuild from the 32-bit distribution of the .NET Framework. If you would like to use the 64-bit version, edit build.bat, following the comments inside the file.) Ensure that the build is successful. (On some systems, MSBuild may produce warnings. These warnings do not affect the utility as long as there are no build errors.)
+
 4. The compiled utility is located in C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools.
 
 
@@ -107,7 +111,7 @@ Here are links to the six samples discussed in the topic:
  * <a href="#Scenario5">**Serialization using object container files with a custom compression codec**</a> - The example shows how to create an Avro object container file with a customized .NET implementation of the Deflate data compression codec.
  * <a href="#Scenario6">**Using Avro to upload data for the Microsoft Azure HDInsight service**</a> - The example illustrates how Avro serialization interacts with the HDInsight service. An active Azure subscription and access to an Azure HDInsight cluster are required to run this example.
 
-<h3> <a name="Scenario1"></a>Sample 1: Serialization with reflection</h3>
+###<a name="Scenario1"></a>Sample 1: Serialization with reflection
  
 The JSON schema for the types can be automatically built by the Microsoft Avro Library via reflection from the data contract attributes of the C# objects to be serialized. The Microsoft Avro Library creates an [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx) to identify the fields to be serialized.
 
@@ -123,6 +127,7 @@ The schema in this example is assumed to be shared between the readers and write
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
+		using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -232,7 +237,7 @@ The schema in this example is assumed to be shared between the readers and write
     // Press any key to exit.
 
 
-<h3> <a name="Scenario2"></a>Sample 2: Serialization with a generic record</h3>
+###<a name="Scenario2"></a>Sample 2: Serialization with a generic record
 
 A JSON schema can be explicitly specified in a generic record when reflection cannot be used because the data cannot be represented via .NET classes with a data contract. This method is generally slower than using reflection. In such cases, the schema for the data may also be dynamic, i.e., not be known at compile time. Data represented as comma-separated values (CSV) files whose schema is unknown until it is transformed to the Avro format at run time is an example of this sort of dynamic scenario.
 
@@ -250,6 +255,7 @@ The schema in this example is assumed to be shared between the readers and write
     using System.Runtime.Serialization;
     using Microsoft.Hadoop.Avro.Container;
     using Microsoft.Hadoop.Avro.Schema;
+	using Microsoft.Hadoop.Avro;
 
     //This class contains all methods demonstrating
     //the usage of Microsoft Avro Library
@@ -356,7 +362,7 @@ The schema in this example is assumed to be shared between the readers and write
     // Press any key to exit.
 
 
-<h3> <a name="Scenario3"></a>Sample 3: Serialization using object container files and serialization with reflection</h3>
+###<a name="Scenario3"></a>Sample 3: Serialization using object container files and serialization with reflection
 
 This example is similar to the scenario in the <a href="#Scenario1"> first example</a>, where the schema is implicitly specified with reflection. The difference is that here, the schema is not assumed to be known to the reader that deserializes it. The **SensorData** objects to be serialized and their implicitly specified schema are stored in an Avro object container file represented by the [**AvroContainer**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.container.avrocontainer.aspx) class. 
 
@@ -372,6 +378,7 @@ The data in the object container file is compressed via the default [**Deflate**
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
+		using Microsoft.Hadoop.Avro;
 
         //Sample class used in serialization samples
         [DataContract(Name = "SensorDataValue", Namespace = "Sensors")]
@@ -596,7 +603,7 @@ The data in the object container file is compressed via the default [**Deflate**
     // Press any key to exit.
   
 
-<h3> <a name="Scenario4"></a>Sample 4: Serialization using object container files and serialization with generic record</h3>
+###<a name="Scenario4"></a>Sample 4: Serialization using object container files and serialization with generic record
 
 This example is similar to the scenario in the <a href="#Scenario2"> second example</a>, where the schema is explicitly specified with JSON. The difference is that here, the schema is not assumed to be known to the reader that deserializes it. 
 
@@ -614,6 +621,7 @@ The data is then read from the file and deserialized into a collection of object
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
         using Microsoft.Hadoop.Avro.Schema;
+		using Microsoft.Hadoop.Avro;
 
         //This class contains all methods demonstrating
         //the usage of Microsoft Avro Library
@@ -859,7 +867,7 @@ The data is then read from the file and deserialized into a collection of object
 
 
 
-<h3> <a name="Scenario5"></a>Sample 5: Serialization using object container files with a custom compression codec</h3>
+###<a name="Scenario5"></a>Sample 5: Serialization using object container files with a custom compression codec
 
 The fifth example shows how to how to use a custom compression codec for Avro object container files. A sample containing the code for this example can be downloaded from the [Azure code samples](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) site.
 
@@ -882,6 +890,7 @@ The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+
         using System.Linq;
         using System.Runtime.Serialization;
         using Microsoft.Hadoop.Avro.Container;
+		using Microsoft.Hadoop.Avro;
 
         #region Defining objects for serialization
         //Sample class used in serialization samples
@@ -1356,7 +1365,7 @@ The [Avro Specification](http://avro.apache.org/docs/current/spec.html#Required+
     // ----------------------------------------
     // Press any key to exit.
 
-<h3> <a name="Scenario6"></a> Example 6: Using Avro to upload data for the Microsoft Azure HDInsight service</h3>
+###<a name="Scenario6"></a>Sample 6: Using Avro to upload data for the Microsoft Azure HDInsight service
 
 The sixth example illustrates some programming techniques related to interacting with the Azure HDInsight service. A sample containing the code for this example can be downloaded from the [Azure code samples](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) site.
 

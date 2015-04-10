@@ -16,7 +16,7 @@
    ms.date="04/02/2015"
    ms.author="jgao"/>
 
-# Configure HBase geo-replication
+# Configure HBase geo-replication in HDInsight
 
 > [AZURE.SELECTOR]
 - [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNETs.md)
