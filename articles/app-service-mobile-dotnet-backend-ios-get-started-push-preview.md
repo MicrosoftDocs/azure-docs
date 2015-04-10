@@ -36,7 +36,7 @@ This tutorial walks you through these basic steps to enable push notifications:
 
 This tutorial requires the following:
 
-+ [App Service Mobile App iOS SDK]
++ [Azure Mobile App iOS SDK]
 + [Azure Notification Hubs Nuget]
 + [XCode 6.0][Install Xcode]
 + An iOS 6.0 (or later version) capable device
@@ -216,7 +216,7 @@ You have successfully completed this tutorial.
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[App Service Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
+[Azure Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
