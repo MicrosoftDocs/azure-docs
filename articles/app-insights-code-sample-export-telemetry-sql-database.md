@@ -122,7 +122,7 @@ Search for and install these packages:
  * EntityFramework 6.1.2 or later - We’ll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
  * JsonFx -	We’ll use this for flattening the JSON to C# class properties.
 
-Also add:
+Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 
  * [JSON C# class generator](http://jsonclassgenerator.codeplex.com/)
 
