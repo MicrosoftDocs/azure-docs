@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What’s new in the latest update to Azure Search" 
+	pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure" 
 	description="Release notes for Azure Search describing the latest updates to the service" 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/21/2015" 
+	ms.date="04/09/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -48,8 +48,6 @@ Visit [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId
 
 ##Api-version 2015-02-28-Preview##
 **Released: 2015 March 5**
-
-- [Microsoft natural language processors](search-api-2015-02-28-Preview.md) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
 - [Microsoft natural language processors](search-api-2015-02-28-Preview.md) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
