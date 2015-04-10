@@ -16,13 +16,14 @@
 	ms.date="11/22/2014" 
 	ms.author="glenga"/>
 
-# Authenticate your Windows Phone app using a Microsoft account with client flow
+# Authenticate your Windows Phone app with client managed authentication using Microsoft account
 
 [AZURE.INCLUDE [mobile-services-selector-single-signon](../includes/mobile-services-selector-single-signon.md)]	
 ##Overview
 This topic shows you how to obtain an authentication token for Microsoft account using the Live SDK from a Windows Phone 8 or Windows Phone 8.1 Silverlight app. You then use this token to authenticate users with Azure Mobile Services. In this tutorial, you add Microsoft account authentication to an existing project using the Live SDK. When successfully authenticated, a logged-in user is welcomed by name and the user ID value is displayed.  
 
->[AZURE.NOTE]This tutorial demonstrates the benefits of using the single sign-on experience provided by Live SDK for Windows Phone apps. This enables you to more easily authenticate an already logged-on user with you mobile service. For a more generalized authentication experience that supports multiple authentication providers, see the topic <a href="mobile-services-windows-phone-get-started-users.md">Add authentication to your app</a>. 
+>[AZURE.NOTE]This tutorial demonstrates the benefits of using client-managed authentication and the Live SDK. This enables you to more easily authenticate an already logged-on user with you mobile service. You can also request additional scopes to enable your app to also access resources like OneDrive. 
+>Service-managed authentication provides a more generalized experience and supports multiple authentication providers. For more information about service-managed authentication, see the topic [Add authentication to your app](mobile-services-windows-phone-get-started-users.md). 
 
 This tutorial requires the following:
 
@@ -32,15 +33,19 @@ This tutorial requires the following:
 
 ##Register your app to use a Microsoft account login
 
-To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service:
+To be able to authenticate users, you must register your app at the Microsoft account Developer Center. You must then connect this registration with your mobile service. Please complete the steps in the following topic to create a Microsoft account registration and connect it to your mobile service.
 
 + [Register your app to use a Microsoft account login](mobile-services-how-to-register-microsoft-authentication.md) 
 
 ##<a name="permissions"></a>Restrict permissions to authenticated users
 
+You next need to restrict access to a resource, in this case the *TodoItems* table to make sure it can only be accessed by a signed-in user.
+
 [AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../includes/mobile-services-restrict-permissions-windows.md)] 
 
 ##<a name="add-authentication"></a>Add authentication to the app
+
+Finally, you add the Live SDK and use it to authenticate users in your app.
 
 1. In **Solution Explorer**, right-click the solution, and then select **Manage NuGet Packages**.
 
@@ -55,13 +60,11 @@ To be able to authenticate users, you must register your app at the Microsoft ac
 6. Add the following code snippet to the MainPage class:
 	
         private LiveConnectSession session;
+        private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
         {
-            // Get the URL the mobile service.
-            var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
-
-            // Create the authentication client using the mobile service URL.
-            LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
+            // Create the authentication client using the client ID of the registration.
+            LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
 
             while (session == null)
             {
@@ -86,32 +89,36 @@ To be able to authenticate users, you must register your app at the Microsoft ac
             }
         }
 
-    This creates a member variable for storing the current Live Connect session and a method to handle the authentication process.
+    This creates a member variable for storing the current Live Connect session and a method to handle the authentication process. The LiveLoginResult contains the authentication token that is given to Mobile Services to authenticate the user.
 
-8. Delete or comment-out the existing **OnNavigatedTo** method override and replace it with the following method that handles the **Loaded** event for the page. 
+7. In the code snippet above, replace the placeholder `<microsoft-account-client-id>` with the client ID that you obtained from the Microsoft account registration for your app. 
 
-        async void MainPage_Loaded(object sender, RoutedEventArgs e)
+5. Comment-out or delete the call to the **RefreshTodoItems** method in the existing **OnNavigatedTo** method override.
+
+	This prevents the data from being loaded before the user is authenticated. Next, you will add a button to start the sign-in process.
+
+6. Add the following code snippet to the MainPage class:
+
+        private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
-            await Authenticate();
+            // Login the user and then load data from the mobile service.
+            await AuthenticateAsync();
+
+            // Hide the login button and load items from the mobile service.
+            this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-
-   	This method calls the new **Authenticate** method. 
-
-9. Replace the MainPage constructor with the following code:
-
-        // Constructor
-        public MainPage()
-        {
-            InitializeComponent();
-            this.Loaded += MainPage_Loaded;
-        }
-
-   	This constructor also registers the handler for the Loaded event.
 		
-9. Press the F5 key to run the app and sign into Live Connect with your Microsoft Account. 
+7. In the app project, open the MainPage.xaml project file and add the following **Button** element in the **TitlePanel**, after the **TextBlock** element:
 
-   	After you are successfully logged-in, the app runs without errors, and you are able to query Mobile Services and make updates to data.
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button>
+		
+9. Press the F5 key to run the app and sign in with your Microsoft account. 
+
+   When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
+
+Now, any user authenticated by one of your registered identity providers can access the *TodoItem* table. To better secure user-specific data, you must also implement authorization. To do this you get the user ID of a given user, which can then be used to determine what level of access that user should have for a given resource.
 
 ## <a name="next-steps"> </a>Next steps
 
