@@ -36,7 +36,7 @@ The following list describes useful terminology and concepts when delivering med
 
 ###Locators
 
-To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator.  Locators provide an entry point to access the files contained in an asset. Media Services supports two types of locators: 
+To provide your user with a URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator.  Locators provide an entry point to access the files contained in an asset. Media Services supports two types of locators: 
 
 - **OnDemandOrigin** locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download files.
 -  **SAS** (access signature) URL locators, used to download media files to your local computer. 
@@ -122,7 +122,7 @@ To progressively download content, use the OnDemandOrigin type of locator. The f
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-The following consideration apply:
+The following consideration applies:
 
 - You must decrypt any storage encrypted assets that you wish to stream from the origin service for progressive download.
 
