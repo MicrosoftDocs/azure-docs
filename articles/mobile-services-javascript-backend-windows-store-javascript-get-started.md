@@ -69,10 +69,10 @@ In this section you will create a new universal Windows app that is connected to
 ## Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 
 
-* [Add authentication to your app]
+* [Add authentication to your app][Get started with authentication]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app] 
+* [Add push notifications to your app][Get started with push notifications] 
   <br/>Learn how to send a very basic push notification to your app.
 
 For more information about universal Windows apps, see [Supporting multiple device platforms from a single mobile service](mobile-services-how-to-use-multiple-clients-single-service.md#shared-vs).
