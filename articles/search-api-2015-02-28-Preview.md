@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview" 
+   pageTitle="Azure Search Service REST API Version 2015-02-28-Preview | Microsoft Azure"
    description="Azure Search Service REST API Version 2015-02-28-Preview includes experimental features such as Natural Language Analyzers and moreLikeThis searches." 
    services="search" 
    documentationCenter="na" 
@@ -30,7 +30,7 @@ A few additional features in `2015-02-28-Preview` are documented separately. The
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
-###APIs in this document###
+##APIs in this document
 
 The Azure Search Service API supports two syntaxes for entity lookup: simple and alternate OData syntax (see [Support for OData (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798932.aspx) for details). The following list shows the simple syntax.
 
@@ -117,7 +117,7 @@ For a video introduction to indexing in Azure Search, see the [Channel 9 Cloud C
 
 
 <a name="CreateIndex"></a>
-## Create Index ##
+## Create Index
 
 An index is the primary means of organizing and searching documents in Azure Search, similar to how a table organizes records in a database. Each index has a collection of documents that all conform to the index schema (field names, data types, and properties), but indexes also specify additional constructs (suggesters, scoring profiles, and CORS options) that define other search behaviors.
 
@@ -1165,7 +1165,7 @@ By default the response body will contain the JSON for the index definition that
 Currently, there is limited support for index schema updates. Any schema updates that would require re-indexing such as changing field types are not currently supported. Although existing fields cannot be changed or deleted, new fields can be added to an existing index at any time. When a new field is added, all existing documents in the index will automatically have a null value for that field. No additional storage space will be consumed until new documents are added to the index.
 
 <a name="UpdateIndex"></a>
-## Update Index ##
+## Update Index
 
 You can update an existing index within Azure Search using an HTTP PUT request. Updates can include adding new fields to the existing schema, modifying CORS options, and modifying scoring profiles. See [Add scoring Profiles](https://msdn.microsoft.com/library/azure/dn798928.aspx) for more information. You specify the name of the index to update on the request URI:
 
@@ -1273,7 +1273,7 @@ For a successful request: "204 No Content".
 By default the response body will be empty. However, if the `Prefer` request header is set to `return=representation`, the response body will contain the JSON for the index definition that was updated. In this case, the success status code will be "200 OK".
 
 <a name="ListIndexes"></a>
-## List Indexes ##
+## List Indexes
 
 The **List Indexes** operation returns a list of the indexes currently in your Azure Search service. 
 
@@ -1338,7 +1338,7 @@ In this case, the response from the above example would appear as follows:
 This is a useful technique to save bandwidth if you have a lot of indexes in your Search service.
 
 <a name="GetIndex"></a>
-## Get Index ##
+## Get Index
 
 The **Get Index** operation gets the index definition from Azure Search.
 
@@ -1372,7 +1372,7 @@ Status Code: 200 OK is returned for a successful response.
 See the example JSON in [Creating and Updating an Index](#CreateUpdateIndexExample) for an example of the response payload.
 
 <a name="DeleteIndex"></a>
-## Delete Index ##
+## Delete Index
 
 The **Delete Index** operation removes an index and associated documents from your Azure Search service. You can get the index name from the service dashboard in the Azure portal, or from the API. See [List Indexes](#ListIndexes) for details.
 
@@ -1404,7 +1404,7 @@ None.
 Status Code: 204 No Content is returned for a successful response.
 
 <a name="GetIndexStats"></a>
-## Get Index Statistics ##
+## Get Index Statistics
 
 The **Get Index Statistics** operation returns from Azure Search a document count for the current index, plus storage usage. 
 
@@ -1449,19 +1449,19 @@ ________________________________________
 
 In Azure Search, an index is populated using JSON documents that you upload to the service. All the documents that you upload comprise the corpus of your search data. Documents contain fields, some of which are tokenized into search terms as they are uploaded. The `/docs` URL segment in the Azure Search API represents the collection of documents in an index. All operations performed on the collection such as uploading, merging, deleting, or querying documents take place in the context of a single index, so the URLs for these operations will always start with `/indexes/[index name]/docs` for a given index name.
 
-Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source. The Azure Search Adventure Works Demo sample application on Codeplex includes code that builds JSON documents using a result set from the Adventure Works sample database.
+Your application code can generate JSON documents to upload to Azure Search using a result set from a relational database, or any other structured data source.
 
 In the majority of application development scenarios, search data is separate and external to your application data layer. If your application uses an on-premises database for tracking inventory status, the documents persisted in Azure Search will contain similar or identical data values in terms of product name, price, and availability, but they will be stored in an inverted index in order to optimize searches. 
 
 You should plan on having one document for each item that you want to search. A movie rental application might have one document per movie, a storefront application might have one document per SKU, an online courseware application might have one document per course, a research firm might have one document for each academic paper in their repository, and so on.
 
-Documents consist of one or more fields. Fields can contain text that is tokenized into search terms, as well as non-tokenized or non-text values that can be used in filters or scoring profiles. The names, data types, and search features supported for each field are determined by the index schema. One of the fields in each index schema must be designated as an ID, and each document must have a value for the ID field that uniquely identifies that document in the index. All other document fields are optional and will default to a null value if left unspecified. Note that null values do not take up space in the inverted index. 
+Documents consist of one or more fields. Fields can contain text that is tokenized by Azure Search into search terms, as well as non-tokenized or non-text values that can be used in filters or scoring profiles. The names, data types, and search features supported for each field are determined by the index schema. One of the fields in each index schema must be designated as an ID, and each document must have a value for the ID field that uniquely identifies that document in the index. All other document fields are optional and will default to a null value if left unspecified. Note that null values do not take up space in the inverted index. 
 
 Before you can upload documents, you must have already created the index on the service. See [Create Index](#CreateIndex) for details about this first step.
 
 
 <a name="AddOrUpdateDocuments"></a>
-## Add, Update, or Delete Documents ##
+## Add, Update, or Delete Documents
 
 You can upload, merge, merge-or-upload or delete documents from a specified index using HTTP POST. For large numbers of updates, batching of documents (up to 1000 documents per batch or about 16 MB per batch) is recommended.
 
@@ -1590,20 +1590,30 @@ Status code: 429 indicates that you have exceeded your quota on the number of do
     }
 ________________________________________
 <a name="SearchDocs"></a>
-## Search Documents ##
+## Search Documents
 
 A **Search** operation is issued as a GET request and specifies query parameters that give the criteria for selecting matching documents. 
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
     api-key: [admin key]
 
-As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.encode.aspx) the query string when calling the REST API directly.
-
 **Request**
 
 HTTPS is required for service requests. The **Search** request can be constructed using the GET method.
 
 The request URI specifies which index to query, for all documents that match the query parameters.
+
+As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For Search Document operations, this includes:
+
+- `$filter`
+- `highlightPreTag`
+- `highlightPostTag`
+- `search`
+- `moreLikeThis`
+
+URL encoding is only recommended on the above query parameters. If you inadvertently URL-encode the entire query string (everything after the ?), requests will break.
+
+Also, URL encoding is only necessary when calling the REST API directly. Using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx) handles URL encoding for you.
 
 **Query Parameters**
 
@@ -1769,11 +1779,11 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
-Note the use of `searchMode=all` above. This ensures that `-motel` means "AND NOT" instead of "OR NOT". This behavior is consistent with how "AND NOT" is experienced in web search engines like Google and Bing.
+Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users. If you want `-motel` to result in  a search behavior consistent with Google and Bing, include the `searchMode=all` query parameter in the query string.
 
 
 <a name="LookupAPI"></a>
-##Lookup Document##
+##Lookup Document
 
 The **Lookup Document** operation retrieves a document from Azure Search. This is useful when a user clicks on a specific search result, and you want to look up specific details about that document.
 
@@ -1831,7 +1841,7 @@ Lookup the document that has key '3' using OData syntax:
     GET /indexes('hotels')/docs('3')?api-version=2015-02-28-Preview
 
 <a name="CountDocs"></a>
-##Count Documents##
+##Count Documents
 
 The **Count Documents** operation retrieves a count of the number of documents in a search index. The `$count` syntax is part of the OData protocol.
 
@@ -1867,7 +1877,7 @@ Status Code: 200 OK is returned for a successful response.
 The response body contains the count value as an integer formatted in plain text.
 
 <a name="Suggestions"></a>
-##Suggestions##
+##Suggestions
 
 The **Suggestions** operation retrieves suggestions based on partial search input. It's typically used in search boxes to provide type-ahead suggestions as users are entering search terms.
 

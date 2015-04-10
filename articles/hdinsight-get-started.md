@@ -17,13 +17,11 @@
    ms.author="nitinme"/>
 
 
-# Get started using Hadoop with Hive in HDInsight
+# Get started using Hadoop with Hive in HDInsight on Windows
 
-<!--div class="dev-center-tutorial-selector sublanding">
-<a href="../hdinsight-get-started" title="Get started using Hadoop 2.4 in HDInsight" class="current">Hadoop 2.4</a>
-<a href="../hdinsight-get-started-30" title="Get started using Hadoop 2.2 in HDInsight">Hadoop 2.2</a>
-<!--a href="../hdinsight-get-started-21" title="Get started using Hadoop 1.2 in HDInsight">Hadoop 1.2</a>
-</div-->
+> [AZURE.SELECTOR]
+- [Windows](hdinsight-get-started.md)
+- [Linux](hdinsight-hadoop-linux-get-started.md)
 
 To get you started quickly using HDInsight, this tutorial shows you how to run a Hive query to extract meaningful information about mobile handset use from unstructured data in a Hadoop cluster. Then, you’ll analyze the results in Microsoft Excel.
 

@@ -18,6 +18,10 @@
 
 # Get started using Hadoop with Hive in HDInsight on Linux (preview)
 
+> [AZURE.SELECTOR]
+- [Windows](hdinsight-get-started.md)
+- [Linux](hdinsight-hadoop-linux-get-started.md)
+
 This tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
 
 
