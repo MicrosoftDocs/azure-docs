@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Create a .NET WebJob in Azure App Service
@@ -365,7 +365,7 @@ It's a security best practice to [avoid putting sensitive information such as co
 
 ### Enable AlwaysOn for long-running processes
 
-To make sure your WebJobs are always running, and running on all instances of your website you have to enabled the [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) feature.
+To make sure your WebJobs are always running, and running on all instances of your web app you have to enabled the [AlwaysOn](http://weblogs.asp.net/scottgu/archive/2014/01/16/windows-azure-staging-publishing-support-for-web-sites-monitoring-improvements-hyper-v-recovery-manager-ga-and-pci-compliance.aspx) feature.
 
 ## <a id="create"></a>Create the application from scratch 
 

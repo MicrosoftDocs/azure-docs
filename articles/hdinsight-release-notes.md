@@ -13,11 +13,61 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="04/06/2015" 
 	ms.author="nitinme"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 04/06/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.521.1453250	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.521.1453250	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.521.1453250	(HDP 2.1.12.0-2329 - unchanged)
+* HDInsight		3.2.3.521.1453250	(HDP 2.2.2.2-1)
+* SDK			1.5.6
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area 
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>HDInsight .NET SDK 1.5.6</td>
+<td>Updates to remove some internal classes for HDInsight on Linux.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Avro Library 1.5.6</td>
+<td>Added <b>KnownTypeAttribute</b> for method <b>GetAllKnownTypes</b>. Fixed NullReferenceException when a type is null for GetAllKnownTypes method.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Bug fixes</td>
+<td>Various bug fixes to the service</td>
+<td>Service</td>
+<td>All</td>
+<td>N/A</td>
+</tr>
+
+</table>
+<br>
 
 ## Notes for 04/01/2015 release of HDInsight ##
 
@@ -68,7 +118,7 @@ This release contains the following updates.
 
 <tr>
 <td>YARN configuration change</td>
-<td>Changed YARN configuration yarn.resourcemanager.max-completed-applications to 1000 for all cluster types for HDInsight versions 3.1 and 3.2.</td>
+<td>Changed YARN configuration yarn.resourcemanager.max-completed-applications to 1000 for all cluster types for HDInsight versions 3.1 and 3.2. This value only controls the list of completed applications in the YARN UI. To get information about applications that were submitted prior to the list of applications shown on the UI, you can directly go to the History Server.</td>
 <td>YARN</td>
 <td>All</td>
 <td>N/A</td>

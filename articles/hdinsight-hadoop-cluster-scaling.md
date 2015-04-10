@@ -3,24 +3,22 @@
    description="Change the number of data nodes in a cluster that is running on HDInsight without having to delete and recreate the cluster."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
-   ms.author="bradsev"/>
+   ms.date="04/02/2015"
+   ms.author="jgao"/>
 
 #Cluster scaling in HDInsight
 
 The cluster scaling feature allows you to change the number of data nodes used by a cluster that is running in Azure HDInsight without having to delete and re-create the cluster. The operation can be performed via Azure PowerShell, the HDInsight SDK, or the Azure portal.
-
-> [WACOM.NOTE] Only the Hadoop and Storm cluster types are supported in the current release. Support for HBase clusters will be added shortly. 
 
 ## Feature details
 This section describes the impact of changing the number of data nodes for each type of cluster supported by HDInsight:
@@ -60,7 +58,11 @@ Here is an example how to use the CLI command to rebalance the Storm topology:
 	$ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 ##HBase
-The cluster scaling operation is not supported for HBase type clusters at this time.
+You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
+
+	>pushd %HBASE_HOME%\bin
+	>hbase shell
+	>balancer
 
 ## Prerequisites
 
@@ -80,7 +82,7 @@ To change the Hadoop cluster size by using Azure PowerShell, run the following c
 
 	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>	
 
-> [WACOM.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
+> [AZURE.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
 
 ### SDK
 To change the Hadoop cluster size by using the HDInsight SDK, use one of the following methods: 

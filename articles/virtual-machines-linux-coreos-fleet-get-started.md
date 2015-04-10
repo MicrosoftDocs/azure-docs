@@ -4,7 +4,8 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="madhana"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -113,7 +114,7 @@ ExecStop=/usr/bin/docker stop apache1
 X-Conflicts=apache@*.service
 ```
 
->[AZURE.NOTE]The `X-Conflicts` attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host. For details see [Unit Files].
+>[AZURE.NOTE] The `X-Conflicts` attribute tells CoreOS that only one instance of this container can be run on a given CoreOS host. For details see [Unit Files].
 
 Now start the unit instances on the CoreOS cluster. You should see that they're running on three different machines:
 

@@ -9,11 +9,11 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
 
 # Use Hive with Hadoop on HDInsight with Remote Desktop
@@ -48,7 +48,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
 
     When the CLI has started, you will see the Hive CLI prompt: `hive>`.
 
-3. Using the CLI, enter the following statements to create a new table named **log4jLogs** that uses the sample data:
+3. Using the CLI, enter the following statements to create a new table named **log4jLogs** using sample data:
 
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -59,17 +59,17 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
     These statements perform the following actions:
 
     * **DROP TABLE**: Deletes the table and the data file if the table already exists.
-    
+
     * **CREATE EXTERNAL TABLE**: Creates a new 'external' table in Hive. External tables store only the table definition in Hive (the data is left in the original location).
 
 		> [AZURE.NOTE] External tables should be used when you expect the underlying data to be updated by an external source (such as an automated data upload process) or by another MapReduce operation, but you always want Hive queries to use the latest data.
     	>
     	> Dropping an external table does **not** delete the data, only the table definition.
-    
+
 	* **ROW FORMAT**: Tells Hive how the data is formatted. In this case, the fields in each log are separated by a space.
-	
+
     * **STORED AS TEXTFILE LOCATION**: Tells Hive where the data is stored (the example/data directory) and that it is stored as text.
-    
+
     * **SELECT**: Selects a count of all rows where column **t4** contains the value **[ERROR]**. This should return a value of **3** because there are three rows that contain this value.
 
 
@@ -81,11 +81,11 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
     These statements perform the following actions:
 
     * **CREATE TABLE IF NOT EXISTS**: Creates a table if it does not already exist. Because the **EXTERNAL** keyword is not used, this is an internal table, which is stored in the Hive data warehouse and is managed completely by Hive.
-    
+
 		> [AZURE.NOTE] Unlike **EXTERNAL** tables, dropping an internal table also deletes the underlying data.
-		
+
     * **STORED AS ORC**: Stores the data in optimized row columnar (ORC) format. This is a highly optimized and efficient format for storing Hive data.
-    
+
     * **INSERT OVERWRITE ... SELECT**: Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
     To verify that only rows that contain **[ERROR]** in column t4 were stored to the **errorLogs** table, use the following statement to return all the rows from **errorLogs**:

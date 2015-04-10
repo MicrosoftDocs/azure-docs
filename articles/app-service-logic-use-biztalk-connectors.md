@@ -3,7 +3,7 @@
    description="Using connectors" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="prkumar" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -54,6 +54,21 @@ The following articles provide examples of how some of the out of box connectors
 * [Using Office 365 connector]
 * [Using Sharepoint connector]
 * [Using SAP connector]
+* [Using SugarCRM connector]
+* [Using QuickBooks connector]
+* [Using Yammer connector]
+* [Using Twilio connector]
+* [Using SMTP connector]
+* [Using SFTP connector]
+* [Using POP3 connector]
+* [Using DropBox connector]
+* [Using Chatter connector]
+* [Using HDInsight connector]
+* [Using Azure Service Bus connector]
+* [Using Oracle connector]
+* [Using SQL connector]
+* [Using OneDrive connector]
+* [Using File connector]
 
 For additional details, please refer to the Connector API Reference [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
@@ -70,4 +85,19 @@ For additional details, please refer to the Connector API Reference [http://aka.
 [Using Azure Storage Blob connector]: app-service-logic-connector-azurestorageblob.md
 [Using Office 365 connector]: app-service-logic-connector-office365.md
 [Using Sharepoint connector]: app-service-logic-connector-sharepoint.md
+[Using SugarCRM connector]: app-service-logic-connector-sugarcrm.md
+[Using QuickBooks connector]: app-service-logic-connector-quickbooks.md
+[Using Yammer connector]: app-service-logic-connector-yammer.md
+[Using Twilio connector]: app-service-logic-connector-twilio.md
+[Using SMTP connector]: app-service-logic-connector-smtp.md
+[Using SFTP connector]: app-service-logic-connector-sftp.md
+[Using POP3 connector]: app-service-logic-connector-pop3.md
+[Using DropBox connector]: app-service-logic-connector-dropbox.md
+[Using Chatter connector]: app-service-logic-connector-chatter.md
+[Using HDInsight connector]: app-service-logic-connector-hdinsight.md
+[Using Azure Service Bus connector]: app-service-logic-connector-azureservicebus.md
+[Using Oracle connector]: app-service-logic-connector-oracle.md
+[Using SQL connector]: app-service-logic-connector-sql.md
+[Using OneDrive connector]: app-service-logic-connector-onedrive.md
+[Using File connector]: app-service-logic-connector-file.md
 

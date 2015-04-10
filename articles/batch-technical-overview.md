@@ -4,7 +4,8 @@
 	services="batch" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="fayora"/>
 
 <tags 
 	ms.service="batch" 
@@ -19,10 +20,10 @@
 #Azure Batch technical overview
 Azure Batch helps you run large-scale parallel and high performance computing (HPC) applications in the cloud. It's a platform service that provides job scheduling and autoscaling of a managed collection of virtual machines (VMs) to run the jobs. By using the Batch service, you can configure batch workloads to run in Azure on demand or on a schedule, and not worry about the complexity of scheduling jobs and managing VMs in the underlying platform.
  
->[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to sign up for the Batch Preview. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/). 
+>[AZURE.NOTE]Batch is in Preview. To use Batch, you need an Azure account, and you need to sign up for the Batch Preview. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
-<h2 id="BKMK_Scenarios">Use cases</h2>
+## <a id="BKMK_Scenarios">Use cases</a>
 
 Batch uses the elasticity and scale of the cloud to help you with *batch processing* or *batch computing* - running a large volume of similar tasks to get some desired result. A command line program or script takes a set of data files as input, processes the data in a series of tasks, and produces a set of output files. The output files might be the final result or an intermediate step in a larger workflow.       
  
@@ -46,7 +47,7 @@ You can also use Batch to perform parallel calculations with a reduce step at th
 
 >[AZURE.NOTE]Batch Preview does not currently support message passing interface (MPI) applications.
 
-<h2 id="BKMK_Approaches">Developer scenarios</h2>
+## <a id="BKMK_Approaches">Developer scenarios</a>
 
 The REST-based Batch APIs support two developer scenarios to help you configure and run your batch workloads with the Batch service:
  
@@ -55,16 +56,16 @@ The REST-based Batch APIs support two developer scenarios to help you configure 
 2. **Publish and run applications with the Batch service** - The *Batch Apps* APIs work at a higher level, helping you wrap an existing application so it runs as a service on a pool of VMs managed in the background by Batch. The application might be one that runs today on client workstations or a compute cluster. The Batch Apps framework handles the movement of input and output files, job execution, job management, and data persistence. Batch Apps also allows you to model tasks for how data is partitioned and for multiple steps in a job. Included is a REST-based API and the Batch Apps portal, which can be accessed from the Azure Management Portal and helps you monitor the jobs you submitted.
 
 
-<h2 id="BKMK_Entities">Batch concepts</h2>
+## <a id="BKMK_Entities">Batch concepts</a>
 
-The following sections summarize key concepts for working with the Batch service and APIs. For more information, see [API basics for Azure Batch](http://azure.microsoft.com/documentation/articles/batch-api-basics). 
+The following sections summarize key concepts for working with the Batch service and APIs. For more information, see [API basics for Azure Batch](batch-api-basics.md). 
 
 * [Batch account](#BKMK_Account)
 * [Task virtual machines and pools](#BKMK_TVM)
 * [Workitems, jobs, and tasks](#BKMK_Workitem)
 * [Files and directories](#BKMK_Files)
 
-<h3 id="BKMK_Account">Batch account</h3>
+### <a id="BKMK_Account">Batch account</a>
 You need a unique **Batch account** to work with the Batch service. All requests that you make to the Batch service must be authenticated using the name of the account and its access key.
  
 You can create a Batch account and manage access keys for the account in the Azure Management Portal.
@@ -82,7 +83,7 @@ To create a Batch account:
 	* If you have more than one subscription, in **Subscription**, select an available subscription that will be billed for your use of Batch.
 
  
-<h3 id="BKMK_TVM">Task virtual machines and pools</h3>
+### <a id="BKMK_TVM">Task virtual machines and pools</a>
 
 A **task virtual machine** (TVM) is an Azure VM that the Batch service dedicates to running a specific task for your application - such as an executable file (.exe), or in the case of Batch Apps, one or more programs from an application image. Unlike a typical Azure VM, you don't provision or manage a TVM directly; instead, the Batch service creates and manages TVMs as a **pool** of similarly configured VMs, as shown in Figure 2. 
 
@@ -110,7 +111,7 @@ A pool can only be used by the Batch account in which it was created. A Batch ac
 Every TVM in a pool gets assigned a unique name and an associated IP address. When a TVM is removed from a pool, it loses the changes that were made to the operating system, its local files, its name, and its IP address. When a TVM leaves a pool, its lifetime is over.
 
 
-<h3 id="BKMK_Workitem">Workitems, jobs, and tasks</h3>
+### <a id="BKMK_Workitem">Workitems, jobs, and tasks</a>
 
 A **workitem** is a template that specifies how an application will run on TVMs in a pool. A **job** is a scheduled workitem and might occur once or reoccur. A job consists of a collection of **tasks**. Figure 3 shows the basic relationships.    
  
@@ -126,7 +127,7 @@ Depending on the APIs you use to develop with Batch, you will need to manage mor
 
 
 
-<h3 id="BKMK_Files">Files and directories</h3>
+### <a id="BKMK_Files">Files and directories</a>
 
 A file is a piece of data used as an input to a job task. A task can have no, one, or many input files associated with it. The same file can be used in multiple tasks as well, e.g., for the tasks in a movie rendering job, there might be commonly used textures and models. For tasks in a data analysis job, the files might be a set of observations or measurements.
 
@@ -134,7 +135,7 @@ A working directory exists for each task that contains the input data it process
 
 Again, depending on the APIs you use with Batch, you will need to manage more or fewer details about the input and output files for your jobs and tasks. If you are developing with the Batch APIs, you specify these dependencies and file movements explicitly. With Batch Apps, the framework handles most of these details for you. 
 
-<h2 id="BKMK_Workflow_workitems">Workitems workflow</h2>
+## <a id="BKMK_Workflow_workitems">Workitems workflow</a>
 Figure 4 shows a you how to submit an application to a pool where it's distributed for processing. This uses the Batch API.
 
 ![Workitems workflow][work_item_workflow]
@@ -148,7 +149,7 @@ Figure 4 shows a you how to submit an application to a pool where it's distribut
 5.	Add tasks to the job. Each task uses the program that you uploaded to process information from a file you uploaded.
 6.	Run the application and monitor the results of the output.
 
-<h2 id="BKMK_Workflow_cloudapps">Workflow to publish and run applications </h2>
+## <a id="BKMK_Workflow_cloudapps">Workflow to publish and run applications </a>
 Figure 5 shows a basic workflow to publish an application by using the Batch Apps API and then submit jobs to the application enabled by Batch.
 
 ![Application publishing workflow][app_pub_workflow]
@@ -175,7 +176,7 @@ Figure 5 shows a basic workflow to publish an application by using the Batch App
 	
 	d. Download outputs.
 	
-<h2 id="BKMK_Resources">Additional resources</h2>
+## <a id="BKMK_Resources">Additional resources</a>
 
 * [Get Started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)
 * [Azure Batch development libraries and tools](batch-development-libraries-tools.md)

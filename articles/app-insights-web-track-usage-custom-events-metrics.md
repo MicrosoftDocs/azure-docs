@@ -15,7 +15,7 @@
 	ms.date="03/17/2015" 
 	ms.author="awills"/>
 
-# Write custom telemetry with Application Insights API
+# Write custom events and metrics with Application Insights API
 
 *Application Insights is in preview.*
 
@@ -441,9 +441,7 @@ This includes standard telemetry sent by the platform-specific telemetry modules
         }
     }
 
-In the app initializer such as Global.asax.cs:
-
-*C#*
+    // In the app initializer such as Global.asax.cs:
 
     protected void Application_Start()
     {
@@ -451,6 +449,22 @@ In the app initializer such as Global.asax.cs:
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+
+*Java*
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyTelemetryInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.getProperties().put("AppVersion", "2.1");
+      }
+    }
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
+
 
 *JavaScript* - insert before the first call to trackPageView on each page:
 

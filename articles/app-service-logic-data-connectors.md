@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Microsoft Azure API Apps Data Connectors | API Apps microservice" 
 	description="Learn how to create Microsoft Azure Data Connector API Apps and add the API App to your logic App; microservices" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MSFTMan" 
 	manager="dwrede" 
@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/31/2015" 
 	ms.author="deonhe"/>
 
 
 # Data Connectors in Microsoft Azure App Service
 
 
-## What is a Add data + services API App Connector
-App and Data Services connectors are "API Apps" that can connect to a wide array of data services applications and perform several *Actions* on behalf of the authenticated user. Most of these connectors can also be configured with a *Trigger*. Triggers are events (similar to events in the .NET Framework) that can be configured on some connectors to initiate a workflow. For example, an instance of the Dropbox connector can be configured with a *new file* trigger where the trigger will execute any time a new file is added to the Dropbox account that's being monitored. This trigger can then be configured to initiate an *Action* that will *Get* the file and upload it to an on-premises SharePoint list.
+## What is an App + Data Services API App Connector
+App and Data Services connectors are "API Apps" that can connect to a wide array of data services applications and perform several *Actions* on behalf of the authenticated user. Most of these connectors can also be configured with a *Trigger*. Triggers are events (similar to events in the .NET Framework) that can be configured on some connectors to initiate a workflow. 
+
+For example, an instance of the Dropbox connector can be configured with a *new file* trigger where the trigger executes any time a new file is added to the Dropbox account that's being monitored. This trigger can then be configured to initiate an *Action* that will *Get* the file and upload it to an on-premises SharePoint list.
 
 
-Here's a brief overview of each of the App and Data Services connectors that are available on the Azure gallery. 
+Here's a brief overview of each of the App and Data Services connectors that are available on the Azure gallery:
 
 <table>
 <tr>
@@ -41,31 +43,11 @@ Here's a brief overview of each of the App and Data Services connectors that are
 </tr>
 
 <tr>
-<td>Azure Mobile Services
-<td>An Azure Mobile Services connector lets you create and modify data and call custom APIs.
-<td>None
-<td><li>Query
-<li>Insert
-<li>Delete
-<li>Update
-<li>Custom API call
-
-</tr>
-
-<tr>
 <td>Azure Service Bus
 <td>Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 <td>New messages
 <td>Send message
 </tr>
-
-<tr>
-<td>Azure Storage Blob
-<td>Azure Storage Blob lets you connect to Blob storage and perform various actions.
-<td>New file added
-<td><li>Upload <li>Get <li>Delete <li>List <li>Copy <li>Snapshot
-</tr>
-
 <tr>
 <td>Azure Storage Table
 <td>Azure Storage Table Connector lets you connect to Azure Storage Table and perform various actions such as Get Entity, Query Entities, Insert Entity, Update Entity, Delete Entity and a trigger to retrieve data.
@@ -89,6 +71,17 @@ Here's a brief overview of each of the App and Data Services connectors that are
 </tr>
 
 <tr>
+<td>DB2
+<td>The DB2 Connector lets you connect to an IBM DB2 database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes the Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
+<td>None
+<td><li>Table Select
+<li>Insert
+<li>Update
+<li>Delete
+<li>Custom Statement
+</tr>
+
+<tr>
 <td>Dropbox
 <td>Dropbox Connector lets you connect to Dropbox and perform various actions such as Upload File, Get File, Delete File, List Files and a trigger to retrieve files.
 <td>New files added
@@ -101,7 +94,7 @@ Here's a brief overview of each of the App and Data Services connectors that are
 <tr>
 <td>HDInsight
 <td>An HDInsight connector lets you create a Hadoop cluster on Azure and submit various Hadoop jobs such as Hive, Pig, MapReduce, and Streaming MapReduce. Using this connector, you can spin a cluster, submit a job, and wait for the job to complete.
-<td>N/A
+<td>None
 <td><li>Create Cluster
 		<li>Wait For Cluster Creation
 		<li>Submit Pig Job
@@ -111,7 +104,17 @@ Here's a brief overview of each of the App and Data Services connectors that are
 		<li>Delete Cluster
 <li>Submit MapReduce Job
 <li>Submit Streaming MapReduce Job
+</tr>
 
+<tr>
+<td>Informix
+<td>The Informix connector connects to an on-premises IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands. When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
+<td>None
+<td><li>Table Select
+<li>Insert
+<li>Update
+<li>Delete
+<li>Custom Statement
 </tr>
 
 <tr>
@@ -134,6 +137,14 @@ Here's a brief overview of each of the App and Data Services connectors that are
 		<li>Get Documents
 		<li>Upsert Document
 		<li>Delete Document
+</tr>
+
+
+<tr>
+<td>MQ
+<td>The MQ Connector connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/><strong>Note</strong> Currently cannot be used with Logic Apps.
+<td>None
+<td>None
 </tr>
 
 <tr>
@@ -182,18 +193,18 @@ Here's a brief overview of each of the App and Data Services connectors that are
 </table>
 
 
-##Why Use Connectors?
+## Why Use Connectors?
 
 Connectors accelerate app development and even allow non-developers to create fully functional, enterprise grade applications without having to learn a programming language or write any code.
 
 Now that you have an idea of what our App + data services connectors can do, let's look at some simple use cases for these connectors. 
 
-### Monitoring your Dropbox and updating SharePoint ###
+### Monitoring your Dropbox and updating SharePoint
 Imagine your company is a construction firm that receives very large files containing blueprints. These files are typically too large to be handled via email so your company sets up a Dropbox account and asks its customers to drop the blueprints into the Dropbox. You could then ask each employee to constantly check the Dropbox folders for new blueprints then upload them to your SharePoint server, however, you are convinced there must be a better way! Luckily, you found out that Microsoft recently released its App + data services connector for Dropbox, Sharepoint and other data services. You can easily create connectors for Dropbox and SharePoint, add them to a Logic app and configure them to upload each new file  from your Dropbox account to your SharePoint list. Since the Dropbox connector has a *new message* trigger, you can use it to notify your Logic app that there is a new file available. The Dropbox connector can then download the file. Your Sharepoint connector can then be configured to upload the file to a SharePoint list using the SharePoint *upload* action. You can do this all, without writing a single line of code.  
 
 Let's get started. 
 
-##Create a Connector
+## Create a Connector
 
 There are two ways to create connectors:
 
@@ -255,11 +266,11 @@ Connectors use either OAuth or user names and passwords.
 
 
 ## More Connectors
-
 [BizTalk Integration connectors](app-service-logic-integration-connectors.md) |
 [Enterprise connectors](app-service-logic-enterprise-connectors.md) |
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md) |
 [Social connectors](app-service-logic-social-connectors.md) |
 [Protocol connectors](app-service-logic-protocol-connectors.md) |
 [App and Data Services connectors](app-service-logic-data-connectors.md) |
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

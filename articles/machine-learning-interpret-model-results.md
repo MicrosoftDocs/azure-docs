@@ -3,7 +3,7 @@
 	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2015" 
+	ms.date="04/07/2015" 
 	ms.author="bradsev" />
 
 
@@ -37,9 +37,9 @@ The modules used do prediction on top of these modules, called "scoring" them, g
 * **Assign to Clusters** module for clustering 
 * **Score Matchbox Recommender** for recommendation systems 
  
-This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-algorithm-parameters-optimize).
+This document explains how to interpret prediction results for each of these modules. For an overview of these kinds of models, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](https://azure.microsoft.com/documentation/articles/machine-learning-evaluate-model-performance).
+This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, please refer to [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
 If you are new to Azure Machine Learning, and help on how to create a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in the Azure Machine Learning Studio. 
 

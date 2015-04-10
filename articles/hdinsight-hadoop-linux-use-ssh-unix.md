@@ -24,7 +24,7 @@ Linux-based Azure HDInsight clusters provide the option of using Secure Shell (S
 
 ##Prerequisites
 
-* **ssh-keygen** and **ssh** for Linux, Unix, and OS X clients. This utility is usually provided with your operating system, or available through the package management system.
+* **ssh-keygen** and **ssh** for Linux, Unix, and OS X clients. This utilities are usually provided with your operating system, or available through the package management system.
 
 * A modern web browser that supports HTML5.
 
@@ -34,7 +34,7 @@ OR
 
 ##What is SSH?
 
-SSH is a utility for logging in to, and remotely executing, commands on a remote server. With Linux-based HDInsight, SSH establishes a secure connection to the cluster head node and provides a command line that you use to type in commands. Commands are then executed directly on the server.
+SSH is a utility for logging in to, and remotely executing, commands on a remote server. With Linux-based HDInsight, SSH establishes an encrypted connection to the cluster head node and provides a command line that you use to type in commands. Commands are then executed directly on the server.
 
 ##Create an SSH key (optional)
 
@@ -172,7 +172,7 @@ Use the following steps to connect to the worker nodes for your cluster.
 
 ##Add more accounts
 
-1. Generate a new public key and private key for the new user account, as described in the [Create an SSH key](#create) section.
+1. Generate a new public key and private key for the new user account, as described in the [Create an SSH key](#create-an-ssh-key-optional) section.
 
 	> [AZURE.NOTE] The private key should either be generated on a client that the user will use to connect to the cluster, or securely transferred to such a client after creation.
 
@@ -250,7 +250,7 @@ If you have installed FoxyProxy Standard, use the following steps to configure i
 
 	![foxyproxy icon](./media/hdinsight-hadoop-linux-use-ssh-unix/foxyproxy.png)
 
-2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsight**.
+2. Select **Add New Proxy**, select the **General** tab, and then enter a proxy name of **HDInsightProxy**.
 
 	![foxyproxy general](./media/hdinsight-hadoop-linux-use-ssh-unix/foxygeneral.png)
 

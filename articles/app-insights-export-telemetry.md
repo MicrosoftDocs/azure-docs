@@ -69,6 +69,8 @@ Or consider [DataFactory](http://azure.microsoft.com/services/data-factory/), in
 
 We start writing a new blob in each hour (if events are received). So you should always process up to the previous hour, but wait for the current hour to complete.
 
+[Code sample][exportcode]
+
 
 ## <a name="format"></a> What does the data look like?
 
@@ -107,6 +109,8 @@ On a small scale, you can write some code to pull apart your data, read it into 
     }
 
 
+Or you can move it into a SQL database - see the [code sample][exportcode].
+
 On larger scales, consider [HDInsight](http://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
 
 ## <a name="delete"></a>Delete your old data
@@ -122,6 +126,10 @@ Open the Continuous Export blade and edit your export. Edit the Export Destinati
 
 The continuous export will restart.
 
+
+## Code Sample
+
+[Move exported data into a SQL database][exportcode]
 
 ## Q & A
 

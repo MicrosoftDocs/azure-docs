@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
@@ -70,8 +70,7 @@ Azure PowerShell cannot create a Blob container during the HDInsight provisionin
 	$containerName="<ContainerName>"
 
 	# Create a storage context object
-	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName 
-	                                       -StorageAccountKey $storageAccountKey  
+	$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 	
 	# Create a Blob storage container
 	New-AzureStorageContainer -Name $containerName -Context $destContext
@@ -146,13 +145,11 @@ The following Azure PowerShell script submits the word-count sample job:
 	$clusterName = "<HDInsightClusterName>"            
 	
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-> [AZURE.NOTE] The hadoop-examples.jar file comes with version 2.1 HDInsight clusters. The file has been renamed to hadoop-mapreduce.jar on version 3.0 HDInsight clusters.
-
 For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-
 storage].
 
