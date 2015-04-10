@@ -47,9 +47,10 @@ We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dl
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
+    using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-	using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage.Blob;
 
 Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
