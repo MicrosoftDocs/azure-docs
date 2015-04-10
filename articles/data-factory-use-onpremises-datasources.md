@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -433,6 +433,18 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![EmpOnPremSQLTable slices][image-data-factory-onprem-sqltable-slices]
 
 6. Notice that the data slices up to the current time have already been produced and they are **Ready**. It is because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom.
+
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
+
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
 	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
