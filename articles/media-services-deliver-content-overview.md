@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to deliver your conent to customers" 
+	pageTitle="Delivering Content to Customers Overview" 
 	description="This topic gives an overview of what is involved in delivering your content with Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# How to deliver your content to customers
+#Delivering Content to Customers Overview
 
 ##Overview
 
@@ -26,7 +26,7 @@ When working with Media Services, one of the common scenarios is:
 1. Upload an input file (called a mezzanine file) into an asset. For example, H.264, MP4, or WMV.
 1. Encode the asset into a set of adaptive bitrate MP4s.
 1. Publish the asset. 
-   Use [Dynamic Packaging](http://msdn.microsoft.com/library/azure/jj889436.aspx) to deliver the content to your clients in any of the following formats: MPEG DASH, Apple HLS, or Smooth Streaming. 
+2. Use [Dynamic Packaging](http://msdn.microsoft.com/library/azure/jj889436.aspx) to deliver the content to your clients in any of the following formats: MPEG DASH, Apple HLS, or Smooth Streaming. 
 
 This topic gives an overview of main [concepts](media-services-deliver-content.md#concepts) and links to topics that show how to perform content delivery related [tasks](media-services-deliver-content.md#tasks).
 
@@ -36,23 +36,21 @@ The following list describes useful terminology and concepts when delivering med
 
 ###Locators
 
-To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator. Locators provide access to files contained in the asset. Locators provide an entry point to access the files contained in an asset. Media Services supports two types of locators: OnDemandOrigin locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) and Access Signature (SAS) URL locators, used to download media files. 
+To provide your user with a  URL that can be used to stream or download your content, you first need to "publish" your asset by creating a locator.  Locators provide an entry point to access the files contained in an asset. Media Services supports two types of locators: 
 
-An access policy is used to define the permissions (such as read, write, and list) and duration that a client has access to a given asset. Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
+- **OnDemandOrigin** locators, used to stream media (for example, MPEG DASH, HLS, or Smooth Streaming) or progressively download files.
+-  **SAS** (access signature) URL locators, used to download media files to your local computer. 
+
+An **Access Policy** is used to define the permissions (such as read, write, and list) and duration that a client has access to a given asset. Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
 
 >[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
 
-To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://msdn.microsoft.com/library/jj574410(v=azure.10).aspx ) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 
 Locators are not designed to manage per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [Securing Media](http://msdn.microsoft.com/library/azure/dn282272.aspx).
 
 When you create a locator for media content, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
-###Access Policy 
-
-Access Policy defines permissions (like read, write, and list) and duration of access to an asset. You would usually pass an AccessPolicy object to a locator that would then be used to access the files contained in an asset. 
-
-Note, that the list permission (AccessPermissions.List) should not be used when creating an OrDemandOrigin locator.
 
 ###Adaptive streaming 
 
@@ -118,18 +116,16 @@ Note that in addition to being able to use the dynamic packaging capabilities, O
 
 ###Progressive download 
 
-Progressive download allows you to start playing media before the entire file has been downloaded. You can only progressively download an MP4 file. 
-
-Downloading your content onto client devices or progressively downloading content (start playing media before the entire MP4 file has been downloaded). To download content, you must create a SAS Locator. The SAS locator gives you access the Azure Storage container where your file is located. To build the download URL, you have to embed the file name between the host and SAS signature. 
+Progressive download allows you to start playing media before the entire file has been downloaded. You cannot progressively download .ism* (ismv, isma, ismt, ismc) files. 
 
 To progressively download content, use the OnDemandOrigin type of locator. The following example shows the URL that is based on the OnDemandOrigin type of locator.r:
 
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-The following considerations apply:
+The following consideration apply:
 
 - You must decrypt any storage encrypted assets that you wish to stream from the origin service for progressive download.
-- A download that has not completed within 12 hours will fail.
+
 
 ###Download
 

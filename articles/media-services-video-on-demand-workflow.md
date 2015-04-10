@@ -137,11 +137,11 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 ##Encoding 
 
-An overview: [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
+**Overview**: [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
 
-Encode with **Media Encoder Premium Workflow** using **.NET**. 
+Advanced encoding with **Media Encoder Premium Workflow** using **.NET**. 
 
-[Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
+[AZURE.INCLUDE [media-services-selector-advanced-encoding](../includes/media-services-selector-advanced-encoding.md)]
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
@@ -171,7 +171,10 @@ Configure asset delivery policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-##Publishing assets
+##Publishing and delivering assets
+
+**Overview**: [Delivering Content Overview](media-services-deliver-content-overview.md)
+
 
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
