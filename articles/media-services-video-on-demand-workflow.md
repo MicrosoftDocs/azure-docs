@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Delivering Media on-Demand with Azure Media Services" 
-	description="This topic talks about common scenarios of delivering media on-Demand with Azure Media Services." 
+	description="This topic talks about common scenarios of delivering media on-demand with Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -23,7 +23,7 @@
 
 This topic describes steps of a typical Azure Media Services (AMS) Video-on-Demand workflow. Each step links to relevant topics. For tasks that can be achieved using different technologies, there are buttons that link to technology of your choice (for example, .NET or REST).   
 
-Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
+Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site, then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN or a third-party CDN. 
 
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
