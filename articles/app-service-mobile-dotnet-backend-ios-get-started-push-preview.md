@@ -38,7 +38,7 @@ This tutorial requires the following:
 
 + [App Service Mobile App iOS SDK]
 + [Azure Notification Hubs Nuget]
-+ [XCode 4.5][Install Xcode]
++ [XCode 6.0][Install Xcode]
 + An iOS 6.0 (or later version) capable device
 + iOS Developer Program membership
 
@@ -90,10 +90,10 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 2. In **QSAppDelegate.m**, add the following in **application:didFinishLaunchingWithOptions** to register the client with Apple Push Notification Service:
 
         // register iOS8 or previous devices for notifications
-        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && [[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+        if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)] && 	
+        	[[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
             [[UIApplication sharedApplication] registerForRemoteNotifications];
-        }
-        else {
+        } else {
             // Register for remote notifications
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
             UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
@@ -102,8 +102,8 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 3. In the same file, add the following handler method inside the **QSAppDelegate** implementation:
 
         // registration with APNs is successful
-        - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
-        (NSData *)deviceToken {
+        - (void)application:(UIApplication *)application 
+            didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 
             // make sure you have imported "QSTodoService.h"
             QSTodoService *todoService = [QSTodoService defaultService];
@@ -127,16 +127,18 @@ This tutorial is based on the App Service Mobile App quickstart. Before you star
 5. In QSAppDelegate.m, add the following handler method inside the implementation:  
 
         // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
+        - (void)application:(UIApplication *)application 
+              didReceiveRemoteNotification:(NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             
-            NSDictionary *apsPayload = [userInfo objectForKey:@"aps"];
-            NSString *alertString = [apsPayload objectForKey:@"alert"];
+            NSDictionary *apsPayload = userInfo[@"aps"];
+            NSString *alertString = apsPayload[@"alert"];
     
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-                          alertString delegate:nil cancelButtonTitle:
-                          @"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" 
+                                                            message:alertString 
+                                                           delegate:nil 
+                                                  cancelButtonTitle:@"OK" 
+                                                  otherButtonTitles:nil];
             [alert show];
         }
 
@@ -214,7 +216,7 @@ You have successfully completed this tutorial.
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
-[App Service Mobile iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[App Service Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
