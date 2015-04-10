@@ -16,7 +16,7 @@
     ms.date="04/06/2015" 
     ms.author="elizapo" />
 
-# Using redirection in Azure RemoteAppp
+# Using redirection in Azure RemoteApp
 
 Device redirection lets your users interact with remote apps using the devices attached to their local computer, phone, or tablet. For example, if you have provided Skype through RemoteApp, your user needs the camera installed on their PC to work with Skype. This is also true for printers, speakers, monitors, and a range of USB-connected peripherals.
 
