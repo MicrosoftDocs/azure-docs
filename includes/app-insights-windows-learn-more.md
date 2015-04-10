@@ -1,8 +1,6 @@
 ## Application Insights - learn more
 
 
-<table width="100%"><tr valign="top"><td>
-
 Overview
 
 <ul>
@@ -27,17 +25,7 @@ Working with Data
 </li>
 </ul>
 
-Problems? Questions?
 
-<ul>
-<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
-<li><a href="../articles/app-insights-windows-troubleshoot-faq.md">Q & A and troubleshooting</a>
-</li>
-<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
-</li>
-</ul>
-
-</td><td>
 
 
 Get started with ...
@@ -76,8 +64,15 @@ Usage tracking
 </li>
 </ul>
 
-</td><td>
-</td></tr></table>
+Problems? Questions?
+
+<ul>
+<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
+<li><a href="../articles/app-insights-windows-troubleshoot-faq.md">Q & A and troubleshooting</a>
+</li>
+<li><a href="../app-insights-upgrade-vso-azure/">Upgrading projects from the old VSO version of Application Insights</a>
+</li>
+</ul>
 
 
 

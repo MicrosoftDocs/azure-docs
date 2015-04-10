@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="04/07/2015" 
 	ms.author="josephd"/>
 
 
@@ -205,3 +205,5 @@ Your SharePoint intranet farm in a hybrid cloud environment is now ready for tes
 [Set up Office 365 Directory Synchronization (DirSync) in a hybrid cloud for testing](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
 [Set up a simulated hybrid cloud environment for testing](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
+
+[Azure hybrid cloud test environments](virtual-machines-hybrid-cloud-test-environments.md)

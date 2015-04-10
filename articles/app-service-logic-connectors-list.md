@@ -42,11 +42,6 @@ The following table lists all the available connectors and API Apps created by M
 </tr>
 
 <tr>
-<td>Azure Mobile Services</td>
-<td>Azure Mobile Services brings together a set of Azure services that enable back-end capabilities for mobile apps. Using this connector, you can connect to Azure Mobile Services and can create, update, get, delete entries, and make custom API calls on a table.</td>
-</tr>
-
-<tr>
 <td>Azure Service Bus</td>
 <td>Azure Service Bus is a generic, cloud-based messaging system for connecting just about anything. It enables the exchange of messages in a loosely coupled way for improved scale and reliability. Using this connector, you can send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.</td>
 </tr>
@@ -159,11 +154,6 @@ The following table lists all the available connectors and API Apps created by M
 </tr>
 
 <tr>
-<td>MongoDB</td>
-<td>The MongoDB connector connects to Mongo Server Database (cloud or on-premises) and create, update, get, and delete entries on a MongoDB collection.</td>
-</tr>
-
-<tr>
 <td>QuickBooks</td>
 <td>Using the QuickBooks connector, you can create, update, read, delete, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.</td>
 </tr>
@@ -187,7 +177,6 @@ The following table lists all the available API Apps created by Microsoft that a
 	Name  | Description
 ------------- | -------------
 BizTalk Flat File Encoder | Provides interoperability between flat file data (like excel and csv) and XML data. This API App can convert a flat file instance to XML and vice versa.
-BizTalk JSON Encoder | Provides interoperability between JSON and XML data. This API App can convert a JSON instance to XML and vice versa.
 BizTalk Transform Service | The BizTalk Transform API App converts data from one format to another format. You can also upload an existing map (.trfm file), view the graphical representation of the map that shows the links between the source and target schemas, and use 'Test’ functionality with a sample input XML content. Different built-in functions are also available, including string manipulations, conditional assignment, arithmetic expressions, date time formatters, looping, and so on.
 BizTalk XML Validator | The Validator API App validates XML data against predefined XML schemas. You can use existing schemas or generate schemas based on a flat file instance, JSON instance, or existing connectors.
 BizTalk XPath Extractor | The Extractor API App looks up and extracts data from XML content based on a given XPath.

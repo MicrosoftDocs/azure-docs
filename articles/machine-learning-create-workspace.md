@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="04/07/2015" 
 	ms.author="garye"/>
 
 
@@ -45,8 +45,8 @@ After your Machine Learning workspace is created, you will see it listed on the 
 For information about managing your workspace, see [Manage an Azure Machine Learning workspace].
 If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to an Machine Learning workspace].
 
-[Manage an Azure Machine Learning workspace]: ../machine-learning-manage-workspace/
-[Troubleshooting guide: Create and connect to an Machine Learning workspace]: ../machine-learning-troubleshooting-creating-ml-workspace/
+[Manage an Azure Machine Learning workspace]: machine-learning-manage-workspace.md
+[Troubleshooting guide: Create and connect to an Machine Learning workspace]: machine-learning-troubleshooting-creating-ml-workspace.md
  
 <!-- ![List of Machine Learning workspaces][2] -->
 
@@ -54,9 +54,9 @@ If you encounter a problem creating your workspace, see [Troubleshooting guide: 
 [To create a workspace]: #createworkspace
 
 <!--Image references-->
-[1]: ./media/machine-learning-create-workspace/cw1.png
-[2]: ./media/machine-learning-create-workspace/cw2.png
-[3]: ./media/machine-learning-create-workspace/cw3.png
+[1]: media/machine-learning-create-workspace/cw1.png
+[2]: media/machine-learning-create-workspace/cw2.png
+[3]: media/machine-learning-create-workspace/cw3.png
 
 
 

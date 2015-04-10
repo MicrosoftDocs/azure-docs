@@ -52,6 +52,7 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 
 - [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 - [Provision HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
 - [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
 

@@ -19,7 +19,7 @@
 # Configure a VPN connection between two Azure virtual networks  
 
 > [AZURE.SELECTOR]
-- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNET.md)
+- [Configure VPN connectivity](hdinsight-hbase-geo-replication-configure-VNETs.md)
 - [Configure DNS](hdinsight-hbase-geo-replication-configure-DNS.md)
 - [Configure HBase replication](hdinsight-hbase-geo-replication.md) 
 

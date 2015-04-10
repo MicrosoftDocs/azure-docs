@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure PHP in Azure App Service web apps "
+	pageTitle="Configure PHP in Azure App Service Web Apps"
 	description="Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service."
 	services="app-service\web"
 	documentationCenter="php"
@@ -16,11 +16,11 @@
 	ms.date="03/24/2015"
 	ms.author="tomfitz"/>
 
-#Configure PHP in Azure App Service web apps 
+#Configure PHP in Azure App Service Web Apps
 
 ## Introduction
 
-This guide will show you how to configure the built-in PHP runtime in Web Apps for [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
+This guide will show you how to configure the built-in PHP runtime for Web Apps in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), provide a custom PHP runtime, and enable extensions. To use App Service, sign up for the [free trial]. To get the most from this guide, you should first create a PHP web app in App Service.
 
 ## How to: Change the built-in PHP version
 By default, PHP 5.4 is installed and immediately available for use when you create an App Service web app. The best way to see the available release revision, its default configuration, and the enabled extensions is to deploy a script that calls the [phpinfo()] function.
@@ -92,6 +92,7 @@ As an alternative to using a `.user.ini` file, you can use the [ini_set()] funct
 		; Example Settings
 		curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
 		wincache.maxfilesize=512
+4. Restart your Web App to load the changes.
 
 ## How to: Enable extensions in the default PHP runtime
 As noted in the previous section, the best way to see the default PHP version, its default configuration, and the enabled extensions is to deploy a script that calls [phpinfo()]. To enable additional extensions, follow the steps below:

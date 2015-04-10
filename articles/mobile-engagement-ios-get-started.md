@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Get Started with Azure Mobile Engagement for iOS" 
-	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications on iOS" 
+	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for iOS Apps."
 	services="mobile-engagement" 
 	documentationCenter="Mobile" 
 	authors="kpiteira" 
@@ -16,9 +16,13 @@
 	ms.date="02/11/2015" 
 	ms.author="kapiteir" />
 
-# Get started with Mobile Engagement
+# Get Started with Azure Mobile Engagement for iOS Apps
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/mobile-engagement-windows-store-dotnet-get-started/" title="Windows Store">Windows Store</a><a href="/documentation/articles/mobile-engagement-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/mobile-engagement-ios-get-started/" title="iOS"  class="current">iOS</a><a href="/documentation/articles/mobile-engagement-android-get-started/" title="Android">Android</a></div>
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS](mobile-engagement-ios-get-started.md)
+- [Android](mobile-engagement-android-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users to an iOS application. 
 In this tutorial, you create a blank iOS app that collects basic data and receives push notifications using Apple Push Notification System (APNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties.
@@ -27,13 +31,13 @@ This tutorial demonstrates the simple broadcast scenario using Mobile Engagement
 
 This tutorial requires the following:
 
-+ Xcode, which you can install from your MAC App Store
-+ The [Mobile Engagement iOS SDK]
++ XCode, which you can install from your MAC App Store
++ the [Mobile Engagement iOS SDK]
 + Push notification certificate (.p12) that you can obtain on your Apple Dev Center
 
 Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps. 
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.</p></div>
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for iOS apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 <!--
 ##<a id="register"></a>Enable Apple Push Notification Service
@@ -55,7 +59,7 @@ Completing this tutorial is a prerequisite for all other Mobile Engagement tutor
 
 	1. *Application Name*: you can type the name of your application. Feel free to use any character
 	2. *Platform*: Select the target platform for that app (if your app targets multiple platform, repeat this tutorial for each platform)
-	3. *Application Resource Name*: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: the auto generated name should provide you a strong basis. We also advise appending the platform name to avoid any name clash as this name must be unique
+	3. *Application Resource Name*: This is the name by which this application will be accessible via APIs and URLs. We advise that you use only conventional URL characters: the auto generated name should provade you a strong basis. We also advise appending the platform name to avoid any name clash as this name must be unique
 	4. *Location*: Select the data center where this app (and more importantly its Collection - see below) will be hosted
 	5. *Collection*: If you have already created an application, select a previously created Collection, otherwise select New Collection
 
@@ -287,14 +291,12 @@ We will now create a simple Push Notification campaign that will send a push to 
 <!-- URLs. -->
 [Mobile Engagement iOS SDK]: http://go.microsoft.com/?linkid=9864553
 [Mobile Engagement Android SDK documentation]: http://go.microsoft.com/?linkid=9874682
-[Azure Management Portal]: https://manage.windowsazure.com
-
 <!-- Images. -->
-[7]: ./media/mobile-engagement-ios-get-started/create-mobile-engagement-app.png
-[8]: ./media/mobile-engagement-ios-get-started/create-azme-popup.png
+[7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png
+[8]: ./media/mobile-engagement-common/create-azme-popup.png
 [9]: ./media/mobile-engagement-ios-get-started/select-app.png
-[10]: ./media/mobile-engagement-ios-get-started/app-main-page-select-connection-info.png
-[11]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+[10]: ./media/mobile-engagement-common/app-main-page-select-connection-info.png
+[11]: ./media/mobile-engagement-common/app-connection-info-page.png
 [12]: ./media/mobile-engagement-ios-get-started/xcode-new-project.png
 [13]: ./media/mobile-engagement-ios-get-started/xcode-project-props.png
 [14]: ./media/mobile-engagement-ios-get-started/xcode-simple-view.png
@@ -302,19 +304,19 @@ We will now create a simple Push Notification campaign that will send a push to 
 [18]: ./media/mobile-engagement-ios-get-started/xcode-select-engagement-sdk.png
 [19]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [22]: ./media/mobile-engagement-ios-get-started/xcode-view-controller.png
-[23]: ./media/mobile-engagement-ios-get-started/copy-resources.png
-[24]: ./media/mobile-engagement-ios-get-started/paste-resources.png
-[25]: ./media/mobile-engagement-ios-get-started/paste-resources.png
-[26]: ./media/mobile-engagement-ios-get-started/engage-button.png
-[27]: ./media/mobile-engagement-ios-get-started/engagement-portal.png
+[23]: ./media/mobile-engagement-common/copy-resources.png
+[24]: ./media/mobile-engagement-common/paste-resources.png
+[25]: ./media/mobile-engagement-common/paste-resources.png
+[26]: ./media/mobile-engagement-common/engage-button.png
+[27]: ./media/mobile-engagement-common/engagement-portal.png
 [28]: ./media/mobile-engagement-ios-get-started/native-push-settings.png
-[29]: ./media/mobile-engagement-ios-get-started/api-key.png
-[30]: ./media/mobile-engagement-ios-get-started/clic-monitor-tab.png
-[31]: ./media/mobile-engagement-ios-get-started/monitor.png
-[32]: ./media/mobile-engagement-ios-get-started/launch.png
+[29]: ./media/mobile-engagement-common/api-key.png
+[30]: ./media/mobile-engagement-common/clic-monitor-tab.png
+[31]: ./media/mobile-engagement-common/monitor.png
+[32]: ./media/mobile-engagement-common/launch.png
 [33]: ./media/mobile-engagement-ios-get-started/monitor-0.png
-[35]: ./media/mobile-engagement-ios-get-started/new-announcement.png
+[35]: ./media/mobile-engagement-common/new-announcement.png
 [36]: ./media/mobile-engagement-ios-get-started/campaign-first-params.png
-[37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
-[38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
-[39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
+[37]: ./media/mobile-engagement-common/campaign-content.png
+[38]: ./media/mobile-engagement-common/campaign-create.png
+[39]: ./media/mobile-engagement-common/campaign-activate.png

@@ -3,18 +3,18 @@
    description="Change the number of data nodes in a cluster that is running on HDInsight without having to delete and recreate the cluster."
    services="hdinsight"
    documentationCenter=""
-   authors="bradsev"
+   authors="mumian"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="04/02/2015"
-   ms.author="bradsev"/>
+   ms.author="jgao"/>
 
 #Cluster scaling in HDInsight
 
@@ -82,7 +82,7 @@ To change the Hadoop cluster size by using Azure PowerShell, run the following c
 
 	Set-AzureHDInsightClusterSize -ClusterSizeInNodes <NewSize> -name <clustername>	
 
-> [WACOM.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
+> [AZURE.NOTE] The client machine must have Azure PowerShell version 0.8.14 or higher installed to use this command.
 
 ### SDK
 To change the Hadoop cluster size by using the HDInsight SDK, use one of the following methods: 
