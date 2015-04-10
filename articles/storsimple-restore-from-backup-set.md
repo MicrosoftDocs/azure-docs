@@ -15,7 +15,7 @@
    ms.date="04/09/2015"
    ms.author="v-sharos" />
 
-# Restore from a backup set
+# Restore your StorSimple device from a backup set
 
 ## Overview
 
@@ -47,6 +47,7 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 
 > [AZURE.WARNING] Restoring from a backup will replace the existing volumes from the backup. This may cause the loss of any data that was written after the backup was taken.
 
+
 ### To restore from a backup set
 
 1. On the StorSimple Manager service page, click the **Backup catalog** tab.
@@ -70,9 +71,9 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 5. Click **Restore** at the bottom of the page.
 
 6. You will be prompted for confirmation. 
-   ![Confirmation page](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
+    ![Confirmation page](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
-7. Review the restore information and click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the Jobs page. 
+7. Review the restore information and click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
 
 8. After the restore is complete, you can verify that the contents of your volumes are replaced by volumes from the backup.
 
