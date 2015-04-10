@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Restore your StorSimple device from a backup set"
-   description="Explains how to restore your device from a backup set."
+   description="Explains how to restore your StorSimple device from a backup set."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/09/2015"
+   ms.date="04/10/2015"
    ms.author="v-sharos" />
 
 # Restore your StorSimple device from a backup set
