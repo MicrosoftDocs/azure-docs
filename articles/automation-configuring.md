@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/07/2015"
+   ms.date="04/13/2015"
    ms.author="bwren" />
 
 # Configuring Azure Automation
 
 This article describes the actions you must perform to initially start using Azure Automation.
 
-## Automation Accounts
+## Automation accounts
 
 When you start Azure Automation for the first time, you must create at least one Automation account. Automation accounts allow you to isolate your Automation resources (runbooks, assets) from the Automation resources contained in other Automation accounts. You can use Automation accounts to separate Automation resources into separate logical environments. For example, you might use one account for development and another for production.
 
@@ -34,7 +34,7 @@ When you access Azure resources using the [Azure cmdlets](http://msdn.microsoft.
 
 >[AZURE.NOTE] Microsoft accounts, formerly known as LiveIDs, cannot be used with Azure Automation.
 
-## Create a new Azure Active Directory User to Manage an Azure Subscription
+## Create a new Azure Active Directory user to manage an Azure subscription
 
 1. Log in to the Azure portal as a service administrator for the Azure subscription you want to manage.
 2. Select **Active Directory**

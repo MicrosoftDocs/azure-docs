@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/07/2015"
+   ms.date="04/13/2015"
    ms.author="bwren" />
 
 # Azure Automation Runbook Concepts
@@ -64,7 +64,7 @@ Workflow activities share a set of common parameters to configure their operatio
 
 ## Integration Modules
 
-An *Integration Module* is a package that contains a Windows PowerShell Module and can be imported into Azure Automation. Cmdlets in integration modules that are imported into Azure Automation account are automatically available to all runbooks in the same Automation account. Since Azure Automation is based on Windows PowerShell 4.0, it supports auto loading of modules meaning that cmdlets from installed modules can be used without importing them into the script with [Import-Module](http://technet.microsoft.com/library/hh849725.aspx).
+An *Integration Module* is a package that contains a Windows PowerShell Module and can be imported into Azure Automation. Cmdlets in integration modules that are imported into Azure Automation are automatically available to all runbooks in the same Automation account. Since Azure Automation is based on Windows PowerShell 4.0, it supports auto loading of modules meaning that cmdlets from installed modules can be used without importing them into the script with [Import-Module](http://technet.microsoft.com/library/hh849725.aspx).
 
 ## Parallel Execution
 
@@ -106,19 +106,19 @@ The **Sequence** keyword is used to run commands in sequence within a **Parallel
 
 ## Checkpoints
 
-A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. The last checkpoint to complete in a runbook is saved to the Automation database so that the workflow can resume even in the case of an outage. The checkpoint data is removed once the runbook job is complete.
+A *checkpoint* is a snapshot of the current state of the workflow that includes the current value for variables and any output generated to that point. The last checkpoint to complete in a runbook is saved to the Automation database so that the workflow can resume if there is an issue such as a machine outage during runtime.  Without a checkpoint, the workflow would start from the beginning. The checkpoint data is removed once the runbook job is complete.
 
-You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity. When you include this activity in a runbook, a checkpoint is immediately taken. If the runbook is suspended by an error, when the job is resumed, it will resume from the point of the last checkpoint set.
+You can set a checkpoint in a workflow with the **Checkpoint-Workflow** activity. When you include this activity in a runbook, a checkpoint is immediately taken. If the runbook is suspended by an exception, when the job is resumed, it will resume from the point of the last checkpoint set.
 
-In the following sample code, an error occurs after Activity2 causing the runbook to suspend. When the job is resumed, it starts by running Activity2 since this was just after the last checkpoint set.
+In the following sample code, an exception occurs after Activity2 causing the runbook to suspend. When the job is resumed, it starts by running Activity2 since this was just after the last checkpoint set.
 
     <Activity1>
     Checkpoint-Workflow
     <Activity2>
-    <Error>
+    <Exception>
     <Activity3>
 
-You should set checkpoints in a runbook after activities that may be prone to error and should not be repeated if the runbook is resumed. For example, your runbook may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands are repeated when the runbook is resumed. If the creation succeeds but the runbook later fails, then the virtual machine will not be created again when the runbook is resumed.
+You should set checkpoints in a runbook after activities that may be prone to exception and should not be repeated if the runbook is resumed. For example, your runbook may create a virtual machine. You could set a checkpoint both before and after the commands to create the virtual machine. If the creation fails, then the commands are repeated when the runbook is resumed. If the creation succeeds but the runbook later fails, then the virtual machine will not be created again when the runbook is resumed.
 
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
 
@@ -130,7 +130,7 @@ For more information about suspending a workflow, see [Making a Workflow Suspend
 
 ## InlineScript
 
-The **InlineScript** activity runs a block of commands in a separate, non-workflow session and returns its output to the workflow. While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell. The activity uses the standard workflow common parameters including **PSCredential** which allows you to specify that the code block be run using alternate credentials.
+The **InlineScript** activity runs a block of commands in traditional PowerShell script instead of PowerShell workflow and returns its output to the workflow. While commands in a workflow are sent to Windows Workflow Foundation for processing, commands in an InlineScript block are processed by Windows PowerShell. The activity uses the standard workflow common parameters including **PSCredential** which allows you to specify that the code block be run using alternate credentials.
 
 InlineScript uses the syntax shown below.
 
@@ -139,11 +139,11 @@ InlineScript uses the syntax shown below.
       <Script Block>
     } <Common Parameters>
 
-While InlineScript activities may be critical in certain runbooks, they should only be used when necessary for the following reasons:
+While InlineScript activities may be critical in certain runbooks, they do not support workflow constructs and should only be used when necessary for the following reasons:
 
-- You cannot use checkpoints from within an InlineScript block. If a failure occurs within the block, it must be resumed from the beginning.
+- You cannot use checkpoints from within an InlineScript block. If a failure occurs within the block, it must be resumed from the beginning of the block.
 - InlineScript affects scalability of the runbook since it holds the Windows PowerShell session for the entire length of the InlineScript block.
-- Activities such as Get-AutomationVariable and Get-AutomationPSCredential are not available in an InlineScript block. 
+- Activities such as Get-AutomationVariable and Get-AutomationPSCredential are not available in an InlineScript block.  
 
 If you do need to use an InlineScript, you should minimize its scope. For example, if your runbook iterates over a collection while applying the same operation to each item, the loop should occur outside of the InlineScript. This will provide the following advantages:
 
@@ -156,11 +156,12 @@ Keep the following recommendations in mind if you do use an InlineScript in your
 
 - To return output from an InlineScript, assign the output to a variable and output any data to be returned to the output stream. The following example assigns the string “hi” to a variable called $output.
 
-    $output = InlineScript { Write-Output "hi" }
+	<pre><code>$output = InlineScript { Write-Output "hi" }</code></pre>
 
 - Avoid defining workflows within InlineScript scope. Even though some workflows may appear to operate correctly, this is not a tested scenario. As a result, you may encounter confusing error messages or unexpected behavior.
 
 For further details on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+
 
 ## Related articles
 

@@ -12,16 +12,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/07/2015"
+   ms.date="04/13/2015"
    ms.author="bwren" />
 
-# Runbook Settings
+# Runbook settings
 
 Each runbook in Azure Automation has multiple settings that help it to be identified and to change its logging behavior. Each of these settings is described below followed by procedures on how to modify them.
 
 ## Settings
 
-### Name and Description
+### Name and description
 
 You cannot change the name of a runbook after it has been created. The Description is optional and can be up to 512 characters.
 
@@ -33,9 +33,9 @@ Tags allow you to assign distinct words and phrases to help identify a runbook. 
 
 By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](https://msdn.microsoft.com/en-us/library/dn879148.aspx).
 
-## Changing Runbook Settings
+## Changing runbook settings
 
-### Changing Runbook Settings with the Azure Management Portal
+### Changing runbook settings with the Azure Management Portal
 
 You can change settings for a runbook in the Azure Management Portal from the **Configure** page for the runbook.
 
@@ -44,7 +44,7 @@ You can change settings for a runbook in the Azure Management Portal from the **
 1. Click the name of a runbook.
 1. Select the **Configure** tab.
 
-### Changing Runbook Settings with Windows PowerShell
+### Changing runbook settings with Windows PowerShell
 
 You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/en-us/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/en-us/library/dn690278.aspx).
 
