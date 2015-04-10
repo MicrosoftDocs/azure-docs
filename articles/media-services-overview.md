@@ -3,15 +3,15 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="media-services" 
 	ms.workload="media" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
 	ms.author="juliako"/>
@@ -36,7 +36,7 @@ The following poster depicts Azure Media Services workflows, from media creation
 
 ##Concepts
 
-For more information, see [Concepts](../media-services-concepts).
+For more information, see [Concepts](media-services-concepts.md).
 
 ##Choosing Your Media Experience
 
@@ -102,47 +102,13 @@ The following table shows each type of device and the client technologies suppor
 </table>
 
 
-##Common development workflows: Video-on-Demand and Live Streaming
+##Delivering Media on-Demand with Azure Media Services
 
-###Video-on-Demand: Deliver streaming content 
+For more information, see [Delivering Media on-Demand with Azure Media Services](media-services-video-on-demand-workflow.md).
 
-1. Upload a high-quality mezzanine file into an asset.
-1. Encode to adaptive bitrate MP4 set.
-1. Configure asset delivery policy (used by dynamic packaging).
-1. (Optionally) Configure content protection and key authorization policy (used by dynamic encryption).
-1. Publish the asset.
-1. Stream published content. 
+##Delivering Live Streaming with Azure Media Services
 
-###Video-on-Demand: Index content
-
-1. Upload a high-quality mezzanine file into an Asset.
-1. Index content.
-1. Consume indexed content.
-
-###Video-on-Demand: Deliver progressive download 
-
-1. Upload a high-quality mezzanine file into an asset.
-1. Encode to adaptive bitrate MP4 set or a single MP4.
-1. Publish the asset.
-1. Progressively download content.
-
-[Media Services Video-on-Demand](../media-services-video-on-demand-workflow) contains links to topics that show how to perform tasks mentioned above.
-
-###Live Streaming
-
-1. Create and start a channel.
-1. Retrieve the channel ingest URL.
-1. Start and configure the live transcoder of your choice.
-1. Retrieve the channel’s Preview endpoint and verify that your channel is properly receiving the live stream.
-1. Create a program and asset. 
-2. Configure delivery policy for the asset (used by dynamic packaging).
-3. (Optionally)  Configure content protection and key authorization policy (used by dynamic encryption).
-1. To make the stream available to users, create a streaming locator needed to access the asset associate with the program.
-1. Start the program when you are ready to start streaming and archiving.
-1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset).
-
-[Media Services Live Streaming](../media-services-live-streaming-wrokflow) contains links to topics that show how to perform tasks mentioned above.
+For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md) contains links to topics that show how to perform tasks mentioned above.
 
 ##Clients
 
@@ -157,7 +123,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 - Building Video Applications on Windows 8 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
 
-For more information, see [Developing Video Player Applications](../media-services-develop-video-players)
+For more information, see [Developing Video Player Applications](media-services-develop-video-players.md)
 
 ##Patterns & practices guidance
 

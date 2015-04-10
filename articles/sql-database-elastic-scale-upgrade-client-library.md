@@ -5,8 +5,8 @@
 	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
-	authors="stuarto", "sidneyh"/>
+	manager="stuarto" 
+	authors="stuarto"/>
 
 <tags 
 	ms.service="sql-database" 
@@ -37,7 +37,7 @@ Follow the sequence below to upgrade your applications, the Shard Map Manager da
 
 **2. Upgrade your scripts.** If you are using **PowerShell** scripts to manage shards, [download the new library version](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) and copy it into the directory from which you execute scripts. 
 
-**3. Upgrade your Split-Merge Service.** If you use the Elastic Scale Split-Merge service to reorganize sharded data, [download and deploy the latest version of the Service](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Detailed upgrade steps for the Service can be found [here](http://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-scale-overview-split-and-merge/). 
+**3. Upgrade your Split-Merge Service.** If you use the Elastic Scale Split-Merge service to reorganize sharded data, [download and deploy the latest version of the Service](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/). Detailed upgrade steps for the Service can be found [here](sql-database-elastic-scale-overview-split-and-merge.md). 
 
 **4. Upgrade your Shard Map Manager DBs**. Upgrade the metadata supporting your Shard Maps in Azure SQL Database.  There are two ways you can accomplish this, using PowerShell or C#. Both options are shown below.
 

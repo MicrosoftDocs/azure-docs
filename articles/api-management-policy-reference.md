@@ -79,6 +79,6 @@ This section provides an index for the policies in the [API Management policy re
 
 
 
-[Policies in API Management]: ../api-management-howto-policies
+[Policies in API Management]: api-management-howto-policies.md
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 

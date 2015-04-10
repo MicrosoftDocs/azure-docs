@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="03/06/2015" 
 	ms.author="tamram"/>
 
 # How to use Azure File storage
@@ -87,7 +87,7 @@ Next, we'll use Azure PowerShell to create a file share. Once the file share has
 
 ### Install the PowerShell cmdlets for Azure Storage
 
-To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/documentation/articles/install-configure-powershell/) for the install point and installation instructions.
+To prepare to use PowerShell, download and install the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](install-configure-powershell.md) for the install point and installation instructions.
 
 > [AZURE.NOTE] The PowerShell cmdlets for the File service are available only in the latest Azure PowerShell module, version 0.8.5 and later. It's recommended that you download and install or upgrade to the latest Azure PowerShell module.
 
@@ -134,17 +134,17 @@ To see the file in the directory, you can list the directory's files. This comma
 
 To demonstrate how to mount an Azure file share, we'll now create an Azure virtual machine running Windows, and remote into it to mount the share. 
 
-1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-windows-tutorial/).
-2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](/documentation/articles/virtual-machines-log-on-windows-server/).
+1. First, create a new Azure virtual machine by following the instructions in [Create a Virtual Machine Running Windows Server](virtual-machines-windows-tutorial.md).
+2. Next, remote into the virtual machine by following the instructions in [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
 3. Open a PowerShell window on the virtual machine. 
 
 ### Persist your storage account credentials for the virtual machine
 
-Before mounting to the file share, first persist your storage account credentials on the virtual machine. This step allows Windows to automatically reconnect to the file share when the virtual machine reboots. To persist your account credentials, execute the `cmdkey` command from within the PowerShell window on the virtual machine. Replace `<storage-account>` with the name of your storage account, and `<account-key>` with your storage account key:
+Before mounting to the file share, first persist your storage account credentials on the virtual machine. This step allows Windows to automatically reconnect to the file share when the virtual machine reboots. To persist your account credentials, execute the `cmdkey` command from the PowerShell window on the virtual machine. Replace `<storage-account>` with the name of your storage account, and `<account-key>` with your storage account key:
 
 	cmdkey /add:<storage-account>.file.core.windows.net /user:<storage-account> /pass:<account-key>
 
-Windows will now reconnect to your file share when the virtual machine reboots. You can verify that the share has been reconnected by executing the `net use` command from within a PowerShell window.
+Windows will now reconnect to your file share when the virtual machine reboots. You can verify that the share has been reconnected by executing the `net use` command from a PowerShell window.
 
 ### Mount the file share using the persisted credentials
 
@@ -156,13 +156,13 @@ Once you have a remote connection to the virtual machine, you can execute the `n
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-You can now work with the File storage share from within the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
+You can now work with the File storage share from the virtual machine as you would with any other drive. You can issue standard file commands from the command prompt, or view the mounted share and its contents from File Explorer. You can also run code within the virtual machine that accesses the file share using standard Windows file I/O APIs, such as those provided by the [System.IO namespaces](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) in the .NET Framework. 
 
 You can also mount the file share from a role running in an Azure cloud service by remoting into the role.
 
 ## Create a on-premises application to work with File storage
 
-You can mount a File storage share from within a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount a File storge share from an on-premises application. To access share data from an on-premises application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
+You can mount the file share from a virtual machine or a cloud service running in Azure, as demonstrated above. However, you cannot mount the file share from an on-premises application. To access share data from an on-premises application, you must use the File storage API. This example demonstrates how to work with a file share via the [Azure .NET Storage Client Library](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409). 
 
 To show how to use the API from an on-premises application, we'll create a simple console application running on the desktop.
 

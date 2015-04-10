@@ -18,13 +18,13 @@
 
 #Create your first Azure Search application in .NET#
 
-This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](./search-howto-dotnet-sdk) to build classes for the objects and operations used in the sample.
+This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in the sample.
 
 You can download the sample from codeplex at [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) to follow the steps in this tutorial. The sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Washington. We'll use this data to build a search application based on data about landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
 To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
 
-You can begin with [Get started with Azure Search](../search-get-started/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
+You can begin with [Create a service in the portal](../search-create-service-portal/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
 
 > [AZURE.TIP] We recommend updating NuGet packages before building any projects to avoid build errors. Right-click the solution and choose **Manage NuGet Packages**. Update all of the packages used in this solution.
 
@@ -78,7 +78,7 @@ The remainder of this section covers a few points about each project. Where appr
 
 To keep things simple, the data is embedded within the solution, in a text file generated from data on the [United States Geological Services (USGS) web site](http://geonames.usgs.gov/domestic/download_data.htm). 
 
-Alternatives to embedding data include [indexers for DocumentDB](./documentdb-search-indexer/) or [indexers for Azure SQL Database](./search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
+Alternatives to embedding data include [indexers for DocumentDB](documentdb-search-indexer.md) or [indexers for Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md). Indexers pull data into your Azure Search index, which can really simplify the code you have to write and maintain. 
 
 You can also load data from an on premises SQL Server database. [This tutorial](http://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) shows you how.
 
@@ -86,7 +86,7 @@ The **DataIndexer** program includes a **SearchDocuments** method for searching 
 
 **SimpleSearchMVCApp Project**
 
-The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](../search-pagination-page-layout/).
+The MVC project uses a view and controller to route inputs and outputs to the presentation layer. **Index.cshtml** provides the HTML used for rendering the search results. Currently, this is just a simple table that organizes the data from the dataset. While useful for prototyping and testing, you can easily improve upon the presentation. For tips on how to batch results and put counts on a page, see [Page results and pagination in Azure Search](search-pagination-page-layout.md).
 
 Connections to Azure Search, plus execution of a query request, are defined in the **FeatureSearch.cs** file.
 
@@ -98,7 +98,7 @@ This is the first Azure Search tutorial based on the USGS dataset. Over time, we
 
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
-New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/en-us/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/en-us/library/azure/dn798933.aspx) to access more information.
+New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](http://azure.microsoft.com/documentation/services/search/) to find more resources. You can also view the links in our [Video and Tutorial list](https://msdn.microsoft.com/library/azure/dn798933.aspx) to access more information.
 
 <!--Image references-->
 [1]:./media/search-get-started-20150228/consolemessages.png

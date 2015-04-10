@@ -18,7 +18,7 @@
 
 #Encoding On-Demand Content with Azure Media Services
 
-This topic is part of the [Media Services Video-on-Demand Workflow](../media-services-video-on-demand-workflow).
+This topic is part of the [Media Services Video-on-Demand Workflow](media-services-video-on-demand-workflow.md).
 
 ##Overview
 
@@ -35,7 +35,7 @@ By default each Media Services account can have one active encoding task at a ti
 
 ##<a id="azure_media_encoder"></a>Azure Media Encoder
 
-[Formats Supported by the Media Services Encoder](../media-services-azure-media-encoder-formats)  – Discusses the file and stream formats supported by **Azure Media Encoder**.
+[Formats Supported by the Media Services Encoder](media-services-azure-media-encoder-formats.md)  – Discusses the file and stream formats supported by **Azure Media Encoder**.
 
 **Azure Media Encoder** is configured using one of the encoder preset strings described [here](https://msdn.microsoft.com/library/azure/dn619392.aspx). You can also get the actual Azure Media Encoder preset files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder).
 
@@ -49,20 +49,20 @@ Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**,
 
 [Controlling Media Service Encoder Output Filenames](https://msdn.microsoft.com/library/azure/dn303341.aspx)– Describes the file naming convention used by Azure Media Encoder and how to modify the output file names.
 
-[Encoding your media with Dolby Digital Plus](../media-services-encode-with-dolby-digital-plus) – Describes how to encode audio tracks using Dolby Digital Plus encoding.
+[Encoding your media with Dolby Digital Plus](media-services-encode-with-dolby-digital-plus.md) – Describes how to encode audio tracks using Dolby Digital Plus encoding.
 
 
 ##<a id="media_encoder_premium_wokrflow"></a>Media Encoder Premium Workflow (public preview)
 
 **Note** Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
 
-[Formats Supported by Media Encoder Premium Workflow](../media-services-premium-workflow-encoder-formats) – Discusses file formats and codecs supported by **Media Encoder Premium Workflow**.
+[Formats Supported by Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-**Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](../media-services-workflow-designer) tool. 
+**Media Encoder Premium Workflow** is configured using complex workflows. Workflow files could be created using the [Workflow Designer](media-services-workflow-designer.md) tool. 
 
 You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
 
-Encode with **Media Encoder Premium Workflow** using **.NET**. For more information, see [Advanced encoding with Media Encoder Premium Workflow](../media-services-encode-with-premium-workflow).
+Encode with **Media Encoder Premium Workflow** using **.NET**. For more information, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
  
 
 ##<a id="compare_encoders"></a>Compare Encoders
@@ -166,6 +166,6 @@ Output Audio Codecs
 ##Related articles
 
 - [Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/how-to-use-premium-encoding-in-azure-media-services)
-- [Quotas and Limitations](../media-services-quotas-and-limitations)
+- [How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+- [Quotas and Limitations](media-services-quotas-and-limitations.md)
 

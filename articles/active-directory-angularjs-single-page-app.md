@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="How to build an AngularJS single-page app with Azure AD" 
 	description="Demonstrates the use of Active Directory Authentication Library (ADAL) for Javascript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS." 
-	services="" 
+	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="terrylan" 
@@ -13,7 +13,7 @@
 	ms.topic="hero-article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="identity" 
-	ms.date="02/20/2015" 
+	ms.date="04/01/2015" 
 	ms.author="justinha"/>
 
 
@@ -73,7 +73,7 @@ All done!  Before moving on to the next step, you need to find the App ID URI of
 
 1. Sign in once again to the [Azure management portal](https://manage.windowsazure.com).
 2. Click **Active Directory** in the left hand nav.
-3. Click the directory tenant where you wish to register the sample application.
+3. Click the tenant where you wish to register the sample application.
 4. Click the **Applications** tab.
 5. In the drawer, click **Add**.
 6. Click **Add an application my organization is developing**.

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" 
-	description="Learn how to run background tasks in Microsoft Azure Websites." 
-	services="web-sites" 
+	pageTitle="Run Background tasks with WebJobs" 
+	description="Learn how to run background tasks in Azure web apps." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	writer="tdykstra" 
@@ -9,25 +9,25 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/12/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tdykstra"/>
 
-# Use WebJobs to run background tasks in Azure Websites
+# Run Background tasks with WebJobs
 
 ## Overview
 
-Azure Websites enables you to run programs or scripts in your website in three ways: on demand, continuously, or on a schedule. There is no additional cost to use Microsoft Azure WebJobs.
+You can run programs or scripts in WebJobs in your [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app in three ways: on demand, continuously, or on a schedule. There is no additional cost to use WebJobs.
 
-This article shows how to deploy WebJobs by using the Azure management portal. For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Azure Websites](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
+This article shows how to deploy WebJobs by using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For information about how to deploy by using Visual Studio or a continuous delivery process, see [How to Deploy Azure WebJobs to Web Apps](websites-dotnet-deploy-webjobs.md).
 
-The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](../websites-dotnet-webjobs-sdk).
+The Azure WebJobs SDK simplifies many WebJobs programming tasks. For more information, see [What is the WebJobs SDK](websites-dotnet-webjobs-sdk.md).
 
-## <a name="acceptablefiles"></a>Acceptable File Types for Scripts or Programs
+## <a name="acceptablefiles"></a>Acceptable file types for scripts or programs
 
 The following file types are accepted:
 
@@ -37,42 +37,49 @@ The following file types are accepted:
 * .php (using php)
 * .py (using python)
 * .js (using node)
+* .jar (using java)
 
-## <a name="CreateOnDemand"></a>Create an On Demand Task
+## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
-1. In the command bar of the **WebJobs** page, click **Add**. The **New Job** dialog appears.
+1. In the **Web App** blade of the [Azure Portal](http://portal.azure.com), click **All settings > WebJobs** to show the **WebJobs** blade.
 	
-	![On Demand Task][OnDemandWebJob]
+	![WebJob blade](./media/web-sites-create-web-jobs/wjblade.png)
 	
-2. Under **Name**, provide a name for the task. The name must start with a letter or a number and cannot contain any special characters other than "-" and "_".
+5. Click **Add**. The **Add WebJob** dialog appears.
 	
-3. In the **Content (Zip Files - 100MB Max)** box, browse to the zip file that contains your script. The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.
+	![Add WebJob blade](./media/web-sites-create-web-jobs/addwjblade.png)
+	
+2. Under **Name**, provide a name for the WebJob. The name must start with a letter or a number and cannot contain any special characters other than "-" and "_".
 	
 4. In the **How to Run** box, choose **Run on Demand**.
 	
-5. Check the check mark on the bottom right of the dialog to upload the script to your website. The name you specified for the task appears in the list:
+3. In the **File Upload** box, click the folder icon and browse to the zip file that contains your script. The zip file should contain your executable (.exe .cmd .bat .sh .php .py .js) as well as any supporting files needed to run the program or script.
 	
-	![Task List][WebJobsList]
+5. Check **Create** to upload the script to your web app. 
 	
-6. To run the script, select its name in the list and click **Run Once** in the command bar at the bottom of the portal page.
+	The name you specified for the WebJob appears in the list on the **WebJobs** blade.
 	
-	![Run Once][RunOnce]
-
-## <a name="CreateContinuous"></a>Create a Continuously Running Task
-
-1. To create a continuously executing task, follow the same steps for creating a task that runs once, but in the **How to Run** box, choose **Run continuously**.
+6. To run the WebJob, right-click its name in the list and click **Run**.
 	
-	![New Continuous Task][NewContinuousJob]
+	![Run WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 	
-2. To start or stop a continuously running task, select the task in the list and click **Start** or **Stop** in the command bar.
+## <a name="CreateContinuous"></a>Create a continuously running WebJob
 
-> [AZURE.NOTE] If your website runs on more than one instance, a continuously running task will run on all of your instances. On-demand and scheduled tasks run on a single instance selected for load balancing by Microsoft Azure.
+1. To create a continuously executing WebJob, follow the same steps for creating a WebJob that runs once, but in the **How to Run** box, choose **Continuous**.
 
-> [AZURE.NOTE] For continuous tasks, it is recommended that you enable **Always On** on the Configure page for your website. The Always On feature, available in Basic and Standard mode, prevents websites from being unloaded, even if they have been idle for some time. If your website is always loaded, your continuously running task may run more reliably. 
+2. To start or stop a continuous WebJob, right-click the WebJob in the list and click **Start** or **Stop**.
+	
+> [AZURE.NOTE] If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.
+	
+> For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
 
-## <a name="CreateScheduled"></a>Create a Scheduled Task
+## <a name="CreateScheduled"></a>Create a scheduled WebJob
 
-1. To create a scheduled task, follow the same steps as before, but in the **How to Run** box, choose **Run on a schedule**.
+The Azure management portal doesn't yet have the ability to create a scheduled WebJob, but until that feature is added you can do it by using the [old portal](http://manage.windowsazure.com).
+
+1. In the [old portal](http://manage.windowsazure.com) go to the WebJob page and click **Add**.
+
+1. In the **How to Run** box, choose **Run on a schedule**.
 	
 	![New Scheduled Job][NewScheduledJob]
 	
@@ -110,13 +117,13 @@ The following file types are accepted:
 	
 	![Schedule Particular Week Days on Particular Weeks in a Month][SchdMonthsOnPartWeekDaysOccurences]
 	
-11. After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information. Historical information for the last 30  tasks is maintained.
+11. After you have created one or more jobs, their names will appear on the WebJobs tab with their status, schedule type, and other information. Historical information for the last 30  WebJobs is maintained.
 	
 	![Jobs list][WebJobsListWithSeveralJobs]
 	
 ### <a name="Scheduler"></a>Scheduled jobs and Azure Scheduler
 
-Scheduled jobs can be further configured in the Azure Scheduler portal.
+Scheduled jobs can be further configured in the Azure Scheduler pages of the [old portal](http://manage.windowsazure.com).
 
 1.	On the WebJobs page, click the job's **schedule** link to navigate to the Azure Scheduler portal page. 
 	
@@ -130,13 +137,13 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 	
 	![Job Action PageInScheduler][JobActionPageInScheduler]
 	
-## <a name="ViewJobHistory"></a>View the Job History
+## <a name="ViewJobHistory"></a>View the job history
 
-1. To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the **Logs** column. (You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)
+1. To view the execution history of a job, including jobs created with the WebJobs SDK, click  its corresponding link under the **Logs** column of the WebJobs blade. (You can use the clipboard icon to copy the URL of the log file page to the clipboard if you wish.)
 	
-	![Logs Link][WebJobLogs]
+	![Logs link](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 		
-2. Clicking the link opens the details page for the task. This page shows you the name of the command run, the last times it ran, and its success or failure. Under **Recent job runs**, click a time to see further details.
+2. Clicking the link opens the details page for the WebJob. This page shows you the name of the command run, the last times it ran, and its success or failure. Under **Recent job runs**, click a time to see further details.
 	
 	![WebJobDetails][WebJobDetails]
 	
@@ -159,14 +166,20 @@ Scheduled jobs can be further configured in the Azure Scheduler portal.
 
 ## <a name="WHPNotes"></a>Notes
 	
-- As of March 2014, websites in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the website's portal is not open in Azure. Requests to the actual site will not reset this.
+- As of March 2014, web apps in Free mode can time out after 20 minutes if there are no requests to the scm (deployment) site and the web app's portal is not open in Azure. Requests to the actual site will not reset this.
 - Code for a continuous job needs to be written to run in an endless loop.
-- Continuous jobs run continuously only when the site is up.
-- Basic and Standard modes offer the Always On feature which, when enabled, prevents sites from becoming idle.
+- Continuous jobs run continuously only when the web app is up.
+- Basic and Standard modes offer the Always On feature which, when enabled, prevents web apps from becoming idle.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## <a name="NextSteps"></a>Next Steps
  
 For more information, see [Azure WebJobs Recommended Resources][WebJobsRecommendedResources].
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [PSonWebJobs]:http://blogs.msdn.com/b/nicktrog/archive/2014/01/22/running-powershell-web-jobs-on-azure-websites.aspx
 [WebJobsRecommendedResources]:http://go.microsoft.com/fwlink/?LinkId=390226

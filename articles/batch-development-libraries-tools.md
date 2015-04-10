@@ -4,7 +4,8 @@
 	services="batch" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="yidingz"/>
 
 <tags 
 	ms.service="batch" 
@@ -41,7 +42,7 @@
 
 + [Code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch) (MSDN)
 + [Azure Batch forum](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)
-+ [Get started with the Azure Batch Library for .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)  
++ [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)  
 
 <!--Anchors-->
 [Batch]: #batch

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/16/2015" 
+	ms.date="03/10/2015" 
 	ms.author="rasquill"/>
 
 # Install and Configure the Azure Cross-Platform Command-Line Interface
@@ -26,13 +26,6 @@ The xplat-cli is written in JavaScript, and requires Node.js. It is implemented 
 
 This document describes how to install and configure the Azure Cross-Platform Command-Line Interface, as well as how to use it to perform basic tasks with the Azure platform.
 
-##In this document
-
-* [How to install the Azure Cross-Platform Command-Line Interface](#install)
-* [How to connect to your Azure subscription](#configure)
-* [How to use the Azure Cross-Platform Command-Line Interface](#use)
-* [How to script the Azure Cross-Platform Command-Line Interface](#script)
-* [Additional resources](#additional-resources)
 
 ## <a id="install">How to install the Azure Cross-Platform Command-Line Interface</a>
 
@@ -230,9 +223,9 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	info:       (_______ _ _)         _ ______ _)_ _
 	info:              (______________ _ )   (___ _ _)
 	info:
-	info:    Windows Azure: Microsoft's Cloud Platform
+	info:    Microsoft Azure: Microsoft's Cloud Platform
 	info:
-	info:    Tool version 0.8.0
+	info:    Tool version 0.8.10
 	help:
 	help:    Display help for a given command
 	help:      help [options] [command]
@@ -257,7 +250,7 @@ The xplat-cli is accessed using the `azure` command. To see a list of commands a
 	help:      -h, --help     output usage information
 	help:      -v, --version  output the application version
 
-The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously.
+The top level commands listed above contain commands for working with a specific area of Azure. For example, the `azure account` command contains commands that relate to your Azure subscription, such as the `download` and `import` settings used previously. See [Using the Azure Cross-Platform Command Line Interface] for details on the available commands and options.
 
 Most commands are formatted as `azure <command> <operation> [parameters]` and perform an operation on a service or object such as your account configuration. Other commands provide sub-commands and follow the format `azure <command> <subcommand> <operation> [parameters]`. The following are example commands that work with your account configuration:
 
@@ -447,6 +440,7 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
+[xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[Using the Azure Cross-Platform Command Line Interface]: virtual-machines-command-line-tools.md

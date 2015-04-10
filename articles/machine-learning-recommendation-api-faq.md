@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/30/2014" 
+	ms.date="02/19/2015" 
 	ms.author="jaymathe"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
