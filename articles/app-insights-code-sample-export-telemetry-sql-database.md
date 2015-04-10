@@ -298,7 +298,9 @@ Replace the existing run method, and choose the interval you prefer. It should b
                 }
             }
             catch (Exception ex)
-            {//handle exception }
+            {
+      		//handle exception 
+    	    }
         }
 
 #### Cast the JSON document into C# class telemetry object properties
@@ -331,7 +333,9 @@ Replace the existing run method, and choose the interval you prefer. It should b
                 }
             }
             catch (Exception ex)
-            {	//handle exception }
+            {
+      		//handle exception 
+    	    }
 
             return res;
         }
