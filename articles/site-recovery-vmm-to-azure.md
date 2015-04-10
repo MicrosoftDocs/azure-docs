@@ -77,7 +77,8 @@ If you want to deploy network mapping you'll need the following:
 1. Sign in to the [Management Portal](https://portal.azure.com) from the VMM server you want to register.
 
 
-2. Expand <b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
+2. Expand 
+3. b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
 
 3. Click <b>Create New</b> and then click <b>Quick Create</b>.
 
@@ -313,7 +314,7 @@ To run a test failover do the following:
 
 
 
-<h2><a id="runtest" name="runtest" href="#runtest"></a>Monitor activity</h2>
+## <a id="runtest" name="runtest" href="#runtest"></a>Monitor activity
 <p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
 
 <p>From the <b>Jobs</b> tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
