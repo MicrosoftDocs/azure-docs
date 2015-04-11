@@ -31,6 +31,7 @@ The **Azure Data Factory** service is a fully managed service for composing data
 - Monitor and manage pipelines at a glance with a rich visual experience offered through the Azure Preview Portal.  
 
 The following video provides a quick overview of the Azure Data Factory service.
+
 > [AZURE.VIDEO azure-data-factory-overview]
 
 <!--

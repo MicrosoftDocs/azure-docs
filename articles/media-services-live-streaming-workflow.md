@@ -63,7 +63,8 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
 ##Managing Channels, Programs, Assets
-For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+
+**Overview**: [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
 
 Choose **Portal**, **.NET**, **REST API** to see examples.
 
@@ -88,7 +89,9 @@ Configure content protection and key authorization policy using **.NET** or **RE
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
 
-##Publishing assets
+##Publishing and delivering assets
+
+**Overview**: [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 

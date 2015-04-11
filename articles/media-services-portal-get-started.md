@@ -201,7 +201,7 @@ Locators have expiration date. When using Portal to publish your assets, locator
 
 >[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
 
-To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://msdn.microsoft.com/library/jj574410(v=azure.10).aspx ) APIs. Note that when you update the expiration date of a SAS locator, the URL changes
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 
 ###Publish
 
