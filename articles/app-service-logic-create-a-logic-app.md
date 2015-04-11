@@ -17,7 +17,7 @@
 	ms.author="stepsic"/>
 
 #Create a new logic app
-This topic demonstrates how, in just a few minutes, you can get started with App Services Logic Apps. We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested to a Dropbox folder.
+This topic demonstrates how, in just a few minutes, you can get started with App Services Logic Apps. We'll walk through a workflow that lets you deliver a set of Tweets that you’re interested in to a Dropbox folder.
 
 To use this scenario you will need:
 
@@ -166,4 +166,4 @@ In less than 5 minutes you were able to set up a simple logic app running in the
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
-[Use logic app features]: ./app-service-logic-use-logic-app-features.md
+[Use logic app features]: app-service-logic-use-logic-app-features.md

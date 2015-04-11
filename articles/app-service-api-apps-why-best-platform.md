@@ -47,11 +47,11 @@ Studio](/campaigns/visual-studio-2013/) integration simplifies API creation, deb
 to scale your servers based on load or schedule.
 -->
 
-- **Access on-premises data** - API apps can consume data from your own data center using [Hybrid Connections](../integration-hybrid-connection-overview/) and [VNET](../web-sites-integrate-with-vnet/).
+- **Access on-premises data** - API apps can consume data from your own data center using [Hybrid Connections](integration-hybrid-connection-overview.md) and [VNET](web-sites-integrate-with-vnet.md).
 
 - **Friction-free deploy** - Set up continuous integration and deployment workflows with Visual Studio Online, GitHub, TeamCity, Hudson, or BitBucket – enabling you to automatically build, test and deploy your API app on each successful code check-in or integration tests.
 
-## Web Apps Concepts ##
+## API Apps concepts ##
 
 - **API Apps Gallery** - Select from an ever-growing list of existing API app templates.
 - **Connectors** - A type of API app that makes it easy to connect to SaaS platforms such as Salesforce and Office 365.
@@ -61,6 +61,6 @@ to scale your servers based on load or schedule.
 
 ## Getting started
 
-To get started with API apps, follow the [Create an API app tutorial](../app-service-dotnet-create-api-app/).
+To get started with API apps, follow the [Create an API app tutorial](app-service-dotnet-create-api-app.md).
 
-For more information about the Azure App Service platform, see [Azure App Service](../app-service-value-prop-what-is/).
+For more information about the Azure App Service platform, see [Azure App Service](app-service-value-prop-what-is.md).

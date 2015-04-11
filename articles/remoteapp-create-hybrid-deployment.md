@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/27/2015" 
+	ms.date="04/08/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for RemoteApp
@@ -25,7 +25,7 @@ There are two kinds of RemoteApp collections:
 
 This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
-1.	Create a [custom template image for RemoteApp](remoteapp-create-custom-image.md).
+1.	Create a [custom image for RemoteApp](remoteapp-imageoptions.md).
 2.	Create a RemoteApp collection.
 2.	Link to a virtual network.
 3.	Link a template image.
@@ -42,7 +42,7 @@ You need to do the following before creating the collection:
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](install-configure-powershell.md) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
-- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md) for detailed steps. 
+- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [Create a RemoteApp image](remoteapp-imageoptions.md) for more information. 
 - [Configure Active Directory for RemoteApp](remoteapp-ad.md).
 
 

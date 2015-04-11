@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="03/24/2015" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # Deploy WebJobs using Visual Studio
@@ -132,12 +132,13 @@ The fields in this dialog correspond to fields on the **New Job** dialog of the 
 For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [Azure Scheduler](/services/scheduler/) job collection if one doesn't exist yet, and it creates a job in the collection:
 
 * The scheduler job collection is named *WebJobs-{regionname}* where *{regionname}* refers to the region the web app is hosted in. For example: WebJobs-WestUS.
-* The scheduler job is named *{websitename}-{webjobname}*. For example: MyWebSite-MyWebJob. 
+* The scheduler job is named *{webappname}-{webjobname}*. For example: MyWebApp-MyWebJob. 
  
 >[AZURE.NOTE]
 > 
 >* For information about command-line deployment, see [Enabling Command-line or Continuous Delivery of Azure WebJobs](/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/).
 >* If you configure a **Recurring Job** and set recurrence frequency to a number of minutes, the Azure Scheduler service is not free. Other frequencies (hours, days, and so forth) are free.
+>* If you deploy a WebJob and then decide you want to change the type of WebJob and redeploy, you'll need to delete the webjobs-publish-settings.json file. This will make Visual Studio show the publishing options again, so you can change the type of WebJob.
 >* If you deploy a WebJob and later change the run mode from continuous to non-continuous or vice versa, Visual Studio creates a new WebJob in Azure when you redeploy. If you change other scheduling settings but leave run mode the same or switch between Scheduled and On Demand, Visual Studio updates the existing job rather than create a new one.
 
 ## <a id="publishsettings"></a>webjob-publish-settings.json

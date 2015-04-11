@@ -1,20 +1,21 @@
 <properties 
 	pageTitle="Python Websites with Flask - Azure tutorial" 
 	description="A tutorial that introduces you to running a Python website on Azure." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
-	manager="" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="02/09/2015" 
-	ms.author="huvalo"/>
+	ms.author="huguesv"/>
 
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="04/02/2015" 
 	ms.author="spelluru"/>
 
 # Copy data with Azure Data Factory (Copy Activity)
@@ -44,6 +44,7 @@ The Copy Activity supports the following data movement scenarios:
 - Copy data from an Azure SQL Database to an Azure Blob, Azure Table, Azure SQL Database, On-premises SQL Server, SQL Server on IaaS
 - Copy data from an Azure Table to an Azure Blob, Azure Table, or Azure SQL Database.
 - Copy data from an On-premises SQL Server/SQL Server on IaaS to Azure Blob or Azure SQL Database
+- Copy data from an On-premises Oracle database to an Azure blob
 - Copy data from an On-premises file system to Azure Blob
  
 
@@ -111,6 +112,16 @@ The Copy Activity supports the following data movement scenarios:
 		<td></td>
 		<td></td>
 	</tr>
+
+	<tr>
+		<td><b>On-premises Oracle Database</b></td>
+		<td>X</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+
 
 </table>
 
@@ -346,6 +357,17 @@ In this example, a pipeline: **CopyActivityPipeline** is defined with the follow
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
+> [AZURE.NOTE] See [Examples for using Copy Activity in Azure Data Factory][copy-activity-examples] for more examples for using the Copy Activity.
+
+## Security
+This section includes overall security guidelines and best practices that help establish secure access to data stores for the Copy Activity.
+
+For data stores offering HTTPS connection, choose HTTPS connection for the copy activity to establish secure communication over the network. For example, for **Azure Storage**, use **DefaultEndpointsProtocol=https** is in the connection string.
+
+For **Azure SQL Database**, explicitly request an encrypted connection and do not trust the server certificates to avoid the "man in the middle" attack. To achieve this, use **Encrypt=True** and **TrustServerCertificate=False** in the connection string. See Azure [SQL Database Security Guidelines and Limitations](https://msdn.microsoft.com/library/azure/ff394108.aspx) for details.
+
+For traditional databases such as **SQL Server**, especially when the instances are in an Azure Virtual Machine, enable encrypted connection option by configuring a signed certificate, with **Encrypt=True** and **TrustServerCertificate=False** in the connection string. For more information, see [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) and [Connection String Syntax.](https://msdn.microsoft.com/library/ms254500.aspx).
+
 ## Advanced scenarios
 - **Column filtering using structure definition**. Depending on the type of the table, it is possible to specify a subset of the columns from the source by specifying fewer columns in the **Structure** definition of the table definition than the ones that exist in the underlying data source.
 - **Transformation rules - Column mapping**. Column mapping can be used to specify how columns in source table map to columns in the sink table.
@@ -360,6 +382,7 @@ See [Get started with Azure Data Factory][adfgetstarted] for a tutorial that sho
 See [Enable your pipelines to work with on-premises data][use-onpremises-datasources] for a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob storage using the Copy Activity
 
 ## See Also
+- [Copy Activity - Examples][copy-activity-examples]
 - [Copy Activity topic on MSDN Library][msdn-copy-activity]
 - [Linked Services topic on MSDN Library][msdn-linkedservices]
 - [Tables topic on MSDN Library][msdn-tables-topic]
@@ -374,6 +397,8 @@ See [Enable your pipelines to work with on-premises data][use-onpremises-datasou
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
 [copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456

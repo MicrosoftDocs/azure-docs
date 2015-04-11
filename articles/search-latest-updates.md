@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What’s new in the latest update to Azure Search" 
+	pageTitle="What’s new in the latest update to Azure Search | Microsoft Azure" 
 	description="Release notes for Azure Search describing the latest updates to the service" 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/21/2015" 
+	ms.date="04/09/2015" 
 	ms.author="heidist"/>
 
 #What’s new in the latest update to Azure Search#
@@ -22,7 +22,7 @@ Azure Search is now generally available, offering a 99.9% availability service-l
 
 Watch this video for a demo and discussion of the latest features:
 
-> [AZURE.VIDEO http://azure.microsoft.com/documentation/videos/azure-search-general-availability-and-whats-new/]
+> [AZURE.VIDEO azure-search-general-availability-and-whats-new]
 
 ##How features are versioned and rolled out##
 
@@ -42,14 +42,12 @@ Excludes:
 
 - [Indexers](http://go.microsoft.com/fwlink/p/?LinkId=528173)
 - [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)
-- [2015-02-28-Preview](../search-api-2015-02-28-Preview/) features (currently, preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
+- [2015-02-28-Preview](search-api-2015-02-28-Preview.md) features (currently, preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
 
 Visit [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) for guidance on installation and usage of the SDK.
 
 ##Api-version 2015-02-28-Preview##
 **Released: 2015 March 5**
-
-- [Microsoft natural language processors](../search-api-2015-02-28-Preview/) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
 - [Microsoft natural language processors](search-api-2015-02-28-Preview.md) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
@@ -69,7 +67,7 @@ Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p
 ##Api-version 2014-10-20-Preview##
 **Released: 2014 November, 2015 January**
 
-- [Lucene language analyzers](../search-api-2014-10-20-preview/) was added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
+- [Lucene language analyzers](search-api-2014-10-20-preview.md) was added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
 
 - Tool support was introduced for building indexes, including scoring profiles, in the [Azure management portal](https://portal.azure.com).
 
@@ -78,9 +76,9 @@ Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p
 
 This version was the public preview release for Azure Search, providing the following core features:
 
-- REST API for index and document operations. The majority of this API version is intact in 2015-02-28. The documentation for version `2014-07-31-Preview` can be found at [Azure Search Service REST API Version 2014-07-31](../search-api-2014-07-31-preview/).
+- REST API for index and document operations. The majority of this API version is intact in 2015-02-28. The documentation for version `2014-07-31-Preview` can be found at [Azure Search Service REST API Version 2014-07-31](search-api-2014-07-31-preview.md).
 
-- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. The documentation for this feature can be found at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](../search-api-scoring-profiles-2014-07-31-preview/).
+- Scoring profiles for tuning search results. A scoring profile adds criteria used to compute search scores. The documentation for this feature can be found at [Azure Search Service Scoring Profiles REST API Version 2014-07-31](search-api-scoring-profiles-2014-07-31-preview.md).
 
 - Geospatial support has been available from the beginning, provided through the `Edm.GeographyPoint` data type that has been part of Azure Search since its inception.
 
@@ -94,6 +92,6 @@ This version was the public preview release for Azure Search, providing the foll
 ##Management api-version 2014-07-31-Preview##
 **Released: 2014 October**
 
-The preview release of [Management REST API](../search-management-api-2014-07-31-preview/) was added to support service administration programmatically. It is versioned independently of the service REST API.
+The preview release of [Management REST API](search-management-api-2014-07-31-preview.md) was added to support service administration programmatically. It is versioned independently of the service REST API.
 
 

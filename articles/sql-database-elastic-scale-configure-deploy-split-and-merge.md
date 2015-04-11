@@ -4,13 +4,16 @@
 	description="Splitting and Merging with Elastic Scale" 
 	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
 	services="sql-database" documentationCenter=""  
-	manager="stuarto" authors="torsteng"/>
+	manager="jhubbard" 
+	authors="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" ms.devlang="na" 
-	ms.topic="article" ms.date="03/20/2015" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/01/2015" 
 	ms.author="torsteng" />
 
 #Elastic Scale Split and Merge Service Tutorial
