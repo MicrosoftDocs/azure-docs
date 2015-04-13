@@ -85,9 +85,9 @@ Now you are ready to run the applications.
 
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
 
-- A complete [sample application that uses Event Hubs](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097).
-- The [Scale out Event Processing with Event Hubs](https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3) sample.
-- A [queued messaging solution](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/) using Service Bus queues.
+- A complete [sample application that uses Event Hubs].
+- The [Scale out Event Processing with Event Hubs] sample.
+- A [queued messaging solution] using Service Bus queues.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -104,3 +104,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
+[queued messaging solution]: cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
