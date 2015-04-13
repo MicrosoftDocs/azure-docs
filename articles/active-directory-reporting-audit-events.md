@@ -78,9 +78,11 @@ Promote tenant to partner
 
 ### User attributes included in the Update User audit event
 
+The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
+
 | Attribute 				| Description																			|
 | ---------------------------------	| ---------																			|
-| AccountEnabled			| The user is allowed to sign in.														|
+| AccountEnabled			| The user is allowed to sign in.																|
 | AssignedLicense			| All licenses that have been assigned to the user.														|
 | AssignedPlan				| Service plans resulting from the licenses assigned to the user.												|
 | LicenseAssignmentDetail		| Details on licenses assigned to the user. For instance, if group-based licensing was involved, this would include the group that granted the license.		|
