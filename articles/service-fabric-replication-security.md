@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Replication Security"
-   description="Secure replication traffic of stafeful services"
+   pageTitle="Secure replication traffic of stafeful services in Azure Service Fabric"
+   description="Secure replication traffic of stafeful services in Azure Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="leikong"
@@ -16,7 +16,7 @@
    ms.date="04/13/2015"
    ms.author="leikong"/>
 
-# Secure replication traffic of stateful services
+# Secure replication traffic of stateful services in Azure Service Fabric
 Stateful services replicate states across replicas. This page is about how to protect such traffic.
 
 For stateful services, OpenAsync method requires the return of an IReplicator instance. For more information, see Stateful Services.
@@ -80,14 +80,14 @@ Instead of specifying SecurityCredentials properties in code, you can load them 
 var settings = ReplicatorSettings.LoadFrom(
                 this.ServiceInitializationParameters.CodePackageActivationContext,
                 configPackageName,
-                replicatorConfigSectionName));
+                "VoicemailBoxActorServiceLocalStoreConfig"));
 
 settings.SecurityCredentials = SecurityCredentials.LoadFrom(
                 this.ServiceInitializationParameters.CodePackageActivationContext,
                 configPackageName,
-                replicatorSecurityConfigSectionName);
+                "VoicemailBoxActorServiceReplicatorSecurityConfig");
 ```
-The following is a sample configuration file, the code a
+The following is a sample configuration file what works with the code above.
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
