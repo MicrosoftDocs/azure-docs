@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create an Azure App Service API App" 
-	description="This article demonstrates how to use Visual Studio 2013 to create an API App in Azure App Service" 
+	pageTitle="Create an API App in Azure App Service " 
+	description="Learn how to to create an API App in Azure App Service, using Visual Studio 2013 " 
 	services="app-service\api" 
 	documentationCenter=".net" 
 	authors="bradygaster" 
@@ -20,13 +20,13 @@
 
 ## Overview
 
-This is the first tutorial in a series of three, that will get you started with API Apps in Azure App Service.
+This tutorial shows how to create an ASP.NET Web API project that is configured for deployment to the cloud as an API app in Azure App Service. Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
 
-1. In this tutorial, you create a new API app and prepare it to be deployed to your Azure subscription. 
-* In [Deploy an API App](app-service-dotnet-deploy-api-app.md), you deploy the API app to your Azure subscription.
-* In [Debug an API App](app-service-dotnet-remotely-debug-api-app.md), you use Visual Studio to remotely debug the code while it runs in Azure.
+The [API app](app-service-api-apps-why-best-platform.md) feature of [Azure App Service](app-service-value-prop-what-is.md) enables you to easily create, publish, consume, and manage web APIs - both APIs you create (using a framework like [ASP.NET Web API](http://www.asp.net/web-api) or the equivalent in other languages) and APIs from other Software as a Service (SaaS) platforms and cloud providers.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
+
+This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
 ## Create your first API app ##
 
@@ -97,6 +97,8 @@ Replace the code in this file with the code below.
 	    }
 	}
 
+## Enable Swagger UI
+
 API App projects are enabled with automatic [Swagger](http://swagger.io/ "Official Swagger information") metadata generation and an API test page. By default, the API test page is disabled. To enable the API test page, open the *App_Start/SwaggerConfig.cs* file. Search for **EnableSwaggerUI**:
 
 ![](./media/app-service-dotnet-create-api-app/12-enable-swagger-ui-with-box.png)
@@ -110,6 +112,8 @@ Uncomment the following lines of code:
 Once complete, the file should look like this in Visual Studio 2013.
 
 ![](./media/app-service-dotnet-create-api-app/13-enable-swagger-ui-with-box.png)
+
+## Test the Web API
 
 To view the API test page, run the app locally and navigate to `/swagger`. 
 
