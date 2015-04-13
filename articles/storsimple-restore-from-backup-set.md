@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Restore your StorSimple device from a backup set"
-   description="Explains how to restore your StorSimple device from a backup set."
+   pageTitle="Restore a StorSimple volume from a backup set"
+   description="Explains how to use the backup catalog to restore a StorSimple volume from a backup set."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/10/2015"
+   ms.date="04/13/2015"
    ms.author="v-sharos" />
 
-# Restore your StorSimple device from a backup set
+# Restore your StorSimple volume from a backup set
 
 ## Overview
 
@@ -23,7 +23,7 @@ The **Backup Catalog** page displays all the backup sets that are created when m
 
  ![Backup Catalog page](./media/storsimple-restore-from-backup-set/HCS_BackupCatalog.png)
 
-This article explains how to use the **Backup Catalog** page to restore your device from a backup set.
+This tutorial explains how to use the **Backup Catalog** page to restore your device from a backup set.
 
 ## How to use the backup catalog 
 
