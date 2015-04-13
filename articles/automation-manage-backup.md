@@ -41,14 +41,3 @@ Backup can be managed in Azure Automation by using the PowerShell cmdlets that a
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Backup, follow these links to learn more about Azure Automation.
  
 * Check out the Azure Automation [Getting Started Guide](http://go.microsoft.com/fwlink/?LinkId=390560)
- 
- 
- 
-Checking that the page is live:
-Check http://azure.microsoft.com/en-us/documentation/articles/name-of-the-file-without-md-extension/ 
- 
-For example for the file:
-https://github.com/Azure/azure-content/blob/master/articles/automation-manage-virtual-machines.md
- 
-The link is:
-http://azure.microsoft.com/en-us/documentation/articles/automation-manage-virtual-machines/ 
