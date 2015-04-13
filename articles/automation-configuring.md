@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configuring Azure for Management by Runbooks"
-   description="Configuring Azure for Management by Runbooks"
+   pageTitle="Configuring Azure Automation"
+   description="Describes steps that you must perform to configure Azure Automation for initial use."
    services="automation"
    documentationCenter=""
    authors="bwren"
