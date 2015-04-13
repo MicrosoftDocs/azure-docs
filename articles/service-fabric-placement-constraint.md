@@ -3,7 +3,7 @@
    description="A conceptual overview of placement constraints in Service Fabric"
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/17/2015"
-   ms.author="abhic"/>
+   ms.author="masnider@microsoft.com"/>
 
 # Placement Constraints Overview
 
