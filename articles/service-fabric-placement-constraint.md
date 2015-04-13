@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Placement Constraints"
+   pageTitle="Service Fabric Cluster Orchestration Placement Constraints"
    description="A conceptual overview of placement constraints in Service Fabric"
    services="Service-Fabric"
    documentationCenter=".net"
