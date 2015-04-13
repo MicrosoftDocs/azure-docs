@@ -15,7 +15,7 @@
    ms.date="04/13/2015"
    ms.author="v-sharos" />
 
-# Restore your StorSimple volume from a backup set
+# Restore a StorSimple volume from a backup set
 
 ## Overview
 
