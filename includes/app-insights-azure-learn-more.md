@@ -1,8 +1,6 @@
 ## Application Insights - learn more
 
 
-<table width="100%"><tr valign="top"><td>
-
 Overview
 
 <ul>
@@ -28,16 +26,6 @@ Working with Data
 </li>
 </ul>
 
-Problems? Questions?
-
-<ul>
-<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
-<li><a href="../articles/app-insights-troubleshoot-faq.md">Q & A and troubleshooting</a>
-</li>
-</ul>
-
-
-</td><td>
 
 
 Get started with ...
@@ -80,14 +68,21 @@ Usage tracking
 </li>
 </ul>
 
-</td><td>
-</td></tr></table>
+Problems? Questions?
+
+<ul>
+<li><a href="../articles/app-insights-platforms.md">Can I use Application Insights with...?</a></li>
+<li><a href="../articles/app-insights-troubleshoot-faq.md">Q & A and troubleshooting</a>
+</li>
+</ul>
+
 
 
 
 <!--Link references-->
 
 [portal]: http://portal.azure.com/
+[new]: ../articles/app-insights-create-new-resource.md
 [start]: ../articles/app-insights-get-started.md
 [greenbrown]: ../articles/app-insights-start-monitoring-app-health-usage.md
 [redfield]: ../articles/app-insights-monitor-performance-live-website-now.md
@@ -97,11 +92,15 @@ Usage tracking
 [availability]: ../articles/app-insights-monitor-web-app-availability.md
 [client]: ../articles/app-insights-web-track-usage.md
 [usage]: ../articles/app-insights-web-track-usage.md
+[exceptions]: ../articles/app-insights-web-failures-exceptions.md
 [api]: ../articles/app-insights-custom-events-metrics-api.md
+[apiproperties]: ../articles/app-insights-custom-events-metrics-api.md#properties
+[config]: ../articles/app-insights-configuration-with-applicationinsights-config.md
 [track]: ../articles/app-insights-custom-events-metrics-api.md
 [qna]: ../articles/app-insights-troubleshoot-faq.md
 [data]: ../articles/app-insights-data-retention-privacy.md
-[export]: ../articles/app-insights-export-telemetry.md[exportcode]: ../articles/app-insights-code-sample-export-telemetry-sql-database.md
+[export]: ../articles/app-insights-export-telemetry.md
+[exportcode]: ../articles/app-insights-code-sample-export-telemetry-sql-database.md
 [azure]: ../articles/insights-perf-analytics.md
 [metrics]: ../articles/app-insights-metrics-explorer.md
 [trace]: ../articles/app-insights-search-diagnostic-logs.md

@@ -45,7 +45,7 @@ The input and output format, used by all three applications, reads and writes th
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
-<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
+##Run the sample with Azure PowerShell
 
 Three tasks are required by the sample, each corresponding to one of the MapReduce programs described in the introduction:
 
@@ -66,9 +66,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 4. Run the following command to create a MapReduce job definition:
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
-		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
-
-	> [AZURE.NOTE] *hadoop-examples.jar* comes with version 2.1 HDInsight clusters. The file has been renamed to *hadoop-mapreduce.jar* on version 3.0 HDInsight clusters.
+		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final argument, */example/data/10GB-sort-input*, specifies the output directory to which the results are saved (and which contains the input for the following sort stage).
 
@@ -93,7 +91,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 3. Run the following command to define the MapReduce job:
 
 		# Create a MapReduce job definition for the TeraSort MapReduce program
-		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "terasort" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
+		$terasort = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "terasort" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *100000000* argument specifies the amount of data to generate. The final two arguments specify the input and output directories.
 
@@ -118,7 +116,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 3. Run the following command to define the MapReduce job:
 
 		#	Create a MapReduce job definition for the TeraValidate MapReduce program
-		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teravalidate" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
+		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-mapreduce-examples.jar" -ClassName "teravalidate" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
 
 	The *"-Dmapred.map.tasks=50"* argument specifies that 50 maps will be created to execute the job. The *"-Dmapred.reduce.tasks=25"* argument specifies that 25 reduce tasks will be created to execute the job. The final two arguments specify the input and output directories.  
 
@@ -132,7 +130,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 		$teravalidate | Start-AzureHDInsightJob -Cluster $clustername | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | Get-AzureHDInsightJobOutput -Cluster $clustername -StandardError
 
 
-<h2><a id="java-code"></a>The Java code for the TeraSort MapReduce program</h2>
+##The Java code for the TeraSort MapReduce program
 
 The code for the TeraSort MapReduce program is presented for inspection in this section.
 
@@ -403,11 +401,11 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
 	}
 
 
-<h2><a id="summary"></a>Summary</h2>
+##Summary
 
 This sample has demonstrated how to run a series of MapReduce jobs by using Azure HDInsight, where the data output for one job becomes the input for the next job in the series.
 
-<h2><a id="next-steps"></a>Next steps</h2>
+##Next steps
 
 For tutorials that guide you through running other samples and that provide instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 

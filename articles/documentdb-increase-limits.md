@@ -2,7 +2,7 @@
 	pageTitle="Request increased DocumentDB account limits | Azure" 
 	description="Learn how to request an adjustment to DocumentDB limits such as the number of allowed collections, stored procedures and query clauses." 
 	services="documentdb" 
-	authors="mimig1" 
+	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
 	documentationCenter=""/>

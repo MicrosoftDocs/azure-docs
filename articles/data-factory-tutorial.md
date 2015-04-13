@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory
@@ -364,6 +364,17 @@ In this step, you will create the following pipelines:
 6. In the TABLE blade for **RawGameEventsTable**, you see all the slices. In the following screen shot, all the slices are in **Ready** state and there are no problem slices. It means that the data is ready to be processed.	
 
 	![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.  
+
+	![Data Slices by Slice Time][DataSlicesBySliceTime]
  
 7. Now, on the **PIPELINE** blade for **PartiionGameLogsPipeline**, click **Produced**. 
 8. You should see the list of data sets that this pipeline produces: 
@@ -431,6 +442,7 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[DataSlicesBySliceTime]: ./media/data-factory-tutorial/DataSlicesBySliceTime.png
 [image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
 [image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
 [image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png

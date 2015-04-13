@@ -145,13 +145,11 @@ The following Azure PowerShell script submits the word-count sample job:
 	$clusterName = "<HDInsightClusterName>"            
 	
 	# Define the MapReduce job
-	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
+	$wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 	
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-> [AZURE.NOTE] The hadoop-examples.jar file comes with version 2.1 HDInsight clusters. The file has been renamed to hadoop-mapreduce.jar on version 3.0 HDInsight clusters.
-
 For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-
 storage].
 
