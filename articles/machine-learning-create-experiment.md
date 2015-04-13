@@ -20,7 +20,10 @@
  
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
-In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
+In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
+The goal is to create a regression model that will predict the price of an automobile based on different variables such as make and technical specifications. 
+
+To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
  
 
 ##Five steps to create an experiment 
@@ -34,19 +37,19 @@ Here are the five basic steps that you can follow to build an experiment in Mach
 - Train the model 
 	- [Step 4: Choose and apply a learning algorithm]
 - Score and test the model 
-	- [Step 5: Predict new data] 
+	- [Step 5: Predict new automobile prices] 
 
 [Step 1: Get data]: #step-1-get-data
 [Step 2: Preprocess data]: #step-2-preprocess-data
 [Step 3: Define features]: #step-3-define-features
 [Step 4: Choose and apply a learning algorithm]: #step-4-choose-and-apply-a-learning-algorithm
-[Step 5: Predict new data]: #step-5-predict-over-new-data 
+[Step 5: Predict new automobile prices]: #step-5-predict-new-automobile-prices 
 
-In this example, we'll walk through creating a regression model that uses sample automobile data. The goal is to predict the price of an automobile by using different variables such as make and technical specifications. 
 
-### Step 1: Get data
+## Step 1: Get data
 
-There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**, which represents automobile price data.
+There are a number of sample datasets included with Machine Learning Studio, and you can import data from many sources. For this example, we will use the included sample dataset, **Automobile price data (Raw)**.
+This dataset includes entries for a number of individual automobiles, including information such as make, model, technical specifications, and price.
 
 1. Start a new experiment by clicking **+NEW** at the bottom of the Machine Learning Studio window, select **EXPERIMENT**, and then select "Blank Experiment". Select the default experiment name at the top of the canvas and rename it to something meaningful, for example, **Automobile price prediction**.
 
@@ -64,9 +67,9 @@ To see what this data looks like, click the output port at the bottom of the aut
 
 Close the visualization window by clicking the "**x**" in the upper-right corner.
 
-### Step 2: Preprocess data
+## Step 2: Preprocess data
 
-A dataset usually requires some preprocessing before it can be analyzed. You may have noticed the missing values present in the columns of various rows. To analyze the data, these missing values need to be cleaned. In our case, we'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so we'll exclude that column from the model altogether. 
+A dataset usually requires some preprocessing before it can be analyzed. You may have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data properly. In our case, we'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so we'll exclude that column from the model altogether. 
 
 > [AZURE.TIP] Cleaning the missing values from input data is a prerequisite for using most of the modules. 
 
@@ -98,11 +101,11 @@ When the experiment finishes, all the modules will have a green check mark to in
 
 ![First experiment run][screen5]
 
-All we have done in the experiment to this point is clean the data. To view the cleaned dataset, click the output port of the **Missing Values Scrubber** module and select **Visualize**. Notice that the **normalized-losses** column is no longer included, and there are no missing values.
+All we have done in the experiment to this point is clean the data. If you want to view the cleaned dataset, click the output port of the **Missing Values Scrubber** module and select **Visualize**. Notice that the **normalized-losses** column is no longer included, and there are no missing values.
 
 Now that the data is clean, we're ready to specify what features we're going to use in the predictive model.
 
-### Step 3: Define features
+## Step 3: Define features
 
 In machine learning, *features* are individual measurable properties of something you’re interested in. In our dataset, each row represents one automobile, and each column is a feature of that automobile. Finding a good set of features for creating a predictive model requires experimentation and knowledge about the problem you want to solve. Some features are better for predicting the target than others. Also, some features have a strong correlation with other features (for example, city-mpg versus highway-mpg), so they will not add much new information to the model and they can be removed.
 
@@ -124,13 +127,15 @@ Let's build a model that uses a subset of the features in our dataset. You can c
 
 This produces the dataset that will be used in the learning algorithm in the next steps. Later, you can return and try again with a different selection of features. 
 
-### Step 4: Choose and apply a learning algorithm
+## Step 4: Choose and apply a learning algorithm
 
-Now that the data is ready, constructing a predictive model consists of training and testing. *Classification* and *regression* are two types of supervised machine learning techniques. Classification is used to make a prediction from a defined set of values, such as a color (red, blue, or green). Regression is used to make a prediction from a continuous set of values, such as a person's age.
+Now that the data is ready, constructing a predictive model consists of training and testing. We'll use our data to train the model and then test the model to see how close it's able to predict prices.
+
+*Classification* and *regression* are two types of supervised machine learning techniques. Classification is used to make a prediction from a defined set of values, such as a color (red, blue, or green). Regression is used to make a prediction from a continuous set of values, such as a person's age.
 
 We want to predict the price of an automobile, which can be any value, so we'll use a regression model. For this example, we'll train a simple *linear regression* model, and in the next step, we'll test it. 
 
-1. Split the data into training and testing sets. Select and drag the **Split** module to the experiment canvas and connect it to the output of the last **Project Columns** module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75% of the data to train the model, and hold back 25% for testing.
+1. We can use our data for both training and testing by splitting it into separate training and testing sets. Select and drag the **Split** module to the experiment canvas and connect it to the output of the last **Project Columns** module. Set **Fraction of rows in the first output dataset** to 0.75. This way, we'll use 75% of the data to train the model, and hold back 25% for testing.
 
 	> [AZURE.TIP] By changing the **Random seed** parameter, you can produce different random samples for training and testing. This parameter controls the seeding of the pseudo-random number generator.
 	
@@ -154,9 +159,9 @@ The result is a trained regression model that can be used to score new samples t
 
 ![Applying the learning algorithm][screen8]
 
-### Step 5: Predict new data 
+## Step 5: Predict new automobile prices 
 
-Now that we've trained the model, we can use it to score the other 25% of our data to see how well our model functions. 
+Now that we've trained the model using 75% of our data, we can use it to score the other 25% of the data to see how well our model functions. 
 
 1. Find and drag the **Score Model** module to the experiment canvas and connect the left input port to the output of the **Train Model** module. Connect the right input port to the test data output (right port) of the **Split** module.  
 
@@ -182,7 +187,7 @@ The final experiment should look like this:
 
 ![Complete experiment][screen10]
 
-### What's next?
+## What's next?
 
 Now that you have your experiment set up, you can iterate to try to improve the model. For instance, you can change the features you use in your prediction. Or you can modify the properties of the **Linear Regression** algorithm or try a different algorithm altogether. You can even add multiple algorithms to your experiment at one time and compare two by using the **Evaluate Model** module. 
 
