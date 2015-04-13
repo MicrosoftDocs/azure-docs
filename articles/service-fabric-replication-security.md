@@ -73,3 +73,40 @@ public override ReplicatorSettings ReplicatorSettings
 }
 ```
 When Windows credential is used, local credential is always from  process token, thus nothing needs to be specified for local credential. Remote replica is identified by the service principal name (SPN) of the replica set, "WindowsFabric/clusterA.domain.com" in the example above, you can leave it unspecified if all replicas run as machine account.
+
+## Load from configuration file
+Instead of specifying SecurityCredentials properties in code, you can load them from configuration by specifying package and section name.
+```
+var settings = ReplicatorSettings.LoadFrom(
+                this.ServiceInitializationParameters.CodePackageActivationContext,
+                configPackageName,
+                replicatorConfigSectionName));
+
+settings.SecurityCredentials = SecurityCredentials.LoadFrom(
+                this.ServiceInitializationParameters.CodePackageActivationContext,
+                configPackageName,
+                replicatorSecurityConfigSectionName);
+```
+The following is a sample configuration file, the code a
+```
+<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+   <Section Name="VoicemailBoxActorServiceReplicatorConfig">
+      <Parameter Name="ReplicatorEndpoint" Value="VoicemailBoxActorServiceReplicatorEndpoint" />
+   </Section>
+   <Section Name="VoicemailBoxActorServiceReplicatorSecurityConfig">
+      <Parameter Name="CredentialType" Value="X509" />
+      <Parameter Name="FindType" Value="FindByThumbprint" />
+      <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
+      <Parameter Name="StoreLocation" Value="LocalMachine" />
+      <Parameter Name="StoreName" Value="My" />
+      <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+      <Parameter Name="AllowedCommonNames" Value="WinFabric-Test-SAN1-Alice,WinFabric-Test-SAN1-Bob" />
+   </Section>
+   <Section Name="VoicemailBoxActorServiceLocalStoreConfig">
+      <Parameter Name="MaxAsyncCommitDelayInMilliseconds" Value="100" />
+      <Parameter Name="MaxVerPages" Value="32768" />
+      <Parameter Name="MaxAsyncCommitDelay" Value="100" />
+   </Section>
+</Settings>
+```
