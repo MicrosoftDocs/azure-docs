@@ -572,6 +572,11 @@ In web pages, you might want to set it from the web server's state, rather than 
     }) // ...
 
 
+## Disable standard telemetry
+
+You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
+
+[Learn more][config].
 
 
 ## <a name="debug"></a>Developer mode

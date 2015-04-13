@@ -29,27 +29,10 @@ Add the SDK to your application project. When your app is released and running, 
 If your web pages have substantial scripts you'll probably also want to:
 * [Add Application Insights to web pages][track]
 
-## Track performance
-
-## Set alerts
-
-## Track Exceptions
-
-## Trace logs
 
 ## Diagnostic search
 
 
-
-[Application Insights][start] includes a powerful [Diagnostic Search][diagnostic] tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application. Many events such as user page views are automatically sent by the SDK.
-
-You can also write code to send custom events, exception reports, and traces. And if you already use a logging framework such as log4J, log4net, NLog, or System.Diagnostics.Trace, you can capture those logs and include them in the search. This makes it easy to correlate log traces with user actions, exceptions and other events.
-
-## <a name="send"></a>Before you write custom telemetry
-
-If you haven't yet [set up Application Insights for your project][start], do that now.
-
-When you run your application, it will send some telemetry that will show up in Diagnostic Search, including requests received by the server, page views logged at the client, and uncaught exceptions.
 
 Open Diagnostic Search to see the telemetry that the SDK automatically sends.
 
@@ -117,18 +100,6 @@ Drill into an individual event to see its detailed properties.
 
 ![](./media/appinsights/appinsights-23-customevents-4.png)
 
-##<a name="pages"></a> Page views
-
-Page view telemetry is sent by the trackPageView() call in [the JavaScript snippet you insert in your web pages][usage]. Its main purpose is to contribute to the counts of page views that you see on the overview page.
-
-Usually it is called once in each HTML page, but you can insert more calls - for example, if you have a single-page app and you want to log a new page whenever the user gets more data.
-
-    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm"); 
-
-It's sometimes useful to attach properties that you can use as filters in diagnostic search:
-
-    appInsights.trackPageView(pageSegmentName, "http://fabrikam.com/page.htm",
-     {Game: currentGame.name, Difficulty: currentGame.difficulty});
 
 
 ##<a name="trace"></a> Trace telemetry
