@@ -58,7 +58,7 @@ You can use the **CloudStorageAccount** type to represent
 your Storage Account information. If you are using a Microsoft 
 Azure project template and/or have a reference to 
 Microsoft.WindowsAzure.CloudConfigurationManager, you 
-can you use the **CloudConfigurationManager** type
+can use the **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
 information from the Azure service configuration:
 
