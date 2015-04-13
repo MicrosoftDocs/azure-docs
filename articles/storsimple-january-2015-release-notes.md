@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="storsimple-release-notes - January 2015"
+    pageTitle="StorSimple release notes - January 2015"
     description="Describes the new features, issues, and workarounds for the January 2015 Microsoft Azure StorSimple release."
     services="storsimple"
     documentationCenter="NA"

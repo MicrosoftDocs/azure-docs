@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="storsimple-release-notes - February 2015"
+    pageTitle="StorSimple release notes - February 2015"
     description="Describes the new features, issues, and workarounds for the February 2015 StorSimple release."
     services="storsimple"
     documentationCenter="NA"
