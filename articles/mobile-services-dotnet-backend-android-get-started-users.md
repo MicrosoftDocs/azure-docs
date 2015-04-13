@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="04/13/2015" 
-	ms.author="ricksal,mahender"/>
+	ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services app
 
