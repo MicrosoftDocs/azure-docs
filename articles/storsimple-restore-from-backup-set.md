@@ -71,6 +71,7 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 5. Click **Restore** at the bottom of the page.
 
 6. You will be prompted for confirmation. 
+
     ![Confirmation page](./media/storsimple-restore-from-backup-set/HCS_ConfirmRestore.png)
 
 7. Review the restore information and click the check icon ![check icon](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png). This will initiate a restore job that you can view by accessing the **Jobs** page. 
@@ -79,4 +80,4 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 
 ## Next steps
 
-Learn about [StorSimple disaster recovery](storsimple-disaster-recovery.md)
+Learn how to [Manage storsimple volumes](storsimple-manage-volumes.md)
