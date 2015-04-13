@@ -37,9 +37,12 @@ You'll need:
 You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
 
 1. In Eclipse, click Help, Install New Software.
+
     ![](./media/app-insights-java-eclipse/0-plugin.png)
+
 2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
+
     ![](./media/app-insights-java-eclipse/1-plugin.png)
 
 Follow the remaining steps for each Java project.
@@ -62,8 +65,10 @@ Your usage and performance analytics will be displayed in an Azure resource in t
 ## Add the SDK to your Java project
 
 1. Add Application Insights from the context menu of your web project.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
 
 

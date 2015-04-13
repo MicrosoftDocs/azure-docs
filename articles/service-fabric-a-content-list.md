@@ -249,7 +249,7 @@ Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
-### Replicas and Replica Sets
+### Replicas and Replica Sets owners: *aprameyr*
 Replica Role and State Lifetime
 
  Replication and State Consistency
