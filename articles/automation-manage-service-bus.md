@@ -41,3 +41,4 @@ Service Bus can be managed in Azure Automation by using the [Service Bus REST AP
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Service Bus, follow these links to learn more about Azure Automation.
 
 * See the Azure Automation [Getting Started Tutorial](automation-create-runbook-from-samples.md)
+* See article on [Manage Service Bus with PowerShell](service-bus-powershell-how-to-provision.md)
