@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="04/13/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing Azure Mobile Services app

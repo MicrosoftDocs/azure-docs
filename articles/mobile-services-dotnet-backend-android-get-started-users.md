@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
+	ms.date="04/13/2015" 
 	ms.author="ricksal,mahender"/>
 
 # Add authentication to your Mobile Services app
