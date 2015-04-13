@@ -64,7 +64,7 @@ When you create a solution from the Marketplace, the solution automatically incl
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
-For more information about defining the template, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/en-us/library/azure/dn835138.aspx).
+For more information about defining the template, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 ## Tags
 
@@ -92,11 +92,11 @@ You can also explicitly lock critical resources to prevent users from deleting o
 
 Azure Resource Manager provides completely compatible operations through PowerShell, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
 
-For information about PowerShell, see [Using Windows PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/en-us/library/dn654592.aspx).
+For information about PowerShell, see [Using Windows PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/dn654592.aspx).
 
 For information about cross-platform commands, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](./xplat-cli-azure-resource-manager.md).
 
-For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/en-us/library/azure/dn790568.aspx).
+For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
 
 
