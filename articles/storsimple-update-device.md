@@ -19,14 +19,16 @@
 
 ## Overview
 
-The StorSimple updates feature allows you to easily keep your StorSimple device up to date. Depending on the update type, you can use apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface. This tutorial describes how to install the updates via the Management Portal.
+The StorSimple updates feature allows you to easily keep your StorSimple device up to date. Depending on the update type, you can use apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface. This tutorial describes the update types and how to install each of them.
 
 You can apply two types of device updates: 
 
 - Regular (or Normal mode) updates
 - Maintenance mode updates
 
-Each type is described separately, below.
+You can install regular updates via the Managment Portal or Windows PowerShell. You must use Windows PowerShell to install Maintenance mode updates. 
+
+Each update type is described separately, below.
 
 ### Regular updates
 
@@ -34,11 +36,13 @@ Regular updates are non-disruptive updates that can be installed when the device
 
 > [AZURE.IMPORTANT] A controller failover may occur during the update process. However, this will not affect system availability or operation.
 
-For details on how to install updates via the Management Portal, see [Install regular updates via the Management Portal](#install-regular-updates-via-the-management-portal).
+- For details on how to install regular updates via the Management Portal, see [Install regular updates via the Management Portal](#install-regular-updates-via-the-management-portal).
+
+- You can also install regular updates via Windows PowerShell for StorSimple. For details, go to [Regular updates](https://msdn.microsoft.com/library/azure/dn757751.aspx#BKMK_Regular)
 
 ### Maintenance mode updates
 
-Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](). You cannot use the Management Portal to install Maintenance mode updates. Instead, you use Windows PowerShell for StorSimple. 
+Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](https://msdn.microsoft.com/library/azure/dn757730.aspx). You cannot use the Management Portal to install Maintenance mode updates. Instead, you use Windows PowerShell for StorSimple. 
 
 > [AZURE.IMPORTANT] Maintenance mode updates must be applied separately to each controller. 
 
