@@ -182,33 +182,35 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+#### Actors
+- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
 
-[Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
+- [Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
 
-[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
+- [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
+- [Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
+- [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
+- [Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
+- [Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
+- [Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
+- [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
- [FabSrv Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
+#### Services
+- [Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
 
-[FabSrv Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
+- [Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
 
-[FabSrv API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
+- [Reliable Collections](../service-fabric-fabsrv-service-reliable-collection) **owners: mcoskun, tyadam**
 
-[FabSrv Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
+- [API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
 
-
+- [Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
 
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
