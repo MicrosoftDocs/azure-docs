@@ -50,7 +50,7 @@ For more information on creating Storage accounts, see
 
 When you provision an HDInsight cluster, you provision Azure compute resources that contain Apache Storm and related applications. You can also create Hadoop clusters for other versions by using the Azure portal, Azure PowerShell cmdlets for HDInsight, or the HDInsight .NET SDK. For instructions, see [Provision HDInsight clusters using custom options][hdinsight-provision]. For information about different HDInsight versions and their service level agreements (SLAs), see the [HDInsight component versioning](hdinsight-component-versioning.md) page.
 
-[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+[AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 1. Sign in to the [Azure portal][azureportal].
 
@@ -200,7 +200,7 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	Use the 'jar' command to extract the source code or Java docs. For example, 'jar -xvf storm-starter-0.9.1.2.1.5.0.2057-javadoc.jar'.
 
-	> [WACOM.NOTE] Java docs consist of webpages. Once extracted, use a browser to view the **index.html** file.
+	> [AZURE.NOTE] Java docs consist of webpages. Once extracted, use a browser to view the **index.html** file.
 
 	To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, and then copy the files from **%STORM_HOME%\contrib**.
 

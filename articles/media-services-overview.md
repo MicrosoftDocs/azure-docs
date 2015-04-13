@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
 	ms.author="juliako"/>
@@ -108,7 +108,7 @@ For more information, see [Delivering Media on-Demand with Azure Media Services]
 
 ##Delivering Live Streaming with Azure Media Services
 
-For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-wrokflow.md) contains links to topics that show how to perform tasks mentioned above.
+For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md) contains links to topics that show how to perform tasks mentioned above.
 
 ##Clients
 

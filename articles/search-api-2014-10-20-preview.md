@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure Search Service REST API: 2014-10-20-Preview" 
 	description="Azure Search Service REST API: 2014-10-20-Preview" 
-	services="" 
+	services="search" 
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="mblythe"/>
@@ -12,7 +12,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="03/31/2015" 
 	ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2014-10-20-Preview #

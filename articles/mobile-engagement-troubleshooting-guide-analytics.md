@@ -16,15 +16,14 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="mobile-engagement-troubleshooting-guide.md" title="Introduction">Introduction</a>
-<a href="mobile-engagement-troubleshooting-guide-analytics.md" title="Analytics">Analytics</a>
-<a href="mobile-engagement-troubleshooting-guide-apis.md" title="APIs">APIs</a>
-<a href="mobile-engagement-troubleshooting-guide-push-reach.md" title="Push/Reach">Push/Reach</a>
-<a href="mobile-engagement-troubleshooting-guide-service.md" title="Service">Service</a>
-<a href="mobile-engagement-troubleshooting-guide-sdk.md" title="SDK">SDK</a>
-<a href="mobile-engagement-troubleshooting-guide-sr-info.md" title="SR">SR Info</a>
-</div>
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-troubleshooting-guide.md)
+- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
+- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
+- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
+- [Service](mobile-engagement-troubleshooting-guide-service.md)
+- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
+- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
 
 # Troubleshooting guide for Analytics, Monitoring, Segmentation, and Dashboard issues
 
@@ -88,7 +87,7 @@ Segments can only contain 10 criteria.
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
+[Link 2]: mobile-engagement-troubleshooting-guide.md
 [Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
@@ -107,12 +106,12 @@ Segments can only contain 10 criteria.
 [Link 18]: mobile-engagement-user-interface-segments.md
 [Link 19]: mobile-engagement-user-interface-dashboard.md
 [Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md

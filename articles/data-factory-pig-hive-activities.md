@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/03/2015" 
 	ms.author="spelluru"/>
 
 # Use Pig and Hive with Data Factory
@@ -21,6 +21,7 @@ A pipeline in an Azure data factory processes data in linked storage services by
 
 - **Copy Activity** copies data from a source storage to a destination storage. To learn more about the Copy Activity, see [Copy data with Data Factory][data-factory-copy-activity]. 
 - **HDInsight Activity** processes data by running Hive/Pig scripts or MapReduce programs on an HDInsight cluster. The HDInsight Activity supports three transformation: **Hive**, **Pig**, and **MapReduce**. The HDInsight Activity can consume 1 or more input and produce 1 or more outputs.
+- **Stored Procedure Activity** executes a stored procedure in an Azure SQL database.
  
 See [Invoke MapReduce Programs from Data Factory][data-factory-map-reduce] for details about running MapReduce programs on an HDInsight cluster from an Azure data factory pipeline by using MapReduce transformations of the HDInsight Activity. This article describes using Pig/Hive transformation of the HDInsight Activity.
 
@@ -49,11 +50,56 @@ When defining a Pig or Hive activity in a pipeline JSON, the **type** property s
 **Note the following:**
 	
 - Activity **type** is set to **HDInsightActivity**.
-- **linkedServiceName** is set to **MyHDInsightLinkedService**. 
+- **linkedServiceName** is set to **MyHDInsightLinkedService**. See the HDInsight linked service section below for details on creating an HDInsight linked service.
 - The **type** of the **transformation** is set to **Pig**.
 - You can specify Pig script inline for the **script** property or store script files in an Azure blob storage and refer to the file using **scriptPath** property, which is explained later in this article. 
 - You specify parameters for the Pig script by using the **extendedProperties**. More details are provided later in this article. 
 
+### HDInsight linked service
+The Azure Data Factory service supports creation of an on-demand cluster and use it to process input to produce output data. You can also use your own cluster to perform the same. When you use on-demand HDInsight cluster, a cluster gets created for each slice. Whereas, when you use your own HDInsight cluster, the cluster is ready to process the slice immediately. Therefore, when you use on-demand cluster, you may not see the output data as quickly as when you use your own cluster. For the purpose of the sample, let's use an on-demand cluster. 
+
+#### To use an on-demand HDInsight cluster
+The following JSON script is a sample script that can be used to create an HDInsight linked service for an on-demand HDInsight cluster. 
+ 
+	{
+    	"name": "MyHDInsightLinkedService",
+		    "properties": {
+    	    "type": "HDInsightOnDemandLinkedService",
+    	    "clusterSize": "4",
+    	    "jobsContainer": "adfjobscontainer",
+    	    "timeToLive": "00:05:00",
+    	    "version": "3.1",
+    	    "linkedServiceName": "StorageLinkedService"
+    	}
+	}
+
+1. Set the type to **HDInsightOnDemandLinkedService**.
+2. For the **clusterSize** property, specify the size of the HDInsight cluster.
+2. For the **jobsContainer** property, specify the name of the default container where the cluster logs will be stored. For the purpose of this tutorial, specify **adfjobscontainer**.
+3. For the **timeToLive** property, specify how long the cluster can be idle before it is deleted. 
+4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
+5. For the **linkedServiceName**, specify the linked service that refers to an Azure blob storage the HDInsight cluster will use. 
+   
+   
+#### To use your own HDInsight cluster: 
+The following JSON script is a sample script that can be used to create an HDInsight linked service for your own HDInsight cluster.
+  
+	{
+	    "name": "MyHDInsightLinkedService",
+	    "properties": {
+	        "type": "HDInsightBYOCLinkedService",
+	        "clusterUri": "https://<clustername>.azurehdinsight.net",
+	        "userName": "admin",
+	        "password": "**********",
+	        "linkedServiceName": "StorageLinkedService",
+	    }
+	}
+
+1. Set the type to **HDInsightBYOCLinkedService**.
+2. For the **clusterUri** property, specify the URL for your HDInsight. For example: https://<clustername>.azurehdinsight.net/     
+3. For the **UserName** property, enter the user name who has access to the HDInsight cluster.
+4. For the **Password** property, enter the password for the user.
+5. For the **LinkedServiceName** property, specify the linked service that refers to an Azure blob storage used by the HDInsight cluster.
 
 ## <a name="HiveJSON"></a> Hive JSON example
 
@@ -132,7 +178,7 @@ The following JSON example for a sample pipeline uses a Hive activity that refer
 	}
 
 
-> [ACOM.NOTE] To use the **Tez** engine to execute a Hive query, run "**set hive.execution.engine=tez**;" before running the Hive query.
+> [AZURE.NOTE] To use the **Tez** engine to execute a Hive query, run "**set hive.execution.engine=tez**;" before running the Hive query.
 > 
 > See [Developer Reference](http://go.microsoft.com/fwlink/?LinkId=516908) for details about cmdlets, JSON schemas, and properties in the schema.
 
@@ -199,7 +245,7 @@ See the following example for specifying parameters for a Hive script using **ex
 		FROM hivesampletable 
 		group by country, state;
 
-	> [ACOM.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
+	> [AZURE.NOTE] To use the **Tez** engine to execute Hive queries in the HQL file, add "**set hive.execution.engine=tez**;" at the top of the file.
 		
 3.  Upload the **hivequery.hql** to the **adftutorial** container in your blob storage
 
@@ -281,7 +327,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 2. Do the following in the JSON script: 
 	1. For the **clusterSize** property, specify the size of the HDInsight cluster.
 	2. For the **jobsContainer** property, specify the name of the default container where the cluster logs will be stored. For the purpose of this tutorial, specify **adfjobscontainer**.
-	3. For the **timeToLive** property, specify how long the customer can be idle before it is deleted. 
+	3. For the **timeToLive** property, specify how long the cluster can be idle before it is deleted. 
 	4. For the **version** property, specify the HDInsight version you want to use. If you exclude this property, the latest version is used.  
 	5. For the **linkedServiceName**, specify **StorageLinkedService** that you had created in the Get started tutorial. 
 
@@ -336,7 +382,7 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
                     		"type": "Hive",
                     		"extendedProperties":
                     		{
-                        		"RESULTOUTPUT": "wasb://adftutorial@spestore.blob.core.windows.net/hiveoutput/",
+                        		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
@@ -361,6 +407,8 @@ The Azure Data Factory service supports creation of an on-demand cluster and use
 		}
 
 	> [AZURE.NOTE] Replace **StartDateTime** value with the three days prior to current day and **EndDateTime** value with the current day. Both StartDateTime and EndDateTime must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The output table is scheduled to be produced every day, so there will be three slices produced.
+	
+	> [AZURE.NOTE] Replace **your storage account** in the JSON with the name of your storage account. 
 	
 	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
 2. Click **Deploy** on the command bar to deploy the pipeline.

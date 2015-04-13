@@ -51,6 +51,6 @@ Next, you will update the app to authenticate users before requesting resources 
 
 <!-- URLs. -->
 
-[Create an iOS app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started-preview/
+[Create an iOS app]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com

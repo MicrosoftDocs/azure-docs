@@ -175,6 +175,9 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Monitoring and Diagnostics 
 Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
+### Application Lifecycle
+[Application Lifecycle](../service-fabric-application-lifecycle) **owner: matt**
+
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
 
@@ -225,7 +228,6 @@ Cluster Manager Service
 ImageStore Service
 
 Naming Service
-### Application Lifecyle  owner: matt
 ### Cluster Lifecycle
 ### Management APIs
 ### Application Security

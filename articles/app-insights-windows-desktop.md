@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Application Insights for Windows desktop apps" 
+	pageTitle="Application Insights for Windows desktop apps" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,30 +12,27 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="04/04/2015" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Monitor usage and performance in Windows desktop applications
+# Application Insights on Windows Desktop apps
 
 *Application Insights is in preview.*
 
-Application Insights lets you monitor your deployed application for:
+Application Insights lets you monitor your deployed application for usage and performance.
 
-* **Usage** - Learn how many users you have and what they are doing with your app.
-* **Performance issues and exceptions** - Monitor performance and understand its impact on users.
+*Although the Application Insights SDK can be made to work in a desktop app, it isn't a scenario we currently support. But if you'd like to try it experimentally, here are some tips for doing so.*
 
-In Windows Desktop applications, you have to use the API to send telemetry to the Application Insights portal. There is no automatic telemetry.
+
 
 ## <a name="add"></a> Create an Application Insights resource
 
 
-1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose Windows Store application. 
+1.  In the [Azure portal][portal], create a new Application Insights resource. For application type, choose ASP.NET app or Windows Store app. 
 
     ![Click New, Application Insights](./media/app-insights-windows-get-started/01-new.png)
 
-    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics]. You could choose ASP.NET app instead, for example if you want to call TrackRequest() to simulate server request telemetry.)
+    (Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].)
 
 2.  Take a copy of the Instrumentation Key.
 
@@ -49,13 +46,19 @@ In Windows Desktop applications, you have to use the API to send telemetry to th
 
 2. Install the Application Insights SDK core.
 
-   ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
+    ![Select **Online**, **Include prerelease**, and search for "Application Insights"](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-   (As an alternative, you could choose Application Insights SDK for Web Apps. This  provides some built-in performance counter telemetry. However, you'll see repeated trace messages in [diagnostic search][diagnostic] as the component complains that it can't find a web app.)
+    (As an alternative, you could choose Application Insights SDK for Web Apps. This provides some built-in performance counter telemetry. )
 
 3. Edit ApplicationInsights.config (which has been added by the NuGet install). Insert this just before the closing tag:
 
     &lt;InstrumentationKey&gt;*the key you copied*&lt;/InstrumentationKey&gt;
+
+    As an alternative you can achieve the same effect with this code:
+    
+    `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+4. If you installed the Web Apps SDK, you might also want to comment out the web telemetry modules from ApplicationInsights.config
 
 ## <a name="telemetry"></a>Insert telemetry calls
 
@@ -123,12 +126,8 @@ The first events will appear in Diagnostic Search.
 
 Click Refresh after a few seconds if you're expecting more data.
 
-Return to the Overview blade to see charts. (You won't see data for Crashes.) Click any chart to see more detail.
+If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade, where you'll see your metrics.
 
-
-## <a name="deploy"></a>Release your application to users
-
-[Publish your application](http://dev.windows.com/publish) and watch the data accumulate as users download and use it.
 
 
 ## <a name="usage"></a>Next Steps
@@ -142,6 +141,6 @@ Return to the Overview blade to see charts. (You won't see data for Crashes.) Cl
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
 
 

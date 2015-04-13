@@ -1,51 +1,50 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Analytics" 
-   description="User Interface Overview for Azure Mobile Engagement" 
+   description="Learn how to analyze historical data about your application using Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - User Interface
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" class="current" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
-# Analytics
- 
+# How to analyze historical data about your application
 The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 
-**See also:** 
+### See also
+-  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 21]
 
--  [Concepts - Glossary][Link 6], [Troubleshooting Guide - Analytics][Link 2]
-
-## Standard and Custom Analytics:
+## Standard and Custom Analytics
 Azure Mobile Engagement provides a set of basic, standard analytic information about your applications that can be graphed as soon as you integrate your app with the SDK. Azure Mobile Engagement also provides the ability to gather additional custom analytics information that you want about your end-users' behavior. You can do this by creating a tag plan of custom "app info tags", created from “Settings” so that Azure Mobile Engagement can collect this additional data for you.
 
-**See also:** 
+### See also
 -  [UI Documentation - Settings][Link 20]
  
-## Analytics Header:
+## Analytics Header
 - Item Name: Labels the item being counted
 - Show Help: Displays contextual information about this section
 - Versions: Allows you to show different analytics information about each version of your application or to show information for all versions. (Note: Filtering your analytics data in the UI will show all examples of this type regardless of the version of your app. For example, "Crashes" filtered by name will show from version 1 and version 2 of your app.)
@@ -55,7 +54,7 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
  
 ![Analytics1][10] 
 
-## Analytics:
+## Analytics
 - Dashboard: Shows general information about your new and actives users and their trends.
 - Users: Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval. A user is considered as retained if he has performed at least one session during the last 7 days. Active Users are users that made at least one session during a given period. You can sort by, monthly, weekly, daily, or hourly time periods. All of the charts look similar but allow you to filter by different features, such as the version of your application, and then to sort by a period of time. The standard information gathered by integrating the SDK includes the following: Active users, new user, number of sessions, length of each session, technical information about the country, locals, location, language carrier, devices, firmware, network (WIFI), versions of the app and SDK, used by customers. This information can be viewed in real time from the monitor section. 
 - Tracking by source displays the number of new users who have downloaded the application as a result of a given promotion campaign. Users are identified by their device identifier: this identifier is unique for each device (one new user is actually one new device). A user is considered as new on a given time interval if he has performed his first session during this time interval.
@@ -76,23 +75,19 @@ Azure Mobile Engagement provides a set of basic, standard analytic information a
 ![Analytics2][11] 
 
 ## Accessing the Retention Overview
- 
 ![Analytics3][12] 
 
 The retention overview is broken down in the middle into several cards, each showing the overview for a certain retention period. The 2-day retention period is seen in the example. The other cards show the 4-day and 7-day retention periods. 
 
 ## Understanding the Retention Overview cards
- 
 ![Analytics4][13] 
 
-Each card is composed of 3 main parts:
-
+### Each card is composed of 3 main parts:
 1. 1: The cohort and the period considered
 2. 2-4: The retention for the current period
 3. 5: A Sparkline of the history
 
-**Here is detailed information about each element:**
-
+### Here is detailed information about each element:
 1.    Cohort and period: This headline gives the type of cohort. Here "2-day period" means that we will look at the behavior of users over 2 days, Users that arrived over a period of 2 days, and whether they connect in the following blocks of 2 days. The example above considers the activity of users between the 21st and 22nd of November.
 2.    This gives the retention rate over the 21 and 22 of November for the users arriving in 19 and 20 of November. Here we had 1 active user between the 21st and 22nd, over the 3 that were new users between the 19th and 20th.
 3.    This visual indicator gives the same information as above represented graphically. (The third of the circle is from the 33% number.) The color gives additional information: Green indicates this number is growing from the previous calculation. Yellow means stable, and red means decreasing.
@@ -119,20 +114,20 @@ Each card is composed of 3 main parts:
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -172,7 +167,7 @@ Each card is composed of 3 main parts:
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
 [Link 15]: mobile-engagement-user-interface-analytics.md
 [Link 16]: mobile-engagement-user-interface-monitor.md
