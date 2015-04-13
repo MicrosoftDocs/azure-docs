@@ -85,14 +85,15 @@ How to Run the Chaos Test Scenario
 
 How to Run the Chaos Test Scenario (PowerShell)
 
-### Upgrade an Application owner: Mani
-How to Perform an Un-monitored Automatic Application Upgrade
-
-How to Perform a Monitored Automatic Application Upgrade
-
-How to Perform an Un-monitored Manual Application Upgrade
-
-How to Upgrade an Application (PowerShell)
+### Upgrading your Application owner: Mani
+a.      Sample Walkthrough
+b.      Upgrade Modes: 
+            i.       Automatic (MonitoredAuto)
+            ii.      Manual (MonitoredManual)
+c.      Upgrade Concepts & Parameters
+             i.     Commonly Used
+            ii.     Advanced
+d.      Troubleshooting Application Upgrades
 
 ### Scale Services and Partitions owner: Vas
 
