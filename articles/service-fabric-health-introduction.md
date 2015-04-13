@@ -62,10 +62,61 @@ The possible health states are:
 - Error: The entity is unhealthy. Action should be taken to fix the state of the entity, as it can't function properly.
 - Unknown: The entity doesn't exist in the health store. This result can be obtained from distributed queries like get the Service Fabric nodes or applications. These queries merge results from multiple system components. If another system component has an entity that has not reached the health store yet or that has been cleaned up from health store, the merged query will populate health result with 'Unknown' health state.
 
+## Health Policies
+The Health Store applies health policies to determine whether an entity is healthy based on its reports and its children.
+
+> [AZURE.NOTE] The health policies can be specified in the cluster manifest (for cluster and node health evaluation) or the application manifest (for application evaluation and any of its children). The health evaluation requests can also pass in custom health evaluations, which will be used only for that evaluation.
+
+By default, Service Fabric applies strict rules (everything must be healthy) for the parent-children hierarchical relationship; as long as one of the children has one unhealthy event, the parent is considered unhealthy.
+
+### Cluster Health Policy
+The cluster health policy is used to evaluate cluster health state and node health states. It can be defined in the cluster manifest.
+Contains:
+- **ConsiderWarningAsError**. Specifies whether to treat Warning health reports as errors during health evaluation. Default: False
+- **MaxPercentUnhealthyApplications**. Maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in Error.
+- **MaxPercentUnhealthyNodes**. Maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in Error.
+
+The following is an excerpt from a cluster manifest:
+```
+<FabricSettings>
+  <Section Name="HealthManager/ClusterHealthPolicy">
+    <Parameter Name=”ConsiderWarningAsError” Value=”False” />
+    <Parameter Name=”MaxPercentUnhealthyNodes” Value=”20” />
+    <Parameter Name=”MaxPercentUnhealthyApplications” Value=”0” />
+  </Section>
+</FabricSettings>
+```
+
+### Application Health Policy
+The application health policy describes how evaluation of events and children states aggregation is done for application and its children. It can be defined in the application manifest, ApplicationManifest.xml in the application package. If not specified, Service Fabric assumes the entity to be unhealthy if is has a health report or a child at Warning or Error health state.
+The configurable policies are:
+- **ConsiderWarningAsError**. Specifies whether to treat Warning health reports as errors during health evaluation. Default: False
+- **MaxPercentUnhealthyDeployedApplications**. Maximum tolerated percentage of deployed applications that can be unhealthy before the application is considered in Error. This is calculated by dividing the number of unhealthy deployed applications over the number of nodes that the applications is currently deployed on in the cluster. The computation rounds up to tolerate one failure on small number of nodes. Default: 0%.
+- **DefaultServiceTypeHealthPolicy**. Specifies the default service type health policy, which will replace the default health policy for all service types in the application.
+- **ServiceTypeHealthPolicyMap**. Map with service health policies per service type, which replace the default service type health policy for the specified service types. For example, in an application that contains a stateless Gateway service type and a stateful Engine service type, the health policy for the stateless and stateful service can be configured differently. Specifying policy per service types allows a more granular control of the health of the service.
+
+### Service Type Health Policy
+The service type health policy specifies how to evaluate and aggregate children on service. Contains:
+- **MaxPercentUnhealthyPartitionsPerService**. Maximum tolerated percentage of unhealthy partitions before a service is considered unhealthy. Default: 0%.
+- **MaxPercentUnhealthyReplicasPerPartition**. Maximum tolerated percentage of unhealthy replicas before a partition is considered unhealthy. Default: 0%.
+- **MaxPercentUnhealthyServices**. Maximum tolerated percentage of unhealthy services before the application is considered unhealthy. Default: 0%
+
+The following is an excerpt from an application manifest:
+```
+    <Policies>
+        <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
+            <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="10" MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
+                MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="20" MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
+                MaxPercentUnhealthyServices="20" MaxPercentUnhealthyPartitionsPerService="0" MaxPercentUnhealthyReplicasPerPartition="0">
+            </ServiceTypeHealthPolicy>
+        </HealthPolicy>
+    </Policies>
+```
+
 ## Entity Health Evaluation
 Users or automated services can evaluate any entity at any point in time. To evaluate an entity health, the Health Store aggregates all health reports on the entity and evaluates all its children (if applicable). The health aggregation algorithm uses health policies that specify how to evaluate health reports as well as how to aggregate children health states (if applicable).
-
-> [AZURE.NOTE] By default, the health policies are specified in the cluster manifest (for cluster and node health evaluation) or the application manifest (for application evaluation and any of its children). The health evaluation requests can also pass in custom health evaluations.
 
 ### Health Reports Aggregation
 One entity can have multiple health reports sent by different “reporters” (system components or watchdogs) on different properties. The aggregation uses the associated health policies, in particular the ConsisderWarningAsError member which specifies how to evaluate warnings.
@@ -79,11 +130,16 @@ If there are no Error reports, and one or more Warning, the aggregated health st
 [3]: ./media/service-fabric-health\servicefabric-health-report-eval-warning.png
 
 ### Children Entities Health Aggregation
-The aggregated health state of an entity reflects the children health states (when applicable). The algorithm for aggregating children health states uses the health policies applicable per entity type.
+The aggregated health state of an entity reflects the children health states (when applicable). The algorithm for aggregating children health states uses the health policies applicable based on the entity type.
 
 ![Children entities health aggregation.][4] Children aggregation based on health policies.
 [4]: ./media/service-fabric-health\servicefabric-health-hierarchy-eval.png
 
+After evaluating all children, the Health Store aggregates the health states based on the configured max percent unhealthy taken from the policy based on the entity and child type.
+- If all children have Ok states, the children aggregated health state is Ok.
+- If children have Ok and Warning states, the children aggregated health state is Warning.
+- If there are children with Error states that do not respect max allowed percentage of unhealthy children, the aggregated health state is error.
+- If the children with Error states respect the max allowed percentage of unhealthy children, the aggregated health state is Warning.
 
 ## Health Reporting
 System components and internal/external watchdogs can report against the system entities.
