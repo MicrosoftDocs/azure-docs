@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Starting a Runbook in Azure Automation"
+   pageTitle="Starting a runbook in Azure Automation"
    description="Describes how to start a runbook in Azure Automation using both the Azure Management Portal and using Windows PowerShell.  Includes information on providing parameter values."
    services="automation"
    documentationCenter=""

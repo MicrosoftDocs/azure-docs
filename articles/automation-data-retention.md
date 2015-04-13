@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Automation Data Retention"
+   pageTitle="Azure Automation data retention"
    description="Describes the data retention policy for Azure Automation."
    services="automation"
    documentationCenter=""

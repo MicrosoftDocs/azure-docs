@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Aure Automation Runbook Concepts"
+   pageTitle="Aure Automation runbook concepts"
    description="Describes basic concepts that you should understand for creating runbooks in Azure Automation. "
    services="automation"
    documentationCenter=""
@@ -15,7 +15,7 @@
    ms.date="04/13/2015"
    ms.author="bwren" />
 
-# Azure Automation Runbook Concepts
+# Azure Automation runbook concepts
 
 Runbooks in Azure Automation are implemented as Windows PowerShell Workflows. This section provides a brief overview of critical features of workflows that are common to Automation runbooks. Complete details on workflows are available in [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
 
@@ -24,7 +24,7 @@ Runbooks in Azure Automation are implemented as Windows PowerShell Workflows. Th
 
 A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that leverages Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
 
-### Basic Structure
+### Basic structure
 
 A Windows PowerShell Workflow starts with the **Workflow** keyword followed by the body of the script enclosed in braces. The name of the workflow follows the **Workflow** keyword as shown in the following syntax. The name of the workflow matches the name of the Automation runbook.
 
@@ -62,11 +62,11 @@ An activity is a specific task in a workflow. Just as a script is composed of on
 
 Workflow activities share a set of common parameters to configure their operation. For details about the workflow common parameters, see [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
 
-## Integration Modules
+## Integration modules
 
 An *Integration Module* is a package that contains a Windows PowerShell Module and can be imported into Azure Automation. Cmdlets in integration modules that are imported into Azure Automation are automatically available to all runbooks in the same Automation account. Since Azure Automation is based on Windows PowerShell 4.0, it supports auto loading of modules meaning that cmdlets from installed modules can be used without importing them into the script with [Import-Module](http://technet.microsoft.com/library/hh849725.aspx).
 
-## Parallel Execution
+## Parallel execution
 
 One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script. This is particularly useful in runbooks since they may perform multiple actions that take a significant time to complete. For example, a runbook might provision a set of virtual machines. Rather than performing each provisioning process in sequence with one another, the actions could be performed simultaneously increasing overall efficiency. Only when all are complete would the runbook continue.
 
@@ -122,7 +122,7 @@ You should set checkpoints in a runbook after activities that may be prone to ex
 
 For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
 
-## Suspending a Workflow
+## Suspending a workflow
 
 You can force a runbook to suspend itself with the **Suspend-Workflow** activity. This activity will set a checkpoint and cause the workflow to immediately suspend. Suspending a workflow is useful for runbooks that may require a manual step to be performed before another set of activities are run.
 

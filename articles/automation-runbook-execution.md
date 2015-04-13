@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Runbook Execution in Azure Automation"
+   pageTitle="Runbook execution in Azure Automation"
    description="Describes the details of how a runbook in Azure Automation is processed."
    services="automation"
    documentationCenter=""
