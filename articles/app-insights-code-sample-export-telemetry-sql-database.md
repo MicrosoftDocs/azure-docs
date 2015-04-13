@@ -145,7 +145,7 @@ You can put this code in `WorkerRole.cs`.
 
 #### Run the worker at regular intervals
 
-Replace the existing run method, and choose the interval you prefer. It should be at least one hour, because the export feature completes one JSON object in an hour.
+Replace the existing run method, and choose the interval you prefer. It should be at least one hour on the previous hour or before, because the export feature appends JSON documents to Blob file (add blocks) till the end of the current hour.
 
     public override void Run()
     {
