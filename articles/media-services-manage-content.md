@@ -160,7 +160,7 @@ To build an MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
 Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
 
->[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
+>[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a two year expiration date were created.  
 
 To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 

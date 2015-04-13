@@ -61,7 +61,7 @@ The following example shows the HTTP request header and body used to retrieve a 
 	
 **Body**:
 
-You need to proved the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
+You need to prove the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
 
 Note that the AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
 
