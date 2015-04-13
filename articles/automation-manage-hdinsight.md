@@ -33,12 +33,12 @@ Reduce operational overhead and free up IT and DevOps staff to focus on work tha
 
 ## How can Azure Automation help manage Azure HDInsight?
 
-HDInsight can be managed in Azure Automation by using the [Azure HDInsight cmdlets](https://msdn.microsoft.com/en-us/library/azure/dn479228.aspx) that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these cmdlets available out of the box, so that you can perform your HDInsight management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+HDInsight can be managed in Azure Automation by using the [Azure HDInsight cmdlets](https://msdn.microsoft.com/library/azure/dn479228.aspx) that are available in the [Azure PowerShell tools](https://msdn.microsoft.com/library/azure/jj156055.aspx). Azure Automation has these cmdlets available out of the box, so that you can perform your HDInsight management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
 
 With the Azure HDInsight cmdlets you can automate tasks such as provisioning HDInsight clusters on Linux or Windows, scaling clusters, managing clusters, and submitting MapReduce jobs. These are just a few of the many tasks that you can automate using PowerShell in Azure Automation.  
 
 
-## Next Steps
+## Next steps
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure HDInsight, follow this link to learn more about Azure Automation.
 
