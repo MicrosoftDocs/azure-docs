@@ -12,7 +12,7 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="04/08/2015" 
 	ms.author="anhoh"/>
 
