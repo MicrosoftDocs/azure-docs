@@ -3,7 +3,7 @@
 	description="Learn how to to create an API App in Azure App Service, using Visual Studio 2013 " 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="bradygaster" 
+	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -22,7 +22,7 @@
 
 This tutorial shows how to create an ASP.NET Web API project that is configured for deployment to the cloud as an API app in Azure App Service. Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
 
-The [API app](app-service-api-apps-why-best-platform.md) feature of [Azure App Service](app-service-value-prop-what-is.md) enables you to easily create, publish, consume, and manage web APIs - both APIs you create (using a framework like [ASP.NET Web API](http://www.asp.net/web-api) or the equivalent in other languages) and APIs from other Software as a Service (SaaS) platforms and cloud providers.
+The [API Apps](app-service-api-apps-why-best-platform.md) feature in [Azure App Service](app-service-value-prop-what-is.md) enables you to easily create, publish, consume, and manage web APIs - both APIs you create (using a framework like [ASP.NET Web API](http://www.asp.net/web-api) or the equivalent in other languages) and APIs from other Software as a Service (SaaS) platforms and cloud providers.
 
 [AZURE.INCLUDE [install-sdk-2013-only](../includes/install-sdk-2013-only.md)]
 
