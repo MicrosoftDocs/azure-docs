@@ -123,6 +123,11 @@ Yes, you can monitor health and usage if your server can send data to the public
 
 But if you want to run web tests for your service, it must be accessible from the public internet on port 80.
 
+#### I used to see data, but it has stopped
+
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
+
+
 ## The Portal
 
 #### <a name="q05"></a>I'm looking at the Microsoft Azure Preview start board. How do I find my data in Application Insights?
