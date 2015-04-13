@@ -24,9 +24,7 @@
 
 Event Hubs is a highly scalable ingestion system that can process millions of events per second, enabling your application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
 
-For more information about Event Hubs, please see [Event Hubs Overview].
-
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
+In this tutorial, you will learn how to use the Azure management portal to create and provision Event Hubs. You will also learn how to ingest messages into an Event Hub using a console application in C#, and to retrieve them in parallel using the C# [Event Processor Host] library.
 
 In order to complete this tutorial you will need the following:
 
@@ -81,6 +79,14 @@ Now you are ready to run the applications.
 
    	![][22]
 
+## Next steps
+
+For more information about Event Hubs, please see the following resources:
+
+- [Event Hubs Overview]
+- [Event Hubs Programming Guide]
+- [Event Hubs API Overview]
+
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
 [2]: ./media/service-bus-event-hubs-getstarted/create-event-hub2.png
@@ -96,3 +102,5 @@ Now you are ready to run the applications.
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Hubs Programming Guide]: https://msdn.microsoft.com/library/dn789972.aspx
+[Event Hubs API Overview]: https://msdn.microsoft.com/library/dn790190.aspx
