@@ -43,56 +43,7 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 3.	In the command line interface, type **azure storage** to list out all the azure storage commands and get a first impression of the functionalities xplat-cli provides. You can type command name with **-h** parameter (for example, **azure storage share create -h**) to see details of command syntax. 
 4.	Now, we’ll give you a simple script that shows basic xplat-cli commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
 
-    	#begin
-    	# Update with the name of your subscription.
-    	$SubscriptionName="YourSubscriptionName"
-    
-    	# Give a name to your new storage account. It must be lowercase! 
-    	$StorageAccountName="yourstorageaccountname"
-    
-    	# Choose "West US" as an example.
-    	$Location = "West US"
-    
-    	# Give a name to your new container.
-    	$ContainerName = "imagecontainer"
-    
-    	# Have an image file and a source directory in your local computer.
-    	$ImageToUpload = "C:\Images\HelloWorld.png"
-    
-    	# A destination directory in your local computer.
-    	$DestinationFolder = "C:\DownloadImages"
-    
-    	# Add your Azure account to the local PowerShell environment.
-    	Add-AzureAccount
-    
-    	# Set a default Azure subscription.
-    	Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-    
-    	# Create a new storage account.
-    	New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
-    
-    	# Set a default storage account.
-    	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    
-    	# Create a new container.
-    	New-AzureStorageContainer -Name $ContainerName -Permission Off
-    
-    	# Upload a blob into a container.
-    	Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload 
-    
-    	# List all blobs in a container.
-    	Get-AzureStorageBlob -Container $ContainerName
-    
-    	# Download blobs from the container:
-    	# Get a reference to a list of all blobs in a container.
-    	$blobs = Get-AzureStorageBlob -Container $ContainerName
-    
-    	# Create the destination directory.
-    	New-Item -Path $DestinationFolder -ItemType Directory -Force  
-    
-    	# Download blobs into the local destination directory.
-    	$blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
-    	#end
+    	azure storage container create 
     
 5.	In your local computer, open your preferred text editor (vim for example). Type the above script into your text editor.
 
@@ -153,8 +104,7 @@ Azure Blob storage is a service for storing large amounts of unstructured data, 
 ### How to create a container
 Every blob in Azure storage must be in a container. You can create a private container using the New-AzureStorageContainer cmdlet:
 
-    $StorageContainerName = "yourcontainername"
-    New-AzureStorageContainer -Name $StorageContainerName -Permission Off
+		azure storage container create
 
 > [AZURE.NOTE] There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
@@ -163,52 +113,24 @@ Azure Blob Storage supports block blobs and page blobs. For more information, se
 
 To upload blobs in to a container, you can use the **azure storage blob upload**. By default, this command uploads the local files to a block blob. To specify the type for the blob, you can use the -BlobType parameter. 
 
-    Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
+		azure storage blob upload
 
 ### How to download blobs from a container
 The following example demonstrates how to download blobs from a container. 
     
-    #Download blobs from a container. 
-    New-Item -Path $DestinationFolder -ItemType Directory -Force 
-    $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder -Context $Ctx
+		azure storage blob download
 
 ### How to copy blobs from one storage container to another
 You can copy blobs across storage accounts and regions asynchronously. The following example demonstrates how to copy blobs from one storage container to another in two different storage accounts. 
 
-    #Define the source storage account and context.
-    $SourceStorageAccountName = "yoursourcestorageaccount"
-    $SourceStorageAccountKey = "Storage key for yoursourcestorageaccount"
-    $SrcContainerName = "yoursrccontainername"
-    $SourceContext = New-AzureStorageContext -StorageAccountName $SourceStorageAccountName -StorageAccountKey $SourceStorageAccountKey
-    
-    #Define the destination storage account and context.
-    $DestStorageAccountName = "yourdeststorageaccount"
-    $DestStorageAccountKey = "Storage key for yourdeststorageaccount"
-    $DestContainerName = "destcontainername"
-    $DestContext = New-AzureStorageContext -StorageAccountName $DestStorageAccountName -StorageAccountKey $DestStorageAccountKey
-    
-    #Get a reference to blobs in the source container.
-    $blobs = Get-AzureStorageBlob -Container $SrcContainerName -Context $SourceContext
-    
-    #Copy blobs from one container to another.
-    $blobs| Start-AzureStorageBlobCopy -DestContainer $DestContainerName -DestContext $DestContext
+		azure storage blob copy start
 
 Note that this example performs an asynchronous copy. You can monitor the status of each copy by running the **azure storage blob show**.
 
 ### How to delete a blob
 To delete a blob, first get a blob reference and then call the Remove-AzureStorageBlob cmdlet on it. The following example deletes all the blobs in a given container. 
 
-    #Define the storage account and context.
-    $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $ContainerName = "containername"
-    $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    
-    #Get a reference to all the blobs in the container.
-    $blobs = Get-AzureStorageBlob -Container $ContainerName -Context $Ctx
-    
-    #Delete blobs in a specified container.
-    $blobs| Remove-AzureStorageBlob 
+		azure storage blob delete
 
 ## How to manage Azure file shares and files
 Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure xplat-cli.
