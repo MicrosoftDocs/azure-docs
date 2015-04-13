@@ -22,12 +22,12 @@ Service Fabric introduces a health model that provides a rich, flexible and exte
 The Health subsystem provides near real-time monitoring capabilities of the state of the cluster and services running in the cluster, which enables administrators or external services to obtain health information and take actions to correct any potential issues in the respective services or cluster before they cascade and cause massive outages. This model also forces the healthy and unhealthy determination of a particular entity to be the responsibility of the “reporter”, improving the scalability and manageability of the cloud service.
 
 ## Health Store
-The Health Store keeps health related information about entities in the cluster for easy retrieval and evaluation.
+The Health Store keeps health related information about entities in the cluster for easy retrieval and evaluation. It is implemented as a Service Fabric persisted stateful service to ensure high availability and scalability.
 
 ### Health Hierarchy
-The health entities are organized in a logical hierarchy that captures interactions and dependencies between different entities. The entities and the hierarchy are automatically built by the Health Store when it receives reports from the Service Fabric components.
+The health entities are organized in a logical hierarchy that captures interactions and dependencies between different entities. The entities and the hierarchy are automatically built by the Health Store based on reports received from the Service Fabric components.
 
-> [AZURE.NOTE] The health entities mirror the system entities (eg. Health application entity matches an application instance deployed in the cluster). The health hierarchy captures the interactions of the system entities.
+> [AZURE.NOTE] The health entities mirror the Service Fabric entities (eg. health application entity matches an application instance deployed in the cluster, health node entity matches a Service Fabric cluster node). The health hierarchy captures the interactions of the system entities and is used for advanced health evaluation.
 
 These entities allow an accurate, **granular** representation of the health of the many moving pieces in the cluster. The granularity makes it easier to detect issues and perform corrective actions. For example, if a service is not responding, it is feasible to report that the application instance is unhealthy, however it is not ideal because the issue might not be affecting all other services within that application. The availability of granular entities for reporting allows for more effective reporting and corrective actions to be taken to resolve the issue.
 Pushing these decisions about how to report and respond to health at a granular level to design time makes large cloud services easier to debug, monitor, and subsequently operate.
