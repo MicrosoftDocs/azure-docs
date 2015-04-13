@@ -80,4 +80,4 @@ You can use the **Backup Catalog** page to restore your device from a specific b
 
 ## Next steps
 
-Learn about [StorSimple disaster recovery](storsimple-disaster-recovery.md)
+Learn how to [Manage storsimple volumes](storsimple-manage-volumes.md)
