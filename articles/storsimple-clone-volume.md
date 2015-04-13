@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/10/2015"
+   ms.date="04/13/2015"
    ms.author="v-sharos" />
 
 # Clone a StorSimple volume
@@ -61,7 +61,7 @@ You can create a clone on the same device, another device, or even a virtual mac
 
 >[AZURE.NOTE] Monitoring and default backup are automatically disabled on a cloned volume.
 
-A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#Transient-vs.-permanent-clones).
+A clone that is created this way is a transient clone. For more information about clone types, see [Transient vs. permanent clones](#transient-vs.-permanent-clones).
 
 This clone is now a regular volume, and any operation that is possible on a volume will be available for the clone. You will need to configure this volume for any backups.
 
@@ -84,6 +84,6 @@ You need to recover a one-year-old Microsoft PowerPoint presentation file. Your 
 You need to verify a testing bug in the production environment. You create a clone of the volume in the production environment. For increased performance, you need to take a cloud snapshot of this clone. The cloned volume is now independent, which results in faster performance. In this scenario, a permanent clone is used.
 
 ## Next steps
-Learn how to [restore from a backup set](storsimple-restore-from-backup-set.md)
+Learn how to [restore a StorSimple volume from a backup set](storsimple-restore-from-backup-set.md).
 
 
