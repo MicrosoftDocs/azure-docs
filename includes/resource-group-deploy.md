@@ -1,6 +1,6 @@
 ## How to use PowerShell
 
->[AZURE.NOTE] To install the latest Azure PowerShell cmdlets, see [How to install and configure Azure PowerShell](./powershell-install-configure.md).
+>[AZURE.NOTE] To install the latest Azure PowerShell cmdlets, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md).
 
 1. Login to your Azure account.
 
@@ -42,7 +42,7 @@
 
 ## How to use xplat-cli
 
->[AZURE.NOTE] To install the latest Azure xplat cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface](./xplat-cli.md).
+>[AZURE.NOTE] To install the latest Azure xplat cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface](../articles/xplat-cli.md).
 
 1. Login to your Azure account.
 
