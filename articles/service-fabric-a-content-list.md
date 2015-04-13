@@ -93,7 +93,7 @@ b.      Upgrade Modes:
 c.      Upgrade Concepts & Parameters
              i.     Commonly Used
             ii.     Advanced
-d.      Troubleshooting Application Upgrades
+d.      Troubleshooting Application Upgrades (Alex/Chacko)
 
 ### Scale Services and Partitions owner: Vas
 
