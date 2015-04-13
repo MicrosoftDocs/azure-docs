@@ -18,10 +18,11 @@
 
 #Create a simple experiment in Azure Machine Learning Studio 
  
-A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
+In this article, 
+we'll create a machine learning model that will predict the price of an automobile based on different variables such as make and technical specifications. 
+To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
 
-In this article, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
-The goal is to create a regression model that will predict the price of an automobile based on different variables such as make and technical specifications. 
+A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
 To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
  
