@@ -22,14 +22,14 @@
 
 This article provides a roadmap and a few best practices for creating and maintaining the Search service and its indexes. 
 
-We assume that you have already provisioned the service. If you haven’t done that yet, see [Get started with Azure Search](../search-get-started/) for further instruction.
+We assume that you have already provisioned the service. If you haven’t done that yet, see [Get started with Azure Search](search-get-started.md) for further instruction.
 
 <a id="sub-1"></a>
 ## Step 1: Create the index
 
 Queries target a search index that contains search data and attributes. As such, your first step after provisioning the service is to define the index schema in JSON format, and execute an HTTPS PUT request to create the index in the service. 
 
-Indexes are constructed by your application code. There are no built-in tools or editors to help you define an index in a user interface. Examples that demonstrate various ways of constructing the index include [Create your first search solution using Azure Search](../search-create-first-solution/), where the schema is specified in the Program.cs file, and [Get started with scoring profiles in Azure Search](../search-get-started-scoring-profiles) that provides the index in a standalone JSON schema file. To learn more about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/library/dn798941.aspx) on MSDN.
+Indexes are constructed by your application code. There are no built-in tools or editors to help you define an index in a user interface. Examples that demonstrate various ways of constructing the index include [Create your first search solution using Azure Search](search-create-first-solution.md), where the schema is specified in the Program.cs file, and [Get started with scoring profiles in Azure Search](search-get-started-scoring-profiles.md) that provides the index in a standalone JSON schema file. To learn more about creating the index, see [Create Index (Azure Search API)](http://msdn.microsoft.com/library/dn798941.aspx) on MSDN.
 
 <a id="sub-2"></a>
 ## Step 2: Add documents
@@ -81,7 +81,7 @@ For more information about creating indexes or documents, see the [Azure Search 
 <!--Image references-->
 
 <!--Link references-->
-[Get started with Azure Search]: ../search-get-started/
-[Manage your search service on Microsoft Azure]: ../search-manage/
-[Create your first search solution using Azure Search]: ../search-create-first-solution/
+[Get started with Azure Search]: search-get-started.md
+[Manage your search service on Microsoft Azure]: search-manage.md
+[Create your first search solution using Azure Search]: search-create-first-solution.md
 

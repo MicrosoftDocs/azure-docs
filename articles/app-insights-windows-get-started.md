@@ -2,8 +2,9 @@
 	pageTitle="Application Insights: Get started with Windows Phone and Store apps" 
 	description="Analyze usage and performance of your Windows device app with Application Insights." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-20" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
 
 # Application Insights: Get started with Windows device apps
@@ -122,7 +123,6 @@ Click any chart to see more detail.
 
 
 
-
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
 
 

@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="04/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
 
 This section provides an index for the policies in the [API Management policy reference][]. For information on adding and configuring policies, see [Policies in API Management][].
+
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow][] and [Set variable][] policies are based on policy expressions. For more information, see [Advanced policies][] and [Policy expressions][].
 
 ## Policy reference index
 
@@ -28,6 +30,9 @@ This section provides an index for the policies in the [API Management policy re
 	-	[Restrict caller IPs][] - Filters (allows/denies) calls from specific IP addresses and/or address ranges.
 	-	[Set usage quota][] - Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota.
 	-	[Validate JWT][] - Enforces existence and validity of a JWT extracted from either a specified HTTP Header or a specified query parameter.
+-	[Advanced policies][]
+	-	[Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
+	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
 	-	[Authenticate with client certificate][] - Authenticate with a backend service using client certificates.
@@ -55,6 +60,13 @@ This section provides an index for the policies in the [API Management policy re
 [Restrict caller IPs]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#RestrictCallerIPs
 [Set usage quota]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#SetUsageQuota
 [Validate JWT]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#ValidateJWT
+
+[Advanced policies]: https://msdn.microsoft.com/library/azure/dn894085.aspx
+[Control flow]: https://msdn.microsoft.com/library/azure/dn894085.aspx#choose
+[Set variable]: https://msdn.microsoft.com/library/azure/dn894085.aspx#set_variable
+[expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
+[context]: https://msdn.microsoft.com/library/azure/ea160028-fc04-4782-aa26-4b8329df3448#ContextVariables
+
 [Authentication policies]: https://msdn.microsoft.com/library/azure/dn894079.aspx
 [Authenticate with Basic]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#Basic
 [Authenticate with client certificate]: https://msdn.microsoft.com/library/azure/061702a7-3a78-472b-a54a-f3b1e332490d#ClientCertificate
@@ -79,6 +91,8 @@ This section provides an index for the policies in the [API Management policy re
 
 
 
-[Policies in API Management]: ../api-management-howto-policies
+[Policies in API Management]: api-management-howto-policies.md
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
+
+[Policy expressions]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 

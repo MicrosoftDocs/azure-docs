@@ -208,7 +208,7 @@ See the [Get started with Azure Data Factory][data-factory-get-started] topic fo
 [msdn-linkedservices-reference]: https://msdn.microsoft.com/library/dn834986.aspx       
 [msdn-pipelines-reference]: https://msdn.microsoft.com/library/dn834988.aspx  
 
-[data-factory-get-started]: ../data-factory-get-started
+[data-factory-get-started]: data-factory-get-started.md
 
 [author-and-deploy-tile]: ./media/data-factory-editor/author-and-deploy-tile.png
 [data=factory-editor]: ./media/data-factory-editor/data-factory-editor.png

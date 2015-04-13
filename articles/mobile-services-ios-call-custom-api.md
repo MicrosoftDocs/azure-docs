@@ -47,9 +47,9 @@ This topic shows you how to call a custom API from an iOS app. A custom API lets
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Mobile Services Quick Start]: /documentation/articles/mobile-services-ios-get-started/
-[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started/
-[Get started with data]: /documentation/articles/mobile-services-ios-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-ios-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-ios-get-started-push/
-[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control
+[Mobile Services Quick Start]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
+[Get started with data]: mobile-services-ios-get-started-data.md
+[Get started with authentication]: mobile-services-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-ios-get-started-push.md
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

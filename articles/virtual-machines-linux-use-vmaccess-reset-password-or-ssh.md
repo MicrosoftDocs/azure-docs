@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/24/2015" 
 	ms.author="kathydav"/>
 
 # How to Reset a Password or SSH for Linux Virtual Machines #
@@ -22,15 +22,118 @@ If you can't connect to a Linux virtual machine because of a forgotten password,
 
 ## Requirements
 
-- Microsoft Azure Linux Agent version 2.0.5 or later. Most Linux images in the Virtual Machine gallery include version 2.0.5. To find out which version is installed, run `waagent -version`. To update the agent, follow the instructions in the [Azure Linux Agent User Guide].
-- Azure PowerShell. You'll use commands in the **Set-AzureVMExtension** cmdlet to automatically load and configure the **VMAccessForLinux** extension. For details on setting up Azure PowerShell, see [How to install and configure Azure PowerShell].
+- Microsoft Azure Linux Agent version 2.0.5 or later. Most Linux images in the Virtual Machine gallery include version 2.0.5. To find out which version is installed, run **waagent -version**. To update the agent, follow the instructions in the [Azure Linux Agent User Guide].
+- Azure Cross-Platform Command-Line Interface (CLI). For details on setting up the Cross-Platform CLI, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+- Azure PowerShell. You'll use commands in the Set-AzureVMExtension cmdlet to automatically load and configure the VMAccessForLinux extension. For details on setting up Azure PowerShell, see [How to install and configure Azure PowerShell].
 - A new password or set of SSH keys, if you want to reset either one. You don't need these if you want to reset the SSH configuration. 
 
-## No installation needed
+### No installation needed
 
 The VMAccess extension doesn't need to be installed before you can use it. As long as the Linux Agent is installed on the virtual machine, the extension is loaded automatically when you run an Azure PowerShell command that uses the **Set-AzureVMExtension** cmdlet. 
 
-## Use the extension to reset a password, SSH key, or the SSH configuration, or to delete a user
+## Use the Cross-Platform CLI
+
+With the Cross-Platform CLI, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access commands. Run **azure vm extension set –help** for detailed extension usage.
+
+With the Cross-Platform CLI, you can do the following tasks:
+
++ [Reset the password](#pwresetcli)
++ [Reset the SSH key](#sshkeyresetcli)
++ [Reset the password and the SSH key](#resetbothcli)
++ [Create a new sudo user account](#createnewsudocli)
++ [Reset the SSH configuration](#sshconfigresetcli)
++ [Delete a user](#deletecli)
++ [Display the status of the VMAccess extension](#statuscli)
+
+### <a name="pwresetcli"></a>Reset the password 
+
+Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
+
+	{
+	"username":"currentusername",
+	"password":"newpassword",
+	"expiration":"2016-01-01",
+	}
+
+Step 2: Run this command, substituting the name of your virtual machine for "vmname".
+
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* –-private-config-path PrivateConf.json
+
+### <a name="sshkeyresetcli"></a>Reset the SSH key
+
+Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
+
+	{
+	"username":"currentusername",
+	"ssh_key":"contentofsshkey",	
+	}
+
+Step 2: Run this command, substituting the name of your virtual machine for "vmname".
+
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+
+### <a name="resetbothcli"></a>Reset the password and the SSH key
+
+Step 1: Create a file named PrivateConf.json with these contents, substituting for the placeholder values.
+
+	{
+	"username":"currentusername",
+	"ssh_key":"contentofsshkey",
+	"password":"newpassword",
+	}
+
+Step 2: Run this command, substituting the name of your virtual machine for "vmname".
+
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+
+### <a name="createnewsudocli"></a>Create a new sudo user account
+
+If you forget your user name, you can use VMAccess to create a new one with the sudo authority. In this case, the existing user name and password will not be modified.
+
+To create a new sudo user with password access, use the script in [Reset the password](#pwresetcli) and specify the new user name.
+
+To create a new sudo user with SSH key access, use the script in [Reset the SSH key](#sshkeyresetcli) and specify the new user name.
+
+You can also use [Reset the password and the SSH key](#resetbothcli) to create a new user with both password and SSH key access.
+
+### <a name="sshconfigresetcli"></a>Reset the SSH configuration
+
+If the SSH configuration is in an undesired state, you might also lose access to the VM. You can use the VMAccess extension to reset the configuration to its default state. To do so, you just need to set the “reset_ssh” key to “True”. The extension will restart the SSH server, open the SSH port on your VM, and reset the SSH configuration to default values. The user account (name, password or SSH keys) will not be changed. 
+
+> [AZURE.NOTE] The SSH configuration file that gets reset is located at /etc/ssh/sshd_config.
+
+Step 1: Create a file named PrivateConf.json with this content.
+
+	{
+	"reset_ssh":"True",
+	}
+
+Step 2: Run this command, substituting the name of your virtual machine for "vmname". 
+
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+
+### <a name="deletecli"></a>Delete a user
+
+If you want to delete a user account without logging into to the VM directly, you can use this script.
+
+Step 1: Create a file named PrivateConf.json with this content, substituting for the placeholder value.
+
+	{
+	"remove_user":"usernametoremove",
+	}
+
+Step 2: Run this command, substituting the name of your virtual machine for "vmname".
+
+	azure vm extension set vmname VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
+
+### <a name="statuscli"></a>Display the status of the VMAccess extension
+
+To display the status of the VMAccess extension, run this command.
+
+	azure vm extension get
+
+
+## Use Azure PowerShell
 
 You'll use the **Set-AzureVMExtension** cmdlet to make any of the changes that VMAccess lets you make. In all cases, start by using the cloud service name and virtual machine name to get the virtual machine object and store it in a variable. 
 
@@ -58,6 +161,7 @@ Then, you can do the following tasks:
 + [Reset the password and the SSH key](#both)
 + [Reset the SSH configuration](#config)
 + [Delete a user](#delete)
++ [Display the status of the VMAccess extension](#status)
 
 ### <a name="password"></a>Reset the password
 
@@ -124,6 +228,14 @@ Fill in the Linux user name to delete, and then run these commands.
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
+
+### <a name="status"></a>Display the status of the VMAccess extension
+
+To display the status of the VMAccess extension, run this command.
+
+	$vm.GuestAgentStatus
+
+
 ## Additional resources
 
 [Azure VM Extensions and Features] []
@@ -132,8 +244,8 @@ Fill in the Linux user name to delete, and then run these commands.
 
 
 <!--Link references-->
-[Azure Linux Agent User Guide]: ../virtual-machines-linux-agent-user-guide
-[How to install and configure Azure PowerShell]: ../install-configure-powershell
+[Azure Linux Agent User Guide]: virtual-machines-linux-agent-user-guide.md
+[How to install and configure Azure PowerShell]: install-configure-powershell.md
 [Azure VM Extensions and Features]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [Connect to an Azure virtual machine with RDP or SSH]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 

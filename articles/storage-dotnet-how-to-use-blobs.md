@@ -47,9 +47,10 @@ We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dl
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
+    using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-	using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage.Blob;
 
 Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
@@ -309,46 +310,22 @@ This example shows a flat blob listing, but you can also perform a hierarchical 
 
 Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.
 
-    async public static Task ListBlobsSegmentedInFlatListing()
+    async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        // Retrieve storage account from connection string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-        // Create the blob client.
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-        // Retrieve reference to a previously created container.
-        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
-
-        //List blobs in pages.
+        //List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
-        //List blobs with a paging size of 10, for the purposes of the example. 
-		//The first call does not include the continuation token.
-        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
-                "", true, BlobListingDetails.All, 10, null, null, null);
-
-        //Enumerate the result segment returned.
         int i = 0;
-        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
-        foreach (var blobItem in resultSegment.Results)
-        {
-            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
-        }
-        Console.WriteLine();
+        BlobContinuationToken continuationToken = null;
+        BlobResultSegment resultSegment = null;
 
-        //Get the continuation token, if there are additional pages of results.
-        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
-
-        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
-        while (continuationToken != null)
+        //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+        //When the continuation token is null, the last page has been returned and execution can exit the loop.
+        do
         {
-            //This overload allows control of the page size. 
-			//You can return all remaining results by passing null for the maxResults parameter, 
+            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter, 
             //or by calling a different overload.
-            resultSegment = await container.ListBlobsSegmentedAsync(
-					"", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
             foreach (var blobItem in resultSegment.Results)
             {
@@ -356,9 +333,10 @@ Because the sample method calls an asynchronous method, it must be prefaced with
             }
             Console.WriteLine();
 
-            //Get the next continuation token.
+            //Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
         }
+        while (continuationToken != null);
     }
 
 ## Next steps

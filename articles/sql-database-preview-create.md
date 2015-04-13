@@ -19,7 +19,7 @@
 
 # Create a database in the  SQL Database V12
 
-[Sign up](https://portal.azure.com) for the SQL Database V12 [(Preview in some regions)](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable) to take advantage of the next generation of  SQL Database on Microsoft Azure. To get started, you need a subscription for Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
+[Sign up](https://portal.azure.com) for the SQL Database V12 [(Preview in some regions)](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable) to take advantage of the next generation of  SQL Database on Microsoft Azure. To get started, you need a subscription for Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
 
 
 | Create database | Screen shot |
@@ -36,13 +36,13 @@
 |6. Click **Select Source**. The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.| ![Select the source for the database][10]|
 |7. Next, in the **SQL database** blade, click **PRICING TIER**. You can select one of the recommended pricing tier or **View all** available pricing tiers. After you make a choice, click **Select**. <p> For more information about pricing tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](./sql-database-upgrade-new-service-tiers/) and [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Select a pricing tier][7]
 | 8. Next, in **SQL database** blade, click **Optional Configuration**, make the selections and click **OK**. 
-| 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](./azure-preview-portal-using-resource-groups)|![Specify Resource group][11]
+| 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](azure-preview-portal-using-resource-groups.md)|![Specify Resource group][11]
 | 10. Click **Create**. A new database with SQL Database V12 features is created. |![Creates a new database][12]
 
 # Related Links  #
 
 -  [What's new in Azure SQL Database](./sql-database-preview-whats-new/)
-- [Plan and Prepare to Upgrade to Azure SQL Database V12](./sql-database-preview-plan-prepare-upgrade/)
+- [Plan and Prepare to Upgrade to Azure SQL Database V12](sql-database-preview-plan-prepare-upgrade.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-preview-create/firstscreenportal.png

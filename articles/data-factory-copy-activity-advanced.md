@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="03/26/2015" 
 	ms.author="spelluru"/>
 
 # Advanced scenarios for using the Copy Activity in Azure Data Factory 
@@ -261,7 +261,7 @@ The data types specified in the Structure section of the Table definition is onl
 **Note:** Azure Table only support a limited set of data types, please refer to [Understanding the Table Service Data Model][azure-table-data-type].
 
 ## Invoke stored procedure for SQL Sink
-When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked. 
+When copying data into SQL Server or Azure SQL Database, a user specified stored procedure could be configured and invoked with additional parameters. 
 ### Example
 1. Define the JSON of output Table as follows (take Azure SQL Database table as an example):
 
@@ -289,17 +289,26 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
 	    {
 			"type": "SqlSink",
 	        "SqlWriterTableType": "MarketingType",
-	        "SqlWriterStoredProcedureName": "spOverwriteMarketing"
+		    "SqlWriterStoredProcedureName": "spOverwriteMarketing",	
+			"storedProcedureParameters":
+					{
+                    	"stringData": 
+						{
+                        	"value": "str1"		
+						}
+                    }
 	    }
 
 3. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source, and insert into the output table. Notice that the parameter name of the stored procedure should be the same as the **tableName** defined in Table JSON file.
 
-    	CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY
-    	AS
-	    BEGIN
-	        INSERT [dbo].[Marketing](ProfileID, State)
-	        SELECT * FROM @Marketing
-	    END
+		CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+		AS
+		BEGIN
+			DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    		INSERT [dbo].[Marketing](ProfileID, State)
+    		SELECT * FROM @Marketing
+		END
+
 
 4. In your database, define the table type with the same name as **SqlWriterTableType**. Notice that the schema of the table type should be same as the schema returned by your input data.
 
@@ -308,16 +317,28 @@ When copying data into SQL Server or Azure SQL Database, a user specified stored
     	    [State] [varchar](256) NOT NULL,
     	)
 
-The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters]. 
+The stored procedure feature takes advantage of [Table-Valued Parameters][table-valued-parameters].
+
+## Specify encoding for text files
+Though UTF-8 encoding is quite popular, often time text files in Azure Blob follow other encodings due to historical reasons. The **encodingName** property allows you to specify the encoding by code page name for tables of TextFormat type. For the list of valid encoding names, see: Encoding.EncodingName Property. For example: windows-1250 or shift_jis. The default value is: UTF-8. See [Encoding class](https://msdn.microsoft.com/library/system.text.encoding(v=vs.110).aspx) for valid encoding names.  
+
+## See Also
+
+- [Examples for using Copy Activity][copy-activity-examples]
+- [Copy data with Azure Data Factory][adf-copyactivity]
+- [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
+
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 [table-valued-parameters]: http://msdn.microsoft.com/library/bb675163.aspx
 
 
-[adfgetstarted]: ../data-factory-get-started
-[adf-copyactivity]: ../data-factory-copy-activity
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
+[adfgetstarted]: data-factory-get-started.md
+[adf-copyactivity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[copy-activity-examples]: data-factory-copy-activity-examples.md
+
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 [azure-table-data-type]: https://msdn.microsoft.com/en-us/library/azure/dd179338.aspx

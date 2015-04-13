@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/08/2015" 
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -94,8 +94,8 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
-   <td valign="middle"><p>300</p></td>
-   <td valign="middle"><p>300</p></td>
+   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>500</p></td>
 </tr>
 
 <tr>
@@ -284,7 +284,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-## DocumentDB Preview Limits
+## DocumentDB Limits
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 

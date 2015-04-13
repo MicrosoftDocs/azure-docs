@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/31/2015" 
 	ms.author="bradsev"/> 
 
 # Script Action development with HDInsight 
@@ -112,7 +112,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 - [Install and use Solr on HDInsight clusters](../hdinsight-hadoop-solr-install)
 - [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
 
@@ -120,7 +120,7 @@ A straight-forward way to test a custom script before using it in the HDInsight 
 
 This section outlines the procedure for using the HDInsight Emulator locally for testing purposes, but the procedure for using a VM is similar.
 
-**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/).
+**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](../hdinsight-get-started-emulator/).
 
 **Set the execution policy for Azure PowerShell** - Open Azure PowerShell and run (as administrator) the following command to set the execution policy to *LocalMachine* and to be *Unrestricted*:
  
@@ -128,10 +128,12 @@ This section outlines the procedure for using the HDInsight Emulator locally for
 
 We need this policy to be unrestricted as scripts are not signed.
 
-**Download the script action** that you want to run to a local destination. The Spark and R scripts that can be run locally are available, for example, from the following locations:
+**Download the script action** that you want to run to a local destination. The following sample scripts are available to download from the following locations:
 
-* https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
-* https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
+* **Spark**. https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
+* **R**. https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
+* **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
+* **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
 
 **Run the script action** - Open a new Azure PowerShell window in admin mode and run the Spark or R installation script from the local location where they were saved.
 

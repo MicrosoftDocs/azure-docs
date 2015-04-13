@@ -1,20 +1,21 @@
 <properties 
 	pageTitle="Configuring Python with Azure Websites" 
 	description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter="python" 
+	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="02/09/2015" 
-	ms.author="huvalo"/>
+	ms.author="huguesv"/>
 
 
 
@@ -382,6 +383,6 @@ Contents of `ptvs_virtualenv_proxy.py`:
 
 
 
-[Creating Websites with Bottle]: ../web-sites-python-create-deploy-bottle-app
-[Creating Websites with Django]: ../web-sites-python-create-deploy-django-app
-[Creating Websites with Flask]: ../web-sites-python-create-deploy-flask-app
+[Creating Websites with Bottle]: web-sites-python-create-deploy-bottle-app.md
+[Creating Websites with Django]: web-sites-python-create-deploy-django-app.md
+[Creating Websites with Flask]: web-sites-python-create-deploy-flask-app.md

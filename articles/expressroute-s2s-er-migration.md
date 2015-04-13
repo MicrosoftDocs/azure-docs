@@ -17,7 +17,7 @@
    
 # Connection migration: from site-to-site VPN to ExpressRoute
 
-Azure customers can connect to their virtual network in two ways: site-to-site VPN and ExpressRoute. The site-to-site VPN connection goes over the public Internet. IPsec is used to encrypt the network traffic. ExpressRoute is a private connection to Azure. You can connect to Azure either through an [Exchange Provider (EXP)](../expressroute-exchange-providers) or a [Network Service Provider (NSP)](../expressroute-network-service-providers).
+Azure customers can connect to their virtual network in two ways: site-to-site VPN and ExpressRoute. The site-to-site VPN connection goes over the public Internet. IPsec is used to encrypt the network traffic. ExpressRoute is a private connection to Azure. You can connect to Azure either through an [Exchange Provider (EXP)](expressroute-exchange-providers.md) or a [Network Service Provider (NSP)](expressroute-network-service-providers.md).
 
 If you already have a site-to-site VPN connection to your virtual network, you can follow the steps below to migrate it to connect through ExpressRoute.
 
@@ -45,6 +45,6 @@ b) Change the CIDR for the gateway subnet to /28
  
 When the new gateway is created the virtual network is ready to connect to an ExpressRoute circuit. All the virtual machines in the virtual network are up and running throughout the process. There is no need to move or shut down them.
 
-Go to the last step of the configuring ExpressRoute through [Exchange Providers](../expressroute-configuring-exps) / [Network Service Providers](../expressroute-configuring-nsps) tutorial to link your virtual network to the ExpressRoute circuit.
+Go to the last step of the configuring ExpressRoute through [Exchange Providers](expressroute-configuring-exps.md) / [Network Service Providers](expressroute-configuring-nsps.md) tutorial to link your virtual network to the ExpressRoute circuit.
 
 

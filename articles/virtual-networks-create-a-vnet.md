@@ -57,7 +57,7 @@ Once you create your virtual network, you can add new VMs and PaaS instances to 
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://azure.microsoft.com/documentation/articles/virtual-networks-using-network-configuration-file/)
+-  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 
 -  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
  

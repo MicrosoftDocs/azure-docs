@@ -2,8 +2,9 @@
 	pageTitle="Using Diagnostic Search" 
 	description="Search and filter individual events, requests, and log traces." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-04" 
+	ms.date="02/04/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -39,7 +40,7 @@ The main body of Diagnostic Search is a list of telemetry items - server request
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
@@ -204,12 +205,26 @@ Here are the search expressions you can use:
 
 </table>
 
+## Save your search
+
+When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
+
+![](./media/app-insights-diagnostic-search/08-favorite-save.png)
+
+
+To see the search again, **go to the overview blade** and open Favorites:
+
+![](./media/app-insights-diagnostic-search/09-favorite-get.png)
+
+If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
+
+
 ## Send more telemetry to Application Insights
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
-* Write code to send custom events, page views, and exceptions. 
+* Capture log traces from your favorite logging framework in [.NET][netlogs] or [Java][javalogs]. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
+* [Write code][track] to send custom events, page views, and exceptions. 
 
 [Learn how to send logs and custom telemetry to Application Insights][trace].
 

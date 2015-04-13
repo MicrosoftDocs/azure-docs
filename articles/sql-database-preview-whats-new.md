@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="04/06/2015" 
 	ms.author="genemi"/>
 
 
@@ -21,18 +21,18 @@
 
 
 <!--
-GeneMi , 2015-March-09 Monday 15:15pm
-Voice, per J.G.
+GeneMi , 2015-April-06 Monday 18:33pm
+Cautions During Upgrade: changes requested by PM Sonia Parchani.
 -->
 
 
-Azure SQL Database version V12 ([at preview in some regions](../sql-database-preview-whats-new/#V12AzureSqlDbPreviewGaTable)) now provides nearly complete compatibility with the Microsoft SQL Server engine. The recent enhancements help to streamline SQL Server application migrations to SQL Database, and they help your system robustly process heavier database workloads.
+Azure SQL Database version V12 ([at preview in some regions](sql-database-preview-whats-new.md#V12AzureSqlDbPreviewGaTable)) now provides nearly complete compatibility with the Microsoft SQL Server engine. The recent enhancements help to streamline SQL Server application migrations to SQL Database, and they help your system robustly process heavier database workloads.
 
 
-[Sign up](https://portal.azure.com) for SQL Database to then [get started](http://azure.microsoft.com/documentation/articles/sql-database-get-started/) with this new generation on Microsoft Azure. You first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.
+[Sign up](https://portal.azure.com) for SQL Database to then [get started](sql-database-get-started.md) with this new generation on Microsoft Azure. You first need a subscription to Microsoft Azure. You can sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information.
 
 
-Your path to planning and upgrading your earlier version databases to V12 starts at [Plan and prepare to upgrade to SQL Database V12](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+Your path to planning and upgrading your earlier version databases to V12 starts at [Plan and prepare to upgrade to SQL Database V12](sql-database-preview-plan-prepare-upgrade.md).
 
 
 ## Highlights
@@ -44,7 +44,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **Choose a version** of SQL Database server when you use the Azure preview portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
 
 
-- **Security** enjoys the new feature of [users in contained databases](../sql-database-preview-whats-new/#UsersInContainedDatabases). Two other features are [row-level security](../sql-database-preview-whats-new/#RowLevelSecurity) and [dynamic data masking](../sql-database-preview-whats-new/#DynamicDataMasking), although these are still at preview and are not yet at GA.
+- **Security** enjoys the new feature of [users in contained databases](sql-database-preview-whats-new.md#UsersInContainedDatabases). Two other features are [row-level security](sql-database-preview-whats-new.md#RowLevelSecurity) and [dynamic data masking](sql-database-preview-whats-new.md#DynamicDataMasking), although these are still at preview and are not yet at GA.
 
 
 - **Easier management** of large databases to support heavier workloads with parallel queries (Premium only), [table partitioning](http://msdn.microsoft.com/library/ms187802.aspx), [online indexing](http://msdn.microsoft.com/library/ms188388.aspx), worry-free large index rebuilds with 2GB size limit removed, and more options on the [ALTER DATABASE](http://msdn.microsoft.com/library/bb522682.aspx) command.
@@ -59,7 +59,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **Monitoring and troubleshooting** are improved with visibility into over 100 new table views in an expanded set of Database Management Views ([DMVs](http://msdn.microsoft.com/library/ms188754.aspx))
 
 
-- **New S3 performance level in the Standard tier:** offers more [pricing](../sql-database-upgrade-new-service-tiers/) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
+- **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
 ## V12 enhancements
@@ -88,7 +88,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Feature | Description |
 | :--- | :--- |
 | . | ***February 2015:*** |
-| <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/). |
+| <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md). |
 | . | ***January 2015:*** |
 | <a name="RowLevelSecurity" id="RowLevelSecurity"></a> Row-level security (RLS) preview | **Caution:** The RLS feature is presently at *preview* status only, even in geographic regions where V12 is in general availability (GA) status. Until RLS is in GA status, RLS is not yet appropriate for use in a business critical production database.<br/><br/>The new [CREATE SECURITY POLICY](http://msdn.microsoft.com/library/dn765135.aspx) command in Transact-SQL enables you to implement RLS. RLS causes the database server to add conditions which filter out some data rows before a rowset is returned to the caller.<br/><br/>In the industry, RLS is sometimes also called fine-grained access control.<br/><br/>For a code example and more, see [Row-Level Security Preview](http://msdn.microsoft.com/library/7221fa4e-ca4a-4d5c-9f93-1b8a4af7b9e8.aspx). |
 | . | ***December 2014:*** |
@@ -164,13 +164,13 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
 
 
-At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](http://azure.microsoft.com/documentation/articles/sql-database-upgrade-new-service-tiers/).
+At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](sql-database-upgrade-new-service-tiers.md).
 
 
 ## How to proceed
 
 
-You can learn how to upgrade your databases from Azure SQL Database V11 to V12 at [Plan and Prepare to Upgrade to the Latest Azure SQL Database Update Preview](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/).
+You can learn how to upgrade your databases from Azure SQL Database V11 to V12 at [Plan and Prepare to Upgrade to the Latest Azure SQL Database Update Preview](sql-database-preview-plan-prepare-upgrade.md).
 
 
 Version numbers like V12 refer to the value returned by the following Transact-SQL statement:<br/>
@@ -181,88 +181,13 @@ Version numbers like V12 refer to the value returned by the following Transact-S
 - 12.0.2000.8 *(or a bit higher, V12)*
 
 
-For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database/).
+For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
 
 
 ## Cautions for the V12 preview
 
 
-Be aware of the following cautions regarding upgrade and post-upgrade to SQL Database V12.
-
-
-### Preview portal for V12
-
-
-Only the first of the following two Azure management portals supports V12 databases:
-
-
-- [http://portal.azure.com/](http://portal.azure.com/)
- - This newer portal is at preview status and is not yet at General Availability (GA).<br/><br/>
-- [http://manage.windowsazure.com/](http://manage.windowsazure.com/)
- - This older portal will not be updated to support V12.
-
-
-We encourage you to connect to your SQL Database databases with Visual Studio 2013 (VS2013). VS2013 can be used for tasks such as the following:
-
-
-- To run a Transact-SQL statement.
-- To design a schema.
-- To develop a database, either online or offline.
-
-
-You can instead connect with [Visual Studio Community 2013](https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx/), which is a free and full-featured version of VS2013.
-
-
-In the older Azure management portal, on the database page, you can click **Open in Visual Studio** to launch VS2013 on your computer for connection to your Azure SQL Database.
-
-
-For another alternative, you can use SQL Server Management Studio (SSMS) 2014 with [CU6](http://support.microsoft.com/kb/3031047/) to connect to Azure SQL Database. More details are on this blog post:<br/>[Client tooling updates for Azure SQL Database](http://azure.microsoft.com/blog/2014/12/22/client-tooling-updates-for-azure-sql-database/).
-
-
-### Cautions *during* upgrade to V12
-
-
-> [AZURE.NOTE]
-> The pre-V12 database *remains available* for data access during the upgrade to V12.
-
-
-- For databases larger than 50 GB, the upgrade to V12 can take up to 24 hours.
-- During the upgrade of a database to a Azure SQL Database V12 server, you cannot perform the following actions on the server until the upgrade completes:
- - Create a new database.
- - Copy a database to the server.
- - Restore a deleted database.
- - Restore a database to a point in time.
- - Geo-replication.
-- From the moment an upgrade to V12 completes, the system needs several minutes to update the domain name system (DNS) entry to your V12 database. Your client application can connect to your database after the DNS update occurs.
-- The Web and Business service pricing tier is not supported on V12. Nor will it be supported in any future version.
-
-
-### Cautions *after* upgrade to V12
-
-
-- Any database that is upgraded in-place to the V12 cannot be reverted back to the earlier version.
-
-
-### Export and import *after* upgrade to V12
-
-
-You can export or import a V12 database by using the [Azure web portal](http://portal.azure.com/). Or you can export or import by using any of the following tools:
-
-
-- SQL Server Management Studio (SSMS) 2014
-- Visual Studio 2013
-- Data-Tier Application Framework (DacFx)
-
-
-However, to use the tools, you must first install their latest updates to ensure they support the new V12 features:
-
-
-- [Cumulative Update 6 for SQL Server Management Studio 2014](http://support2.microsoft.com/kb/3031047)
-- [February 2015 Update for SQL Server Database Tooling in Visual Studio 2013](https://msdn.microsoft.com/data/hh297027)
-- [February 2015 Data-Tier Application Framework (DacFx) for Azure SQL Database V12](http://www.microsoft.com/download/details.aspx?id=45886)
-
-
-> [AZURE.NOTE] The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
+There are important things to know about limitations during and after an upgrade of your V11 database to V12. You can read the details at this link to a [midpoint](sql-database-preview-plan-prepare-upgrade.md#limitations) in the *Plan and prepare to upgrade to SQL Database V12* topic.
 
 
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable

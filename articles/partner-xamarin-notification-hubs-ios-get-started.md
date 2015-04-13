@@ -10,7 +10,7 @@
 <tags
 	ms.service="notification-hubs"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="11/11/2014"
@@ -18,21 +18,18 @@
 
 # Get started with Notification Hubs
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/documentation/articles/notification-hubs-android-get-started/" title="Android">Android</a><a href="/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a><a href="/documentation/articles/notification-hubs-chrome-get-started/" title="Chrome">Chrome</a></div>
+[AZURE.INCLUDE [notification-hubs-selector-get-started](../includes/notification-hubs-selector-get-started.md)]
+
+##Overview
 
 This topic shows you how to use Azure Notification Hubs to send push notifications to an iOS application.
 In this tutorial you create a blank Xamarin.iOS app that receives push notifications using the Apple Push Notification service (APNs). When complete, you will be able to broadcast push notifications to all the devices running your app using your notification hub. The finished code is available in the [NotificationHubs app][GitHub] sample.
 
-This tutorial walks you through these basic steps to enable push notifications:
+This tutorial demonstrates the simple broadcast scenario using notification hubs. 
 
-1. [Generate the certificate signing request]
-2. [Register your app and enable push notifications]
-3. [Create a provisioning profile for the app]
-4. [Configure your Notification Hub]
-5. [Connecting your app to the Notification Hub]
-6. [Send notifications from your back-end]
+##Prerequisites
 
-This tutorial demonstrates the simple broadcast scenario using notification hubs. This tutorial requires the following prerequisites:
+This tutorial requires the following prerequisites:
 
 + [XCode 6.0][Install Xcode]
 + An iOS 7.0 (or later version) capable device
@@ -44,10 +41,9 @@ This tutorial demonstrates the simple broadcast scenario using notification hubs
 
 Completing this tutorial is a prerequisite for all other notification hub tutorials for Xamarin.iOS apps.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F"%20target="_blank).
+> [AZURE.IMPORTANT] To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started).
 
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
-
 
 
 <h2><a name="certificates"></a>Generate the Certificate Signing Request file</h2>

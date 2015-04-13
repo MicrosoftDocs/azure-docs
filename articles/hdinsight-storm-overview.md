@@ -66,7 +66,7 @@ HDInsight Tools for Visual Studio also provides an interface that allows you to 
 
 ![Storm management](./media/hdinsight-storm-overview/stormview.png)
 
-For an example of using the HDInsight Tools to create a Storm application, see <a href="../hdinsight-storm-develop-csharp-visual-studio-topology/" target="_blank">Develop C# Storm topologies with the HDInsight Tools for Visual Studio</a>
+For an example of using the HDInsight Tools to create a Storm application, see <a href="hdinsight-storm-develop-csharp-visual-studio-topology.md/" target="_blank">Develop C# Storm topologies with the HDInsight Tools for Visual Studio</a>
 
 For more information about the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using the HDInsight Tools for Visual Studio</a>.
 
@@ -147,7 +147,7 @@ The Storm on HDInsight cluster provides support for C#, Java, and Python.
 
 The HDInsight Tools for Visual Studio allow .NET developers to design and implement a topology in C#. You can also create hybrid topologies that use Java and C# components.
 
-For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology).
+For more information, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 ###Java
 
@@ -181,7 +181,7 @@ In the following Java example, fieldsGrouping is used to route tuples that origi
 
 Batching can be accomplished several ways. With a basic Storm Java topology, you might use simple counter to batch X number of tuples before emitting them, or use an internal timing mechanism known as a "tick tuple" to emit a batch every X seconds.
 
-For an example of using tick tuples, see [Analyzing sensor data with Storm and HBase on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis.md).
+For an example of using tick tuples, see [Analyzing sensor data with Storm and HBase on HDInsight](hdinsight-storm-sensor-data-analysis.md).
 
 If you are using Trident, it is based on processing batches of tuples.
 
@@ -199,15 +199,15 @@ For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/
 
 * [Getting Started with Storm on HDInsight][gettingstarted]
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology)
+* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [Develop Java-based topologies for Apache Storm on HDInsight](../hdinsight-storm-develop-java-topology)
+* [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
 
-* [Analyzing sensor data with Storm and HBase on HDInsight](/documentation/articles/hdinsight-storm-sensor-data-analysis)
+* [Analyzing sensor data with Storm and HBase on HDInsight](hdinsight-storm-sensor-data-analysis.md)
 
-* [Analyzing Twitter trending topics with Apache Storm on HDInsight](../hdinsight-storm-twitter-trending)
+* [Analyzing Twitter trending topics with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md)
 
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: /documentation/articles/hdinsight-storm-getting-started
+[gettingstarted]: hdinsight-storm-getting-started.md

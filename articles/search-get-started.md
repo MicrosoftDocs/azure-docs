@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get started with Azure Search" 
+	pageTitle="Get started with Azure Search | Microsoft Azure" 
 	description="Get started with Azure Search" 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/09/2015" 
 	ms.author="heidist"/>
 
 # Get started with Azure Search
@@ -357,15 +357,15 @@ If you need a refresher on where to find the configuration pages, follow these s
 
 Ready for the next step? The following links take you to additional material that shows you how to build and manage search applications that use Azure Search.
 
-- [Create your first azure search solution](../search-create-first-solution/) 
+- [Create an Azure Search GeoSearch Sample](search-create-geospatial.md)
 
-- [Create an Azure Search GeoSearch Sample](../search-create-geospatial/)
-
-- [Manage your search solution in Microsoft Azure](../search-manage/) 
+- [Manage your search solution in Microsoft Azure](search-manage.md) 
 
 - [Azure Search Technical Overview](http://msdn.microsoft.com/library/dn798933.aspx)
 
 - [Azure Search REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+
+- [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
 - [Channel 9 video: Introduction to Azure Search](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,7 +402,7 @@ Ready for the next step? The following links take you to additional material tha
 
 
 <!--Link references-->
-[Manage your search solution in Microsoft Azure]: ../search-manage/
-[Azure Search development workflow]: ../search-workflow/
-[Create your first azure search solution]: ../search-create-first-solution/
-[Create a geospatial search app using Azure Search]: ../search-create-geospatial/
+[Manage your search solution in Microsoft Azure]: search-manage.md
+[Azure Search development workflow]: search-workflow.md
+[Create your first azure search solution]: search-create-first-solution.md
+[Create a geospatial search app using Azure Search]: search-create-geospatial.md
