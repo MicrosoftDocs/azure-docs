@@ -78,26 +78,26 @@ If you want to deploy network mapping you'll need the following:
 
 
 2. Expand 
-3. b>Data Services</b>, expand <b>Recovery Services</b>, and click <b>Site Recovery Vault</b>.
+3. *Data Services*, expand *Recovery Services*, and click *Site Recovery Vault*.
+*
+3. Click *Create New* and then click *Quick Create*.
 
-3. Click <b>Create New</b> and then click <b>Quick Create</b>.
 
+4. In *Name*, enter a friendly name to identify the vault.
 
-4. In <b>Name</b>, enter a friendly name to identify the vault.
-
-5. In <b>Region</b>, select the geographic region for the vault. Available geographic regions include East Asia, West Europe, West US, East US, North Europe, Southeast Asia.
-6. Click <b>Create vault</b>.
+5. In *Region*, select the geographic region for the vault. Available geographic regions include East Asia, West Europe, West US, East US, North Europe, Southeast Asia.
+6. Click *Create vault*.
 
 	![New Vault](./media/site-recovery-vmm-to-azure/ASRE2AVMM_HvVault.png)
 
-<P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
+<P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as *Active* on the main Recovery Services page.</P>
 
 
 ## Step 2: Generate a vault registration key
 
 Generate a registration key in the vault. After you download the Azure Site Recovery Provider and install it on the VMM server, you'll use this key to register the VMM server in the vault.
 
-1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
+1. In the *Recovery Services* page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
 	![Quick Start Icon](./media/site-recovery-vmm-to-azure/ASRE2AVMM_QuickStartIcon.png)
 
@@ -108,7 +108,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 ## Step 3: Install the Azure Site Recovery Provider
 
-4. On the <b>Quick Start</b> page, in **Prepare VMM servers**, click <b>Download Microsoft Azure Site Recovery Provider for installation on VMM servers</b> to obtain the latest version of the Provider installation file.
+4. On the *Quick Start* page, in **Prepare VMM servers**, click *Download Microsoft Azure Site Recovery Provider for installation on VMM servers* to obtain the latest version of the Provider installation file.
 
 2. Run this file on the source VMM server. If VMM is deployed in a cluster and you're installing the Provider for the first time install it on an active node and finish the installation to register the VMM server in the vault. Then install the Provider on the other nodes. Note that if you're upgrading the Provider you'll need to upgrade on all nodes because they should all be running the same Provider version.
 
@@ -123,7 +123,7 @@ Generate a registration key in the vault. After you download the Azure Site Reco
 
 After the Provider is installed continue setup to register the server in the vault.
 
-5. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select <b>Use default system proxy settings</b> to use the default Internet connection settings configured on the server.
+5. In **Internet Connection** specify how the Provider running on the VMM server connects to the Internet. Select *Use default system proxy settings* to use the default Internet connection settings configured on the server.
 
 	![Internet Settings](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderProxy.png)
 	- If you want to use a custom proxy you should set it up before you install the Provider. When you configure custom proxy settings a test will run to check the proxy connection.
@@ -151,7 +151,7 @@ After the Provider is installed continue setup to register the server in the vau
 
 	![Server registration](./media/site-recovery-vmm-to-azure/ASRE2AVMM_ProviderSyncEncrypt.png)
 
-8. Click <b>Register</b> to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the ed on the <b>Resources</b> tab on the **Servers** page in the vault.
+8. Click *Register* to complete the process. After registration, metadata from the VMM server is retrieved by Azure Site Recovery. The server is displayed on the ed on the *Resources* tab on the **Servers** page in the vault.
 
 ## Step 4: Create an Azure storage account
 
@@ -315,15 +315,15 @@ To run a test failover do the following:
 
 
 ## <a id="runtest" name="runtest" href="#runtest"></a>Monitor activity
-<p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
+<p>You can use the *Jobs* tab and *Dashboard* to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
 
-<p>From the <b>Jobs</b> tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
+<p>From the *Jobs* tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
 
-<p>From the <b>Dashboard</b> you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</p>
+<p>From the *Dashboard* you can download the latest versions of Provider and Agent installation files, get configuration information for the vault, see the number of virtual machines that have protection managed by the vault, see recent jobs, manage the vault certificate, and resynchronize virtual machines.</p>
 
 <p>For more information about interacting with jobs and the dashboard, see the <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Operations and Monitoring Guide</a>.</p>
 
-<h2><a id="next" name="next" href="#next"></a>Next steps</h2>
+##<a id="next" name="next" href="#next"></a>Next steps
 <UL>
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planning Guide for Azure Site Recovery</a> and <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Deployment Guide for Azure Site Recovery</a>.</LI>
 
