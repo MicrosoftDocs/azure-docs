@@ -191,7 +191,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
                 } //item loop
               } //subdir loop
             } //dir loop
-          } //subDirectory loop`
+          } //subDirectory loop
         } //directory loop
       }
       catch (Exception ex)
@@ -339,6 +339,89 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
             return res;
         }
+
+#### PageViewPerformance class file generated out of JSON document
+
+    public class PageViewPerformance
+    {
+    	public int Id { get; set; }
+
+        public string url { get; set; }
+
+        public int urlData_port { get; set; }
+
+        public string urlData_protocol { get; set; }
+
+        public string urlData_host { get; set; }
+
+        public string urlData_base { get; set; }
+
+        public string urlData_hashTag { get; set; }
+
+        public double total_value { get; set; }
+
+        public double networkConnection_value { get; set; }
+
+        public double sendRequest_value { get; set; }
+
+        public double receiveRequest_value { get; set; }
+
+        public double clientProcess_value { get; set; }
+
+        public string name { get; set; }
+
+        public string internal_data_id { get; set; }
+
+        public string internal_data_documentVersion { get; set; }
+
+        public DateTime context_data_eventTime { get; set; }
+
+        public string context_device_id { get; set; }
+
+        public string context_device_type { get; set; }
+
+        public string context_device_os { get; set; }
+
+        public string context_device_osVersion { get; set; }
+
+        public string context_device_locale { get; set; }
+
+        public string context_device_userAgent { get; set; }
+
+        public string context_device_browser { get; set; }
+
+        public string context_device_browserVersion { get; set; }
+
+        public string context_device_screenResolution_value { get; set; }
+
+        public string context_user_anonId { get; set; }
+
+        public string context_user_anonAcquisitionDate { get; set; }
+
+        public string context_user_authAcquisitionDate { get; set; }
+
+        public string context_user_accountAcquisitionDate { get; set; }
+
+        public string context_session_id { get; set; }
+
+        public bool context_session_isFirst { get; set; }
+
+        public string context_operation_id { get; set; }
+
+        public double context_location_point_lat { get; set; }
+
+        public double context_location_point_lon { get; set; }
+
+        public string context_location_clientip { get; set; }
+
+        public string context_location_continent { get; set; }
+
+        public string context_location_country { get; set; }
+
+        public string context_location_province { get; set; }
+
+        public string context_location_city { get; set; }
+    }
 
 ## Schema (information only)
 
