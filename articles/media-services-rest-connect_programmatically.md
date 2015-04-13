@@ -3,7 +3,7 @@
 	description="This topic demonstrates how to connect to Media Services uisng REST API." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 

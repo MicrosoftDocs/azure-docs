@@ -3,7 +3,7 @@
 	description="Frequently asked questions (FAQs)" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
