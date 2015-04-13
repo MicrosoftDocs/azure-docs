@@ -13,10 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory release notes
+
+## Notes for 04/10/2015 release of Data Factory
+You will see the **Recently updated slices** and **Recently failed slices** lists on the **TABLE** blade now. These lists are sorted by the update time of the slice. The update time of a slice is changed in the following situations.    
+
+-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+
+Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.
+ 
+You can still view slices sorted by the slice times by clicking **Data slices (by slice time)** tile. The slices in those collections are ordered by slice time. For example, if it’s an hourly schedule, the slices would be:
+- 4/4/2015 5pm In progress 
+- 4/4/2015 4pm Succeeded
+- 4/4/2015 3pm Failed
+
+But, if an older slice is re-run, it would not show up on the top of this list, even though that’s probably what the user is more interested in.
 
 ## Notes for 3/31/2015 release of Data Factory
 - Updated **Data Management Gateway** installation package has been posted to [Microsoft Download Center][adf-gateway-download].
