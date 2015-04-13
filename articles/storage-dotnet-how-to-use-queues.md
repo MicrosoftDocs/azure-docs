@@ -209,7 +209,7 @@ has been processed.
 
 ## Use Async-Await Pattern with Common Queue APIs
 
-This example shows how to use the Async-Await pattern with common queue APIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/en-us/library/hh191443.aspx)
+This example shows how to use the Async-Await pattern with common queue APIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create the queue if it doesn't already exist
     if(await queue.CreateIfNotExistsAsync())
