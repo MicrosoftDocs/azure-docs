@@ -31,7 +31,7 @@ Azure Automation provides a highly-reliable and highly-available workflow execut
 Lower operational overhead and free up IT / DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation. 
  
  
-## How can Azure Automation help manage Azure Backiup?
+## How can Azure Automation help manage Azure Backup?
  
 Backup can be managed in Azure Automation by using the PowerShell cmdlets that are available in the [Windows MSOnlineBackup module](https://technet.microsoft.com/en-us/library/hh770400.aspx). Azure Automation can call these PowerShell cmdlets, so that you can perform all of your Backup management tasks within the service. You can also pair these cmdlets in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
  
