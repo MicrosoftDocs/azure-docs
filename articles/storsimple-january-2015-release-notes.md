@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/10/2015"
+    ms.date="04/13/2015"
     ms.author="v-sharos" />
 
 
@@ -32,13 +32,13 @@ Please review the following information contained in the release notes for the J
  
 - The January release of StorSimple does not contain any updates to the StorSimple physical device. You can still apply any available Windows updates to the virtual device, including recent security fixes, but you will not see a change in version for the StorSimple physical device.
 
-## What's new in this release
+## What's new in the January release
 
-This update contains a fix related to the volumes going offline on the virtual device. (See [Issues fixed in this release](#issues-fixed-in-this-release).)  
+This update contains a fix related to the volumes going offline on the virtual device. (See [Issues fixed in this release](#issues-fixed-in-the-january-release).)  
 
 The update does not contain new features or functionality.  
 
-## Issues fixed in this release
+## Issues fixed in the January release
 
 The following table describes the issue that was fixed in this update.
 
@@ -46,7 +46,7 @@ The following table describes the issue that was fixed in this update.
 |---|-------|-----|--------------------------|-------------------------
 |1|Volumes going offline|When high cloud latencies persist for several minutes, the StorSimple virtual device volumes go offline on the hosts. This fix increases the threshold for cloud latencies, thereby minimizing the situations that would cause the volumes to go offline on hosts.|No|Yes  
 
-## Known issues in this release
+## Known issues in the January release
 
 The following table provides a summary of known issues in this release.
  
@@ -68,11 +68,11 @@ The following table provides a summary of known issues in this release.
 
 This update does not contain any other changes to the StorSimple device.
 
-## Serial-attached SCSI (SAS) controller and firmware updates
+## Serial-attached SCSI (SAS) controller and firmware updates in the January release
 
 This release does not contain any updates to the serial-attached SCSI (SAS) controller or the firmware. The driver update was in the October, 2014 release. 
 
-## Virtual device updates
+## Virtual device updates in the January
 
 This release contains an updated image for the virtual device. All the virtual devices created after January 20, 2015 will show the software version as 6.3.9600.17361.
 
