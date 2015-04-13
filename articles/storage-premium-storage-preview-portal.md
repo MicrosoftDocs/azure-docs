@@ -305,7 +305,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+	<td><a href="http://www.microsoft.com/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
 </tr>
 <tr>
 	<td>7.1</td>
