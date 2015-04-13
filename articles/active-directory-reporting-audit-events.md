@@ -20,7 +20,16 @@
 
 The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/).  
 
-## Audit Report Events
+## Properties included with each audit event
+
+| Property	| Description								|
+| ------	| ------								|		
+| Date and Time	| The date and time that the audit event occured			|
+| Actor		| The user or service principal that performed the action		|
+| Action	| The action that was performed						|
+| Target	| The user or service principal that the action was performed on	|
+
+## List of Audit Report Events
 
 <!--- audit event descriptions should be in the past tense --->
 
@@ -66,15 +75,6 @@ Set String Auth Policy
 Promote tenant to partner
 
 --->
-
-### Properties included with each audit event
-
-| Property	| Description								|
-| ------	| ------								|		
-| Date and Time	| The date and time that the audit event occured			|
-| Actor		| The user or service principal that performed the action		|
-| Action	| The action that was performed						|
-| Target	| The user or service principal that the action was performed on	|
 
 ### User attributes included in the Update User audit event
 
