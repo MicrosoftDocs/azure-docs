@@ -36,6 +36,7 @@ To get started:
 
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/010-new-asp.png)
 
+
     (Your app type and subscription might be different.)
 3. Open Quick Start to find how to set up the SDK for your app type.
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
@@ -44,19 +45,24 @@ To get started:
 4. In this example, we’re monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/030-new-project.png)
 
+
 ## Create storage in Azure
 
 1. Create a storage account in your subscription in the [Azure portal][portal].
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
+
 2. Create a container
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+
 
 ## Start continuous export to Azure storage
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
+
 2. Create a continuous export.
     ![](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
+
 
     Select the storage account you created earlier:
 
