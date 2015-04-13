@@ -34,4 +34,4 @@ The following table summarizes the retention policy for different resources.
 The retention policy applies to all users and currently cannot be customized.
 
 ## Related articles
-- [Backing up Azure Automation](https://msdn.microsoft.com/en-us/library/dn643635.aspx)
+- [Backing up Azure Automation](https://msdn.microsoft.com/library/dn643635.aspx)

@@ -27,11 +27,11 @@ You cannot change the name of a runbook after it has been created. The Descripti
 
 ### Tags
 
-Tags allow you to assign distinct words and phrases to help identify a runbook. For example, when you submit a runbook to the [Runbook Gallery](https://msdn.microsoft.com/en-us/library/dn781422.aspx), you specify particular tags to identify which categories the runbook should be listed in. You can specify multiple tags for a runbook by separating them with commas.
+Tags allow you to assign distinct words and phrases to help identify a runbook. For example, when you submit a runbook to the [Runbook Gallery](https://msdn.microsoft.com/library/dn781422.aspx), you specify particular tags to identify which categories the runbook should be listed in. You can specify multiple tags for a runbook by separating them with commas.
 
 ### Logging
 
-By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](https://msdn.microsoft.com/en-us/library/dn879148.aspx).
+By default, Verbose and Progress records are not written to job history. You can change the settings for a particular runbook to log these records. For more information on these records, see [Runbook Output and Messages](https://msdn.microsoft.com/library/dn879148.aspx).
 
 ## Changing runbook settings
 
@@ -46,7 +46,7 @@ You can change settings for a runbook in the Azure Management Portal from the **
 
 ### Changing runbook settings with Windows PowerShell
 
-You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/en-us/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/en-us/library/dn690278.aspx).
+You can use the [Set-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690275.aspx) cmdlet to change the settings for a runbook. If you want to specify multiple tags, you can either provide an array or a single string with comma delimited values to the Tags parameter. You can get the current tags with the [Get-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690278.aspx).
 
 The following sample commands show how to set the properties for a runbook. This sample adds three tags to the existing tags and specifies that verbose records should be logged.
 
@@ -58,4 +58,4 @@ The following sample commands show how to set the properties for a runbook. This
 
 ## Related articles
 - [Runbook Output and Messages](../automation-runbook-output-and-messages) 
-- [Creating or Importing a Runbook](https://msdn.microsoft.com/en-us/library/dn643637.aspx)
+- [Creating or Importing a Runbook](https://msdn.microsoft.com/library/dn643637.aspx)
