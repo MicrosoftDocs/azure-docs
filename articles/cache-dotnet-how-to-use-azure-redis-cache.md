@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/13/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -96,7 +96,7 @@ Click **Caches** to view your caches.
 
 A cache created using Azure Redis Cache is accessible from any Azure application. .NET applications developed in Visual Studio can use the **StackExchange.Redis** cache client, which can be configured using a NuGet package that simplifies the configuration of cache client applications. 
 
->[AZURE.NOTE] For more information, see the [StackExchange.Redis][] github page and  the[StackExchange.Redis cache client documentation][].
+>[AZURE.NOTE] For more information, see the [StackExchange.Redis][] github page and  the [StackExchange.Redis cache client documentation][].
 
 To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
