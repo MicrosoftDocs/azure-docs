@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/07/2015" 
+	ms.date="04/13/2015" 
 	ms.author="garye"/>
 
 #Create a simple experiment in Azure Machine Learning Studio 
