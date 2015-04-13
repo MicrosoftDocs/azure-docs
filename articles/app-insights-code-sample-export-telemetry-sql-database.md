@@ -3,8 +3,8 @@
 	description="Code your own analysis of telemetry in Application Insights by using the continuous export feature." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="keboyd"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -122,7 +122,7 @@ Search for and install these packages:
  * EntityFramework 6.1.2 or later - We’ll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
  * JsonFx -	We’ll use this for flattening the JSON to C# class properties.
 
-Also add:
+Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 
  * [JSON C# class generator](http://jsonclassgenerator.codeplex.com/)
 
@@ -145,7 +145,7 @@ You can put this code in `WorkerRole.cs`.
 
 #### Run the worker at regular intervals
 
-Replace the existing run method, and choose the interval you prefer. It should be at least one hour, because the export feature completes one JSON object in an hour.
+Replace the existing run method, and choose the interval you prefer. It should be at least one hour on the previous hour or before, because the export feature appends JSON documents to Blob file (add blocks) till the end of the current hour.
 
     public override void Run()
     {
@@ -298,7 +298,9 @@ Replace the existing run method, and choose the interval you prefer. It should b
                 }
             }
             catch (Exception ex)
-            {//handle exception }
+            {
+      		//handle exception 
+    	    }
         }
 
 #### Cast the JSON document into C# class telemetry object properties
@@ -331,14 +333,16 @@ Replace the existing run method, and choose the interval you prefer. It should b
                 }
             }
             catch (Exception ex)
-            {	//handle exception }
+            {
+      		//handle exception 
+    	    }
 
             return res;
         }
 
 ## Schema (information only)
 
-This is the schema for the table that will be generated. 
+This is the schema for the table that will be generated for PageView.
 
 > [AZURE.NOTE] You don't have to run this script. The attributes in the JSON determine the columns in the table.
 

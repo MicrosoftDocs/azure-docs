@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage your Search service on Microsoft Azure" 
+	pageTitle="Manage your Search service on Microsoft Azure | Microsoft Azure" 
 	description="Manage your Search service on Microsoft Azure" 
 	services="search" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/09/2015" 
 	ms.author="heidist"/>
 
 # Manage your Search service on Microsoft Azure

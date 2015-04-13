@@ -27,7 +27,7 @@
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Phone  Silverlight application. 
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Windows Phone Silverlight app that collects basic data and receives push notifications using Microsoft Push Notification Service (MPNS). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties (using MPNS). Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
 
-> [AZURE.NOTE] If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the [Windows Universal tutorial](mobile-engagement-windows-store-dontnet-get-started.md).
+> [AZURE.NOTE] If you are targeting Windows Phone 8.1 (non-Silverlight) then refer to the [Windows Universal tutorial](mobile-engagement-windows-store-dotnet-get-started.md).
 
 This tutorial requires the following:
 
@@ -223,6 +223,7 @@ We will now create a simple Push Notification campaign that will send a push not
 
 <!-- URLs. -->
 [Mobile Engagement Windows Phone SDK]: http://go.microsoft.com/?linkid=9874664
+[Mobile Engagement Windows Phone SDK documentation]: ../mobile-engagement-windows-phone-integrate-engagement/
 
 <!-- Images. -->
 [7]: ./media/mobile-engagement-common/create-mobile-engagement-app.png

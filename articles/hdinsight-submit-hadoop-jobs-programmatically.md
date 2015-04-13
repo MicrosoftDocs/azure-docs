@@ -31,9 +31,7 @@ Before you begin this article, you must have the following:
 ##Submit MapReduce jobs by using Azure PowerShell
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information about using Azure PowerShell with HDInsight, see [Manage HDInsight by using PowerShell][hdinsight-admin-powershell].
 
-Hadoop MapReduce is a software framework for writing applications that process vast amounts of data. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-examples.jar*), which contains several MapReduce examples. 
-
-**Note**: This file has been renamed to hadoop-mapreduce-examples.jar on version 3.0 HDInsight clusters. 
+Hadoop MapReduce is a software framework for writing applications that process vast amounts of data. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-mapreduce-examples.jar*), which contains several MapReduce examples. 
 
 One of the examples is for counting word frequencies in source files. In this session, you will learn how to use Azure PowerShell from a workstation to run the word count sample. For more information about developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
 
@@ -295,7 +293,7 @@ See [Get started using HDInsight Hadoop Tools for Visual Studio][hdinsight-visua
 See [Use Sqoop with HDInsight][hdinsight-use-sqoop].
 
 ##Submit MapReduce jobs using HDInsight .NET SDK
-The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-examples.jar*), which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information about developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
+The HDInsight .NET SDK provides .NET client libraries, which makes it easier to work with HDInsight clusters from .NET. HDInsight clusters come with a JAR file (located at *\example\jars\hadoop-mapreduce-examples.jar*), which contains several MapReduce examples. One of the examples is for counting word frequencies in source files. In this session, you will learn how to create a .NET application to run the word count sample. For more information about developing and running MapReduce jobs, see [Use MapReduce with HDInsight][hdinsight-use-mapreduce].
 
 
 The following procedures are needed to provision an HDInsight cluster by using the SDK:
@@ -394,7 +392,7 @@ You can install latest published build of the SDK from [NuGet](http://nuget.code
         // Define the MapReduce job
         MapReduceJobCreateParameters mrJobDefinition = new MapReduceJobCreateParameters()
         {
-            JarFile = "wasb:///example/jars/hadoop-examples.jar",
+            JarFile = "wasb:///example/jars/hadoop-mapreduce-examples.jar",
             ClassName = "wordcount"
         };
 
