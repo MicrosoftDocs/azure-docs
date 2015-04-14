@@ -54,6 +54,13 @@ Clicking on an application, service, partition, or replica provides detailed inf
 ![Detailed information on a Service Fabric replica][replicadetails]
 
 
+## Connecting to a Service Fabric cluster in Azure
+
+Service Fabric Explorer can connect to a cluster in Azure for visualizing the nodes running on actual virtual machines.  To view the cluster in Azure, click on **Connect** to bring up the **Connect to Service Fabric Cluster** dialog.  Enter the **ServiceFabric endpoint** for your cluster and click **Connect**.  The Service Fabric endpoint is typically the public name of your cluster service listening on port 19000.
+
+![Setup a connection to your Service Fabric cluster in Azure][connecttoazurecluster]
+
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
@@ -63,5 +70,6 @@ Clicking on an application, service, partition, or replica provides detailed inf
 <!--Image references-->
 [applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
 [clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
+[connecttoazurecluster]: ./media/service-fabric-visualizing-your-cluster/connecttoazurecluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
