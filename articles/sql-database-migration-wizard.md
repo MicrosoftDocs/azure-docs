@@ -1,3 +1,21 @@
+<properties 
+   pageTitle="Migration using SQL Migration Wizard" 
+   description="Microsoft Azure SQL Database, database migration, import database, export database, migration wizard" 
+   services="sql-database" 
+   documentationCenter="" 
+   authors="kaivalyah2015" 
+   manager="jeffreyg" 
+   editor="monicar"/>
+
+<tags
+   ms.service="sql-database"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management" 
+   ms.date="04/14/2015"
+   ms.author="kaivalyh"/>
+
 # Migrating using SQL Azure Migration Wizard
 
 ![alt text](./media/sql-database-migration-wizard/01SAMWDiagram.png)
