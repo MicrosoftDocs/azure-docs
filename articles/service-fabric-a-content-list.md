@@ -117,6 +117,7 @@ View trace events for a service using Visual Studio **owner: Kunalds**
 
 Debug a service in Visual Studio using F5 **owner: Kunalds**
 
+<<<<<<< HEAD
 ### Upgrade an Application owner: Mani
 Perform an un-monitored automatic application upgrade **owner: alexwun**
 
@@ -125,6 +126,25 @@ Perform a monitored automatic application upgrade **owner: alexwun**
 Perform an un-monitored manual application upgrade **owner: alexwun**
 
 Upgrade an application (PowerShell) **owner: alexwun**
+=======
+### Upgrading your Application owner: Mani
+
+a.      Sample Walkthrough
+
+b.      Upgrade Modes: 
+
+            i.       Automatic (MonitoredAuto)
+            
+            ii.      Manual (MonitoredManual)
+            
+c.      Upgrade Concepts & Parameters
+
+             i.     Commonly Used
+             
+            ii.     Advanced
+            
+d.      Troubleshooting Application Upgrades (Alex/Chacko)
+>>>>>>> f64fafc545982da48486a46bd0aef275f9916dee
 
 Handle application upgrade failures **owner: alexwun**
 
