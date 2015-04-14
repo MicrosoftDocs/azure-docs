@@ -134,6 +134,7 @@ After verifying the prerequisites, do the following:
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
 
 	![Server registration](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider7.png)
+**Note** For a **Hyper-V** Cluster, you need to perform steps 5-11 on each node of the **Failover Cluster**. Once all the nodes of the cluster is registered to Azure Site Recovery, protection of virtual machines will continue even if they migrate between the nodes of the **Failover Cluster** 
 
 
 <h3><a id="resources"></a>Step 4: Prepare resources</h3>
