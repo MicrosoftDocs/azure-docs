@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Using JSON documents with Hive in HDInsight | Azure"
+   pageTitle="Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure"
    description="Learn how to use JSON documents and analze them using Hive in HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -17,21 +17,11 @@
    ms.author="rashimg"/>
 
 
-# Learn how to use JSON in Hive
+# Learn how to process and analyze JSON documents in Hive
 
 JSON is one of the most commonly used format on the web. This tutorial will help you understand one of the common questions that users face in Hive – how to use JSON documents in Hive and then run analysis on them. 
 
-##In this tutorial
-
-* [JSON Example](#example)
-* [Flattening a JSON document (step required only if you have pretty JSON)](#flatten)
-* [Options for analyzing JSON documents in Hive](#options)
-* [get_json_object UDF](#getjsonobject)
-* [json_tuple UDF](#jsontuple)
-* [Using custom SerDe](#serde)
-* [Other options](#other)
-
-##<a name="example"></a>JSON Example
+##JSON Example
 
 Let us take an example. Let’s assume that we have the JSON document shown below. Our goal is to be able to parse this JSON document and then be able to run queries on this document like lookup value on a key, aggregation etc.
 
@@ -70,7 +60,7 @@ Let us take an example. Let’s assume that we have the JSON document shown belo
         ] 
       }
 
-##<a name="flatten"></a>Flattening a JSON document (step required only if you have pretty JSON)
+##Flattening a JSON document (step required only if you have pretty JSON)
 
 Before we use any Hive operator to perform analysis we must pre-process the JSON document so it is ready to be used by Hive. 
 
@@ -107,7 +97,7 @@ Here is the output of this query:
 
 ![Flattening of the JSON document.][image-hdi-hivejson-flatten]
 
-##<a name="options"></a>Options for analyzing JSON documents in Hive
+##Options for analyzing JSON documents in Hive
 
 Now that we have the JSON document in a table with a single column, we are ready to use Hive to run queries on this data. Hive provides three different mechanisms to run queries on JSON documents:
 
@@ -118,7 +108,7 @@ Now that we have the JSON document in a table with a single column, we are ready
 Let us discuss each one of these in detail.
 
 
-##<a name="getjsonobject"></a>get_json_object UDF
+##get&#95json&#95object UDF
 Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) which can perform JSON querying during run time. This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
 
 Get the first name and last name for each student
@@ -139,7 +129,7 @@ There are a few limitations of this UDF.
 This is why the Hive wiki recommends using json_tuple which we will discuss next.  
 
 
-###<a name="jsontuple"></a>json_tuple UDF
+##json_tuple UDF
 
 The other UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) which is more performant than [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string, and returns a tuple of values using one function. Let’s look at an example to see how this UDF works. 
 
