@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Tutorial: Set up Protection Between On-Premises VMWare Sites" 
-	description="InMage in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." 
+	description="InMage Scout in Azure Site Recovery handles the replication, failover and recovery between on-premises VMWare sites." 
 	services="site-recovery" 
 	documentationCenter="" 
-	authors="raynew" 
+	authors="rayne-wiselman" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
@@ -21,7 +21,7 @@
 
 <h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
 
-<p>InMage in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage is included in subscriptions to the Azure Site Recovery service.</p>
+<p>InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage Scout is included in subscriptions to the Azure Site Recovery service.</p>
 
 
 
@@ -35,7 +35,7 @@
 
 
 <h2><a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps</h2>
-<a name="vault"></a> <h3>Step 1: Create a vault and download InMage</h3>
+<a name="vault"></a> <h3>Step 1: Create a vault and download InMage Scout</h3>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -65,9 +65,9 @@
 2. In the dropdown list, select **Between two on-premises VMWare sites**.
 3. Download InMage Scout.
 	
-	![VMWare](./media/hyper-v-recovery-manager-configure-vault/SRVMWare_SelectScenario.png)
+	![VMWare](./media/hyper-v-recovery-manager-configure-vault/ASR-VMwareToVMware.png)
 
-4. Set up replication between two VMWare sites using the InMage documentation that's downloaded with the product.
+4. Set up replication between two VMWare sites using the InMage Scout documentation that's downloaded with the product.
 
 
 <h2><a id="next" name="next" href="#next"></a>Next steps</h2>
