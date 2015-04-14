@@ -16,7 +16,7 @@
 	ms.date="04/13/2014" 
 	ms.author="banders"/>
 
-#Operational Insights dashboards
+#Operational Insights dashboards#
 
 This guide helps you understand how Operational Insights Dashboards can visualize all of your saved searches, giving you a single lens to view your environment.
 
