@@ -27,7 +27,7 @@ Azure SQL Database's offers a few outage recovery capabilities:
 To learn about preparing for disaster and when to recover your database, visit our [Design for Business Continuity](sql-database-business-continuity-design.md) page. 
 
 ## Recovery to a Geo-replicated secondary
-> [AZURE.NOTE] You must configure [Standard Geo-replication](https://msdn.microsoft.com/en-us/library/azure/dn758204.aspx) or [Active Geo-replication](https://msdn.microsoft.com/en-us/library/azure/dn741339.aspx) to use Geo-replication for database recovery. Geo-replication is only available for Standard and Premium databases. 
+> [AZURE.NOTE] You must configure [Standard Geo-replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) to use Geo-replication for database recovery. Geo-replication is only available for Standard and Premium databases. 
 
 In the event of an outage on the primary database, you can recover to a  Geo-replicated secondary. To do this you will need to force terminate the continuous copy relationship. For a full description of terminating continuous copy relationships go [here](https://msdn.microsoft.com/library/azure/dn741323.aspx). 
 
@@ -73,7 +73,7 @@ After the database is recovered you can configure it to be used by following the
 ###PowerShell 
 Use PowerShell to programatically perform database recovery.
 
-To start a Geo-restore request, use the [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet. For a detailed walk through, please see our [how-to video](http://azure.microsoft.com/en-us/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
+To start a Geo-restore request, use the [start-AzureSqlDatabaseRecovery](https://msdn.microsoft.com/library/azure/dn720224.aspx) cmdlet. For a detailed walk through, please see our [how-to video](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-geo-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlRecoverableDatabase -ServerName "ServerName" –DatabaseName “DatabaseToBeRecovered"
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
