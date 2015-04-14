@@ -45,7 +45,7 @@ See the getting started page to learn how to create a sample database and retrie
 
 ## Connect to your SQL Database
 
-The the System.Data.SqlClient.SqlConnection class is used to connect to SQL Database.  
+The System.Data.SqlClient.SqlConnection class is used to connect to SQL Database.  
 
 ```
 using System.Data.SqlClient;
@@ -62,32 +62,77 @@ class Sample
 }	
 ```
 
+## Retrieving a result set 
 
-## Create your first table on the cloud
+The System.Data.SqlClient.SqlCommand and SqlDataReader classes can be used to retrieve a result set from SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline System.Data.DataSet.   
+
+```
+using System;
+using System.Data.SqlClient;
+
+class Sample
+{
+	static void Main()
+	{
+	  using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+		{
+			var cmd = conn.CreateCommand();
+			cmd.CommandText = @"
+					SELECT 
+						c.CustomerID
+						,c.CompanyName
+						,COUNT(soh.SalesOrderID) AS OrderCount
+					FROM SalesLT.Customer AS c
+					LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID
+					GROUP BY c.CustomerID, c.CompanyName
+					ORDER BY OrderCount DESC;";
+
+			conn.Open();	
+		
+			using(var reader = cmd.ExecuteReader())
+			{
+				while(reader.Read())
+				{
+					Console.WriteLine("ID: {0} Name: {1} Order Count: {2}", reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2));
+				}
+			}					
+		}
+	}
+}
+
+```
 
 
-	cursor = conn.cursor()
-	cursor.execute("""
-	IF OBJECT_ID('test', 'U') IS NOT NULL
-	    DROP TABLE test
-	CREATE TABLE test (
-	    name VARCHAR(100),
-	    value INT NOT NULL,
-	    PRIMARY KEY(name)
-	)
-	""")
+## Retrieving a scalar value and a generated key
 
 
-## Insert values in your table
+```
+class Sample
+{
+    static void Main()
+    {
+        using (var conn = new SqlConnection("Server=tcp:tobiast.database.windows.net,1433;Database=AdventureWorks;User ID=demo;Password=Dobidoo-123;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+        {
+            var cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+                INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) 
+                OUTPUT INSERTED.ProductID
+                VALUES (@Name, @Number, @Cost, @Price, CURRENT_TIMESTAMP)";
 
+            cmd.Parameters.AddWithValue("@Name", "SQL Server Express");
+            cmd.Parameters.AddWithValue("@Number", "SQLEXPRESS1");
+            cmd.Parameters.AddWithValue("@Cost", 0);
+            cmd.Parameters.AddWithValue("@Price", 0);
 
-	cursor.executemany(
-		"INSERT INTO test VALUES (%s, %d)",
-    	[('NodeJS', '2'),
-     	('Python', '10'),
-     	('C#', '20')])
-	# you must call commit() to persist your data if you don't set autocommit to True
-	conn.commit()
+            conn.Open();
+
+            int insertedProductId = (int)cmd.ExecuteScalar();
+
+            Console.WriteLine("Product ID {0} inserted.", insertedProductId);
+        }
+    }
+}
+```
 
 
 
