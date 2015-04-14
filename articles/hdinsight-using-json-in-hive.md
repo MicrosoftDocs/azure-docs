@@ -1,6 +1,6 @@
 <properties
    pageTitle="Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure"
-   description="Learn how to use JSON documents and analze them using Hive in HDInsight"
+   description="Learn how to use JSON documents and analyze them using Hive in HDInsight"
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -106,7 +106,6 @@ Now that we have the JSON document in a table with a single column, we are ready
 3.	Using custom SerDe
 
 Let us discuss each one of these in detail.
-
 
 ##get_json_object UDF
 Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) which can perform JSON querying during run time. This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
