@@ -57,3 +57,4 @@ Now that your development environment is set up, you can start building and runn
 - [Create and run for your first Service Fabric app using Visual Studio](../service-fabric-build-your-first-app-with-visual-studio)
 - [Learn the core constructs of a Service Fabric app in the WordCount tutorial](../service-fabric-wordcount-tutorial).
 - [Create a cluster in Microsoft Azure to enable deployment to the cloud](../service-fabric-create-an-azure-cluster)
+- [Visualizing your cluster using Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
