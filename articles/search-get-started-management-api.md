@@ -100,7 +100,7 @@ In this section, you will perform the following tasks:
 
 10. Click **Configure** in the top menu.
  
-11. Scroll down to Permissions and select **Windows Azure Management API**. In this step, you specify the API (in this case, the Azure Resource Manager API) that the client application needs access to, along with the level of access it needs.
+11. Scroll down to Permissions and select **Azure Management API**. In this step, you specify the API (in this case, the Azure Resource Manager API) that the client application needs access to, along with the level of access it needs.
 
 12. In Delegated Permissions, click the drop down list and select **Access Azure Service Management (Preview**).
  
