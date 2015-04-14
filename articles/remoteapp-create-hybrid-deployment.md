@@ -93,7 +93,7 @@ A virtual network lets your users access data on your local network through Remo
 
 ## Step 3: Link to a RemoteApp template image ##
 
-A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md)) or link to an existing image (one already uploaded to Azure). You can also link to [one of the images included with your subscription](remoteapp-images.md).
+A RemoteApp template image contains the programs that you want to share with users. You can either create a new [template image](remoteapp-imageoptions.md) or link to an existing image (one already imported or uploaded to Azure RemoteApp). You can also link to one of the RemoteApp [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs. 
 
 If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 

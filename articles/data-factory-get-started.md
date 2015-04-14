@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -369,11 +369,27 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 5. In the **Datasets** blade, click **EmpTableFromBlob**. This is the input table for the **ADFTutorialPipeline**.
 
 	![Datasets with EmpTableFromBlob selected][image-data-factory-get-started-datasets-emptable-selected]   
-5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Problem slices** section at the bottom.
+5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.   
+
+	![Data Slices by Slice Time][DataSlicesBySliceTime]   
+
 6. Now, in the **Datasets** blade, click the **EmpSQLTable**. This is the output table for the **ADFTutorialPipeline**.
 
 	![data sets blade][image-data-factory-get-started-datasets-blade]
 
+
+
+	 
 6. You should see the **EmpSQLTable** blade as shown below:
 
 	![table blade][image-data-factory-get-started-table-blade]
@@ -459,6 +475,7 @@ Article | Description
 
 <!--Image references-->
 
+[DataSlicesBySliceTime]: ./media/data-factory-get-started/DataSlicesBySliceTime.png
 
 [image-data-factory-getstarted-new-everything]: ./media/data-factory-get-started/GetStarted-New-Everything.png
 
