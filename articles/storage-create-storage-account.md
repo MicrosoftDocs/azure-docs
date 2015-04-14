@@ -109,7 +109,7 @@ When you create a storage account, Azure generates two 512-bit storage access ke
 
 In the [Management Portal](http://manage.windowsazure.com), use **Manage Keys** on the dashboard or the **Storage** page to view, copy, and regenerate the storage access keys that are used to access the Blob, Table, and Queue services. 
 
-### Copy a storage access key ### 
+### Copy a storage access key  
 
 You can use **Manage Keys** to copy a storage access key to use in a connection string. The connection string requires the storage account name and a key to use in authentication. For information about configuring connection strings to access Azure storage services, see [Configuring Connection Strings](http://msdn.microsoft.com/library/azure/ee758697.aspx).
 
