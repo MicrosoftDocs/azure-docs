@@ -17,7 +17,6 @@
 	ms.author="juliako"/>
 
 
-
 #How to Create a Media Services Account
 
 This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  

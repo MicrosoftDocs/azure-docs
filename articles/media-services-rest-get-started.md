@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="04/14/2015" 
 	ms.author="juliako"/>
 
 # Quickstart: Delivering Video-on-Demand with Media Services REST APIs 

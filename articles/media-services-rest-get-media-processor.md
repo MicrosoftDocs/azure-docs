@@ -21,6 +21,7 @@
 
 This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) series. 
 
+
 ##Overview
 
 In Media Services a media processor is a component that handles a specific processing task, such as encoding, format conversion, encrypting, or decrypting media content. You typically create a media processor when you are creating a task to encode, encrypt, or convert the format of media content.
