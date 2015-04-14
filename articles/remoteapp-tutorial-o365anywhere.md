@@ -1,4 +1,23 @@
-Get the same O365 Experience on any device
+<properties
+   pageTitle="Get the same Office 365 experience on any device"
+   description="Learn how to share any Office 365 app with your users by using RemoteApp."
+   services="remoteapp"
+   documentationCenter=""
+   authors="guscatalano"
+   manager="mbaldwin"
+   editor=""/>
+
+<tags
+   ms.service="remoteapp"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="04/14/2015"
+   ms.author="guscatal"/>
+
+
+Get the same Office 365 Experience on any device
 ===================
 
 
