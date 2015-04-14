@@ -28,7 +28,7 @@ This guide assumes that you have prior experience using [Azure Storage](http://a
 The first section in this guide provides a quick glance at Azure Storage and xplat-cli. For detailed information and instructions, start from the [Prerequisites for using Azure PowerShell with Azure Storage](#pre).
 
 ## Getting started with Azure Storage and xplat-cli in 5 minutes
-This section shows you how to access Azure Storage via xplat-cli in 5 minutes. Note that xplat-cli can be installed and run on different platforms such as Windows, Linux and Mac. For this documentation, we take Ubuntu as an example but it should not be difficult to follow these steps in other OS platform. 
+This section shows you how to access Azure Storage via xplat-cli in 5 minutes. Note that xplat-cli can be installed and run on different platforms such as Windows, Linux and Mac. For this documentation, we take Ubuntu as an example but it should not be difficult to follow these steps in other OS platforms. 
 
 **New to Azure:** Get a Microsoft Azure subscription and a Microsoft account associated with that subscription. For information on Azure purchase options, see [Free Trial](http://azure.microsoft.com/pricing/free-trial/), [Purchase Options](http://azure.microsoft.com/pricing/purchase-options/), and [Member Offers](http://azure.microsoft.com/pricing/member-offers/) (for members of MSDN, Microsoft Partner Network, and BizSpark, and other Microsoft programs). 
 
@@ -44,33 +44,31 @@ See [Manage Accounts, Subscriptions, and Administrative Roles](https://msdn.micr
 3. In the command line interface, type `azure storage` to list out all the azure storage commands and get a first impression of the functionalities xplat-cli provides. You can type command name with **-h** parameter (for example, `azure storage share create -h`) to see details of command syntax. 
 4. Now, we’ll give you a simple script that shows basic xplat-cli commands to access Azure Storage. The script will first ask you to set two variables for your storage account and key. Then, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will download the image file to the destination directory which exists on the local computer.
 
-```Shell
-#!/bin/bash
-# A simple Azure storage example
+		#!/bin/bash
+		# A simple Azure storage example
 
-export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+		export AZURE_STORAGE_ACCOUNT=<storage_account_name>
+		export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
 
-export container_name=<container_name>
-export blob_name=<blob_name>
-export image_to_upload=<image_to_upload>
-export destination_folder=<destination_folder>
-       
-echo "Creating the container..."       
-azure storage container create $container_name
+		export container_name=<container_name>
+		export blob_name=<blob_name>
+		export image_to_upload=<image_to_upload>
+		export destination_folder=<destination_folder>
+			   
+		echo "Creating the container..."       
+		azure storage container create $container_name
 
-echo "Uploading the image..."       
-azure storage blob upload $image_to_upload $container_name $blob_name
+		echo "Uploading the image..."       
+		azure storage blob upload $image_to_upload $container_name $blob_name
 
-echo "Listing the blobs..."       
-azure storage blob list $container_name
+		echo "Listing the blobs..."       
+		azure storage blob list $container_name
 
-echo "Downloading the image..."       
-azure storage blob download $container_name $blob_name $destination_folder
+		echo "Downloading the image..."       
+		azure storage blob download $container_name $blob_name $destination_folder
 
-echo "Done"
-```        
-
+		echo "Done"
+     
 5. In your local computer, open your preferred text editor (vim for example). Type the above script into your text editor.
 
 6. Now, you need to update the script variables based on your configuration settings.
@@ -90,12 +88,6 @@ echo "Done"
 8. To run this script, simply type the script file name in the bash console. After this script runs, you should have a local destination folder that includes the downloaded image file. The following screenshot shows an example output:
 
 After the script runs, you should have a local destination folder that includes the downloaded image file. 
-
-![Download Blobs][Image2]
-
-
-[Image1]: ./media/storage-xplat-guide-full/azure_command.png
-[Image2]: ./media/storage-xplat-guide-full/Subscription_Previewportal.png
 
 > [AZURE.NOTE] The [Getting started with Azure Storage and xplat-cli in 5 minutes](#Getting) section provided a quick introduction on how to use Azure xplat-cli with Azure Storage. For detailed information and instructions, we encourage you to read the following sections.
 
@@ -124,7 +116,7 @@ You can have multiple storage accounts in your subscription. You can choose one 
 
 Another way to set a default storage account is using connection string. Firstly get the connection string by command:
         
-        azure storage account connectionstring show
+        azure storage account connectionstring show <account_name>
 
 Then copy the output connection string and set it to environment variable:
 
@@ -200,3 +192,6 @@ In this guide, you've learned how to manage Azure Storage with Azure xplat-cli. 
 
 - [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+
+
+[Image1]: ./media/storage-xplat-guide-full/azure_command.png
