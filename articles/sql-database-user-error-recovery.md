@@ -43,7 +43,7 @@ After the restore has completed, you can configure your recovered database to be
 ###PowerShell
 Use PowerShell to programatically perform database restore.
 
-To restore a database with Point in Time Restore, use the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/en-us/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet. For a detailed walk through, please see our [how-to video](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
+To restore a database with Point in Time Restore, use the [Start-AzureSqlDatabaseRestore](https://msdn.microsoft.com/library/dn720218.aspx?f=255&MSPPError=-2147217396) cmdlet. For a detailed walk through, please see our [how-to video](http://azure.microsoft.com/documentation/videos/restore-a-sql-database-using-point-in-time-restore-with-microsoft-azure-powershell/).
 
 		$Database = Get-AzureSqlDatabase -ServerName "YourServerName" –DatabaseName “YourDatabaseName”
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
