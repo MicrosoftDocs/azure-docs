@@ -1,7 +1,7 @@
 <properties 
    pageTitle="SQL Database Business Continuity during Application Upgrade" 
    description="This section provides guidance for business continuity to prevent downtime during an application upgrade." 
-   services = "sql-database"
+   services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
    manager="jeffreyg" 
