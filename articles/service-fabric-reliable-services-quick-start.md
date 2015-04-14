@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="masnider@microsoft.com"/>
+   ms.author="masnider"/>
 
 # The Service Fabric Reliable Service Quick Start Guide
 

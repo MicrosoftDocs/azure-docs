@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/17/2015"
-   ms.author="masnider@microsoft.com"/>
+   ms.author="masnider"/>
 
 # Placement Constraints Overview
 
