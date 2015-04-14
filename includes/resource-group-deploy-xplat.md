@@ -55,6 +55,15 @@
     
              azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
 
+  When the resource group has been deployed, you will see a summary of the deployment.
+  
+         info:    Executing command group deployment create
+         + Initializing template configurations and parameters
+         + Creating a deployment
+         ...
+         info:    group deployment create command OK
+
+
 6. To get information about your latest deployment.
 
          azure group log show -l ExampleResourceGroup
