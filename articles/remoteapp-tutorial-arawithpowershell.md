@@ -24,11 +24,11 @@ Getting started in Azure RemoteApp with Powershell
 
 Get the cmdlets 
 -------------
-Head over [here](http://go.microsoft.com/?linkid=9811175) to download the powershell cmdlets for Azure. The RemoteApp ones are included here.
+First we need to download Azure Powershell commandlets [here](http://go.microsoft.com/?linkid=9811175), the RemoteApp ones are included in it.
 
 Configure Azure cmdlets to use your subscription
 ------------------
-Follow [this guide](http://azure.microsoft.com/en-us/documentation/articles/powershell-install-configure/) so you can use the cmdlets against your Azure subscription.
+Follow [this guide](powershell-install-configure.md) so you can use the cmdlets against your Azure subscription.
 
 Create a cloud collection
 --------------------
@@ -43,7 +43,7 @@ Collection creation can take 30 minutes or longer to complete. Therefore, this c
 
     Get-AzureRemoteAppOperationResult -TrackingId xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
-After the collection is done, you can add users to the collection with th following command:
+After the collection is done, you can add users to the collection with the following command:
 
     Add-AzureRemoteAppuser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
 
