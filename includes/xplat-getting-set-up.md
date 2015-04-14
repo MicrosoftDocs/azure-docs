@@ -1,5 +1,14 @@
 <properties services="virtual-machines" title="Setting up xplat-cli for Resource Manager Templates" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
 
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
+
 ## Setting up xplat-cli for Resource Manager templates
 
 Before you can use the xplat-cli with Resource Manager templates and deploy Azure resources and workloads using resource groups, you should first 
