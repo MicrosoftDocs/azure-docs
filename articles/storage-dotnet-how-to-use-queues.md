@@ -55,10 +55,10 @@ Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 ### Retrieving your connection string
 You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using a Windows 
+your Storage Account information. If you are using a Microsoft 
 Azure project template and/or have a reference to 
 Microsoft.WindowsAzure.CloudConfigurationManager, you 
-can you use the **CloudConfigurationManager** type
+can use the **CloudConfigurationManager** type
 to retrieve your storage connection string and storage account
 information from the Azure service configuration:
 
@@ -206,6 +206,35 @@ has been processed.
 
     //Process the message in less than 30 seconds, and then delete the message
     queue.DeleteMessage(retrievedMessage);
+
+## Use Async-Await Pattern with Common Queue APIs
+
+This example shows how to use the Async-Await pattern with common queue APIs. The sample calls the async version of each of the given methods, this can be seen by the Async post-fix of each method. When an async method is used the async-await pattern suspends local execution until the call completes. This behavior allows the current thread to do other work which helps avoid performance bottlenecks and improves the overall responsiveness of your application. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
+
+    // Create the queue if it doesn't already exist
+    if(await queue.CreateIfNotExistsAsync())
+    {
+        Console.WriteLine("Queue '{0}' Created", queue.Name);
+    }
+    else
+    {
+        Console.WriteLine("Queue '{0}' Exists", queue.Name);
+    }
+
+    // Create a message to put in the queue
+    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+
+    // Async enqueue the message
+    await queue.AddMessageAsync(cloudQueueMessage);
+    Console.WriteLine("Message added");
+
+    // Async dequeue the message
+    CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+
+    // Async delete the message
+    await queue.DeleteMessageAsync(retrievedMessage);
+    Console.WriteLine("Deleted message");
 
 ## Leverage additional options for de-queuing messages
 
