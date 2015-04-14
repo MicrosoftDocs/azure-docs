@@ -9,11 +9,11 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## Setting up xplat-cli for Resource Manager templates
+## Setting up the xplat-cli for Resource Manager templates
 
 Before you can use the xplat-cli with Resource Manager templates and deploy Azure resources and workloads using resource groups, you should first 
 
-## Step 1: Verify xplat version
+## Step 1: Verify the xplat-cli version
 
 To use the xplat-cli for imperative commands and ARM templates, you need to have at least version 0.8.17. To verify your version, type 
 
