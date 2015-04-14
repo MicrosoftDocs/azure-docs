@@ -71,7 +71,7 @@ Create a Recovery Plan that looks like below.
 
 ![](media/site-recovery-runbook-automation/12.png)
 
-To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/en-us/library/azure/dn788799.aspx "here"). 
+To read more about recovery plans, read documentation [here](https://msdn.microsoft.com/library/azure/dn788799.aspx "here"). 
 
 Next, let's create the necessary artifacts in Azure Automation.
 
