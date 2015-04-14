@@ -3,7 +3,7 @@
 	description="Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="uliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 

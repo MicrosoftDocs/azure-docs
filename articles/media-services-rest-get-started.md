@@ -1278,7 +1278,7 @@ To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microso
 
 
 
-<h2>Additional Resources</h2>
+##Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>
 
