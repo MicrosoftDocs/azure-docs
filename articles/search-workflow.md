@@ -34,7 +34,7 @@ Azure Search is available through an Azure subscription. [Once you sign up](http
 
 There are two pricing tiers to choose from. We recommend the shared service for prototyping, with the caveat that you will need to work with a small subset of your data. The shared service is free to existing subscribers (trial or regular memberships) and fast to setup, but limits the number of indexes and documents you can work with.
 
-[Create a Search service in the portal](http://azure.microsoft.com/documentation/articles/search-create-service-portal/) provides the steps for adding a Search service to your subscription.
+[Create a Search service in the portal](../search-create-service-portal/) provides the steps for adding a Search service to your subscription.
 
 ###Create the index	
 
@@ -44,7 +44,7 @@ The fastest and easiest way to create an index is through the portal. You can ty
 
 An index, as it applies to the documents collection, is structured like a table in a database. If you’ve created tables in client tools before, this is a similar exercise.
 
-To get started, see [Create an index in the portal](http://azure.microsoft.com/documentation/articles/search-create-index-portal/) for more information.
+To get started, see [Create an index in the portal](../search-create-index-portal/) for more information.
 
 ###Load documents
 
