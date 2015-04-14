@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Debugging your Service Fabric Application in Visual Studio"
+   pageTitle="Debugging your Service Fabric Application in Visual Studio using F5"
    description="Improve the reliability and performance of your services using Visual Studio and a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="04/13/2015"
    ms.author="jesseb"/>
 
-# Debugging your Service Fabric Application in Visual Studio
+# Debugging your Service Fabric Application in Visual Studio using F5
 
 You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
