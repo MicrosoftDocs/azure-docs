@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
 	ms.date="04/03/2015" 
-	ms.author="bradsev" />
+	ms.author="bradsev;ankarloff" />
 
 
 # Author custom R modules in Azure Machine Learning
@@ -99,7 +99,7 @@ The **Custom Add Rows** module is now ready to be accessed by your Machine Learn
 ### Module elements
 The **Module** element is used to define a custom module in the XML file. Multiple modules can be defined in one XML file using multiple **module** elements. Each module in your workspace must have a unique name. Register a custom module with the same name as an existing custom module and it will replace the existing module with the new one. Custom modules can, however, be registered with the same name as an existing Azure Machine Learning module and it will appear in the Custom category of the module palette.
 
-	<Module name="Custom Add Rows"> 
+	<Module name="Custom Add Rows" isDeterministic="false"> 
 		<Owner>Microsoft Corporation</Owner>
 		<Description>Appends one dataset to another...</Description>/> 
 
@@ -111,6 +111,12 @@ Within the **Module** element, you can specify an optional **Owner** element tha
 * The value of the **name** attribute in the **Module** element must not exceed 64 characters in length. 
 * The content of the **Description** element must not exceed 128 characters in length.
 * The content of the **Owner** element must not exceed 32 characters in length.
+
+** Indicating whether a module's results are deterministic or nondeterministic
+
+By default, all modules are considered to be deterministic. That is, given an  unchanging set of parameters, the module should return the same results each time it is run. Given this behavior, Azure Machine Learning Studio does not re-run modules marked as deterministic unless a parameter or the input data has changed. Cached results are returned resulting in faster experiment execution.
+
+However, if your module uses a function that returns different results each time it is run – for example, RAND or a function that returns the current date or time – you can specify the module as being non-deterministic by setting the optional **isDeterministic** attribute to **false**. The module will be rerun each time the experiment is run, even if the module input and parameters have not changed. 
 
 ### Language Definition
 The **Language** element in your XML definition file is used to specify the custom module language. Currently, R is the only supported language. The value of the **sourceFile** attribute must be the name of the R file that contains the function to call when the module is run. This file must be part of the zip package. The value of the **entryPoint** attribute is the name of the function being called and must match a valid function defined with in the source file.
@@ -131,12 +137,12 @@ Input ports allow users to pass data to your R function and workspace. The **dat
 
 **DataTable:** This type is passed to your R function as a data.frame. In fact, any types (for example, CSV files or ARFF files) that are supported  by Machine Learning and that are compatible with **DataTable** are converted to a data.frame automatically. 
 
-		<Input id="dataset1" name="Input 1" type="DataTable" IsOptional="false">
+		<Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
         	<Description>Input Dataset 1</Description>
        	</Input>
 
 The **id** attribute associated with each **DataTable** input port must have a unique value and this value must match its corresponding named parameter in your R function.
-Optional **DataTable** ports that are not passed as input in an experiment will have the value **NULL** passed to the R function and optional zip ports will be ignored if the input is not connected. The **IsOptional** attribute is optional for both the **DataTable** and **Zip** types and is *false* by default.
+Optional **DataTable** ports that are not passed as input in an experiment will have the value **NULL** passed to the R function and optional zip ports will be ignored if the input is not connected. The **isOptional** attribute is optional for both the **DataTable** and **Zip** types and is *false* by default.
 	   
 **Zip:** Custom modules can accept a zip file as input. This input is unpacked into the R working directory of your function
 
@@ -285,7 +291,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 	* **default** - Valid default selections for the column picker include: 
 		* None
 		* NumericFeature
-		* NumericLabe
+		* NumericLabel
 		* NumericScore
 		* NumericAll
 		* BooleanFeature
@@ -293,20 +299,20 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 		* BooleanScore
 		* BooleanAll
 		* CategoricalFeature
-		* CategoricalLabe
+		* CategoricalLabel
 		* CategoricalScore
 		* CategoricalAll
 		* StringFeature
 		* StringLabel
 		* StringScore
-		* StringAl
+		* StringAll
 		* AllLabel
 		* AllFeature
 		* AllScore
 		* All
 
                             							
-**Drop Down**: a user specified enumerated (drop-down) list. The drop down items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.
+**DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.
 
 	<Arg id="color" name="Color" type="DropDown">
       <Properties default="Red Value">
@@ -321,7 +327,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 Any file that is placed in your custom module ZIP file will be available for use during execution time. If there is a directory structure present it will be preserved. This means that file sourcing will work the same locally and in Azure Machine Learning execution. 
 
-For example, say you want to remove any rows with NAs and any duplicate rows in dataset before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
+For example, say you want to remove any rows with NAs from the  dataset, and also remove any duplicate rows, before outputting it into CustomAddRows, and you’ve already written an R function that does that in a file RemoveDupNARows.R:
 
 	RemoveDupNARows <- function(dataFrame) {
 		#Remove Duplicate Rows:
@@ -330,7 +336,7 @@ For example, say you want to remove any rows with NAs and any duplicate rows in 
 		finalDataFrame <- dataFrame[complete.cases(dataFrame),]
 		return(finalDataFrame)
 	}
-You can source the auxiliary file RemoveDupNARows.R in CustomAddRows function:
+You can source the auxiliary file RemoveDupNARows.R in the CustomAddRows function:
 
 	CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 		source(“RemoveDupNARows.R”)
@@ -343,14 +349,14 @@ You can source the auxiliary file RemoveDupNARows.R in CustomAddRows function:
 		return (dataset)
 	}
 
-And then upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.
+Next, upload a zip file containing ‘CustomAddRows.R’, ‘CustomAddRows.xml’, and ‘RemoveDupNARows.R’ as a custom R module.
 
 ## Execution Environment ##
-The execution environment for the R script uses the same version of R as the **Execute R Script** module with the same default packages. You can add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment. 
+The execution environment for the R script uses the same version of R as the **Execute R Script** module, and can use the same default packages. You can add additional R packages to your custom module by including them in the custom module zip package and loading them in your R script as you would in your own R environment. 
 
 **Limitations of the execution environment** include:
 
-* Non-persistant file system: files written when the custom module is run will not persist across multiple runs of the same module.
+* Non-persistent file system: Files written when the custom module is run will not persist across multiple runs of the same module.
 * No network access
 
 
