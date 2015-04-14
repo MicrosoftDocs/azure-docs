@@ -82,7 +82,7 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 		{
 			using (ITransaction tx = this.StateManager.CreateTransaction())
 			{
-				await dataStore.AddOrUpdateAsync(tx, "key", 0, (key, value) => value++);
+				await dataStore.AddOrUpdateAsync(tx, "key", 0, (key, value) => ++value);
 				await tx.CommitAsync();
 			}
 
@@ -106,10 +106,11 @@ In this tutorial, we will focus on the open-ended entry point method where you c
     
     ```
 
-    The **StateManager** takes care of managing the Reliable Collections for you. Simply ask the StateManager for a reliable collection by name at any time and any place in your service and it ensures you get a reference back. Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle. The StateManager handles this work for you, optimized for repeat visits. 
+    The *StateManager* takes care of managing Reliable Collections for you. Simply ask the StateManager for a reliable collection by name at any time and any place in your service and it ensures you get a reference back. Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle. The StateManager handles this work for you, optimized for repeat visits. 
 
     ### Transactional and asynchronous
-    ```c#
+    ```
+    c#
 
     using (ITransaction tx = this.StateManager.CreateTransaction())
 	{
@@ -119,15 +120,15 @@ In this tutorial, we will focus on the open-ended entry point method where you c
     
     ```
 
-    Reliable Collections have many of the same operations as their System.Collections.Generic counterparts - including LINQ. However, operations on Reliable Collections are asynchronous, because most operations on Reliable Collections are *replicated*, that is, the operation is sent to other replicas of the service for high-availability.
+    Reliable Collections have many of the same operations as their System.Collections.Generic and System.Collections.Concurrent counterparts - including LINQ. However, operations on Reliable Collections are asynchronous, because most operations on Reliable Collections are *replicated*, that is, the operation is sent to other replicas of the service on different nodes for high-availability.
 
     They also support *transactional* operations so you can keep state consistent between multiple Reliable Collections. For example, you may dequeue a work item from a Reliable Queue, perform an operation on it, and save the result in a Reliable Dictionary, all within a single transaction. This is treated as an atomic operation, guaranteeing that either the entire operation will succeed, or none of it will - so if an error occurs after you've dequeued the item but before you could save the result, the entire transaction is rolled back and the item remains on the queue for processing. 
 
     ### RunAsync
 
-    The platform calls **RunAsync** when your service is placed and ready to execute. For stateful services, that means when the service *replica* is opened and is in a ready state with write access to its state. A cancellation token is provided to coordinate when the workload on your service replica needs to stop. In Service Fabric, this open-close cycle of **RunAsync** in a service replica can occur many times over the lifetime of your service as a whole, because the system may move your service replicas around for resource balancing, when faults occur, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
+    The platform calls *RunAsync* when your service is placed and ready to execute. For stateful services, that means when the service *replica* is opened and is in a ready state with write access to its state. A cancellation token is provided to coordinate when the workload on your service replica needs to stop. In Service Fabric, this open-close cycle of *RunAsync* in a service replica can occur many times over the lifetime of your service as a whole, because the system may move your service replicas around for resource balancing, when faults occur, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
 
-    **RunAsync** is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is important to honor the cancellation token, finish up any work, and exit the RunAsync method as quickly as possible when cancellation is requested by the system. 
+    *RunAsync* is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is important to honor the cancellation token, finish up any work, and exit the RunAsync method as quickly as possible when cancellation is requested by the system. 
 	
 5. Rebuild the solution to make sure everything builds.
 
@@ -142,7 +143,7 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 
 	![](media/service-fabric-fabsrv-helloworld-stateful/hello-stateful-Output.png)
 
-3. Breakpoints can be set normally through Visual Studio for debugging. Set a break point at the line you modified in the **RynAsync** method. The break point should get hit:
+3. Debugging stateful services is similar to debugging any other application. Breakpoints can be set normally through Visual Studio for easy debugging. Even though Reliable Collections are replicated across multiple nodes, they still implement IEnumerable, which means you can use the Results View in Visual Studio while debugging to see what you've stored inside. Simply set a break point at the line you modified in the **RynAsync** method.
 
 	![](media/service-fabric-fabsrv-helloworld-stateful/hello-stateful-BreakPoint.png)
 
