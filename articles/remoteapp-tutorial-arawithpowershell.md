@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="compute"
    ms.date="04/14/2015"
-   ms.author="guscatal,spatnaik"/>
+   ms.author="guscatal;spatnaik"/>
 
 
 
