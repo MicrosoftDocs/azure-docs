@@ -199,7 +199,7 @@ After you save the settings a job will be created and can be monitored on the <b
 After saving, cloud settings can be modified on the <b>Configure</b> tab. To modify the target location or target storage you'll need to remove the cloud configuration, and then reconfigure the cloud. Note that if you change the storage account the change is only applied for virtual machines that are enabled for protection after the storage account has been modified. Existing virtual machines are not migrated to the new storage account.</p>
 
 ## Step 7: Configure network mapping
-Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. This source VM network should be linked to a logical network that's associated with the protected cloud. In addition create one or more Azure virtual networks. Note that multiple VM networks can be mapped to a single Azure network.
+Before you begin network mapping verify that virtual machines on the source VMM server are connected to a VM network. In addition create one or more Azure virtual networks. Note that multiple VM networks can be mapped to a single Azure network.
 
 1. On the Quick Start page, click **Map networks**.
 2. On the **Networks** tab, in **Source location**, select the source VMM server. In **Target location** select Azure.
@@ -281,38 +281,33 @@ There are two ways to run a test failover to Azure.
 - Test failover without an Azure network—This type of test failover checks that the virtual machine comes up correctly in Azure. The virtual machine won’t be connected to any Azure network after failover.
 - Test failover with an Azure network—This type of failover checks that the entire replication environment comes up as expected and that failed over the virtual machines will be connected to the specified target Azure network. For subnet handling, for test failover the subnet of the test virtual machine will be figured out based on the subnet of the replica virtual machine. This is different to regular replication when the subnet of a replica virtual machine is based on the subnet of the source virtual machine.
 
-If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything. To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure) and set up the infrastructure for the replicated virtual machine to work as expected. As an example:
+If you want to run a test failover for a virtual machine enabled for protection to Azure without specifying an Azure target network you don’t need to prepare anything. To run a test failover with a target Azure network you’ll need to create a new Azure network that’s isolated from your Azure production network (default behavior when you create a new network in Azure) and set up the infrastructure for the replicated virtual machine to work as expected. For example, a virtual machine with Domain Controller and DNS can be replicated to Azure using Azure Site Recovery and can be created in the test network using Test Failover. To run a test failover follow the steps below:
 
-Example: A virtual machine with Active Directory and DNS is replicated to Azure using Azure Site Recovery. To run a test failover:
-
-1. Do a test failover of the Active Directory virtual machine and DNS virtual machine in the same network that you’ll be using for the actual test failover of the on-premises virtual machine.
-2. Note down the IP addresses that were allocated to the failed over Active Directory and DNS virtual machines.
-3. In the Azure virtual network that will be used for the failover, add the IP addresses as the addresses of the DNS and Active Directory servers.
-4. Run the test failover of the source on-premises virtual machine, specifying the Azure network.
-5. After validating that the test failure worked as expected, mark the test failover as complete for the recovery plan, and then mark the test failover as complete for the Active Directory and DNS virtual machines.
+1. Do a test failover of the virtual machine with Domain Controller and DNS in the same network that you’ll be using for the actual test failover of the on-premises virtual machine.
+2. Note down the IP addresses that were allocated to the failed over DNS virtual machine.
+3. In the Azure virtual network that will be used for the failover, add the IP address as the address of the DNS server.
+4. Run the test failover of the source on-premises virtual machines, specifying the Azure test network.
+5. After validating that the test failure worked as expected, mark the test failover as complete for the recovery plan, and then mark the test failover as complete for the Domain Controller and DNS virtual machines.
 
 To run a test failover do the following:
 
 1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
-2. On the **Confirm Test Failover** page select **None** or a specific Azure network.  Note that if you select None the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.
+1. On the **Confirm Test Failover** page select **None** or a specific Azure network.  Note that if you select None the test failover will check that the virtual machine replicated correctly to Azure but doesn't check your replication network configuration.
 
 	![No network](./media/site-recovery-vmm-to-azure/ASRE2AVMM_TestFailoverNoNetwork.png)
 
-3. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued during installation of the Provider on the VMM server, when you turned on the option to enable data encryption for a cloud.
-4. On the **Jobs** tab you can track failover progress. You should also be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
-5. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish up the test failover. You can drill down to the **Job** tab to track failover progress and status, and to perform any actions that are needed.
-6.  After the failover is complete do the following:
-	- Verify that the virtual machines start successfully
+1. If data encryption is enabled for the cloud, in **Encryption Key** select the certificate that was issued during installation of the Provider on the VMM server, when you turned on the option to enable data encryption for a cloud.
+1. On the **Jobs** tab you can track failover progress. You should also be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine.
+1. When the failover reaches the **Complete testing** phase , click **Complete Test** to finish up the test failover. You can drill down to the **Job** tab to track failover progress and status, and to perform any actions that are needed.
+1. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine. Note that:
+
+    1. Verify that the virtual machines start successfully
+    1. If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover. You will also need to add an RDP endpoint on the virtual machine. You can leverage an [Azure Automation Runbooks](site-recovery-runbook-automation.md) to do that.
+    1. After failover if you use a public IP address to connect to the virtual machine in Azure using Remote Desktop, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
+    
+1.  After the testing is complete do the following:
+	- Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
 	- Click **Notes** to record and save any observations associated with the test failover.
-	- Click **The test failover is complete**. Clean up the test environment to automatically power off the test virtual machine and delete the test Azure network.
-5. After  failover you'll be able to see the virtual machine test replica in the Azure portal. If you’re set up to access virtual machines from your on-premises network you can initiate a Remote Desktop connection to the virtual machine. Note that:
-
-- If you want to connect to the virtual machine in Azure using Remote Desktop after the failover, enable Remote Desktop Connection on the virtual machine before you run the test failover.
-- After failover you'll use a public IP address to connect to the virtual machine in Azure using Remote Desktop. If you want to do this, ensure you don't have any domain policies that prevent you from connecting to a virtual machine using a public address.
-
-
-
-
 
 ## <a id="runtest" name="runtest" href="#runtest"></a>Monitor activity
 <p>You can use the *Jobs* tab and *Dashboard* to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
