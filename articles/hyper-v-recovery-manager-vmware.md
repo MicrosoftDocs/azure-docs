@@ -19,22 +19,22 @@
 # Tutorial: Set up Protection Between On-Premises VMWare Sites
 
 
-<h2><a id="overview" name="overview" href="#overview"></a>Overview</h2>
+##<a id="overview" name="overview" href="#overview"></a>Overview
 
 <p>InMage Scout in Azure Site Recovery provides real-time replication between on-premises VMWare sites . InMage Scout is included in subscriptions to the Azure Site Recovery service.</p>
 
 
 
 
-<h2><a id="before" name="before" href="#before"></a>Prerequisites</h2>
-<div class="dev-callout"> 
+##<a id="before" name="before" href="#before"></a>Prerequisites
+
 
 <UL>
 <LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get subscription pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
 </UL>
 
 
-<h2><a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps</h2>
+##<a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
 <a name="vault"></a> <h3>Step 1: Create a vault and download InMage Scout</h3>
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
@@ -70,7 +70,7 @@
 4. Set up replication between two VMWare sites using the InMage Scout documentation that's downloaded with the product.
 
 
-<h2><a id="next" name="next" href="#next"></a>Next steps</h2>
+##<a id="next" name="next" href="#next"></a>Next steps
 <UL>
 
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
