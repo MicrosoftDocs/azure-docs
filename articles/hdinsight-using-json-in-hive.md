@@ -260,4 +260,5 @@ We at HDInsight are working towards making it even easier for you to use more fo
 [image-hdi-hivejson-addjar]: ./media/hdinsight-using-json-in-hive/addjar.png
 [image-hdi-hivejson-serde_query1]: ./media/hdinsight-using-json-in-hive/serde_query1.png
 [image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
+[image-hdi-hivejson-serde_query3]: ./media/hdinsight-using-json-in-hive/serde_query3.png
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
