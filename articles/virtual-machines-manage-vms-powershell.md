@@ -67,24 +67,30 @@ This task requires a few steps. First, you use the ****Add-AzureDataDisk**** cmd
 
 You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
 
-To attach a new disk:
+To attach a new disk, run this command:
 
     Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
               | Update-AzureVM
 
-To attach an existing data disks:
+To attach an existing data disks, run this command:
 
     Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
               | Update-AzureVM
 
-To attach data disks from an existing .vhd file in blob storage:
+To attach data disks from an existing .vhd file in blob storage, run this command:
 
     Add-AzureDataDisk -ImportFrom -MediaLocation `
               "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
-              -DiskLabel "<main>" -LUN 0 `
+              -DiskLabel "<main>" -LUN <0> `
               | Update-AzureVM
 
 ## Create a Windows VM
 
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
+To create a new Windows-based virtual machine in Azure, use the instructions in 
+[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md). This topic steps you through the creation of a PowerShell command set that creates a Windows virtual machine that can be pre-configured with:
+
+- Active Directory domain membership
+- Additional disks
+- As a member of an existing load-balanced set
+- A static IP address
 
