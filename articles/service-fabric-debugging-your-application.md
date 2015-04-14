@@ -20,10 +20,7 @@
 
 Visual Studio provides different options to debug your Service Fabric application.
 
-- [Debugging your Service Fabric application on your local computer](#debuglocal)
-- [Diagnostic tracing your Service Fabric application on your local computer](#tracelocal)
-
-## <a name="debuglocal"></a>Debugging your Service Fabric application on your local computer
+## Debugging your Service Fabric application on your local computer
 
 You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application and automatically connect the debugger to all instances of your application.
 
@@ -38,7 +35,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
   > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit or reducing the input to the services.
 
 
-## <a name="tracelocal"></a>Diagnostic tracing your Service Fabric application on your local computer
+## Diagnostic tracing your Service Fabric application on your local computer
 
 1. In the automatically generated **ServiceEventSource.cs**, add a diagnostic **Event** method to trace information about the application event.
 
