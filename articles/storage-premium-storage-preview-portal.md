@@ -305,21 +305,16 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+	<td><a href="http://www.microsoft.com/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Recommended </a></td>
+	<td>Coming Soon</td>
 </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
-	<td>6.4</td>
-	<td></td>
-	<td><a href="http://www.microsoft.com/en-us/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
-</tr>
-<tr>
 	<td>7.0</td>
 	<td></td>
 	<td>Contact Support for details</td>

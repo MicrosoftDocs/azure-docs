@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="03/31/2015"
+   ms.date="04/13/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -88,7 +88,7 @@ See [ExpressRoute Locations](https://msdn.microsoft.com/library/azure/dn957919.a
 ## Technical Details
 
 ### What are the technical requirements for connecting my on-premises location to Azure?
-Please see [ExpressRoute prerequisites page](https://msdn.microsoft.com/library/azure/dn606309#ExpressRoute_prereq) for requirements.
+Please see [ExpressRoute prerequisites page](expressroute-prerequisites.md) for requirements.
 
 ### Are connections to ExpressRoute redundant?
 Yes. Each Express Route circuit has a redundant pair of cross connections configured to provide high availability.
