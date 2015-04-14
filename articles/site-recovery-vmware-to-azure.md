@@ -178,9 +178,11 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_DeployCS.png)
 
-4. Specify configuration server details and credentials to connect to the server. Select the Azure network on which the server should be located. Specify the internal IP address anad subnet to assign to the server. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with an reserved public IP address.
+4. Specify configuration server details and credentials to connect to the server. Select the Azure network on which the server should be located. Specify the internal IP address and subnet to assign to the server. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with an reserved public IP address.
 
-	![Configuration server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_CSDetails.png)
+    **Note:** The first four IP addresses in any subnet are reserved for internal Azure usage. Specify any other available IP address.    
+
+	![Configuration server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_CSDetails2.png)
 
 5. You can monitor progress in the **Jobs** tab.
 
