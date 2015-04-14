@@ -23,16 +23,9 @@
 
 ## Requirements
 
-.NET Framework including System.Data and System.Data.SqlClient.
-
-
-## Install the required modules
-
 .NET Framework is pre-installed with Windows. For Linux and Mac OS X you can download .NET Framework from the [Mono Project](http://www.mono-project.com/).
 
-## Create a database and retrieve your connection string
-
-See the [getting started page](http://example.com/) to learn how to create a sample database and retrieve your connection string.  
+See the [getting started page](http://example.com/) to learn how to create a sample database SQL Database and retrieve your connection string.  
 
 ## Connect to your SQL Database
 
