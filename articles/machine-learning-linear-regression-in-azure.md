@@ -12,7 +12,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="01/07/2015" 
+  ms.date="04/14/2015" 
   ms.author="kbaroni;"/>
 
 #Using linear regression in Azure Machine Learning
