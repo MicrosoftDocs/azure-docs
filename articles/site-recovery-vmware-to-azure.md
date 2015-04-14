@@ -105,16 +105,15 @@ The process server uses disk based cache. Ensure that there's enough free space 
 ### Scenario component prerequisites
 
 - Process server:
-	- You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.
-	- The server needs at least 8 processor cores 64 GB RAM and 300 GB free space on C: is recommended.
+	- You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.	
 	- We recommend you place the server on the same network and subnet as the machines you want to protect.
 	- Install VMware vSphere CLI 5.1 on the server so it can perform automatic discover of VMWare vCenter servers.
 - The installation path for the configuration server, master target server, process server, and failback servers should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux.
 
 ### VMWare prerequisites
 
-- A VMWare vCenter server managing your VMware vSphere hypervisors. It should be running vCenter version 5.0 or later with the latest updates. 
-- One or more vSphere hypervisors containing VMWare virtual machines you want to protect. The hypervisor should be running version ESX/ESXi version 5.0 or later with the latest updates.
+- A VMWare vCenter server managing your VMware vSphere hypervisors. It should be running vCenter version 5.1 or 5.5 with the latest updates.
+- One or more vSphere hypervisors containing VMWare virtual machines you want to protect. The hypervisor should be running version ESX/ESXi version 5.1 or 5.5 with the latest updates. 
 - VMWare virtual machines discovered through a vCenter server should have VMware tools installed and running.
 
 ### Protected Windows machine prerequisites
@@ -132,7 +131,7 @@ Protected physical servers or VMWare virtual machines running Windows should hav
 
 Protected physical servers or VMWare virtual machines running Linux should have:
 
-- A supported operating system: Centos 6.4, 6.5, 6.6 (32 or 64-bit); Oracle Enterprise Linux  6.4, 6.5 (32 or 64-bit) running either the Red Hat compatible kernel or Unbreakable Enterprise Kern Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3 (32 bit or 64 bit)
+- A supported operating system: Centos 6.4, 6.5, 6.6; Oracle Enterprise Linux  6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kern Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3
 - The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.
 - Protection can be enabled for on-premises machines with the following storage:
 	- File system: EXT3, ETX4, ReiserFS, XFS
@@ -174,11 +173,11 @@ Check the status bar to confirm that the vault was successfully created. The vau
 	![Quick Start Icon](./media/site-recovery-vmware-to-azure/ASRVMWare_QuickStartIcon.png)
 
 2. In the dropdown list, select **Between an on-premises site with VMware/physical servers and Azure**.
-3. In **Prepare Target Resources** click **Deploy Configuration Server**.
+3. In **Prepare Target(Azure) Resources** click **Deploy Configuration Server**.
 
-	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_DeployCS.png)
+	![Deploy configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_DeployCS2.png)
 
-4. Specify configuration server details and credentials to connect to the server. Select the Azure network on which the server should be located. Specify the internal IP address and subnet to assign to the server. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with an reserved public IP address.
+4. Specify configuration server details and credentials to connect to the server. Select the Azure network on which the server should be located. Specify the internal IP address and subnet to assign to the server. When you click **OK** a standard A3 virtual machine based on an Azure Site Recovery Windows Server 2012 R2 gallery image will be created in your subscription for the configuration server. It's created as the first instance in a new cloud service with a reserved public IP address.
 
     **Note:** The first four IP addresses in any subnet are reserved for internal Azure usage. Specify any other available IP address.    
 
@@ -188,13 +187,14 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 	![Monitor progress](./media/site-recovery-vmware-to-azure/ASRVMWare_MonitorConfigServer.png)
 
-8.  After the configuration server is deployed note the public IP address assigned to it on the **Virtual Machines** page in the Azure portal. Then on the **Endpoints** tab note the public HTTPS port mapped to private port 443. You'll need this information later when you register the master target and process servers with the configuration server. The configuration server is deployed with 4 public endpoints:
+6.  After the configuration server is deployed note the public IP address assigned to it on the **Virtual Machines** page in the Azure portal. Then on the **Endpoints** tab note the public HTTPS port mapped to private port 443. You'll need this information later when you register the master target and process servers with the configuration server. The configuration server is deployed with these endpoints:
 
-	- 443: HTTPS channel used to coordinate communication between component servers and Azure.
-	- 9443: Used for the failback tool and failback communication.
-	- Remote Desktop
-	- PowerShell
+	- HTTPS: Public port is used to coordinate communication between component servers and Azure over the internet. Private port 443 is used to coordinate communication between component servers and Azure over VPN.
+	- Custom: Public port is used for failback tool communication over the internet. Private port 9443 is used for failback tool communication over VPN.
+	- PowerShell: Private port 5986
+	- Remote desktop: Private port 3389
 
+    **Note:** Don't delete or change the public or private port number of any of the endpoints created during the configuration server deployment.
 
 ## Step 3: Register the configuration server in the vault
 
@@ -211,7 +211,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
 	![Passphrase](./media/site-recovery-vmware-to-azure/ASRVMWareRegister2.png)
 
-After registration the configuration server will be listed on the **Configuration Servers** page in the vault.
+After registration the configuration server will be listed on the **Configuration Servers** page in the vault. To route configuration server internet communication via a proxy server, run C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe and specify the  proxy server to use. You'll need to re-register to Azure Site Recovery using the registration key you downloaded and copied to the configuration server.  
 
 ## Step 4: Set up a VPN connection
  
@@ -232,28 +232,35 @@ You can configure a VPN connection to the server as follows:
 
 ## Step 5: Deploy the master target server
 
-1. In **Prepare Target Resources**, click **Deploy master target server**.
+1. In **Prepare Target(Azure) Resources**, click **Deploy master target server**.
 2. Specify the master target server details and credentials. The server will be deployed in the same Azure network as the configuration server you register it to. When you click to complete an Azure virtual machine will be created with a Windows or Linux gallery image. 
 
 	![Target server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_TSDetails.png)
 
-3. A Windows master server virtual machine is created with these public TCP endpoints:
+    **Note:** The first four IP addresses in any subnet are reserved for internal Azure usage. Specify any other available IP address.
 
-	- Custom: Public port is used to send replication data over the internet. Private port 9443 is used by the process server to send data to the master target server over VPN.
-	- Custom1: Private port 9080 is used by process server to send data to he  target server over VPN.
-	- PowerShell: Private port: 5986
-	- Remote desktop: Private port: 3389
+3. A Windows master target server virtual machine is created with these endpoints:
 
-4. A Linux master server virtual machine is created with these endpoints:
+	- Custom: Public port is used by the process server to send replication data over the internet. Private port 9443 is used by the process server to send replication data to the master target server over VPN.
+	- Custom1: Public port is used by the process server to send control meta-data over the internet. Private port 9080 is used by process server to send control meta-data to the master target server over VPN.
+	- PowerShell: Private port 5986
+	- Remote desktop: Private port 3389
 
-	- Custom: Public port is used to send replication data over the internet. Private port 9443 is used by the process server to send data to the master target server over VPN.
-	- Custom1: Private port 9080 is used by the process server to send data to the master target server over VPN
+    **Note:** Don't delete or change the public or private port number of any of the endpoints created during the master target server deployment.
+
+4. A Linux master target server virtual machine is created with these endpoints:
+
+	- Custom: Public port is used by the process server to send replication data over the internet. Private port 9443 is used by the process server to send replication data to the master target server over VPN.
+	- Custom1: Public port is used by the process server to send control meta-data over the internet. Private port 9080 is used by the process server to send control data to the master target server over VPN
 	- SSH: Private port 22
+
+    **Note:** Don't delete or change the public or private port number of any of the endpoints created during the master target server deployment.
 
 5. In **Virtual Machines** wait for the virtual machine to start. 
 
 	- If you've configured the server with Windows note down the remote desktop details.
 	- If you configured with Linux and you're connecting over VPN note the internal IP address of the virtual machine. If you're connecting over the internet note the public IP address.
+
 6.  Log onto the server to complete installation and register it with the configuration server. If you're running Windows:
 
 	1. Initiate a remote desktop connection to the virtual machine. The first time you log on a script will run in a PowerShell window. Don't close it. When it finishes the Host Agent Config tool opens automatically to register the server.
@@ -305,7 +312,7 @@ You can configure a VPN connection to the server as follows:
 
 	![Register configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_CSRegister.png)
 
-8. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.1 on the server to be able to discover vCenter Servers.
+8. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.1 on the server to be able to discover vCenter Servers. If you install VMware vSphere CLI 5.1 after the process server installation is complete, remember to reboot the process server.
 
 	![Register process server](./media/site-recovery-vmware-to-azure/ASRVMWare_PSRegister2.png)
 
@@ -389,6 +396,8 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![Add V-Center server](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
+    If you had a protection group already created and added a vCenter Server after that, it takes fifteen minutes for the Azure Site Recovery portal to refresh and for virtual machines to get listed in the Add machines to a protection group dialog. If you would like to proceed immediately with adding machines to protection group, please highlight the configuration server (don’t click it) and hit the Refresh button in the bottom action pane.
+
 3. When you add machines to a protection group, the Mobility service is automatically installed from the on-premises process server. For the automatic push mechanism to work make sure you've set up your protected machines as described in the previous step.
 4. In **Select Virtual Machines** select the vCenter server that management the machines you want to protect and then select the virtual machines.
 
@@ -446,5 +455,5 @@ The information in Section A is regarding Third Party Code components from the p
 
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms. 
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=530254)  h. Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
