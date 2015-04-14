@@ -1,3 +1,23 @@
+<properties
+   pageTitle="Getting started in Azure RemoteApp with Powershell"
+   description="Learn how to get started in Azure RemoteApp with Powershell"
+   services="remoteapp"
+   documentationCenter=""
+   authors="guscatalano"
+   manager="mbaldwin"
+   editor=""/>
+
+<tags
+   ms.service="remoteapp"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="compute"
+   ms.date="04/14/2015"
+   ms.author="guscatal,spatnaik"/>
+
+
+
 Getting started in Azure RemoteApp with Powershell
 =====================================
 
