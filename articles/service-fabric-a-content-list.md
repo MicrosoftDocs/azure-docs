@@ -36,20 +36,17 @@ Sign Up for a Free Account  **owner: vturecek**
 
 Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
 
-Install and extend the Samples **owner: vturecek**
-
-
 ## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
 
 ### Develop a Service owner: vturecek
 
 Choose a Programming Model **owner: seanmck**
 
-Create a Stateful Application **owner: Haishi**
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: vturecek** 
 
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
+[Getting Started with Microsoft Azure Service Fabric Stateful Services](../service-fabric-stateful-helloworld) **owner: vturecek** 
 
-How to Create an ASP.NET v5 Application **owner: Haishi**
+How to Create an ASP.NET v5 Application **owner: vturecek**
 
 Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
 
@@ -85,25 +82,22 @@ Why is Testability important - P1 - **owner: rsinha**
 
 How does it work - P1 **owner: anmola**
 
-Run an action with PowerShell - P1 **owner: vturecek**
+Run an action with PowerShell - P1 **owner: motanv**
 
-Run an action with C# - P1 **owner: vturecek**
+Run an action with C# - P1 **owner: motanv**
 
-Run a scenario with PowerShell - P1 **owner: vturecek**
+Run a scenario with PowerShell - P1 **owner: hend**
 
-Run a scenario with C# - P1 **owner: vturecek**
+Run a scenario with C# - P1 **owner: hend**
 
 Run the Chaos Test - P1 **owner: anmola**
 
 Validating and troubleshooting - P1 **owner: anmola**
 
-Testing during development - P2 **owner: rsinha**
+Testing during development - P2 **owner: motanv**
 
 Testing in test/staging - P2 **owner: rsinha**
 
-Testing in production - P2 **owner: rsinha**
-
-Writing a custom test scenario - P3 **owner: vturecek**
 
 
 ### Troubleshoot and monitor services locally owners: kunalds, toddpf
