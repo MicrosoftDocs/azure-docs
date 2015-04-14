@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Connect and Use SQL Database from C# and .NET" 
+	pageTitle="Using SQL Database from .NET (C#)" 
 	description="Give a code sample you can use to connect to Azure SQL Database."
 	services="sql-database" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 	ms.author="tobiast"/>
 
 
-# Connect and Use SQL Database from .NET using C# 
+# Using SQL Database from .NET (C#) 
 
 
 ## Requirements
