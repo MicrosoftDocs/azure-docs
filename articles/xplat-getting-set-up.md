@@ -22,20 +22,26 @@ Once you do so, you may have more than one subscription. If you do, you need to 
     
 where _subscription id or name_ is either the subscription id or the subscription name that you would like to work with in the current session.
 
-> [AZURE.NOTE] If you do not HAVE     
-
-
 ## Step 3: Create a work or school identity in the subscription.
 
-You cannot access the ARM commands unless you are using a [Azure Active Directory tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) or a [Service Principal Name](https://msdn.microsoft.com/en-us/library/azure/dn132633.aspx). It is possible to 
+You can only use the ARM command mode if you are using an [Azure Active Directory tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) or a [Service Principal Name](https://msdn.microsoft.com/en-us/library/azure/dn132633.aspx). 
+
+If you have one, you can log in by typing
+
+    azure login
+    
+and using your work or school username and password when prompted.
+
+> [AZURE.NOTE] If you do not have a work or school id -- what also is called an "organizational id" -- it is possible to create a new tenant (or service principal) with your Microsoft account. (This is often the case with personal MSDN subscriptions.) To create a work or school id from your Azure account created with a Microsoft id, see [Associate an Azure AD Directory with a new Azure Subscription](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).
+
+## Step 4: Place your xplat-cli in the ARM mode
+
+To use the Resource Management mode with the xplat-cli, you need to move into the ARM mode by typing:
+
+	azure config mode arm
+
+> [AZURE.NOTE] You can switch back to use Azure service management commands by typing
+
+    azure config mode asm
 
 
-
-
-## Step 4: Switch to the Azure Resource Manager module
-
-Switch to the Azure Resource Manager set of Azure PowerShell commands with this command.
-
-	Switch-AzureMode AzureResourceManager
-
-> [AZURE.NOTE] You can switch back to the Azure module with the **Switch-AzureMode AzureServiceManagement** command.
