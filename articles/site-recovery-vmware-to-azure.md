@@ -182,7 +182,7 @@ Check the status bar to confirm that the vault was successfully created. The vau
 
     **Note:** The first four IP addresses in any subnet are reserved for internal Azure usage. Specify any other available IP address.    
 
-	![Configuration server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_CSDetails2.png)
+	![Configuration server settings](./media/site-recovery-vmware-to-azure/ASRVMware_CSDetails2.png)
 
 5. You can monitor progress in the **Jobs** tab.
 
