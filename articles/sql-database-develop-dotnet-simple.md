@@ -23,7 +23,11 @@
 
 ## Requirements
 
+### .NET Framework
+
 .NET Framework is pre-installed with Windows. For Linux and Mac OS X you can download .NET Framework from the [Mono Project](http://www.mono-project.com/).
+
+### A SQL Database
 
 See the [getting started page](http://example.com/) to learn how to create a sample database SQL Database and retrieve your connection string.  
 
