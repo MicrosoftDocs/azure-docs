@@ -103,7 +103,9 @@ class Sample
 ```
 
 
-## Inserting a row and retrieving the primary key 
+## Inserting a row, passing parameters, and retrieving the generated primary key value 
+
+In SQL Database the IDENTITY property and the SEQUENECE object can be used to auto-generate primary key values. In this example you can see how to execute and insert statement, safely passing parameters in with protection from SQL injection and retrieving the auto-generated primary key value.  
 
 The ExecuteScalar method in the System.Data.SqlClient.SqlCommand class can be used to execute a statement and retrieve the first column and row returned by this statement. The OUTPUT clause of the INSERT statement can be used to return the inserted values as a result set to the calling application. Note that OUTPUT is also supported by the UPDATE, DELETE and MERGE statements. If more than one row is inserted you should use the ExecuteReader method to retrieve the inserted values for all rows.
 
