@@ -84,6 +84,6 @@ Premium tier is designed for mission-critical applications. It offers the best l
 | Performance Objectives | Transaction rate per second |
 
 
-Find out more about the pricing for these tiers on [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/web-business/).
+Find out more about the pricing for these tiers on [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
 
 Now that you know about the SQL Database tiers, try them out with a [free trial](http://azure.microsoft.com/pricing/free-trial/) and learn [how to create your first SQL database](sql-database-get-started.md)!
