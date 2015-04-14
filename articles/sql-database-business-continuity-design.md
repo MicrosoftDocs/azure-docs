@@ -1,6 +1,6 @@
 <properties 
    pageTitle="SQL Database Design for Business Continuity" 
-   description="Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB." 
+   description="Guidance for choosing In this section, guidance will be provided for how to choose which BCDR features should be used and when. This will include descriptions of what you automatically get by using SQL DB."
    services="sql-database" 
    documentationCenter="" 
    authors="elfisher" 
