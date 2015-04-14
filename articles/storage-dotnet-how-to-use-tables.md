@@ -38,7 +38,7 @@ deleting a table**, as well as **working with table entities**.
 
 ## Programmatically access Table storage
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../includes/storage-dotnet-obtain-assembly.md)]
+[AZURE.INCLUDE [storage-dotnet-obtain-assembly](..//includes/storage-dotnet-obtain-assembly)]
 
 ### Namespace declarations
 Add the following code namespace declarations to the top of any C\# file
