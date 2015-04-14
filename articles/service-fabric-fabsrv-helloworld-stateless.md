@@ -16,12 +16,9 @@
    ms.date="04/17/2015"
    ms.author="hbai@microsoft.com"/>
 
-# Getting Started with Microsoft Azure Service Fabric Stateless Services (VS 2015 CTP 6)
+# Getting Started with Microsoft Azure Service Fabric Stateless Services (VS 2015 RC)
 
-
->**NOTE**: The official name of the service is **Microsoft Azure Service Fabric**, or **Service Fabric** in short. However, the tools and libraries haven't been refreshed to use this new name yet. In the following text and screen shots you'll see reference to *Windows Fabric*, which is the internal code name.
-
-A Service Fabric Application contains one or more services. Services run your business logic. This tutorial walks you through the steps of creating a "Hello World" Service Fabric Application with a single stateless service. As the name implies, a stateless service does not maintain any state for the application. It is intended to run a workload or handle requests independently without any contextual information, or persist state to an external storage. 
+A Service Fabric Application contains one or more services that run your code. This tutorial walks you through the steps of creating a "Hello World" Service Fabric Application with a single stateless service. As the name implies, a stateless service does not maintain any state for the application. It is intended to run a workload or handle requests independently without any contextual information, or persist state to an external storage. 
 
 Tutorial segments
 
@@ -31,20 +28,21 @@ Tutorial segments
 
 ## <a name="prerequisites"></a>Prerequisites
 
-- Download and unpack the March Preview zip file to a local folder of your choice. This folder will be referred as _DropFolder_ hereafter in this tutoral. Then, follow the steps in the **Service Fabric - Getting Started Guide - v0.3.docx** file to configure your development environment. 
+- Install Visual Studio 2015 RC
+- Install the Microsoft Azure Service Fabric SDK.
 - Install and configure [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
 - If you want to deploy the service to Azure, you need an active Azure subscription. If you don't have one, you can get a free trial at [azure.microsoft.com](http://azure.microsoft.com/en-gb/pricing/free-trial/).
 
 ## <a name="implement"></a>Implement the service
  
-In Service Fabric, a service can run any business logic whatsoever. The API provided by the Service Framework provides two entry points for your business logic:
+In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your business logic:
  
  - An open-ended entry point method where you can begin executing any workload you want, intended mainly for long-running compute workloads.
  - A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.
 
 In this tutorial, we will focus on the open-ended entry point method where you can immediately start running business logic. Communication will be covered in a later tutorial.
 
-1. Launch Visual Studio 2015 CTP 6 as **Administrator**, and create a new **Windows Fabric Stateless Service** Project named **HelloWorldStateless**.
+1. Launch Visual Studio 2015 RC as **Administrator**, and create a new **Windows Fabric Stateless Service** Project named **HelloWorldStateless**.
 
 	![](media/service-fabric-fabsrv-helloworld-stateless/hello-stateless-NewProject.png)
 	
@@ -63,13 +61,13 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 		}
 	}
 	```
-	>**NOTE**: The ServiceEventSource class is an automatically genreated subclass of EventSource, which provides the ability to create events for Event Tracing For Windows (ETW). 
+	>**NOTE**: The ServiceEventSource class is an automatically generated subclass of EventSource, which provides the ability to create events for Event Tracing For Windows (ETW). 
 
     ### RunAsync
 
     The platform calls this method when an instance of your service is placed and ready to execute. For stateless services, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole, because the system may move your service instances around for resource balancing, when faults occur, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
 
-    **RunAsync** is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is important to honor the cancellation token, finish up any work, and exit the RunAsync method as quickly as possible when cancellation is requested by the system. 
+    *RunAsync* is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is important to honor the cancellation token, finish up any work, and exit the RunAsync method as quickly as possible when cancellation is requested by the system. 
 
 3. To see your Hello World service at work, modify the first line in the while loop to log current time to ETW:
 

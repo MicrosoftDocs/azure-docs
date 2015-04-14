@@ -98,6 +98,10 @@ Testing during development - P2 **owner: motanv**
 
 Testing in test/staging - P2 **owner: rsinha**
 
+Testing in production - P2 **owner: rsinha**
+
+Writing a custom test scenario - P3 **owner: vturecek**
+
 
 
 ### Troubleshoot and monitor services locally owners: kunalds, toddpf

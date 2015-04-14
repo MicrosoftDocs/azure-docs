@@ -16,11 +16,9 @@
    ms.date="04/17/2015"
    ms.author="vturecek@microsoft.com"/>
 
-# Getting Started with Microsoft Azure Service Fabric Stateful Services (VS 2015 CTP 6)
+# Getting Started with Microsoft Azure Service Fabric Stateful Services (VS 2015 RC)
 
->**NOTE**: The official name of the service is **Microsoft Azure Service Fabric**, or **Service Fabric** in short. However, the tools and libraries haven't been refreshed to use this new name yet. In the following text and screen shots you'll see reference to *Windows Fabric*, which is the internal code name.
-
-A Service Fabric Application contains one or more services. Services run your business logic. This tutorial walks you through the steps of creating a "Hello World" Service Fabric Application with a single stateful service. A stateful service allows you to maintain state reliably within the service itself, made highly available by Service Fabric without the need to persist state to an external store. In this tutorial, you'll implement a stateful service that keeps an internal counter. The counter state is made reliable by Service Fabric so that if the service execution is interrupted for any reason in the middle of counting, it can pick up right where it left off.
+A Service Fabric Application contains one or more services that run your code. This tutorial walks you through the steps of creating a "Hello World" Service Fabric Application with a single stateful service. A stateful service allows you to maintain state reliably within the service itself, co-located with the code that's using it and made highly available by Service Fabric without the need to persist state to an external store. In this tutorial, you'll implement a stateful service that keeps an internal counter. The counter state is made reliable by Service Fabric so that if the service execution is interrupted for any reason in the middle of counting, it can pick up right where it left off.
 
 You'll learn:
 
@@ -37,21 +35,22 @@ Tutorial segments
 <a name="prerequisites"></a>
 ## Prerequisites
 
-- Download and unpack the March Preview zip file to a local folder of your choice. This folder will be referred as _DropFolder_ hereafter in this tutoral. Then, follow the steps in the **Service Fabric - Getting Started Guide - v0.3.docx** file to configure your development environment. 
+- Install Visual Studio 2015 RC
+- Install the Microsoft Azure Service Fabric SDK.
 - Install and configure [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
 - If you want to deploy the service to Azure, you need an active Azure subscription. If you don't have one, you can get a free trial at [azure.microsoft.com](http://azure.microsoft.com/en-gb/pricing/free-trial/).
 
 <a name="implement"></a>
 ## Implement the service
 
-In Service Fabric, a service can run any business logic whatsoever. The API provided by the Service Framework provides two entry points for your business logic:
+In Service Fabric, a service can run any business logic whatsoever. The service API provides two entry points for your business logic:
  
  - An open-ended entry point method where you can begin executing any workload you want, intended mainly for long-running compute workloads.
  - A communication entry point where you can plug in your communication stack of choice, such as Web API, where you can start receiving requests from users or other services.
 
 In this tutorial, we will focus on the open-ended entry point method where you can immediately start running business logic. Communication will be covered in a later tutorial.
 
-1. Launch Visual Studio 2015 CTP 6 as an **Administrator**, and create a new **Windows Fabric Stateful Service** Project (named _HelloWorldStateful_):
+1. Launch Visual Studio 2015 RC as an **Administrator**, and create a new **Windows Fabric Stateful Service** Project (named _HelloWorldStateful_):
 
 	![](media/service-fabric-fabsrv-helloworld-stateful/hello-stateful-NewProject.png)
 	
@@ -61,7 +60,8 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 
 3. Import namespaces:
 
-	```c#
+	```
+    c#
 
     using System.Fabric.Data;
     using System.Fabric.Data.Collections;
@@ -71,7 +71,8 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 
 4. Implement the **RunAsync()** method as shown here to keep a rolling count in a Reliable Dictionary:
 
-	```c#
+	```
+    c#
 
 	protected override async Task RunAsync(CancellationToken cancellationToken)
 	{
