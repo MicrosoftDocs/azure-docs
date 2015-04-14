@@ -3,7 +3,7 @@
 	description="Give a code sample you can use to connect to Azure SQL Database."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="tobiast" 
+	authors="tobbox" 
 	manager="jeffreyg" 
 	editor=""/>
 
