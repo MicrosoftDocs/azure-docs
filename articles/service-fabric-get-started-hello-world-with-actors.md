@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="multiple" 
-   ms.date="04/13/15"
+   ms.date="04/13/2015"
    ms.author="brad.merrill"/>
 
 # Hello World with Actors
@@ -30,8 +30,7 @@ Tutorial segments
 ## Prerequisites
 
 - Download and unpack the March Preview zip file to a local folder of your choice. This folder will be referred as _DropFolder_ hereafter in this tutoral. Then, follow the steps in the **Service Fabric - Getting Started Guide - v0.3.docx** file to configure your development environment. 
-- Install and configure [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/).
-- If you want to deploy the service to Azure, you need an active Azure subscription. If you don't have one, you can get a free trial at [azure.microsoft.com](http://azure.microsoft.com/en-gb/pricing/free-trial/).
+- Install and configure [Azure PowerShell](powershell-install-configure.md).
 
 ## Implement the service
 

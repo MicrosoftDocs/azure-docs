@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="multiple" 
-   ms.date="04/13/15"
+   ms.date="04/13/2015"
    ms.author="brad.merrill"/>
 
 # Implement a Communication Listener using Web API
@@ -25,10 +25,10 @@ This tutorial walks you through the steps of creating an implementation of the I
 We are creating the listener expecting to create created with an interface named _IReliableObjectStateManager_.  This listener layer does not know the contents of this interface, but will pass the instance to any controllers defined that require it in their constructors.
 
 The methods to be implemented for _ICommunicationListener_ are:
-- **Initialize:** Called with initialization parameter data of the service
-- **OpenAsync:** Called when the listener should start listening
-- **CloseAsync: ** Called when the listener should stop listening
-- **Abort:** Called when listener should abort all processing
+- **Initialize** Called with initialization parameter data of the service
+- **OpenAsync** Called when the listener should start listening
+- **CloseAsync** Called when the listener should stop listening
+- **Abort** Called when listener should abort all processing
 
 1. Add a new public class named **WebApiListener** that implements _ICommunicationListener_
 ```c#
