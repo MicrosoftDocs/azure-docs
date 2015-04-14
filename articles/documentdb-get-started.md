@@ -237,6 +237,8 @@ Next, create your documents within your **GetStartedDemo** async method.
 
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these queries to your **GetStartedDemo** async method.
 
+> [AZURE.NOTE] The FROM keyword within a query is optional; DocumentDB queries are already scoped to a single collection. Therefore, *FROM Familes f* can be swapped with *FROM root r* and DocumentDB will infer that *Familes* and *root* both reference the current collection.
+
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
         "SELECT * " +
