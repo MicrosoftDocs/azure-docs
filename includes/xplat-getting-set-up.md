@@ -33,7 +33,7 @@ where _subscription id or name_ is either the subscription id or the subscriptio
 
 ## Step 3: Create a work or school identity in the subscription.
 
-You can only use the ARM command mode if you are using an [Azure Active Directory tenant](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) or a [Service Principal Name](https://msdn.microsoft.com/en-us/library/azure/dn132633.aspx). 
+You can only use the ARM command mode if you are using an [Azure Active Directory tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) or a [Service Principal Name](https://msdn.microsoft.com/library/azure/dn132633.aspx). 
 
 If you have one, you can log in by typing
 
