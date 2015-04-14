@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Azure SQL Database Business Continuity Overview"
-   description = "Learn the built-in features and available options of Azure SQL Database that help keep your mission critical cloud applications running and help you recover from outages and errors."
-   services = "sql-database"
+   description="Learn the built-in features and available options of Azure SQL Database that help keep your mission critical cloud applications running and help you recover from outages and errors."
+   services="sql-database"
    documentationCenter="" 
    authors="elfisher" 
    manager="jeffreyg" 
