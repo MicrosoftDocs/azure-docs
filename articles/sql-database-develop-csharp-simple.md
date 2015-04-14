@@ -64,7 +64,7 @@ class Sample
 
 ## Execute a query and retrieve the result set 
 
-The System.Data.SqlClient.SqlCommand and SqlDataReader classes can be used to retrieve a result set from SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline System.Data.DataSet.   
+The System.Data.SqlClient.SqlCommand and SqlDataReader classes can be used to retrieve a result set from a query against SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline System.Data.DataSet.   
 
 ```
 using System;
@@ -105,7 +105,7 @@ class Sample
 
 ## Inserting a row, passing parameters, and retrieving the generated primary key value 
 
-In SQL Database the IDENTITY property and the SEQUENECE object can be used to auto-generate primary key values. In this example you can see how to execute and insert statement, safely passing parameters in with protection from SQL injection and retrieving the auto-generated primary key value.  
+In SQL Database the IDENTITY property and the SEQUENECE object can be used to auto-generate primary key values. In this example you will see how to execute an insert-statement, safely pass parameters which protects from SQL injection, and retrieve the auto-generated primary key value.  
 
 The ExecuteScalar method in the System.Data.SqlClient.SqlCommand class can be used to execute a statement and retrieve the first column and row returned by this statement. The OUTPUT clause of the INSERT statement can be used to return the inserted values as a result set to the calling application. Note that OUTPUT is also supported by the UPDATE, DELETE and MERGE statements. If more than one row is inserted you should use the ExecuteReader method to retrieve the inserted values for all rows.
 
@@ -114,7 +114,7 @@ class Sample
 {
     static void Main()
     {
-	using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+		using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
         {
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
