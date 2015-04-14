@@ -85,7 +85,37 @@ Helper method | Description
 **Test-IsActiveHDIHeadNode** | Check if the computer where the script executes is an active head node.
 **Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
 **Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
- 
+
+## <a name="commonusage"></a>Common usage patterns
+
+This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
+
+### Setting environment variables
+
+Often in script action development, you will feel the need to set environment variables. For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable. The following snippet shows you how to set environment variables in the custom script.
+
+	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
+	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
+
+This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here](https://msdn.microsoft.com/en-us/library/96xafkes(v=vs.110).aspx "here") for more information on setting environment variables.
+
+### Access to locations where the custom scripts are stored
+
+Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
+
+	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+### Throwing exception for failed cluster deployment
+
+If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster provisioning. For instance, you might want to process a file if it exists and handle the error case where the file does not exist. This would ensure that the script exits gracefully and the state of the cluster is correctly known. The following snippet gives an example of how to achieve this:
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	exit
+	}
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 Here are the steps we took when preparing to deploy these scripts:
