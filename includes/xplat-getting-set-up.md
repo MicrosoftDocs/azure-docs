@@ -41,7 +41,7 @@ If you have one, you can log in by typing
     
 and using your work or school username and password when prompted.
 
-> [AZURE.NOTE] If you do not have a work or school id -- what also is called an "organizational id" -- it is possible to create a new tenant (or service principal) with your Microsoft account. (This is often the case with personal MSDN subscriptions.) To create a work or school id from your Azure account created with a Microsoft id, see [Associate an Azure AD Directory with a new Azure Subscription](https://msdn.microsoft.com/en-us/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).
+> [AZURE.NOTE] If you do not have a work or school id -- what also is called an "organizational id" -- it is possible to create a new tenant (or service principal) with your Microsoft account. (This is often the case with personal MSDN subscriptions.) To create a work or school id from your Azure account created with a Microsoft id, see [Associate an Azure AD Directory with a new Azure Subscription](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant).
 
 ## Step 4: Place your xplat-cli in the ARM mode
 
