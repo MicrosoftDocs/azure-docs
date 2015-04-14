@@ -252,7 +252,7 @@ This specifies the Azure endpoint protocol, local port on the VM and its mapped 
 	}
 ```
 
-7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/Publish.png) to allow your script to be available for execution. 
+7. Once this is complete, hit Publish ![](media/site-recovery-runbook-automation/20.png) to allow your script to be available for execution. 
 
 The complete script is given below for your reference
 
