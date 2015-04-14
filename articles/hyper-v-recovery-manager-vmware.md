@@ -35,7 +35,7 @@
 
 
 ##<a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
-<a name="vault"></a> <h3>Step 1: Create a vault and download InMage Scout</h3>
+###<a name="vault"></a> Step 1: Create a vault and download InMage Scout
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -55,7 +55,7 @@
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="upload"></a> <h3>Step 2: Configure the vault</h3>
+###<a name="upload"></a> Step 2: Configure the vault
 
 
 1. In the <b>Recovery Services</b> page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
