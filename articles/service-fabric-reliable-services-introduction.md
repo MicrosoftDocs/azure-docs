@@ -96,7 +96,7 @@ One thing to note about this service is that it sounds like a normal .NET servic
 
 
 ## Next Steps
-+ [Reliable Services Quick Start](../service-fabric-reliable-services-quick-start.md)
++ [Reliable Services Quick Start](../service-fabric-reliable-services-quick-start)
 + Check out the basic samples
   + Stateless
   + Stateful
