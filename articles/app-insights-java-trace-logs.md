@@ -142,7 +142,7 @@ Now that you’ve configured your project to send traces to Application Insights
 
 [Diagnostic search][diagnostic]
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 

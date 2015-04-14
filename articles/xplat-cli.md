@@ -420,6 +420,10 @@ If you are writing a script that relies on the exit status, please verify that t
 
 <h2><a id="additional-resources"></a>Additional resources</h2>
 
+* [List of detailed Service Management commands][Using the Azure Cross-Platform Command Line Interface]
+
+* [Using the Azure Cross-platform command line interface with the Resource Manager][xplatarm]
+
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
 * If you encounter problems using the xplat-cli, or Azure, visit the [Azure Forums](http://social.msdn.microsoft.com/Forums/windowsazure/home).
@@ -440,7 +444,7 @@ If you are writing a script that relies on the exit status, please verify that t
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
 [batch]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
+[xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
-[Using the Azure Cross-Platform Command Line Interface]: /documentation/articles/virtual-machines-command-line-tools/
+[Using the Azure Cross-Platform Command Line Interface]: virtual-machines-command-line-tools.md

@@ -76,7 +76,7 @@ The following table shows which operations may be called by anonymous users when
 ## Create and Use a Shared Access Signature
 A shared access signature is a URI that grants restricted access rights to containers, blobs, queues, and tables for a specific time interval. By providing a client with a shared access signature, you can enable them to access resources in your storage account without sharing your account key with them.
 
->[AZURE.NOTE] For an in-depth conceptual overview and tutorial on shared access signatures, see [Shared Access Signatures](http://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+>[AZURE.NOTE] For an in-depth conceptual overview and tutorial on shared access signatures, see [Shared Access Signatures](storage-dotnet-shared-access-signature-part-1.md).
 
 Supported operations using shared access signatures include:
 

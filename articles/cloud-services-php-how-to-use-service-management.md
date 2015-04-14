@@ -528,28 +528,28 @@ You can delete an affinity group by passing the group name to the **deleteAffini
 [management-portal]: https://manage.windowsazure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 [win-azure-account]: /pricing/free-trial/
-[storage-account]: ../storage-create-storage-account/
+[storage-account]: storage-create-storage-account.md
 
-[download-SDK-PHP]: ../php-download-sdk/
-[command-line-tools]: ../virtual-machines-command-line-tools/
+[download-SDK-PHP]: php-download-sdk.md
+[command-line-tools]: virtual-machines-command-line-tools.md
 [Composer]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[cloud service]: ../cloud-services-what-is/
+[cloud service]: cloud-services-what-is.md
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
 [service package]: http://msdn.microsoft.com/library/windowsazure/gg433093
-[Azure PowerShell cmdlets]: ../install-configure-powershell/
+[Azure PowerShell cmdlets]: install-configure-powershell.md
 [cspack commandline tool]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
 [Overview of Managing Deployments in Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
-[storage service]: ../storage-whatis-account/
-[azure-blobs]: ../storage-php-how-to-use-blobs/
-[azure-tables]: ../storage-php-how-to-use-table-storage/
-[azure-queues]: ../storage-php-how-to-use-queues/
+[storage service]: storage-whatis-account.md
+[azure-blobs]: storage-php-how-to-use-blobs.md
+[azure-tables]: storage-php-how-to-use-table-storage.md
+[azure-queues]: storage-php-how-to-use-queues.md
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 

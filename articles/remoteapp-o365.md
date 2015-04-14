@@ -3,17 +3,18 @@
     pageTitle="Using Office 365 with Azure RemoteApp" 
     description="Learn how Office 365 and Azure RemoteApp work together" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+    solutions="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="2/17/2015" 
+    ms.date="04/06/2015" 
     ms.author="elizapo" />
 
 # Using Office 365 with Azure RemoteApp
@@ -25,7 +26,7 @@ You can create a RemoteApp collection using the Office 365 ProPlus template imag
 
 RemoteApp supports Office 365 Shared Computer Activation. When you enable Shared Computer Activation, and use the [Office Deployment tool](http://www.microsoft.com/download/details.aspx?id=36778) for installation, Office 365 ProPlus installs without being activated. When a user signs into a collection that contains Office 365, Office checks to see if the user has been provisioned for Office 365 ProPlus. If so, Office temporarily activates Office 365 ProPlus - this activation persists until that users signs out of the service. 
 
-To use Office 365 Shared Computer Activation, you need to create a [custom template](../remoteapp-create-custom-image/) and install Office 365 ProPlus there, following [these directions](https://technet.microsoft.com/library/dn782858(v=office.15).aspx).
+To use Office 365 Shared Computer Activation, you need to create a [custom template](remoteapp-create-custom-image.md) and install Office 365 ProPlus there, following [these directions](https://technet.microsoft.com/library/dn782858.aspx).
 
 You can manage your users’ Office 365 licenses at the [Office 365 Admin Portal](https://portal.office365.com/). Read more information about [Office 365 service plans](http://technet.microsoft.com/library/office-365-plan-options.aspx).  
 

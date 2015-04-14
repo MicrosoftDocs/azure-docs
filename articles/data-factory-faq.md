@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="03/26/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -66,6 +66,15 @@ At public preview, Data Factory will only be available in US West.  The compute 
 - Number of pipelines within a data factory: 100
 - Number of activities within a pipeline: 10
 - Number of datasets with in a data factory: 100
+
+### Q: What is the authoring/developer experience with Azure Data Factory service?
+
+You can author/create data factories using one of the following:
+
+- **Azure Preview Portal**. The Data Factory blades in the Azure Preview Portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Data Factory Editor][data-factory-editor] for an overview of the editor and [Get started with Data Factory][datafactory-getstarted] for an example of using the portal/editor to create and deploy a data factory.   
+- **Azure PowerShell**. If you are a PowerShell user and prefer to use PowerShell instead of Portal UI, you can use Azure Data Factory cmdlets that are shipped as part of Azure PowerShell to create and deploy data factories. See [Create and monitor Azure Data Factory using Azure PowerShell][create-data-factory-using-powershell] for a simple example and [Tutorial: Move and process log files using Data Factory][adf-tutorial] for an advanced example of using PowerShell cmdles to create ad deploy a data factory. See [Data Factory Cmdlet Reference][adf-powershell-reference] content on MSDN Library for a comprehensive documentation of Data Factory cmdlets.  
+- **.NET Class Library**. You can programmatically create data factories by using Data Factory .NET SDK. See [Create, monitor, and manage data factories using .NET SDK][create-factory-using-dotnet-sdk] for a walkthrough of creating a data factory using .NET SDK. See [Data Factory Class Library Reference][msdn-class-library-reference] for a comprehensive documentation of Data Factory .NET SDK.  
+- **REST API**. You can also use the REST API exposed by the Azure Data Factory service to create and deploy data factories. See [Data Factory REST API Reference][msdn-rest-api-reference] for  a comprehensive documentation of Data Factory REST API. 
 
 ## Activities - FAQ
 ### Q: What are the supported data sources and activities?
@@ -173,9 +182,18 @@ If you really want to stop all the executions immediately, the only way would be
 
 [image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
 
-[adfgetstarted]: ../data-factory-get-started
-[adf-introduction]: ../data-factory-introduction
-[adf-troubleshoot]: ../data-factory-troubleshoot
+[adfgetstarted]: data-factory-get-started.md
+[adf-introduction]: data-factory-introduction.md
+[adf-troubleshoot]: data-factory-troubleshoot.md
+[data-factory-editor]: data-factory-editor.md
+[datafactory-getstarted]: data-factory-get-started.md
+[create-data-factory-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[adf-tutorial]: data-factory-tutorial.md
+[create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
+[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
+[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+
+[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx 
 [adf-documentation-landingpage]: http://go.microsoft.com/fwlink/?LinkId=516909
 [azure-preview-portal]: http://portal.azure.com
 [set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/azure/dn835095.aspx

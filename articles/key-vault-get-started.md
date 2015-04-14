@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get Started with Azure Key Vault | Overview" 
 	description="Use this tutorial to help you get started with Azure Key Vault to create a hardened container in Azure, to store and manage cryptographic keys and secrets in Azure." 
-	services="Key-Vault" 
+	services="key-vault" 
 	documentationCenter="" 
 	authors="cabailey" 
 	manager="mbaldwin"/>
@@ -26,14 +26,14 @@ Use this tutorial to help you get started with Azure Key Vault—currently in Pr
 >
 >During the Preview period, you cannot configure Azure Key Vault in the Azure Management Portal. Instead, use these Azure PowerShell instructions.
 
-For overview information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault-whatis)
+For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites 
 
 To complete this tutorial, you must have the following:
 
 - A subscription to Microsoft Azure. If you do not have one, you can sign up for a [free trial](../../../pricing/free-trial).
-- Azure PowerShell version 0.8.13 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure/).
+- Azure PowerShell version 0.8.13 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](powershell-install-configure.md).
 - Scripts that make common tasks for Azure Key Vault easier. Download these from the [Azure Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-Key-Vault-Powershell-1349b091). 
 - An application that will be configured to use the key or password that you create in this tutorial. A sample application is available from the [Microsoft Download Center](http://www.microsoft.com/en-us/download/details.aspx?id=45343). For instructions, see the accompanying Readme file.
 
@@ -50,8 +50,8 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 
 You can also read the following tutorials to get familiar with Azure Resource Manager in Windows PowerShell:
 
-- [How to install and configure Azure PowerShell](../powershell-install-configure/)
-- [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager/)
+- [How to install and configure Azure PowerShell](powershell-install-configure.md)
+- [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md)
 
 
 ## <a id="connect"></a>Connect to your subscriptions ##
@@ -70,7 +70,7 @@ Then, to specify the subscription to use, type:
 
     Select-AzureSubscription -SubscriptionName <subscription name>
 
-For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](../powershell-install-configure/).
+For more information about configuring Azure PowerShell, see  [How to install and configure Azure PowerShell](powershell-install-configure.md).
 
 ## <a id="scripts"></a>Load the Key Vault scripts ##
 

@@ -3,7 +3,9 @@
 	description="Learn about Azure compute hosting options and how they work: Virtual Machines, Websites, Cloud Services, and others." 
 	headerExpose="" 
 	footerExpose="" 
+	services="cloud-services,virtual-machines"
 	authors="Thraka" 
+	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
@@ -12,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/20/2015" 
+	ms.date="03/31/2015" 
 	ms.author="adegeo"/>
 
 
@@ -91,7 +93,7 @@ Websites is the best Azure Compute choice for many kinds of web apps and compute
  
 **Figure 2: Azure Websites supports static websites, popular web applications, and custom web applications built with various technologies. You can also run non-web compute workloads using the WebJobs feature.** 
 
-The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](../websites-webjobs-resources/) feature. 
+The Azure Websites service is not only for web applications: you can run any kind of compute workload on Websites using the [WebJobs](websites-webjobs-resources.md) feature. 
 
 Websites gives you the option of running on shared VMs that contain multiple websites created by multiple users, or on VMs that are used only by you. VMs are a part of a pool of resources managed by Azure Websites and thus allow for high reliability and fault tolerance.
 
@@ -115,7 +117,7 @@ More control also means less ease of use; unless you need the  additional contro
 
 The technology provides two slightly different VM options: instances of *web roles* run a variant of Windows Server with IIS, while instances of *worker roles* run the same Windows Server variant without IIS. A Cloud Services application relies on some combination of these two options. 
 
-For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](../fundamentals-service-bus-hybrid-solutions/) or [Azure Queues](../storage-introduction/).)
+For example, a simple application might use just a web role, while a more complex application might use a web role to handle incoming requests from users, then pass the work those requests create to a worker role for processing. (This communication could use [Service Bus](fundamentals-service-bus-hybrid-solutions.md) or [Azure Queues](storage-introduction.md).)
 
 As the figure suggests, all of the VMs in a single application run in the same cloud service. Because of this, users access the application through a single public IP address, with requests automatically load balanced across the application's VMs. The platform will deploy the VMs in a Cloud Services application in a way that avoids a single point of hardware failure.
 

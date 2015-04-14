@@ -1,20 +1,21 @@
 <properties 
 	pageTitle="Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio" 
 	description="Learn how to use the Python Tools for Visual Studio to create a Bottle application that stores data in a MongoDB database instance and can be deployed to a web site." 
-	services="web-sites" 
+	services="app-service\web" 
+	tags="python"
 	documentationCenter="python" 
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
 	ms.date="02/09/2015" 
-	ms.author="huvalo"/>
+	ms.author="huguesv"/>
 
 
 
@@ -206,7 +207,7 @@ Follow these links to learn more about Python Tools for Visual Studio, Bottle an
 
 <!--Link references-->
 [Python Developer Center]: /develop/python/
-[Azure Cloud Services]: ../cloud-services-python-ptvs/
+[Azure Cloud Services]: cloud-services-python-ptvs.md
 
 <!--External Link references-->
 [Azure Management Portal]: https://manage.windowsazure.com

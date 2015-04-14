@@ -1,30 +1,30 @@
 <properties 
 	pageTitle="How to use Azure blob storage with the WebJobs SDK" 
 	description="Learn how to use Azure blob storage with the WebJobs SDK. Trigger a process when a new blob appears in a container and handle 'poison blobs'." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure blob storage with the WebJobs SDK
 
 ## Overview
 
-This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
+This guide provides C# code samples that show how to trigger a process when an Azure blob is created or updated. The code samples use [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-For code samples that show how to create blobs, see [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+For code samples that show how to create blobs, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 		
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 
 ## <a id="trigger"></a> How to trigger a function when a blob is created or updated
 
@@ -146,7 +146,7 @@ The `WebImage` binding code is provided in a `WebImageBinder` class that derives
 
 When a `BlobTrigger` function fails, the SDK calls it again, in case the failure was caused by a transient error. If the failure is caused by the content of the blob, the function fails every time it tries to process the blob. By default, the SDK calls a function up to 5 times for a given blob. If the fifth try fails, the SDK adds a message to a queue named *webjobs-blobtrigger-poison*.
 
-The maximum number of retries is configurable. The same [MaxDequeueCount](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#configqueue) setting is used for poison blob handling and poison queue message handling. 
+The maximum number of retries is configurable. The same [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) setting is used for poison blob handling and poison queue message handling. 
 
 The queue message for poison blobs is a JSON object that contains the following properties:
 
@@ -211,7 +211,7 @@ If you want to force reprocessing of a blob, you can manually delete the blob re
 
 ## <a id="queues"></a>Related topics covered by the queues article
 
-For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+For information about how to handle blob processing triggered by a queue message, or for WebJobs SDK scenarios not specific to blob processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Related topics covered in that article include the following:
 

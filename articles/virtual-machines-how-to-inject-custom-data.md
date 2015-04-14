@@ -13,9 +13,8 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/1/2014" 
+	ms.date="04/07/2015" 
 	ms.author="rasquill"/>
-
 
 
 #Injecting Custom Data into an Azure Virtual Machine 
@@ -30,19 +29,9 @@ Injecting a script or other data into an Azure Virtual Machine when it is being 
 
 > [AZURE.NOTE] This topic expands upon [this Azure blog post](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) about this feature, and will be kept up-to-date as more functionality appears.
 
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-In this topic:
+## Injecting the custom data into your Azure Virtual Machine
 
-+ [Injecting the Custom Data into your Azure Virtual Machine](#injectingCustomData)
-
-+ [Using Custom Data in the Virtual Machine](#usingCustomData)
-
-+ [Next steps](#nextsteps)
-
-
-## <a id="injectingCustomData"></a>Injecting the Custom Data into your Azure Virtual Machine
-
-This feature is currently supported only in the [Microsoft Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstates one very basic approach. 
+This feature is currently supported only in the [Microsoft Azure Cross-Platform Command-Line Interface](https://github.com/Azure/azure-sdk-tools-xplat). Although you may use any of the options for the `azure vm create` command, the following approach demonstrates one very basic approach. 
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -53,7 +42,7 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
 ```
 
 
-## <a id="usingCustomData"></a>Using Custom Data in the Virtual Machine
+## Using Custom Data in the Virtual Machine
  
 + If your Azure Virtual Machine is a Windows Virtual Machine, then the custom data file is saved to `%SYSTEMDRIVE%\AzureData\CustomData.bin` and although it was base64-encoded to transfer from the local computer to the new Virtual Machine, it is automatically decoded and can be opened or used immediately. 
 
@@ -64,10 +53,25 @@ This feature is currently supported only in the [Microsoft Azure Cross-Platform 
     + At `/var/lib/waagent/ovf-env.xml`
     + At `/var/lib/waagent/CustomData` 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a id="nextsteps"></a>Next steps: Using cloud-init
 
-If your Azure Virtual Machine is an Ubuntu image, then you can use cloud-init to launch a script to use your custom data automatically (or, if your custom data file is a script, execute it). For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
+
+## Cloud-Init on Azure
+
+If your Azure Virtual Machine is from an Ubuntu or CoreOS image, then you can use CustomData to send a cloud-config to cloud-init. Or if your custom data file is a script then cloud-init can simply execute it.
+
+### Ubuntu Cloud Images
+
+In most Azure Linux images you would edit "/etc/waagent.conf" to configure the temporary resource disk and swap file. See [Azure Linux Agent User Guide](./virtual-machines-linux-agent-user-guide.md) for more information.
+
+However, on the Ubuntu Cloud Images we must use cloud-init to configure the resource disk (aka "ephemeral" disk) and swap partition.  Please see the following page on the Ubuntu wiki for more details:
+
+ - [Ubuntu Wiki: Configure Swap Partitions](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+
+
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+## Next steps: Using cloud-init
+
+For further information, see the [cloud-init documentation for Ubuntu](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
 [Add Role Service Management REST API Reference](http://msdn.microsoft.com/library/azure/jj157186.aspx)

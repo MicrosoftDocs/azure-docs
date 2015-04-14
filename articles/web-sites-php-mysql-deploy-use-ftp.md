@@ -1,81 +1,83 @@
 <properties 
-	pageTitle="PHP website with MySQL and FTP - Azure tutorial" 
-	description="A tutorial that demonstrates how to create a PHP website that stores data in MySQL and use FTP deployment to Azure." 
-	services="web-sites" 
+	pageTitle="Create a PHP-MySQL web app in Azure App Service and deploy using FTP" 
+	description="A tutorial that demonstrates how to create a PHP web app that stores data in MySQL and use FTP deployment to Azure." 
+	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
 
-#Create a PHP-MySQL Azure Website and Deploy Using FTP
+#Create a PHP-MySQL web app in Azure App Service and deploy using FTP
 
-This tutorial shows you how to create a PHP-MySQL Azure Website and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL website running in Azure.
+This tutorial shows you how to create a PHP-MySQL web app and how to deploy it using FTP. This tutorial assumes you have [PHP][install-php], [MySQL][install-mysql], a web server, and an FTP client installed on your computer. The instructions in this tutorial can be followed on any operating system, including Windows, Mac, and  Linux. Upon completing this guide, you will have a PHP/MySQL web app running in Azure.
  
 You will learn:
 
-* How to create an Azure Website and a MySQL database using the Azure Management Portal. Because PHP is enabled in Azure Websites by default, nothing special is required to run your PHP code.
+* How to create a web app and a MySQL database using the Azure Portal. Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
 * How to publish your application to Azure using FTP.
  
-By following this tutorial, you will build a simple registration web application in PHP. The application will be hosted in an Azure Website. A screenshot of the completed application is below:
+By following this tutorial, you will build a simple registration web app in PHP. The application will be hosted in a Web App. A screenshot of the completed application is below:
 
 ![Azure PHP Web Site][running-app]
 
-[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required, no commitments. 
 
-##Create an Azure Website and set up FTP publishing
 
-Follow these steps to create an Azure Website and a MySQL database:
+##Create a web app and set up FTP publishing
 
-1. Login to the [Azure Management Portal][management-portal].
+Follow these steps to create a web app and a MySQL database:
+
+1. Login to the [Azure Portal][management-portal].
 2. Click the **+ New** icon on the bottom left of the portal.
 
 	![Create New Azure Web Site][new-website]
 
-3. Click **WEBSITE**, then **CUSTOM CREATE**.
+3. Click **Web + Mobile**, then **Web app + MySQL**.
 
 	![Custom Create a new Web Site][custom-create]
-	
-	Enter a value for **URL**, select **Create a New MySQL Database** from the **DATABASE** dropdown,  and select the data center for your website in the **REGION** dropdown. Click the arrow at the bottom of the dialog.
 
-	![Fill in Web Site details][website-details]
+4. Enter a valid name for your resource group.
 
-4. Enter a value for the **NAME** of your database, select the data center for your database in the **REGION** dropdown, and check the box that indicates you agree with the legal terms. Click the checkmark at the bottom of the dialog.
+    ![Set resource group name][resource-group]
+
+5. Enter values for your new web app.
+
+     ![Create web app][new-web-app]
+
+6. Enter values for your new database, including agreeing to the legal terms.
 
 	![Create new MySQL database][new-mysql-db]
+	
+7. When the web app has been created, you will see the new resource group. Click the name of the web app to configure its settings.
 
-	When the website has been created you will see the text **Creation of Website ‘[SITENAME]’ completed successfully**. Now, you can enable FTP publishing.
+	![Open web app][go-to-webapp]
 
-5. Click the name of the website displayed in the list of websites to open the website’s **QUICKSTART** dashboard.
+6. Scroll down until you find **Set deployment credentials**. 
 
-	![Open web site dashboard][go-to-dashboard]
+	![Set deployment credentials][set-deployment-credentials]
 
+7. To enable FTP publishing, you must provide a user name and password. Save the credentials and make a note of the user name and password you create.
 
-6. At the bottom of the **QUICKSTART** page, click **Reset deployment credentials**. 
+	![Create publishing credentials][portal-ftp-username-password]
 
-	![Reset deployment credentials][reset-deployment-credentials]
+##Build and test your app locally
 
-7. To enable FTP publishing, you must provide a user name and password. Make a note of the user name and password you create.
-
-	![Create publishing credentials][portal-git-username-password]
-
-##Build and test your application locally
-
-The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The application consists of two files:
+The Registration application is a simple PHP application that allows you to register for an event by providing your name and email address. Information about previous registrants is displayed in a table. Registration information is stored in a MySQL database. The app consists of two files:
 
 * **index.php**: Displays a form for registration and a table containing registrant information.
 * **createtable.php**: Creates the MySQL table for the application. This file will only be used once.
 
-To build and run the application locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
+To build and run the app locally, follow the steps below. Note that these steps assume you have PHP, MySQL, and a web server set up on your local machine, and that you have enabled the [PDO extension for MySQL][pdo-mysql].
 
 1. Create a MySQL database called `registration`. You can do this from the MySQL command prompt with this command:
 
@@ -208,19 +210,25 @@ To build and run the application locally, follow the steps below. Note that thes
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-You can now browse to [http://localhost/registration/index.php][localhost-index] to test the application.
+You can now browse to [http://localhost/registration/index.php][localhost-index] to test the app.
 
 ##Get MySQL and FTP connection information
 
-To connect to the MySQL database that is running in Azure Websites, your will need the connection information. To get MySQL connection information, follow these steps:
+To connect to the MySQL database that is running in Web Apps, your will need the connection information. To get MySQL connection information, follow these steps:
 
-1. From your website's dashboard, click the **View connection strings** link on the right side of the page:
+1. From your resource group, click the database:
 
-	![Get database connection information][connection-string-info]
+	![Select database][select-database]
+
+2. From the database sumamry, select **Properties**.
+
+    ![Select properties][select-properties]
 	
-2. Make note of the values for `Database`, `Data Source`, `User Id`, and `Password`.
+2. Make note of the values for `Database`, `Host`, `User Id`, and `Password`.
 
-3. From your website's dashboard, click the **Download publish profile** link at the bottom right corner of the page:
+    ![Note properties][note-properties]
+
+3. From your web app, click the **Download publish profile** link at the bottom right corner of the page:
 
 	![Download publish profile][download-publish-profile]
 
@@ -234,9 +242,9 @@ To connect to the MySQL database that is running in Azure Websites, your will ne
 	
 Make note of the `publishUrl`, `userName`, and `userPWD` attributes.
 
-##Publish Your Application
+##Publish your app
 
-After you have tested your application locally, you can publish it to your Azure Website using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
+After you have tested your app locally, you can publish it to your web app using FTP. However, you first need to update the database connection information in the application. Using the database connection information you obtained earlier (in the **Get MySQL and FTP connection information** section), update the following information in **both** the `createdatabase.php` and `index.php` files with the appropriate values:
 
 	// DB connection info
 	$host = "value of Data Source";
@@ -244,7 +252,7 @@ After you have tested your application locally, you can publish it to your Azure
 	$pwd = "value of Password";
 	$db = "value of Database";
 
-Now you are ready to publish your application using FTP.
+Now you are ready to publish your app using FTP.
 
 1. Open your FTP client of choice.
 
@@ -265,15 +273,19 @@ After uploading both `index.php` and `createtable.php`, browse to **http://[site
 [localhost-createtable]: http://localhost/tasklist/createtable.php
 [localhost-index]: http://localhost/tasklist/index.php
 [running-app]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/running_app_2.png
-[new-website]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website.jpg
-[custom-create]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/custom_create.png
+[new-website]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_website2.png
+[custom-create]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_web_mysql.png
 [website-details]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/website_details.jpg
-[new-mysql-db]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/new_mysql_db.jpg
-[go-to-dashboard]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/go_to_dashboard.png
-[reset-deployment-credentials]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/reset-deployment-credentials.png
-[portal-git-username-password]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/git-deployment-credentials.png
-
+[new-mysql-db]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_db.png
+[go-to-webapp]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_webapp.png
+[set-deployment-credentials]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/set_credentials.png
+[portal-ftp-username-password]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/save_credentials.png
+[resource-group]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/set_group.png
+[new-web-app]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/create_wa.png
+[select-database]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_database.png
+[select-properties]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/select_properties.png
+[note-properties]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/note-properties.png
 
 [connection-string-info]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/connection_string_info.png
-[management-portal]: https://manage.windowsazure.com
-[download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_2.png
+[management-portal]: https://portal.azure.com
+[download-publish-profile]: ./media/web-sites-php-web-site-mysql-deploy-use-ftp/download_publish_profile_3.png

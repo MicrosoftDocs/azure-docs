@@ -2,8 +2,9 @@
 	pageTitle="Get started with Application Insights with Java in Eclipse" 
 	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-03-03" 
+	ms.date="03/03/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights with Java in Eclipse
@@ -21,7 +22,8 @@ The Application Insights SDK sends telemetry from your Java web application so t
 
 ## Prerequisites
 
-Currently the plug-in works for Dynamic Web Projects in Eclipse. [Add Application Insights to other types of Java project][java].
+Currently the plug-in works for Dynamic Web Projects in Eclipse. 
+([Add Application Insights to other types of Java project][java].)
 
 You'll need:
 
@@ -30,14 +32,17 @@ You'll need:
 * [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/), Indigo or later.
 * Windows 7 or later, or Windows Server 2008 or later
 
-## Install the SDK on Eclipse
+## Install the SDK on Eclipse (one time)
 
 You only have to do this one time per machine. This step installs a toolkit which can then add the SDK to each Dynamic Web Project.
 
 1. In Eclipse, click Help, Install New Software.
+
     ![](./media/app-insights-java-eclipse/0-plugin.png)
+
 2. The SDK is in http://dl.msopentech.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
+
     ![](./media/app-insights-java-eclipse/1-plugin.png)
 
 Follow the remaining steps for each Java project.
@@ -60,8 +65,10 @@ Your usage and performance analytics will be displayed in an Azure resource in t
 ## Add the SDK to your Java project
 
 1. Add Application Insights from the context menu of your web project.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/4-addai.png)
 2. Paste the instrumentation key that you got from the Azure portal.
+
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/5-config.png)
 
 

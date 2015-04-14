@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Application Insights SDK to your web project" 
+	pageTitle="Add Application Insights SDK to monitor your ASP.NET app" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="03/31/2015" 
 	ms.author="awills"/>
 
-# Add Application Insights SDK to your web project
+# Add Application Insights SDK to monitor your ASP.NET app
 
 *Application Insights is in preview.*
 
-Add the Application Insights SDK to monitor your application for:
+Add the Application Insights SDK to monitor your ASP.NET application for:
 
 * **Performance**  - Detect and diagnose perf issues and exceptions.
 * **Usage** - Find out what users are doing with your app.
@@ -88,16 +88,19 @@ When you run in debug mode, telemetry is expedited through the pipeline, so that
 
 #### Trouble on your build server?
 
-Please see [this Troubleshooting item](../app-insights-troubleshoot-faq/#NuGetBuild).
+Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBuild).
 
 ## Next steps
 
+
 #### Detect and diagnose issues
 
+* Add dependency tracking:
+ * [IIS Server][redfield] - Install Status Monitor on your IIS server 
+ * [Azure VM or Web App][azure] - Add the Application Insights extension
 * [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Install Status Monitor in your server][redfield] to get additional performance data and monitor your application's calls to external services.
-* [Search events and logs][diagnostic] to help diagnose problems.
-* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
+* [Capture log traces][netlogs] from your favorite logging framework
+* [Add web client telemetry][client] to see exceptions in web page code
 
 #### Track usage
 

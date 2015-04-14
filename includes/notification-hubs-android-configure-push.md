@@ -8,9 +8,9 @@
 
    	![Set notification hub properties](./media/notification-hubs-android-configure-push/notification-hub-create-from-portal2.png)
 
-4. Click the namespace you just created (usually ***notification hub name*-ns**), and then click **Configure** at the top.
+4. Under **Service Bus**, click the namespace you just created (usually ***notification hub name*-ns**).
 
-5. Click the **Notification Hubs** tab at the top, and then click on the notification hub you just created.
+5. On your namespace, click the **Notification Hubs** tab for your at the top, and then click on the notification hub you just created.
 
 6. Click the **Configure** tab at the top, enter the **API Key** value you obtained in the previous section, and then click **Save**.
 

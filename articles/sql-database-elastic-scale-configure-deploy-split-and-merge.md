@@ -4,13 +4,16 @@
 	description="Splitting and Merging with Elastic Scale" 
 	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
 	services="sql-database" documentationCenter=""  
-	manager="jhubbard" authors="torsteng"/>
+	manager="jhubbard" 
+	authors="sidneyh"/>
 
 <tags 
 	ms.service="sql-database" 
 	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" ms.devlang="na" 
-	ms.topic="article" ms.date="03/05/2015" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/01/2015" 
 	ms.author="torsteng" />
 
 #Elastic Scale Split and Merge Service Tutorial
@@ -27,7 +30,7 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure Management Portal](https://manage.windowsazure.com). At the bottom left, click **New**, then click **Data Services** -> **SQL Database** -> **Custom Create**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
 
-2. Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. Go to the [Azure Management Portal](https://manage.windowsazure.com), on the left pane, click **SQL Databases**. Then click **Servers** on the ribbon at the top of the screen, and select your server. Then click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to **Yes**.
+2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. Go to the [Azure Management Portal](https://manage.windowsazure.com), on the left pane, click **SQL Databases**. Then click **Servers** on the ribbon at the top of the screen, and select your server. Then click **Configure** at the top and ensure that the **Azure Services** setting is set to **Yes**.
 
     ![Allowed services][1]
 
@@ -60,7 +63,7 @@ To determine the access key, go to the [Azure Management portal](https://manage.
 6.    Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
 ### Configuring security 
-For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](./sql-database-elastic-scale-configure-security.md).
+For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
@@ -120,7 +123,7 @@ For the worker role:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
 
-Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](./sql-database-elastic-scale-configure-security.md).
+Please note that for production deployments separate certificates should be used for the CA, for encryption, the Server certificate and client certificates. For detailed instructions on this, see [Security Configuration](sql-database-elastic-scale-configure-security.md).
 
 ### Deploying your Split-Merge service
 1. Go to the [Azure Management Portal](https://manage.windowsazure.com).
@@ -149,9 +152,9 @@ If your worker role fails to come online, but your web role succeeds, it is most
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
 * Ensure that the server name does not begin with **https://**.
-* Ensure that your Azure SQL DB server allows Windows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Windows Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
+* Ensure that your Azure SQL DB server allows Azure Services to connect to it. To do this, open https://manage.windowsazure.com, click “SQL Databases” on the left, click “Servers” at the top, and select your server. Click **Configure** at the top and ensure that the **Azure Services** setting is set to “Yes”. (See the Prerequisites section at the top of this article).
 
-* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Windows Azure** icon to connect to your Azure subscription. Then navigate to Windows Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/en-us/library/azure/ff683677.aspx) 
+* Review the diagnostics logs for your Split/Merge service instance. Open a Visual Studio instance, and in the menu bar click **View**, and **Server Explorer**. Click the **Azure** icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> <*your storage account*> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx) 
 
     ![][5]
 
