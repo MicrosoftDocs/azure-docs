@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/5/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
