@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="multiple" 
-   ms.date="04/13/15"
+   ms.date="04/13/2015"
    ms.author="brad.merrill"/>
 
 # Implement a Todo service with Web API

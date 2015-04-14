@@ -31,7 +31,7 @@ You'll learn:
 
 ### Prerequisites
 - [Visual Studio 2015 CTP 6](https://www.visualstudio.com/en-us/news/vs2015-vs.aspx)
-- [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/)
+- [Azure PowerShell](powershell-install-configure.md)
 
 ## Getting started with Powershell cmdlets
 When you install Windows Fabric SDK, a number of PowerShell cmdlets are installed for you. In this segment, we'll run through a couple of cmdlets to get familiarized with these commands.
