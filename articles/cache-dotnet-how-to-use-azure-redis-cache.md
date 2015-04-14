@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/13/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -54,7 +54,7 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the Azure management preview portal, and click **New**, **Redis Cache**.
+To create a cache, first sign in to the Azure management preview portal, and click **New**, **Data + Storage**, **Redis Cache**.
 
 ![New cache][NewCacheMenu]
 
@@ -64,30 +64,25 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
-Use **Pricing Tier** to select the desired cache size and features. Redis Cache is available in the following two tiers.
-
--	**Basic** - Single node, multiple sizes up to 53 GB.
--	**Standard** - Two node master/slave, 99.9% SLA, multiple sizes up to 53 GB.
-
-For **Subscription**, select the Azure subscription that you want to use for the cache.
-
->[AZURE.NOTE] If your account has only one subscription, it will be automatically selected and the Subscription drop-down will not be displayed.
+Use **Pricing Tier** to select the desired cache size and features. **Basic** caches have a single node with multiple sizes up to 53 GB. **Standard** caches have a two node primary/replica configuration with a 99.9% SLA, and multiple sizes up to 53 GB.
 
 In **Resource group**, select or create a resource group for your cache.
 
 >[AZURE.NOTE] For more information, see [Using Resource groups to manage your Azure resources][]. 
 
-Use **Geolocation** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
+For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
+
+Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
 
 Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
 
 ![Cache created][CacheCreated]
 
-Once your cache is created, you can access it from the **Browse** blade.
+Once your cache is created, you can access it from the **Browse** blade. 
 
 ![Browse blade][BrowseCaches]
 
-Click **Caches** to view your caches.
+Click **Redis Caches** to view your caches.
 
 ![Caches][Caches]
 
@@ -96,7 +91,7 @@ Click **Caches** to view your caches.
 
 A cache created using Azure Redis Cache is accessible from any Azure application. .NET applications developed in Visual Studio can use the **StackExchange.Redis** cache client, which can be configured using a NuGet package that simplifies the configuration of cache client applications. 
 
->[AZURE.NOTE] For more information, see the [StackExchange.Redis][] github page and  the[StackExchange.Redis cache client documentation][].
+>[AZURE.NOTE] For more information, see the [StackExchange.Redis][] github page and  the [StackExchange.Redis cache client documentation][].
 
 To configure a client application in Visual Studio using the StackExchange.Redis NuGet package, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. 
 
@@ -136,7 +131,7 @@ To connect to an Azure Redis Cache and be returned an instance of a connected `C
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
->[AZURE.NOTE] Warning: Never store credentials in source code. To keep this sample simple, I’m showing them in the source code. See [Windows Azure Websites: How Application Strings and Connection Strings Work][] for information on how to store credentials.
+>[AZURE.NOTE] Warning: Never store credentials in source code. To keep this sample simple, I’m showing them in the source code. See [How Application Strings and Connection Strings Work][] for information on how to store credentials.
 
 If you don't want to use SSL, either set `ssl=false` or just pass in the endpoint and key.
 
@@ -384,4 +379,4 @@ follow these links to learn how to do more complex caching tasks.
 [Redis data types]: http://redis.io/topics/data-types
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
-[Windows Azure Websites: How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
