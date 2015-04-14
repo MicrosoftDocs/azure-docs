@@ -41,11 +41,11 @@ Open your terminal and navigate to a directory where you plan on creating your p
 
 ## Create a database and retrieve your connection string
 
-See the getting started page to learn how to create a sample database and retrieve your connection string.  
+See the [getting started page](http://example.com/) to learn how to create a sample database and retrieve your connection string.  
 
 ## Connect to your SQL Database
 
-The System.Data.SqlClient.SqlConnection class is used to connect to SQL Database.  
+The [System.Data.SqlClient.SqlConnection class](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) is used to connect to SQL Database.  
 
 ```
 using System.Data.SqlClient;
@@ -64,7 +64,7 @@ class Sample
 
 ## Execute a query and retrieve the result set 
 
-The System.Data.SqlClient.SqlCommand and SqlDataReader classes can be used to retrieve a result set from a query against SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline System.Data.DataSet.   
+The [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) and [SqlDataReader](https://msdn.microsoft.com/library/system.data.sqlclient.sqldatareader.aspx) classes can be used to retrieve a result set from a query against SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline [System.Data.DataSet](https://msdn.microsoft.com/library/system.data.dataset.aspx).   
 
 ```
 using System;
