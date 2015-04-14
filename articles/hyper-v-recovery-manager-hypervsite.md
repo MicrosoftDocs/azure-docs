@@ -149,60 +149,7 @@ After verifying the prerequisites, do the following:
 <h3><a id="protectiongroup"></a>Step 5: Create and configure protection groups</h3>
 
 <p>Protection groups group together virtual machines that have the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines that you add to the group.</p>
-1. In **Create and configure protection groups** click **Create a protection group**. If any prerequisites aren't in place a message is issued and you can click **View 
-2. 
-3. 
-4. 
-5. 
-6. 
-7. 
-8. 
-9. 
-10. 
-11. 
-12. 
-13. 
-14. 
-15. 
-16. 
-17. 
-18. 
-19. 
-20. 
-21. 
-22. 
-23. 
-24. 
-25. 
-26. 
-27. 
-28. 
-29. 
-30. 
-31. 
-32. 
-33. 
-34. 
-35. 
-36. 
-37. 
-38. 
-39. 
-40. 
-41. 
-42. 
-43. 
-44. 
-45. 
-46. 
-47. 
-48. 
-49. 
-50. 
-51. 
-52. 
-53. 
-54. details** for more information.
+1. In **Create and configure protection groups** click **Create a protection group**. If any prerequisites aren't in place a message is issued and you can click **View details** for more information.
 
 2. In the **Protection Groups** tab, add a protection group. Specify a name, the source Hyper-V site, the target **Azure**, your Azure Site Recovery subscription name, and the Azure storage account.
 
