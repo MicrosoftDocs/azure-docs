@@ -210,7 +210,7 @@ This section provides the prerequisites for using Azure PowerShell commands.
 To use the Azure PowerShell cmdlets described in this topic, you must have the following software installed on the computer where PowerShell is run.
 1. Download a Windows PowerShell version that’s at least 3.0 at http://www.microsoft.com/en-us/download/details.aspx?id=34595.
 
-2. Download Azure PowerShell from the Command-line tool section at [Azure SDK and Tool Downloads](https://www.windowsazure.com/downloads).
+2. Download Azure PowerShell from the Command-line tool section at [Azure SDK and Tool Downloads](http://azure.microsoft.com/downloads/).
 
 Do the following:
 From your **Start** screen or **Start** menu, navigate to and start Azure PowerShell.
