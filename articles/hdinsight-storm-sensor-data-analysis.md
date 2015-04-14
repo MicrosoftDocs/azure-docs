@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="04/14/2015"
    ms.author="larryfr"/>
 
 #Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
@@ -75,7 +75,7 @@ The following is a diagram of the topology.
 
 ###Components
 
-* **EventHub Spout**: The spout is provided with your HDInsight cluster. The source code is not currently available.
+* **EventHub Spout**: The spout is provided as part of the [HDInsight Storm Examples](https://github.com/hdinsight/hdinsight-storm-examples) on GitHub.
 
 * **ParserBolt.java**: The data that is emitted by the spout is raw JSON, and occasionally more than one event is emitted at a time. This bolt demonstrates how to read the data emitted by the spout, and emit it to a new stream as a tuple that contains multiple fields.
 
@@ -129,15 +129,11 @@ Event Hub is the data source for this example. Use the following steps to create
 
 4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Select the check mark icon in the lower-left corner to create the Storm cluster.
 
-5. When the cluster is created, select the cluster in the portal and select **Configure** at the top of the cluster **Dashboard**.
+## Download and install the EventHubSpout
 
-3. At the bottom of the page, select **Enable Remote**. When prompted, enter a user name, password, and a date when Remote Desktop access will expire. Select the check box to enable Remote Desktop.
+1. Download the [HDInsight Storm Examples project](https://github.com/hdinsight/hdinsight-storm-examples/). Once downloaded, find the **lib/eventhubs/eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file.
 
-4. After Remote Desktop is enabled, you can select **Connect** at the bottom of the page. Follow the prompts to connect to the cluster.
-
-1. When connected, copy the **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file to your local development environment. This contains the **events-storm-spout**.
-
-7. Use the following command to install the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file you downloaded previously into the local Maven store. This will allow you to easily add it as a reference in the Storm project in a later step.
+2. From the command prompt, use the following command to install the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file into the local Maven store. This will allow you to easily add it as a reference in the Storm project in a later step.
 
 		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
