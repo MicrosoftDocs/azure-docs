@@ -97,7 +97,7 @@ Often in script action development, you will feel the need to set environment va
 	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
 	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here](https://msdn.microsoft.com/en-us/library/96xafkes(v=vs.110).aspx "here") for more information on setting environment variables.
+This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx "here") for more information on setting environment variables.
 
 ### Access to locations where the custom scripts are stored
 
