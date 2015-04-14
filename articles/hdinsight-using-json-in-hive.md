@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using JSON documents with Hive in HDInsight | Azure"
-   description="Learn how to use JSON documents and analze them using Hive in HDInsight."
+   pageTitle="Analyze and Process JSON documents with Hive in HDInsight | Microsoft Azure"
+   description="Learn how to use JSON documents and analze them using Hive in HDInsight"
    services="hdinsight"
    documentationCenter=""
    authors="rashimg"
@@ -17,21 +17,11 @@
    ms.author="rashimg"/>
 
 
-# Learn how to use JSON in Hive
+# Learn how to process and analyze JSON documents in Hive
 
 JSON is one of the most commonly used format on the web. This tutorial will help you understand one of the common questions that users face in Hive – how to use JSON documents in Hive and then run analysis on them. 
 
-##In this tutorial
-
-* [JSON Example](#example)
-* [Flattening a JSON document (step required only if you have pretty JSON)](#flatten)
-* [Options for analyzing JSON documents in Hive](#options)
-* [get_json_object UDF](#getjsonobject)
-* [json_tuple UDF](#jsontuple)
-* [Using custom SerDe](#serde)
-* [Other options](#other)
-
-##<a name="example"></a>JSON Example
+##JSON Example
 
 Let us take an example. Let’s assume that we have the JSON document shown below. Our goal is to be able to parse this JSON document and then be able to run queries on this document like lookup value on a key, aggregation etc.
 
@@ -70,7 +60,7 @@ Let us take an example. Let’s assume that we have the JSON document shown belo
         ] 
       }
 
-##<a name="flatten"></a>Flattening a JSON document (step required only if you have pretty JSON)
+##Flattening a JSON document (step required only if you have pretty JSON)
 
 Before we use any Hive operator to perform analysis we must pre-process the JSON document so it is ready to be used by Hive. 
 
@@ -107,7 +97,7 @@ Here is the output of this query:
 
 ![Flattening of the JSON document.][image-hdi-hivejson-flatten]
 
-##<a name="options"></a>Options for analyzing JSON documents in Hive
+##Options for analyzing JSON documents in Hive
 
 Now that we have the JSON document in a table with a single column, we are ready to use Hive to run queries on this data. Hive provides three different mechanisms to run queries on JSON documents:
 
@@ -118,7 +108,7 @@ Now that we have the JSON document in a table with a single column, we are ready
 Let us discuss each one of these in detail.
 
 
-##<a name="getjsonobject"></a>get_json_object UDF
+##get_json_object UDF
 Hive provides a built-in UDF called [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) which can perform JSON querying during run time. This method takes two arguments – the table name and method name which has the flattened JSON document and the JSON field that needs to be parsed. Let’s look at an example to see how this UDF works.
 
 Get the first name and last name for each student
@@ -139,7 +129,7 @@ There are a few limitations of this UDF.
 This is why the Hive wiki recommends using json_tuple which we will discuss next.  
 
 
-###<a name="jsontuple"></a>json_tuple UDF
+##json_tuple UDF
 
 The other UDF provided by Hive is called [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple) which is more performant than [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). This method takes a set of keys and a JSON string, and returns a tuple of values using one function. Let’s look at an example to see how this UDF works. 
 
@@ -158,7 +148,7 @@ Let's see the output of this script in the Hive console:
 
 One of the main disadvantages of this UDF is that complex JSONs become too unwieldy because of the repeated use of LATERAL VIEW. In fact, this UDF cannot handle nested JSONs.
 
-##<a name="serde"></a>Using custom SerDe
+##Using custom SerDe
 
 For parsing nested JSON documents, SerDe is the **best choice** since you can define the JSON schema making it very easy to run queries against it. 
 
@@ -170,65 +160,105 @@ Step 1: Ensure you have [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.o
 - If you are going to be using the Windows deployment of HDInsight choose the x64 Windows version of the JDK.
 - After installation is complete, go to Control Panel --> Add Environment variables and add a new JAVA_HOME environment variable is pointing to C:\Program Files\Java\jdk1.7.0_55 or wherever your JDK is installed. The following screen shots show you how you can set the environment variable.
 
-![json_tuple UDF][image-hdi-hivejson-jdk]
+![Setting up correct config values for JDK][image-hdi-hivejson-jdk]
 
-[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
+Step 2: Go to [this](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip) link and download Maven 3.3.1. Unpack the archive where you would like to store the binaries. In my case, I will unzip it to C:\Program Files\Maven\. Add the bin folder to your path by going to Control Panel-->Edit the System Variables for your account Environment variables. The screenshot below shows you how to do this. 
 
-[hdinsight-versions]: hdinsight-component-versioning.md
+![Setting up Maven][image-hdi-hivejson-maven]
 
-[hdinsight-get-started-30]: hdinsight-get-started-30.md
-[hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
-[hdinsight-use-hive]: hdinsight-use-hive.md
-[hdinsight-use-pig]: hdinsight-use-pig.md
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-emulator]: hdinsight-get-started-emulator.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
-[hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
-[hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
-[hdinsight-sensor-data-sample]: hdinsight-hive-analyze-sensor-data.md
+Step 3: Clone the project from [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) github site. You can do this by clicking on the “Download Zip” button as shown in the screenshot below.
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: storage-create-storage-account.md
+![Cloning the project][image-hdi-hivejson-serde]
 
-[apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
-[apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
-[apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
-[apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
+Step 4: Go to the folder where you have downloaded this package and  type “mvn package”. This should create the necessary jar files that you can then copy over to the cluster. 
+
+Step 5: Next, go to the target folder under the root folder where you downloaded the package. Upload the json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar file to head-node of your cluster. I usually put it under the hive binary folder: C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin or something similar.
+ 
+Step 6: In the hive prompt, type “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”. Since in my case, the jar is in the C:\apps\dist\hive-0.13.x\bin folder, I can directly add the jar with the name as shown below:
+
+    add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
+
+![Adding JAR to your project][image-hdi-hivejson-addjar]
+
+Now, we are ready to use the SerDe to run queries against the JSON document.
+
+Let us first create the table with the schema of the JSON document. Note that we can handle much more richer types including map, arrays and structs. Type the code below in Hive console so that Hive creates a table named json_table which can read the JSON document based on the schema below. 
+
+    drop table json_table;
+    create external table json_table (
+      StudentId string, 
+      Grade int,
+      StudentDetails array<struct<
+          FirstName:string,
+          LastName:string,
+          YearJoined:int
+          >
+      >,
+      StudentClassCollection array<struct<
+          ClassId:string,
+          ClassParticipation:string,
+          ClassParticipationRank:string,
+          Score:int,
+          PerformedActivity:boolean
+          >
+      >
+    ) row format serde 'org.openx.data.jsonserde.JsonSerDe'
+    location '/json/temp';
+
+Now that we have defined the schema, let’s run some examples to see how we can query the JSON document using Hive:
+
+a)	List the first name and last name of the student
+
+    select StudentDetails.FirstName, StudentDetails.LastName from json_table;
+
+Here is the result from the Hive console.
+
+![SerDe Query 1][image-hdi-hivejson-serde_query1]
+
+b)	This query calculates the sum of scores of the JSON document
+
+    select sum(scores)
+    from json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as scores;
+       
+The query above uses [lateral view explode](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) UDF to expand the array of scores so that they can be summed. 
+
+Here is the output from the Hive console.
+
+![SerDe Query 2][image-hdi-hivejson-serde_query2]
+
+c)	Find which subjects a given student has scored more than 80 points
+    select  
+      jt.StudentClassCollection.ClassId 
+    from json_table jt
+      lateral view explode(jt.StudentClassCollection.Score) collection as score  where score > 80;
+      
+The query above returns a Hive array unlike get_json_object which returns a string. 
+
+![SerDe Query 3][image-hdi-hivejson-serde_query3]
+
+If you want to skil malformed JSON, then as explained in the [wiki page](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) of this SerDe you can achieve that by typing the code below:  
+
+    ALTER TABLE json_table SET SERDEPROPERTIES ( "ignore.malformed.json" = "true");
 
 
-[powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[powershell-install-configure]: install-configure-powershell.md
-[powershell-open]: install-configure-powershell.md#Install
+##Other options
+Other than the options listed below you can also write your own custom code using Python or other languages which is specific to your scenario. Once your have your python script ready, see [this article][hdinsight-python] on running your own Python code with Hive. 
 
+##Summary
+In conclusion, the type of JSON operator in Hive that you choose depends on your scenario. If you have a simple JSON document and you only have one field to look up on – you can choose to use the Hive UDF get_json_object. If you have more than one keys to look up on then you can use json_tuple. If you have a nested document, then you should use the JSON SerDe.
 
-[img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-get-started/HDI.dashboard.query.browse.output.png
+We at HDInsight are working towards making it even easier for you to use more formats natively in Hive without extensive work on your part. We will update this tutorial with more details once we have something to share.  
 
-[img-hdi-getstarted-video]: ./media/hdinsight-get-started/HDI.GetStarted.Video.png
-
-
-[image-hdi-storageaccount-quickcreate]: ./media/hdinsight-get-started/HDI.StorageAccount.QuickCreate.png
-[image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
-[image-hdi-quickcreatecluster]: ./media/hdinsight-get-started/HDI.QuickCreateCluster.png
-[image-hdi-getstarted-flow]: ./media/hdinsight-get-started/HDI.GetStartedFlow.png
-
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-
+[hdinsight-python]: hdinsight-python.md
 
 [image-hdi-hivejson-flatten]: ./media/hdinsight-using-json-in-hive/flatten.png
 [image-hdi-hivejson-getjsonobject]: ./media/hdinsight-using-json-in-hive/getjsonobject.png
 [image-hdi-hivejson-jsontuple]: ./media/hdinsight-using-json-in-hive/jsontuple.png
 [image-hdi-hivejson-jdk]: ./media/hdinsight-using-json-in-hive/jdk.png
+[image-hdi-hivejson-maven]: ./media/hdinsight-using-json-in-hive/maven.png
+[image-hdi-hivejson-serde]: ./media/hdinsight-using-json-in-hive/serde.png
+[image-hdi-hivejson-addjar]: ./media/hdinsight-using-json-in-hive/addjar.png
+[image-hdi-hivejson-serde_query1]: ./media/hdinsight-using-json-in-hive/serde_query1.png
+[image-hdi-hivejson-serde_query2]: ./media/hdinsight-using-json-in-hive/serde_query2.png
+[image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
