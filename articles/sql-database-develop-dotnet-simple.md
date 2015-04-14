@@ -105,9 +105,9 @@ class Sample
 
 ## Inserting a row, passing parameters, and retrieving the generated primary key value 
 
-In SQL Database the IDENTITY property and the SEQUENECE object can be used to auto-generate primary key values. In this example you will see how to execute an insert-statement, safely pass parameters which protects from SQL injection, and retrieve the auto-generated primary key value.  
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. In this example you will see how to execute an [insert-statement](https://msdn.microsoft.com/library/ms174335.aspx), safely pass parameters which protects from [SQL injection](https://msdn.microsoft.com/magazine/cc163917.aspx), and retrieve the auto-generated primary key value.  
 
-The ExecuteScalar method in the System.Data.SqlClient.SqlCommand class can be used to execute a statement and retrieve the first column and row returned by this statement. The OUTPUT clause of the INSERT statement can be used to return the inserted values as a result set to the calling application. Note that OUTPUT is also supported by the UPDATE, DELETE and MERGE statements. If more than one row is inserted you should use the ExecuteReader method to retrieve the inserted values for all rows.
+The [ExecuteScalar](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.executescalar.aspx) method in the [System.Data.SqlClient.SqlCommand](https://msdn.microsoft.com/library/system.data.sqlclient.sqlcommand.aspx) class can be used to execute a statement and retrieve the first column and row returned by this statement. The OUTPUT clause of the INSERT statement can be used to return the inserted values as a result set to the calling application. Note that OUTPUT is also supported by the UPDATE, DELETE and MERGE statements. If more than one row is inserted you should use the ExecuteReader method to retrieve the inserted values for all rows.
 
 ```
 class Sample
