@@ -9,7 +9,7 @@
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="tutorial"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/10/2015"
@@ -68,7 +68,7 @@ Perform the following steps if you only have a single device and need to perform
 
 1. Take cloud snapshots of all the volumes in your device.
 
-1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](https://msdn.microsoft.com/en-us/library/dn772373.aspx).
+1. Reset your device to factory defaults. Follow the detailed instructions in [how to reset a StorSimple device to factory default settings](https://msdn.microsoft.com/library/dn772373.aspx).
 
 1. Configure your device and register it again with your StorSimple Manager service.
 
@@ -119,5 +119,5 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 ## See also
 
-[Administrator's Guide](https://msdn.microsoft.com/en-us/library/dn772401.aspx)
+[Administrator's Guide](https://msdn.microsoft.com/library/dn772401.aspx)
 
