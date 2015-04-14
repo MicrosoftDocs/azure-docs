@@ -137,29 +137,6 @@ class Sample
 }
 ```
 
-
-
-## Delete values in your table
-
-
-	cursor.execute("DELETE FROM test WHERE value = 2;")
-	conn.commit()
-
-
-## Select values from your table
-
-
-	cursor.execute('SELECT * FROM test')
-    result = ""
-    row = cursor.fetchone()
-    while row:
-        result += str(row[0]) + str(" : ") + str(row[1]) + str(" votes")
-        result += str("\n")
-        row = cursor.fetchone()
-    print result
-
-
-
 ## Transactions
 
 
@@ -167,7 +144,7 @@ class Sample
 	cursor.execute("DELETE FROM test WHERE value = 10;")
 	cnxn.rollback()
 
-## Stored procedures
+## Executing Stored Procedures
 
 
 	with pymssql.connect("yourserver", "yourusername", "yourpassword", "yourdatabase") as conn:
