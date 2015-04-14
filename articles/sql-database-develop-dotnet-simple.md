@@ -23,21 +23,12 @@
 
 ## Requirements
 
-System.Data.SqlClient
-TODO: You might already have some of the following required installations. ??
+.NET Framework including System.Data and System.Data.SqlClient.
 
 
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
+## Install the required modules
 
-
-## TODO Install the required modules
-Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**.
-
-	sudo apt-get --assume-yes update  
-	sudo apt-get --assume-yes install freetds-dev freetds-bin
-	sudo apt-get --assume-yes install python-dev python-pip
-	sudo pip install pymssql
-
+.NET Framework is pre-installed with Windows. For Linux and Mac OS X you can download .NET Framework from the [Mono Project](http://www.mono-project.com/).
 
 ## Create a database and retrieve your connection string
 
@@ -136,27 +127,4 @@ class Sample
     }
 }
 ```
-
-## Transactions
-
-
-	cursor.execute("BEGIN TRANSACTION")
-	cursor.execute("DELETE FROM test WHERE value = 10;")
-	cnxn.rollback()
-
-## Executing Stored Procedures
-
-
-	with pymssql.connect("yourserver", "yourusername", "yourpassword", "yourdatabase") as conn:
-    with conn.cursor(as_dict=True) as cursor:
-        cursor.execute("""
-        CREATE PROCEDURE FindName
-            @name VARCHAR(100)
-        AS BEGIN
-            SELECT * FROM test WHERE name = @name
-        END
-        """)
-        cursor.callproc('FindPerson', ('NodeJS',))
-        for row in cursor:
-            print("Name=%s, Votes=%d" % (row['name'], row['value']))
 
