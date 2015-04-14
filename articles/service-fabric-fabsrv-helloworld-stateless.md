@@ -50,17 +50,16 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 
 2. Open **Service.cs** in the **HelloWorldStateless** project, examine the code in **RunAsync()** method.  The **RunAsync** method is your compute workload entry point. 
 		
-	```c#
-	protected override async Task RunAsync(CancellationToken cancellationToken)
-	{
-		// TODO: Replace the following with your own logic.
-		while (!cancellationToken.IsCancellationRequested)
-		{
-			ServiceEventSource.Current.Message("Working");
-			await Task.Delay(1000);
-		}
-	}
-	```
+	    protected override async Task RunAsync(CancellationToken cancellationToken)
+	    {
+		    // TODO: Replace the following with your own logic.
+		    while (!cancellationToken.IsCancellationRequested)
+		    {
+			    ServiceEventSource.Current.Message("Working");
+			    await Task.Delay(1000);
+		    }
+	    }
+	
 	>**NOTE**: The ServiceEventSource class is an automatically generated subclass of EventSource, which provides the ability to create events for Event Tracing For Windows (ETW). 
 
     ### RunAsync
@@ -71,9 +70,7 @@ In this tutorial, we will focus on the open-ended entry point method where you c
 
 3. To see your Hello World service at work, modify the first line in the while loop to log current time to ETW:
 
-	```c#
-	ServiceEventSource.Current.Message("Hello World! at " + DateTime.Now.ToLongTimeString());
-	```	
+	    ServiceEventSource.Current.Message("Hello World! at " + DateTime.Now.ToLongTimeString());
 
 ## <a name="testlocally"></a>Test and debug the service locally
 
