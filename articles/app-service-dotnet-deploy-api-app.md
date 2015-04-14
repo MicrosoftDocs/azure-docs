@@ -3,7 +3,7 @@
 	description="Learn how to deploy an API App project to your Azure subscription." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="bradygaster" 
+	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -20,13 +20,13 @@
 
 ## Overview
 
-If you're actively developing your own API app using Visual Studio and need to test your API in the cloud, you can create a new API app in your Azure subscription and deploy your code using Visual Studio's convenient App Service deployment features. 
-
-This is the second tutorial in a series of three:
+This is the second tutorial in a series:
 
 1. In [Create an API App](app-service-dotnet-create-api-app.md) you created an API App project. 
-* In this tutorial, you will deploy the API app to your Azure subscription.
-* In [Debug an API App](app-service-dotnet-remotely-debug-api-app.md), you will use Visual Studio to remotely debug the code while it runs in Azure.
+* In this tutorial, you deploy the API app to your Azure subscription.
+* In [Debug an API App](app-service-dotnet-remotely-debug-api-app.md), you use Visual Studio to debug the code while it runs in Azure.
+
+In this tutorial you create a new API app in your Azure subscription, then you deploy the project that you created in the previous tutorial to the new API app.  The tutorial shows how to use Visual Studio's convenient App Service deployment features. 
 
 ## Deploy the API app 
 
