@@ -147,13 +147,6 @@ View performance data **owner: Kunalds**
 
 Download crash dumps **owner: Kunalds**
 
-View health information in Visual Studio **owner: oanapl**
-
-
-### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
-
-Query Health State and Events (PowerShell) **owner: oanapl**
-
 ### Add/Remove Services from Applications P2 owner: vturecek
 
 ### Remove an Application owner: vturecek
@@ -180,6 +173,10 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
+
+
+[How to View Azure Service Fabric Entities Aggregated Health](service-fabric-howto-view-entities-aggregated-health.md)
+**owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
  [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**

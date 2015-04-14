@@ -77,12 +77,12 @@ Contains:
 - **MaxPercentUnhealthyNodes**. Maximum tolerated percentage of nodes that can be unhealthy before the cluster is considered in Error.
 
 The following is an excerpt from a cluster manifest:
-```
+```xml
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
-    <Parameter Name=”ConsiderWarningAsError” Value=”False” />
-    <Parameter Name=”MaxPercentUnhealthyNodes” Value=”20” />
-    <Parameter Name=”MaxPercentUnhealthyApplications” Value=”0” />
+    <Parameter Name="ConsiderWarningAsError" Value="False" />
+    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
+    <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
   </Section>
 </FabricSettings>
 ```
@@ -102,14 +102,12 @@ The service type health policy specifies how to evaluate and aggregate children 
 - **MaxPercentUnhealthyServices**. Maximum tolerated percentage of unhealthy services before the application is considered unhealthy. Default: 0%
 
 The following is an excerpt from an application manifest:
-```
+```xml
     <Policies>
         <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
             <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="10" MaxPercentUnhealthyReplicasPerPartition="0"/>
-            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
-                MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="20" MaxPercentUnhealthyReplicasPerPartition="0"/>
-            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
-                MaxPercentUnhealthyServices="20" MaxPercentUnhealthyPartitionsPerService="0" MaxPercentUnhealthyReplicasPerPartition="0">
+            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"                MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="20" MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"                MaxPercentUnhealthyServices="20" MaxPercentUnhealthyPartitionsPerService="0" MaxPercentUnhealthyReplicasPerPartition="0">
             </ServiceTypeHealthPolicy>
         </HealthPolicy>
     </Policies>
@@ -147,3 +145,8 @@ When reporting, the *reporters* make a **local** determination of the health of 
 
 This allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.
 Other systems have a single centralized service at the cluster level parsing all the “potentially” useful information emitted by all services. This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.
+
+## Next Steps
+[How to View Azure Service Fabric Entities Aggregated Health](service-fabric-howto-view-entities-aggregated-health.md)
+
+[Understanding System Health Reports](service-fabric-understanding-system-health-reports.md)
