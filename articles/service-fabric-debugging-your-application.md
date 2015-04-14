@@ -1,6 +1,6 @@
 <properties
    pageTitle="Debugging your Service Fabric Application in Visual Studio"
-   description="Improve the reliability and performance of your services using Visual Studio."
+   description="Improve the reliability and performance of your services using Visual Studio and a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -18,11 +18,7 @@
 
 # Debugging your Service Fabric Application in Visual Studio
 
-Visual Studio provides different options to debug your Service Fabric application.
-
-## Debugging your Service Fabric application on your local computer
-
-You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application and automatically connect the debugger to all instances of your application.
+You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment)
 
@@ -34,38 +30,19 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
   > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit or reducing the input to the services.
 
+4. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.
 
-## Diagnostic tracing your Service Fabric application on your local computer
+    ![View diagnostic events in real time][diagnosticevents]
 
-1. In the automatically generated **ServiceEventSource.cs**, add a diagnostic **Event** method to trace information about the application event.
+5. You can also open the **Diagnostic Events** window in the Server Explorer.  Under **Azure**, right click on **Service Fabric Cluster** > **View Diagnostic Events...**
 
-    ```
-    [Event(2, Level = EventLevel.Informational, Message = "Service host {0} registered service type {1}")]
-    public void ServiceTypeRegistered(int processId, string serviceType)
-    {
-        WriteEvent(2, processId, serviceType);
-    }
-    ```
+    ![Open the diagnostic events window][viewdiagnosticevents]
 
-2. In your application code, call the method to trace the application event.
+6. The diagnostic events can be seen in the automatically generated **ServiceEventSource.cs** and are called from application code.
 
     ```
     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
     ```
-
-3. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment)
-
-4. Press **F5** or click **Debug** > **Start Debugging** to deploy your application.
-
-    ![Start debugging an application][startdebugging]
-
-5. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.  
-
-    ![View diagnostic events in real time][diagnosticevents]
-
-6. You can also open the **Diagnostic Events** window in the Server Explorer.  Under **Azure**, right click on **Service Fabric Cluster** > **View Diagnostic Events...**
-
-    ![Open the diagnostic events window][viewdiagnosticevents]
 
 7. The **Diagnostic Events** window supports filtering, pausing, and viewing events in real time.
 
