@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/5/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
@@ -115,8 +115,8 @@ Now that you have completed this tutorial you know how to store your scripts in 
 [Git website]: http://git-scm.com
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Add Mobile Services to an existing app]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Call a custom API from the client]: /documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api/
-[How to make data model changes to a .NET backend mobile service]: /documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[How to make data model changes to a .NET backend mobile service]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md

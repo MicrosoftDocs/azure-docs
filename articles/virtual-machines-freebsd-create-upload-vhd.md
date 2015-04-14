@@ -23,7 +23,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 ##Prerequisites##
 This article assumes that you have the following items:
 
-- **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://azure.microsoft.com/documentation/articles/php-create-account/). 
+- **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](php-create-account.md). 
 
 - **Azure PowerShell tools** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Azure Downloads](http://azure.microsoft.com/downloads/). A tutorial to install and configure the module is available here. You'll use the [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet to upload the VHD.
 
@@ -86,7 +86,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     **Important**: After installation, please double check it is running.
 
-		# service ñe | grep waagent
+		# service ‚Äìe | grep waagent
 		/etc/rc.d/waagent
 		# cat /var/log/waagent.log
 
@@ -96,7 +96,7 @@ From the virtual machine that the FreeBSD operating system was installed to, com
 
     Below command also deletes the last provisioned user account and associated data.
 
-		# waagent ñdeprovision+user
+		# waagent ‚Äìdeprovision+user
 
 ## Step 2: Create a storage account in Azure ##
 
@@ -176,7 +176,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
 	
-   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
+   For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md). 
 
 ## Step 4: Upload the .vhd file ##
 
@@ -194,7 +194,7 @@ After you upload the .vhd, you can add it as an image to the list of custom imag
 
 		Add-AzureVMImage -ImageName <Your Image's Name> -MediaLocation <location of the VHD> -OS <Type of the OS on the VHD>
 
-    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts ìLinuxî or ìWindowsî as parameter.
+    **Important**: Please use Linux as OS type for now since current Azure PowerShell version only accepts ‚ÄúLinux‚Äù or ‚ÄúWindows‚Äù as parameter.
 
 2. After you complete the previous steps, the new image is listed when you choose the **Images** tab on the Azure management portal.  
 

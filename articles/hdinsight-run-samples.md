@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Run the Hadoop samples in HDInsight | Azure" 
-	description="Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="Run the Hadoop samples in HDInsight | Azure"
+	description="Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters."
+	services="hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/10/2014" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/30/2014" 
 	ms.author="bradsev"/>
 
 
@@ -32,11 +32,11 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 <p>These samples are intended to get you up to speed quickly on how to deploy Hadoop jobs and to provide you with an extensible testing bed to work with the concepts and scripting procedures that are used by the service. They provide you with examples of common tasks, such as creating and importing data sets of various sizes, running and composing jobs sequentially, and examining the results of your jobs. The data sets that you use can be varied in size, which allows you to observe the effects that data sets of various size have on job performance.</p>
 
 
-**Prerequisites**:	
+**Prerequisites**:
 
 - You must have a Microsoft Azure account. For options about signing up for an account, see [Azure: Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
 
-- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](../hdinsight-provision-clusters/)
+- You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](hdinsight-provision-clusters.md)
 
 - You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see [How to install and configure Azure PowerShell][powershell-install-configure].
 
@@ -47,7 +47,7 @@ HDInsight ships with the following samples:
 - [**The pi estimator Hadoop sample**][hdinsight-sample-pi-estimator]: Shows how to run a MapReduce program with HDInsight that uses a statistical (quasi-Monte Carlo) method to estimate the value of pi.
 - [**Run a MapReduce word count example on an Hadoop cluster**][hdinsight-sample-wordcount]: Shows how to use an HDInsight cluster to run a MapReduce program that counts word occurrences in a text file.
 - [**The 10-GB Graysort Hadoop sample**][hdinsight-sample-10gb-graysort]: Shows how to run a general purpose GraySort on a 10 GB file by using HDInsight. There are three jobs to run: Teragen to generate the data, Terasort to sort the data, and Teravalidate to confirm that the data has been properly sorted.
-- [**The C# streaming wordcount MapReduce sample in Hadoop**][hdinsight-sample-csharp-streaming]: Shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface. 
+- [**The C# streaming wordcount MapReduce sample in Hadoop**][hdinsight-sample-csharp-streaming]: Shows how to use C# to write a MapReduce program that uses the Hadoop streaming interface.
 
 
 ## How to run the samples ##
@@ -66,24 +66,23 @@ From this article and the articles in each of the samples, you learned how to ru
 * [Debug Hadoop in HDInsight: Error messages][hdinsight-errors]
 
 
-[hdinsight-errors]: ../hdinsight-debug-jobs/
+[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-introduction]: ../hdinsight-hadoop-introduction/
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-introduction]: hdinsight-hadoop-introduction.md
 
 
-[powershell-install-configure]: ../install-configure-powershell/
+[powershell-install-configure]: install-configure-powershell.md
 
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[hdinsight-samples]: ../hdinsight-run-samples/
-[hdinsight-sample-10gb-graysort]: ../hdinsight-sample-10gb-graysort/
-[hdinsight-sample-csharp-streaming]: ../hdinsight-sample-csharp-streaming/
-[hdinsight-sample-pi-estimator]: ../hdinsight-sample-pi-estimator/
-[hdinsight-sample-wordcount]: ../hdinsight-sample-wordcount/
+[hdinsight-samples]: hdinsight-run-samples.md
+[hdinsight-sample-10gb-graysort]: hdinsight-sample-10gb-graysort.md
+[hdinsight-sample-csharp-streaming]: hdinsight-sample-csharp-streaming.md
+[hdinsight-sample-pi-estimator]: hdinsight-sample-pi-estimator.md
+[hdinsight-sample-wordcount]: hdinsight-sample-wordcount.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md

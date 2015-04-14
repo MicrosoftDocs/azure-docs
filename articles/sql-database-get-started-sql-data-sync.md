@@ -179,9 +179,9 @@ Congratulations. You have created a sync group that includes both a SQL Database
 ## Next Steps
 For additional information on SQL Database and SQL Data Sync see:
 
-* [Sign up for the Premium Offer for SQL Database] (../sign-up-for-sql-database-premium/)
+* [Sign up for the Premium Offer for SQL Database] (sign-up-for-sql-database-premium.md)
 * [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
-* [Getting Started with Azure SQL Database](../getting-started-w-sql-databases/)
+* [Getting Started with Azure SQL Database](getting-started-w-sql-databases.md)
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
 
 

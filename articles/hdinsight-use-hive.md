@@ -40,7 +40,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to the blob container. See <a href="../hdinsight-upload-data/" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how Azure Blob storage is used with HDInsight, see <a href="../hdinsight-use-blob-storage/" target="_blank">Use Azure Blob Storage with HDInsight</a>.
+> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to the blob container. See <a href="hdinsight-upload-data.md" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how Azure Blob storage is used with HDInsight, see <a href="hdinsight-use-blob-storage.md/" target="_blank">Use Azure Blob Storage with HDInsight</a>.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -93,7 +93,7 @@ These statements perform the following actions:
 
 	set hive.execution.engine=tez;
 
-This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in <a href="../hdinsight-provision-clusters/" target="_blank">Provisioning HDInsight Clusters</a>.
+This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in <a href="hdinsight-provision-clusters.md" target="_blank">Provisioning HDInsight Clusters</a>.
 
 The <a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez" target="_blank">Hive on Tez design documents</a> contain a number of details about the implementation choices and tuning configurations.
 
@@ -122,7 +122,7 @@ Now that you have learned how to use Hive with HDInsight, use the following link
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
-[1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
+[1]: hdinsight-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -136,20 +136,20 @@ Now that you have learned how to use Hive with HDInsight, use the following link
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
-[hdinsight-use-pig]: ../hdinsight-use-pig/
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-use-mapreduce]: ../hdinsight-use-mapreduce/
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Scratch TOC- Don't Publish" 
-   description="" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="rwike77" 
-   manager="timlt" 
+<properties
+   pageTitle="Scratch TOC- Don't Publish"
+   description=""
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,42 +12,42 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="02/18/2015"
    ms.author="ryanwi"/>
 
-# Working List of WinFabric/PaaS v2 Content
+# Working List of Service Fabric Content
 We will not be publishing this topic.  The ACOM landing page, learning map, and left-hand navigation TOCs will be built from this content.
 ## About
-[Technical Overview](../service-fabric-technical-overview)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: Mark**
+[Technical Overview](../service-fabric-technical-overview)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: mfussell**
 
-Learning Map P2 **owner:Andy**
+Learning Map P2 **owner: adegeo**
 
-[Application Scenarios](../service-fabric-application-scenarios) **owners: mark**
+[Application Scenarios](../service-fabric-application-scenarios) **owners: mfussell**
 
-PaaS v2 compared to other things(?)- short blurb, point to competitive analysis topics **owner: claudio**
+PaaS v2 compared to other things(P2)- short blurb, point to competitive analysis topics **owner: claudioc**
 
-PaaS v2 vs Cloud Services- PaaS v2 is so much better, technical comparison. Is this really technical marketing info? **owner: mark**
+PaaS v2 vs Cloud Services- PaaS v2 is so much better, technical comparison. Is this really technical marketing info? **owner: mfussell**
 
 ## Getting Started
-Sign Up for a Free Account  **owner: Vas**
+Sign Up for a Free Account  **owner: vturecek**
 
-Install the Development Runtime, SDK, and VS Tools **owner: Sean**
+[Setup your development environment](../service-fabric-setup-your-development-environment) **owner: seanmck**
 
-Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: Sean**
+Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
 
-Install and extend the Samples **owner: Vas**
+Install and extend the Samples **owner: vturecek**
 
 
 ## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
 
-### Develop a Service owner: Vas
+### Develop a Service owner: vturecek
 
-How to Choose a Programming Model- need decision making info here
+Choose a Programming Model **owner: seanmck**
 
-How to Create a Stateful Application **owner: Haishi** 
+Create a Stateful Application **owner: Haishi**
 
-How to Create a Stateless Application **owner: Haishi** 
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -55,90 +55,113 @@ Create Windows Fabric Stateful  applications using .NET Distributed Collections 
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
+[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
+
 Communicate with a Service
 
-### Configure a Service Manifest P2  owner: Vas
+Add Diagnostics code to a service **owner: Kunalds**
+
+### Configure a Service Manifest P2  owner: vturecek
 more advanced configuration stuff
 
-### Migrate an existing Cloud Service to PaaS v2 owner: Haishi
-
-### Configure an Application Manifest P2 owner: Vas
+### Configure an Application Manifest P2 owner: vturecek
 more advanced configuration stuff
 
-### Package and Deploy an Application P2 owner: Vas
-Package and deploy using VS. Explain VS template.
+### Package and Deploy an Application P2
+Package and deploy using VS. Explain VS template. **owner: vturecek**
 
-Package and deploy using Cmdlets
+Package and deploy using Cmdlets **owner: vturecek**
 
-How to Create an Application Instance (PowerShell)
+Create an Application Instance (PowerShell) **owner: vturecek**
 
-How to Create a Service Instance (PowerShell)
+Create a Service Instance (PowerShell) **owner: vturecek**
 
-More advanced conceptual topics, this handled by VS
+More advanced conceptual topics, this handled by VS **owner: vturecek**
 
-### Test a Service owner: Vas
-How To Remove a Service and Application (PowerShell)
+### Test a Service owner: vturecek, rsinha
+What is Testability - P1 **owner: vturecek**
 
-How to Run the Failover Test Scenario (PowerShell)
+Why is Testability important - P1 - **owner: rsinha**
 
-How to Run the Chaos Test Scenario
+How does it work - P1 **owner: anmola**
 
-How to Run the Chaos Test Scenario (PowerShell)
+Run an action with PowerShell - P1 **owner: vturecek**
+
+Run an action with C# - P1 **owner: vturecek**
+
+Run a scenario with PowerShell - P1 **owner: vturecek**
+
+Run a scenario with C# - P1 **owner: vturecek**
+
+Run the Chaos Test - P1 **owner: anmola**
+
+Validating and troubleshooting - P1 **owner: anmola**
+
+Testing during development - P2 **owner: rsinha**
+
+Testing in test/staging - P2 **owner: rsinha**
+
+Testing in production - P2 **owner: rsinha**
+
+Writing a custom test scenario - P3 **owner: vturecek**
+
+
+### Troubleshoot and monitor services locally owners: kunalds, toddpf
+Connect to and view the local development cluster **owner: Kunalds**
+
+View system events fromm the local development cluster using Visual Studio **owner: Kunalds**
+
+Write trace events from a service **owner: Kunalds**
+
+View trace events for a service using Visual Studio **owner: Kunalds**
+
+Debug a service in Visual Studio using F5 **owner: Kunalds**
 
 ### Upgrade an Application owner: Mani
-How to Perform an Un-monitored Automatic Application Upgrade
+Perform an un-monitored automatic application upgrade **owner: alexwun**
 
-How to Perform a Monitored Automatic Application Upgrade
+Perform a monitored automatic application upgrade **owner: alexwun**
 
-How to Perform an Un-monitored Manual Application Upgrade
+Perform an un-monitored manual application upgrade **owner: alexwun**
 
-How to Upgrade an Application (PowerShell)
+Upgrade an application (PowerShell) **owner: alexwun**
 
-### Scale Services and Partitions owner: Vas
+Handle application upgrade failures **owner: alexwun**
 
-### Diagnose and Troubleshoot an Application owner: Kunal
-How to write application and system events as ETW
+### Scale Services and Partitions owner: vturecek
 
-How to configure WAD to collect logs and crash dumps
+### Troubleshoot and monitor deployed services P2 (Phosphorus?)
+Setup Azure Diagnostics and OpInsights to collect diagnostics **owner: Kunalds**
 
-How to view events in VS during one-box development
+Setup AppInsights to collect metrics and alerts **owner: Kunalds**
 
-How to configure Application Insights in VS for perf monitoring and telemetry
+Identify slow performance requests in Service Fabric **owner: Kunalds**
 
- 
-### Query and Evaluate Application, Service, Partition, Replica Health owner: Kunal
+Identify slow performance requests in an Actor **owner: Kunalds**
 
-How to Query Health State and Events (PowerShell)
+Troubleshoot an application upgrade **owner: Kunalds**
 
-### Add/Remove Services from Applications P2 owner: Vas
- 
-### Remove an Application owner: Vas
-How to Remove an Application in Visual Studio
+View application upgrade history **owner: Kunalds**
 
-How to Remove an Application
+View performance data **owner: Kunalds**
 
-How To Remove a Service and Application (PowerShell)
+Download crash dumps **owner: Kunalds**
 
-## Work with Clusters- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections. (Phosphorus)
+View health information in Visual Studio **owner: oanapl**
 
-### Plan for Capacity owner: chacko (phosphorus)
 
-### Choose a Security Model for a Cluster and Clients owner: mark (phosphorus)
+### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
 
-### Create/configure a cluster ARM document (phosphorus)
-Create from template
- 
-### Deploy a Cluster (Phosphorus) owner: chacko
+Query Health State and Events (PowerShell) **owner: oanapl**
 
-### Upgrade and Scale a Cluster (Phosphorus) owner: chacko
+### Add/Remove Services from Applications P2 owner: vturecek
 
-### Upgrade a Certificate (Phosphorus) owner: mark
+### Remove an Application owner: vturecek
+Remove an Application in Visual Studio **owner: vturecek**
 
-### Diagnose and Troubleshoot a Cluster (Phosphorus) owner: kunal
- 
-### Query and Evaluate Cluster Health (Phosphorus) owner: kunal
+Remove an Application **owner: vturecek**
 
-### Delete a Cluster (Phosphorus) owner: chacko
+Remove a Service and Application (PowerShell) **owner: vturecek**
 
 ## Reference
 ### Managed Reference
@@ -149,12 +172,43 @@ Create from template
 ### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
-### Programming Models
- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudio**
+### Monitoring and Diagnostics
+Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
- Distributed Collections  **owner: matt**
+### Application Lifecycle
+[Application Lifecycle](../service-fabric-application-lifecycle) **owner: matt**
 
- State and Replica Management APIs
+### Health
+[Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
+
+### Programming Models Owners: masnider, claudioc, vipulm, richhas
+ [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+
+[Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
+
+[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
+
+[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
+
+[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
+
+[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
+
+[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
+
+[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
+
+[Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
+
+ [FabSrv Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
+
+[FabSrv Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
+
+[FabSrv API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
+
+[FabSrv Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
+
+
 
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
@@ -162,12 +216,11 @@ Create from template
 ### Service State
 ### Service Model
 ### Application and Service Types
-### Health Model owner: kunal
 ### Names and Properties/Naming Service
 ### Image Store
-### Monitoring and Diagnostics owner: kunal
 
-### System Services 
+
+### System Services
 Failover Manager Service
 
 Cluster Manager Service
@@ -175,7 +228,6 @@ Cluster Manager Service
 ImageStore Service
 
 Naming Service
-### Application Lifecyle  owner: matt
 ### Cluster Lifecycle
 ### Management APIs
 ### Application Security
@@ -195,7 +247,7 @@ Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
-### Replicas and Replica Sets
+### Replicas and Replica Sets owners: *aprameyr*
 Replica Role and State Lifetime
 
  Replication and State Consistency
@@ -209,4 +261,3 @@ Replica Role and State Lifetime
 ### FabricExplorer
 
 ### Glossary
-

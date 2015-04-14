@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="2/16/2015"
+	ms.date="04/13/2015"
 	ms.author="krisragh"/>
 
 # Add Authentication to Existing Azure Mobile Services app
@@ -54,13 +54,13 @@ In the next tutorial, [Service-side authorization of Mobile Services users], you
 [Storing authentication tokens in your app]:#store-authentication
 
 <!-- URLs. -->
-[Service-side authorization of Mobile Services users]: /documentation/articles/mobile-services-dotnet-backend-service-side-authorization/
-[Mobile Services Quick Start tutorial]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
-[Authorize users with scripts]: /documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts
+[Service-side authorization of Mobile Services users]: mobile-services-dotnet-backend-service-side-authorization.md
+[Mobile Services Quick Start tutorial]: mobile-services-dotnet-backend-ios-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-ios-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-ios-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
