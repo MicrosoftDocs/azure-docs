@@ -37,7 +37,7 @@ Our Excel Regression used the standard linear regression model found in the Exce
 
 We calculated *Mean Absolute % Error* and used it as the performance measure for the model.  It took 3 months to arrive at a working model using Excel.  We brought much of the learning into the Azure ML experiment which ultimately was beneficial in understanding requirements.
 
-##Azure machine learning experiment  
+##Azure Machine Learning experiment  
 The steps we followed to create our experiment in Azure ML:  
 
 1.	Uploaded the dataset as a csv file to Azure ML (very small file)
@@ -116,7 +116,7 @@ If you want to experiment with regression, a good dataset to try is the Energy E
 |Neural Network Regression|1.548195|2.114617|0.177517|0.047774|0.952226
 |Linear Regression (Ordinary Least Squares)|1.428273|1.984461|0.163767|0.042074|0.957926  
 
-##Key take aways from running excel regression and Azure machine learning experiment in parallel
+##Key take aways from running excel regression and Azure Machine Learning experiment in parallel
 Base-lining an Excel model with Azure ML Linear Regression can be helpful for learning Azure ML and discovering opportunities to improve data selection and model performance.         
 
 The *Filter Based Feature Selection* Model accelerates future prediction projects.  Creating an improved model using Azure ML with better overall performance. 
