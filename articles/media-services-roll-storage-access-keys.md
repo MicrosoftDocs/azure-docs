@@ -79,19 +79,15 @@ Update Media Services to use the secondary storage access key. You can use one o
 		    }
 		}
 
-After this update existing locators (that have dependency on the old storage key) will still work and you will be able to download or stream using the existing URLs.
+After this update existing locators (that have dependency on the old storage key).
 
 >[AZURE.NOTE]Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
 
-##Step 3: Create new locators that will take dependency on the updated secondary storage key
+##Step 3: Update locators 
 
-You can now create new locators that will take dependency on the new secondary storage key. Create locators using **Azure Management Portal**, REST API or **.NET**.
+After 30 minutes you can update existing locators so they take dependency on the new secondary storage key.  
 
-[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
-
-##Step 4: Delete old locators
-
-Provide your users with new locators and then delete old locators. 
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 
 ##Step 5: Regenerate  primary storage access key
 
@@ -101,14 +97,12 @@ Regenerate the primary storage access key. For information on how to roll storag
 	
 Use the same procedure as described in [step 2](media-services-roll-storage-access-keys.md#step2) only this time synchronize the new primary storage  access key with the Media Services account.
 
-##Step 7: Create new locators that will take dependency on the updated primary storage key
+>[AZURE.NOTE]Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
 
-Create new locators that will take dependency on the new primary storage key. Create locators using **Azure Management Portal**, REST API or **.NET**.
+##Step 7: Update locators  
 
-[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)] 
+After 30 minutes you can update existing locators so they take dependency on the new primary storage key.  
 
-##Step 8: Delete old locators
-
-Provide your users with new locators and then delete old locators. 
+To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 
  

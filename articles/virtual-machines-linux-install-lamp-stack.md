@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/24/2014"
+	ms.date="04/08/2015"
 	ms.author="szark"/>
 
 
@@ -49,7 +49,7 @@ This will install the minimum required PHP extensions needed to use PHP with MyS
 	# apt-cache search php5
 
 
-##Installing On CentOS & Oracle Linux
+##Installing on CentOS & Oracle Linux
 
 You will need the following packages installed:
 
