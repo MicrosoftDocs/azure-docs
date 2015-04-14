@@ -2,7 +2,7 @@
   description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
   services="machine-learning" 
   documentationCenter="" 
-  authors="KBaroni" 
+  authors="v-johugh" 
   manager="paulettm" 
   editor="cgronlun"/>
 
@@ -109,12 +109,12 @@ Next we plan to include additional algorithms like Bayesian or Boosted Decision 
 
 If you want to experiment with regression, a good dataset to try is the Energy Efficiency Regression sample dataset, which has lots of numerical attributes. The dataset is provided as part of the sample datasets in ML Studio.  You can use a variety of learning modules to predict either Heating Load or Cooling Load.  The chart below is a performance comparison of different regression learns against the Energy Efficiency dataset predicting for the target variable Cooling Load: 
 
-|Model|Mean Absolute Error|Root Mean Squared Error|Relative Absolute Error|Relative Squared Error|Coefficient of Determination|
-|---:|:---:|:---:|:---:|:---:|
-|Boosted Decision Tree|0.930113|1.4239|0.106647|0.021662|0.978338|
-|Linear Regression (Gradient Descent)|2.035693|2.98006|0.233414|0.094881|0.905119|
-|Neural Network Regression|1.548195|2.114617|0.177517|0.047774|0.952226|
-|Linear Regression (Ordinary Least Squares)|1.428273|1.984461|0.163767|0.042074|0.957926|  
+|Model|Mean Absolute Error|Root Mean Squared Error|Relative Absolute Error|Relative Squared Error|Coefficient of Determination
+|---|---|---|---|---|---
+|Boosted Decision Tree|0.930113|1.4239|0.106647|0.021662|0.978338
+|Linear Regression (Gradient Descent)|2.035693|2.98006|0.233414|0.094881|0.905119
+|Neural Network Regression|1.548195|2.114617|0.177517|0.047774|0.952226
+|Linear Regression (Ordinary Least Squares)|1.428273|1.984461|0.163767|0.042074|0.957926  
 
 ##Key take aways from running excel regression and Azure machine learning experiment in parallel
 Base-lining an Excel model with Azure ML Linear Regression can be helpful for learning Azure ML and discovering opportunities to improve data selection and model performance.         
