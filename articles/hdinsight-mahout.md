@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)" 
-	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)" 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)"
+	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/23/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/06/2015"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with HDInsight
@@ -83,7 +83,9 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
 	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
-	$jarFile = "file:///$mahoutPath"
+	$noCRLF = $mahoutPath -replace "`r`n", ""
+	$cleanedPath = $noCRLF -replace "\\", "/"
+	$jarFile = "file:///$cleanedPath"
     #
 	# If you are using an earlier version of HDInsight,
 	# set $jarFile to the jar file you

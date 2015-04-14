@@ -223,6 +223,17 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 [Learn more about metrics.][metrics]
 
+#### Smart address name calculation
+
+Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`
+
+
+For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`.
+
+This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+
+
+
 ## 5. Capture log traces
 
 You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
@@ -246,7 +257,7 @@ In addition, you can bring more features of Application Insights to bear on your
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 

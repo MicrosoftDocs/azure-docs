@@ -31,6 +31,9 @@ Questions or problems with [Visual Studio Application Insights in Windows][windo
 * Is there a firewall between your emulator or test device and the Application Insights portal? You might have to open TCP ports 80 and 443 for outgoing traffic to dc.services.visualstudio.com and f5.services.visualstudio.com.
 * In the Microsoft Azure start board, look at the service status map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
 
+#### I used to see data, but it has stopped
+
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
 
 
 ## How do I add Application Insights to a Universal App?
@@ -102,7 +105,7 @@ See [Data retention and privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
 
 
 

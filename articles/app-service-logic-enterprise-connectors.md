@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Enterprise Connectors in Microsoft Azure App Service | Azure" 
 	description="Learn how to create and configure an enterprise connector; microservices architecture" 
-	services="app-service-logic" 
+	services="app-service\logic" 
 	documentationCenter="" 
 	authors="MandiOhlinger" 
 	manager="dwrede" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="03/31/2015" 
 	ms.author="mandia"/>
 
 # Enterprise Connectors in Microsoft Azure App Service
@@ -156,10 +156,10 @@ Some of the enterprise connectors us OAuth security. When you add the connector 
 
 
 ## More Connectors
-
 [BizTalk Integration connectors](app-service-logic-integration-connectors.md)<br/>
 [Business-to-Business connectors](app-service-logic-b2b-connectors.md)<br/>
 [Social connectors](app-service-logic-social-connectors.md)<br/>
 [Protocol connectors](app-service-logic-protocol-connectors.md)<br/>
 [App + Data Services connectors](app-service-logic-data-connectors.md)<br/>
-[Connectors and API Apps List](app-service-logic-connectors-list.md)
+[Connectors and API Apps List](app-service-logic-connectors-list.md)<br/><br/>
+[What are Connectors and BizTalk API Apps](app-service-logic-what-are-biztalk-api-apps.md)

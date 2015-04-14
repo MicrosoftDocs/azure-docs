@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="04/10/2015" 
 	ms.author="spelluru"/>
 
 # Tutorial: Move and process log files using Data Factory
@@ -27,7 +27,7 @@ In this walkthrough, we will collect sample logs, process and enrich them with r
 ## Getting ready for the tutorial
 1.	Read [Introduction to Azure Data Factory][adfintroduction] to get an overview of Azure Data Factory and understanding of the top level concepts.
 2.	You must have an Azure subscription to perform this tutorial. For information about obtaining a subscription, see [Purchase Options] [azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. You will Data Factory cmdlets to upload sample data and pig/hive scripts to your blob storage. 
+3.	You must download and install [Azure PowerShell][download-azure-powershell] on your computer. You will execute Data Factory cmdlets to upload sample data and pig/hive scripts to your blob storage. 
 2.	**(recommended)** Review and practice the tutorial in the [Get started with Azure Data Factory][adfgetstarted] article for a simple tutorial to get familiar with the portal and cmdlets.
 3.	**(recommended)** Review and practice the walkthrough in the [Use Pig and Hive with Azure Data Factory][usepigandhive] article for a walkthrough on creating a pipeline to move data from on-premises data source to an Azure blob store.
 4.	Download [ADFWalkthrough][adfwalkthrough-download] files to **C:\ADFWalkthrough** folder **preserving the folder structure**:
@@ -200,7 +200,7 @@ In this step, you will create the following linked services:
 
 ### Create StorageLinkedService and HDInsightStorageLinkedService
 
-1.	In the **DATA FACTORY** blade, clcik **Author and deploy** tile to launch the **Editor** for the data factory.
+1.	In the **DATA FACTORY** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile][image-author-deploy-tile] 
 
@@ -319,7 +319,7 @@ In this step, you will create the following pipelines:
         "end": "2014-05-05T00:00:00Z",
         "isPaused": false
 
-	[ACOM.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
+	[AZURE.NOTE] Note that the start and end times are set to 05/01/2014 and 05/05/2014 because the sample data in this walkthrough is from 05/01/2014 to 05/05/2014. 
  
 3. Click **Deploy** on the toolbar to create and deploy the pipeline. Confirm that you see the **PIPELINE CREATED SUCCESSFULLY** message on the title bar of the Editor.
 4. Repeat steps 1-3 with the content from the following files: 
@@ -364,6 +364,17 @@ In this step, you will create the following pipelines:
 6. In the TABLE blade for **RawGameEventsTable**, you see all the slices. In the following screen shot, all the slices are in **Ready** state and there are no problem slices. It means that the data is ready to be processed.	
 
 	![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.  
+
+	![Data Slices by Slice Time][DataSlicesBySliceTime]
  
 7. Now, on the **PIPELINE** blade for **PartiionGameLogsPipeline**, click **Produced**. 
 8. You should see the list of data sets that this pipeline produces: 
@@ -431,6 +442,7 @@ Article | Description
 [adfwalkthrough-download]: http://go.microsoft.com/fwlink/?LinkId=517495
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 
+[DataSlicesBySliceTime]: ./media/data-factory-tutorial/DataSlicesBySliceTime.png
 [image-author-deploy-tile]: ./media/data-factory-tutorial/author-deploy-tile.png
 [image-editor-newdatastore-button]: ./media/data-factory-tutorial/editor-newdatastore-button.png
 [image-editor-blob-storage-json]: ./media/data-factory-tutorial/editor-blob-storage-json.png

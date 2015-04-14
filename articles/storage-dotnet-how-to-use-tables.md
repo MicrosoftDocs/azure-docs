@@ -471,6 +471,32 @@ period of time following the deletion.
     // Delete the table it if exists.
     table.DeleteIfExists();
 
+## Retrieve entities in pages asynchronously
+
+If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities using a segmented query. This example shows how to return results in pages using the Async-Await pattern so that execution is not blocked while waiting to return a large set of results. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
+
+    // Initialize a default TableQuery to retrieve all the entities in the table
+    TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
+	
+    // Initialize the continuation token to null to start from the beginning of the table
+    TableContinuationToken continuationToken = null;
+	
+    do
+    {
+        // Retrieve a segment (up to 1000 entities)
+        TableQuerySegment<CustomerEntity> tableQueryResult = 
+            await table.ExecuteQuerySegmentedAsync(tableQuery, continuationToken);
+		
+        // Assign the new continuation token to tell the service where to 
+        // continue on the next iteration (or null if it has reached the end)
+        continuationToken = tableQueryResult.ContinuationToken;
+		
+        // Print the number of rows retrieved
+        Console.WriteLine("Rows retrieved {0}", tableQueryResult.Results.Count);
+		
+    // Loop until a null continuation token is received indicating the end of the table
+    } while(continuationToken != null);
+
 ## Next steps
 
 Now that you've learned the basics of Table storage, follow these links

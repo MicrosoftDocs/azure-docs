@@ -38,6 +38,12 @@ Questions or problems with [Visual Studio Application Insights in Java][java]? H
 * Turn on logging to the IDE console window, by adding an `<SDKLogger />` element under the root node in the ApplicationInsights.xml file (in the resources folder in your project), and check for entries prefaced with [Error].
 
 
+#### I used to see data, but it has stopped
+
+* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/)
+
+
+
 ## No usage data
 
 *I see data about requests and response times, but no page view, browser, or user data.*
@@ -116,7 +122,7 @@ See [Data retention and privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
 
 

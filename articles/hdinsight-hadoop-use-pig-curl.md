@@ -9,13 +9,13 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/03/2015"
    ms.author="larryfr"/>
- 
+
 #Run Pig jobs with Hadoop on HDInsight by using Curl
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
@@ -39,12 +39,12 @@ To complete the steps in this article, you will need the following:
 ##<a id="curl"></a>Run Pig jobs by using Curl
 
 > [AZURE.NOTE] When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the administrator user name and password for the HDInsight cluster. You must also use the cluster name as part of the Uniform Resource Identifier (URI) that is used to send the requests to the server.
-> 
+>
 > For the commands in this section, replace **USERNAME** with the user to authenticate to the cluster, and replace **PASSWORD** with the password for the user account. Replace **CLUSTERNAME** with the name of your cluster.
-> 
+>
 > The REST API is secured via <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">basic access authentication</a>. You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
-1. From a command line, use the following command to verify that you can connect to your HDInsight cluster: 
+1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
 
@@ -83,7 +83,7 @@ To complete the steps in this article, you will need the following:
 
 	If the job has finished, the state will be **SUCCEEDED**.
 
-    > [AZURE.NOTE] This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value. 
+    > [AZURE.NOTE] This Curl request returns a JavaScript Object Notation (JSON) document with information about the job, and jq is used to retrieve only the state value.
 
 ##<a id="results"></a>View results
 

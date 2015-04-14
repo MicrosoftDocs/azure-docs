@@ -16,22 +16,21 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-troubleshooting-guide/" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-troubleshooting-guide-analytics/" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-troubleshooting-guide-apis/" title="APIs">APIs</a>
-<a href="../mobile-engagement-troubleshooting-guide-push-reach/" title="Push/Reach">Push/Reach</a>
-<a href="../mobile-engagement-troubleshooting-guide-service/" title="Service">Service</a>
-<a href="../mobile-engagement-troubleshooting-guide-sdk/" title="SDK">SDK</a>
-<a href="../mobile-engagement-troubleshooting-guide-sr-info/" title="SR">SR Info</a>
-</div>
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-troubleshooting-guide.md)
+- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
+- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
+- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
+- [Service](mobile-engagement-troubleshooting-guide-service.md)
+- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
+- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
 
 # Azure Mobile Engagement - Troubleshooting Guides
 
-## Introduction:
+## Introduction
 The following troubleshooting guides cover the most common issues with Azure Mobile Engagement, with the exception of [billing][Link 11] questions and assistance signing up for the [preview][Link 7]. If you aren't able to resolve your issue with these troubleshooting guides you can either open an Azure service request - if you have an [Azure Support Agreement](http://azure.microsoft.com/support/options/) - or you can request assistance on the [MSDN Forum][Link 8]. Please be sure to include all of the troubleshooting information from <a href="#SR" title="SR">SR Info</a> when you open a service request to help technical support to investigate your issue.
 
-## Troubleshooting Guides:
+## Troubleshooting Guides
 - [Analytics][Link 21]
 - [APIs][Link 22]
 - [Push/Reach][Link 23]
