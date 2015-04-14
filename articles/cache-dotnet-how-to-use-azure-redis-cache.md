@@ -54,7 +54,7 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the Azure management preview portal, and click **New**, **Redis Cache**.
+To create a cache, first sign in to the Azure management preview portal, and click **New**, **Data + Storage**, **Redis Cache**.
 
 ![New cache][NewCacheMenu]
 
@@ -64,30 +64,25 @@ In the **New Redis Cache** blade, specify the desired configuration for the cach
 
 In **Dns name**, enter a subdomain name to use for the cache endpoint. The endpoint must be a string between six and twenty characters, contain only lowercase numbers and letters, and must start with a letter.
 
-Use **Pricing Tier** to select the desired cache size and features. Redis Cache is available in the following two tiers.
-
--	**Basic** - Single node, multiple sizes up to 53 GB.
--	**Standard** - Two node master/slave, 99.9% SLA, multiple sizes up to 53 GB.
-
-For **Subscription**, select the Azure subscription that you want to use for the cache.
-
->[AZURE.NOTE] If your account has only one subscription, it will be automatically selected and the Subscription drop-down will not be displayed.
+Use **Pricing Tier** to select the desired cache size and features. **Basic** caches have a single node with multiple sizes up to 53 GB. **Standard** caches have a two node primary/replica configuration with a 99.9% SLA, and multiple sizes up to 53 GB.
 
 In **Resource group**, select or create a resource group for your cache.
 
 >[AZURE.NOTE] For more information, see [Using Resource groups to manage your Azure resources][]. 
 
-Use **Geolocation** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
+For **Subscription**, select the Azure subscription that you want to use for the cache. If your account has only one subscription, it will be automatically selected and the **Subscription** drop-down will not be displayed.
+
+Use **Location** to specify the geographic location in which your cache is hosted. For the best performance, Microsoft strongly recommends that you create the cache in the same region as the cache client application.
 
 Once the new cache options are configured, click **Create**. It can take a few minutes for the cache to be created. To check the status, you can monitor the progress on the startboard. After the cache has been created, your new cache has a **Running** status and is ready for use with default settings.
 
 ![Cache created][CacheCreated]
 
-Once your cache is created, you can access it from the **Browse** blade.
+Once your cache is created, you can access it from the **Browse** blade. 
 
 ![Browse blade][BrowseCaches]
 
-Click **Caches** to view your caches.
+Click **Redis Caches** to view your caches.
 
 ![Caches][Caches]
 
