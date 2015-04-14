@@ -12,21 +12,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="04/14/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
 
 ## Overview
 
-The StorSimple updates feature allows you to easily keep your StorSimple device up to date. Depending on the update type, you can use apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface. This tutorial describes the update types and how to install each of them.
+The StorSimple updates feature allows you to easily keep your StorSimple device up to date. Depending on the update type, you can apply updates to the device via the Microsoft Azure Management Portal or via the Windows PowerShell interface. This tutorial describes the update types and how to install each of them.
 
 You can apply two types of device updates: 
 
 - Regular (or Normal mode) updates
 - Maintenance mode updates
 
-You can install regular updates via the Managment Portal or Windows PowerShell. You must use Windows PowerShell to install Maintenance mode updates. 
+You can install regular updates via the Managment Portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates. 
 
 Each update type is described separately, below.
 
@@ -42,7 +42,7 @@ Regular updates are non-disruptive updates that can be installed when the device
 
 ### Maintenance mode updates
 
-Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](https://msdn.microsoft.com/library/azure/dn757730.aspx). You cannot use the Management Portal to install Maintenance mode updates. Instead, you use Windows PowerShell for StorSimple. 
+Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](https://msdn.microsoft.com/library/azure/dn757730.aspx). You cannot use the Management Portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
 
 > [AZURE.IMPORTANT] Maintenance mode updates must be applied separately to each controller. 
 
@@ -54,7 +54,7 @@ You can use the Management Portal to apply updates manually or you can use the p
 
 ### To install updates manually
 
-1. On the **Devices** page, select the device that you want to install updates on.
+1. On the **Devices** page, select the device on which you want to install updates.
 
 2. Navigate to **Devices** > **Maintenance** and scroll down to **Software Updates**.
 
@@ -66,7 +66,7 @@ You can use the Management Portal to apply updates manually or you can use the p
 
 ### To configure automatic updating
 
-1. On the **Devices** page, select the device that you want to install updates on.
+1. On the **Devices** page, select the device on which you want to install updates.
 
 2. Navigate to **Devices** > **Maintenance** and scroll down to **Software Updates**.
 
@@ -74,7 +74,9 @@ You can use the Management Portal to apply updates manually or you can use the p
 
 ## Install Maintenance mode updates and hotfixes
 
-You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device. If you need to apply updates, you will receive an alert through the Management Portal that you have updates that must be installed. This alert will include instructions for using Windows PowerShell for StorSimple to install the updates.
+You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device. 
+
+If you need to apply updates, you will receive an alert through the Management Portal that you have updates that must be installed. This alert will include instructions for using Windows PowerShell for StorSimple to install the updates.
 
 Before you begin, use Windows PowerShell for StorSimple to change the device to Maintenance mode. For more information, go to [Change device modes](https://msdn.microsoft.com/library/azure/dn757730.aspx). After you update your device, use the same procedure to change the device to Regular mode.
 
