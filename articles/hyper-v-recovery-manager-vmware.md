@@ -29,9 +29,7 @@
 ##<a id="before" name="before" href="#before"></a>Prerequisites
 
 
-<UL>
-<LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get subscription pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
-</UL>
+* <b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get subscription pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.
 
 
 ##<a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
@@ -71,7 +69,5 @@
 
 
 ##<a id="next" name="next" href="#next"></a>Next steps
-<UL>
 
-<LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
-</UL>
+* For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.
