@@ -1,0 +1,120 @@
+﻿using System;
+using System.Diagnostics;
+using System.Fabric;
+using System.Fabric.Description;
+using System.Fabric.Services;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using N = System.Net;
+
+namespace Echo
+{
+	public delegate string MessageHandler(string body);
+	public class Listener : ICommunicationListener
+	{
+		public static readonly string LocalNode = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
+
+		N.HttpListener listener = null;
+
+		public event MessageHandler MessageEvent;
+		public string Address { get; private set; }
+
+		public Listener(StatelessService service)
+		{
+			var erd = GetInputEndpoint(service.ServiceInitializationParameters);
+			this.Address = erd.Protocol + "://" + LocalNode + ":" + erd.Port + "/";
+		}
+
+		public void Initialize(ServiceInitializationParameters p)
+		{
+			listener = new N.HttpListener();
+		}
+
+		public Task<string> OpenAsync(CancellationToken cancellationToken)
+		{
+			try
+			{
+				// start the web server and the web socket listener
+				Start(this.Address);
+				return Task.FromResult(this.Address);
+			}
+			catch (Exception ex)
+			{
+				Trace.TraceWarning("Start failed: " + ex.StackTrace);
+				Stop();
+				return null;
+			}
+		}
+
+		public Task CloseAsync(CancellationToken cancellationToken)
+		{
+			Stop();
+			return Task.FromResult<bool>(true);
+		}
+		public void Abort()
+		{
+			Stop();
+		}
+
+		void RaiseMessageEvent(N.HttpListenerContext context)
+		{
+			string body = null;
+			using (StreamReader sr = new StreamReader(context.Request.InputStream))
+				body = sr.ReadToEnd();
+
+			string response = string.Empty;
+			var handler = MessageEvent;
+			if (handler != null)
+				response = handler(body);
+
+			using (var sw = new StreamWriter(context.Response.OutputStream))
+			{
+				sw.Write(response);
+				sw.Flush();
+			}
+		}
+
+		void Start(string path)
+		{
+			listener.Prefixes.Add(path);
+			listener.Start();
+
+			// start the accept/response loop
+			Task.Run(async () =>
+			{
+				while (listener != null && listener.IsListening)
+				{
+					var c = await listener.GetContextAsync();
+					Task t = Task.Run(() => RaiseMessageEvent(c));
+				}
+
+				Trace.TraceInformation("Listener is exiting");
+			});
+
+			Trace.TraceInformation("Now listening on: " + path);
+		}
+
+		void Stop()
+		{
+			if (listener != null)
+			{
+				listener.Close();
+				listener = null;
+			}
+
+			Trace.TraceInformation("listener is stopped");
+		}
+
+		static EndpointResourceDescription GetInputEndpoint(StatelessServiceInitializationParameters init)
+		{
+			foreach (var erd in init.CodePackageActivationContext.GetEndpoints())
+			{
+				if (erd.EndpointType == EndpointType.Input)
+					return erd;
+			}
+
+			throw new ApplicationException("No input endpoint found");
+		}
+	}
+}
