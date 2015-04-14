@@ -69,4 +69,4 @@ The deployment process can be broken into two steps: export and import. In the f
 	![alt text](./media/sql-database-migrate-ssms/08MigrateusingSSMS.png)
  
 ##Alternatives
-You can also use the command line utility sqlpackage.exe to deploy the database or export and import a BACPAC. Sqlpackage.exe uses the same DAC technology as SSMS so the outcome is the same. For more information go [here](https://msdn.microsoft.com/en-us/library/hh550080.aspx).
+You can also use the command line utility sqlpackage.exe to deploy the database or export and import a BACPAC. Sqlpackage.exe uses the same DAC technology as SSMS so the outcome is the same. For more information go [here](https://msdn.microsoft.com/library/hh550080.aspx).
