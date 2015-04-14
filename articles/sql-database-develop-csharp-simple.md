@@ -62,7 +62,7 @@ class Sample
 }	
 ```
 
-## Retrieving a result set 
+## Execute a query and retrieve the result set 
 
 The System.Data.SqlClient.SqlCommand and SqlDataReader classes can be used to retrieve a result set from SQL Database. Note that System.Data.SqlClient also supports retrieving data into an offline System.Data.DataSet.   
 
@@ -103,15 +103,16 @@ class Sample
 ```
 
 
-## Retrieving a scalar value and a generated key
+## Inserting a row and retrieving the primary key 
 
+The ExecuteScalar method in the System.Data.SqlClient.SqlCommand class can be used to execute a statement and retrieve the first column and row returned by this statement. The OUTPUT clause of the INSERT statement can be used to return the inserted values as a result set to the calling application. Note that OUTPUT is also supported by the UPDATE, DELETE and MERGE statements. If more than one row is inserted you should use the ExecuteReader method to retrieve the inserted values for all rows.
 
 ```
 class Sample
 {
     static void Main()
     {
-        using (var conn = new SqlConnection("Server=tcp:tobiast.database.windows.net,1433;Database=AdventureWorks;User ID=demo;Password=Dobidoo-123;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+	using(var conn = new SqlConnection("Server=tcp:yourserver.database.windows.net,1433;Database=yourdatabase;User ID=yourlogin@yourserver;Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
         {
             var cmd = conn.CreateCommand();
             cmd.CommandText = @"
