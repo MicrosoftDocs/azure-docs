@@ -9,7 +9,7 @@
    ms.date="04/13/2015"
    ms.author="rasquill" />
 
-## Setting up the xplat-cli for Resource Manager templates
+## Using the xplat-cli for Resource Manager templates
 
 Before you can use the xplat-cli with Resource Manager templates and deploy Azure resources and workloads using resource groups, you will need an account with Azure (of course). If you do not have an account, you can get a [free Azure trial here](http://azure.microsoft.com/pricing/free-trial/).
 
