@@ -59,7 +59,7 @@ After verifying the prerequisites, do the following:
 
 
 
-<a name="vault"></a> <h3>Step 1: Create a vault</h3>
+<a name="vault"></a> ###Step 1: Create a vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -79,7 +79,7 @@ After verifying the prerequisites, do the following:
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="site"></a> <h3>Step 2: Create a Hyper-V site</h3>
+<a name="site"></a> ###Step 2: Create a Hyper-V site
 
 1. In the Recovery Services page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
@@ -93,7 +93,7 @@ After verifying the prerequisites, do the following:
 
 	![Hyper-V site](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_CreateSite2.png)
 
-<a name="download"></a> <h3>Step 3: Prepare Hyper-V servers</h3>
+<a name="download"></a> ###Step 3: Prepare Hyper-V servers
 	
 
 1. In **Prepare Hyper-V servers**, click **Download a registration key** file.
@@ -137,7 +137,7 @@ After verifying the prerequisites, do the following:
 **Note** For a **Hyper-V** Cluster, you need to perform steps 5-11 on each node of the **Failover Cluster**. Once all the nodes of the cluster is registered to Azure Site Recovery, protection of virtual machines will continue even if they migrate between the nodes of the **Failover Cluster** 
 
 
-<h3><a id="resources"></a>Step 4: Prepare resources</h3>
+###<a id="resources"></a>Step 4: Prepare resources
 
 
 1. On the Quick Start page, in **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
@@ -146,7 +146,7 @@ After verifying the prerequisites, do the following:
 
 
 
-<h3><a id="protectiongroup"></a>Step 5: Create and configure protection groups</h3>
+###<a id="protectiongroup"></a>Step 5: Create and configure protection groups
 
 <p>Protection groups group together virtual machines that have the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines that you add to the group.</p>
 1. In **Create and configure protection groups** click **Create a protection group**. If any prerequisites aren't in place a message is issued and you can click **View details** for more information.
@@ -161,7 +161,7 @@ After verifying the prerequisites, do the following:
 	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroup2.png)
 
 
-<h3><a id="enablevirtual"></a>Step 6: Enable virtual machine protection</h3>
+###<a id="enablevirtual"></a>Step 6: Enable virtual machine protection
 <p>You enable protection for virtual machines by adding them to a protection group.</p>
 
 1. On the <b>Machines</b> tab for the protection group, click <b>Add virtual machines to protection groups to enable protection</b>.
@@ -174,7 +174,7 @@ The Enable Protection jobs begins. You can track progress on the **Jobs** tab. A
 In Azure Site Recovery you can view protected virtual machines in **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
 
 
-<h3><a id="recoveryplans"></a>Step 7: Test the deployment</h3>
+###<a id="recoveryplans"></a>Step 7: Test the deployment
 
 Test your deployment to simulate your failover and recovery mechanism in an isolated network without affecting your production environment. To do this you'll run a test failover for a protected virtual machine.
 
