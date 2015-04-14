@@ -3,7 +3,7 @@
 	description="Describes how to create a new Media Services account in Azure." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -17,7 +17,6 @@
 	ms.author="juliako"/>
 
 
-
 #How to Create a Media Services Account
 
 This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
@@ -26,15 +25,16 @@ The Azure Management Portal provides a way to quickly create an Azure Media Serv
 
 This topic explains how to use the Quick Create method to create a new Media Services account and then associate it with a storage account. 
 
-<h2><a id="concepts"></a>Concepts</h2>
+##<a id="concepts"></a>Concepts
 Accessing Media Services requires two associated accounts:
 
 -   **A Media Services account**. Your account gives you access to a set of cloud-based Media Services that are available in Azure. A Media Services account does not store actual media content. Instead it stores metadata about the media content and media processing jobs in your account. At the time you create the account, you select an available Media Services region. The region you select is a data center that stores the metadata records for your account. 
+
     > [AZURE.NOTE]
     > Available Media Services regions include the following: **North Europe**, **West Europe**, **West US**, **East US**, **Southeast Asia**, **East Asia**, **Japan West**, **Japan East**. Media Services does not use affinity groups. 
 -   **An associated storage account**. Your storage account is an Azure storage account that is associated with your Media Services account. The storage account provides blob storage for media files, and must be located in the same geographic region as the Media Services account. When you create a Media Services account, you can either choose an existing storage account in the same region, or you can create a new storage account in the same region. If you delete a Media Services account, the blobs in your related storage account are not deleted. 
 
-<h2><a id="quick"></a>How to: Create a Media Services account using Quick Create</h2>
+##<a id="quick"></a>How to: Create a Media Services account using Quick Create
 
 1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
    
