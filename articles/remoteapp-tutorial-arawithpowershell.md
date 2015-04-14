@@ -45,7 +45,7 @@ Collection creation can take 30 minutes or longer to complete. Therefore, this c
 
 After the collection is done, you can add users to the collection with the following command:
 
-    Add-AzureRemoteAppuser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
+    Add-AzureRemoteAppUser -CollectionName RAppO365Col1 -Type microsoftAccount -UserUpn someone@domain.com
 
 And you're done! That user should be able to connect to the application using the Azure RemoteApp client found [here](https://www.remoteapp.windowsazure.com/).
 
