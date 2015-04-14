@@ -153,12 +153,12 @@ After verifying the prerequisites, do the following:
 
 2. In the **Protection Groups** tab, add a protection group. Specify a name, the source Hyper-V site, the target **Azure**, your Azure Site Recovery subscription name, and the Azure storage account.
 
-	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroupCreate.png)
+	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroupCreate3.png)
 
 
 2. In **Replication settings**, leave the default settings.
 
-	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroup2.png)
+	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroup4.png)
 
 
 ###<a id="enablevirtual"></a>Step 6: Enable virtual machine protection
@@ -167,12 +167,21 @@ After verifying the prerequisites, do the following:
 1. On the <b>Machines</b> tab for the protection group, click <b>Add virtual machines to protection groups to enable protection</b>.
 2. On the **Enable Virtual Machine Protection** page select the virtual machines you want to protect. 
 
-	![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_AddVM1.png)
+	![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_AddVM3.png)
 
-The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and initial replication is complete, you can view virtual machines in Azure.
-
-In Azure Site Recovery you can view protected virtual machines in **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
-
+	The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and initial replication is complete, you can view virtual machines under the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
+3. You can configure a virtual machines's failover properties by going to the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**.
+4. Configure the **Role Size** and the **Target network** settings for the virtual machine. 
+	On the **Configure**page the following properties can be modified
+	1. The target size of the virtual machine when a fail-over is triggered. 
+	![Configure VM Properites](./media/hyper-v-recovery-manager-configure-vault/VMProperties.png)
+	2. The number of network adapters of the target virtual machine - Number of network adapters on a target virtual machine depends on the target size of the virtual machine chosen. The number of network adapters of target virtual machine is minimum of the number of network adapters on the source virtual machine and maximum of network adapters supported by the target size of the virtual machine chosen.  
+	3. Network of the target virtual machine - In case source virtual machine has more than one network adapters, then all the network adapters need to be connected to the same azure virtual network.
+	4. Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.
+	5. Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the IP for the target virtual machine. User can use this capability to retain the IP of the source virtual machine after a fail-over. If no IP is provided any available IP would be given to network adapter at the time of fail-over. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the fail-over would fail.
+	
+	![Configure VM Properites](./media/hyper-v-recovery-manager-configure-vault/MultiNic.png)
+	
 
 ###<a id="recoveryplans"></a>Step 7: Test the deployment
 
