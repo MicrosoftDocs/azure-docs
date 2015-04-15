@@ -128,7 +128,7 @@ Azure Blob storage is a service for storing large amounts of unstructured data, 
 ### How to create a container
 Every blob in Azure storage must be in a container. You can create a private container using the `azure storage container create` command:
 
-        azure storage container create myContainer
+        azure storage container create mycontainer
 
 > [AZURE.NOTE] There are three levels of anonymous read access: **Off**, **Blob**, and **Container**. To prevent anonymous access to blobs, set the Permission parameter to **Off**. By default, the new container is private and can be accessed only by the account owner. To allow anonymous public read access to blob resources, but not to container metadata or to the list of blobs in the container, set the Permission parameter to **Blob**. To allow full public read access to blob resources, container metadata, and the list of blobs in the container, set the Permission parameter to **Container**. For more information, see [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md).
 
@@ -137,53 +137,53 @@ Azure Blob Storage supports block blobs and page blobs. For more information, se
 
 To upload blobs in to a container, you can use the `azure storage blob upload`. By default, this command uploads the local files to a block blob. To specify the type for the blob, you can use the `--blobtype` parameter. 
 
-        azure storage blob upload '~/images/HelloWorld.png' myContainer myBlockBlob
+        azure storage blob upload '~/images/HelloWorld.png' mycontainer myBlockBlob
 
 ### How to download blobs from a container
 The following example demonstrates how to download blobs from a container. 
     
-        azure storage blob download myContainer myBlockBlob '~/downloadImages/downloaded.png'
+        azure storage blob download mycontainer myBlockBlob '~/downloadImages/downloaded.png'
 
 ### How to copy blobs from one storage container to another
 You can copy blobs across storage accounts and regions asynchronously. The following example demonstrates how to copy blobs from one storage container to another in two different storage accounts. 
 
-        azure storage container create myContainer2 -a <accountName2> -k <accountKey2> -p Blob
+        azure storage container create mycontainer2 -a <accountName2> -k <accountKey2> -p Blob
         
-        azure storage blob upload '~/Images/HelloWorld.png' myContainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
+        azure storage blob upload '~/Images/HelloWorld.png' mycontainer2 myBlockBlob2 -a <accountName2> -k <accountKey2>
         
-        azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/myContainer2/myBlockBlob2' myContainer
+        azure storage blob copy start 'https://<accountname2>.blob.core.windows.net/mycontainer2/myBlockBlob2' mycontainer
 
 > Please note that source url in the command should contain the SAS token or is publically accessible. In this sample we created a container with public access for the blobs. Please also note that this sample performs an asynchronous copy. You can monitor the status of each copy by running the `azure storage blob copy show`.
 
 ### How to delete a blob
 To delete a blob, use the below command: 
 
-        azure storage blob delete myContainer myBlockBlob2
+        azure storage blob delete mycontainer myBlockBlob2
 
 ## How to manage Azure file shares and files
 Azure File storage offers shared storage for applications using the standard SMB 2.1 protocol. Microsoft Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File storage API or Azure xplat-cli.
 
 ### How to create a file share
-A File storage share is an SMB 2.1 file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myShare**.
+A File storage share is an SMB 2.1 file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the capacity limits of the storage account. The following example creates a file share named **myshare**.
 
-        azure storage share create myShare
+        azure storage share create myshare
         
 ### How to create a directory
 Directory is an optional hierarchy of azure file service. The following example creates a directory named **myDir** in the file share.
 
-        azure storage directory create myShare myDir
+        azure storage directory create myshare myDir
 
 > Note that directory path can be multiple sections like **a/b**. However, you need to ensure all the parent directories exists; for example, for path **a/b**, you need to create **a** firstly.
         
 ### How to upload a local file to directory
 You can store your files in azure file shares and directories. A file in the share can be up to 1 TB in size. The following example uploads a file from **~/temp/samplefile.txt** to the **myDir** directory. Edit the file path so that it points to a valid file on your local machine: 
 
-        azure storage file upload '~/temp/samplefile.txt' myShare myDir
+        azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
 ### How to list the files in the directory
 You can list the files and subdirectories in a share root or a directory by command:
 
-        azure storage file list myShare myDir
+        azure storage file list myshare myDir
 
 > Note the directory name **myDir** can be omitted, which lists the root directory of the share, or multiple sections.
         
