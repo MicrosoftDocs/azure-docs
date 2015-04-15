@@ -20,7 +20,7 @@
 
 One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  [Microsoft Power BI] (https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario] (https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. Note- Azure Stream Analytics is Generally Available however at this point, Power BI output is a preview feature of Azure Stream Analytics. 
 
-##Prerequisited
+##Prerequisites
 
 * Windows Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here] (https://www.arin.net/resources/request/org.html) ).
 * An input stream for ASA (Azure Stream Analytics) job to consume streaming data from. At this point, ASA accepts input from an Azure Eventhub or Azure Blob Store.  
@@ -43,7 +43,7 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
 ##Specify job input
 
-For this tutorial, we are assuming you are using EventHub as an input with json serialization and utf-8 encoding.
+For this tutorial, we are assuming you are using EventHub as an input with JSON serialization and utf-8 encoding.
 
 * Click the job name.
 * Click **Inputs** from the top of the page, and then click **Add Input**. The dialog that opens will walk you through a number of steps to set up your input.
