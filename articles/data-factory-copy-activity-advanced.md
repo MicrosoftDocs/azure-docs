@@ -327,7 +327,7 @@ Though UTF-8 encoding is quite popular, often time text files in Azure Blob foll
 - [Examples for using Copy Activity][copy-activity-examples]
 - [Copy data with Azure Data Factory][adf-copyactivity]
 - [Copy Activity - JSON Scripting Reference](https://msdn.microsoft.com/library/dn835035.aspx)
-
+- [Video: Introducing Azure Data Factory Copy Activity][copy-activity-video]
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
