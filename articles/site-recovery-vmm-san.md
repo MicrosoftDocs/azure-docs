@@ -36,7 +36,7 @@ Business advantages include:
 
 The article includes an overview and deployment prerequisites. It walks you through configuring and enable replication in VMM and the Site Recovery vault. You'll discover and classify SAN storage in VMM, provision LUNs, and allocate storage to Hyper-V clusters. It finishes up by testing failover to make sure everything's working as expected.
 
-If you run into problems post your questions on the [Azure Recovery Services Forum](http://go.microsoft.com/fwlink/?LinkId=313628).
+If you run into problems, post your questions on the [Azure Recovery Services Forum](http://go.microsoft.com/fwlink/?LinkId=313628).
 
 ## Overview
 This scenario protects your workloads by backing up Hyper-V virtual machines from one on-premises VMM site to another using SAN replication.
@@ -46,7 +46,7 @@ This scenario protects your workloads by backing up Hyper-V virtual machines fro
 ### Scenario components
 
 - **On-premises virtual machines**—Your on-premises Hyper-V servers that are managed in VMM private clouds contain virtual machines you want to protect.
-- **On-premises VMM servers**—You can one or more VMM servers running on the primary site you want to protect, and on the secondary site.
+- **On-premises VMM servers**—You will need one or more VMM servers running on the primary site you want to protect, and on the secondary site.
 - **SAN storage**—A SAN array on the primary site and one in the secondary site
 -  **Azure Site Recovery vault**—The vault coordinates and orchestrates data replica, failover, and recovery between your on-premises sites.
 - **Azure Site Recovery Provider**—Provider is installed on each VMM server.
@@ -59,11 +59,16 @@ This scenario protects your workloads by backing up Hyper-V virtual machines fro
 
 ### VMM prerequisites
 
-- You'll need at least one VMM server in each on-premises site, deployed as a physical or virtual standalone server, or as a virtual cluster, running on System Center 2012 R2 with [VMM update rollup 5.0](http://go.microsoft.com/fwlink/?LinkId=517707).
+- While you can use a single VMM for both sites, we recommend that you use one VMM server in each on-premises site, deployed as a physical or virtual standalone server, or as a virtual cluster, running on System Center 2012 R2 with [VMM update rollup 5.0](http://go.microsoft.com/fwlink/?LinkId=517707).
 - You should have at least one cloud on the primary VMM server you want to protect, and one on the secondary VMM server. The primary cloud you want to protect must contain the following:
 	- One or more VMM host groups
 	- One or more Hyper-V clusters in each host group.
 	- One or more virtual machines located on the source Hyper-V server in the cloud.
+
+The secondary cloud must contain the following: 
+    - One or more VMM host groups 
+    - One or more Hyper-V clusters in each host group. 
+
 		
 ### Hyper-V requirements
 
@@ -77,7 +82,7 @@ This scenario protects your workloads by backing up Hyper-V virtual machines fro
 	- Networking should be set up between the Hyper-V host servers and the storage array so that hosts can communicate with storage LUNs using ISCSI or Fibre Channel.
 	- See a list of [supported storage arrays](http://go.microsoft.com/fwlink/?LinkId=518669).
 	- SMI-S Providers, provided by the storage array manufacturers should be installed and the SAN arrays should be managed by the Provider. Set up the Provider in accordance with their documentation.
-	- Ensure that the SMI-S provider for the array is on a server that the VMM server can access over the network by IP address or FQDN.
+	- Ensure that the SMI-S provider for the array is on a server that the VMM server can access over the network using an IP address or FQDN.
 	- Each SAN array should have one or more storage pools available to use in this deployment.The VMM server at the primary site will need to manage the primary array and the secondary VMM server will manage the secondary array.
 	- The VMM server at the primary site should manage the primary array and the secondary VMM server should manage the secondary array.
 
@@ -114,7 +119,7 @@ Site Recovery orchestrates protection for virtual machines located on Hyper-V ho
 ### Integrate and classify SAN storage in VMM
 
 
-Add an classify SANs in the VMM console:
+Add and classify SANs in the VMM console:
 
 1. In the **Fabric** workspace click **Storage**. Click **Home** > **Add Resources** > **Storage Devices** to start the Add Storage Devices Wizard.
 2. In **Select a storage provider type** page, select **SAN and NAS devices discovered and managed by an SMI-S provider**.
@@ -323,7 +328,7 @@ Test your deployment to make sure virtual machines and data fail over as expecte
 
 	![Create recovery plan](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
-1. In **Select Virtual Machine**, select replication groups. All virtual machines associated with the replication group will be selected and added to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. you can add more groups if required. Note that after replication virtual machines will start up in accordance with the order of the recovery plan groups.
+1. In **Select Virtual Machine**, select replication groups. All virtual machines associated with the replication group will be selected and added to the recovery plan. These virtual machines are added to the recovery plan default group—Group-1. You can add more groups if required. Note that after replication virtual machines will start up in accordance with the order of the recovery plan groups.
 
 	![Add virtual machines](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
 1. After a recovery plan has been created, it appears in the list on the **Recovery Plans** tab. 
