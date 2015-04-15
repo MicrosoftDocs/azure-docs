@@ -3,14 +3,14 @@
 	description="Learn how to use Mobile Services to push notifications to users of your Android app." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
 	ms.date="04/14/2015" 

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
 	ms.date="04/14/2015" 
