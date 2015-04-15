@@ -105,6 +105,3 @@ When you are ready to delete the Azure Media account, use [Remove-AzureMediaServ
 
 	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
-##Related articles
-
-[Windows Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/dn495184.aspx)
