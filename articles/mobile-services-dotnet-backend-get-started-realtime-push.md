@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="04/14/2015" 

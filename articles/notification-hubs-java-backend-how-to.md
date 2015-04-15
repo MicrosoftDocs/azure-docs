@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs from a Java back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 

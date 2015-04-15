@@ -252,7 +252,7 @@ The Google Cloud Messaging Client available on the Xamarin Component Store simpl
 12. Override abstract members **OnUnRegistered()**, **OnRecoverableError()**, and **OnError()** so that your code compiles.
 
 
-<h2><a name="run-app"></a>Run your app in the emulator</h2>
+##<a name="run-app"></a>Run your app in the emulator
 
 When you run this app in the emulator, make sure that you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -270,7 +270,7 @@ When you run this app in the emulator, make sure that you use an Android Virtual
 
   The app retrieves the *registrationId* from GCM and registers with the Notification Hub.
 
-<h2><a name="send"></a>Send notification from your back-end</h2>
+<a name="send"></a>Send notification from your back-end
 
 You can send notifications using Notification Hubs from any back-end using the <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 
