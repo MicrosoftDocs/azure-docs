@@ -205,8 +205,8 @@ You’ll need to do the following actions to prepare for initial replication off
 	
 ## Step 5: Configure network mapping
 1. On the Quick Start page, click **Map networks**.
-2. Select the source VMM server from which you want to map networks, and then the target VMM server to which the networks will be mapped. The list of source networks and their associated target networks are displayed. A blank value is shown for networks that are not currently mapped. Click the information icon next to the source and target network names to view the subnets for each network.
-3. Select a network in **Network on source** > **Map**. The service detects the VM networks on the target server and displays them. 
+2. Select the source VMM server from which you want to map networks, and then the target VMM server to which the networks will be mapped. The list of source networks and their associated target networks are displayed. A blank value is shown for networks that are not currently mapped. 
+3. Select a network in **Network on source** > **Map**. The service detects the VM networks on the target server and displays them. Click the information icon next to the source and target network names to view the subnets for each network.
 
 	![Configure network mapping](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_NetworkMapping1.png)
 
@@ -214,7 +214,7 @@ You’ll need to do the following actions to prepare for initial replication off
 
 	![Select a target network](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_NetworkMapping2.png)
 
-5. When you select a target network, the protected clouds that use the source network are displayed. Available target networks that are associated with the clouds used for protection are also displayed. We recommend that you select a target network that is available to all the clouds you are using for protection.
+5. When you select a target network, the protected clouds that use the source network are displayed. Available target networks that are associated with the clouds used for protection are also displayed. We recommend that you select a target network that is available to all the clouds you are using for protection. Or you can also go to the VMM Server and modify the cloud properties to add the logical network corresponding to the vm network that you want to choose. 
 6. Click the check mark to complete the mapping process. A job starts to track the mapping progress. You can view it on the **Jobs** tab.
 
 
@@ -277,10 +277,10 @@ After a recovery plan has been created, it appears in the list on the **Recovery
 	![Select test network](./media/site-recovery-vmm-to-vmm/ASRE2EHVR_TestFailover1.png)
 
 
-7. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
+7. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It is added to the same cloud in which the replica virtual machine is located.
 
 ### Run a recovery plan
-After replication the replica virtual machine will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP then DNS will be updated automatically. If you're  not using DHCP and you want to make sure the addresses are the same you'll need to run a couple of scripts.
+After replication the replica virtual machine might not have an IP address that isn’t the same as the IP address of the primary virtual machine. Virtual machines will update the DNS server that they are using after they start. You can also add a script to update the DNS Server to ensure a timely update. 
 
 #### Script to retrieve the IP address
 Run this sample script to retrieve the IP address.
@@ -299,7 +299,7 @@ Run this sample script to update DNS, specifying the IP address you retrieved us
 	$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
 	$newrecord = $record.clone()
 	$newrecord.RecordData[0].IPv4Address  =  $IP
-	Set-DnsServerResourceRecord -zonename com -OldInputObject $record -NewInputObject $Newrecord**
+	Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord**
 
 
 
