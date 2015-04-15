@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="garye"/>
 
 #Manage experiment iterations in Azure Machine Learning Studio 
@@ -49,7 +49,7 @@ If you click **VIEW RUN HISTORY**, you see a list of all these runs:
 
 Click any of these runs to view a snapshot of the experiment at the time you ran it. The configuration, parameter values, comments, and results are all preserved to give you a complete record of that run of your experiment. 
 
-> [AZURE.TIP] To document your iterations of the experiment, you can modify the title each time you run it, and you can add or update comments on individual modules to record your changes. The title and module comments are saved with each run of the experiment. 
+> [AZURE.TIP] To document your iterations of the experiment, you can modify the title each time you run it, you can update the **Summary** of the experiment in the properties pane, and you can add or update comments on individual modules to record your changes. The title, summary, and module comments are saved with each run of the experiment. 
 
 The list of experiments in the **EXPERIMENTS** tab in ML Studio always displays the latest version of an experiment. If you open a previous run of the experiment (using **Prior Run** or **VIEW RUN HISTORY**), you can return to the draft version by clicking **VIEW RUN HISTORY** and selecting the iteration that has a **STATE** of **Editable**. 
 
