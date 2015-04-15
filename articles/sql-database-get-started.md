@@ -29,7 +29,7 @@ This article shows you how to create a sample Azure SQL Database in under five m
 - Set a firewall rule for the database to configure which IP addresses can access your database.
 
 
-This tutorial assumes that you have an Azure Subscription. If you do not, you can sign up for a [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+This tutorial assumes that you have an Azure Subscription. If you do not, you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Step 1: Sign in
