@@ -22,7 +22,6 @@ As mentioned the task of testing distributed application is not very easy. Servi
 
 The idea here is to test your business logic in a running cluster while the Chaos test is generating failures at a rate higher than you would experience in a real world cluster. We are compressing faults you would generally run into over a period of months or years to a few hours thus hitting those hard to find corner cases much more easily and finding bugs in your service much faster.
 
-
 ## Faults simulated in Chaos test
  - Restart a Node
  - Restart a Deployed Code Package
@@ -35,7 +34,7 @@ The way the Chaos test works is that it will run multiple iterations of Fault an
 
 ## Important Configuration options
  - **TimeToRun**: Total time that the test will run before completing
- - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are Cluster Health is OK, Service Health is OK, Target replica set size achieved for all partitions and no InBuild replicas.
+ - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the service to become healthy before failing the test. The checks performed are whether Cluster Health is OK, whether Service Health is OK, Target replica set size achieved for service partition and no InBuild replicas.
  - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number the more aggressive the test hence resulting in more complex failovers and transition combinations. Even if the test is configured with a high number of concurrent faults it will only generate as many faults which when run in parallel will not cause Quorum or Data loss.
  - **EnableMoveReplicaFaults**: Enables or disables MovePrimary and MoveSecondary faults.
  - **WaitTimeBetweenIterations**: Amount of time to wait between every iteration i.e. after a round of Faults and corresponding validation.
