@@ -118,3 +118,67 @@ Wait for the job to stop.
 
 ##Part 3: Editing the credentials on the Stream Analytics Job
 
+##Blob Storage/Table Storage
+1.	Find the Storage Account Key field and paste your newly generated key into it:
+<graphic>
+2.	Click the Save command and confirm saving your changes:
+<graphic>
+3.	A connection test will automatically start when you save your changes, make sure that is has successfully passed.
+4.	Proceed to Part 4.
+
+##Event Hubs
+1.	Find the Event Hub Policy Key field and paste your newly generated key into it:
+<graphic>
+2.	Click the Save command and confirm saving your changes:
+<graphic>
+3.	A connection test will automatically start when you save your changes, make sure that it has successfully passed.
+<graphic>
+4.	Proceed to Part 4.
+
+##Power BI
+1.	Click the Renew authorization:
+* <graphic>
+* You will get the following confirmation:
+* <graphic>
+2.	Click the Save command and confirm saving your changes:
+<graphic>
+3.	A connection test will automatically start when you save your changes, make sure it has successfully passed.
+4.	Proceed to Part 4.
+
+##SQL Database
+1.	Find the User Name and Password fields and paste your newly created set of credentials into them:
+<graphic>
+2.	Click the Save command and confirm saving your changes:
+<graphic>
+3.	A connection test will automatically start when you save your changes, make sure that it has successfully passed.
+4.	Proceed to Part 4.
+
+##Part 4: Starting you job from last stopped time
+1.	Navigate away from the Input/Output:
+<graphic>
+2.	Click the Start command:
+<graphic>
+3.	Pick the Last Stopped Time and click OK:
+<graphic>
+4.	Proceed to Part 5.
+
+##Part 5: Removing the old set of credentials
+This part is applicable to the following inputs/outputs:
+* Blob Storage
+* Event Hubs
+* SQL Database
+* Table Storage
+
+##Blob Storage/Table Storage
+Repeat Part 1 for the Access Key that was previously used by your job to renew the now unused Access Key.
+
+##Event Hubs
+Repeat Part 1 for the Key that was previously used by your job to renew the now unused Key.
+
+##SQL Database
+1.	Go back to the query window from Part 1 Step 7 and type in the following query, replacing <previous_login_name> with the User Name that was previously used by your job:
+`DROP LOGIN <previous_login_name>`
+2.	Click Run:
+		<graphic>
+		You should get the following confirmation: Command(s) completed successfully.
+
