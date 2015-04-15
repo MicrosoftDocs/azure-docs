@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory Editor
