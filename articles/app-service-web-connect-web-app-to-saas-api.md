@@ -30,10 +30,10 @@ You will learn:
 
 This tutorial builds upon the series from the API App tutorials:
 
-1. [Create an Azure API App](app-service-dotnet-create-api-app)
-2. [Publish an Azure API App](app-service-dotnet-publish-api-app)
-3. [Deploy an Azure API App](app-service-dotnet-deploy-api-app)
-4. [Debug an Azure API App](app-service-dotnet-remotely-debug-api-app)
+1. [Create an Azure API App](../app-service-dotnet-create-api-app)
+2. [Publish an Azure API App](../app-service-dotnet-publish-api-app)
+3. [Deploy an Azure API App](../app-service-dotnet-deploy-api-app)
+4. [Debug an Azure API App](../app-service-dotnet-remotely-debug-api-app)
 
 ## Make the API app publicly accessible
 
