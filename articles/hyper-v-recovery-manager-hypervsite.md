@@ -19,7 +19,7 @@
 # Tutorial: Set up Protection Between an On-Premises Hyper-V Site and Azure
 
 
-##<a id="overview" name="overview" href="#overview"></a>Overview
+## <a id="overview" name="overview" href="#overview"></a>Overview
 <p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
 
 This tutorial describes how to deploy Azure Site Recovery to protect workloads running on a Hyper-V server with Windows Server 2012 R2 in an on-premises site. Virtual machines on the Hyper-V server replicate to Azure using Hyper-V replication. This deployment is particularly useful if you have Hyper-V servers in your office or branch office but System Center VMM isn't deployed.
@@ -33,7 +33,7 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 
 </div>
 
-##<a id="before" name="before" href="#before"></a>Prerequisites
+## <a id="before" name="before" href="#before"></a>Prerequisites
 
 <P>Make sure you have everything in place before you begin.</P>
 
@@ -43,7 +43,7 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 <LI><b>Virtual machines</b>—Virtual machines you want to protect should conform with Azure prerequisites for virtual machines. See <a href="http://go.microsoft.com/fwlink/?LinkId=522287">Virtual machine support</a>.</LI>
 
 </UL>
-##<a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
+## <a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
 After verifying the prerequisites, do the following:
 <UL>
 <LI><a href="#vault">Step 1: Create a vault</a>—Create an Azure Site Recovery vault.</LI>
@@ -59,7 +59,7 @@ After verifying the prerequisites, do the following:
 
 
 
-<a name="vault"></a> ###Step 1: Create a vault
+<a name="vault"></a> ### Step 1: Create a vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -79,7 +79,7 @@ After verifying the prerequisites, do the following:
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="site"></a> ###Step 2: Create a Hyper-V site
+<a name="site"></a> ### Step 2: Create a Hyper-V site
 
 1. In the Recovery Services page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
@@ -93,7 +93,7 @@ After verifying the prerequisites, do the following:
 
 	![Hyper-V site](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_CreateSite2.png)
 
-<a name="download"></a> ###Step 3: Prepare Hyper-V servers
+<a name="download"></a> ### Step 3: Prepare Hyper-V servers
 	
 
 1. In **Prepare Hyper-V servers**, click **Download a registration key** file.
@@ -137,7 +137,7 @@ After verifying the prerequisites, do the following:
 **Note** For a **Hyper-V** Cluster, you need to perform steps 5-11 on each node of the **Failover Cluster**. Once all the nodes of the cluster is registered to Azure Site Recovery, protection of virtual machines will continue even if they migrate between the nodes of the **Failover Cluster** 
 
 
-###<a id="resources"></a>Step 4: Prepare resources
+### <a id="resources"></a>Step 4: Prepare resources
 
 
 1. On the Quick Start page, in **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
@@ -146,7 +146,7 @@ After verifying the prerequisites, do the following:
 
 
 
-###<a id="protectiongroup"></a>Step 5: Create and configure protection groups
+### <a id="protectiongroup"></a>Step 5: Create and configure protection groups
 
 <p>Protection groups group together virtual machines that have the same protection settings. You apply protection settings to a protection group, and those settings are applied to all virtual machines that you add to the group.</p>
 1. In **Create and configure protection groups** click **Create a protection group**. If any prerequisites aren't in place a message is issued and you can click **View details** for more information.
@@ -161,7 +161,7 @@ After verifying the prerequisites, do the following:
 	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroup4.png)
 
 
-###<a id="enablevirtual"></a>Step 6: Enable virtual machine protection
+### <a id="enablevirtual"></a>Step 6: Enable virtual machine protection
 <p>You enable protection for virtual machines by adding them to a protection group.</p>
 
 1. On the <b>Machines</b> tab for the protection group, click <b>Add virtual machines to protection groups to enable protection</b>.
@@ -183,7 +183,7 @@ After verifying the prerequisites, do the following:
 	![Configure VM Properites](./media/hyper-v-recovery-manager-configure-vault/MultiNic.png)
 	
 
-###<a id="recoveryplans"></a>Step 7: Test the deployment
+### <a id="recoveryplans"></a>Step 7: Test the deployment
 
 Test your deployment to simulate your failover and recovery mechanism in an isolated network without affecting your production environment. To do this you'll run a test failover for a protected virtual machine.
 
@@ -200,7 +200,7 @@ Test your deployment to simulate your failover and recovery mechanism in an isol
 	- Click **Notes** to record and save any observations associated with the test failover.
 	- Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machine.
 
-##<a id="runtest" name="runtest" href="#runtest"></a>Monitor activity
+## <a id="runtest" name="runtest" href="#runtest"></a>Monitor activity
 <p>You can use the <b>Jobs</b> tab and <b>Dashboard</b> to view and monitor the main jobs performed by the Azure Site Recovery vault, including configuring protection for a cloud, enabling and disabling protection for a virtual machine, running a failover (planned, unplanned, or test), and committing an unplanned failover.</p>
 
 <p>From the <b>Jobs</b> tab you view jobs, drill down into job details and errors, run job queries to retrieve jobs that match specific criteria, export jobs to Excel, and restart failed jobs.</p>
@@ -209,7 +209,7 @@ Test your deployment to simulate your failover and recovery mechanism in an isol
 
 <p>For more information about interacting with jobs and the dashboard, see the <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Operations and Monitoring Guide</a>.</p>
 
-##<a id="next" name="next" href="#next"></a>Next steps
+## <a id="next" name="next" href="#next"></a>Next steps
 <UL>
 <LI>To plan and deploy Azure Site Recovery in a full production environment, see <a href="http://go.microsoft.com/fwlink/?LinkId=522087">Planning Guide for Azure Site Recovery</a> and <a href=" http://go.microsoft.com/fwlink/?LinkId=522088">Deployment Guide for Azure Site Recovery</a>.</LI>
 <LI>For questions, visit the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI> 
