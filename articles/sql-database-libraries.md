@@ -50,7 +50,7 @@ The following table displays libraries that are released by Microsoft. The **Lib
 
 
 ##Third party libraries
-
+*The following table displays libraries that are released by third parties under third party license terms. You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries. You bear the risk of using these libraries. Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users. Nothing herein implies any kind of endorsement by Microsoft.*
 
 The following table displays libraries that are released by third parties such as other companies or by the community, rather than by Microsoft.
 
