@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Set up your computer" 
-	description="Set up your computer for developing with Azure Media Services" 
+	pageTitle="Set up your environment" 
+	description="Set up your environment for developing with Azure Media Services" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/13/2015" 
 	ms.author="juliako"/>
 
-#Set up your computer
+#Set up your environment
 
 ##<a id="create_account"></a>Create a Media Services account
 
