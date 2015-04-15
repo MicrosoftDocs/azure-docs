@@ -1,7 +1,7 @@
-<properties pagetitle="Migrating to Azure Premium Storage | Microsoft Azure"
+<properties pageTitle="Migrating to Azure Premium Storage | Microsoft Azure"
             description="Migrate to Azure Premium Storage for high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. "
             services="storage"
-            documentationcenter="na"
+            documentationCenter="na"
             authors="tamram"
             manager="adinah"
             editor="" />
