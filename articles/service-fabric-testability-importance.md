@@ -26,7 +26,7 @@ Service Fabric makes the job of writing and managing distributed scalable applic
 While there are many mechanisms to solve the above mentioned problems, a system that does the same with required guarantees all the way from one box developer environment to test in production clusters is missing.
 
 ## Simulating/Generating real word failure scenarios.
-In order to test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that windows fabric is trying to solve. As an example if we want to shutdown a node, the required workflow is the the following:
+In order to test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that Service Fabric is trying to solve. As an example if we want to shutdown a node, the required workflow is the the following:
 
 1. From the client issue a shutdown node request.
 2. Route the request to the right node.
