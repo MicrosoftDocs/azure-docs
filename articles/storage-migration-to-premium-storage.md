@@ -1,14 +1,33 @@
-# MIGRATING TO AZURE PREMIUM STORAGE #
+<properties 
+    pageTitle="Migrating to Azure Premium Storage | Microsoft Azure" 
+    description="Migrate to Azure Premium Storage for high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. " 
+    services="storage" 
+    documentationCenter="na" 
+    authors="tamram" 
+    manager="adinah" 
+    editor=""/>
+
+<tags 
+    ms.service="storage" 
+    ms.workload="storage" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/14/2015" 
+    ms.author="tamram"/>
+
+
+# Migrating to Azure Premium Storage
 
 ## Overview
 
-Premium Storage stores data on the latest technology Solid State Drives (SSDs), delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 50,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations. This article gives you a guideline on how to migrate your disks, Virtual Machines (VMs) from on-premises or Standard Storage or a different cloud platform to Azure Premium Storage. To get a detailed overview of the Azure Premium Storage offering check out Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/).
+Premium Storage stores data on the latest technology Solid State Drives (SSDs), delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Premium Storage, your applications can have up to 32 TB of storage per VM and achieve 50,000 IOPS (input/output operations per second) per VM with extremely low latencies for read operations. This article gives you a guideline on how to migrate your disks, Virtual Machines (VMs) from on-premises or Standard Storage or a different cloud platform to Azure Premium Storage. To get a detailed overview of the Azure Premium Storage offering check out Premium Storage: [High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
 ## Before You Begin 
 
 ### Prerequisites
-- You will need an Azure subscription. If you don’t have one, you can create a one month [free trial](http://azure.microsoft.com/en-us/pricing/free-trial/) subscription or visit [Azure Pricing](http://azure.microsoft.com/en-us/pricing/) for more options. 
-- To execute PowerShell cmdlets you will need the Microsoft Azure PowerShell module. See [Microsoft Azure Downloads](http://www.windowsazure.com/downloads/) to download the module.
+- You will need an Azure subscription. If you don’t have one, you can create a one month [free trial](http://azure.microsoft.com/pricing/free-trial/) subscription or visit [Azure Pricing](http://azure.microsoft.com/pricing/) for more options. 
+- To execute PowerShell cmdlets you will need the Microsoft Azure PowerShell module. See [Microsoft Azure Downloads](http://azure.microsoft.com/downloads/) to download the module.
 - When you plan to use Azure VMs running on Premium Storage, you need to use the DS-series VMs. You can use both Standard and Premium Storage disks with DS-series VMs. Premium storage disks will be available with more VM types in the future. For more information on all available Azure VM disk types and sizes, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). 
 
 ### Considerations 
@@ -44,20 +63,20 @@ Premium Storage accounts have following scalability targets in addition to the [
 |:--|:---|
 |Disk capacity: 35TB<br />Snapshot capacity: 10 TB|Up to 50 gigabits per second for Inbound + Outbound|
 
-For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/#scalability-and-performance-targets-when-using-premium-storage)
+For the more information on Premium Storage specifications, check out [Scalability and Performance Targets when using Premium Storage](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-when-using-premium-storage)
 
 #### Additional Data Disks 
-Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use mdadm utility to achieve the same. See article [Configure Software RAID on Linux](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-configure-raid/) for details.
+Depending on your workload, determine if additional data disks are necessary for your VM. You can attach several persistent data disks to your VM. If needed, you can stripe across the disks to increase the capacity and performance of the volume. If you stripe Premium Storage data disks using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), you should configure it with one column for each disk that is used. Otherwise, overall performance of the striped volume may be lower than expected due to uneven distribution of traffic across the disks. For Linux VMs you can use mdadm utility to achieve the same. See article [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md) for details.
 
 #### Disk Caching Policy 
 By default, disk caching policy is "Read-Only" for all the Premium data disks, and "Read-Write" for the Premium operating system disk attached to the VM. This configuration setting is recommended to achieve the optimal performance for your application’s IOs. For write-heavy or write-only data disks (such as SQL Server log files), disable disk caching so that you can achieve better application performance. The cache settings for existing data disks can be updated using Azure Portal or the *-HostCaching* parameter of the *Set-AzureDataDisk* cmdlet.
 
 #### Location 
-Pick a location where Azure Premium Storage is available. See [Important Things to know about Premium Storage](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/#important-things-to-know-about-premium-storage) for up to date information on available locations. VMs located in the same region as the Storage account that stores the disks for VM, will give superior performance than if they are in separate regions. 
+Pick a location where Azure Premium Storage is available. See [Important Things to know about Premium Storage](storage-premium-storage-preview-portal.md#important-things-to-know-about-premium-storage) for up to date information on available locations. VMs located in the same region as the Storage account that stores the disks for VM, will give superior performance than if they are in separate regions. 
 
 #### Other Azure VM configuration settings 
 
-When creating an Azure VM you will be asked to configure certain VM settings. Remember, there are few settings that are fixed for the lifetime of the VM, while you can modify or add others later. Review these Azure VM configuration settings and make sure that these are configured appropriately to match your workload requirements. See [VM configuration settings](https://msdn.microsoft.com/en-us/library/azure/dn763935.aspx) for more details.
+When creating an Azure VM you will be asked to configure certain VM settings. Remember, there are few settings that are fixed for the lifetime of the VM, while you can modify or add others later. Review these Azure VM configuration settings and make sure that these are configured appropriately to match your workload requirements. See [VM configuration settings](https://msdn.microsoft.com/library/azure/dn763935.aspx) for more details.
 
 ## Prepare VHDs for Migration 
 
@@ -70,15 +89,15 @@ The following section provides guidelines to prepare VHDs from your VM so they a
 ### Prerequisites
 
 - An Azure subscription, a storage account, and a container in that storage account to copy your VHD to. Note that the destination storage account can be a Standard or Premium Storage account depending on your requirement. 
-- A Tool to generalize VHD if you plan to create multiple VM instances from it. For example, sysprep for Windows or virt-sysprep for Ubuntu. A tool to upload the VHD file to the Storage account. For example, [AzCopy](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx) or [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes steps using the AzCopy tool. For large amount of data with limited bandwidth, you can consider using the [Microsoft Azure Import/Export service](http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/) to transfer your data by shipping hard disk drives to an Azure datacenter. Using Import/Export service you can copy data only to a standard storage account. Once the data is in your standard storage account, you will use [copy blob API](https://msdn.microsoft.com/en-us/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
+- A Tool to generalize VHD if you plan to create multiple VM instances from it. For example, sysprep for Windows or virt-sysprep for Ubuntu. A tool to upload the VHD file to the Storage account. For example, [AzCopy](storage-use-azcopy.md) or [Azure storage explorer](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). This guide describes steps using the AzCopy tool. For large amount of data with limited bandwidth, you can consider using the [Microsoft Azure Import/Export service](storage-import-export-service.md) to transfer your data by shipping hard disk drives to an Azure datacenter. Using Import/Export service you can copy data only to a standard storage account. Once the data is in your standard storage account, you will use [copy blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) or AzCopy to transfer the data to your premium storage account.
 - A tool to copy your VHD can be run on an Azure VM in the same region as the VHDs.
-- Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/en-us/library/hh848454.aspx) cmdlet.
+- Microsoft Azure only supports fixed size VHD files. VHDX files or dynamic VHDs are not supported. If you have a dynamic VHD, you can convert it to fixed size using the [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 
 ### Preparing VHDs
 
 |Scenario|Steps|
 |:---|:---|
-|Generalized Operating System VHD to create multiple VM instances|<p>If you are uploading a **VHD that will be used to create multiple generic Azure VM instances**, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premise or in the cloud. Sysprep removes any machine specific information from the VHD.</p><p>**Important:** Take a snapshot or backup your VM before generalizing it. Running sysprep will delete the VM instance.</p>Follow steps below to sysprep a Windows OS VHD:<br />Note that running the Sysprep command will require you to shut down the virtual machine. For more information about Sysprep, see [Sysprep Overview](http://technet.microsoft.com/en-us/library/hh825209.aspx) or [Sysprep Technical Reference](http://technet.microsoft.com/en-us/library/cc766049(v=ws.10).aspx). <ul><li>Open a Command Prompt window as an administrator.</li><li>Enter the following command to open Sysprep:<br />**%windir%\system32\sysprep\sysprep.exe**</li><li>In the System Preparation Tool, select Enter System Out-of-Box Experience (OOBE), select the Generalize check box, select **Shutdown**, and then click **OK**.</li><li>This will generalize the operating system and shut down the system.![][1]</li></ul>For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.|
+|Generalized Operating System VHD to create multiple VM instances|<p>If you are uploading a **VHD that will be used to create multiple generic Azure VM instances**, you must first generalize VHD using a sysprep utility. This applies to a VHD that is on-premise or in the cloud. Sysprep removes any machine specific information from the VHD.</p><p>**Important:** Take a snapshot or backup your VM before generalizing it. Running sysprep will delete the VM instance.</p>Follow steps below to sysprep a Windows OS VHD:<br />Note that running the Sysprep command will require you to shut down the virtual machine. For more information about Sysprep, see [Sysprep Overview](http://technet.microsoft.com/library/hh825209.aspx) or [Sysprep Technical Reference](http://technet.microsoft.com/library/cc766049(v=ws.10).aspx). <ul><li>Open a Command Prompt window as an administrator.</li><li>Enter the following command to open Sysprep:<br />**%windir%\system32\sysprep\sysprep.exe**</li><li>In the System Preparation Tool, select Enter System Out-of-Box Experience (OOBE), select the Generalize check box, select **Shutdown**, and then click **OK**.</li><li>This will generalize the operating system and shut down the system.![][1]</li></ul>For an Ubuntu VM, use virt-sysprep to achieve the same. See [virt-sysprep](http://manpages.ubuntu.com/manpages/precise/man1/virt-sysprep.1.html) for more details. See also some of the open source [Linux Server Provisioning software](http://www.cyberciti.biz/tips/server-provisioning-software.html) for other Linux operating systems.|
 |Unique Operating System VHD to create a single VM instance|If you have an application running on the VM which requires the machine specific data, do not generalize the VHD. **A non-generalized VHD can be used to create a unique Azure VM instance.** For example, if you have Domain Controller on your VHD, executing sysprep will make it ineffective as a Domain Controller. Review the applications running on your VM and impact of sysprep on them before generalizing VHD.|
 |Data disk VHDs to be attached to VM instance(s)|If you have data disks in a cloud storage to be migrated you must make sure the VMs that use these data disks must be shut down. For data disks that are on-premise, create a consistent VHD.|
 Now that the VHD is ready, follow the steps described in next section to upload VHD to Azure Storage and register it as an operating system image, provisioned operating system disk, or provisioned data disk.
@@ -104,7 +123,7 @@ Create a storage account for maintaining your VHDs. Take into account the follow
 
 ### Copying a VHD with AzCopy
 
-Using AzCopy you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. You can find the Azure Storage Limits [here](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#storage-limits).  
+Using AzCopy you can easily upload the VHD over the Internet. Depending on the size of the VHDs, this may take time. Remember to check the storage account ingress/egress limits when using this option. You can find the Azure Storage Limits [here](azure-subscription-service-limits#storage-limits).  
 
 1. Download and install AzCopy from here: [Latest version of AzCopy](http://aka.ms/downloadazcopy)  
 2. Open Azure PowerShell and go to the folder where AzCopy is installed.  
@@ -117,11 +136,11 @@ Using AzCopy you can easily upload the VHD over the Internet. Depending on the s
  - *&lt;File-Name&gt;*: The name of VHD file you wish to copy.
  - /Pattern:*&lt;File-Name&gt;:* Specify the file name of the VHD that you are copying.
    
-This command will copy all of the files in the *&lt;Source&gt;* to the *&lt;Destination&gt;* container. For details on using AzCopy tool, see Getting Started with the [AzCopy Command-Line Utility](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/).
+This command will copy all of the files in the *&lt;Source&gt;* to the *&lt;Destination&gt;* container. For details on using AzCopy tool, see Getting Started with the [AzCopy Command-Line Utility](storage-use-azcopy.md).
 ### Other options for uploading a VHD 
 
-- [Azure Storage Copy Blob API](https://msdn.microsoft.com/en-us/library/azure/dd894037.aspx) 
-- [Azure Import/Export Service](https://msdn.microsoft.com/en-us/library/dn529096.aspx) 
+- [Azure Storage Copy Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx) 
+- [Azure Import/Export Service](https://msdn.microsoft.com/library/dn529096.aspx) 
 
 >[AZURE.NOTE]Import/Export can be used to copy to only standard storage account. You will need to copy from standard storage to premium storage account using a tool like AzCopy.  
 
@@ -220,15 +239,15 @@ Use following PowerShell cmdlet to attach data disk to the new VM and specify th
 Check the following resources for specific scenarios for migrating virtual machines  
 
 - [Migrate Azure Virtual Machines between Storage Accounts](http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)  
-- [Create and upload a Windows Server VHD to Azure.](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)  
-- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-create-upload-vhd/)  
+- [Create and upload a Windows Server VHD to Azure.](virtual-machines-create-upload-vhd-windows-server.md)  
+- [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-create-upload-vhd.md)  
 - [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)  
 
 Also check following resources to learn more about Azure Storage and Azure Virtual Machines,  
 
-- [Azure Storage](http://azure.microsoft.com/en-us/documentation/services/storage/)   
-- [Azure Virtual Machines](http://azure.microsoft.com/en-us/documentation/services/virtual-machines/)  
-- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://azure.microsoft.com/en-us/documentation/articles/storage-premium-storage-preview-portal/)  
+- [Azure Storage](http://azure.microsoft.com/documentation/services/storage/)   
+- [Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/)  
+- [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md)  
 
 
 
