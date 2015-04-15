@@ -15,7 +15,7 @@
 	ms.date="04/02/2015" 
 	ms.author="awills"/>
 
-# Application Insights: Get started with Windows device apps
+# Application Insights: Get started with Windows Phone and Store apps
 
 *Application Insights is in preview.*
 

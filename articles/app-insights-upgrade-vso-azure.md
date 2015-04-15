@@ -22,9 +22,9 @@ This document is of interest to you only if you have a project that is still usi
 
 If you added Application Insights to your project using Visual Studio 2013 Update 3 or later, it most probably uses the new Azure version.
 
-Open ApplicationInsights.config in your project. If the top node includes a schemaVersion later than 2014-05-01, then your project sends telemetry to the new Application Insights portal in Microsoft Azure.
+Open ApplicationInsights.config. If it has nodes `ActiveProfile` and `Profiles`, it's the old version and you should upgrade.
 
-If there is no schema version, then your project sends data to the old Application Insights portal in Visual Studio Online.
+Or look at your project in Visual Studio Solution Explorer, and under References, select Microsoft.ApplicationInsights. In the Properties window, find the Version. If it's less than 0.12, then you should upgrade.
 
 ## If you have a Visual Studio project ...
 

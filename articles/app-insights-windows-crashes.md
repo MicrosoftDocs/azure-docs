@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor crashes in Windows Store and Phone apps" 
+	pageTitle="Detect and diagnose crashes in Windows Store and Phone apps with Application Insights" 
 	description="Analyze performance issues in your Windows device app with Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,9 +15,7 @@
 	ms.date="02/28/2015" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Detect and diagnose crashes in Windows Store and Phone apps
+# Detect and diagnose crashes in Windows Store and Phone apps with Application Insights
 
 *Application Insights is in preview.*
 

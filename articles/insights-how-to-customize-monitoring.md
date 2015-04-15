@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to customize monitoring" 
+	pageTitle="Customize monitoring of an Azure web app" 
 	description="Learn how to customize monitoring charts in Azure." 
 	authors="alancameronwills" 
 	manager="kamrani" 
@@ -16,7 +16,7 @@
 	ms.date="2014-11-04" 
 	ms.author="awills"/>
 
-# Customizing monitoring
+# Customize monitoring of an Azure web app
 
 Your Azure application has a variety of metrics you can monitor, and you can chart them over a time period you choose.
 

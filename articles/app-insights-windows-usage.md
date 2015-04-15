@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Monitor usage in Windows Store and Phone apps" 
+	pageTitle="Monitor usage in Windows Store and Phone apps with Application Insights" 
 	description="Analyze usage of your Windows device app with Application Insights." 
 	services="application-insights" 
 	authors="alancameronwills" 
@@ -14,9 +14,7 @@
 	ms.date="2015-02-10" 
 	ms.author="awills"/>
 
-# Application Insights
-
-## Monitor usage in Windows apps and Windows Phone apps
+#  Monitor usage in Windows Store and Windows Phone apps with Application Insights
 
 *Application Insights is in preview.*
 

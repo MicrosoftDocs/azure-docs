@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use end user analytics" 
+	pageTitle="Usage analytics for Azure Web Apps" 
 	description="End user analytics for Microsoft Azure websites." 
 	services="application-insights" 
     documentationCenter=""
@@ -15,7 +15,7 @@
 	ms.date="03/26/2015" 
 	ms.author="awills"/>
 
-# Usage analytics for Web Apps
+# Usage analytics for Azure Web Apps
 
 Wonder how many users have used your [Azure App Service Web App](websites-learning-map.md)?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
 

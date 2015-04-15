@@ -38,9 +38,15 @@ In the [Azure portal][portal], create a new Application Insights resource.
 Your choice of application type sets the content of the Overview blade and the properties available in [metric explorer][metrics].
 
 If your application type isn't available, try ASP.NET app.
+
+
+The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
     
 
 ## Copy  the Instrumentation Key.
+
+
+You'll need this shortly, to direct the data from the SDK in your app to the resource you just created.
 
 ![Click Properties, select the key, and press ctrl+C](./media/app-insights-windows-get-started/02-props.png)
 

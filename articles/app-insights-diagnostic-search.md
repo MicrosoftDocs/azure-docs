@@ -75,9 +75,11 @@ Choosing no values of a particular property has the same effect as choosing all 
 
 Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
 
-In this example, it's clear that the Order/Payment request results in the majority of the 500 errors:
+In this example, it's clear that the `Reports/Employees` request results in the majority of the 500 errors:
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
+
+Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
 
 ## Inspect individual occurrences
 
@@ -90,6 +92,19 @@ For Request events, the details show exceptions that occurred while the request 
 Click through an exception to see its detail.
 
 ![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
+
+## Find events with the same property
+
+Find all the items with the same property value:
+
+![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
+
+## Search by metric value
+
+Get all the requests response time > 5s.  Times are represented in ticks: 10 000 ticks = 1ms.
+
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
+
 
 
 ## <a name="search"></a>Search the data
@@ -200,6 +215,18 @@ Here are the search expressions you can use:
                       <td>
                         <p>Logical operators and bracketing.</p>
                         <p>Shorter form.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>"Metric" : 0 TO 500</p>
+                        <p>
+                          "Metric" : 500 TO *
+                        </p>
+                      </td>
+                      <td>
+                        <p>Find events that contain the named measurement within the value range.</p>
+                        <p></p>
                       </td>
                     </tr>
 

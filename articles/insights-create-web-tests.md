@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to create web tests" 
-	description="Learn how to create web tests in Azure." 
+	pageTitle="Web tests for Azure Web Apps" 
+	description="Create web tests to verify the responsiveness and availability of Azure web apps." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
@@ -15,7 +15,8 @@
 	ms.date="03/23/2015" 
 	ms.author="awills"/>
 
-# Web tests for Web Apps
+# Web tests for Azure Web Apps
+
 Is your web app in Microsoft Azure Web Services still running? Is it responding properly, and fast enough? Tests your website at regular intervals by configuring a web test. If the site goes down or responds slowly or incorrectly, you'll receive an email alert. And you'll get graphs showing its availability and responsiveness over time.  
 
 *Want to test any other website? Use [Application Insights web tests][availability] for non-Azure web apps.*
