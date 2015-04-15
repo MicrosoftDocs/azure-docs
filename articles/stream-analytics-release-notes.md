@@ -16,7 +16,7 @@
 	ms.date="04/16/2015" 
 	ms.author="jeffstok"/>
 
-##Delay in Azure Storage account configuration
+#Delay in Azure Storage account configuration
 
 When creating a Stream Analytics job in a region for the first time, you will be prompted to create a new Storage account or specify an existing account for monitoring Stream Analytics jobs in that region. Due to latency in configuring monitoring, creating another Stream Analytics job in the same region within 30 minutes will prompt for the specifying of a second Storage account instead of showing the recently configured one in the Monitoring Storage Account drop-down. To avoid creating an unnecessary Storage account, wait 30 minutes after creating a job in a region for the first time before provisioning additional jobs in that region. 
 
