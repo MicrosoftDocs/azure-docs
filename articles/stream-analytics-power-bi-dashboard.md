@@ -16,7 +16,7 @@
 	ms.date="04/16/2015" 
 	ms.author="jeffstok"/>
 	
-###Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
+#Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
 
 One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  [Microsoft Power BI] (https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario] (https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. Note- Azure Stream Analytics is Generally Available however at this point, Power BI output is a preview feature of Azure Stream Analytics. 
 
