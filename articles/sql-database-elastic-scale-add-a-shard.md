@@ -16,8 +16,7 @@
 	ms.date="02/16/2015" 
 	ms.author="torsteng@microsoft.com"/>
 
-# Adding a Shard To an Elastic Scale Application 
-
+# Adding a Shard using Elastic Database tooling
 
 ## To Add a Shard for a New Range or Key  
 
@@ -44,9 +43,9 @@ In the sample below, a database named **sample_shard_2** and all necessary schem
 
 ## To Add a Shard for an Empty Part of an Existing Range  
 
-In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The Elastic Scale Preview [Split-Merge Service](sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.
+In some circumstances, you may have already mapped a range to a shard and partially filled it with data, but you now want upcoming data to be directed to a different shard. For example, you shard by day range and have already allocated 50 days to a shard, but on day 24, you want future data to land in a different shard. The elastic database [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) can perform this operation, but if data movement is not necessary (for example, data for the range of days [25, 50), i.e., day 25 inclusive to 50 exclusive, does not yet exist) you can perform this entirely using the Shard Map Management APIs directly.
 
-###Example:  Splitting a Range and Assigning the Empty Portion to a Newly-added Shard
+### Example:  Splitting a Range and Assigning the Empty Portion to a Newly-added Shard
 
 A database named “sample_shard_2” and all necessary schema objects inside of it have been created.  
 
@@ -73,7 +72,7 @@ A database named “sample_shard_2” and all necessary schema objects inside of
     upd.Shard = shard2; 
     sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd)); 
 
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the [Split-Merge Service](sql-database-elastic-scale-overview-split-and-merge.md) to perform the operation instead in these cases.  
+**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty.  The methods above do not check data for the range being moved, so it is best to include checks in your code.  If rows exist in the range being moved, the actual data distribution will not match the updated shard map. Use the [split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md) to perform the operation instead in these cases.  
 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
