@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to View Service Fabric Entities Aggregated Health"
+   pageTitle="View Service Fabric Entities Aggregated Health"
    description="Describes how to query, view and evaluate the Azure Service Fabric health entities"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,10 +16,10 @@
    ms.date="03/17/2015"
    ms.author="oanapl"/>
 
-# How to View Azure Service Fabric Entities Aggregated Health
+# View Azure Service Fabric Entities Aggregated Health
 Service Fabric introduces a [Health Model](service-fabric-health-introduction.md)  comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#Health-Store) aggregates all health data to determine whether entities are healthy.
 
-Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Understanding System Health Reports](service-fabric-understanding-system-health-reports.md).
+Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
 Service Fabric allows multiple ways to get the entities aggregated health: use health queries through Powerhsell/API/REST, general queries through Powershell/API/REST and tools like ServiceFabricExplorer.
 

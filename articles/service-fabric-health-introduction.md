@@ -147,6 +147,6 @@ This allows the cloud services and the underlying Service Fabric platform to sca
 Other systems have a single centralized service at the cluster level parsing all the “potentially” useful information emitted by all services. This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.
 
 ## Next Steps
-[How to View Azure Service Fabric Entities Aggregated Health](service-fabric-howto-view-entities-aggregated-health.md)
+[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
 
-[Understanding System Health Reports](service-fabric-understanding-system-health-reports.md)
+[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

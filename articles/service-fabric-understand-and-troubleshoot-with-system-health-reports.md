@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Understanding System Health Reports"
+   pageTitle="Understand and troubleshoot with System health reports"
    description="Describes the System Health reports and how to use them for troubleshooting cluster or application issues"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="oanapl"/>
 
-# Understanding System Health Reports
+# Understand and troubleshoot with System health reports
 Service Fabric components report out of the box on all entities in the cluster. The [Health Store](service-fabric-health-introduction.md#Health-Store) creates and deletes entities based on the system reports, and organizes them in an hierarchy that captures entity interactions.
 
 > [AZURE.NOTE] Read more about the Service Fabric [Health Model](service-fabric-health-introduction.md) to understand health related concepts.
@@ -171,4 +171,4 @@ System.Hosting reports Error if validation during upgrade fails or if upgrade fa
 - Description: points to the error encountered.
 
 ## Next Steps
-[How to View Azure Service Fabric Entities Aggregated Health](service-fabric-howto-view-entities-aggregated-health.md)
+[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)

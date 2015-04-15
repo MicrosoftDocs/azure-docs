@@ -174,8 +174,10 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
 
+[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+**owner: oanapl**
 
-[How to View Azure Service Fabric Entities Aggregated Health](service-fabric-howto-view-entities-aggregated-health.md)
+[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 **owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
