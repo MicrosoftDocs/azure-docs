@@ -22,7 +22,7 @@ One of the common use case for Azure Stream Analytics is to analyze high volume 
 
 ##Prerequisites
 
-* Windows Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here] (https://www.arin.net/resources/request/org.html) ).
+* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here] (https://www.arin.net/resources/request/org.html) ).
 * An input stream for ASA (Azure Stream Analytics) job to consume streaming data from. At this point, ASA accepts input from an Azure Eventhub or Azure Blob Store.  
 
 ##Create Azure Stream Analytics Job
