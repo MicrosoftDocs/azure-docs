@@ -30,7 +30,7 @@ This tutorial requires version 2.5.1 or later of the Azure SDK for .NET.
 
 ## Choose between creating a new project and configuring an existing project 
 
-If you're creating a new Web API project and you know you'll be deploying it to Azure as an API app, you can use an API app project template. If you have an existing Web API project that you want to configure for deployment as an API app, you can easily add the required NuGet packages and metadata. This tutorial shows both methods.  To follow the tutorial, choose one of the following tutorial sections:
+If you're creating a new Web API project and you know you'll be deploying it to Azure as an API app, you can use an API app project template. If you have an existing Web API project that you want to configure for deployment as an API app, you can easily add the required NuGet packages and metadata. This tutorial shows both methods.  To follow the tutorial, start with one of these tutorial sections:
 
 * [Create an API app project](#create-an-api-app-project)
 * [Configure a Web API project as an API app](#configure-a-web-api-project-as-an-api-app)
