@@ -430,6 +430,6 @@ The next step is to create the Android application.
 7. Click **Send Notification**.  Each device that has a registration with the matching username tag will receive the push notification.
 
 
-[A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users1.png
+[A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
