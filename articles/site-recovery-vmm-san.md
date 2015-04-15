@@ -319,37 +319,43 @@ Track progress of the Enable Protection action in the **Jobs** tab, including th
 Test your deployment to make sure virtual machines and data fail over as expected. To do this you'll create a recovery plan by selecting replication groups.Then run a test failover on the plan.
 
 1. On the **Recovery Plans** tab, click **Create Recovery Plan**.
-2. Specify a name for the recovery plan, and source and target VMM servers. The source server must have virtual machines that are enabled for failover and recovery. Select **SAN** to view only clouds that are configured for SAN replication.
-3.
+1. Specify a name for the recovery plan, and source and target VMM servers. The source server must have virtual machines that are enabled for failover and recovery. Select **SAN** to view only clouds that are configured for SAN replication.
+
 	![Create recovery plan](./media/site-recovery-vmm-san/SRSAN_RPlan.png)
 
-4. In **Select Virtual Machine**, select replication groups. All virtual machines associated with the replication group will be selected and added to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. you can add more groups if required. Note that after replication virtual machines will start up in accordance with the order of the recovery plan groups.
+1. In **Select Virtual Machine**, select replication groups. All virtual machines associated with the replication group will be selected and added to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. you can add more groups if required. Note that after replication virtual machines will start up in accordance with the order of the recovery plan groups.
 
 	![Add virtual machines](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. After a recovery plan has been created, it appears in the list on the **Recovery Plans** tab. 
-6. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
-7. On the **Confirm Test Failover** page, select **None**. Note that with this option enabled the failed over replica virtual machines won't be connected to any network. This will test that the virtual machine fails over as expected but does not test your replication network environment. If you want to run a more comprehensive test failover see <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Test an on-premises deployment on MSDN</a>.
+1. After a recovery plan has been created, it appears in the list on the **Recovery Plans** tab. 
+1. On the **Recovery Plans** tab, select the plan and click **Test Failover**.
+1. On the **Confirm Test Failover** page, select **None**. Note that with this option enabled the failed over replica virtual machines won't be connected to any network. This will test that the virtual machine fails over as expected but does not test your replication network environment. If you want to run a more comprehensive test failover see <a href="http://go.microsoft.com/fwlink/?LinkId=522291">Test an on-premises deployment on MSDN</a>.
 
 	![Select test network](./media/site-recovery-vmm-san/SRSAN_TestFailover1.png)
 
 
-8. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
-9. After replication the replica virtual machine will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP then will be updated automatically. If you're  not using DHCP and you want to make sure the addresses are the same you'll need to run a couple of scripts.
-10. Run this sample script to retrieve the IP address.
-    **$vm = Get-SCVirtualMachine -Name <VM_NAME>
+1. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It is added to the cloud in which the replica virtual machine is located.
+1. After failover the replica virtual machine might not have an IP address that isn’t the same as the IP address of the primary virtual machine. Virtual machines will update the DNS server that they are using after they start. You can also add a script to update the DNS Server to ensure a timely update. 
+
+#### Script to retrieve the IP address
+Run this sample script to retrieve the IP address.
+
+    $vm = Get-SCVirtualMachine -Name <VM_NAME>
 	$na = $vm[0].VirtualNetworkAdapters>
 	$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-	$ip.address**  
-11. Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
+	$ip.address 
+  
+#### Script to update DNS
+Run this sample script to update DNS, specifying the IP address you retrieved using the previous sample script.
 
-	**[string]$Zone,
+	[string]$Zone,
 	[string]$name,
 	[string]$IP
 	)
 	$Record = Get-DnsServerResourceRecord -ZoneName $zone -Name $name
 	$newrecord = $record.clone()
 	$newrecord.RecordData[0].IPv4Address  =  $IP
-	Set-DnsServerResourceRecord -zonename com -OldInputObject $record -NewInputObject $Newrecord**
+	Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
+
 
 ## Monitor activity
 
