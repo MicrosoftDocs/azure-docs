@@ -84,7 +84,7 @@ For other inputs/outputs, proceed with Part 2.
 6.  Click New Query:
 <graphic>
 7.  Type in the following query replacing <login_name> with your User Name and replacing <enterStrongPasswordHere> with your new password:
-`CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'
+`CREATE LOGIN <login_name> WITH PASSWORD = '<enterStrongPasswordHere>'`
 8.  Click Run:
 <graphic>
 9.  Go back to step 2 and this time click the database:
