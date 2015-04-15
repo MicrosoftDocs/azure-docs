@@ -1,5 +1,5 @@
 <properties
-   pageTitle="View Service Fabric Entities Aggregated Health"
+   pageTitle="View Service Fabric entities aggregated health"
    description="Describes how to query, view and evaluate the Azure Service Fabric health entities"
    services="service-fabric"
    documentationCenter=".net"
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/17/2015"
+   ms.date="04/15/2015"
    ms.author="oanapl"/>
 
-# View Azure Service Fabric Entities Aggregated Health
-Service Fabric introduces a [Health Model](service-fabric-health-introduction.md)  comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#Health-Store) aggregates all health data to determine whether entities are healthy.
+# View Azure Service Fabric entities aggregated health
+Service Fabric introduces a [Health Model](service-fabric-health-introduction.md) comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#Health-Store) aggregates all health data to determine whether entities are healthy.
 
 Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
-Service Fabric allows multiple ways to get the entities aggregated health: use health queries through Powerhsell/API/REST, general queries through Powershell/API/REST and tools like ServiceFabricExplorer.
+Service Fabric allows multiple ways to get the entities aggregated health: issue health queries through Powerhsell/API/REST, issue general queries through Powershell/API/REST and through tools like ServiceFabricExplorer.
 
 ## Health Queries
 Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#Health-Entities-and-Hierarchy). They can be accessed trough API (methods on FabricClient.HealthClient), Powershell cmdlets and REST.
@@ -29,14 +29,28 @@ These queries return complete health information about the entity, including agg
 
 > [AZURE.NOTE] A health entity is returned to the user when it is completely populated in the health store: the entity has a System report, it's active and parent entities on the hierarchy chain have System reports. If any of these conditions is not satisfied, the health queries return an exception showing why the entity is not returned.
 
-The health queries require passing in the entity identifier, which depends on the entity type. They accept optional health policy parameters. If not specified, the health policies from cluster or application manifest are used for evaluation. Read more about [Health Policies](service-fabric-health-introduction.md#Health-Policies). They also accept filters for returning only partial children or events, the ones that respect the specified filters.
+The health queries require passing in the entity identifier, which depends on the entity type. They accept optional health policy parameters. If not specified, the [health policies](service-fabric-health-introduction.md#health-policies) from cluster or application manifest are used for evaluation. They also accept filters for returning only partial children or events, the ones that respect the specified filters.
 
-### Entity Health
+> [AZURE.NOTE] The output filters are applied on the server side, so the message reply size is reduced. It is recommended to use the filters to limit the data returned rather than apply filters on the client side.
+
+### Entity health
 An entity health contains the following information:
-- The aggregated health state of the entity. This is computed by the Health Store based on entity health reports, children health states (when applicable) and health policies. Read more at [Entity Health Evaluation](service-fabric-health-introduction.md#Entity-Health-Evaluation).  
-- The health events on the entity. The events are generated from the health reports, with added metadata like last time the report had Ok/Warning/Error health state, last time it was modified, flag to show whether it is expired etc.
+- The aggregated health state of the entity. This is computed by the Health Store based on entity health reports, children health states (when applicable) and health policies. Read more at [Entity health evaluation](service-fabric-health-introduction.md#entity-health-evaluation).  
+- The health events on the entity.
 - For the entities that can have children, collection of health states for all children. The health states contain the entity identifier and the aggregated health state.
-- If the entity is not healthy, the unhealthy evaluations which point to the actual report that triggered the state of the entity.
+- If the entity is not healthy, the unhealthy evaluations which point to the report that triggered the state of the entity.
+
+### Health events
+The health events are generated from [health reports](service-fabric-report-health.md#health-reports), with added metadata for:
+- SourceUtcTimestamp: the time the report was given to the health client (Utc)
+- LastModifiedUtcTimestamp: the time the report was last modified on the server side (Utc)
+- IsExpired: flag to indicate whether the report was expired at the time the query was executed by the Health Store. An event can be expired only if RemoveWhenExpired is false; otherwise, it wouldn't be used for evaluation.
+- LastOkTransitionAt, LastWarningTransitionAt, LastErrorTransitionAt: last time for Ok/Warning/Error transitions. These fields give the histore of the transition of the health states for the event.
+
+The state transition fields can be used for smarter alerting or "historical" health event information. They enable scenarios like:
+- Alert when a property has been at Warning/Error for more than X minutes. This avoids alerting on temporary conditions.Eg: alert if the health state has been Warning for more than 5 minutes can be translated into (HealthState == Warning and Now - LastWarningTransitionTime > 5 minutes).
+- Alert on conditions that changed in the last X minutes. If a report is at Error since before that, it can be ignored.
+- If a property is toggling between Warning and Error, determine how long it has been unhealthy (i.e. not Ok). Eg: alert if the property wasn't healthy for more than 5 minutes can be translated into: (HealthState != Ok and Now - LastOkTransitionTime > 5 minutes).
 
 ### Get Cluster Health
 Returns the health of the cluster entity. Contains the health states of applications and the nodes children of the cluster.
