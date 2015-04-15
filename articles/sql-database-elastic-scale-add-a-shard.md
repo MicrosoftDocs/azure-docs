@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="torsteng@microsoft.com"/>
+	ms.date="04/15/2015" 
+	ms.author="sidneyh"/>
 
 # Adding a Shard using Elastic Database tooling
 
@@ -24,7 +24,7 @@ Applications often need to simply add new shards to handle data that is expected
 
 If the new range of key values is not already part of an existing mapping, it is very simple to add the new shard and associate the new key or range to that shard. 
 
-###Example:  Adding a Shard and its Range to an Existing Shard Map
+### Example:  Adding a Shard and its Range to an Existing Shard Map
 In the sample below, a database named **sample_shard_2** and all necessary schema objects inside of it have been created to hold range [300, 400).  
 
     // sm is a RangeShardMap object.
