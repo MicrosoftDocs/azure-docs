@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Client development and quick start samples to SQL Database" 
-	description="Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft."
+	pageTitle="Get started with SQL Database" 
+	description="Create your first cloud database in minutes with Azure SQL Database, Microsoft's relational database management service (RDBMS) in the cloud, using the Azure Portal and the AdventureWorks sample database."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -18,7 +18,7 @@
 	ms.author="genemi"/>
 
 
-# Creating your first Azure SQL Database
+# Create your first Azure SQL Database
 
 
 This article shows you how to create a sample Azure SQL Database in under five minutes. You learn how to:
@@ -57,7 +57,7 @@ This tutorial assumes that you have an Azure Subscription. If you do not, you ca
 2. Enter the **Server Admin Login** as **AdventureAdmin**.
 3. Enter the correct value for **Password** and **Confirm Password**.
 4. Select the preferred geographic **Location**. Typically the location should be close to where your application runs.
-5. When completed, click **OK**.
+5. Click **OK**.
 
 
 ![Create server][2]
@@ -70,7 +70,7 @@ This tutorial assumes that you have an Azure Subscription. If you do not, you ca
  - If you skip this step, an empty database is created.
 2. Select **Sample**.
  - This creates a database that is a copy of the standard sample database named **AdventureWorks**.
- - On Azure SQL Database this *light schema* edition of AdventureWorks is used.
+ - On Azure SQL Database the *light schema* edition of AdventureWorks is used.
 3. Click **Create** at the bottom of the blade.
 
 
@@ -94,7 +94,7 @@ The following steps demonstrate how to specify which IP address ranges are allow
 ![Firewall][4]
 
 
-## Next phase
+## Next steps
 
 
 You are now ready to write a small client program that can connect to your database. For a quick start code sample, click one of the following links:
@@ -102,9 +102,6 @@ You are now ready to write a small client program that can connect to your datab
 
 - [Connect to and query your SQL Database with C#](sql-database-connect-query.md)
 - *Coming soon:* Client development and quick start samples to SQL Database
-
-
-<!-- TODO: When ready, Client development and quick start samples to SQL Database] , (sql-database-develop-quick-start-client-samples.md) -->
 
 
 <!-- Media references. -->
