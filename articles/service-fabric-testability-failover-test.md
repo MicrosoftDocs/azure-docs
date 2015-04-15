@@ -108,9 +108,10 @@ $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
 $waitTimeBetweenFaultsSec = 10
+$serviceName = "fabric:/SampleApp/SampleService"
 
 Connect-ServiceFabricCluster $connection
 
-Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec
+Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 
 ```
