@@ -199,10 +199,10 @@ Multipath I/O (MPIO) is an optional feature and is not installed on Windows Serv
 
 > [AZURE.NOTE] MPIO is not supported on a StorSimple virtual device. 
 
-For MPIO installation instructions, go to [Configure MPIO for your StorSimple device](https://msdn.microsoft.com/library/azure/dn772361.aspx)
+For MPIO installation instructions, go to [Configure MPIO for your StorSimple device](storsimple-configure-mpio-windows-server.md).
 
 ## Next steps
 
-Configure a [virtual device](https://msdn.microsoft.com/library/azure/dn772390.aspx).
+Configure a [virtual device](storsimple-virtual-device.md).
 
 Use the [StorSimple Manager service](https://msdn.microsoft.com/library/azure/dn772396.aspx) to manage your StorSimple device.

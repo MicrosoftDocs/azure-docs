@@ -49,7 +49,7 @@ The following steps summarize the setup wizard process. For detailed setup infor
   - Optional web proxy – The [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet is executed in the background. It sets and enables the web proxy configuration for your StorSimple solution.
 3. Set up the passwords: the next step is to set up device administrator and StorSimple Snapshot Manager passwords.
   - The device administrator password is used to log on to your device. The default device password is *Password1*.
-  - The StorSimple Snapshot Manager password is required when you configure a device to use the StorSimple Snapshot Manager. You need to first set the password in the setup wizard, and then you can set and change it from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
+  - The StorSimple Snapshot Manager password is required when you configure a device to use StorSimple Snapshot Manager. You need to first set the password in the setup wizard, and then you can set and change it from the StorSimple Manager service. This password authenticates the device with StorSimple Snapshot Manager.
  
     > [AZURE.IMPORTANT] Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
 

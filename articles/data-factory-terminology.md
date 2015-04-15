@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 #Azure Data Factory - Terminology
@@ -73,9 +73,6 @@ An important characteristic of Hub is that a pipeline runs on a single hub. This
 
 1. [Introduction to Azure Data Factory][adf-intro]. This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
 2. [Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-2. [Tutorial: Move and process log files using Data Factory][adf-tutorial]. This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
-3. [Data Factory - Frequently Asked Questions][adf-faq]. This article provides a list of frequently asked questions and the answers. 
-3. [Common scenarios for using Azure Data Factory][adf-common-scenarios]. This article describes a few common scenarios for using the Azure Data Factory service.
 
 
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx

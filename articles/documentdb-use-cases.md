@@ -34,7 +34,7 @@ A common use case for DocumentDB is to store and query user generated content (U
 
 Content such as chats, comments, and posts can be stored in DocumentDB without requiring transformations or complex object to relational mapping layers.  Data properties can be added or modified easily to match requirements as developers iterate over the application code, thus promoting rapid development.  
 
-Applications that integrate with various social networks must be respond to changing schemas from these networks.  As data is automatically indexed by default in DocumentDB, data is ready to be queried at any time.  Hence, these applications have the flexibility to retrieve projections as per their respective needs.       
+Applications that integrate with various social networks must respond to changing schemas from these networks.  As data is automatically indexed by default in DocumentDB, data is ready to be queried at any time.  Hence, these applications have the flexibility to retrieve projections as per their respective needs.       
 
 Many of the social applications run at global scale and can exhibit unpredictable usage patterns.  Flexibility in scaling the data store is essential as the application layer scales to match usage demand.  You can scale out by adding additional data partitions under a DocumentDB account.  In addition, you can also create additional DocumentDB accounts across multiple regions. For DocumentDB service region availability, see [Azure Regions](http://azure.microsoft.com/regions/#services).   
 
@@ -60,7 +60,7 @@ IoT use cases commonly share some patterns in how they ingest, process and store
 
 Microsoft Azure offers rich services that can be leveraged for IoT use cases.  Azure IoT services are a set of services including Azure Event Hubs, Azure DocumentDB, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight, and PowerBI. 
 
-Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, these data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics.  In addtion, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
+Bursts of data can be ingested by Azure Event Hubs as it offers high throughput data ingestion with low latency. Data ingested that needs to be processed for real time insight can be funneled to Azure Stream Analytics for real time analytics. Data can be loaded into DocumentDB for adhoc querying. Once the data is loaded into DocumentDB, the data is ready to be queried.  The data in DocumentDB can be used as reference data as part of real time analytics.  In addtion, data can further be refined and processed by connecting DocumentDB data to HDInsight for Pig, Hive or Map/Reduce jobs.  Refined data is then loaded back to DocumentDB for reporting.   
 
 For a sample IoT solution using DocumentDB, EventHubs and Storm, see the [hdinsight-storm-examples repository on GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 

@@ -3,7 +3,7 @@
    description="Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network" 
    services="hdinsight" 
    documentationCenter="" 
-   authors="jgao" 
+   authors="mumian" 
    manager="paulettm" 
    editor="cgronlun"/>
 
@@ -64,13 +64,13 @@ Before you begin this tutorial, you must have the following:
 9. On the bottom of the page, the default subnet name is **Subnet-1**. You can optionally rename the subnet or add a new subnet for the HBase cluster. Make a note of the subnet name; you will need it when provisioning the cluster.
 10. Verify **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (gateway: 2, head node: 2, Zookeeper: 3). For example, if you need a 10-node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
 
-	> [WACOM.NOTE] It is highly recommended to designate a single subnet for one cluster. 
+	> [AZURE.NOTE] It is highly recommended to designate a single subnet for one cluster. 
 
 11. Click **Save** on the bottom of the page, if you have updated the subnet values.
 
 
 
-> [WACOM.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
+> [AZURE.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
 
 **To create an Azure Storage account and a Blob storage container**
 
@@ -95,7 +95,7 @@ Before you begin this tutorial, you must have the following:
 
 **To provision an HBase cluster by using the Azure portal**
 
-> [WACOM.NOTE] For information on provisioning a new HBase cluster by using Azure PowerShell, see [Provision an HBase cluster using Azure PowerShell](#powershell).
+> [AZURE.NOTE] For information on provisioning a new HBase cluster by using Azure PowerShell, see [Provision an HBase cluster using Azure PowerShell](#powershell).
 
 1. Sign in to the [Azure portal][azure-portal].
 
@@ -106,7 +106,7 @@ Before you begin this tutorial, you must have the following:
 	![Provide details for the HBase cluster][img-provision-cluster-page1]
 
 
-	> [WACOM.NOTE] For an HBase cluster, Windows Server is the only available OS option.
+	> [AZURE.NOTE] For an HBase cluster, Windows Server is the only available OS option.
 
 4. On the **Configure Cluster** page, enter or select the following:
 
@@ -121,7 +121,7 @@ Before you begin this tutorial, you must have the following:
 		<tr><td>Zookeeper Size</td><td><p>Select a VM size for the Zookeeper node.</p></td></tr>
 	</table>	
 
-	>[WACOM.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard-tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
+	>[AZURE.NOTE] Based on the choice of VMs, your cost might vary. HDInsight uses all standard-tier VMs for cluster nodes. For information on how VM sizes affect your prices, see <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight Pricing</a>.	
 
 	Click the right button.
 
@@ -282,7 +282,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 		This will return the DNS suffix. For example, **yourclustername.b4.internal.cloudapp.net**.
 
-	> [WACOM.NOTE] You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure portal][hdinsight-admin-portal].
+	> [AZURE.NOTE] You can also use Remote Desktop to connect to the HBase cluster (you will be connected to the head node) and run **ipconfig** from a command prompt to obtain the DNS suffix. For instructions on enabling Remote Desktop Protocol (RDP) and connecting to the cluster by using RDP, see [Manage Hadoop clusters in HDInsight using the Azure portal][hdinsight-admin-portal].
 	>
 	> ![hdinsight.hbase.dns.surffix][img-dns-surffix]
 
@@ -311,7 +311,7 @@ To use this information in a Java application, you can follow the steps in [Use 
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [WACOM.NOTE] For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
+> [AZURE.NOTE] For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
 ##<a id="powershell"></a>Provision an HBase cluster by using Azure PowerShell
 
@@ -357,6 +357,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 In this tutorial you learned how to provision an HBase cluster. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Provision Hadoop clusters in HDInsight][hdinsight-provision] 
 - [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
