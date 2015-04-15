@@ -302,14 +302,14 @@ Add-AzureDataDisk -ImportFrom -DiskName “DataDisk” -LUN 0 –HostCaching Rea
 
 ## Next Steps
 
-Check the following resources for specific scenarios for migrating virtual machines
+See the following resources for specific scenarios for migrating virtual machines:
 
 - [Migrate Azure Virtual Machines between Storage Accounts](http://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 - [Create and upload a Windows Server VHD to Azure.](virtual-machines-create-upload-vhd-windows-server.md)
 - [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System](virtual-machines-linux-create-upload-vhd.md)
 - [Migrating Virtual Machines from Amazon AWS to Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
-Also check following resources to learn more about Azure Storage and Azure Virtual Machines,
+Also see the following resources to learn more about Azure Storage and Azure Virtual Machines:
 
 - [Azure Storage](http://azure.microsoft.com/documentation/services/storage/)
 - [Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/)
