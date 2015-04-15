@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Scratch TOC- Don't Publish" 
-   description="" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="rwike77" 
-   manager="timlt" 
+<properties
+   pageTitle="Scratch TOC- Don't Publish"
+   description=""
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="02/18/2015"
    ms.author="ryanwi"/>
 
@@ -45,9 +45,9 @@ Install and extend the Samples **owner: vturecek**
 
 Choose a Programming Model **owner: seanmck**
 
-Create a Stateful Application **owner: Haishi** 
+Create a Stateful Application **owner: Haishi**
 
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi** 
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -67,7 +67,7 @@ more advanced configuration stuff
 ### Configure an Application Manifest P2 owner: vturecek
 more advanced configuration stuff
 
-### Package and Deploy an Application P2 
+### Package and Deploy an Application P2
 Package and deploy using VS. Explain VS template. **owner: vturecek**
 
 Package and deploy using Cmdlets **owner: vturecek**
@@ -149,13 +149,13 @@ Download crash dumps **owner: Kunalds**
 
 View health information in Visual Studio **owner: oanapl**
 
- 
+
 ### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
 
 Query Health State and Events (PowerShell) **owner: oanapl**
 
 ### Add/Remove Services from Applications P2 owner: vturecek
- 
+
 ### Remove an Application owner: vturecek
 Remove an Application in Visual Studio **owner: vturecek**
 
@@ -172,7 +172,7 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
-### Monitoring and Diagnostics 
+### Monitoring and Diagnostics
 Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
@@ -209,7 +209,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 [FabSrv Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
 
 
- 
+
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
@@ -220,7 +220,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Image Store
 
 
-### System Services 
+### System Services
 Failover Manager Service
 
 Cluster Manager Service
@@ -247,7 +247,7 @@ Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
-### Replicas and Replica Sets
+### Replicas and Replica Sets owners: *aprameyr*
 Replica Role and State Lifetime
 
  Replication and State Consistency
@@ -261,4 +261,3 @@ Replica Role and State Lifetime
 ### FabricExplorer
 
 ### Glossary
-

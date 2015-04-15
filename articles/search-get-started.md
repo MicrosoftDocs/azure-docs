@@ -35,35 +35,19 @@ Subscribers automatically get free access to a shared, multitenant Search servic
  
   	![][6]
 
-3. Click **Everything** at the top of the page. 
+3. Click **Data + Storage** | **Search**.
 
-  	![][7]
+	- Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
 
-4. From the Gallery, click **Data + analytics**.
- 
-  	![][8]
+	- Click the arrow in **Pricing Tier** to select a pricing option. Choose **FREE** and then click **SELECT** at the bottom of the page. The free version offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. 
 
-5. From Data services, click **Search**.
- 
-  	![][10]
+	- Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
 
-7. At the bottom of the Search page, click **CREATE**.
+	- Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
 
-8. Type a lower-case service name to use in the service URL, avoiding spaces, and staying within the 15 character string limit.
- 
-  	![][11]
+	- Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
 
-9. Click the arrow in **Pricing Tier** to select a pricing option. Choose **FREE** and then click **SELECT** at the bottom of the page. The free version offers enough capacity to try out tutorials and write proof-of-concept code, but is not intended for production applications. 
-
-  	![][12]
-
-10. Click the arrow in **Resource Group** to pick an existing group or create a new one. Resource groups are containers for services and resources used for a common purpose. For example, if you're building a custom search application based on Azure Search, Azure Websites, Azure BLOB storage, you could create a resource group that keeps these services together in the portal management pages.
-
-11. Click the arrow in **Subscription** if you have multiple subscriptions and you want to use a different subscription for this search service.
-
-12. Click the arrow in **Location** to choose a data center region. In this preview, you can choose from West US, East US, North Europe, and Southeast Asia. Later, when other regions are online, choose one region for the service you are creating. Distributing resources across multiple data centers will not be a supported configuration for public preview.
-
-13. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
+4. Click **CREATE** to provision the service. Notice that **CREATE** is enabled only after you fill in all required values. 
 
 In a few minutes, the service is created. You can return to the configuration settings to get the URL or api-keys. Connections to your Search service requires that you have both the URL and an api-key to authenticate the call. Here's how to quickly find these values:
 
@@ -72,14 +56,6 @@ In a few minutes, the service is created. You can return to the configuration se
   	![][13]
 
 15.	On the service dashboard, you'll see tiles for **PROPERTIES** and **KEYS**, and usage information that shows resource usage at a glance. 
-
-  	![][23]
-
-   **PROPERTIES** contains the service URL. 
-
-   **KEYS** contains the api-keys used for authentication.
- 
-   **USAGE** shows the document count, available resources, and storage limits.
 
 Continue on to [Test service operations](#sub-3) for instructions on how to connect to the service using these values.
 
@@ -100,19 +76,11 @@ Setting up dedicated resources can take a while (15 minutes or longer).
 
 2. Click **New** at the bottom of the page.
 
-3. Click **Everything** at the top of the page.
+4. From the Gallery, click **Data + Storage** | **Search**.
 
-4. From the Gallery, click **Data + analytics**.
+7. Fill in the service configuration settings and then click **CREATE**.
 
-6. From Data services, click **Search**.
-
-7. At the bottom of the Search page, click **CREATE**.
-
-8. Type a lower-case service name to use in the service URL, avoiding dashes, spaces, and staying under the 15 character string limit.
-
-9. Click the arrow in **Pricing Tier** to select a pricing option. Choose **STANDARD** and then click **SELECT** at the bottom of the page.
-
- ![][14]
+8. In **Pricing Tier** to select a pricing option. Choose **STANDARD** and then click **SELECT** at the bottom of the page.
 
 **Step 2 - Adjust search units based on scale requirements**
 
@@ -146,11 +114,11 @@ The following procedure works for both shared and standard search. In the steps 
 3. Enter a URL that specifies the service URL (which you can find on the Properties page), request attributes and the api-version. A few pointers to keep in mind:
    + Use HTTPS as the prefix
    + Request attribute is "/indexes/hotels". This tells Search to create an index named 'hotels'.
-   + Api-version is lower-case, specified as "?api-version=2014-07-31-preview". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
+   + Api-version is lower-case, specified as "?api-version=2015-02-28". API versions are important because Azure Search deploys updates regularly. On rare occasions, a service update may introduce a breaking change to the API. Using API versions, you can continue to use your existing version and upgrade to the newer one when it is convenient.
 
     The full URL should look similar to the following example:
 
-         https://my-app.search.windows.net/indexes/hotels?api-version=2014-07-31-Preview
+         https://my-app.search.windows.net/indexes/hotels?api-version=2015-02-28
 
 4.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
@@ -166,7 +134,7 @@ The following procedure works for both shared and standard search. In the steps 
         "fields": [
           {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
           {"name": "baseRate", "type": "Edm.Double"},
-          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
+          {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
           {"name": "hotelName", "type": "Edm.String", "suggestions": true},
           {"name": "category", "type": "Edm.String"},
           {"name": "tags", "type": "Collection(Edm.String)"},
@@ -192,9 +160,9 @@ On the Composer tab, your request to post documents will look like the following
 
 1. Select **POST**.
 
-2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2014-07-31-preview". The full URL should look similar to the following example:
+2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs/index?api-version=2015-02-28". The full URL should look similar to the following example:
 
-        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2014-07-31-Preview
+        https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2015-02-28
 
 3.	Request Header should be the same as before. Remember that you replaced the host and api-key with values that are valid for your service.
 
@@ -280,7 +248,7 @@ Now that an index and documents are loaded, you can issue queries against them. 
 
 2.	Enter a URL that starts with HTTPS, followed by your service URL, followed by "/indexes/<'indexname'>/docs?", followed by query parameters. By way of example, use the following URL, replacing the sample host name with one that is valid for your service.
 
-        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2014-07-31-Preview
+        https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2015-02-28
 
     This query searches on the term “motel” and retrieves facet categories for ratings.
 
@@ -299,12 +267,11 @@ The following example query is from the [Search Index operation (Azure Search AP
 
 **Before spaces are replaced:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2014-07-31-Preview
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28
 
 **After spaces are replaced with +:**
 
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
-
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 ### Query the system
 
 You can also query the system to get document counts and storage consumption. On the Composer tab, your request will look similar to the following, and the response will return a count for the number of documents and space used.
@@ -313,9 +280,9 @@ You can also query the system to get document counts and storage consumption. On
 
 1.	Select **GET**.
 
-2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2014-07-31-Preview":
+2.	Enter a URL that includes your service URL, followed by "/indexes/hotels/stats?api-version=2015-02-28":
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2014-07-31-Preview 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
 
 3.	Specify the request header, replacing the host and api-key with values that are valid for your service.
 
@@ -342,13 +309,11 @@ If you need a refresher on where to find the configuration pages, follow these s
 
  	![][22]
 
-4.	Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. The service dashboard includes tiles for viewing Properties, Keys, and a Quick Start with links to information and instructions. Scroll down to view usage.
+4.	Clicking the tile opens the service dashboard. Notice that **Start**, **Stop**, and **Delete** commands are at the top. 
 
-5.	Click **PROPERTIES**. Notice that the Properties page opens to the right. The service URL is at the top of the page. You will need this URL in to connect to your Azure Search service.
-
- 	![][23]
+5.	Notice the service URL is near the top of the page. You will need this URL in to connect to your Azure Search service.
 	
-7.	Click **KEYS** to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
+7.	Click the **KEYS** icon to view the api-keys. You will need an Admin key to authenticate to the service. You can use either the primary or secondary. Optionally, you can create query keys for read-only access to the service.
 
 
 <!--Next steps and links -->
