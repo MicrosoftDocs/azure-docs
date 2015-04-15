@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Develop video player applications" 
 	description="The topic also provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services." 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor="" 
 	services="media-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/15/2015" 
 	ms.author="juliako"/>
 
 
@@ -27,8 +27,19 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 
 For more information, see [playing your content with existing players](media-services-playback-content-with-existing-players.md).
 
+##Azure Media Player
 
-##Tools for creating player applications
+
+[Azure Media Player](aka.ms/ampdocs) is a web video player built to playback media content from Microsoft Azure Media Services on a wide variety of browsers and devices. Azure Media Player utilizes industry standards, such as HTML5, Media Source Extensions (MSE) and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. When these standards are not available on a device or in a browser, Azure Media Player uses Flash and Silverlight as fallback technology. Regardless of the playback technology used, developers will have a unified JavaScript interface to access APIs. This allows for content served by Azure Media Services to be played across a wide-range of devices and browsers without any extra effort.
+
+Microsoft Azure Media Services allows for content to be served up with DASH, Smooth Streaming and HLS streaming formats to playback content. Azure Media Player takes into account these various formats and automatically plays the best link based on the platform/browser capabilities. Microsoft Azure Media Services also allows for dynamic encryption of assets with PlayReady encryption or AES-128 bit envelope encryption. Azure Media Player allows for decryption of PlayReady and AES-128 bit encrypted content when appropriately configured. 
+
+For more information, [Azure Media Player](aka.ms/ampdocs).
+
+
+##Other Tools for Creating Player Applications
+
+You can also use any of the following SDKs:
 
 - [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
 - [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
@@ -36,7 +47,6 @@ For more information, see [playing your content with existing players](media-ser
 - [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 - [Media Player Framework for iOS](https://github.com/Azure/azure-media-player-framework) 
 - [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
-- Building Video Applications on Windows 8 
 - [XBOX Video Application Development](http://xbox.create.msdn.com/) 
 
 For more information, see [Developing Video Player Applications](https://msdn.microsoft.com/library/dn223283.aspx).
