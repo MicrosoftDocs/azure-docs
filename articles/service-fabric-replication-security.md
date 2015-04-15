@@ -1,6 +1,6 @@
 <properties
    pageTitle="Secure replication traffic of stafeful services in Azure Service Fabric"
-   description="Secure replication traffic of stafeful services in Azure Service Fabric"
+   description="When replication is enabled, stafeful services replicate its states from a primary replica to secondary replicas, such traffic needs to be protected against eavesdropping and tampering."
    services="service-fabric"
    documentationCenter=".net"
    authors="leikong"
@@ -17,7 +17,7 @@
    ms.author="leikong"/>
 
 # Secure replication traffic of stateful services in Azure Service Fabric
-Stateful services replicate states across replicas. This page is about how to protect such traffic.
+When replication is enabled, stateful services replicate states across replicas. This page is about how to protect such traffic.
 
 For stateful services, OpenAsync method requires the return of an IReplicator instance. For more information, see Stateful Services.
 
@@ -52,7 +52,7 @@ public override ReplicatorSettings ReplicatorSettings
 ```
 In the example above, local X509 certificate credential is loaded from "MY" store at LocalMachine(default location), and the certificate's thumbprint value is AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00. RemoteCommonName specifies the expected certificate common name of other replicas. Often times, all replicas share a single certificate credential. As an alternative, RemoteCertThumbprints can be usd to identify other replicas in place of RemoteCommonNames.
 
-##Using Windows credentials
+## Using Windows credentials
 ```
 public override ReplicatorSettings ReplicatorSettings
 {
@@ -110,3 +110,21 @@ The following is a sample configuration file what works with the code above.
    </Section>
 </Settings>
 ```
+In the example above, CredentailTye is set to "X509", which tells Service Fabric to create X509Credentials, another supported value is "Windows", for which WindowsCredentials will be created. The rest of section VoicemailBoxActorServiceReplicatorSecurityConfig maps to properties of X509Credentials, the following is the complete mapping.
+
+|X509Credentials property|Configuration parameter|
+|------------------------|-----------------------|
+|StoreLocation|StoreLocation|
+|StoreName|StoreName|
+|FindType|FindType|
+|FindValue|FindValue|
+|RemoteCommonNames|AllowedCommonNames|
+|IssuerThumbprints|IssuerThumbprints|
+|RemoteCertThumbprints|RemoteCertThumbprints|
+|ProtectionLevel|ProtectionLevel|
+
+|WindowsCredentials property|Configuration parameter|
+|---------------------------|-----------------------|
+|RemoteSpn|ServicePrincipalName|
+|RemoteIdentities|WindowsIdentities|
+|ProtectionLevel|ProtectionLevel|
