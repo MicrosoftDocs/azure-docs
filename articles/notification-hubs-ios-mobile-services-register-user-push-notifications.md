@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" 
+	pageTitle="Register current user for push notifications using a mobile service - Notification Hubs" 
 	description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." 
 	services="notification-hubs" 
 	documentationCenter="ios" 

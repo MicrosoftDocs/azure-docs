@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="10/07/2014" 
+	ms.date="04/14/2015" 
 	ms.author="ricksal"/>
 
-# Push notifications to users by using Mobile Services
+# Push notifications to users using Mobile Services
 
 This topic has been deprecated. Instead, please follow the updated guidance in these tutorials:
 

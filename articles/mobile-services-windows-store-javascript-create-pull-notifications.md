@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 # Define a custom API that supports periodic notifications
 

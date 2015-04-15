@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/19/2014" 
+	ms.date="04/14/2015" 
 	ms.author="mahender"/>
 
 # Get started with realtime push using SignalR and Mobile Services

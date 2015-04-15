@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application."
 	services="notification-hubs"
 	documentationCenter="xamarin"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/11/2014"
-	ms.author="donnam"/>
+	ms.date="04/14/2015"
+	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs
 

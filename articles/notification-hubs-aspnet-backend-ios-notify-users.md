@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 #Azure Notification Hubs Notify Users
