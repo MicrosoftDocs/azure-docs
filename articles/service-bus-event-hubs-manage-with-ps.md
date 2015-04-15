@@ -25,8 +25,7 @@ Microsoft Azure PowerShell is a scripting environment that you can use to contro
 Before you begin, you'll need the following:
 
 - An Azure subscription. Azure is a subscription-based platform. For more
-information about obtaining a subscription, see [Purchase Options][azure-purchase-options],
-[Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+information about obtaining a subscription, see [Purchase Options], [Member Offers], or [Free Trial].
 
 - A computer with Azure PowerShell. See the setup instructions in the next section.
 
@@ -38,7 +37,7 @@ information about obtaining a subscription, see [Purchase Options][azure-purchas
 
 ## Include a reference to the .NET assembly for Service Bus
 
-There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision entities that are not exposed through the existing cmdlets, you can use the .NET client for Service Bus from within PowerShell by referencing the [Service Bus NuGet package][].
+There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision entities that are not exposed through the existing cmdlets, you can use the .NET client for Service Bus from within PowerShell by referencing the [Service Bus NuGet package].
 
 First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
 
@@ -72,7 +71,7 @@ Here's how these steps are implemented in a PowerShell script:
 
 ## Provision a Service Bus namespace
 
-When working with Service Bus namespaces, there are two cmdlets you can use instead of the .NET SDK: [Get-AzureSBNamespace][] and [New-AzureSBNamespace][].
+When working with Service Bus namespaces, there are two cmdlets you can use instead of the .NET SDK: [Get-AzureSBNamespace] and [New-AzureSBNamespace].
 
 This example creates a few local variables in the script; `$Namespace` and `$Location`.
 
@@ -110,7 +109,7 @@ This part of the script does the following:
 		    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 		}
 		```
-To provision other Service Bus entities, create an instance of the `NamespaceManager` object from the SDK. You can use the [Get-AzureSBAuthorizationRule][] cmdlet to retrieve an authorization rule that's used to provide a connection string. This example stores a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. The script later uses `$NamespaceManager` to provision other entities.
+To provision other Service Bus entities, create an instance of the `NamespaceManager` object from the SDK. You can use the [Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. This example stores a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. The script later uses `$NamespaceManager` to provision other entities.
 
 		``` powershell
 		$sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -121,7 +120,7 @@ To provision other Service Bus entities, create an instance of the `NamespaceMan
 		```
 ## Provisioning other Service Bus entities
 
-To provision other entities, such as queues, topics, and Event Hubs, you can use the [.NET API for Service Bus][dotnet-servicebus-api]. More detailed examples, including other entities, are referenced at the end of this article.
+To provision other entities, such as queues, topics, and Event Hubs, you can use the [.NET API for Service Bus]. More detailed examples, including other entities, are referenced at the end of this article.
 
 ### Create an Event Hub
 
@@ -268,14 +267,13 @@ There are more detailed examples available on these blogs posts:
 Some ready-made script are also available for download:
 - [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-<!--Image references-->
+<!--Anchors-->
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[powershell-install-configure]: install-configure-powershell.md
+[Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
+[Member Offers]: http://azure.microsoft.com/pricing/member-offers/
+[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[dotnet-servicebus-api]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
+[.NET API for Service Bus]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
