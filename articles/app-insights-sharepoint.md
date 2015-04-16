@@ -24,7 +24,7 @@ Visual Studio Application Insights monitors the availability, performance and us
 ## Create an Application Insights resource
 
 
-In the [Azure portal][portal], create a new Application Insights resource. Choose ASP.NET as the application type.
+In the [Azure portal](http://portal.azure.com), create a new Application Insights resource. Choose ASP.NET as the application type.
 
 ![Click Properties, select the key, and press ctrl+C](./media/app-insights-sharepoint/01-new.png)
 
