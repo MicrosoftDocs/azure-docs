@@ -16,6 +16,9 @@
 	ms.date="04/16/2015" 
 	ms.author="jeffstok"/>
 
+#Connect to inputs and outputs
+In this document you will discover the different methods of configuring input sources and output targets for Stream Analytics solutions.
+
 ##Using SQL as Output
 
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database.
