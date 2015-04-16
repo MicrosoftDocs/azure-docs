@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to use Azure Search from a .NET Application"
+   pageTitle="How to use Azure Search from a .NET Application | Microsoft Azure"
    description="How to use Azure Search from a .NET Application"
    services="search"
    documentationCenter=""
@@ -13,12 +13,12 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="03/23/2015"
+   ms.date="04/09/2015"
    ms.author="brjohnst"/>
 
 # How to use Azure Search from a .NET Application #
 
-This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn946890.aspx). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
+This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 
 ## What's in the Azure Search SDK ##
 
@@ -31,7 +31,7 @@ The client library defines classes like `Index`, `Field`, and `Document`, as wel
 
 The current version of the Azure Search .NET SDK is `0.9.7-preview`. This is a pre-release version of the SDK. If you would like to provide feedback for us to incorporate in the first stable version, please visit our [feedback page](http://feedback.azure.com/forums/263029-azure-search).
 
-The .NET SDK supports a subset of version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the `moreLikeThis` search parameter, are in [preview](search-api-2015-02-28-preview.md) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](search-latest-updates.md) for status updates on either feature.
+The .NET SDK supports a subset of version `2015-02-28` of the Azure Search REST API, documented on [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx). New features that are *not* part of this version, such as support for Microsoft's natural language processors or the `moreLikeThis` search parameter, are in [preview](../search-api-2015-02-28-preview/) and not yet available in the SDK. You can check back on [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) or [Latest updates to Azure Search](../search-latest-updates/) for status updates on either feature.
 
 Other features not supported in this SDK include:
 
@@ -42,7 +42,7 @@ Other features not supported in this SDK include:
 
 1. Visual Studio 2013 or a newer version.
 
-2. Your own Azure Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Getting started with Azure Search](search-get-started.md) will help you through these steps.
+2. Your own Azure Search service. In order to use the SDK, you will need the name of your service and one or more API keys. [Create a service in the portal](../search-create-service-portal/) will help you through these steps.
 
 3. Download the Azure Search .NET SDK [NuGet package](http://www.nuget.org/packages/Microsoft.Azure.Search) by using "Manage NuGet Packages" in Visual Studio. Just search for the package name `Microsoft.Azure.Search` on NuGet.org. Make sure to select "Include Prerelease" to ensure that the pre-release SDK will appear in the search results.
 

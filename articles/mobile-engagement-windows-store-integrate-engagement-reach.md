@@ -56,7 +56,7 @@ Modify the `App.xaml.cs`:
 		  EngagementReach.Instance.Init(args);
 		}
 
-> [AZURE.NOTE] The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
+	The `EngagementReach.Instance.Init` runs in a dedicated thread. You do not have to do it yourself.
 
 > [AZURE.TIP] You can specify the name of the WNS push channel of your application in the `Resources\EngagementConfiguration.xml` file of your project on `<channelName></channelName>`. By default, Engagement creates a name based on the appId. You have no need to specify the name yourself, except if you plan to use the push channel outside of Engagement.
 

@@ -20,10 +20,11 @@
 *Application Insights is in preview.*
 
 
-After you’ve published your application, you’d like to know how it’s doing. How much use is it getting, and what are users doing with it? And even more importantly, is it running OK and performing well?  
+After you’ve published your application, Application Insights helps you make sure it's running OK and performing well. If there's a problem, you want to know about it soon, and then you want to know what to do about it. 
 
-Application Insights helps you with both usage and performance analysis, but here we’re going to focus on how you keep your application performing well. We’ll think of it as a pipeline: 
+* *"A couple of days ago, we deployed a 'minor' hotfix. We didn't run a broad test pass, but unfortunately some unexpected change got merged into the payload, causing incompatibility between the front and back ends. Immediately, server exceptions surged, our alert fired, and we were made aware of the situation. A few clicks away on the Application Insights portal, we got enough information from exception callstacks to narrow down the problem. We rolled back immediately and limited the damage. Application Insights has made this part of the devops cycle very easy and actionable."*
 
+We can think of this part of the devops cycle as a pipeline: 
 
 ![](./media/app-insights-detect-triage-diagnose/01-pipe1.png)
 

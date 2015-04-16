@@ -4,7 +4,7 @@
    services="active-directory" 
    documentationCenter="" 
    authors="kenhoff" 
-   manager="?" 
+   manager="mbaldwin" 
    editor=""/>
 
 <tags
@@ -13,14 +13,23 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity" 
-   ms.date="03/23/2015"
+   ms.date="04/13/2015"
    ms.author="kenhoff"/>
 
 # Azure Active Directory Audit Report Events
 
 The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/).  
 
-## Audit Report Events
+## Properties included with each audit event
+
+| Property	| Description								|
+| ------	| ------								|		
+| Date and Time	| The date and time that the audit event occured			|
+| Actor		| The user or service principal that performed the action		|
+| Action	| The action that was performed						|
+| Target	| The user or service principal that the action was performed on	|
+
+## List of Audit Report Events
 
 <!--- audit event descriptions should be in the past tense --->
 
@@ -67,20 +76,13 @@ Promote tenant to partner
 
 --->
 
-### Properties included with each audit event
-
-| Property	| Description								|
-| ------	| ------								|		
-| Date and Time	| The date and time that the audit event occured			|
-| Actor		| The user or service principal that performed the action		|
-| Action	| The action that was performed						|
-| Target	| The user or service principal that the action was performed on	|
-
 ### User attributes included in the Update User audit event
+
+The "Update user" audit event includes additional information about what user attributes were updated. For each attribute, both the previous value and the new value is included.
 
 | Attribute 				| Description																			|
 | ---------------------------------	| ---------																			|
-| AccountEnabled			| The user is allowed to sign in.														|
+| AccountEnabled			| The user is allowed to sign in.																|
 | AssignedLicense			| All licenses that have been assigned to the user.														|
 | AssignedPlan				| Service plans resulting from the licenses assigned to the user.												|
 | LicenseAssignmentDetail		| Details on licenses assigned to the user. For instance, if group-based licensing was involved, this would include the group that granted the license.		|

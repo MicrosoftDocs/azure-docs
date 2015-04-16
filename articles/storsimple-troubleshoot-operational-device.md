@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/06/2015"
+   ms.date="04/09/2015"
    ms.author="v-sharos" />
 
-# Troubleshoot an operational device
+# Troubleshoot an operational StorSimple device
 
 ## Overview
 

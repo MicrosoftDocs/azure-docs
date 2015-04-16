@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introduction to Hadoop in the cloud: Big data analysis | Azure" 
-   description="An introduction to the Hadoop components on HDInsight. Learn how HDInsight uses Hadoop clusters in the cloud to manage, analyze, and report on big data." 
+   pageTitle="Introduction to Hadoop: Big data analysis | Microsoft Azure" 
+   description="An introduction to the Apache Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
    authors="cjgronlund" 
