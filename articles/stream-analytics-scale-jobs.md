@@ -214,12 +214,12 @@ Below are the results with increasing number of Streaming units and correspondin
 ## Next steps
 In this article, you have learned how to calculate streaming units and how to scale a Stream Analytics job. To read more about Stream Analytics, see:
 
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Get started using Azure Stream Analytics][stream.analytics.get.started]
-- [Azure Stream Analytics developer guide][stream.analytics.developer.guide]
-- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
-- [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics Management REST API Reference][stream.analytics.rest.api.reference]
+- [Introduction to Azure Stream Analytics](stream.analytics.introduction)
+- [Get started using Azure Stream Analytics](stream.analytics.get.started)
+- [Azure Stream Analytics developer guide](stream.analytics.developer.guide)
+- [Azure Stream Analytics limitations and known issues](stream.analytics.limitations)
+- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference)
+- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference)
 
 <!--Image references-->
 
