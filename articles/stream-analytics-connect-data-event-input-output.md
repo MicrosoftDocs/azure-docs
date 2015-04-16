@@ -98,7 +98,7 @@ Partition Key Column:  Optional parameter for Event Hub outputs. The data attri
 
 One can use azure table for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 For more information see:
-  [Introduction to Azure Storage]( http://azure.microsoft.com/documentation/articles/storage-introduction/)
+  [Introduction to Azure Storage]( http://azure.microsoft.com/storage-introduction/)
  
 To start using an Azure Table Storage, you should have the following information about your Table:
 
