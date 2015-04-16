@@ -1,6 +1,6 @@
 # How to Create an App Service Environment #
 
-App Service Environments (ASE) offer a high level of configuration that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment](http://azure.microsoft.com/en-us/documentation/articles/app-service-web-what-is-an-app-service-environment/ "What is an App Service Environment") documentation.
+App Service Environments (ASE) offer a high level of configuration that is not available in the multi-tenant stamps.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment](http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/ "What is an App Service Environment") documentation.
 The ASE feature essentially deploys an instance of the Azure App Service in a customer’s VNET.  This means the customer needs to provide: 
 
 - A Regional VNET is required with more than 512 (/23) or more addresses
