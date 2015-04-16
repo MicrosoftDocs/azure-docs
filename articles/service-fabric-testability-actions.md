@@ -17,14 +17,15 @@
 
 #Testability Actions
 
-Testability actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, you can write comprehensive test scenarios for your services.
+Testability actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
+
 Service Fabric provides some common test scenarios out of the box composed of these actions. It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failures case. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.
 
-Actions are implemented in the TestabilityExtensions class and are found in the System.Fabric.Testability.dll assembly.
+Actions are found in the System.Fabric.Testability.dll assembly.
 
 ## Testability Actions in Powershell and C# :
 
-The Testability powershell module are found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.
+The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.
 
 Testability Actions:
 

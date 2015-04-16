@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Importance of Testability." 
-   description="This article talks about why testability is important for services written on windows fabric." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="rishirsinha" 
-   manager="timlt" 
+<properties
+   pageTitle="Importance of Testability."
+   description="This article talks about why testability is important for services written on windows fabric."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rishirsinha"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,22 +12,23 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="03/17/2014"
    ms.author="rsinha" />
 
 # Importance of Testability.
 
-Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. Testability component in Service Fabric is aimed at making testing a distributed application similarly easier. There are two main issues that need to be solved while testing: 
+Service Fabric makes the job of writing and managing distributed scalable applications significantly easier. Testability component in Service Fabric is aimed at making testing a distributed application similarly easier. There are three main issues that need to be solved while testing:
 
 1. Simulating/Generating failures that might occur in the real world scenarios: One of the important aspects of Service Fabric is that it allows distributed applications to recover from various failures. However, in order to test that the application is able to recover from these failures we need a mechanism to simulate/generate these real world failures in a controlled test environment.
 2. The ability to generate the correlated failures: While the basic failures in the system like network failure, machine failures are easy to produce individually. Generating the significant number of scenarios that can happen in the real world as a result of the interactions of these individual failures is non-trivial.
 3. Unified experience across various levels of development and deployment: There are many fault injection systems that provide the ability to do various types of failures. However, the experience in all of these is jagged when moving from one box developer scenarios to running the same tests in large tests environments to using them for test in production.
 
-While there are many mechanisms to solve the above mentioned problems, a system that does the same with required guarantees all the way from one box developer environment to test in production clusters is missing. The Testability component allows the application developers to test their business logic and not its interaction with the underlying distributed system. 
+While there are many mechanisms to solve the above mentioned problems, a system that does the same with required guarantees all the way from one box developer environment to test in production clusters is missing. The Testability component allows the application developers to test their business logic and not its interaction with the underlying distributed system.
 
 ## Simulating/Generating real word failure scenarios.
-In order to test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that windows fabric is trying to solve. As an example if we want to shutdown a node, the required work flow is the the following:
+
+In order to test the robustness of a distributed system against failures, we need a mechanism to generate failures. While in theory generating a failure like a node down seems easy, it starts hitting the same set of consistency problems that Service Fabric is trying to solve. As an example if we want to shutdown a node, the required workflow is the the following:
 
 1. From the client issue a shutdown node request.
 2. Send the request to the right node.
@@ -49,7 +50,7 @@ These correlated failure do happen (even though not as frequently as individual 
 The practice traditionally has been to create three different sets of experiences, one for development environment, one for tests and one for production. The model was
 
 1. In the development environment produce state transitions that allow unit tests of individual methods.
-2. In the test environment produce failures to allow end to end tests exercising various failure scenarios. 
+2. In the test environment produce failures to allow end to end tests exercising various failure scenarios.
 3. Keep the production environment pristine disallowing any non-natural failures and ensuring there is extremely quick human response to failure.
 
 In windows fabric through the Testability module and service, we are proposing to turn this around as use the same methodology from developer environment to production. There are two ways to achieve this:
