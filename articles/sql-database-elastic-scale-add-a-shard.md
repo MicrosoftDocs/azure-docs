@@ -16,7 +16,7 @@
 	ms.date="04/15/2015" 
 	ms.author="sidneyh"/>
 
-# Adding a Shard using Elastic Database tooling
+# Adding a Shard using Elastic Database Tools
 
 ## To add a shard for a new range or key  
 
