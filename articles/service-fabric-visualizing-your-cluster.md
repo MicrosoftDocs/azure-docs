@@ -22,7 +22,7 @@ Service Fabric Explorer is a useful GUI tool for inspecting and managing cloud a
 
 ## Introduction to Service Fabric Explorer
 
-Ensure your local development environment is setup using the instructions at [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment).
+Ensure your local development environment is setup by following the instructions at [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment).
 
 Run Service Fabric Explorer from your local installation path (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). The tool will automatically connect to a local development cluster, if one exists.  It displays information on the cluster such as:
 
@@ -45,7 +45,7 @@ Service Fabric Explorer allows you to explore the applications running on your c
 
 > [AZURE.NOTE] See the [Technical Overview](../service-fabric-technical-overview) to familiarize yourself with the key Service Fabric concepts.
 
-The diagram below shows the application named **"fabric:/Stateful1Application"** has one stateful service named **"fabric:/Stateful1Application/Stateful1"** and one stateless application named **"fabric:/Stateful1Application/Stateless1"**.  The stateful service has two partitions, each with 3 replicas, running on several different nodes.  The stateless service has one partition with one replica running on **Node.5**.
+The diagram below shows the application named **"fabric:/Stateful1Application"** has one stateless application named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
 
 ![View of the applications running on the Service Fabric cluster][applicationview]
 
