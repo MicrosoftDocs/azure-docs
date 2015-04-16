@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="04/15/2015" 
 	ms.author="spelluru"/>
 
 # Monitor Azure Data Factory using Azure Preview Portal
@@ -132,6 +132,7 @@ Click on a slice in the list of slices either on the **TABLE** blade or **Data S
 
 ![Data Slice][image-data-factory-dataslice]
 
+If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
 
 ### <a name="DataFactoryActivtyRuns"></a> View all activity runs for a slice
 For a slice, there can be more than one run. For example, when a slice fails, the service may retry for a few time. You can also rerun a slice that has failed all the retries. You can see all the activity runs on the** Data Slice** blade in the list at the bottom. 
