@@ -166,7 +166,7 @@ partitionSelector.SelectRandomPartition();
 Await Client.TestManager.InvokeQuorumLossAsync(serviceName, partitionSelector);
 ```
 
-#Partition Selector and Replica Selector:
+## Partition Selector and Replica Selector:
 
 ##Partition Selector:
 PartitionSelector is a helper exposed in Testability and is used to select a specific partition on which to perform any of the Testability actions. It can be used to select a specific partition if the partition ID is known beforehand. Or, you can provide the partition key and the operation will resolve the partition ID internally. You also have the option of selecting a random partition.
