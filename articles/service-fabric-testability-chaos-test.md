@@ -42,71 +42,83 @@ Chaos test runs multiple iterations of faults and cluster validations for the sp
 ## How to Run Chaos Test
 C# Sample
 ```C#
-// Add "using System.Fabric.Testability;" to be able to see the testability classes and FabricClient operations.
-// Add a reference to System.Fabric.Testability.dll.
+// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
-string clusterConnection = "localhost:19000";
+using System;
+using System.Fabric;
+using System.Fabric.Testability;
+using System.Fabric.Testability.Scenario;
+using System.Threading;
+using System.Threading.Tasks;
 
-Console.WriteLine("Starting Chaos Test Scenario...");
-try
+class Test
 {
-   RunChaosTestScenarioAsync(clusterConnection).Wait();
-}
-catch (AggregateException ae)
-{
-   Console.WriteLine("Chaos Test Scenario did not complete: ");
-   foreach (Exception ex in ae.InnerExceptions)
-   {
-      if (ex is FabricException)
-      {
-         Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
-      }
-   }
-   return false;
-}
+    public static int Main(string[] args)
+    {
+        string clusterConnection = "localhost:19000";
 
-Console.WriteLine("Chaos Test Scenario completed.");
-return true;
+        Console.WriteLine("Starting Chaos Test Scenario...");
+        try
+        {
+            RunChaosTestScenarioAsync(clusterConnection).Wait();
+        }
+        catch (AggregateException ae)
+        {
+            Console.WriteLine("Chaos Test Scenario did not complete: ");
+            foreach (Exception ex in ae.InnerExceptions)
+            {
+                if (ex is FabricException)
+                {
+                    Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+                }
+            }
+            return -1;
+        }
 
-static async Task RunChaosTestScenarioAsync(string clusterConnection)
-{
-   TimeSpan maxClusterStabilizationTimeout = TimeSpan.FromSeconds(180);
-   uint maxConcurrentFaults = 3;
-   bool enableMoveReplicaFaults = true;
+        Console.WriteLine("Chaos Test Scenario completed.");
+        return 0;
+    }
 
-   // Create FabricClient with connection & security information here.
-   FabricClient fabricClient = new FabricClient(clusterConnection);
+    static async Task RunChaosTestScenarioAsync(string clusterConnection)
+    {
+        TimeSpan maxClusterStabilizationTimeout = TimeSpan.FromSeconds(180);
+        uint maxConcurrentFaults = 3;
+        bool enableMoveReplicaFaults = true;
 
-   // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
-   TimeSpan timeToRun = TimeSpan.FromMinutes(60);
-   ChaosTestScenarioParametersscenarioParameters = new ChaosTestScenarioParameters(
-     maxClusterStabilizationTimeout,
-     maxConcurrentFaults,
-     enableMoveReplicaFaults,
-     timeToRun);
+        // Create FabricClient with connection & security information here.
+        FabricClient fabricClient = new FabricClient(clusterConnection);
 
-   // Other related parameters:
-   // Pause between two iterations for a random duration bound by this value.
-   // scenarioParameters.WaitTimeBetweenIterations = TimeSpan.FromSeconds(30);
-   // Pause between concurrent actions for a random duration bound by this value.
-   // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
+        // The Chaos Test Scenario should run at least 60 minutes or up until it fails.
+        TimeSpan timeToRun = TimeSpan.FromMinutes(60);
+        ChaosTestScenarioParameters scenarioParameters = new ChaosTestScenarioParameters(
+          maxClusterStabilizationTimeout,
+          maxConcurrentFaults,
+          enableMoveReplicaFaults,
+          timeToRun);
 
-   // Create the scenario class and execute it asynchronously.
-   ChaosTestScenario chaosScenario = new ChaosTestScenario(fabricClient, scenarioParameters);
+        // Other related parameters:
+        // Pause between two iterations for a random duration bound by this value.
+        // scenarioParameters.WaitTimeBetweenIterations = TimeSpan.FromSeconds(30);
+        // Pause between concurrent actions for a random duration bound by this value.
+        // scenarioParameters.WaitTimeBetweenFaults = TimeSpan.FromSeconds(10);
 
-   try
-   {
-      await chaosScenario.ExecuteAsync(CancellationToken.None);
-   }
-   catch (AggregateException ae)
-   {
-      throw ae.InnerException;
-   }
+        // Create the scenario class and execute it asynchronously.
+        ChaosTestScenario chaosScenario = new ChaosTestScenario(fabricClient, scenarioParameters);
+
+        try
+        {
+            await chaosScenario.ExecuteAsync(CancellationToken.None);
+        }
+        catch (AggregateException ae)
+        {
+            throw ae.InnerException;
+        }
+    }
 }
 ```
 
 Powershell
-```
+```Powershell
 $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
