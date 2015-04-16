@@ -82,7 +82,7 @@ Standard Geo-Replication is available for Standard and Premium databases. It’s
 
 ###Active Geo-Replication
 
-Active Geo-Replication is available for Premium databases. It’s designed for write-intensive applications with the most aggressive recovery requirements. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries in the same way as Standard geo-replication.  In addition, Active geo-replication provides can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity] for details on how to configure geo-replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database.
+Active Geo-Replication is available for Premium databases. It’s designed for write-intensive applications with the most aggressive recovery requirements. Using Active Geo-Replication, you can create up to four readable secondaries on servers in different regions. You can initiate failover to any of the secondaries in the same way as Standard geo-replication.  In addition, Active geo-replication provides can be used to support the application upgrade or relocation scenarios, as well as load balancing for read-only workloads. Refer to [Design for business continuity](sql-database-business-continuity-design.md) for details on how to configure geo-replication and to [Recover from an outage](sql-database-disaster-recovery.md) for details of how to failover to the secondary database.
 
 
 
