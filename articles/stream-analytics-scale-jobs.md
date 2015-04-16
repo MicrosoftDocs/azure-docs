@@ -3,7 +3,7 @@
 	description="Learn how to scale Stream Analytics jobs" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="04/16/2015" 
+	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs 
 
@@ -157,6 +157,60 @@ Using the management portal, you can track the throughput of a job in Events/sec
  
 Calculate the expected throughput of the workload in Events/second. If the throughput is less than expected, tune the input partition, tune the query, and add additional streaming units to your job.
 
+##ASA Throughput at Scale - Raspberry Pi scenario 
+
+
+To understand how ASA scales in a typical scenario in terms of processing throughput across multiple Streaming Units, here is an experiment that sends sensor data (clients) into Event Hub, ASA processes it and sends alert or statistics as an output to another Event Hub.   
+
+The client is sending synthesized sensor data to Event Hubs in JSON format to ASA and data output is also in JSON format.  Here is how the sample data would look like–  
+
+    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
+
+Query: “Send an alert when the light is switched off”  
+
+    SELECT AVG(lght),
+	 “LightOff” as AlertText 
+	FROM input TIMESTAMP 
+	BY devicetime
+	 WHERE 
+		lght< 0.05 GROUP BY TumblingWindow(second, 1) 
+
+Measuring Throughput: Throughput in this context is the amount of input data processed by ASA in a fixed amount of time (10minutes). To achieve best processing throughput for the input data, both the data stream input and the query must be partitioned. Also COUNT()is included in the query to measure how many input events were processed. To ensure ASA is not simply waiting for input events to come, each partition of the Input Event Hub was preloaded with sufficient input data (about 300MB).  
+
+Below are the results with increasing number of Streaming units and corresponding Partition counts in Event Hubs.  
+
+<table border="1">
+<tr><th>Input Partitions</th><th>Output Partitions</th><th>Streaming Units</th><th>Sustained Throughput 
+</th></td>
+
+<tr><td>12</td>
+<td>12</td>
+<td>6</td>
+<td>4.06 MB/s</td>
+</tr>
+
+<tr><td>12</td>
+<td>12</td>
+<td>12</td>
+<td>8.06 MB/s</td>
+</tr>
+
+<tr><td>48</td>
+<td>48</td>
+<td>48</td>
+<td>32.32 MB/s</td>
+</tr>
+
+<tr><td>192</td>
+<td>192</td>
+<td>192</td>
+<td>172.67 MB/s</td>
+</tr>
+
+</table>
+
+![img.stream.analytics.perfgraph]
+
 ## Next steps
 In this article, you have learned how to calculate streaming units and how to scale a Stream Analytics job. To read more about Stream Analytics, see:
 
@@ -171,6 +225,7 @@ In this article, you have learned how to calculate streaming units and how to sc
 
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
+[img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 
 <!--Link references-->
 
