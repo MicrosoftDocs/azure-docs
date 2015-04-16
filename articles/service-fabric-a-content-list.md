@@ -55,7 +55,9 @@ Create Windows Fabric Stateful  applications using .NET Distributed Collections 
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
-[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
+[Reliable Service Programming Model Introduction](../service-fabric-reliable-services-introduction.md) **owner: masnider**
+
+[Reliable Service Programming Model Quick Start](../service-fabric-reliable-services-quick-start.md) **owner: masnider**
 
 Communicate with a Service
 
