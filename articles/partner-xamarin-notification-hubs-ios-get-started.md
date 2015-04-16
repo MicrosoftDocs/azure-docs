@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application."
 	services="notification-hubs"
 	documentationCenter="xamarin"
-	authors="yuaxu"
+	authors="ysxu"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="11/11/2014"
-	ms.author="donnam"/>
+	ms.date="04/14/2015"
+	ms.author="yuaxu"/>
 
 # Get started with Notification Hubs
 
@@ -46,7 +46,7 @@ Completing this tutorial is a prerequisite for all other notification hub tutori
 The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
 
-<h2><a name="certificates"></a>Generate the Certificate Signing Request file</h2>
+##<a name="certificates"></a>Generate the Certificate Signing Request file
 
 First you must generate the Certificate Signing Request (CSR) file, which is used by Apple to generate a signed certificate.
 
@@ -68,7 +68,7 @@ First you must generate the Certificate Signing Request (CSR) file, which is use
 
 Next, register your app with Apple, enable push notifications, and upload this exported CSR to create a push certificate.
 
-<h2><a name="register"></a>Register your app for push notifications</h2>
+##<a name="register"></a>Register your app for push notifications
 
 To be able to send push notifications to an iOS app from mobile services, you must register your application with Apple and also register for push notifications.  
 
@@ -142,7 +142,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 	Later, you will use this certificate to generate a .p12 file and upload it to your notification hub to enable push notifications through APNS.
 
-<h2><a name="profile"></a>Create a provisioning profile for the app</h2>
+##<a name="profile"></a>Create a provisioning profile for the app
 
 1. Back in the <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>, select **Provisioning Profiles**, select **All**, and then click the **+** button to create a new profile. This displays the **Add iOS Provisioning Profile** Wizard.
 
@@ -184,7 +184,7 @@ To be able to send push notifications to an iOS app from mobile services, you mu
 
 This ensures that the Xcode project uses the new profile for code signing. Next, you must upload the certificate to your notification hub.
 
-<h2><a name="configure-hub"></a>Configure your Notification Hub</h2>
+##<a name="configure-hub"></a>Configure your Notification Hub
 
 1. Log on to the [Azure Management Portal], and click **+NEW** at the bottom of the screen.
 
@@ -214,7 +214,7 @@ This ensures that the Xcode project uses the new profile for code signing. Next,
 
 Your notification hub is now configured to work with APNs, and you have the connection strings to register your app and send notifications.
 
-<h2><a name="connecting-app"></a>Connecting your app to the Notification Hub</h2>
+##<a name="connecting-app"></a>Connecting your app to the Notification Hub
 
 ### Create a new project
 
@@ -319,7 +319,7 @@ Your notification hub is now configured to work with APNs, and you have the conn
 
 10. Run the app on your device.
 
-<h2><a name="send"></a>Send notification from your back-end</h2>
+##<a name="send"></a>Send notification from your back-end
 
 You can send notifications using Notification Hubs from any back-end using our <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. In this tutorial we will send notifications with a .NET console app, and with a Mobile Service using a node script.
 
