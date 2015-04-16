@@ -1,3 +1,22 @@
+<properties
+   pageTitle="Service Fabric Application Upgrade"
+   description="This article provides an introduction to upgrading a Service Fabric application."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="subramar"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/15/2015"
+   ms.author="subramar"/>
+
+
 # Service Fabric Application Upgrade
 
 
@@ -17,3 +36,13 @@ The application health is an aggregation of the child entities of the applicatio
 The common mode (and recommended) for upgrade is MonitoredAuto.  MonitoredAuto performs the upgrade on one upgrade domain, and if all health checks pass (per the policy specified), moves on to the next upgrade domain automatically, and so on.  If the health checks fail and/or timeouts reached, the upgrade is either rolled back for the upgrade domain, or the mode changed to UnmonitoredManual if that is the option selected at the time of upgrade. 
 
 UnmonitoredManual would need manual intervention after every upgrade on an upgrade domain to kick off the upgrade on the next upgrade domain. There are no Service Fabric health checks that are performed, and is reliant on the intervener to perform the health or status checks before starting the upgrade in the next upgrade domain.
+
+
+## Next steps
+
+
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

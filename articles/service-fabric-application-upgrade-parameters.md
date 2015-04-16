@@ -1,4 +1,26 @@
+
+<properties
+   pageTitle="Service Fabric Application Upgrade: Uprade Parameters"
+   description="This article described the various parameters related to upgrading a Service Fabric application."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="subramar"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/15/2015"
+   ms.author="subramar"/>
+
+
+
 ## Application Upgrade Parameters
+
 
 
 <br>
@@ -44,3 +66,12 @@ The health evaluation criteria are optional. If the health evaluation criteria a
 <br>
 <br>
 The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService and MaxPercentUnhealthyReplicasPerPartition criteria can be specified per service type for an application instance. This is to ensure that an application that contains different services types can have different evaluation policies for each of the service types. As an example, a stateless gateway service type can have a different MaxPercentUnhealthyPartitionsPerService that is different from a stateful engine service type for a particular application instance.
+
+## Next Steps
+
+
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

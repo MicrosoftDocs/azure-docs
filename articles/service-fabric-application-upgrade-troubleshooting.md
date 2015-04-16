@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Service Fabric Application Upgrade: Troubleshooting"
+   description="This article covers some common errors related to upgrading a Service Fabric application and how to resolve them."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="subramar"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/15/2015"
+   ms.author="subramar"/>
+
 # Troubleshooting Application Upgrades
 
 ## Service Fabric is not following the health policies specified:
@@ -37,3 +55,12 @@ Upgrade for a UD cannot complete faster than HealthCheckWaitDuration + HealthChe
 Upgrade rollback cannot occur faster than HealthCheckWaitDuration + HealthCheckRetryTimeout.
 
 The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current UD begins.
+
+## Related Topics
+
+
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

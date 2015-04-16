@@ -1,3 +1,21 @@
+<properties
+   pageTitle="Service Fabric Application Upgrade: Advanced Topics"
+   description="This article covers some advanced topics pertaining to the upgrade a Service Fabric application."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="subramar"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/15/2015"
+   ms.author="subramar"/>
+
 # Advanced Topics
 
 ## Manual Upgrade Mode
@@ -18,3 +36,11 @@ Occasions when using a diff package would be a good choice:
 
 * A diff package is preferred when you have a large application package which references several service manifest files and/or several code packages, config packages, or data packages.
 * A diff package is preferred when you have a deployment system which generates the build layout directly from your application build process. In this case, even though nothing in the code has changed, newly built assemblies will have a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
+
+## Related Topics
+
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
