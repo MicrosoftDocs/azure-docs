@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/14/2014" 
-	ms.author="jaymathe"/> 
+	ms.date="04/15/2015" 
+	ms.author="luiscabrer"/> 
 
 
 # Common operations in the Machine Learning Recommendations API
 
 ##Purpose
 
-This document shows the usage of some Azure Machine Learning recommendations via a sample application.
+This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](http://1drv.ms/1xeO2F3).
 
 This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 
@@ -52,7 +52,7 @@ To enable the previous scenario, do the following in the Machine Learning recomm
 
 * Get recommendations: After you have a recommendation model, you can trigger recommendations for a single item or a list of items that you select. 
 
-You will usually invoke Get Recommendation for a certain period of time. In the meantime, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container. When you have enough usage data, you can build a new recommendation model to use the more actual data. 
+You will usually invoke Get Recommendation for a certain period of time. During that period of time, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container. When you have enough usage data, you can build a new recommendation model that incorporates the additional usage data. 
 
 ##Prerequisites
 
@@ -86,4 +86,4 @@ For a complete description of the APIs, please see the Microsoft Azure Marketpla
 * Recommendations might return without data. The sample app uses a very small catalog and usage file. Therefore, some items from the catalog will have no recommended items.
 
 ## Disclaimer
-The sample app is not intended to be run for production. The data provided in the catalog is very small, and it will not provide a meaningful recommendation model. The data is provided as a demonstration. 
+The sample app is not intended to be run in a production environment. The data provided in the catalog is very small, and it will not provide a meaningful recommendation model. The data is provided as a demonstration. 
