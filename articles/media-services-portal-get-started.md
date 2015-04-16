@@ -227,6 +227,11 @@ Some considerations apply:
 
 ![AMSPlayer][AMSPlayer]
 
+
+##Next step
+
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
+
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure Media Services 102 - Dynamic Packaging and Mobile Devices</a>

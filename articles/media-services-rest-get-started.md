@@ -1265,16 +1265,13 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 ## <a id="play"></a>Play your content  
 
-Once you have SAS URLs, you can progressively download your MP4 files by pasting a URL into a browser (for example, IE, Chrome, Safari).
+To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-To test adaptive streaming URLs use the following players:
+To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
-To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/), or [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+##Next step
 
-To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
-
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
-
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 
 ##Additional Resources

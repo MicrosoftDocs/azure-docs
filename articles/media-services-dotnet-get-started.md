@@ -448,6 +448,9 @@ To test the stream, use [Azure Media Services Player](http://amsplayer.azurewebs
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
+##Next step
+
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>
