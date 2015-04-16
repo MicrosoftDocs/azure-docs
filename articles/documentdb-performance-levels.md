@@ -86,17 +86,17 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-##Changing performance levels using the Azure Portal
+##Changing performance levels using the Azure Preview portal
 
-The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal.
+The Azure Preview portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal.
 
-1. Navigate over to the [**Azure Portal**](https://portal.azure.com) from your browser.
-2. Select **Browse** from the left-hand panel.
-3. In the **Browse window**, select **DocumentDB Accounts** listed underneath the **Filter by** label.
-4. In the **DocumentDB Accounts window**, choose your **DocumentDB Account** that contains the desired collection.
-5. Within the **DocumentDB Account blade**, scroll down to the **Databases section** and choose the database that contains the desired collection. 
-6. In the newly opened **Database blade**, scroll down to the **Collections section** and select your desired collection.
-7. Finally, within your **Collection blade**, find and click the **Pricing tier panel** listed underneath the **Usage section**.
+1. Navigate over to the [**Azure Preview portal**](https://portal.azure.com) from your browser.
+2. Click **Browse** from the jump bar on the left side.
+3. In the **Browse** hub, click **DocumentDB Accounts** under the **Filter by** label.
+4. In the **DocumentDB Accounts** blade, click the DocumentDB account that contains the desired collection.
+5. In the **DocumentDB Account** blade, scroll down to the **Databases** lens and click the database that contains the desired collection. 
+6. In the newly opened **Database** blade, scroll down to the **Collections** lens and select your desired collection.
+7. Finally, within your **Collection** blade, find and click the **Pricing tier** tile in the **Usage** lens.
 8. In the **Choose your pricing tier blade**, click the desired performance level and hit **Select** at the bottom of the blade. 
 
 >[AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
@@ -105,7 +105,7 @@ The Azure Portal is one option available to you when managing your collections' 
 
 ##Changing performance levels using the .NET SDK
 
-Another option for changing your collections' performance levels is through our SDKs. This section will only cover changing a collection's performance level using our .NET SDK, but the process is similar for our other SDKs. If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
+Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
 
 Here is a code snippet for changing the offer type:
 
@@ -121,7 +121,12 @@ Here is a code snippet for changing the offer type:
 	//Now persist these changes to the database by replacing the original resource
 	Offer updated = await client.ReplaceOfferAsync(offer);
 
-Visit the [MSDN documentation](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to read more about our offer methods: *ReadOfferAsync*, *ReadOffersFeedAsync*,  *ReplaceOfferAsync* and *CreateOfferyQuery*.
+Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods: 
+
+- [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
+- [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
+- [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
+- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
 
 ##Next steps
 
