@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date=04/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="wesmc;donnam"/>
 
 # Using offline data sync in Mobile Services
