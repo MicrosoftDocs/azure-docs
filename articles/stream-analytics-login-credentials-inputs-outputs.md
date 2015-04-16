@@ -21,7 +21,7 @@
 ##Abstract
 Azure Stream Analytics today doesn’t allow replacing the credentials on an input/output while the job is running.
 
-While Azure Stream Analytics does support restarting a job to process output the first event that wasn’t yet processed output by the job, it has come to our attention that people would like to know how to we wanted to share the entire process for minimizeing the lag between the stopping and starting of the job.
+While Azure Stream Analytics does support resuming a job from last output, we wanted to share the entire process for minimizing the lag between the stopping and starting of the job.
 
 ##Part 1 - Prepare the new set of credentials:
 This part is applicable to the following inputs/outputs:
