@@ -3,7 +3,7 @@
    description="Learn about Azure SQL Database and SQL Server security, including the differences between the cloud and SQL Server on-premises when it comes to authentication, authorization, connection security, encryption, and compliance." 
    services="sql-database" 
    documentationCenter="" 
-   authors="stevestein" 
+   authors="tmullaney" 
    manager="jeffreyg" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
    ms.date="04/02/2015"
-   ms.author="sstein"/>
+   ms.author="thmullan;jackr"/>
 
 
 # Securing your SQL Database
