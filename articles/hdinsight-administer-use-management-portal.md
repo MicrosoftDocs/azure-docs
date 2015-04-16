@@ -32,7 +32,7 @@ Before you begin this article, you must have the following:
 - **Azure subscription** - Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 - **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure Storage account, see [How to Create a Storage Account][azure-create-storageaccount].
 
-##<a id="create"></a> Provision HDInsight clusters
+##Provision HDInsight clusters
 
 You can provision HDInsight clusters from the Azure portal by using the Quick Create or Custom Create option. See the following links for instructions:
 
@@ -74,7 +74,7 @@ An HDInsight cluster can have two user accounts. The HDInsight cluster user acco
 8. Click **SAVE**.
 
 
-##<a id="enablerdp"></a>Connect to HDInsight clusters by using RDP
+##Connect to HDInsight clusters by using RDP
 
 The credentials for the cluster that you provided at its creation give access to the services on the cluster, but not to the cluster itself through Remote Desktop. Remote Desktop access is turned off by default, and so direct access to the cluster using it requires some additional, post-creation configuration.
 
