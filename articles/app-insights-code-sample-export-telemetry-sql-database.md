@@ -429,6 +429,20 @@ Replace the existing run method, and choose the interval you prefer. It should b
         public string context_location_city { get; set; }
     }
 
+
+#### DBcontext for SQL interaction by Entity Framework
+
+	public class TelemetryContext : DbContext
+    {
+        public DbSet<PageViewPerformance> PageViewPerformanceContext { get; set; }
+        public TelemetryContext()
+            : base("name=TelemetryContext")
+        {
+        }
+    }
+
+Add your DB connection string with name “TelemetryContext” in `app.config`.
+
 ## Schema (information only)
 
 This is the schema for the table that will be generated for PageView.
@@ -487,6 +501,8 @@ This is the schema for the table that will be generated for PageView.
     ALTER TABLE [dbo].[PageViewPerformances] ADD  DEFAULT (newsequentialid()) FOR [Id]
     GO
 
+
+[Download](https://sesitai.codeplex.com/) the complete working code.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
