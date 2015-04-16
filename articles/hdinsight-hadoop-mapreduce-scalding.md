@@ -25,7 +25,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 * An Azure Subscription
 
-* A Windows or Linux based Hadoop on HDInsight cluster - see [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](http://azure.microsoft.com/en-us/documentation/articles/hdinsight-provision-clusters/) for more information.
+* A Windows or Linux based Hadoop on HDInsight cluster - see [Provision Linux-based Hadoop on HDInsight](hdinsight-hadoop-provision-linux-clusters.md) or [Provision Windows-based Hadoop on HDInsight](hdinsight-provision-clusters.md) for more information.
 
 * [Maven](http://maven.apache.org/)
 
