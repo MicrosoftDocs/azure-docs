@@ -3,7 +3,7 @@
    description="This article talks about the Chaos test and its importance."
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmola"
+   authors="anmolah"
    manager="timlt"
    editor=""/>
 
@@ -18,30 +18,30 @@
 
 # Chaos Test.
 
-As mentioned the task of testing distributed application is not very easy. Service Fabric gives you the ability to induce fault actions to test your service business logic the face of failures but targeted simulated faults will only get you so far. To take the testing one step further we have the Chaos Test scenario which does the job of simulating continuous failures throughout the cluster over a long period of time. Once configured with the rate and kind of faults it runs as a client side tool either using C# APIs or Powershell to generate faults in the cluster and your service.
+As mentioned before, the task of testing distributed applications is inherently complex. Service Fabric provides the ability to induce faults to test your service business logic the face of faults. However, targeted simulated faults only get you so far. To take the testing one step further we ship the Chaos Test scenario. This scenario simulates continuous interleaved faults throughout the cluster over extended periods of time. Once configured with the rate and kind of faults it runs as a client side tool either using C# APIs or Powershell to generate faults in the cluster hosting your service.
 
-The idea here is to test your business logic in a running cluster while the Chaos test is generating failures at a rate higher than you would experience in a real world cluster. We are compressing faults you would generally run into over a period of months or years to a few hours thus hitting those hard to find corner cases much more easily and finding bugs in your service much faster.
+The chaos scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate generates hard to find corner cases. This leads to a significant improvement in the code quality of the service.
 
 ## Faults simulated in Chaos test
- - Restart a Node
- - Restart a Deployed Code Package
- - Remove a Replicas
- - Restart a Replica
- - Move a Primary Replica (optional)
- - Move a secondary Replica (optional)
+ - Restart of a Node
+ - Restart of a Deployed Code Package
+ - Remove of a Replicas
+ - Restart of a Replica
+ - Move of a Primary Replica (optional)
+ - Move of a secondary Replica (optional)
 
-The way the Chaos test works is that it will run multiple iterations of Fault and Cluster Validations actions until the specified timeout for the test is hit. For example if the test is set to run for 1 hour and the maximum number of concurrent faults are set to 3 the test will induce 3 faults and then validate the cluster health before moving on to the next iteration up until the 1 hour time mark is hit. After each iteration of faults if the cluster does not stabilize within the configured maximum timeout then the test will fail with an exception indicating something has gone wrong and needs further investigation. In its current form the test Chaos test fault generation engine induces only safe faults in that the combination of failures generated will not result in quorum or data loss in the absence of any external failures.
+Chaos test runs multiple iterations of faults and cluster validations for the specified period of time. The time spent for the cluster to stabilize and validation to succeed is also configurable. The scenario fails when we hit a single failure in cluster validation. For example, consider a test set to run for 1 hour and with maximum 3 concurrent faults. The test will induce 3 faults, then validate the cluster health. The test will iterate through the previous step till cluster becomes unhealthy or 1 hour passes. If in any iteration the cluster becomes unhealthy, i.e. not stabilize within a configured time, the test will fail with an exception. This exception indicates something has gone wrong and needs further investigation. In its current form the test Chaos test fault generation engine induces only safe faults. This means that in absence of external faults a quorum or data loss will never occur.
 
 ## Important Configuration options
- - **TimeToRun**: Total time that the test will run before completing
- - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the service to become healthy before failing the test. The checks performed are whether Cluster Health is OK, whether Service Health is OK, Target replica set size achieved for service partition and no InBuild replicas.
- - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number the more aggressive the test hence resulting in more complex failovers and transition combinations. Even if the test is configured with a high number of concurrent faults it will only generate as many faults which when run in parallel will not cause Quorum or Data loss.
- - **EnableMoveReplicaFaults**: Enables or disables MovePrimary and MoveSecondary faults.
- - **WaitTimeBetweenIterations**: Amount of time to wait between every iteration i.e. after a round of Faults and corresponding validation.
+ - **TimeToRun**: Total time that the test will run before completing with success. The test can complete earlier in lieu of a validation failure.
+ - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether Cluster Health is OK, whether Service Health is OK, Target replica set size achieved for service partition and no InBuild replicas.
+ - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number the more aggressive the test hence resulting in more complex failovers and transition combinations. The test guarantees that in absence of external faults there will not be a quorum or data loss, irrespective of how high this configuration is.
+ - **EnableMoveReplicaFaults**: Enables or disables the faults causing the move of the primary or secondary replicas. These faults are disabled by default.
+ - **WaitTimeBetweenIterations**: Amount of time to wait between iterations i.e. after a round of Faults and corresponding validation.
 
 ## How to Run Chaos Test
 C# Sample
-```
+```C#
 // Add "using System.Fabric.Testability;" to be able to see the testability classes and FabricClient operations.
 // Add a reference to System.Fabric.Testability.dll.
 
