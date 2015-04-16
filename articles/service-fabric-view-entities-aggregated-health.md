@@ -23,7 +23,7 @@ Out of the box, the cluster is populated with health reports sent by the system 
 
 Service Fabric allows multiple ways to get the entities aggregated health: issue health queries through Powerhsell/API/REST, issue general queries through Powershell/API/REST and through tools like ServiceFabricExplorer.
 
-## Health Queries
+## Health queries
 Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#Health-Entities-and-Hierarchy). They can be accessed trough API (methods on FabricClient.HealthClient), Powershell cmdlets and REST.
 These queries return complete health information about the entity, including aggregated health state, health events reported on the entity, children health states (when applicable) and unhealthy evaluations in case the entity is not healthy.
 
@@ -41,7 +41,7 @@ An entity health contains the following information:
 - If the entity is not healthy, the unhealthy evaluations which point to the report that triggered the state of the entity.
 
 ### Health events
-The health events are generated from [health reports](service-fabric-report-health.md#health-reports), with added metadata for:
+The health events are generated from [health reports](service-fabric-health-introduction.md#health-reports), with added metadata for:
 - SourceUtcTimestamp: the time the report was given to the health client (Utc)
 - LastModifiedUtcTimestamp: the time the report was last modified on the server side (Utc)
 - IsExpired: flag to indicate whether the report was expired at the time the query was executed by the Health Store. An event can be expired only if RemoveWhenExpired is false; otherwise, it wouldn't be used for evaluation.

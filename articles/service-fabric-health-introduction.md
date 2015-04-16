@@ -21,10 +21,12 @@ Service Fabric introduces a health model that provides a rich, flexible and exte
 
 The Health subsystem provides near real-time monitoring capabilities of the state of the cluster and services running in the cluster, which enables administrators or external services to obtain health information and take actions to correct any potential issues in the respective services or cluster before they cascade and cause massive outages. This model also forces the healthy and unhealthy determination of a particular entity to be the responsibility of the “reporter”, improving the scalability and manageability of the cloud service.
 
+> [AZURE.NOTE] The main reason for the Health Model was the monitored upgrade. Service Fabric provides monitored upgrades that know how to upgrade a cluster or an application with no down time, minimum to no user intervention and with full cluster and application availability. To do this, the upgrade checks health based on configured upgrade policies and allows upgrade only when health respects desired thresholds. Otherwise, the upgrade is either automatically rolled back or paused to give administrators a chance to fix the issues.
+
 ## Health Store
 The Health Store keeps health related information about entities in the cluster for easy retrieval and evaluation. It is implemented as a Service Fabric persisted stateful service to ensure high availability and scalability. It is part of the fabric/System application and is available as soon as the cluster is up and running.
 
-## Health Entities and Hierarchy
+## Health entities and hierarchy
 The health entities are organized in a logical hierarchy that captures interactions and dependencies between different entities. The entities and the hierarchy are automatically built by the Health Store based on reports received from the Service Fabric components.
 
 > [AZURE.NOTE] The health entities mirror the Service Fabric entities (eg. health application entity matches an application instance deployed in the cluster, health node entity matches a Service Fabric cluster node). The health hierarchy captures the interactions of the system entities and is the basis for advanced health evaluation.
@@ -53,7 +55,7 @@ Pushing the decision about how to report and respond to health at a granular lev
 The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.
 Internal and external watchdogs can report on the same entities based on application specific logic or custom monitored conditions. The user reports co-exist with the system reports.
 
-## Health States
+## Health states
 Service Fabric uses three health states to describe whether an entity is healthy or not: Ok, Warning and Error. Any report sent to the Health Store must specify one of these states. The health evaluation result is in one of these states.
 
 The possible health states are:
@@ -62,7 +64,7 @@ The possible health states are:
 - Error: The entity is unhealthy. Action should be taken to fix the state of the entity, as it can't function properly.
 - Unknown: The entity doesn't exist in the health store. This result can be obtained from distributed queries like get the Service Fabric nodes or applications. These queries merge results from multiple system components. If another system component has an entity that has not reached the health store yet or that has been cleaned up from health store, the merged query will populate health result with 'Unknown' health state.
 
-## Health Policies
+## Health policies
 The Health Store applies health policies to determine whether an entity is healthy based on its reports and its children.
 
 > [AZURE.NOTE] The health policies can be specified in the cluster manifest (for cluster and node health evaluation) or the application manifest (for application evaluation and any of its children). The health evaluation requests can also pass in custom health evaluations, which will be used only for that evaluation.
@@ -105,18 +107,27 @@ The following is an excerpt from an application manifest:
 ```xml
     <Policies>
         <HealthPolicy ConsiderWarningAsError="true" MaxPercentUnhealthyDeployedApplications="20">
-            <DefaultServiceTypeHealthPolicy MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="10" MaxPercentUnhealthyReplicasPerPartition="0"/>
-            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"                MaxPercentUnhealthyServices="0" MaxPercentUnhealthyPartitionsPerService="20" MaxPercentUnhealthyReplicasPerPartition="0"/>
-            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"                MaxPercentUnhealthyServices="20" MaxPercentUnhealthyPartitionsPerService="0" MaxPercentUnhealthyReplicasPerPartition="0">
+            <DefaultServiceTypeHealthPolicy
+                   MaxPercentUnhealthyServices="0"
+                   MaxPercentUnhealthyPartitionsPerService="10"
+                   MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="FrontEndServiceType"
+                   MaxPercentUnhealthyServices="0"
+                   MaxPercentUnhealthyPartitionsPerService="20"
+                   MaxPercentUnhealthyReplicasPerPartition="0"/>
+            <ServiceTypeHealthPolicy ServiceTypeName="BackEndServiceType"
+                   MaxPercentUnhealthyServices="20"
+                   MaxPercentUnhealthyPartitionsPerService="0"
+                   MaxPercentUnhealthyReplicasPerPartition="0">
             </ServiceTypeHealthPolicy>
         </HealthPolicy>
     </Policies>
 ```
 
-## Entity Health Evaluation
+## Entity health evaluation
 Users or automated services can evaluate any entity at any point in time. To evaluate an entity health, the Health Store aggregates all health reports on the entity and evaluates all its children (if applicable). The health aggregation algorithm uses health policies that specify how to evaluate health reports as well as how to aggregate children health states (if applicable).
 
-### Health Reports Aggregation
+### Health reports aggregation
 One entity can have multiple health reports sent by different “reporters” (system components or watchdogs) on different properties. The aggregation uses the associated health policies, in particular the ConsisderWarningAsError member which specifies how to evaluate warnings.
 
 The aggregated health state is triggered by the “worst” health reports on the entity. If there is at least one Error health report, the aggregated health state is Error.
@@ -127,7 +138,7 @@ If there are no Error reports, and one or more Warning, the aggregated health st
 ![Health Report Aggregation with Warning Report and ConsierWarningAsError false.][3] Health Report Aggregation with Warning Report and ConsierWarningAsError false (default).
 [3]: ./media/service-fabric-health\servicefabric-health-report-eval-warning.png
 
-### Children Entities Health Aggregation
+### Children entities health aggregation
 The aggregated health state of an entity reflects the children health states (when applicable). The algorithm for aggregating children health states uses the health policies applicable based on the entity type.
 
 ![Children entities health aggregation.][4] Children aggregation based on health policies.
@@ -139,14 +150,57 @@ After evaluating all children, the Health Store aggregates the health states bas
 - If there are children with Error states that do not respect max allowed percentage of unhealthy children, the aggregated health state is error.
 - If the children with Error states respect the max allowed percentage of unhealthy children, the aggregated health state is Warning.
 
-## Health Reporting
-System components and internal/external watchdogs can report against the system entities.
-When reporting, the *reporters* make a **local** determination of the health of the monitored entity based on some conditions they are monitoring. The *repoters* don't need to look at any global state to report aggregated, potentially useful information to a central store.
+## Health reporting
+System components and internal/external watchdogs can report against the Service Fabric entities.
+The *reporters* make a **local** determination of the health of the monitored entity based on some conditions they are monitoring. They don't need to look at any global state to report aggregated and only potentially useful information to a central store.
 
-This allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.
-Other systems have a single centralized service at the cluster level parsing all the “potentially” useful information emitted by all services. This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.
+To send health data to the health store, the reporters need to identify the affected entity and create a health report. The report can then be sent through API with FabricClient.HealthClilent.ReportHealth, through Powershell or through REST.
+
+## Health reports
+The health reports for each of the entities in the cluster contain the following information:
+- SourceId. A string that uniquely identifies the reporter of the health event.
+- Entity identifier. Identifies the entity on which the report is applied on. It differs based on the [entity type](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+  - Cluster: none
+  - Node: node name  (string).
+  - Application:  application name (URI). Represents the name of the application instance deployed in the cluster.
+  - Service: service name (URI). Represents the name of the service instance deployed in the cluster.
+  - Partition: partition id (GUID). Represents the partition unique identifier.
+  - Replica: the sateful service replica id or the stateless service instance id (Int64).
+  - DeployedApplication: application name (URI) and node name (string).
+  - DeployedServicePackage: application name (URI), node name (string) and service manifest name (string).
+- Property. A string, not a fixed enumeration, that allows the reporter to categorize the health event for a specific property of the entity. For example, reporter A can report health on Node01 "storage" property and reporter B can report health on Node01 "connectivity" property. Both these reports are treated as separate health events in the health store for the Node01 entity.
+- Description. A string that allows the reporter to provide detail information about the health event. SourceId, Property and HealthState should fully describe the report. The description adds human readable information about the report to make it easier for administrators and users to understand.
+- HealthState. An [enumeration](service-fabric-health-introduction.md#health-states) that describes the health state of the report. The accepted values are OK, Warning, and Error.
+- TimeToLive. A timespan value, specified in seconds, that indicates how long the health report is valid. Coupled with RemoveWhenExpired, it let's the HealthStore know how to evaluate expired events. By default, the value is infinite and the report is valid forever.
+- RemoveWhenExpired. A boolean. If set to true, the health report is automatically removed from health store and it doesn't impact entity health evaluation. This is used when the report is valid for a period of time only and the reporter doesn't need to explicitly clear it out. It's also used to delete reports from health store. If set to false, the expired report is treated as an error on health evaluation. It signals to the health store that the source should report periodically on this property; if it doesn't, then there must be something wrong with the watchdog. This watchdog health is captured by considering the event as error.
+- SequenceNumber. A positive integer that needs to be ever increasing, as it represents the order of the reports. It is used by health store to detect stale reports, received late because of network delays or other issues. Reports are rejected if the sequence number is less or equal the latest applied one for the same entity, source and property. The sequence number is auto-generated if not specified. It is only necessary to put in the sequence number when reporting on state transitions: the source needs to remember what reports it sent and persist the information for recovery on failover.
+
+The SourceId, entity identifier, Property and HealthState are required for every health report. The SourceId string is not allowed to start with prefix "System.", as this is reserved for System reports. For the same entity, there is only one report for the same source and property; if multiple reports are generated for the same source and property, they override each other, either on health client side (if they are batched) or on the health store side. The replacement is done based on sequence number: newer reports (with higher sequence number) replace older reports.
+
+Internally, the Health Store keeps [health events](service-fabric-view-entities-aggregated-health.md#health-events), which contain all the information from the reports plus additional metadata, such as time the report was given to the health client and time it was modified on the server side. The health events are returned by the [health queries](service-fabric-view-entities-aggregated-health.md#health-queries).
+
+### Health client
+The health reports are sent to the Health Store using a health client, which lives inside the fabric client. The health client can be configured with the following:
+- HealthReportSendInterval. The delay between the time the report is added to the client and the time it is sent to Health Store. This is used to batch reports and not send one message for each, for improved performance. Default: 30 seconds.
+- HealthReportRetrySendInterval. The interval at which the health client re-sends accumulated health reports to Health Store. Default: 30 seconds.
+- HealthOperationTimeout. The timeout for a report message sent to Health Store. If a message times out, the health client retries until the Health Store confirms that the reports have been processed. Default: 2 minutes.
+
+> [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least HealthReportSendInterval to ensure they are sent. If the message is lost or Health Store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+
+The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will get replaced with last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the Health Store is just one per send interval, the last added report, which reflects the most current state of the entity.
+All configuration parameters can be specified when creating the FabricClient, by passing FabricClientSettings with desired values for health related entries.
+
+> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept only requests from secured clients. Since the reporting is done through FabricClient, this means the FabricClient must have security enabled in order to be able to communicate with the cluster eg. with Kerberos or certificate authentication.
+
+## Health model usage
+The health model allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.
+Other systems have a single centralized service at the cluster level parsing all the *potentially* useful information emitted by services. This hinders their scalability and it doesn't allow them to collect very specific information to help identify issues and potential issues as close to the root cause as possible.
+
+The health model is heavily used for for monitoring and diagnosis, for evaluating the cluster and application health, and for monitored upgrades. Other services use the health data to perform automatic repairs, to build cluster health history and to issue alerts on certain conditions.
 
 ## Next Steps
-[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+[View Azure Service Fabric entities aggregated health](service-fabric-view-entities-aggregated-health.md)
 
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+
+[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
