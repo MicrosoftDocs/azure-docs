@@ -2,12 +2,13 @@
 	pageTitle="Connect to inputs and outputs | Azure" 
 	description="Learn how to connect to and configure the input sources and output targets for Stream Analytics solutions." 
 	documentationCenter="" 
+	services="stream-analytics"
 	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.services="stream-analytics" 
+	ms.service="stream-analytics" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
