@@ -32,11 +32,11 @@ Service Fabric provides comprehensive runtime and lifecycle management capabilit
 
 ## Stateless and stateful Service Fabric microservices
 
-Stateless microservices (e.g. protocol gateways, web proxies, etc.) do not maintain any mutable state outside of any request and its response from the service. Azure Cloud Services worker roles are an example of stateless service. Stateful microservices (e.g. user accounts, databases, devices, shopping carts, queues etc.) maintain mutable, authoritative state beyond the request and its response. Today's Internet scale applications, they consist of a combination of stateless and stateful microservices.
+Stateless microservices (e.g. protocol gateways, web proxies, etc.) do not maintain any mutable state outside of any request and its response from the service. Azure Cloud Services worker roles are an example of stateless service. Stateful microservices (e.g. user accounts, databases, devices, shopping carts, queues etc.) maintain mutable, authoritative state beyond the request and its response. Today's Internet scale applications consist of a combination of stateless and stateful microservices.
  
-Why are stateful microservices important? Why not simply use stateless services for everything? Two reasons;
+Why are stateful microservices important? Why not simply use stateless services for everything? Two reasons:
 
-1) The ability to build high-throughput, low-latency, tail-tolerant OLTP services like interactive store fronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management etc by keeping code and data close on the same machine.
+1) The ability to build high-throughput, low-latency, failure-tolerant OLTP services like interactive store fronts, search, Internet of Things (IoT) systems, trading systems, credit card processing and fraud detection systems, personal record management etc by keeping code and data close on the same machine.
 
 2) Application design simplification as stateful microservices remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means less moving parts to manage in your application as a whole. 
 
@@ -79,7 +79,7 @@ By using Service Fabric, you can:
 
 - Scale-up or scale-down your Service Fabric cluster easily, knowing that the applications scales according to the available resources.
 
-- Watch the self healing, resource balancer orchestrate the redistributed of applications across the Service Fabric cluster to recover from failures and to optimize the distribution of load based on available resources.
+- Watch the self healing resource balancer orchestrate the redistribution of applications across the Service Fabric cluster to recover from failures and to optimize the distribution of load based on available resources.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
