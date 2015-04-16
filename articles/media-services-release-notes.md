@@ -25,6 +25,7 @@ These release notes summarize changes from previous releases and known issues.
 
 - [Currently Known Issues](#issues)
 - [REST API Version History](#rest_version_history)
+- [April 2015 Release](#april_changes_15)
 - [March 2015 Release](#march_changes_15)
 - [February 2015 Release](#february_changes_15)
 - [January 2015 Release](#january_changes_15)
@@ -57,7 +58,7 @@ These release notes summarize changes from previous releases and known issues.
 <tr><td>The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.</td><td>Media Services generates SAS URLs based on the <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a> version. If you want to use Azure Storage SDK to list blobs in a blob container, use the <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.</td></tr>
 <tr><td>Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.</td><td>For more information, see the description of the 503 HTTP status code in the <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Azure Media Services Error Codes</a> topic.</td></tr>
 </table><br/>
-
+ 
 ### <a id="dotnet_issues"></a>Media Services SDK for .NET Issues
 
 <table border="1">
@@ -68,6 +69,13 @@ These release notes summarize changes from previous releases and known issues.
 ##<a id="rest_version_history"></a>REST API Version History
 
 For information about the Media Services REST API version history, see [Azure Media Services REST API Reference].
+
+##<a id="april_changes_15"></a>April 2015 Release
+
+###General Media Services Updates
+
+- [Announcing Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
+- Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-manage-channels-overview.md#channel_input)
 
 ##<a id="march_changes_15"></a>March 2015 Release
 
