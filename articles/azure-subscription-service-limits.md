@@ -99,8 +99,8 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 </tr>
 <tr>
    <td valign="middle"><p>Resource Manager API Reads</p></td>
-   <td valign="middle"><p>3200 per hour</p></td>
-   <td valign="middle"><p>3200 per hour</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Resource Manager API Writes</p></td>
