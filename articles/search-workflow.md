@@ -28,6 +28,8 @@ Before you start prototyping, we recommend ramping up with one of our Getting St
 
 The quickest path to a successful prototype typically include the steps in this section.
 
+![1][]
+
 ###Provision the service	
 
 Azure Search is available through an Azure subscription. [Once you sign up](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. 
@@ -88,7 +90,7 @@ The most comprehensive list of query examples can be found in [Search Documents]
 
 ###Evaluate results and explore capabilities
 
-Now that you have a service and index, you can experiment with features that further evolve the search experience. A short list of features to explore are listed next.
+Now that you have a service and index, you can experiment with features to further evolve the search experience. A short list of features to explore are listed next.
 
 **searchMode=all** is a query parameter that changes how Azure Search evaluates the NOT operator. By default, queries that include NOT (-) expand rather than narrow the results. You can set this parameter to change how the operator is evaluated. It’s documented in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx) or [SearchMode Enumeration](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx).
 
@@ -175,3 +177,6 @@ Remember that only the standard pricing tier can be scaled up or down. Additiona
 
 > AZURE.NOTE Capacity can be adjusted programmatically by using the Management REST API. For more information, see [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
+
+<!--Image references-->
+[1]: ./media/search-workflow/AzSearch-Workflow.png
