@@ -184,18 +184,18 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 </tr>
 <tr>
    <td valign="middle"><p>Resources per resource group (per resource type)</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Deployments per resource group</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>resources per deployment</p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>Resources per deployment</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Management Locks (per unique scope)</p></td>
