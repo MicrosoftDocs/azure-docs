@@ -79,7 +79,7 @@ The application instance can be removed from the cluster using **Service Fabric*
 - [Visualizing your cluster using Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
 
 <!--Image references-->
-[addserviceproject]:./media/service-fabric-managing-your-services/addserviceproject.png
-[manageservicefabric]: ./media/service-fabric-managing-your-services/manageservicefabric.png
-[newservice]:./media/service-fabric-managing-your-services/newservice.png
-[newserviceapplicationmanifest]:./media/service-fabric-managing-your-services/newserviceapplicationmanifest.png
+[addserviceproject]:./media/service-fabric-fabsrv-managing-your-services/addserviceproject.png
+[manageservicefabric]: ./media/service-fabric-fabsrv-managing-your-services/manageservicefabric.png
+[newservice]:./media/service-fabric-fabsrv-managing-your-services/newservice.png
+[newserviceapplicationmanifest]:./media/service-fabric-fabsrv-managing-your-services/newserviceapplicationmanifest.png
