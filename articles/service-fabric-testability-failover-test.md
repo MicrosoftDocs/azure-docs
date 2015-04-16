@@ -3,7 +3,7 @@
    description="This article talks about the Failover test and how to run it."
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmola"
+   authors="anmolah"
    manager="timlt"
    editor=""/>
 
