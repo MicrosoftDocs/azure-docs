@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/22/2014" 
+	ms.date="04/16/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
