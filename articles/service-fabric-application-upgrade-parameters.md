@@ -4,7 +4,7 @@
    description="This article described the various parameters related to upgrading a Service Fabric application."
    services="service-fabric"
    documentationCenter=".net"
-   authors="subramar"
+   authors="mani-ramaswamy"
    manager="samgeo"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/15/2015"
-   ms.author="subramar"/>
+   ms.author="mani-ramaswamy"/>
 
 
 

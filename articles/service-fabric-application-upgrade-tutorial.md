@@ -3,7 +3,7 @@
    description="This article walks through an experience of upgrading a Service Fabric application."
    services="service-fabric"
    documentationCenter=".net"
-   authors="subramar"
+   authors="mani-ramaswamy"
    manager="samgeo"
    editor=""/>
 

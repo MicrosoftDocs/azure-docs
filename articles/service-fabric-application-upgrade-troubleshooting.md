@@ -3,7 +3,7 @@
    description="This article covers some common errors related to upgrading a Service Fabric application and how to resolve them."
    services="service-fabric"
    documentationCenter=".net"
-   authors="subramar"
+   authors="mani-ramaswamy"
    manager="samgeo"
    editor=""/>
 
@@ -60,7 +60,11 @@ The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRet
 
 
 [Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+
 [Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+
 [Advanced Topics](./service-fabric-application-upgrade-advanced)
+
 [Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+
 [Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
