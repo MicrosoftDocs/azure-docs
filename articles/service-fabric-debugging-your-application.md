@@ -28,7 +28,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
 3. Set breakpoints in your code and step through the application by clicking on commands in the **Debug** menu.
 
-  > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit or reducing the input to the services.
+  > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or use Diagnostic Events.
 
 4. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.
 
@@ -44,9 +44,9 @@ You can save time and money by deploying and debugging your Service Fabric appli
     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
     ```
 
-7. The **Diagnostic Events** window supports filtering, pausing, and viewing events in real time.
+7. The **Diagnostic Events** window supports filtering, pausing, and inspecting events in real time.  The filter is a simple string search of the event message, including its contents.
 
-    ![][diagnosticeventsactions]
+    ![Filter, pause and resume, or inspect events in real time][diagnosticeventsactions]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
