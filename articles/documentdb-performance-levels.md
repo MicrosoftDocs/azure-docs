@@ -2,7 +2,7 @@
 	pageTitle="Performance levels in DocumentDB | Azure" 
 	description="Learn about how performance levels in DocumentDB enable you to reserve throughput on a per collection basis." 
 	services="documentdb" 
-	authors="johnfmacintyre" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -86,9 +86,9 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-##<a id="Sub4"></a>Changing performance levels from the Azure Portal
+##<a id="Sub4"></a>Changing performance levels using the Azure Portal
 
-The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal:
+The Azure Portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal.
 
 1. Navigate over to the [**Azure Portal**](https://portal.azure.com) from your browser.
 2. Select **Browse** from the left-hand panel.
@@ -98,11 +98,12 @@ The Azure Portal is one option available to you when managing your collections' 
 6. In the newly opened **Database blade**, scroll down to the **Collections section** and select your desired collection.
 7. Finally, within your **Collection blade**, find and click the **Pricing tier panel** listed underneath the **Usage section**.
 8. In the **Choose your pricing tier blade**, click the desired performance level and hit **Select** at the bottom of the blade. 
-> [AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
+
+>[AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
 
 ![Changing pricing tier][1]
 
-##<a id="Sub5"></a>Changing performance levels with the .NET SDK
+##<a id="Sub5"></a>Changing performance levels using the .NET SDK
 
 Another option for changing your collections' performance levels is through our SDKs. This section will only cover changing a collection's performance level using our .NET SDK, but the process is similar for our other SDKs. If you are new to our .NET SDK, please visit our [getting started tutorial](https://azure.microsoft.com/documentation/articles/documentdb-get-started/).
 
@@ -120,7 +121,7 @@ Here is a code snippet for changing the offer type:
 	//Now persist these changes to the database by replacing the original resource
 	Offer updated = await client.ReplaceOfferAsync(offer);
 
-Visit the [MSDN documentation](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.documentclient.aspx) to read more about our offer methods: *ReadOfferAsync*, *ReadOffersFeedAsync*,  *ReplaceOfferAsync* and *CreateOfferyQuery*.
+Visit the [MSDN documentation](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to read more about our offer methods: *ReadOfferAsync*, *ReadOffersFeedAsync*,  *ReplaceOfferAsync* and *CreateOfferyQuery*.
 
 ##<a name="NextSteps"></a>Next steps
 
