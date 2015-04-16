@@ -23,8 +23,6 @@ Service Fabric provides some common test scenarios out of the box composed of th
 
 Actions are found in the System.Fabric.Testability.dll assembly.
 
-## Testability Actions in Powershell and C# :
-
 The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.
 
 Testability Actions:
