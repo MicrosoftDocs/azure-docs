@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with Media Services using Azure Management Portal" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using Azure Management Portal." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Quickstart: Get Started with Media Services using Azure Management Portal
+#Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 

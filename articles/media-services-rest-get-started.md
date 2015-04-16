@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Delivering Video-on-Demand with Media Services REST APIs" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using REST APIs" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
 
-# Quickstart: Delivering Video-on-Demand with Media Services REST APIs 
+#Getting Started with Delivering Video on Demand (VoD) using REST APIs 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -225,11 +225,10 @@ One of the values that you have to provide when creating an asset is asset creat
 
  
 - **None** = **0** - No encryption is used. Note that when using this option your content is not protected in transit or at rest in storage.
-
 	If you plan to deliver an MP4 using progressive download, use this option. 
 - **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
+- **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+- **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
 ### Create an asset
 
