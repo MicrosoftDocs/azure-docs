@@ -20,13 +20,9 @@
 
 ## Overview
 
-This tutorial is the last in a series:
+In this tutorial, you debug ASP.NET Web API code while it runs in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
 
-1. In [Create an API App](app-service-dotnet-create-api-app.md) you created an API app project. 
-* In [Deploy an API App](app-service-dotnet-deploy-api-app.md) you deployed the API app to your Azure subscription.
-* In this tutorial, you debug the code while it runs in Azure.
-
-In this tutorial you use Visual Studio's **API App Client** to generate client code that calls the deployed API app. Then you debug the client app and the API app simultaneously, with the API app running live in the cloud.
+You begin by using Visual Studio's **API App Client** feature to generate client code that calls the deployed API app. Then you debug the client app and the API app simultaneously, with the API app running live in the cloud.
 
 ## Generate an API app client 
 
