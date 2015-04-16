@@ -20,9 +20,9 @@
 
 ## Overview
 
-This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](app-service-logic-use-biztalk-connectors.md) in [Azure App Service](/documentation/services/app-service/). A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. 
+This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](app-service-logic-what-are-bizTalk-api-apps.md) in [Azure App Service](/documentation/services/app-service/). A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. 
 
-For example, if you want to use HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing application code or using SaaS data in a [logic app](app-service-logic-use-biztalk-connectors.md).
+For example, if you want to use HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing application code or using SaaS data in a [logic app](app-service-logic-what-are-logic-apps.md).
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 
@@ -269,6 +269,6 @@ In the following steps you make a Get request to the Dropbox connector to look a
 
 ## Next steps
 
-You've seen how to install, configure, and test a SaaS connector. For more information, see [Using connectors](app-service-logic-use-biztalk-connectors.md) and [What are API apps?](app-service-api-apps-why-best-platform.md). 
+You've seen how to install, configure, and test a SaaS connector. For more information, see [Using connectors](app-service-logic-use-biztalk-connectors.md). 
 
 [Azure portal]: https://portal.azure.com/
