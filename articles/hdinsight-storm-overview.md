@@ -18,7 +18,7 @@
 
 #Storm on HDInsight overview
 
-Apache Storm on HDInsight allows you to create distributed, real-time data processing solutions in the Azure environment by using <a href="http://hadoop.apache.org/" target="_blank">Apache Hadoop</a>.
+Apache Storm on HDInsight allows you to create distributed, real-time data processing solutions in the Azure environment by using [Apache Hadoop](http://hadoop.apache.org).
 
 ##What is Apache Storm?
 
@@ -42,7 +42,7 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
 
 	* Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters
 
-For a list of companies that are using Apache Storm, see <a href="https://storm.apache.org/documentation/Powered-By.html" target="_blank">Companies Using Apache Storm</a>.
+For a list of companies that are using Apache Storm, see [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 To get started using Storm, see [Get started with Storm on HDInsight][gettingstarted].
 
@@ -50,7 +50,7 @@ To get started using Storm, see [Get started with Storm on HDInsight][gettingsta
 
 You can provision a new Storm on HDInsight cluster in minutes. Specify the cluster name, size, administrator account, and the storage account. Azure will create the cluster, including sample topologies and a web-management dashboard.
 
-The following is an example of provisioning a Storm on HDInsight cluster by using the Azure portal. You can also provision Storm clusters by using <a href="../install-configure-powershell/" target="_blank">Azure PowerShell</a>.
+The following is an example of provisioning a Storm on HDInsight cluster by using the Azure portal. You can also provision Storm clusters by using [Azure PowerShell](install-configure-powershell.md).
 
 ![An example of the quick-create cluster form in the portal](./media/hdinsight-storm-overview/quick-create.png)
 
@@ -66,17 +66,17 @@ HDInsight Tools for Visual Studio also provides an interface that allows you to 
 
 ![Storm management](./media/hdinsight-storm-overview/stormview.png)
 
-For an example of using the HDInsight Tools to create a Storm application, see <a href="hdinsight-storm-develop-csharp-visual-studio-topology.md/" target="_blank">Develop C# Storm topologies with the HDInsight Tools for Visual Studio</a>
+For an example of using the HDInsight Tools to create a Storm application, see [Develop C# Storm topologies with the HDInsight Tools for Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
-For more information about the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using the HDInsight Tools for Visual Studio</a>.
+For more information about the HDInsight Tools for Visual Studio, see [Get started using the HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
 Each Storm on HDInsight cluster also provides a web-based Storm Dashboard that allows you to submit, monitor, and manage Storm topologies running on the cluster.
 
 ![Storm dashboard](./media/hdinsight-storm-overview/dashboard.png)
 
-For more information about using the Storm Dashboard, see <a href="../hdinsight-storm-deploy-monitor-topology/" target="_blank">Deploy and manage Apache Storm topologies on HDInsight</a>.
+For more information about using the Storm Dashboard, see [Deploy and manage Apache Storm topologies on HDInsight](hdinsight-storm-deploy-monitor-topology.md).
 
-Storm on HDInsight also provides easy integration with Azure Event Hubs through the **Event Hub Spout**. This is available on each storm cluster at **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. For examples of using this spout in a Storm topology, see <a href="../service-bus-event-hubs-c-storm-getstarted/" target="_blank">Getting started with Event Hubs</a> and <a href="../hdinsight-storm-sensor-data-analysis/" target="_blank">Analyzing sensor data with Storm and HBase</a>.
+Storm on HDInsight also provides easy integration with Azure Event Hubs through the **Event Hub Spout**. This is available on each storm cluster at **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**. For examples of using this spout in a Storm topology, see [Getting started with Event Hubs](service-bus-event-hubs-c-storm-getstarted.MD) and [Analyzing sensor data with Storm and HBase](hdinsight-storm-sensor-data-analysis.MD).
 
 ###Reliability
 
@@ -100,7 +100,7 @@ Storm on HDInsight comes with full enterprise-level 24/7 support. Storm on HDIns
 
 ##Common scenarios for real-time analytics
 
-The following are some common scenarios for which you might use Apache storm on HDInsight. For information about real-world scenarios, read <a href="https://storm.incubator.apache.org/documentation/Powered-By.html" target="_blank">How companies are using Storm</a>.
+The following are some common scenarios for which you might use Apache storm on HDInsight. For information about real-world scenarios, read [How companies are using Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
 
 * Internet of Things (IoT)
 * Fraud detection
@@ -143,7 +143,7 @@ For more information about Storm components, see the [Storm tutorial][apachetuto
 
 The Storm on HDInsight cluster provides support for C#, Java, and Python.
 
-<h3>C#</h3>
+### C&#35;
 
 The HDInsight Tools for Visual Studio allow .NET developers to design and implement a topology in C#. You can also create hybrid topologies that use Java and C# components.
 
