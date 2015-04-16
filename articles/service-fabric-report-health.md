@@ -41,5 +41,56 @@ Once the health reporting design is clear, sending health reports is easy. It ca
 
 > [AZURE.NOTE] Report health is sync and only represents the validation work on client side. The fact that the report is accepted by the health client doesn't mean it is applied in store; it will be sent asynchronously, possibly batched with other reports and the processing on the server may fail (eg. stale sequence number, the entity on which the report must be applied has been deleted etc).
 
+### Health client
+The health reports are sent to the Health Store using a health client, which lives inside the fabric client. The health client can be configured with the following:
+- HealthReportSendInterval. The delay between the time the report is added to the client and the time it is sent to Health Store. This is used to batch reports and not send one message for each, for improved performance. Default: 30 seconds.
+- HealthReportRetrySendInterval. The interval at which the health client re-sends accumulated health reports to Health Store. Default: 30 seconds.
+- HealthOperationTimeout. The timeout for a report message sent to Health Store. If a message times out, the health client retries until the Health Store confirms that the reports have been processed. Default: 2 minutes.
+
+> [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least HealthReportSendInterval to ensure they are sent. If the message is lost or Health Store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+
+The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will get replaced with last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the Health Store is just one per send interval, the last added report, which reflects the most current state of the entity.
+All configuration parameters can be specified when creating the FabricClient, by passing FabricClientSettings with desired values for health related entries.
+
+The following creates a fabric client and specifies that the reports should be sent as soon as they are added. On retryable errors or timeouts, retries happen every 40 seconds.
+```csharp
+var clientSettings = new FabricClientSettings()
+{
+    HealthOperationTimeout = TimeSpan.FromSeconds(120),
+    HealthReportSendInterval = TimeSpan.FromSeconds(0),
+    HealthReportRetrySendInterval = TimeSpan.FromSeconds(40),
+};
+var fabricClient = new FabricClient(clientSettings);
+```
+Same paramters can be specified when creating a connection to a cluster through Powershell. The following starts a connection to a local cluster:
+
+```powershell
+PS C:\Windows\System32\WindowsPowerShell\v1.0> Connect-ServiceFabricCluster -HealthOperationTimeoutInSec 120 -HealthReportSendIntervalInSec 0 -HealthReportRetrySendIntervalInSec 40
+True
+
+ConnectionEndpoint   :
+FabricClientSettings : {
+                       ClientFriendlyName                   : PowerShell-1944858a-4c6d-465f-89c7-9021c12ac0bb
+                       PartitionLocationCacheLimit          : 100000
+                       PartitionLocationCacheBucketCount    : 1024
+                       ServiceChangePollInterval            : 00:02:00
+                       ConnectionInitializationTimeout      : 00:00:02
+                       KeepAliveInterval                    : 00:00:20
+                       HealthOperationTimeout               : 00:02:00
+                       HealthReportSendInterval             : 00:00:00
+                       HealthReportRetrySendInterval        : 00:00:40
+                       NotificationGatewayConnectionTimeout : 00:00:00
+                       NotificationCacheUpdateTimeout       : 00:00:00
+                       }
+GatewayInformation   : {
+                       NodeAddress                          : localhost:19000
+                       NodeId                               : 1880ec88a3187766a6da323399721f53
+                       NodeInstanceId                       : 130729063464981219
+                       NodeName                             : Node.1
+                       }
+```
+
+> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept only requests from secured clients. Since the reporting is done through FabricClient, this means the FabricClient must have security enabled in order to be able to communicate with the cluster eg. with Kerberos or certificate authentication.
+
 ### ReportHealth API
 In order to report through API, users need to create a health report specific to the entity type they want to report on and then give it to a health client.

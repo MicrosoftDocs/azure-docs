@@ -156,7 +156,7 @@ The *reporters* make a **local** determination of the health of the monitored en
 
 To send health data to the health store, the reporters need to identify the affected entity and create a health report. The report can then be sent through API with FabricClient.HealthClilent.ReportHealth, through Powershell or through REST.
 
-## Health reports
+### Health reports
 The health reports for each of the entities in the cluster contain the following information:
 - SourceId. A string that uniquely identifies the reporter of the health event.
 - Entity identifier. Identifies the entity on which the report is applied on. It differs based on the [entity type](service-fabric-health-introduction.md#health-entities-and-hierarchy):
@@ -177,20 +177,86 @@ The health reports for each of the entities in the cluster contain the following
 
 The SourceId, entity identifier, Property and HealthState are required for every health report. The SourceId string is not allowed to start with prefix "System.", as this is reserved for System reports. For the same entity, there is only one report for the same source and property; if multiple reports are generated for the same source and property, they override each other, either on health client side (if they are batched) or on the health store side. The replacement is done based on sequence number: newer reports (with higher sequence number) replace older reports.
 
-Internally, the Health Store keeps [health events](service-fabric-view-entities-aggregated-health.md#health-events), which contain all the information from the reports plus additional metadata, such as time the report was given to the health client and time it was modified on the server side. The health events are returned by the [health queries](service-fabric-view-entities-aggregated-health.md#health-queries).
+### Health events
+Internally, the Health Store keeps health events, which contain all the information from the reports plus additional metadata, such as time the report was given to the health client and time it was modified on the server side. The health events are returned by the [health queries](service-fabric-view-entities-aggregated-health.md#health-queries).
+The added metadata contains:
+- SourceUtcTimestamp: the time the report was given to the health client (Utc)
+- LastModifiedUtcTimestamp: the time the report was last modified on the server side (Utc)
+- IsExpired: flag to indicate whether the report was expired at the time the query was executed by the Health Store. An event can be expired only if RemoveWhenExpired is false; otherwise, it wouldn't be used for evaluation.
+- LastOkTransitionAt, LastWarningTransitionAt, LastErrorTransitionAt: last time for Ok/Warning/Error transitions. These fields give the histore of the transition of the health states for the event.
 
-### Health client
-The health reports are sent to the Health Store using a health client, which lives inside the fabric client. The health client can be configured with the following:
-- HealthReportSendInterval. The delay between the time the report is added to the client and the time it is sent to Health Store. This is used to batch reports and not send one message for each, for improved performance. Default: 30 seconds.
-- HealthReportRetrySendInterval. The interval at which the health client re-sends accumulated health reports to Health Store. Default: 30 seconds.
-- HealthOperationTimeout. The timeout for a report message sent to Health Store. If a message times out, the health client retries until the Health Store confirms that the reports have been processed. Default: 2 minutes.
+The state transition fields can be used for smarter alerting or "historical" health event information. They enable scenarios like:
+- Alert when a property has been at Warning/Error for more than X minutes. This avoids alerting on temporary conditions.Eg: alert if the health state has been Warning for more than 5 minutes can be translated into (HealthState == Warning and Now - LastWarningTransitionTime > 5 minutes).
+- Alert on conditions that changed in the last X minutes. If a report is at Error since before that, it can be ignored.
+- If a property is toggling between Warning and Error, determine how long it has been unhealthy (i.e. not Ok). Eg: alert if the property wasn't healthy for more than 5 minutes can be translated into: (HealthState != Ok and Now - LastOkTransitionTime > 5 minutes).
 
-> [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least HealthReportSendInterval to ensure they are sent. If the message is lost or Health Store is not able to apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
+## Example: report and evaluate application health
+The following sends a health report through Powershell on the application named fabric:/WordCount from the source MyWatchDog. The health report contains information about the health property Availability in an Error health state, with infinite TTL. Then it queries the application health, which will return aggregated health state error and the reported health event as part of the list of health events.
 
-The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will get replaced with last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the Health Store is just one per send interval, the last added report, which reflects the most current state of the entity.
-All configuration parameters can be specified when creating the FabricClient, by passing FabricClientSettings with desired values for health related entries.
+```powershell
+PS C:\Windows\System32\WindowsPowerShell\v1.0> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept only requests from secured clients. Since the reporting is done through FabricClient, this means the FabricClient must have security enabled in order to be able to communicate with the cluster eg. with Kerberos or certificate authentication.
+PS C:\Windows\System32\WindowsPowerShell\v1.0> Get-ServiceFabricApplicationHealth fabric:/WordCount
+
+ApplicationName                 : fabric:/WordCount
+AggregatedHealthState           : Error
+UnhealthyEvaluations            :
+                                  Error event: SourceId='MyWatchdog', Property='Availability'.
+
+ServiceHealthStates             :
+                                  ServiceName           : fabric:/WordCount/WordCount.Service
+                                  AggregatedHealthState : Warning
+
+                                  ServiceName           : fabric:/WordCount/WordCount.WebService
+                                  AggregatedHealthState : Ok
+
+DeployedApplicationHealthStates :
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : Node.4
+                                  AggregatedHealthState : Ok
+
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : Node.1
+                                  AggregatedHealthState : Ok
+
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : Node.5
+                                  AggregatedHealthState : Ok
+
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : Node.2
+                                  AggregatedHealthState : Ok
+
+                                  ApplicationName       : fabric:/WordCount
+                                  NodeName              : Node.3
+                                  AggregatedHealthState : Ok
+
+HealthEvents                    :
+                                  SourceId              : System.CM
+                                  Property              : State
+                                  HealthState           : Ok
+                                  SequenceNumber        : 5102
+                                  SentAt                : 4/15/2015 5:29:15 PM
+                                  ReceivedAt            : 4/15/2015 5:29:15 PM
+                                  TTL                   : Infinite
+                                  Description           : Application has been created.
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : ->Ok = 4/15/2015 5:29:15 PM
+
+                                  SourceId              : MyWatchdog
+                                  Property              : Availability
+                                  HealthState           : Error
+                                  SequenceNumber        : 130736794527105907
+                                  SentAt                : 4/16/2015 5:37:32 PM
+                                  ReceivedAt            : 4/16/2015 5:37:32 PM
+                                  TTL                   : Infinite
+                                  Description           :
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : ->Error = 4/16/2015 5:37:32 PM
+
+```
 
 ## Health model usage
 The health model allows the cloud services and the underlying Service Fabric platform to scale, because the monitoring and health determination is distributed among the different monitors within the cluster.
