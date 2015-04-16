@@ -16,8 +16,7 @@ After entering the creation UI you can quickly create an ASE by simply entering 
 
 The name that is specified for the ASE will be used for the web apps created in the ASE.  If name of the ASE is ASEDemoEnv then the domain name will be asedemoenv.p.azurewebsites.net.  If you thus created a web app named mytestapp then it would be addressable at mytestapp.asedemoenv.p.azurewebsites.net. 
 
-![ASE Creation]("./media/app-service-web-how-to-create-an-app-service-environment/createASEblade.png"
-"./media/app-service-web-how-to-create-an-app-service-environment/createASEblade.png")
+![][1]
 
 
 In addition to being able to create a new VNET you can select an existing VNET if it is large enough.  If going through the VNET creation UI you are required to provide:
@@ -29,15 +28,13 @@ In addition to being able to create a new VNET you can select an existing VNET i
 
 If you are unfamiliar with CIDR notation it takes the form of 10.0.0.0/22 where the /22 specifies the range.  In this example a /22 means a range of 1024 addresses or from 10.0.0.0 -10.0.3.255.  A /23 means 512 addresses and so on.  
 
-![ASE Creation Network]("./media/app-service-web-how-to-create-an-app-service-environment/createASEnetwork.png"
-"./media/app-service-web-how-to-create-an-app-service-environment/createASEnetwork.png")
+![][2]
 
 The next item to configure is the scale of the system.  By default there are 2 Front End medium VMs.  There are 2 so as to provide high availability and distribute the load.  The VMs are mediums to ensure they have enough capacity to support a modest system.  If you know that the system needs to support a high number of requests then you can adjust the quantity of Front Ends and the server size used.
 
 Within an ASE there are 3 worker pools which a customer can define.  The VM size can be from Small to Extra Large.  By default there are only 2 small workers configured in Worker Pool 1.  That is enough to support a single App Service Plan with 2 instances.  
  
-![ASE Creation Scale]("./media/app-service-web-how-to-create-an-app-service-environment/createASEscale.png"
-"./media/app-service-web-how-to-create-an-app-service-environment/createASEscale.png")
+![][3]
 
 Adding new instances to be available does not happen quickly.  If you know you are going to need additional VM's then you should provision them an hour or more in advance if you do not already have the reserve capacity.  To ensure that your system has can meet SLA requirements, every ASE needs to have a reserve instance available in each worker pool.  
 
@@ -61,6 +58,7 @@ You cannot change:
 
 There are additional dependencies that are not available for customization such as the database and storage.  These are handled by Azure and come with the system.  The system storage supports up to 500 GB for the entire App Service Environment.  
 
-
-
- 
+<!--Image references-->
+[1]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEblade.png
+[2]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEnetwork.png
+[3]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEscale.png
