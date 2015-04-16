@@ -19,7 +19,7 @@
 # Service Fabric Actors design pattern: distributed computation
 We owe this one in part to watching a real life customer whip out a financial calculation in Azure Service Fabric Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact. 
 
-At first, especially to those who do not have domain specific knowledge, Azure Servce Fabric’ handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious. 
+At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious. 
 
 But it turns out that Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation as the following diagram depicts:
 
@@ -33,7 +33,7 @@ In the following example, we simply calculate Pi using a Monte Carlo Simulation.
 
 * Aggregator responsible for, well, aggregating results and sending them to Finaliser.
 
-* Finaliser responsible calculating the final result and printing on screen.
+* Finaliser responsible for calculating the final result and printing on screen.
 
 ## Distributed computation code sample – Monte Carlo simulation
 
