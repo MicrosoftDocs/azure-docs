@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Diagnosing issues with dependencies in Application Insights" 
-	description="Find failures and slow performance caused by depeendencies" 
+	description="Find failures and slow performance caused by dependencies" 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
