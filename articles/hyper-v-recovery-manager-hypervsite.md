@@ -75,7 +75,7 @@ After verifying the prerequisites, do the following:
 
 6. Click <b>Create vault</b>. 
 
-	![New Vault](./media/hyper-v-recovery-manager-configure-vault/SR_HvVault.png)
+	![New Vault](./media/hyper-v-recovery-manager-hypervsite/SR_HvVault.png)
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
@@ -83,15 +83,15 @@ After verifying the prerequisites, do the following:
 
 1. In the Recovery Services page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
-	![Hyper-V site scenario](./media/hyper-v-recovery-manager-configure-vault/SR_QuickStartIcon.png)
+	![Hyper-V site scenario](./media/hyper-v-recovery-manager-hypervsite/SR_QuickStartIcon.png)
 
 2. In the dropdown list, select **Between an on-premises Hyper-V site and Azure**.
 
-	![Hyper-V site scenario](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_SelectScenario.png)
+	![Hyper-V site scenario](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_SelectScenario.png)
 
 3. In **Create a Hyper-V Site** click **Create Hyper-V site**. Specify a site name and save.
 
-	![Hyper-V site](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_CreateSite2.png)
+	![Hyper-V site](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_CreateSite2.png)
 
 <a name="download"></a> ### Step 3: Prepare Hyper-V servers
 	
@@ -99,7 +99,7 @@ After verifying the prerequisites, do the following:
 1. In **Prepare Hyper-V servers**, click **Download a registration key** file.
 2. On the **Download Registration Key** page, click **Download** next to the site. Download the key to a safe location that can be easily accessed by the Hyper-V server. The key is valid for 5 days after it's generated.
 
-	![Registration key](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_DownloadKey2.png)
+	![Registration key](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_DownloadKey2.png)
 
 4. Click <b>Download the Provider</b> to obtain the latest version.
 5. Run the file on each Hyper-V server you want to register in the vault. The file installs two components:
@@ -107,33 +107,33 @@ After verifying the prerequisites, do the following:
 	- **Azure Recovery Services Agent**—Handles data transport between virtual machines running on the source Hyper-V server and Azure storage. 
 6. In **Microsoft Update** you can opt in for updates. With this setting enabled, Provider and Agent updates will be installed according to your Microsoft Update policy.
 
-	![Microsoft Updates](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider1.png)
+	![Microsoft Updates](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider1.png)
 
 7. In **Installation** specify where you want to install the Provider and Agent on the Hyper-V server.
 
-	![Install location](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider2.png)
+	![Install location](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider2.png)
 
 8. After installation is complete continue setup to register the server in the vault.
 
-	![Installation complete](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider3.png)
+	![Installation complete](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider3.png)
 
 
 9. On the **Internet Connection** page you specify how the Provider connects to Azure Site Recovery. Select <b>Use default system proxy settings</b> to use the default Internet connection settings configured on the server. 
 
-	![Internet Settings](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider4.png)
+	![Internet Settings](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider4.png)
 
 9. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
-	![Server registration](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_SelectKey.png)
+	![Server registration](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_SelectKey.png)
 
 
 11. Registration starts to register the server in the vault.
 
-	![Server registration](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider6.png)
+	![Server registration](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider6.png)
 
 11. After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Hyper-V Sites** tab on the **Servers** page in the vault.
 
-	![Server registration](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_Provider7.png)
+	![Server registration](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_Provider7.png)
 **Note** For a **Hyper-V** Cluster, you need to perform steps 5-11 on each node of the **Failover Cluster**. Once all the nodes of the cluster is registered to Azure Site Recovery, protection of virtual machines will continue even if they migrate between the nodes of the **Failover Cluster** 
 
 
@@ -142,7 +142,7 @@ After verifying the prerequisites, do the following:
 
 1. On the Quick Start page, in **Prepare resources** select **Create Storage Account**  to create an Azure storage account if you don't have one. The account should have geo-replication enabled. It must in the same region as the Azure Site Recovery vault, and be associated with the same subscription.
 
-	![Create storage account](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_CreateResources1.png)
+	![Create storage account](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_CreateResources1.png)
 
 
 
@@ -153,12 +153,12 @@ After verifying the prerequisites, do the following:
 
 2. In the **Protection Groups** tab, add a protection group. Specify a name, the source Hyper-V site, the target **Azure**, your Azure Site Recovery subscription name, and the Azure storage account.
 
-	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroupCreate3.png)
+	![Protection group](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_ProtectionGroupCreate3.png)
 
 
 2. In **Replication settings**, leave the default settings.
 
-	![Protection group](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_ProtectionGroup4.png)
+	![Protection group](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_ProtectionGroup4.png)
 
 
 ### <a id="enablevirtual"></a>Step 6: Enable virtual machine protection
@@ -167,20 +167,20 @@ After verifying the prerequisites, do the following:
 1. On the <b>Machines</b> tab for the protection group, click <b>Add virtual machines to protection groups to enable protection</b>.
 2. On the **Enable Virtual Machine Protection** page select the virtual machines you want to protect. 
 
-	![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_AddVM3.png)
+	![Enable virtual machine protection](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_AddVM3.png)
 
 	The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and initial replication is complete, you can view virtual machines under the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
 3. You can configure a virtual machines's failover properties by going to the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**.
 4. Configure the **Role Size** and the **Target network** settings for the virtual machine. 
 	On the **Configure**page the following properties can be modified
 	1. The target size of the virtual machine when a fail-over is triggered. 
-	![Configure VM Properites](./media/hyper-v-recovery-manager-configure-vault/VMProperties.png)
+	![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/VMProperties.png)
 	2. The number of network adapters of the target virtual machine - Number of network adapters on a target virtual machine depends on the target size of the virtual machine chosen. The number of network adapters of target virtual machine is minimum of the number of network adapters on the source virtual machine and maximum of network adapters supported by the target size of the virtual machine chosen.  
 	3. Network of the target virtual machine - In case source virtual machine has more than one network adapters, then all the network adapters need to be connected to the same azure virtual network.
 	4. Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.
 	5. Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the IP for the target virtual machine. User can use this capability to retain the IP of the source virtual machine after a fail-over. If no IP is provided any available IP would be given to network adapter at the time of fail-over. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the fail-over would fail.
 	
-	![Configure VM Properites](./media/hyper-v-recovery-manager-configure-vault/MultiNic.png)
+	![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/MultiNic.png)
 	
 
 ### <a id="recoveryplans"></a>Step 7: Test the deployment
@@ -190,7 +190,7 @@ Test your deployment to simulate your failover and recovery mechanism in an isol
 1. **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** select the virtual machine you want to fail over, and click **Test Failover**.
 2. On the **Confirm Test Failover** page select **None**. 
 
-	![Recovery plan](./media/hyper-v-recovery-manager-configure-vault/SRHVSite_TestFailoverNoNetwork.png)
+	![Recovery plan](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_TestFailoverNoNetwork.png)
 
 3. You can track failover progress and status on the **Job** tab.
 4. When the failover reaches the **Complete testing** phase , complete the verification as follows:
