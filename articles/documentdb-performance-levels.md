@@ -97,7 +97,7 @@ The Azure Preview portal is one option available to you when managing your colle
 5. In the **DocumentDB Account** blade, scroll down to the **Databases** lens and click the database that contains the desired collection. 
 6. In the newly opened **Database** blade, scroll down to the **Collections** lens and select your desired collection.
 7. Finally, within your **Collection** blade, find and click the **Pricing tier** tile in the **Usage** lens.
-8. In the **Choose your pricing tier blade**, click the desired performance level and hit **Select** at the bottom of the blade. 
+8. In the **Choose your pricing tier** blade, click the desired performance level and then click **Select** at the bottom of the blade. 
 
 >[AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
 
