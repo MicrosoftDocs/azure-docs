@@ -164,7 +164,7 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 
 Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs]
+* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
 
 * [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
 
