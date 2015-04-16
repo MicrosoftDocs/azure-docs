@@ -205,11 +205,7 @@ Imagine your company is a construction firm that receives very large files conta
 Let's get started. 
 
 ## Create a Connector
-
-There are two ways to create connectors:
-
-- by using the Microsoft Azure portal (no coding required!)
-- by using REST APIs. 
+Connector API Apps can be created using the Azure Portal
 
 ### Create a SharePoint Connector in the Microsoft Azure Portal
 
@@ -231,9 +227,9 @@ There are two ways to create connectors:
 Now that you've created your first connector, consider building a web, mobile or logic app with it. 
 
 
-### Create a Connector using REST APIs
+### Access Connector using REST APIs
 
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+[Access connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ## Add your connector to an application 
 Microsoft Azure App Service exposes different application types that can use these Connectors. For example, you can create a *Logic* app by combining one or more of your connectors *logically* into a single app.

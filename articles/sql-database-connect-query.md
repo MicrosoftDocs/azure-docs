@@ -11,7 +11,7 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -21,21 +21,13 @@
 
 # Connect to and query your SQL Database with C# 
 
-
-<!--
-2015-April-14
-Casey Karst (CaKarst) is the original author of this topic.
-GeneMi edited the topic, and created the GitHub pull request.
--->
-
-
 This topic provides a C# code sample that shows you how to connect to an existing AdventureWorks SQL Database by using ADO.NET. The sample compiles to a console application that queries the database and displays the results.
 
 
 ## Prerequisites
 
 
-- An [existing AdventureWorks](sql-database-get-started.md) database on Azure SQL Database.
+- An existing AdventureWorks database on Azure SQL Database. [Create one in minutes](sql-database-get-started.md).
 - [Visual Studio with the .NET Framework](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 
 
@@ -54,24 +46,16 @@ This topic provides a C# code sample that shows you how to connect to an existin
 1. Copy and paste the code sample from below into your console application.
 
 
-### Meant for ease of understanding, not for production
+> [AZURE.WARNNING] The code sample is designed to be as short as possible to make it easy to understand. The sample is not meant to be used in production.
 
 
-> [AZURE.NOTE] The code sample is designed to be as short as possible, to make it easy to understand. The sample is not meant to be used in production.
-
-
-The code sample does have certain features that production quality code must have:
+Although the code sample is not meant for production, it does have certain features that production-quality code must have:
 
 
 - Exception handling.
 - Retry logic for transient errors.
 - Safe storage of passwords in a configuration file.
 
-
-<!--
-TODO
-For production quality code, see our best practices topic.
--->
 
 
 ### Source code for C# sample
@@ -125,33 +109,23 @@ Paste this source code into your **Program.cs** file.
 	}
 
 
-## Step 3: Find the connection string
+## Step 3: Find the connection string for your database
 
 
-1. Open the [Azure portal](http://portal.azure.com/), so you can find the connection string for your database.
+1. Open the [Azure portal](http://portal.azure.com/).
 2. Click **Browse** > **SQL Databases** > **“Adventure Works” Database**> **Properties** > **Show Database Connection Strings**.
 
 
 ![Portal](.\media\sql-database-connect-query\ConnectandQuery_portal.png)
 
 
-On the database connection strings blade, you will see the appropriate connection strings for ADO.NET, ODBC, PHP, and JDBC.
+On the database connection strings blade, you see the appropriate connection strings for ADO.NET, ODBC, PHP, and JDBC.
 
 
-## Step 4 Substitute real connection information
+## Step 4: Substitute real connection information
 
 
-1. Update the source code with the connection string.
- - Replace the placeholder, which is *<Your_Connection_String>*.
-2. Add your password to the connection string.
-
-
-<!--
-TODO
-Error, because I had to remove the following phrase from the text, because the source code lacks the claimed phrase. Maybe Casey.K must modify the source code to add the phrase?
-
- replacing {your_password_here}.
--->
+-In the source code you pasted, replace the *<Your_Connection_String>* placeholder with the connection string, and be sure to replace *your_password_here* in that string with your actual password.
 
 
 ## Step 5: Run the application
