@@ -53,10 +53,13 @@ Once your API app is created, you can now use the Dropbox connector as an action
 	![][4]
 4.	You can drop the Dropbox Connector API app into the editor by clicking on the “Dropbox Connector”. Click on the Authorize button. Provide your Dropbox credentials. Click “Allow”
  
-	![][5]![][6]![][7]
+	![][5]
+	![][6]
+	![][7]
 6.	You can now use Dropbox connector in the flow. You can use the Dropbox action "upload File" to upload a file to your Dropbox account.
  
-	![][8]![][9]
+	![][8]
+	![][9]
 
 Configure the input properties for "Upload File" action as follows:
 

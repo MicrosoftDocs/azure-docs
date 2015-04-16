@@ -26,6 +26,13 @@ Azure SQL Database's offers a few outage recovery capabilities:
 
 To learn about preparing for disaster and when to recover your database, visit our [Design for Business Continuity](sql-database-business-continuity-design.md) page. 
 
+##When to initiate recovery 
+
+The recovery operation impacts the application. It requires changing the SQL connection string and could result in permanent data loss. Therefore it should be done only when the outage is likely to last longer than your application's RTO. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
+
+1. Permanent connectivity failure from the application tier to the database
+2. Your Azure Portal shows an alert about an incident in the region with broad impact
+
 ## Recovery to a Geo-replicated secondary
 > [AZURE.NOTE] You must configure [Standard Geo-replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) to use Geo-replication for database recovery. Geo-replication is only available for Standard and Premium databases. 
 

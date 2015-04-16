@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/13/2015"
+   ms.date="04/15/2015"
    ms.author="shkurhek"/>
 
 # Service Tiers
 
-[SQL Database](sql-database-technical-overview.md) is available in Basic, Standard, and Premium service tiers. All three service tiers have an uptime [SLA](http://azure.microsoft.com/support/legal/sla/) of 99.99% and offer predictable performance, flexible business continuity options, security features, and streamlined billing. In addition, with multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Portal. See [Changing Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn369872.aspx) for details.
+[SQL Database](sql-database-technical-overview.md) is available in Basic, Standard, and Premium service tiers. All three service tiers have an uptime [SLA](http://azure.microsoft.com/support/legal/sla/) of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. With multiple performance levels within each service tier, you have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database in the Azure Portal, with zero-downtime for your application. See [Changing Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn369872.aspx) for details.
 
-  > [AZURE.NOTE] Important: Web and Business editions are being retired. Find out how to [upgrade Web and Business editions](sql-database-upgrade-new-service-tiers.md). Please read the Sunset FAQs in the [details](http://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business Editions.
+> [AZURE.IMPORTANT] Web and Business editions are being retired. Find out how to [upgrade Web and Business editions](sql-database-upgrade-new-service-tiers.md). Please read the [Sunset FAQ](http://azure.microsoft.com/pricing/details/sql-database/web-business/) if you plan to continue using Web and Business Editions.
 
 ## Basic
 
-Basic tier is designed for applications with a light transactional workload. A typical use case is a light-weight application that needs a small database with a single operation at any given point in time.
+Basic tier is designed for applications with a light transactional workload. A typical use case is a lightweight application that needs a small database with a single operation at any given point in time.
 
 **Performance, Size & Features**
 
