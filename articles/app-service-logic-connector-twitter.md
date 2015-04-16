@@ -3,7 +3,7 @@
    description="How to use the TwitterConnector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -61,7 +61,8 @@ Once your API app is created, you can now use the Twitter connector as a trigger
 	![][6]
 7.	In the similar way you can use the Twitter actions in the flow. Select a Twitter action and configure the inputs for that respective action.
 
-	![][7] ![][8]
+	![][7] 
+	![][8]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
