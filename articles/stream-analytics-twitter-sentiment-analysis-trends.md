@@ -3,7 +3,7 @@
    description="Learn how to use Stream Analytics to analyze sentiment and trends on Twitter in real-time. This tutorial includes steps from event generation to data on a live dashboard."
    services="stream-analytics"
    documentationCenter=""
-   authors="cjgronlund"
+   authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"/>
 
