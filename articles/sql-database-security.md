@@ -47,7 +47,7 @@ For more information on authenticating to a SQL Database, see [Managing Database
 
 
 ## Authorization: What can you do?
-Authorization refers to what you can do within an Azure SQL Database, and this is controlled by your user account's role memberships and permissions. As a best practice, you should grant users the least privileges necessary. Azure SQL Database makes this easy to manage with roles:
+Authorization refers to what you can do within an Azure SQL Database, and this is controlled by your user account's role memberships and permissions. As a best practice, you should grant users the least privileges necessary. Azure SQL Database makes this easy to manage with roles in T-SQL:
 
 ```
 ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser to read data
