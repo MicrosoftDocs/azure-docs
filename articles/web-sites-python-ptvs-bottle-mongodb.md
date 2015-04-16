@@ -17,11 +17,9 @@
 	ms.author="huguesv"/>
 
 
+# Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
   	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
-
-
-# Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
 

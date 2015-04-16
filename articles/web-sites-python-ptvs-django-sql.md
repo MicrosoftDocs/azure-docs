@@ -22,19 +22,19 @@
 
 # Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
 We'll learn how to use a SQL database hosted on Azure, how to configure the web app to use a SQL database, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-See the [Python Developer Center][] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services][].
+See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
 ## Prerequisites
 
  - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio][]
- - [Python Tools 2.1 for Visual Studio Samples VSIX][]
- - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
- - [Python 2.7 32-bit][]
+ - [Python Tools 2.1 for Visual Studio]
+ - [Python Tools 2.1 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - [Python 2.7 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -92,7 +92,7 @@ For the database, we'll create an Azure SQL database.
 
 You can create a database by following these steps.
 
-1.  Log into the [Azure Portal][].
+1.  Log into the [Azure Portal].
 
 1.  At the bottom of the navigation pane, click **NEW**. , click **Data + Storage** > **SQL Database**.
 
@@ -191,12 +191,12 @@ The Azure .NET SDK provides an easy way to deploy your web web app to Azure App 
 
 Follow these links to learn more about Python Tools for Visual Studio, Django and SQL Database.
 
-- [Python Tools for Visual Studio Documentation][]
-  - [Web Projects][]
-  - [Cloud Service Projects][]
-  - [Remote Debugging on Microsoft Azure][]
-- [Django Documentation][]
-- [SQL Database][]
+- [Python Tools for Visual Studio Documentation]
+  - [Web Projects]
+  - [Cloud Service Projects]
+  - [Remote Debugging on Microsoft Azure]
+- [Django Documentation]
+- [SQL Database]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
