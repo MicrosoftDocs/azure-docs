@@ -30,7 +30,7 @@ Service Fabric is a distributed systems platform that makes it easy to build sca
 
 **Service / Service Type** - Code and configuration that performs a standalone function (it can start and run independently), for example, a queue service or database service. There are two kinds of services types:
 
-- Stateless service: A service that has state where the state is persisted to external storage, such as Azure Databases or Azure Table store. If a node on which an instance of this service is active goes down, another instance is automatixally started on another node.
+- Stateless service: A service that has state where the state is persisted to external storage, such as Azure Databases or Azure Table store. If a node on which an instance of this service is active goes down, another instance is automatically started on another node.
 
 - Stateful service: A service that has state and achieves reliability through replication between replicas on other nodes in the cluster. Stateful services have a primary and multiple secondary replicas. If a node on which a replica of this service is active goes down, a new replica is started on another node and if this was the primary replica, a secondary replica is automatically promoted to a new primary.
 
