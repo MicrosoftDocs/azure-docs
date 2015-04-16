@@ -34,20 +34,20 @@ The following scenarios are covered in this article:
 
 Don't have time to complete the tutorial and just want to get the working solution? No worries. The complete solution is available on [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). See [Get the complete solution](#GetSolution) for quick instructions.
 
-## <a name="Prequisites"></a>Prerequisites
+## Prerequisites
 
 Before following the instructions in this article, you should ensure that you have the following:
 
 - An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) Update 4 or higher.
 
-##<a id="CreateAccount"></a>Step 1: Create a DocumentDB account
+## Step 1: Create a DocumentDB account
 
 Lets get started by creating a DocumentDB account. If you already have an account, you can skip to [Setup your Visual Studio Solution](#SetupVS).
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupVS"></a>Step 2: Setup your Visual Studio Solution
+##<a id="SetupVS"></a> Step 2: Setup your Visual Studio Solution
 
 1. Open **Visual Studio** on your computer.
 2. Select **New** from the **File** menu, and choose **Project**.
@@ -60,7 +60,7 @@ Lets get started by creating a DocumentDB account. If you already have an accoun
 
 Great! You are now ready to start working with DocumentDB.
 
-##<a id="Connect"></a>Step 3: Connect to a DocumentDB account
+##<a id="Connect"></a> Step 3: Connect to a DocumentDB account
 
 We'll start by creating a new instance of the [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) class in order to establish a connection to our DocumentDB account.   We'll need the following references at the beginning of our C# application:  
 
@@ -107,7 +107,7 @@ These keys grant administrative access to your DocumentDB account and the resour
 
 Now that you know how to connect to a DocumentDB account and create an instance of the **DocumentClient** class, let's take a look at working with DocumentDB resources.  
 
-##<a id="CreateDB"></a>Step 4: Create a database
+## Step 4: Create a database
 A [database](documentdb-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of document storage partitioned across collections. Create your new database in your **GetStartedDemo** method after your **DocumentClient** creation.
 
 	// Create a database.
@@ -454,7 +454,7 @@ You should now see the output of your get started app. The output will show the 
 
 > [AZURE.NOTE] If you run the application multiple times without removing the database, you might run into the issue of creating a new database with an id already in use. To avoid this, you can check to see if a database, collection, or document with the same id already exists. For a reference on how this can be achieved, visit our [GitHub page](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started).
 	
-##<a id="GetSolution"></a>Get the complete solution
+##<a id="GetSolution"></a> Get the complete solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 -   [DocumentDB account][documentdb-create-account].
@@ -462,19 +462,12 @@ To build the GetStarted solution that contains all the samples in this article, 
 
 To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the **GetStarted** solution in Solution Explorer, and then click **Enable NuGet Package Restore**. Next, in the App.config file, update the EndpointUrl and AuthorizationKey values as described in [Connect to a DocumentDB account](#Connect). 
 
-##<a id="NextSteps"></a>Next steps
+## Next steps
 -   Want a more complex ASP.NET MVC sample? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
 -	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
 
-
-[Connect to a DocumentDB Account]: #Connect
-[Create a database]: #CreateDB
-[Create a collection]: #CreateColl
-[Create documents]: #CreateDoc
-[Query DocumentDB Resources]: #Query
-[Next steps]: #NextSteps
 [doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
