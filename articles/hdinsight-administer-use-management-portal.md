@@ -30,7 +30,7 @@ Using the Azure portal, you can provision Hadoop clusters in Azure HDInsight, ch
 Before you begin this article, you must have the following:
 
 - **Azure subscription** - Azure is a subscription-based platform. For information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
-- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure Storage account, see [How to Create a Storage Account][azure-create-storageaccount].
+- **Azure Storage account** - An HDInsight cluster uses an Azure Blob storage container as the default file system. For more information about how Azure Blob storage provides a seamless experience with HDInsight clusters, see [Use Azure Blob Storage with HDInsight][hdinsight-storage]. For details on creating an Azure Storage account, see [How to Create a Storage Account][azure.create.storageaccount].
 
 ##Provision HDInsight clusters
 
@@ -200,7 +200,7 @@ In this article, you have learned how to create an HDInsight cluster by using th
 [hdinsight-support]: http://azure.microsoft.com/support/options/
 [makecert-info]: http://msdn.microsoft.com/library/bfsktky3(v=vs.110).aspx
 
-[azure-create-storageaccount]: storage-create-storage-account.md 
+[azure.create.storageaccount]: storage-create-storage-account.md 
 [azure-management-portal]: https://manage.windowsazure.com/
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
