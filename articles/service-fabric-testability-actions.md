@@ -1,6 +1,7 @@
 <properties
    pageTitle="Testability Action."
    description="This article talks about the testability actions found in ServiceFabric."
+   services="service-fabric"
    documentationCenter=".net"
    authors="heeldin"
    manager="timlt"
