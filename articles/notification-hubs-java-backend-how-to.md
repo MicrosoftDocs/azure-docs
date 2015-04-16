@@ -3,17 +3,17 @@
 	description="Learn how to use Azure Notification Hubs from a Java back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="01/12/2015" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from Java

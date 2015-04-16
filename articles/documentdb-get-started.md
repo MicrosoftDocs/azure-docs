@@ -459,7 +459,7 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, righ
 -   Want a more complex ASP.NET MVC sample? See [Build a web application with ASP.NET MVC using DocumentDB](documentdb-dotnet-application.md).
 -	Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
 -	Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
--	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../documentation/services/documentdb/).
+-	Learn more about the programming model in the Development section of the [DocumentDB documentation page](../../services/documentdb/).
 
 
 [Connect to a DocumentDB Account]: #Connect
@@ -468,7 +468,7 @@ To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, righ
 [Create documents]: #CreateDoc
 [Query DocumentDB Resources]: #Query
 [Next steps]: #NextSteps
-[doc-landing-page]: ../documentation/services/documentdb/
+[doc-landing-page]: ../../services/documentdb/
 [documentdb-create-account]: documentdb-create-account.md
 [documentdb-manage]: documentdb-manage.md
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using SQL Database from .NET (C#)" 
-	description="Give a code sample you can use to connect to Azure SQL Database."
+	pageTitle="Use SQL Database from .NET (C#)" 
+	description="Use the sample code in this quick start to build a modern application with C# and backed by a powerful relational database in the cloud with Azure SQL Database."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="tobbox" 
@@ -29,7 +29,7 @@
 
 ### A SQL Database
 
-See the [getting started page](http://example.com/) to learn how to create a sample database SQL Database and retrieve your connection string.  
+See the [getting started page](./sql-database-get-started.md) to learn how to create a sample database and get your connection string.  
 
 ## Connect to your SQL Database
 
