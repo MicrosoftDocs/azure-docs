@@ -19,7 +19,7 @@
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
 
-[WACOM.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
+[AZURE.INCLUDE [mobile-services-selector-offline-conflicts](../includes/mobile-services-selector-offline-conflicts.md)]
 
 This topic shows you how to synchronize data and handle conflicts when using the offline capabilities of Azure Mobile Services. This tutorial builds on the steps and the sample app from the previous tutorial [Get Started with Offline Data]. Before you begin this tutorial, you must first complete [Get Started with Offline Data].
 
