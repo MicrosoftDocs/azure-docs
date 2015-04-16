@@ -7,7 +7,7 @@
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
+	ms.services="stream-analytics" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
@@ -19,7 +19,7 @@
 
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database.
 
-[http://azure.microsoft.com/en-us/services/sql-database/](http://azure.microsoft.com/en-us/services/sql-database/)
+[http://azure.microsoft.com/services/sql-database/](http://azure.microsoft.com/services/sql-database/)
 
 To start using an Azure SQL database, you should have the following information about your database:
 
@@ -69,16 +69,16 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ##Using Event Hubs
 
-#Overview
+###Overview
  
 Event Hubs are a highly scalable event ingestor, and typically are the most common way for Stream Analytics data ingress. They're designed to collect event streams from a number of different devices and services. Event Hubs and Stream Analytics together provide customers an end to end solution for real time analytics -- Event Hubs allow customers feed events into Azure in real time, and Stream Analytics jobs can process them in real time.  For example, customers can publish web clicks, sensor readings, online log events to Event Hubs, and create Stream Analytics jobs to use Event Hubs as the input data streams for real time filtering, aggregating and joining.
 Event Hubs can be used for data egress also.  The most common use of EH as output is when the output of an Stream Analytics job will be the input of another streaming job.
 
-#Consumer Groups
+###Consumer Groups
 Each Stream Analytics job input should be configured to have its own event-hub consumer group. When a job contains self-join or multiple outputs, some input may be read by more than one reader, which causes the total number of readers in a single consumer group to exceed the event hub’s limit of 5 readers per consumer group. In this case, the query will need to be broken down into multiple queries and intermediate results routed through additional event hubs. Note that there is also a limit of 20 consumer groups per event hub. For details, see Event Hubs developer guide.
 
  
-#Parameters
+###Parameters
  
 There are a few parameters that customers need to configure for Event Hub data streams.  These parameters apply to both Event Hub input and output data streams, unless noted otherwise.
 
@@ -94,7 +94,7 @@ Partition Key Column:  Optional parameter for Event Hub outputs. The data attri
 
 One can use azure table for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 For more information see:
-  [Introduction to Azure Storage]( http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/)
+  [Introduction to Azure Storage]( http://azure.microsoft.com/documentation/articles/storage-introduction/)
  
 To start using an Azure Table Storage, you should have the following information about your Table:
 
@@ -105,7 +105,7 @@ To start using an Azure Table Storage, you should have the following information
 5.   Row key (currently this is required , according to customers feedback, we are planning to make this optional)
 
 For a better design of Partition key and Row key, please refer article below
-    [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/en-us/library/azure/hh508997.aspx).
+    [Designing a Scalable Partitioning Strategy for Azure Table Storage]( https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 
 ![graphic11]
@@ -129,7 +129,7 @@ Enter the Azure Table information on the next page. The output alias is the name
 ![graphic14]
 ![graphic15]
 
-Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to [https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details 
+Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details 
 
 
 If you are using a Azure storage that exists within the same subscription you're using, you can select "Use Storage Account from Current Subscription", and select the Storage Account from the dropdown.
