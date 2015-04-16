@@ -147,7 +147,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 	  }
 	}
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs].
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
 
 ##<a id="run"></a>Run the MapReduce
 
