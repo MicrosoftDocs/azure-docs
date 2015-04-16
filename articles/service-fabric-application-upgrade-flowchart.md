@@ -34,4 +34,4 @@
 
 
 
-[image]: media/service-fabric-application-lifecycle/service-fabric-application-upgrade-flowchart.png
+[image]: media/service-fabric-application-lifecycle/service-fabric-application-upgrade-flowchart/service-fabric-application-upgrade-flowchart.png
