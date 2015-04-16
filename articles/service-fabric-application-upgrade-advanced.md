@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/15/2015"
-   ms.author="subramar"/>
+   ms.author="mani-ramaswamy"/>
 
 # Advanced Topics
 

@@ -1,3 +1,23 @@
+<properties
+   pageTitle="Service Fabric Application Upgrade Tutorial"
+   description="This article walks through an experience of upgrading a Service Fabric application."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="subramar"
+   manager="samgeo"
+   editor=""/>
+
+<tags
+   ms.service="service-fabric"
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="04/15/2015"
+   ms.author="mani-ramaswamy"/>
+
+
+
 # Application Upgrade Tutorial
 
 This most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next UD or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST.
@@ -93,3 +113,17 @@ Now, as the application upgrade proceeds, you can monitor it using WinFabExplore
 In a few minutes, the UpgradeDomain status using the above PS command should state that all UDs were upgraded (completed). And you should find that the visual objects in your IE window will now have started rotating!
 
 You may want to try changing the versions and moving from version 2 to version 3 as an exercise, or even from version 2 back to version 1 (yes, you can upgrade from v2 to v1). Play with timeouts and health policies to make yourself familiar. When you are deploying to an Azure cluster, the parameters used will be different than those that worked when deploying to a local cluster - it is recommended to set the timeouts conservatively.
+
+
+## Related Topics
+
+
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+
+[Advanced Topics](./service-fabric-application-upgrade-advanced)
+
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

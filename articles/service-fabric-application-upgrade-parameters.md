@@ -19,7 +19,7 @@
 
 
 
-## Application Upgrade Parameters
+# Application Upgrade Parameters
 
 
 
@@ -71,7 +71,11 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService and Max
 
 
 [Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+
 [Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+
 [Advanced Topics](./service-fabric-application-upgrade-advanced)
+
 [Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+
 [Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

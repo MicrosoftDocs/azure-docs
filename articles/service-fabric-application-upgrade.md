@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/15/2015"
-   ms.author="subramar"/>
+   ms.author="mani-ramaswamy"/>
 
 
 # Service Fabric Application Upgrade
@@ -38,11 +38,15 @@ The common mode (and recommended) for upgrade is MonitoredAuto.  MonitoredAuto p
 UnmonitoredManual would need manual intervention after every upgrade on an upgrade domain to kick off the upgrade on the next upgrade domain. There are no Service Fabric health checks that are performed, and is reliant on the intervener to perform the health or status checks before starting the upgrade in the next upgrade domain.
 
 
-## Next steps
+## Related Topics
 
 
 [Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+
 [Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+
 [Advanced Topics](./service-fabric-application-upgrade-advanced)
+
 [Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+
 [Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)

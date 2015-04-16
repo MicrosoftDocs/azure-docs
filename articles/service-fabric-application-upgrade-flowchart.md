@@ -25,9 +25,13 @@
 ## Next Steps
 
 [Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+
 [Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+
 [Advanced Topics](./service-fabric-application-upgrade-advanced)
+
 [Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
 
 
-[image]: ./media/service-fabric-application-upgrade-flowchart.png
+
+[image]: media/service-fabric-application-lifecycle/service-fabric-application-upgrade-flowchart.png
