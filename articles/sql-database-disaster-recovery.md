@@ -47,7 +47,7 @@ In the event of an outage on the primary database, you can recover to a  Geo-rep
 4. At the bottom of your database blade select the **Geo Replication map**.
 4. Under **Secondaries** right click on the row with the name of the database you want to recover to and select **Stop**.
 
-After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###PowerShell
 Use PowerShell to programatically perform database recovery.
 
@@ -56,7 +56,7 @@ To terminate the relationship from the secondary database, use the [Stop-AzureSq
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName"
 		$myDbCopy | Stop-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -ForcedTermination
 		 
-After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###REST API 
 Use REST to programatically perform database recovery.
 
@@ -64,7 +64,7 @@ Use REST to programatically perform database recovery.
 2. Stop the database continuous copy using the [Stop Database Copy](https://msdn.microsoft.com/library/azure/dn509573.aspx) operation.
 Use the secondary server name and database name in the Stop Database Copy request URI
 
- After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+ After the continuous copy relationship is terminated, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ## Recovery using Geo-restore
 
 In the event of an outage of a database, you can recover your database from its latest geo redundant backup using Geo Restore. 
@@ -76,7 +76,7 @@ In the event of an outage of a database, you can recover your database from its 
 3. Specify the rest of the database properties and then click **Create**.
 4. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
 
-After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](articles/sql-database-recovered-finalized.md) guide.
+After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](articles/sql-database-recovered-finalize.md) guide.
 ###PowerShell 
 Use PowerShell to programatically perform database recovery.
 
@@ -86,7 +86,7 @@ To start a Geo-restore request, use the [start-AzureSqlDatabaseRecovery](https:/
 		$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –TargetServerName “TargetServerName”
 		Get-AzureSqlDatabaseOperation –ServerName "TargetServerName" –OperationGuid $RecoveryRequest.RequestID
 
-After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###REST API 
 
 Use REST to programatically perform database recovery.
@@ -99,4 +99,4 @@ Use REST to programatically perform database recovery.
 	
 4.	Track the status of the recovery using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
-After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the database is recovered you can configure it to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
