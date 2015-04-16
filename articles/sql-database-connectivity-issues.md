@@ -17,19 +17,48 @@
 	ms.author="sstein"/>
 
 
-# SQL Database Connection Failures
+# SQL Database Connection Issues
 
 This article provides an overview on how to use various troubleshooters when you cannot connect to Azure SQL Database.
 
 
-1. Determine if the connectivity issue is specific to an application or all application(s) connecting to the database
-	- Use SQL Server Management Studio or SQLCMD.EXE to verify connectivity to the database from a different application   
-2. Is the application running in Azure (Cloud Services or Web Role or Web Site)?
-	- Ensure that firewall rule to allow all Azure services is enabled for the server/database 
-3. Is the application running outside of Azure (accessing SQL Database from a private network)?
-	- Ensure that firewall rule to allow access from specific network(s) is enabled for the server/database
-4. If the firewall configuration is accurate then proceed with the [Connectivity Troubleshooter](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)
+## Determine if the connectivity issue is specific to an individual application, or if you  simply cannot connect to the database?
 
-Guidelines on how to connect to SQL Database using various libraries and performing retry logic can be found [here](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
+Use SQL Server Management Studio or SQLCMD.EXE to verify that you can connect to the database.
 
- 
+- For directions on connecting to SQL Database with SQL Server Management Studio (SSMS), see [How to connect to an Azure SQL Database with SSMS](sql-database-connect-to-database.md).
+- For directions on connecting to SQL Database with SQLCMD, see [How to: Connect to Azure SQL Database Using sqlcmd](https://msdn.microsoft.com/library/azure/ee336280.aspx).
+
+
+
+## Is the application trying to connect to SQL Database running in Azure (for example, is the application that is failing to connect to the database a Cloud Service or Web App)?
+
+Ensure that firewall rule to allow all Azure services is enabled for the server/database.
+
+- For information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/en-us/library/azure/ee621782.aspx#ConnectingFromAzure)
+
+
+
+## Is the application trying to connect to SQL Database from a private network?
+
+Ensure that firewall rules to allow access from specific network(s) is enabled for the server/database
+
+- For general information about firewall rules, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
+- For directions on setting up firewall rules, see [https://msdn.microsoft.com/library/azure/jj553530.aspx](How to: Configure Firewall Settings (Azure SQL Database))
+
+
+## If the firewall rules are configured correctly, then try the [Troubleshoot Microsoft Azure SQL Database connectivity](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1) guided walkthrough.
+
+
+
+
+## Additional Information
+
+- For additional information about connecting to SQL Database, see [Guidelines for Connecting to Azure SQL Database Programmatically](https://msdn.microsoft.com/library/azure/ee336282.aspx).   
+
+- Details about specific connection errors can be found in the **Connection-Loss Errors** section in [Error Messages (Azure SQL Database)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)
+
+- Connection event data can be accessed by querying for connectivity events using the [**sys.event_log (Azure SQL Database)**](https://msdn.microsoft.com/library/dn270018.aspx) view.
+
+- Metrics of database connectivity events can be accessed by querying the [**sys.database_connection_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) view.
+
