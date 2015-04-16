@@ -36,7 +36,7 @@ A screenshot from the completed app is below:
 
 Completing this tutorial requires XCode and [Xamarin Studio] for OS X or the Xamarin Visual Studio plug-in for Visual Studio on Windows. The sample will run on iOS 5.0 and newer.
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile services that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-new-service"> </a>Create a new mobile service
 
