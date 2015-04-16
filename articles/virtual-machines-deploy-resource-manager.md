@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="4/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="josephd"/>
 
 # Deploying Virtual Machines using Azure Resource Manager with PowerShell or xplat-cli
