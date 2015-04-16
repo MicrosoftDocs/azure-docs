@@ -3,7 +3,7 @@
    description="How to use the TwitterConnector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
