@@ -23,22 +23,22 @@
 
 # Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
-In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
+In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
 We'll learn how to use one of the hosted MongoDB services on Azure, how to configure the application to use MongoDB, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-See the [Python Developer Center][] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services][].
+See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services.  While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
 ## Prerequisites
 
  - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio][]
- - [Python Tools 2.1 for Visual Studio Samples VSIX][]
- - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
- - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
- - [RoboMongo][] (optional)
+ - [Python Tools 2.1 for Visual Studio]
+ - [Python Tools 2.1 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - [Python 2.7 32-bit] or [Python 3.4 32-bit]
+ - [RoboMongo] (optional)
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -76,7 +76,7 @@ As an alternative, you can create your own Virtual Machine running on Azure, the
 
 You can create a free trial with MongoLab by following these steps.
 
-1.  Log into the [Azure Management Portal][].
+1.  Log into the [Azure Management Portal].
 
 1.  At the bottom of the navigation pane, click **NEW**.
 
@@ -98,7 +98,7 @@ You can create a free trial with MongoLab by following these steps.
 
 In this section, we'll configure our application to use the MongoDB database we just created.  We'll see how to obtain connection settings from the Azure portal.  Then we'll run the application locally.
 
-1.  In [Azure Management Portal][], click on **MARKETPLACE**, then click on the MongoLab service you created earlier.
+1.  In [Azure Management Portal], click on **MARKETPLACE**, then click on the MongoLab service you created earlier.
 
 1.  Click on **CONNECTION INFO**.  You can use the copy button to put the value of **MONGOLAB_URI** on the clipboard.
 
@@ -128,7 +128,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 ## Explore the MongoDB Database
 
-You can use an application such as [RoboMongo][] to query and make edits to a MongoDB database. In this section we'll use RoboMongo to view the contents of the polls application database.
+You can use an application such as [RoboMongo] to query and make edits to a MongoDB database. In this section we'll use RoboMongo to view the contents of the polls application database.
 
 1.  Create a new connection.  You'll need the **MONGOLAB_URI** we retrieved in the previous section.
 
@@ -179,7 +179,7 @@ The Azure .NET SDK provides an easy way to deploy your web application to Azure.
 
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1.  In [Azure Management Portal][], click on the web app created in the previous section.
+1.  In [Azure Management Portal], click on the web app created in the previous section.
 
 1.  In the top menu, click on **CONFIGURE**.
 
@@ -203,14 +203,14 @@ In this section, we'll configure environment variables for the Web Apps instance
 
 Follow these links to learn more about Python Tools for Visual Studio, Bottle and MongoDB.
 
-- [Python Tools for Visual Studio Documentation][]
-  - [Web Projects][]
-  - [Cloud Service Projects][]
-  - [Remote Debugging on Microsoft Azure][]
-- [Bottle Documentation][]
-- [MongoDB][]
-- [PyMongo Documentation][]
-- [PyMongo][]
+- [Python Tools for Visual Studio Documentation]
+  - [Web Projects]
+  - [Cloud Service Projects]
+  - [Remote Debugging on Microsoft Azure]
+- [Bottle Documentation]
+- [MongoDB]
+- [PyMongo Documentation]
+- [PyMongo]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

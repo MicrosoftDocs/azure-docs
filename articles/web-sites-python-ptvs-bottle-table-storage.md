@@ -21,21 +21,21 @@
 
 # Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio 
 
-In this tutorial, we'll use [Python Tools for Visual Studio][] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=GJXDGaEPy94).
+In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=GJXDGaEPy94).
 
 The polls web app defines an abstraction for its repository, so you can easily switch between different types of repositories (In-Memory, Azure Table Storage, MongoDB).
 
 We'll learn how to create an Azure Storage account, how to configure the web app to use Azure Table Storage, and how to publish the web app to [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714)s.
 
-See the [Python Developer Center][] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services][].
+See the [Python Developer Center] for more articles that cover development of Azure App Service Web Apps with PTVS using Bottle, Flask and Django web frameworks, with MongoDB, Azure Table Storage, MySQL and SQL Database services. While this article focuses on App Service, the steps are similar when developing [Azure Cloud Services].
 
 ## Prerequisites
 
  - Visual Studio 2012 or 2013
- - [Python Tools 2.1 for Visual Studio][]
- - [Python Tools 2.1 for Visual Studio Samples VSIX][]
- - [Azure SDK Tools for VS 2013][] or [Azure SDK Tools for VS 2012][]
- - [Python 2.7 32-bit][] or [Python 3.4 32-bit][]
+ - [Python Tools 2.1 for Visual Studio]
+ - [Python Tools 2.1 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] or [Azure SDK Tools for VS 2012]
+ - [Python 2.7 32-bit] or [Python 3.4 32-bit]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -69,7 +69,7 @@ In this section, we'll create a Visual Studio project using a sample template. W
 
 To use storage operations, you need an Azure storage account. You can create a storage account by following these steps.
 
-1.  Log into the [Azure Portal][].
+1.  Log into the [Azure Portal].
 
 2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](azure-preview-portal-using-resource-groups.md) for it.
 
@@ -113,7 +113,7 @@ In this section, we'll configure our application to use the storage account we j
 
 It's easy to view and edit storage tables using Server Explorer in Visual Studio. In this section we'll use Server Explorer to view the contents of the polls application tables.
 
-> [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET][].
+> [AZURE.NOTE] This requires Microsoft Azure Tools to be installed, which are available as part of the [Azure SDK for .NET].
 
 1.  Open **Server Explorer**. Expand **Azure**, **Storage**, your storage account, then **Tables**.
 
@@ -154,7 +154,7 @@ The Azure .NET SDK provides an easy way to deploy your web app to Azure App Serv
 
 In this section, we'll configure environment variables for the Web Apps instance.
 
-1.  In [Azure Portal][], open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
+1.  In [Azure Portal], open the web app's blade by clicking **Browse** > **Web Apps** > your web app name.
 
 1.  In your web app's blade, click **All Settings**, then click **Application Settings**.
 
@@ -178,14 +178,14 @@ In this section, we'll configure environment variables for the Web Apps instance
 
 Follow these links to learn more about Python Tools for Visual Studio, Bottle and Azure Table Storage.
 
-- [Python Tools for Visual Studio Documentation][]
-  - [Web Projects][]
-  - [Cloud Service Projects][]
-  - [Remote Debugging on Microsoft Azure][]
-- [Bottle Documentation][]
-- [Azure Storage][]
-- [Azure SDK for Python][]
-- [How to Use the Table Storage Service from Python][]
+- [Python Tools for Visual Studio Documentation]
+  - [Web Projects]
+  - [Cloud Service Projects]
+  - [Remote Debugging on Microsoft Azure]
+- [Bottle Documentation]
+- [Azure Storage]
+- [Azure SDK for Python]
+- [How to Use the Table Storage Service from Python]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

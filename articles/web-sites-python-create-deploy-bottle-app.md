@@ -36,17 +36,17 @@ You will create a web app using the Bottle web framework (see alternate versions
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.1 for Visual Studio][] (optional)
+- [Python Tools 2.1 for Visual Studio] (optional)
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
 ### Windows
 
-If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7][] or [Azure SDK for Python 3.4][] using Web Platform Installer. This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines). Alternatively, you can get Python from [python.org][].
+If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer. This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines). Alternatively, you can get Python from [python.org].
 
-For Git, we recommend [Git for Windows][] or [GitHub for Windows][]. If you use Visual Studio, you can use the integrated Git support.
+For Git, we recommend [Git for Windows] or [GitHub for Windows]. If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools 2.1 for Visual Studio][]. This is optional, but if you have [Visual Studio][], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.1 for Visual Studio]. This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
@@ -88,7 +88,7 @@ Local development server support. Use this to run the application locally.
     \BottleWebProject.pyproj
     \BottleWebProject.sln
 
-Project files for use with [Python Tools for Visual Studio][].
+Project files for use with [Python Tools for Visual Studio].
 
     \ptvs_virtualenv_proxy.py
 
@@ -369,13 +369,13 @@ Browse to the Azure URL to view your changes.
 
 Follow these links to learn more about Bottle and Python Tools for Visual Studio: 
  
-- [Bottle Documentation][]
-- [Python Tools for Visual Studio Documentation][] 
+- [Bottle Documentation]
+- [Python Tools for Visual Studio Documentation]
 
 For information on using Azure Table Storage and MongoDB:
 
-- [Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio][]
-- [Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio][]
+- [Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio]
+- [Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

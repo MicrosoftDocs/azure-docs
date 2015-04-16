@@ -35,17 +35,17 @@ You will create an application using the Flask web framework (see alternate vers
 - Python 2.7 or 3.4
 - setuptools, pip, virtualenv (Python 2.7 only)
 - Git
-- [Python Tools 2.1 for Visual Studio][] (optional)
+- [Python Tools 2.1 for Visual Studio] (optional)
 
 **Note**: TFS publishing is currently not supported for Python projects.
 
 ### Windows
 
-If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7][] or [Azure SDK for Python 3.4][] using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org][].
+If you don't already have Python 2.7 or 3.4 installed (32-bit), we recommend installing [Azure SDK for Python 2.7] or [Azure SDK for Python 3.4] using Web Platform Installer.  This installs the 32-bit version of Python, setuptools, pip, virtualenv, etc (32-bit Python is what's installed on the Azure host machines).  Alternatively, you can get Python from [python.org].
 
-For Git, we recommend [Git for Windows][] or [GitHub for Windows][].  If you use Visual Studio, you can use the integrated Git support.
+For Git, we recommend [Git for Windows] or [GitHub for Windows].  If you use Visual Studio, you can use the integrated Git support.
 
-We also recommend installing [Python Tools 2.1 for Visual Studio][].  This is optional, but if you have [Visual Studio][], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
+We also recommend installing [Python Tools 2.1 for Visual Studio].  This is optional, but if you have [Visual Studio], including the free Visual Studio Community 2013 or Visual Studio Express 2013 for Web, then this will give you a great Python IDE.
 
 ### Mac/Linux
 
@@ -161,7 +161,7 @@ Press F5 to start debugging, and your web browser will open automatically to the
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation][] for more information on the various features.
+You can set breakpoints in the sources, use the watch windows, etc.  See the [PTVS documentation] for more information on the various features.
 
 ### Make changes
 
@@ -370,13 +370,13 @@ Browse to the Azure URL to view your changes.
 
 Follow these links to learn more about Flask and Python Tools for Visual Studio: 
  
-- [Flask Documentation][]
-- [Python Tools for Visual Studio Documentation][] 
+- [Flask Documentation]
+- [Python Tools for Visual Studio Documentation]
 
 For information on using Azure Table Storage and MongoDB:
 
-- [Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio][]
-- [Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio][]
+- [Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio]
+- [Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
