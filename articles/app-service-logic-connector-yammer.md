@@ -55,14 +55,17 @@ Once your API app is created, you can now use the Yammer connector as a trigger/
 	![][4]
 4. You can drop the Yammer Connector API app into the editor by clicking on the “Yammer Connector”. Click on the Authorize button. Provide your Yammer credentials. Click “Allow”
  
-	![][5]![][6]![][7]
+	![][5]
+	![][6]
+	![][7]
 5.	You can now use Yammer connector in the flow. You can use the new message retrieved from the Yammer trigger ("New Message") in other actions in the flow. Configure the input properties of Yammer trigger as follows:
 
 	- **Group ID** - The ID of the group from which the new message should be retrieved. If the Group ID is not provided, the message will be retrieved from the Following Feed. Group ID can be retrieved from the Group URL in Yammer.
 		Example: Group ID in the below URL is "5453203"
 		https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
  
-	![][8]![][9]
+	![][8]
+	![][9]
 
 	
 
@@ -78,7 +81,8 @@ Once your API app is created, you can now use the Yammer connector as a trigger/
 		- Content transfer Encoding
 		- Content Type
 
-	![][10]![][11]
+	![][10]
+	![][11]
 
 
 

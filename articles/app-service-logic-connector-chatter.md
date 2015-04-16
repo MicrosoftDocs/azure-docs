@@ -55,12 +55,15 @@ Once your API app is created, you can now use the Chatter connector as a trigger
 	![][4]
 4. You can drop the Chatter Connector API app into the editor by clicking on the “Chatter Connector”. Click on the Authorize button. Provide your credentials. Click “Allow”
  
-	![][5]![][6]![][7]
+	![][5]
+	![][6]
+	![][7]
 5.	You can now use Chatter connector in the flow. You can use the new message retrieved from the Chatter trigger ("New Message") in other actions in the flow. Configure the input properties for the Chatter trigger as follows:
 	- **Group ID** - Specify the ID of the group from which new message should be retrieved. If Group ID is not provided then new message will be retrieved from the User’s Feed. 
 
  
-	![][8]![][9]
+	![][8]
+	![][9]
 
 
 6. In the similar way you can use the Chatter action in the flow to post a message by selecting "Post Message" action. Configure the input properties for "Post Message" action as follows:
@@ -73,7 +76,8 @@ Once your API app is created, you can now use the Chatter connector as a trigger
 	- 	**Mentions** - Array of user names to be tagged in this message
 	- 	**Hashtags** - Array of hashtags to be posted along the message
 
-	![][10]![][11] 
+	![][10]
+	![][11] 
 
 
 
