@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/08/2015" 
+	ms.date="04/16/2015" 
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  
@@ -232,12 +232,13 @@ Next, create your documents within your **GetStartedDemo** async method.
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
  
+You have now created the following database, collection, and documents in your DocumentDB account.
+
+![Diagram illustrating the hierarchical relationship between the account, the database, the collection, and the documents](./media/documentdb-get-started/account-database.png)
 
 ##<a id="Query"></a>Step 7: Query DocumentDB resources
 
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows various queries - using both DocumentDB SQL syntax as well as LINQ - that we can run against the documents we inserted in the previous step. Add these queries to your **GetStartedDemo** async method.
-
-> [AZURE.NOTE] The FROM keyword within a query is optional; DocumentDB queries are already scoped to a single collection. Therefore, *FROM Familes f* can be swapped with *FROM root r* and DocumentDB will infer that *Familes* and *root* both reference the current collection.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
@@ -295,6 +296,12 @@ DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documen
     {
         Console.WriteLine(item);
     }
+
+The following diagram illustrates how the DocumentDB SQL query syntax is called against the collection you created, and the same logic applies to the LINQ query as well.
+
+![Diagram illustrating the scope and meaning of the query](./media/documentdb-get-started/collection-documents.png)
+
+The [FROM](documentdb-sql-query.md/#from-clause) keyword is optional in the query because DocumentDB queries are already scoped to a single collection. Therefore, "FROM Families f" can be swapped with "FROM root r", or any other variable name you choose. DocumentDB will infer that Families, root,or the variable name you chose, reference the current collection by default. 
 
 ##<a id="DeleteDatabase"></a>Step 8: Delete the database
 
