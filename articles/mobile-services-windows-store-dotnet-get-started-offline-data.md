@@ -2,7 +2,7 @@
 	pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" 
 	documentationCenter="mobile-services" 
-	authors="wesmc7777" 
+	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
