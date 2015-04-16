@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="dotnet" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="01/26/2015" 
-	ms.author="krisragh,donnam"/>
+	ms.date="04/16/2015" 
+	ms.author="krisragh;donnam"/>
 
 
 # Handling Conflicts with Offline Data Sync in Mobile Services
