@@ -35,7 +35,7 @@ Use SQL Server Management Studio or SQLCMD.EXE to verify that you can connect to
 
 Ensure that firewall rule to allow all Azure services is enabled for the server/database.
 
-- For information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/en-us/library/azure/ee621782.aspx#ConnectingFromAzure)
+- For information about firewall rules and enabling connections from Azure, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)
 
 
 
