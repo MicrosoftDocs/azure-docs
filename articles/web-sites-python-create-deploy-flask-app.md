@@ -1,9 +1,8 @@
 <properties 
-	pageTitle="Python Websites with Flask - Azure tutorial" 
-	description="A tutorial that introduces you to running a Python website on Azure." 
+	pageTitle="Creating web apps with Flask in Azure" 
+	description="A tutorial that introduces you to running a Python web app on Azure." 
 	services="app-service\web" 
 	documentationCenter="python" 
-	tags="python"
 	authors="huguesv" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,20 +13,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="04/15/2015" 
 	ms.author="huguesv"/>
 
 
 
 
-# Creating Websites with Flask
+# Creating web apps with Flask in Azure
 
-This tutorial describes how to get started running Python on Azure Websites.  Azure Websites provide limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
+This tutorial describes how to get started running Python in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).  Web Apps provides limited free hosting and rapid deployment, and you can use Python!  As your app grows, you can switch to paid hosting, and you can also integrate with all of the other Azure services.
 
 You will create an application using the Flask web framework (see alternate versions of this tutorial for [Django](web-sites-python-create-deploy-django-app.md) and [Bottle](web-sites-python-create-deploy-bottle-app.md)).  You will create the website from the Azure gallery, set up Git deployment, and clone the repository locally.  Then you will run the application locally, make changes, commit and push them to Azure.  The tutorial shows how to do this from Windows or Mac/Linux.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
 ## Prerequisites
 
@@ -52,35 +52,16 @@ We also recommend installing [Python Tools 2.1 for Visual Studio][].  This is op
 You should have Python and Git already installed, but make sure you have either Python 2.7 or 3.4.
 
 
-## Website Creation on Portal
+## Web app create on the Azure Portal
 
-The first step in creating your app is to create the website via the Azure Management Portal.  To do this, you will need to login to the portal and click the **NEW** button in the bottom left corner. A window will appear. Click **COMPUTE**, **WEB SITE**, then **FROM GALLERY**.
+The first step in creating your app is to create the web app via the [Azure Portal](https://portal.azure.com). 
 
-![](./media/web-sites-python-create-deploy-flask-app/portal-create-site.png)
-
-A window will appear, listing apps available in the gallery. Click the **APP FRAMEWORKS** category on the left, and select **Flask**.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-gallery-flask.png)
-
-In the next page, enter a name and a region for your site, and click the complete button.
-
-The site will be quickly set up. You can click the **BROWSE** button from the bottom toolbar, and you'll see your new Flask application running on Azure.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-website-flask.png)
- 
-Next, you will add support for publishing via Git.  This can be done by choosing **Set up deployment from source control**.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-site-created.png)
-
-From the **Set up deployment** dialog, scroll down and select the **Local Git repository** option. Click the right arrow to continue.
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-setup-deployment.png)
-
-After setting up Git publishing, you will momentarily see a page informing you the repository is being created. When it is ready, you will see instructions on how to connect.  
-
-![](./media/web-sites-python-create-deploy-flask-app/portal-repo-created.png)
-
-We'll follow these instructions in the next sections.
+1. Log into the Azure Portal and click the **NEW** button in the bottom left corner. 
+2. Click **Web + Mobile** > **Azure Marketplace** > **Web Apps**.
+3. In the search box, type "python".
+4. In the search results, select **Flask**, then click **Create**.
+5. Configure the new Flask app, such as creating a new App Service plan and a new resource group for it. Then, click **Create**.
+6. Configure Git publishing for your newly created web app by following the instructions at [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
 
 ## Application Overview
@@ -141,22 +122,20 @@ IIS configuration file.  Created from web.x.y.config on every deployment.
 
     \env\
 
-Python virtual environment.  Created during deployment if a compatible virtual environment doesn't already exist on the site.  Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.
+Python virtual environment.  Created during deployment if a compatible virtual environment doesn't already exist on the app.  Packages listed in requirements.txt are pip installed, but pip will skip installation if the packages are already installed.
 
-The next 3 sections describe how to proceed with the website development under 3 different environments:
+The next 3 sections describe how to proceed with the web app development under 3 different environments:
 
 - Windows, with Python Tools for Visual Studio
 - Windows, with command line
 - Mac/Linux, with command line
 
 
-## Website Development - Windows - Python Tools for Visual Studio
+## Web app development - Windows - Python Tools for Visual Studio
 
 ### Clone the repository
 
-First, clone the repository using the url provided on the Azure portal.
-
-![](./media/web-sites-python-create-deploy-flask-app/ptvs-git-clone.png)
+First, clone the repository using the URL provided on the Azure Portal. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
 Open the solution file (.sln) that is included in the root of the repository.
 
@@ -168,7 +147,7 @@ Now we'll create a virtual environment for local development.  Right-click on **
 
 - Make sure the name of the environment is `env`.
 
-- Select the base interpreter.  Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page).
+- Select the base interpreter.  Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 
 - Make sure the option to download and install packages is checked.
 
@@ -219,11 +198,11 @@ Visual Studio doesn't show the progress of the deployment.  If you'd like to rev
 Browse to the Azure URL to view your changes.
 
 
-## Website Development - Windows - Command Line
+## Web app development - Windows - command line
 
 ### Clone the repository
 
-First, clone the repository using the url provided on the Azure portal, and add the Azure repository as a remote.
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -233,7 +212,7 @@ First, clone the repository using the url provided on the Azure portal, and add 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository).  Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page)
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -298,11 +277,11 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-## Website Development - Mac/Linux - Command Line
+## Web app development - Mac/Linux - command line
 
 ### Clone the repository
 
-First, clone the repository using the url provided on the Azure portal, and add the Azure repository as a remote.
+First, clone the repository using the URL provided on the Azure Portal, and add the Azure repository as a remote. For more information, see [Continuous deployment using GIT in Azure App Service](web-sites-publish-source-control.md).
 
     git clone <repo-url>
     cd <repo-folder>
@@ -312,7 +291,7 @@ First, clone the repository using the url provided on the Azure portal, and add 
 
 We'll create a new virtual environment for development purposes (do not add it to the repository).  Virtual environments in Python are not relocatable, so every developer working on the application will create their own locally.
 
-Make sure to use the same version of Python that is selected for your site (in runtime.txt or the site configuration page).
+Make sure to use the same version of Python that is selected for your web app (in runtime.txt or the **Application Settings** blade of your web app in the Azure Portal).
 
 For Python 2.7:
 
@@ -377,11 +356,6 @@ You will see the output of the deployment script, including virtual environment 
 Browse to the Azure URL to view your changes.
 
 
-## Troubleshooting - Deployment
-
-[AZURE.INCLUDE [web-sites-python-troubleshooting-deployment](../includes/web-sites-python-troubleshooting-deployment.md)]
-
-
 ## Troubleshooting - Package Installation
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-package-installation](../includes/web-sites-python-troubleshooting-package-installation.md)]
@@ -403,6 +377,10 @@ For information on using Azure Table Storage and MongoDB:
 
 - [Flask and MongoDB on Azure with Python Tools 2.1 for Visual Studio][]
 - [Flask and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio][]
+
+## What's changed
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 <!--Link references-->
