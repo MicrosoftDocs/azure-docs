@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="04/15/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -452,6 +452,9 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 9. Click on any data slice from the list and you should see the **DATA SLICE** blade.
 
 	![Data Slice Blade][image-data-factory-dataslice-blade]
+
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
+
 10. Click on the **activity run** from the list at the bottom to see **activity run details**.
 
 	![Activity Run Details blade][image-data-factory-activity-run-details]

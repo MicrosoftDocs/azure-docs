@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with Media Services using Azure Management Portal" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using Azure Management Portal." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Quickstart: Get Started with Media Services using Azure Management Portal
+#Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -226,6 +226,11 @@ Some considerations apply:
 
 
 ![AMSPlayer][AMSPlayer]
+
+
+##Next step
+
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>

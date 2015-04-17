@@ -57,12 +57,7 @@ System-specific properties | When using enterprise systems, there are system-spe
 
 
 ## Create a Connector
-A connector can be created using the Azure portal or using REST APIs. 
-
-
-### Create a Connector using REST APIs
-[See the documentation on how to use the REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
-
+A connector can be created using the Azure portal. 
 
 ### Create a Connector in the Azure Portal
 In the Azure portal, you can create an enterprise connector when creating Logic Apps, Web Apps, or Mobile Apps. Or, you can create one using its own blade. Both ways are easy so it depends on your needs or preferences. Some users prefer to create all the connectors with their specific properties first. Then, create the Logic, Web, or Mobile Apps, and add the connector you created.  
@@ -143,6 +138,9 @@ The following steps add an enterprise connector to Logic Apps, Mobile Apps, or W
 ## Security
 Some of the enterprise connectors us OAuth security. When you add the connector to your App, you **Authorize** the connector by connecting to the enterprise system with your sign-in account and agree to the terms. When you do this, your App and the connector use the sign-in account to authenticate with the system. 
 
+
+### Access Connector using REST APIs
+[See the documentation on how to use Connector REST APIs.](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ## More Enterprise Connector resources
 [Integrate with an on-premises SAP server](app-service-logic-integrate-with-an-on-premise-SAP-server.md)<br/>

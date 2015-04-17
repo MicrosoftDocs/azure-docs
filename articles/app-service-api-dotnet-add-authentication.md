@@ -73,7 +73,7 @@ When you deployed your API app, you deployed it to a resource group. You can add
 
 - **Public (anonymous)** - Anyone can call the API app from outside the resource group without being logged in.
 - **Public (authenticated)** - Only authenticated users are allowed to call the API app from outside the resource group.
-- **Internal** - Only other API apps or web apps in the same resource group are allowed to call the API app.
+- **Internal** - Only other API apps in the same resource group are allowed to call the API app. (Calls from web apps are considered external even if the web apps are in the same resource group.)
 
 When Visual Studio created the resource group for you, it also created a *gateway*.  A gateway is a special web app that handles all requests destined for API apps in the resource group.
 

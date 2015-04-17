@@ -268,11 +268,11 @@ In this tutorial you've seen how to create a simple web application and deploy i
 
 * How to manage a web app in Visual Studio
 
-	For information about web app management functions that you can do in **Server Explorer**, see [Troubleshooting Azure web apps in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+	For information about web app management functions that you can do in **Server Explorer**, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 * How to troubleshoot a web app
 
-	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure web apps in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+	Visual Studio provides features that make it easy to view Azure logs as they are generated in real time. You can also run in debug mode remotely in Azure. For more information, see [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 * How to add database and authorization functionality
 
