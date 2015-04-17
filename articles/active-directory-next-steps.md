@@ -24,9 +24,6 @@
 [Next steps](active-directory-next-steps.md)<br>
 [Learn more](active-directory-learn-map.md)
 
-## Delegate administration
-TBD - how to use Admin Units and assign roles
-
 ## Manage users in Azure AD
 Managing user accounts is more than just creating or deleting users and assigning permissions. You can generate reports on access and usage, set password policies, enable password self-service rest, set up multifactor authentication and more. [Learn more about managing users](https://msdn.microsoft.com/library/azure/hh967609.aspx).
 
