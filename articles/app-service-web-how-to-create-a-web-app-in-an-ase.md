@@ -64,6 +64,6 @@ After creating your web app and ASP it is a good idea to scale it up.  In an ASE
 
 <!--Links-->
 [WhatisASE]:http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
-[Appserviceplans]http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
+[Appserviceplans]:http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
+[HowtoCreateASE]:http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
 [HowtoScale]:http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment
