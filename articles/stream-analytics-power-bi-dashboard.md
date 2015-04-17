@@ -156,16 +156,17 @@ Note that this tutorial demonstrated how to create but one kind of chart for a d
 Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream.analytics.forum.md). 
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
 ## Next steps
 
-- [Introduction to Azure Stream Analytics](stream.analytics.introduction.md)
-- [Get started using Azure Stream Analytics](stream.analytics.get.started.md)
-- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference.md) 
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
+
 
 [graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
 [graphic2]: ./media/stream-analytics-power-bi-dashboard/2-stream-analytics-power-bi-dashboard.png

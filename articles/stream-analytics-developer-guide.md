@@ -186,16 +186,16 @@ The status of Stream Analytics jobs can be inspected in the Azure portal. Runnin
 
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream.analytics.forum.md). 
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
 ## Next steps
 
-- [Introduction to Azure Stream Analytics](stream.analytics.introduction.md)
-- [Get started using Azure Stream Analytics](stream.analytics.get.started.md)
-- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference.md) 
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
 
 
 
