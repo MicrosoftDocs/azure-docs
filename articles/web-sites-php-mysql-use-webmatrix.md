@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="04/17/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -61,7 +61,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 	This step is only necessary if you want to test your application locally.
 
-<h2><a id="CreateWebsite"></a>Create an Azure Website and MySQL database</h2>
+## Create an Azure Website and MySQL database
 
 1. Login to the [Management Portal][preview-portal].
 1. Click the **+ New** icon on the bottom left of the portal.
@@ -190,11 +190,9 @@ You can easily modify your application by editing the local copy of the site you
 	![WebMatrix - Launch site in Remote][Remote_run]
 
 
-# Next Steps
+## Next Steps
 
 You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
-
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
