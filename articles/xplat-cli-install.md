@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="squillace"
+	authors="squillace,dsk-2015"
 	services=""/>
 
 <tags
@@ -20,7 +20,7 @@
 
 This document describes how to install the Azure Cross-Platform Command-Line Interface (xplat-cli) on Windows, Mac, and Linux. The xplat-cli provides a set of open source shell-based commands for managing resources on Microsoft Azure.
 
-> [AZURE.NOTE] If you've already installed the xplat-cli, connect the xplat-cli with your Azure resources. For more, see [How to connect to your Azure Subscription](http://azure.microsoft.com/documentation/articles/xplat-cli/#configure).
+> [AZURE.NOTE] If you've already installed the xplat-cli, connect the xplat-cli with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli.md#configure).
 
 The xplat-cli is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/Azure/azure-xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
