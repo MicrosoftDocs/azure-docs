@@ -104,7 +104,7 @@ In the example below, 2 is the family, 12 is the version and "rel2" is the relea
 
 The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image. 
 
-# Releases
+## Releases
 
 ## Family 4 Releases
 **Windows Server 2012 R2**
