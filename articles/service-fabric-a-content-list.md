@@ -117,7 +117,7 @@ Write trace events from a service **owner: Kunalds**
 
 View trace events for a service using Visual Studio **owner: Kunalds**
 
-Debug a service in Visual Studio using F5 **owner: Kunalds**
+[Debug your Service Fabric Application in Visual Studio using F5](../service-fabric-debugging-your-application) **owner: Kunalds**
 
 
 ### Upgrading your Application owner: Mani
