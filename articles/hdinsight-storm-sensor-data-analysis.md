@@ -169,8 +169,8 @@ Open the **Config.properties** file and add the information you previously used 
 
 	eventhubspout.partitions.count = <the number of partitions for the event hub>
 
-	# if not provided, will use storm's zookeeper settings
-	# zookeeper.connectionstring=localhost:2181
+	## if not provided, will use storm's zookeeper settings
+	## zookeeper.connectionstring=localhost:2181
 
 	eventhubspout.checkpoint.interval = 10
 
