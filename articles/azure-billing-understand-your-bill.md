@@ -76,9 +76,9 @@ To view or download a bill:
 
  **OFFER NAME** | **OFFER TYPE** |  **INCLUDES FREE SERVICES** | **DOWNLOAD** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](http://go.microsoft.com/fwlink/?linkid=285496&clcid=0x409)
-Pay-As-You-Go | Consumption | No| [Sample file](http://download.microsoft.com/download/8/6/8/868702B9-4750-4CF6-8254-FCB8F178EA57/Microsoft Azure PAYG - Sample Invoice.pdf)
-Detailed Usage - csv | N/A | N/A | [Sample file](http://download.microsoft.com/download/8/6/8/868702B9-4750-4CF6-8254-FCB8F178EA57/Microsoft Azure Detailed Usage - Sample CSV.xlsx)
+Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Pay-As-You-Go | Consumption | No| [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
+Detailed Usage - csv | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
 
 ## Header - Customer Information
