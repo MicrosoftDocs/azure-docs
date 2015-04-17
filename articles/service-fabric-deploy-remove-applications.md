@@ -16,7 +16,7 @@
    ms.date="04/10/2015"
    ms.author="alexwun"/>
 
-#Deploy an application
+# Deploy an application
 
 Once an [application type has been packaged][10], it's ready for deployment into a Service Fabric cluster. Deployment involves the following three steps:
 
@@ -24,7 +24,7 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Registering the application type
 3. Creating the application instance
 
-##Upload the application package
+## Upload the application package
 
 Uploading the application package puts it in a location accessible by internal Service Fabric components and can be performed through PowerShell. Before running any PowerShell commands in this article, always start by first connecting to the Service Fabric cluster using **Connect-ServiceFabricCluster**.
 
@@ -63,7 +63,7 @@ Copy application package succeeded
 PS D:\temp>
 ~~~
 
-##Register the application package
+## Register the application package
 
 Registering the application package, makes the application type and version declared in the application manifest available for use. The system will read the package uploaded in the previous step, verify the package (equivalent to running **Test-ServiceFabricApplicationPackage** locally), process the package contents, and copy the processed package to an internal system location.
 
@@ -84,7 +84,7 @@ The **Register-ServiceFabricApplicationType** command  returns only after the ap
 
 The **Get-ServiceFabricApplicationType** command will list all successfully registered application type versions.
 
-##Create the application
+## Create the application
 
 An application can be instantiated using any application type version that has been registered successfully using the **New-ServiceFabricApplication** command. The name of each application must start with the *fabric:* scheme and be unique for each application instance. If there were any default services defined in the application manifest of the target application type, then those will also be created at this time.
 
@@ -146,9 +146,9 @@ PS D:\temp>
 TODO [Upgrade applications][11]
 -->
 
-#Troubleshooting
+## Troubleshooting
 
-##Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
+## Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 
 The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the *Get-ServiceFabricClusterManifest* command:
 
