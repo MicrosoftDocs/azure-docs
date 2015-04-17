@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="article-title" 
-   description="Article description that will be displayed on landing pages and in some search results" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="" 
-   manager="timlt" 
+<properties
+   pageTitle="FabSrv Programming Model Overview"
+   description="FabSrv "
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="masnider"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,100 +12,52 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="required" 
+   ms.workload="required"
    ms.date="03/17/2015"
-   ms.author="Your MSFT alias or your full email address"/>
+   ms.author="masnider@microsoft.com"/>
 
-# Markdown Template (Article Title) 
+# FabSrv Programming Model Overview
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+The FabSrv programming model is one of the top level programming models available for Service Fabric, available alongside the FabAct programming model.
 
-  ![][8]
+## Introduction
 
-Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+FabSrv provides a simplified programming model that provides a common model for writing new services, specifically:
 
-## Subheading 1
+1. A pluggable communication model - use the transport of your choice, like HTTP WebAPI, WebSockets, Custom TCP protocols, etc.
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
-
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
-
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
-
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
- 
-  	![][5]
-
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
-
-  	![][6]
+2. A simplified model for running your own code - compared to lower level Service Fabric abstractions the FabSrv model looks much like programming models that people are used: your code has a well defined entry point and easily managed lifecycle
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
+##When to Use Reliable Services APIs
+If any of the following characterize your application service needs, then the Reliable Services APIs should be considered:
 
-## Subheading 2
+- You need to provide application behavior across multiple units of state (e.g. Orders and Order Line Items)
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
+- Your application’s state can be naturally modelled as IReliableDictionary or IReliableQueue  instances
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
+- Your state needs to be highly available with low latency access
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }   	 
+- Your application needs to control the concurrency or granularity of transacted operations across one or more reliable data structure instances
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
+- You want to manage the communications or control the partitioning scheme for your service
 
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
+- Your code needs a free-threaded runtime environment
+
+- Your application needs to dynamically create or destroy instances of IReliableDictionary or IReliableQueue at runtime
+
+- You need to programmatically control Service Fabric provided backup and restore features for your service’s state*
+
+- Your application needs to maintain change history for its units of state*
+
+- You wish to develop, or consume 3rd party developed, custom state providers*
+
+  [AZURE.NOTE] *Above features available at SDK general availabity
 
 
-    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
 
+## Service Lifecycle
 
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
+## Expected Performance, Density, and Scale
 
-## Subheading 3
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
-
-  + Fusce
-  + Malesuada
-  + Sem
-
-2. Nullam in massa eu tellus tempus hendrerit.
-
-  	![][7]
-
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
- 
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
-
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
-
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+## Next Steps

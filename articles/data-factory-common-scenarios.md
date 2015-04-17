@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Common scenarios for using Azure Data Factory
-There are a wide range of scenarios for data pipelines that span on-premises systems, cloud systems, SaaS systems as well as streaming and batch-based data production.  This section describes a few example scenarios that the Azure Data Factory can support today, and will continue to grow as Hub scenarios.
+This section describes a few example scenarios that the Azure Data Factory can support today, and will continue to grow as Hub scenarios.
+
+> [AZURE.NOTE] Read through the [Introduction to Azure Data Factory][datafactory-introduction] article before reading through this one.   
 
 ##Scenario #1: Data Sources for the Data Hub
 ![Source the Data Hub][image-data-factory-introduction-secenario1-source-datahub]
@@ -50,11 +52,6 @@ See the following topics for consuming data using Power Query:
 - [Power Query: Connect to Microsoft On-premises SQL Server][Power-Query-OnPrem-SQL] 
 
 
-##See Also
-
-1. [Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-2. [Tutorial: Move and process log files using Data Factory][adf-tutorial]. This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
-
 [Power-Query-Azure-Table]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azuretable-storage-HA104122607.aspx
 [Power-Query-Azure-Blob]: http://office.microsoft.com/en-001/excel-help/connect-to-microsoft-azure-blob-storage-HA104113447.aspx
 [Power-Query-Azure-SQL]: http://office.microsoft.com/en-001/excel-help/connect-to-a-microsoft-azure-sql-database-HA104019809.aspx
@@ -69,6 +66,7 @@ See the following topics for consuming data using Power Query:
 
 [adf-tutorial]: data-factory-tutorial.md
 [datafactory-getstarted]: data-factory-get-started.md
+[datafactory-introduction]: data-factory-introduction.md
 
 [image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-common-scenarios/Scenario1SourceDataHub.png
 
