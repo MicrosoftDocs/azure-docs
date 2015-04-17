@@ -1,11 +1,11 @@
 <properties 
    pageTitle="Technical Overview" 
-   description="A technical overview of Service Fabric" 
+   description="A technical overview of Service Fabric. Discusses key concepts and architectural overview" 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="msfussell" 
    manager="timlt" 
-   editor=""/>
+   editor="chackdan"/>
 
 <tags
    ms.service="service-fabric"
@@ -13,42 +13,37 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA" 
-   ms.date="02/18/2015"
+   ms.date="04/14/2015"
    ms.author="mfussell"/>
 
-# Technical Overview 
+# Technical overview of Service Fabric
 
-Service Fabric is a distributed systems platform that makes it easy to build scalable, reliable, low-latency, and easily managed services and applications for the cloud. Service Fabric enables applications and services across all tiers to run reliably at cloud scale with the ability to be patched and managed without downtime.
+Service Fabric is a distributed systems platform that makes it easy to build scalable, reliable, low-latency, and easily managed applications for the cloud. This means that you can focus on your business needs and let Service Fabric take care of ensuring your application is always available and scales. 
 
-## Capabilities
-By using Service Fabric, you can:
+## Key concepts
 
-- Develop stateful, scalable, and highly available applications.
+**Cluster** - A network connected set of virtual or physical machines into which application instances are deployed.  Clusters can scale to thousands of machines.
 
-- Deploy applications at higher density than on virtual machines.
+**Node** - An addressable unit in a cluster. Nodes have characteristics such as placement properties and unique IDs. Nodes can join a cluster and correlate to an operating system instance with Fabric.exe running.
 
-- Deploy different versions of the same application side-by-side.
+**Application / Application Type** - A collection of (micro)services. Think of an application type as a container for one or more service types. 
 
-- Manage the lifecycle of your stateful applications without downtime, including breaking and non-breaking upgrades.
+**Service / Service Type** - Code and configuration that performs a standalone function (it can start and run independently), for example, a queue service or database service. There are two kinds of services types:
 
-- Upgrade and patch services within applications independently.
+- Stateless service: A service that has state where the state is persisted to external storage, such as Azure Databases or Azure Table store. If a node on which an instance of this service is active goes down, another instance is automatically started on another node.
 
-- Monitor and diagnose the health of my applications and set policies to perform automatic repairs.
+- Stateful service: A service that has state and achieves reliability through replication between replicas on other nodes in the cluster. Stateful services have a primary and multiple secondary replicas. If a node on which a replica of this service is active goes down, a new replica is started on another node and if this was the primary replica, a secondary replica is automatically promoted to a new primary.
 
-- Scale-up or scale-down your cluster easily, knowing that the applications will scale according to the available resources.
+**Application Instance** - In a cluster you can create many application instances of an application type, each of which has a specific name. Each application instance can be independently managed and versioned from other application instances of the same type or different type. Additionally they define resource and security isolation.
 
-- Develop a client that can communicate with the applications that are using existing client and server technologies.
+**Service Instance** -  Code that has been instantiated for a service type. Each service instance has a unique name starting with `fabric:/` and is associated with an particular named application instance. 
 
-## Key Concepts
-Cluster- Sentence or two. Links to Further Reading topic(s).
+**Application Package** - The collection of service code packages and the configuration files combined for a particular application. These are the physical files that are deployed and is simply a file and folder format layout. For example, an application package for an email application could contain a queue service package, a frontend service package, and a database service package.
 
-Nodes- Sentence or two. Links to Further Reading topic(s).
+**Programming Models** - There are two programming models available in Service Fabric to build applications: 
 
-Application- Sentence or two. Links to Further Reading topic(s).
-
-Service- Sentence or two. Links to Further Reading topic(s).
-
-Programming models- actor, FabSrv, etc. Links to Further Reading topic(s).
+- Reliable Services - An API to build stateless and stateful services based on `Stateless` and `StatefulService` .NET classes, storing state in .NET reliable collections (Dictionary and Queue) and with the ability to plug in a variety of communication stacks such as Web API and WCF. This is programming model suitable for applications where you need to perform compute across multiple units of state.
+- Reliable Objects - An API to build stateless and stateful objects through the virtual Actor programming model which is suitable for applications with multiple independent units of state and compute. 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

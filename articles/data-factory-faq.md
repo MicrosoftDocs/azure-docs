@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -175,10 +175,6 @@ If you need to stop the pipeline from executing, you can use [Suspend-AzureDataF
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline. 
 
 
-## See Also
-[Introduction to Azure Data Factory][adf-introduction]
-[Get started with Azure Data Factory][adfgetstarted]
-[Troubleshooting Guide for Data Factory][adf-troubleshoot]
 
 [image-rerun-slice]: ./media/data-factory-faq/rerun-slice.png
 
