@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
-	authors="Joseidz" 
+	authors="sidney" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/17/2015" 
-	ms.author="Joseidz"/>
+	ms.author="sidneyh"/>
 
 # Federations migration 
 
