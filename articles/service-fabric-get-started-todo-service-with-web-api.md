@@ -68,23 +68,9 @@ Install-Package Microsoft.AspNet.WebApi.OwinSelfHost
 
 1. Open the **Service.cs** file in the **Todo** project and replace the existing usings with:
 ```c#
-    using System.Fabric.Data;
-    using System.Fabric.Data.Collections;
-    using System.Fabric.Services;
-    using System.Threading;
-    using System.Threading.Tasks;
-```
-1. Within the **Todo** namespace, we add a new interface:
-```c#
-    public interface IState
-    {
-        IReliableObjectStateManager Manager { get; }
-        Task<IReliableObject> GetCollection();
-    }
-```
-1. Implement the _IState_ interface within the service:
-```c#
-    public class Service : StatefulService, IState
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.ServiceFabric.Services;
 ```
 1. Replace the **RunAsync** implementation with the following code:
 ```c#
@@ -93,15 +79,6 @@ Install-Package Microsoft.AspNet.WebApi.OwinSelfHost
         await base.RunAsync(cancellationToken);
     }
 ```
-1. Now we implement our _IState_ interface explicitly:
-```
-    IReliableObjectStateManager IState.Manager { get { return this.StateManager; } }
-    async Task<IReliableObject> IState.GetCollection()
-    {
-        return await this.StateManager.GetOrAddAsync<IReliableQueue<string>>("todo");
-    }
-```
-  Here we are providing access to the _StateManager_ for the service, and also providing access to the Collection which we wish our Controller to use.
 
 1. Override the **CreateCommunicationListener** method to return a Web API listener, which we'll implement in the next section:
 ```c#
@@ -114,7 +91,7 @@ Install-Package Microsoft.AspNet.WebApi.OwinSelfHost
 
 ## Add WebApiListener
 
-To simplify the tutorial, we have created a _WebApiListener_ that utilizes the _IState_ interface, and will create Web Api conrollers that have a matching constructor, passing in the supplied interface.  For details of how this works, please see the [Create a Communication Listener using Web API Tutorial](service-fabric-get-started-communication-listener-with-web-api.md).
+To simplify the tutorial, we have created a _WebApiListener_ that utilizes the _IReliableObjectStateManager_ interface, and will create Web Api conrollers that have a matching constructor, passing in the supplied interface.  For details of how this works, please see the [Create a Communication Listener using Web API Tutorial](service-fabric-get-started-communication-listener-with-web-api.md).
 
 For now, let's add the supplied WebApiListener:
 1. Right-Click **Todo** project
@@ -191,13 +168,14 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 
 1. Replace existing usings with:
 ```c#
-    using System;
-    using System.Fabric.Data.Collections;
-    using System.Net.Http;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using System.Web.Http;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Web.Http;
+using Microsoft.ServiceFabric.Data;
+using Microsoft.ServiceFabric.Data.Collections;
 ```
+
 1. Within the **Todo** namespace, and a private class:
 ```c#
     class HttpAction : IHttpActionResult
@@ -207,23 +185,36 @@ We can now implement our **TodoController** to receive requests via Web API.  In
         Task<HttpResponseMessage> IHttpActionResult.ExecuteAsync(CancellationToken cancellationToken) { return func(); }
     }
 ```
+
   This helper class will allow us to use _async_ operations within the controller.
 
 1. Modify the _TodoController_ class definition to inherit from _ApiController_:
-
+```c#
     public sealed class TodoController : ApiController
+```
 
 1. Add some instance fields for our controller methods:
-    TodoData data = null;
-    IState state = null;
-
-1. Add a constructor the accepts an _IState_ instance and stores it for method use:
 ```c#
-    public TodoController(IState s)
+    TodoData data = null;
+    IReliableObjectStateManager manager = null;
+```
+
+1. Add a constructor that accepts an _IReliableObjectStateManager_ instance and stores it for method use:
+```c#
+    public TodoController(IReliableObjectStateManager s)
     {
-        this.state = s;
+        this.manager = s;
     }
 ```
+
+1. Now add the helper method to get our "Todo" queue:
+```c#
+async Task<IReliableQueue<string>> GetQueueAsync()
+{
+    return await manager.GetOrAddAsync<IReliableQueue<string>>("todo");
+}
+```
+
 1. Now let's implement the "add" method:
 ```c#
     [HttpPost, Route("add")]
@@ -235,20 +226,18 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 ```
   So far we have only received the message, and saved away any incoming data.  But we then create a new _IHttpActionResult_ instance which will call our specified operation method, for asynchronous completion.
 
-1. Now we can perform the actual "add" operation with the provided _IState_ information, and the provided incoming "data" instance.
+1. Now we can perform the actual "add" operation with the provided _IReliableObjectStateManager_ information, and the provided incoming "data" instance.
 ```c#
     async Task<HttpResponseMessage> AddOperation()
     {
         if (data == null || data.value == null)
-        return this.Request.CreateResponse(new TodoError("no todo value supplied"));
-
-        var queue = (IReliableQueue<string>)await state.GetCollection();
-        using (var tx = state.Manager.CreateTransaction())
+          return this.Request.CreateResponse(new TodoError("no todo value supplied"));
+        var queue = await GetQueueAsync();
+        using (var tx = manager.CreateTransaction())
         {
-        await queue.EnqueueAsync(tx, data.value);
-        await tx.CommitAsync();
+            await queue.EnqueueAsync(tx, data.value);
+            await tx.CommitAsync();
         }
-
         return this.Request.CreateResponse(new TodoResult(true));
     }
 ```
@@ -267,18 +256,18 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 
     async Task<HttpResponseMessage> RemoveOperation()
     {
-        var queue = (IReliableQueue<string>)await state.GetCollection();
+        var queue = await GetQueueAsync();
         string value = null;
-        using (var tx = state.Manager.CreateTransaction())
+        using (var tx = manager.CreateTransaction())
         {
-        var cond = await queue.TryDequeueAsync(tx);
-        if (cond.HasValue)
-            value = cond.Value;
-        await tx.CommitAsync();
+            var cond = await queue.TryDequeueAsync(tx);
+            if (cond.HasValue)
+                value = cond.Value;
+            await tx.CommitAsync();
         }
 
         if (value == null)
-        return this.Request.CreateResponse(new TodoResult(false));
+            return this.Request.CreateResponse(new TodoResult(false));
         return this.Request.CreateResponse(new TodoValue(value));
     }
 ```
@@ -289,18 +278,18 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 
     async Task<HttpResponseMessage> PeekOperation()
     {
-        var queue = (IReliableQueue<string>)await state.GetCollection();
+        var queue = await GetQueueAsync();
         string value = null;
-        using (var tx = state.Manager.CreateTransaction())
+        using (var tx = manager.CreateTransaction())
         {
-        var cond = await queue.TryPeekAsync(tx);
-        if (cond.HasValue)
-            value = cond.Value;
-        await tx.CommitAsync();
+            var cond = await queue.TryPeekAsync(tx);
+            if (cond.HasValue)
+                value = cond.Value;
+            await tx.CommitAsync();
         }
 
         if (value == null)
-        return this.Request.CreateResponse(new TodoResult(false));
+            return this.Request.CreateResponse(new TodoResult(false));
         return this.Request.CreateResponse(new TodoValue(value));
     }
 ```
@@ -337,14 +326,10 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 
     >**NOTE**: Your local cluster might be already running, in which case the script will fail with many errors. If you want to clean up the local cluster, run the **CleanCluster.ps1** script under the same folder.
 
-2. You can now build and deploy your service. Press **F5**, and your service will be started. Once the service is running, you can see its output on the **Output** window of Visual Studio.
+1. You can now build and deploy your service. Press **F5**, and your service will be started. Once the service is running, you can see its output on the **Output** window of Visual Studio.
 ![][3]
 
-3. You can now send data to the service, and receive a response, following the PowerShell script:
-```posh
-
-```
-4. To add an item, use the following command:
+1. You can now send data to the service, and receive a response, following the PowerShell script:
 ```posh
 $app = Get-ServiceFabricApplication -ApplicationName 'fabric:/TodoApplication'
 $service = $app | Get-ServiceFabricService
@@ -361,21 +346,21 @@ $argsAdd = @{
     }
 Invoke-RestMethod @args 
 ```
-5. To peek at the item that was just added:
+1. To peek at the item that was just added:
 ```posh
     Invoke-RestMethod "$address/peek"
 ```
-6. To remove the item that was just added:
+1. To remove the item that was just added:
 ```posh
     Invoke-RestMethod "$address/remove"
 ```
-7. To peek at the next item (that doesn't exist):
+1. To peek at the next item (that doesn't exist):
 ```posh
     Invoke-RestMethod "$address/peek"
 ```
-8. The outputs of the above commands look like the following:
+1. The outputs of the above commands look like the following:
 ![][7]
-9. Stop the program.
+1. Stop the program.
 
     >**NOTE**: To debug locally, set break points at the lines of interest. 
 
