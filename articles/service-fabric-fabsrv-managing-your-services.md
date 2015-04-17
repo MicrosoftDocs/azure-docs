@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="article-title" 
-   description="Article description that will be displayed on landing pages and in some search results" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="" 
-   manager="timlt" 
+<properties
+   pageTitle="Managing your Service Fabric applications in Visual Studio"
+   description="You can manage your Microsoft Azure Service Fabric applications and services through Visual Studio."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,100 +12,60 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="required" 
-   ms.date="03/17/2015"
-   ms.author="Your MSFT alias or your full email address"/>
+   ms.workload="na"
+   ms.date="04/14/2015"
+   ms.author="jesseb"/>
 
-# Markdown Template (Article Title) 
+# Managing your Service Fabric applications in Visual Studio
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+You can manage your Microsoft Azure Service Fabric applications and services through Visual Studio. Once you've [setup your development environment](../service-fabric-setup-your-development-environment), you can use the Visual Studio to create Service Fabric applications, add services, or package, register, and deploy applications in your local development cluster.
 
-  ![][8]
+To manage your Service Fabric application, in the Solution Explorer right-click on your application project.
 
-Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+![Manage your Service Fabric application by right-clicking on the Application project][manageservicefabric]
 
-## Subheading 1
+## Deploying your Service Fabric application
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. <a href="http://msdn.microsoft.com/library/azure" target="_blank">Link text for link outside of azure.microsoft.com</a>. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
+Deploying a Service Fabric application combines the following steps into one simple operation.
 
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+1. Creating the application package
+2. Uploading the application package to the image store
+3. Registering the application type
+4. Removing any running application instances
+5. Creating a new application instance
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio. 
+In Visual Studio, deployment is done by right-clicking on your Service Fabric application in the **Solution Explorer** and clicking **Deploy**.  Pressing **F5** will also deploy your application and attach the debugger to all application instances.
 
-2. Aenean tellus lectus, faucibus in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
- 
-  	![][5]
+The deployment can be removed using **Remove Deployment**.  This will reverse the deployment steps above.
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl. 
+## Adding a service to your Service Fabric application
 
-  	![][6]
+You can add new Fabric Services to your application to extend its functionality.  To ensure the service is included in your application package, add the service through the **New Fabric Service...** menu item.
 
+![Add a new Fabric Service to your application][newservice]
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic]
+Select a Service Fabric project type to add to your application, and specify a name for the service.
 
-## Subheading 2
+![Select a Fabric Service project type to add to your application][addserviceproject]
 
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.   
+The new service will be added to your solution and existing application package. The service references will be added to the application manifest. The service will be created and started the next time you deploy the application.
 
-1. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus. 
+![The new service will be added to your application manifest][newserviceapplicationmanifest]
 
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:
-        (NSDictionary *)launchOptions
-        {
-            // Register for remote notifications
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-            return YES;
-        }   	 
+## Packaging your Service Fabric application
 
-2. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia. 
-
-   	    // Because toast alerts don't work when the app is running, the app handles them.
-        // This uses the userInfo in the payload to display a UIAlertView.
-        - (void)application:(UIApplication *)application didReceiveRemoteNotification:
-        (NSDictionary *)userInfo {
-            NSLog(@"%@", userInfo);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
-            [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:
-            @"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-
-
-    > [AZURE.NOTE] Duis sed diam non <i>nisl molestie</i> pharetra eget a est. [Link 2 to another azure.microsoft.com documentation topic]
-
-
-Quisque commodo eros vel lectus euismod auctor eget sit amet leo. Proin faucibus suscipit tellus dignissim ultrices.
-
-## Subheading 3
- 
-1. Maecenas sed condimentum nisi. Suspendisse potenti. 
-
-  + Fusce
-  + Malesuada
-  + Sem
-
-2. Nullam in massa eu tellus tempus hendrerit.
-
-  	![][7]
-
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
- 
-
+An application package needs to be created in order to deploy the application and services to a cluster.  The package organizes the application manifest, service manifest(s), and other necessary package files in a specific layout.  Visual Studio sets up and manages the package in the application project's folder, in the 'pkg' directory.  Clicking **Package** creates or updates the application package.  You may want to do this if you deploy the application using custom Powershell scripts.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam ultricies, ipsum vitae volutpat hendrerit, purus diam pretium eros, vitae tincidunt nulla lorem sed turpis: [Link 3 to another azure.microsoft.com documentation topic]. 
+- [Service Fabric application model](../service-fabric-application-model)
+- [Service Fabric application deployment](../service-fabric-deploy-remove-applications)
+- [Debugging your Service Fabric application](../service-fabric-debugging-your-application)
+- [Visualizing your cluster using Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
 
 <!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Link references--In actual articles, you only need a single period before the slash.>
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[addserviceproject]:./media/service-fabric-fabsrv-managing-your-services/addserviceproject.png
+[manageservicefabric]: ./media/service-fabric-fabsrv-managing-your-services/manageservicefabric.png
+[newservice]:./media/service-fabric-fabsrv-managing-your-services/newservice.png
+[newserviceapplicationmanifest]:./media/service-fabric-fabsrv-managing-your-services/newserviceapplicationmanifest.png
