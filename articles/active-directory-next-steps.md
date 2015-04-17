@@ -34,7 +34,7 @@ Sync user passwords so that your users can sign into Microsoft cloud services (s
 Use groups to assign a common set of permissions and rights to many accounts at once, instead of to each account individually. You can also sync groups from your local on-premises Windows Server Active Directory. Learn more about managing groups in Azure Active Directory. [Learn more about managing groups](https://msdn.microsoft.com/library/azure/dn532279.aspx).
 
 ### View access and usage reports
-Azure AD provides a number of reports for administrators. More reports are available in the paid editions of Azure AD, and there's a reporting API for creating your own custom reports. [Learn more about Azure AD reports](https://msdn.microsoft.com/en-us/library/azure/dn283934.aspx). 
+Azure AD provides a number of reports for administrators. More reports are available in the paid editions of Azure AD, and there's a reporting API for creating your own custom reports. [Learn more about Azure AD reports](https://msdn.microsoft.com/library/azure/dn283934.aspx). 
 
 ## Enforce conditional access policies for registered mobile devices
 Azure AD Device Registration provisions devices with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises. [Learn more about Azure AD Device Registration](https://msdn.microsoft.com/library/azure/dn903763.aspx). 

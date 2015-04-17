@@ -43,8 +43,6 @@ Azure AD directories let you centrally control access to applications and resour
 <br>
 <br>
 
-![][1]
-
 
 
 ### Manage identities in the cloud or extend an on-premises directory 
