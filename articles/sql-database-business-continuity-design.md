@@ -25,7 +25,7 @@ Designing your application for business continuity requires you to answer the fo
 
 ##When to use Geo-restore
 
-SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). No special configuration or additional resource allocation necessary if you choose this method. It allows you to recover your database in any region using the geo-restore command. Use [Recover from an outage](sql-database-business-continuity-recovery.md) section for the details of using geo-restore to recover your application. 
+SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). No special configuration or additional resource allocation necessary if you choose this method. It allows you to recover your database in any region using the geo-restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application. 
 
 You should use the built-in protection if your application meets the following criteria:
 
@@ -37,7 +37,7 @@ You should use the built-in protection if your application meets the following c
 
 ##When to use Geo-replication
 
-Geo-replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-business-continuity-recovery.md) section for using failover to recover your application.
+Geo-replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
 
 You should use the geo-replication if your application meets the following criteria:
 

@@ -1,10 +1,13 @@
-<properties pageTitle="Using Linear Regression in Azure Machine Learning | Azure" 
+﻿<properties 
+	pageTitle="Using Linear Regression in Azure Machine Learning | Azure" 
   description="A comparison of linear regression models in Excel and in Azure Machine Learning Studio" 
+	metaKeywords="" 
   services="machine-learning" 
+	solutions="" 
   documentationCenter="" 
   authors="kbaroni" 
   manager="paulettm" 
-  editor="cgronlun"/>
+	editor="cgronlun"  />
 
 <tags 
   ms.service="machine-learning" 
@@ -13,7 +16,7 @@
   ms.devlang="na" 
   ms.topic="article" 
   ms.date="04/14/2015" 
-  ms.author="kbaroni;"/>
+	ms.author="kbaroni;" />
 
 # Using linear regression in Azure Machine Learning
 

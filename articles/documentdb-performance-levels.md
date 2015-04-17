@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="04/14/2015" 
 	ms.author="johnmac"/>
 
-# Performance levels in DocumentDB #
+#Performance levels in DocumentDB
 
 This article provides an overview of performance levels in [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/). 
 
@@ -27,7 +27,7 @@ After reading this article, you'll be able to answer the following questions:
 -	How do I work with performance levels?
 -	How am I billed for performance levels?
 
-##<a id="Sub1"></a>Introduction to performance levels##
+##Introduction to performance levels
 
 Each DocumentDB collection created under a Standard account is provisioned with an associated performance level. Performance levels are designated as S1, S2 or S3 ranging from lowest to highest in performance. The collection’s performance level determines the amount of service resources reserved for your application. Each collection in a database can have a different performance level allowing you to designate more throughput for frequently accessed collections and less throughput for infrequently accessed collections. 
 
@@ -62,7 +62,7 @@ DocumentDB allows for a rich set of database operations including queries, queri
 
 > [AZURE.NOTE] Performance levels are measured in request units. Each performance level has an associated maximum request unit per second rate. The performance level of a collection can be adjusted through the APIs or the [Azure portal](https://portal.azure.com/).
 
-##<a id="Sub2"></a>Setting performance levels for collections##
+##Setting performance levels for collections
 Once a collection is created, the full allocation of RUs based on the designated performance level are reserved for the collection. For example, if a collection is set as S3 – the collection is capable of processing 2,500 RUs/sec. Each collection reserves its designated throughput and 10GB of database storage. The price of the collection will vary based on the performance level chosen (S1, S2, S3). Note that DocumentDB operates based on capacity reservation; by creating a collection, an application has reserved and is billed for reserved throughput and database storage, regardless of how much of that storage and throughput is actively used.
 
 After collections are created, you can modify the performance level through the DocumentDB SDKs or through the Azure management portal. 
@@ -75,7 +75,7 @@ Request units are reserved for each collection based on the performance level se
 
 > [AZURE.NOTE] When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
-##<a id="Sub3"></a>Working with performance levels##
+##Working with performance levels
 DocumentDB collections allow you to partition your data based on both the query patterns and performance needs of your application. Refer to the [partitioning data documentation](documentdb-partition-data.md) for more details on partitioning data with DocumentDB. With DocumentDB’s automatic indexing and query support, it is quite common to collocate heterogeneous documents within the same collection. The key considerations in deciding whether separate collections should be used include:
 
 - Queries – A collection is the scope for query execution. If you need to query across a set of documents, the most efficient read patterns come from collocating documents in a single collection.
@@ -86,7 +86,49 @@ DocumentDB collections allow you to partition your data based on both the query 
 
 It is recommended that your application makes use of a small number of collections unless you have large storage or throughput requirements. Ensure that you have well understood application patterns for the creation of new collections. You may choose to reserve collection creation as a management action handled outside your application. Similarly, adjusting the performance level for a collection will change the hourly rate at which the collection is billed. You should monitor collection performance levels if your application adjusts these dynamically.
 
-##<a name="NextSteps"></a>Next steps
+##Changing performance levels using the Azure Preview portal
+
+The Azure Preview portal is one option available to you when managing your collections' performance levels. Follow these steps to change a collection's performance level from the Azure Portal.
+
+1. Navigate over to the [**Azure Preview portal**](https://portal.azure.com) from your browser.
+2. Click **Browse** from the jump bar on the left side.
+3. In the **Browse** hub, click **DocumentDB Accounts** under the **Filter by** label.
+4. In the **DocumentDB Accounts** blade, click the DocumentDB account that contains the desired collection.
+5. In the **DocumentDB Account** blade, scroll down to the **Databases** lens and click the database that contains the desired collection. 
+6. In the newly opened **Database** blade, scroll down to the **Collections** lens and select your desired collection.
+7. Finally, within your **Collection** blade, find and click the **Pricing tier** tile in the **Usage** lens.
+8. In the **Choose your pricing tier** blade, click the desired performance level and then click **Select** at the bottom of the blade. 
+
+>[AZURE.NOTE] Changing performance levels of a collection may take up to 2 minutes.
+
+![Changing pricing tier][1]
+
+##Changing performance levels using the .NET SDK
+
+Another option for changing your collections' performance levels is through our SDKs. This section only covers changing a collection's performance level using our [.NET SDK](https://msdn.microsoft.com/library/azure/dn948556.aspx), but the process is similar for our other [SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). If you are new to our .NET SDK, please visit our [getting started tutorial](documentdb-get-started.md).
+
+Here is a code snippet for changing the offer type:
+
+	//Fetch the resource to be updated
+	Offer offer = client.CreateOfferQuery()
+	                          .Where(r => r.ResourceLink == "collection selfLink")    
+	                          .AsEnumerable()
+	                          .SingleOrDefault();
+	                          
+	//Change the user mode to All
+	offer.OfferType = "S3";
+	                    
+	//Now persist these changes to the database by replacing the original resource
+	Offer updated = await client.ReplaceOfferAsync(offer);
+
+Visit [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.aspx) to view additional examples and learn more about our offer methods: 
+
+- [**ReadOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readofferasync.aspx)
+- [**ReadOffersFeedAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readoffersfeedasync.aspx)
+- [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
+- [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx) 
+
+##Next steps
 
 To learn more about pricing and managing data with Azure DocumentDB, explore these resources:
  
@@ -97,4 +139,4 @@ To learn more about pricing and managing data with Azure DocumentDB, explore the
 
 To learn more about DocumentDB, see the Azure DocumentDB [documentation](http://azure.microsoft.com/documentation/services/documentdb/). 
 
-
+[1]: ./media/documentdb-performance-levels/img1.png
