@@ -119,23 +119,30 @@ The output should look like:
 
 	>**NOTE**: Your local cluster might be already running, in which case the script will fail with many errors. If you want to clean up the local cluster, run the **CleanCluster.ps1** script under the same folder.
 
-2. You can now build and deploy your service. Press **F5**, and your service will be started. Once the service is running, you can see its output on the **Output** window of Visual Studio.
-
+1. You can now build and deploy your service. Press **F5**, and your service will be started. Once the service is running, you can see its output on the **Output** window of Visual Studio.
 ![][13]
 
-3. You can now send data to the service, and receive a response, following the PowerShell script:
-
-```PowerShell
-$app = Get-WindowsFabricApplication -ApplicationName 'fabric:/Echo'
-$instance = $app | Get-WindowsFabricService | Get-WindowsFabricPartition | Get-WindowsFabricReplica
-Invoke-RestMethod -Method Post $instance.ReplicaAddress -Body "Hello"
+1. You can now send data to the service, and receive a response, following the PowerShell
+script:
+```posh
+$app = Get-ServiceFabricApplication -ApplicationName 'fabric:/EchoApplication'
+$service = $app | Get-ServiceFabricService
+$partition = $service | Get-ServiceFabricPartition
+$instance = $partition | Get-ServiceFabricReplica
+$address = $instance.ReplicaAddress
+$echo = @{ value = "Hello" };
+$args = @{
+    Uri = $address;
+    Body = ConvertTo-Json $echo;
+    Method = "Post";
+    ContentType = "application/json";
+    }
+Invoke-RestMethod @args
 ```
-
 You will see a response like:
-
 ![][17]
 
-4. Stop the program.
+1. Stop the program.
 
 	>**NOTE**: To debug locally, set break points at the lines of interest. 
 

@@ -14,9 +14,10 @@
       </ExeHost>
     </EntryPoint>
   </CodePackage>
+  <ConfigPackage Name="Config" Version="1.0.0.0"/>
   <Resources>
     <Endpoints>
-      <Endpoint Name="ServiceEndpoint" Protocol="http" Type="Input" />
+      <Endpoint Name="ServiceEndpoint" />
     </Endpoints>
   </Resources>
 </ServiceManifest>

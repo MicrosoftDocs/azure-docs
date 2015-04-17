@@ -1,50 +1,49 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.Fabric;
 using System.Fabric.Description;
-using System.Fabric.Services;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using N = System.Net;
+using System.Web.Http;
+using System.Web.Http.Dependencies;
+using Microsoft.Owin.Hosting;
+using Microsoft.ServiceFabric.Services;
+using Owin;
 
 namespace Echo
 {
-	public delegate string MessageHandler(string body);
-	public class Listener : ICommunicationListener
+	internal class WebApiListener : ICommunicationListener
 	{
-		public static readonly string LocalNode = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
+		// add owin selfhost webapi by:
+		// Install-Package Microsoft.AspNet.WebApi.OwinSelfHost 
 
-		N.HttpListener listener = null;
-
-		public event MessageHandler MessageEvent;
+		/// <summary>
+		/// address provided to Service Fabric for endpoint resolution
+		/// </summary>
 		public string Address { get; private set; }
 
-		public Listener(StatelessService service)
+		/// <summary>
+		/// prefix provided to Web Api listener for local endpoint
+		/// </summary>
+		public string Prefix { get; private set; }
+
+		public WebApiListener()
 		{
-			var erd = GetInputEndpoint(service.ServiceInitializationParameters);
-			this.Address = erd.Protocol + "://" + LocalNode + ":" + erd.Port + "/";
+			// no state manager required
 		}
 
-		public void Initialize(ServiceInitializationParameters p)
+		static readonly string LocalNode = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
+		public void Initialize(ServiceInitializationParameters sip)
 		{
-			listener = new N.HttpListener();
+			this.Address = GetAddress(sip);
 		}
 
-		public Task<string> OpenAsync(CancellationToken cancellationToken)
+		public async Task<string> OpenAsync(CancellationToken cancellationToken)
 		{
-			try
-			{
-				// start the web server and the web socket listener
-				Start(this.Address);
-				return Task.FromResult(this.Address);
-			}
-			catch (Exception ex)
-			{
-				Trace.TraceWarning("Start failed: " + ex.StackTrace);
-				Stop();
-				return null;
-			}
+			// start the web server and the web socket listener
+			await Start();
+			ServiceEventSource.Current.Info("Service is now listening on: " + this.Address);
+			return this.Address;
 		}
 
 		public Task CloseAsync(CancellationToken cancellationToken)
@@ -52,69 +51,118 @@ namespace Echo
 			Stop();
 			return Task.FromResult<bool>(true);
 		}
+
 		public void Abort()
 		{
 			Stop();
 		}
 
-		void RaiseMessageEvent(N.HttpListenerContext context)
+		static EndpointResourceDescription GetInputEndpoint(ServiceInitializationParameters sip)
 		{
-			string body = null;
-			using (StreamReader sr = new StreamReader(context.Request.InputStream))
-				body = sr.ReadToEnd();
-
-			string response = string.Empty;
-			var handler = MessageEvent;
-			if (handler != null)
-				response = handler(body);
-
-			using (var sw = new StreamWriter(context.Response.OutputStream))
-			{
-				sw.Write(response);
-				sw.Flush();
-			}
-		}
-
-		void Start(string path)
-		{
-			listener.Prefixes.Add(path);
-			listener.Start();
-
-			// start the accept/response loop
-			Task.Run(async () =>
-			{
-				while (listener != null && listener.IsListening)
-				{
-					var c = await listener.GetContextAsync();
-					Task t = Task.Run(() => RaiseMessageEvent(c));
-				}
-
-				Trace.TraceInformation("Listener is exiting");
-			});
-
-			Trace.TraceInformation("Now listening on: " + path);
-		}
-
-		void Stop()
-		{
-			if (listener != null)
-			{
-				listener.Close();
-				listener = null;
-			}
-
-			Trace.TraceInformation("listener is stopped");
-		}
-
-		static EndpointResourceDescription GetInputEndpoint(StatelessServiceInitializationParameters init)
-		{
-			foreach (var erd in init.CodePackageActivationContext.GetEndpoints())
+			foreach (var erd in sip.CodePackageActivationContext.GetEndpoints())
 			{
 				if (erd.EndpointType == EndpointType.Input)
 					return erd;
 			}
 
+			ServiceEventSource.Current.Error("No input endpoint found");
 			throw new ApplicationException("No input endpoint found");
+		}
+
+		static long GetId(ServiceInitializationParameters sip)
+		{
+			if (sip is StatefulServiceInitializationParameters)
+				return ((StatefulServiceInitializationParameters)sip).ReplicaId;
+			return ((StatelessServiceInitializationParameters)sip).InstanceId;
+		}
+
+		static string GetAddress(ServiceInitializationParameters sip)
+		{
+			if (sip is StatefulServiceInitializationParameters)
+			{
+				var erd = GetInputEndpoint(sip);
+				var id = GetId(sip);
+				return erd.Protocol + "://" + LocalNode + ":" + erd.Port + "/"
+					+ id + "/" + sip.PartitionId + "/";
+			}
+
+			var config = GetConfig(sip);
+			return config.Protocol + "://" + LocalNode + ":" + config.Port + "/";
+		}
+
+		static ProtocolPort GetConfig(ServiceInitializationParameters sip)
+		{
+			ProtocolPort p = new ProtocolPort();
+            if (sip.CodePackageActivationContext.GetConfigurationPackageNames().Contains("Config"))
+            {
+                var config = sip.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+
+				var service = config.Settings.Sections["Service"];
+				if (service != null)
+				{
+					var portParam = service.Parameters["Port"];
+					if (portParam != null)
+						int.TryParse(portParam.Value, out p.Port);
+
+					var protocolParam = service.Parameters["Protocol"];
+					if (protocolParam != null)
+						p.Protocol = protocolParam.Value;
+
+                    ServiceEventSource.Current.Info("Loaded Config settings: Port=" + p.Port + " Protocol=" + p.Protocol);
+                }
+                else
+                {
+                    ServiceEventSource.Current.Info("No Service section found");
+                }
+            }
+            else
+            {
+                ServiceEventSource.Current.Info("No config found");
+            }
+
+
+			return p;
+		}
+
+		class ProtocolPort
+		{
+			public string Protocol = "http";
+			public int Port = 80;
+		}
+
+		SemaphoreSlim webEvent = new SemaphoreSlim(1);
+		bool webIsRunning = false;
+		Task webTask = null;
+		async Task Start()
+		{
+			Uri u = new Uri(this.Address);
+			this.Prefix = u.Scheme + "://+:" + u.Port + u.LocalPath;
+			await this.webEvent.WaitAsync();
+
+			webTask = Task.Run(async () =>
+			{
+				using (WebApp.Start(this.Prefix, appBuilder => Configuration(appBuilder)))
+				{
+					webIsRunning = true;
+					await webEvent.WaitAsync();
+				}
+
+				webIsRunning = false;
+			});
+		}
+
+		void Stop()
+		{
+			if (webIsRunning)
+				webEvent.Release();
+		}
+
+		void Configuration(IAppBuilder appBuilder)
+		{
+			var config = new HttpConfiguration();
+			config.MapHttpAttributeRoutes();
+			appBuilder.UseWebApi(config);
 		}
 	}
 }
+
