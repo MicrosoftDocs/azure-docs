@@ -19,7 +19,7 @@
 #Scenarios
 ## Chaos Test.
 
-As mentioned before, the task of testing distributed applications is inherently complex. Service Fabric provides the ability to induce faults to test your service business logic the face of faults. However, targeted simulated faults only get you so far. To take the testing one step further we ship the Chaos Test scenario. This scenario simulates continuous interleaved faults throughout the cluster over extended periods of time. Once configured with the rate and kind of faults it runs as a client side tool either using C# APIs or Powershell to generate faults in the cluster hosting your service.
+Testing distributed application can be difficult. Service Fabric gives you the ability to induce fault actions to test your service business logic in the face of failures. However, targeted simulated faults will only get you so far. Since the infrastructure we run our services on is inherently unreliable, Service Fabric provides you with the ability to develop scalable reliable services on top of this unreliable infrastructure. Now In order to extensively test these services we provide the Chaos test scenario to simulate the the unreliable environment easily. The scenario simulates continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once configured with the rate and kind of faults, it runs as a client side tool, through either C# APIs or PowerShell to generate faults in the cluster and your service.
 
 The chaos scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate generates hard to find corner cases. This leads to a significant improvement in the code quality of the service.
 
