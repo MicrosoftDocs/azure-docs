@@ -108,16 +108,8 @@ Testing in production - P2 **owner: rsinha**
 Writing a custom test scenario - P3 **owner: vturecek**
 
 
-### Troubleshoot and monitor services locally owners: kunalds, toddpf
-Connect to and view the local development cluster **owner: Kunalds**
-
-View system events fromm the local development cluster using Visual Studio **owner: Kunalds**
-
-Write trace events from a service **owner: Kunalds**
-
-View trace events for a service using Visual Studio **owner: Kunalds**
-
-[Debug your Service Fabric Application in Visual Studio using F5](../service-fabric-debugging-your-application) **owner: Kunalds**
+### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
+[How to Monitor and Diagnose Services locally](../service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally) - **owner:kunalds**
 
 
 ### Upgrading your Application owner: Mani
@@ -139,22 +131,9 @@ Upgrade an application (PowerShell) **owner: alexwun**
 
 ### Scale Services and Partitions owner: vturecek
 
-### Troubleshoot and monitor deployed services P2 (Phosphorus?)
-Setup Azure Diagnostics and OpInsights to collect diagnostics **owner: Kunalds**
+### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
+Query Health State and Events (PowerShell) **owner: oanapl**
 
-Setup AppInsights to collect metrics and alerts **owner: Kunalds**
-
-Identify slow performance requests in Service Fabric **owner: Kunalds**
-
-Identify slow performance requests in an Actor **owner: Kunalds**
-
-Troubleshoot an application upgrade **owner: Kunalds**
-
-View application upgrade history **owner: Kunalds**
-
-View performance data **owner: Kunalds**
-
-Download crash dumps **owner: Kunalds**
 
 ### Add/Remove Services from Applications P2 owner: vturecek
 
