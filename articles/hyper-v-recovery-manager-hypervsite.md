@@ -177,7 +177,7 @@ After verifying the prerequisites, do the following:
 3. You can configure a virtual machines's failover properties by going to the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**.
 4. Configure the **Role Size** and the **Target network** settings for the virtual machine. On the **Configure**page the following properties can be modified:
 
-	-The target size of the virtual machine when a fail-over is triggered.
+	- The target size of the virtual machine when a fail-over is triggered.
      ![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/VMProperties.png)
 	- The number of network adapters of the target virtual machine - Number of network adapters on a target virtual machine depends on the target size of the virtual machine chosen. The number of network adapters of target virtual machine is minimum of the number of network adapters on the source virtual machine and maximum of network adapters supported by the target size of the virtual machine chosen.  
 	- Network of the target virtual machine - In case source virtual machine has more than one network adapters, then all the network adapters need to be connected to the same azure virtual network.
