@@ -175,7 +175,7 @@ After verifying the prerequisites, do the following:
 
 	The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and initial replication is complete, you can view virtual machines under the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
 3. You can configure a virtual machines's failover properties by going to the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**.
-4. Configure the **Role Size** and the **Target network** settings for the virtual machine. On the **Configure**page the following properties can be modified:
+4. Configure the **Role Size** and the **Target network** settings for the virtual machine. On the **Configure** page the following properties can be modified:
 
 	- The target size of the virtual machine when a fail-over is triggered.
      ![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/VMProperties.png)
