@@ -59,7 +59,8 @@ After verifying the prerequisites, do the following:
 
 
 
-<a name="vault"></a> ### Step 1: Create a vault
+<a name="vault"></a> 
+### Step 1: Create a vault
 
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 
@@ -79,7 +80,8 @@ After verifying the prerequisites, do the following:
 
 <P>Check the status bar to confirm that the vault was successfully created. The vault will be listed as <b>Active</b> on the main Recovery Services page.</P>
 
-<a name="site"></a> ### Step 2: Create a Hyper-V site
+<a name="site"></a>
+### Step 2: Create a Hyper-V site
 
 1. In the Recovery Services page, click the vault to open the Quick Start page. Quick Start can also be opened at any time using the icon.
 
@@ -93,7 +95,8 @@ After verifying the prerequisites, do the following:
 
 	![Hyper-V site](./media/hyper-v-recovery-manager-hypervsite/SRHVSite_CreateSite2.png)
 
-<a name="download"></a> ### Step 3: Prepare Hyper-V servers
+<a name="download"></a>
+### Step 3: Prepare Hyper-V servers
 	
 
 1. In **Prepare Hyper-V servers**, click **Download a registration key** file.
