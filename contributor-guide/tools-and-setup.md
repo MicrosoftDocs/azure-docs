@@ -18,7 +18,6 @@ If you're unfamiliar with Git, you might want to review some Git terminology. T�
 - [Enable two-factor authentication]
 - [Install a markdown editor]
 - [Fork the repository and copy it to your computer]
-- [Install git-credential-winstore]
 - [Configure your user name and email locally]
 - [Next steps]
 
@@ -129,48 +128,37 @@ We author content using simple "markdown" notation in the files, rather than com
 
 1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.
 
-2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).
+2. Cache your credential so you don't have to type your user name and token every time you access a content repository in GitBash! If you don't do this you'll have to manually enter Git credentials every time you execute a command-line Git command that accesses GitHub, and it will drive you nuts.  Copy the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens). You can accept the default permissions for the token.  Save the Personal Access Token in a text file for later reuse.
+
+3. Next, copy the repository to your computer with your credentials embedded in the command string.  To do this, open GitBash.  At the command prompt, enter the following command.  This command creates a azure-content(-pr) drectory on your computer.  If you're using the default location, it will be at c:\users<your Windows user name>\azure-content(-pr).
 
 Public repo:
 
-        git clone https://github.com/<your GitHub user name>/azure-content.git
+        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-content.git
 
 Private repo:
 
-        git clone https://github.com/<your GitHub user name>/azure-content-pr.git
+        git clone https://[your GitHub user name]:[token]@github.com/<your GitHub user name>/azure-content-pr.git
 
- When asked for a password, give the Personal Access Token that you got from [https://github.com/settings/applications#personal-access-tokens](https://github.com/settings/applications#personal-access-tokens).
+For example, this clone command could look something like this:
 
- If you copy-paste the token string, be aware that you don't see the string in the Git Bash window. Paste one time - otherwise, the command will fail with the token string getting repeated by multiple copy-paste actions.
-
- You can accept the default permissions for the token.
+        git clone https://smithj:b428654321d613773d423ef2f173ddf4a312345@github.com/smithj/azure-content-pr.git  
 
 3. Next create a reference to the root repository by entering these commands. This sets up connections to the repository in GitHub so that you can get the latest changes onto your local machine and push your changes back to GitHub.
 
 Public repo:
 
         cd azure-content
-        git remote add upstream https://github.com/Azure/azure-content.git
+        git remote add upstream https://[your GitHub user name]:[token]@github.com/Azure/azure-content.git
         git fetch upstream
 
 Private repo:
 
         cd azure-content-pr
-        git remote add upstream https://github.com/Azure/azure-content-pr.git
+        git remote add upstream https://[your GitHub user name]:[token]@github.com/Azure/azure-content-pr.git
         git fetch upstream
 
-This usually takes a while. After you do this, you won't have to fork again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
-
-## Install git-credential-winstore
-
-Cache your credential so you don't have to type your user name and token every time you access a content repository in GitBash! If you don't do this you'll have to manually enter Git credentials every time you execute a command-line Git command that accesses GitHub, and it will drive you nuts.
-
-1. Download (don't run) the .exe from http://gitcredentialstore.codeplex.com/releases/view/103679
-2. Open a command prompt
-3. Enter the following command, making changes for where you downloaded the executable on your computer. Also change "git.cmd" to "git.exe" if that's what you have on your computer. If you get an error when you run the command as written, chances are that you need to change it ot "git.exe".
-
-        cd c:\users\alias\downloads
-        git-credential-winstore.exe -i "C:\Program Files (x86)\Git\cmd\git.exe"​
+This usually takes a while. After you do this, you won't have to fork again or enter your credentials again. You would only have to copy the forks to a local computer again if you set the tools up on another computer.
 
 
 ## Configure your user name and email locally
