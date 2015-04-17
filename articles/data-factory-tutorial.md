@@ -365,7 +365,7 @@ In this step, you will create the following pipelines:
 
 	![RawGameEventsTable TABLE blade][image-data-factory-monitoring-raw-game-events-table]
 
-	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.    
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.    
 
 	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
 	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
