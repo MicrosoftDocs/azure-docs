@@ -19,8 +19,10 @@
 # Tutorial: Set up Protection Between an On-Premises Hyper-V Site and Azure
 
 
-## <a id="overview" name="overview" href="#overview"></a>Overview
-<p>Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.<p>
+<a id="overview" name="overview" href="#overview"></a>
+## Overview
+
+Azure Site Recovery contributes to your business and workload continuity strategy by orchestrating replication, failover and recovery of virtual machines in a number of deployment scenarios.
 
 This tutorial describes how to deploy Azure Site Recovery to protect workloads running on a Hyper-V server with Windows Server 2012 R2 in an on-premises site. Virtual machines on the Hyper-V server replicate to Azure using Hyper-V replication. This deployment is particularly useful if you have Hyper-V servers in your office or branch office but System Center VMM isn't deployed.
 
@@ -37,12 +39,10 @@ This tutorial describes how to deploy Azure Site Recovery to protect workloads r
 
 Make sure you have everything in place before you begin.
 
-<UL>
-<LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
-<LI><b>Hyper-V</b>—In the source on-premises site you'll need at least one server running Windows Server 2012 R2 with the Hyper-V role. The Hyper-V server should contain one or more virtual machines. The Hyper-V servers should be connected to the Internet, either directly or via a proxy.</LI>
-<LI><b>Virtual machines</b>—Virtual machines you want to protect should conform with Azure prerequisites for virtual machines. See <a href="http://go.microsoft.com/fwlink/?LinkId=522287">Virtual machine support</a>.</LI>
+- **Azure account** — You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.
+- **Hyper-V** — In the source on-premises site you'll need at least one server running Windows Server 2012 R2 with the Hyper-V role. The Hyper-V server should contain one or more virtual machines. The Hyper-V servers should be connected to the Internet, either directly or via a proxy.
+- **Virtual machines** — Virtual machines you want to protect should conform with Azure prerequisites for virtual machines. See <a href="http://go.microsoft.com/fwlink/?LinkId=522287">Virtual machine support</a>.
 
-</UL>
 <a id="tutorial" name="tutorial" href="#tutorial"></a>
 ## Tutorial steps
 After verifying the prerequisites, do the following:
