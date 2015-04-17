@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/10/2015"
+   ms.date="04/17/2015"
    ms.author="alkohli" />
 
 # Failover and disaster recovery for your StorSimple device
@@ -25,12 +25,18 @@ Device failover is orchestrated via the disaster recovery (DR) feature and is in
 ![Devices page](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
 ## Disaster recovery (DR) and device failover
-In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. This process is referred to as the *failover*. During the failover, the volume containers from the source device change ownership and are transferred to the target device.
+In a disaster recovery (DR) scenario, the primary device stops functioning. In this situation, you can move the cloud data associated with the failed device to another device by using the primary device as the *source* and specifying another device as the *target*. You can select one or more volume containers to migrate to the target device. This process is referred to as the *failover*. During the failover, the volume containers from the source device change ownership and are transferred to the target device.
 
->[AZURE.IMPORTANT]
->
+## Considerations for device failover
+In the event of a disaster, you may choose to failover your StorSimple device:
+
+- To a physical device 
+- To itself
+- To a virtual device
+
+For any device failover, keep in mind the following:
+
 - The prerequisites for DR are that all the volumes within the volume containers are offline and the volume containers have an associated cloud snapshot. 
-- You can select one or more volume containers to migrate to the target device. 
 - The available target devices for DR are devices that have sufficient space to accommodate the selected volume containers. 
 - The devices that are connected to your service but do not meet the criteria of sufficient space will not be available as target devices.
 
@@ -88,7 +94,8 @@ Perform the following steps if you only have a single device and need to perform
 
 ## Fail over to a StorSimple virtual device
 
-You must have a StorSimple virtual device created and configured prior to running this procedure. 
+You must have a StorSimple virtual device created and configured prior to running this procedure.
+ 
 >[AZURE.NOTE] **In this release, the amount of storage supported on the StorSimple virtual device is 30 TB.**
 
 Perform the following steps to restore the device to a target StorSimple virtual device.
