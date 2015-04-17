@@ -1,11 +1,11 @@
 <properties 
 	pageTitle="What is Azure Active Directory?" 
-	description="Use Azure Active Directory to extend your existing on-premises identities into the cloud for an improved admin and end user experience while Microsoft keeps Active Directory running in the cloud with high scale, high availability, and integrated disaster recovery. Or, develop Azure AD integrated applications for your organization or for other organizations." 
+	description="Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="curtand" 
 	manager="terrylan" 
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,35 +13,92 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="03/03/2015" 
-	ms.author="justinha"/>
+	ms.date="04/17/2015" 
+	ms.author="curtand"/>
 
 
 # What is Azure Active Directory?
 
-Azure Active Directory is a service that lets you easily achieve all your Identity and Access Management needs as simply as turning on the light. With Azure AD you can create a private identity directory in the cloud. Similarly to Windows Server Active Directory, Azure AD lets you centrally control access to applications and resources. You can easily add existing resources (cloud services or on-premises applications), as well as integrate applications you are developing. With Azure AD, your users get single sign-on access to all their applications, ensuring that they don’t need to know where to find each app and that they don’t need to remember a separate password.
+[What is Azure AD?](active-directory-whatis.md)<br>
+[How does it work?](active-directory-works.md)<br>
+[Get started](active-directory-get-started.md)<br>
+[Next steps](active-directory-next-steps.md)<br>
+[Learn more](active-directory-learn-map.md)
 
+We're all facing the new world of cloud-era problems: problems that we haven't faced before, like new security threats to our systems, and personal devices that are unmanaged. These are cloud-era problems, problems that have arisen because the consumer cloud is here. In addition, we now use the cloud to support customers by providing them with custom portals and personalization. We can also collaborate in the cloud with business partners, suppliers, and business customers that we can invite into SharePoint sites (or participate in their SharePoint sites). 
+
+Even if your enterprise has a huge investment in on-premises Active Directory environments, it's almost certain that you're also interested in cloud services for which Azure Active Directory provides authentication and access. Cloud-era problems are best resolved with a cloud solution. Azure AD provides an easy way to extend your on-premises identity investment to take advantage of cloud services, and you can decide how much of your identity management goes where. 
+ 
+
+> [AZURE.NOTE] To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](http://azure.microsoft.com/pricing/free-trial/).
+
+
+## What is Azure Active Directory?
+
+Azure AD directories let you centrally control access to applications and resources, easily add existing resources (cloud services or on-premises applications), and integrate applications you are developing. Because it is a comprehensive service, Azure AD provides different benefits to people in different roles within an organization.
+
+- If you are a business decision maker, use Azure AD to achieve the promise of cloud applications and a mobile workforce with confidence that your governance requirements are being met.
+- If you are a service provider, use Azure AD to easily address your identity and access needs, connecting your services to your customers’ existing identity solutions while also reaching Microsoft Azure and Office 365 customers. Azure AD can also address all of your back-office access needs, so whether in-house or outsourced, you can be confident the right people have the right access.
+- If you are an IT professional, use Azure AD to increase your control and visibility of operations at "cloud speed." With Azure AD, you will know what people are using and empower them through self-service offerings.
+<br>
+<br>
+
+![][1]
+
+
+
+### Manage identities in the cloud or extend an on-premises directory 
+ 
 Azure AD can be used as a standalone cloud directory or to extend on-premises identity and access management solutions you have into the cloud. In this case you can continue benefiting from your existing investments and on-premises capabilities while leveraging Azure AD to gain identity and access management in the cloud. [Learn more](http://msdn.microsoft.com/library/jj573653).
 
-In addition, you can set rules and policies that control who has access and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](http://azure.microsoft.com/services/multi-factor-authentication/).
+### Single sign-on to any app
 
-All of these rules and policies, including MFA, can be enforced for access to cloud applications or to legacy on-premises applications using the built-in Application Proxy - without the need to rewrite them or expose them directly on the internet. [Learn more about Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx).
+Azure Active Directory provides secure single sign-on to cloud and on-premises applications including Microsoft Office 365 and thousands of SaaS applications such as Salesforce, Workday, DocuSign, ServiceNow, and Box. [Learn more about SaaS apps](http://azure.microsoft.com/marketplace/active-directory/).
+
+### Works with any device
+
+Users can launch applications from a personalized web-based access panel, mobile app, Office 365, or custom company portals using their existing work credentials—and have the same experience whether they’re working on iOS, Mac OS X, Android, or Windows devices. 
+
+### Set rules for access to cloud resources
+
+In addition, you can set rules and policies that control who has access to cloud applications and resources, and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](http://azure.microsoft.com/services/multi-factor-authentication/).
+
+### Set rules for external access 
+
+External users can reach into the on-premises network behind the firewall, securely, by using the built-in Application Proxy. All of the rules and policies you set, including MFA, can be enforced for access to cloud applications or to legacy on-premises applications using Application Proxy - without the need to rewrite them or expose them directly on the internet.  [Learn more about Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx).
+
+### Monitor your users' access 
 
 Finally, Azure AD provides information about what is going on in your organization at your fingertips. With advanced reporting and analytics, you get unique information about your users’ access. For example, using application discovery, you can find out which applications are actively used in your organization. [Learn more about Azure AD cloud app discovery](https://appdiscovery.azure.com/).
 
-Because it is such a comprehensive service, Azure AD provides different benefits to different people within an organization:
+### Simple, consistent experience
 
-- For business decision makers, Azure AD lets you achieve the promise of a mobile workforce and harness the power of cloud applications with the confidence that your governance requirements are being met.
-- For a service providers, Azure AD lets you easily address all of your identity and access needs, connecting your services to you customers’ existing identity solutions while giving you reach to Microsoft Azure and Office 365 customers. Azure AD is your one-stop shop to enable businesses and consumers to easily adopt your solution. Azure AD can also address all of your back-office access needs; whether in-house or outsourced, you can be confident the right people have the right access.
-- For IT professionals, Azure AD increases your control and visibility of operations while achieving velocity and agility of the cloud. Azure AD lets you discover what people are using and empowers them through self-service.
+End users get a simple experience, putting their profiles, applications, and their ability to manage their access to resources in one place, without any need for specialized training. Multi-factor authentication, SaaS applications, hybrid tools, and self-service capabilities are all ready to go. 
 
-The best thing is that with Azure AD everything is pre-integrated. Multi-factor authentication, SaaS applications, hybrid tools, and self-service capabilities are all ready to go. Administrators have access to the Azure AD management portal and Windows PowerShell for comprehensive management. Developers have a consistent set of RESTful APIs and easy access to publishing and consuming application interfaces. End users get a simple experience, putting their profiles, applications, and their ability to manage their access to resources in one place, without any need for specialized training.
+Administrators have access to the Azure AD management portal and Windows PowerShell for comprehensive management. 
 
-Azure AD has a number of functional levels, spanning from a cloud directory with application access to a comprehensive, rule-driven, self-service managed solution. Azure AD is available to everyone for free, sign up now to an Azure trial and your directory will be waiting for you. The directory is yours whether you buy anything or not. To get the full richness of features described here activate your Azure AD premium trial. [Learn more about Azure AD editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
+Developers have a consistent set of RESTful APIs and easy access to publishing and consuming application interfaces. 
+
+### Pick your flavor
+
+Azure AD comes in three flavors:
+
+- The Free edition, which is just a cloud directory service.
+- The Basic edition, which is a cloud directory service that also provides SaaS app access.
+- The Premium edition, which is a comprehensive, rule-driven, self-service managed directory service solution. 
+
+To check out features described here, activate your [free Azure trial](http://azure.microsoft.com/trial/get-started-active-directory/).
+
+[Learn more about Azure AD editions](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 
-**Additional Resources**
 
-* [Sign up for Azure as an organization](/manage/services/identity/organizational-account/)
-* [Azure Identity](/manage/windows/fundamentals/identity/)
-* [Azure AD Library on MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
+## Additional Resources
+
+* [Sign up for Azure as an organization](sign-up-organization.md)
+* [Azure Identity](fundamentals-identity.md)
+
+<!--Image references-->
+[1]: ./media/active-directory-whatis/Azure_Active_Directory.png
+
+
