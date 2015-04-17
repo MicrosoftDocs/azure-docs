@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="squillace,dsk-2015"
+	authors="dsk-2015"
 	services=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/17/2015"
-	ms.author="rasquill"/>
+	ms.author="dkshir"/>
 
 # Install the Azure Cross-Platform Command-Line Interface
 
