@@ -119,16 +119,23 @@ View trace events for a service using Visual Studio **owner: Kunalds**
 
 Debug a service in Visual Studio using F5 **owner: Kunalds**
 
-### Upgrade an Application owner: Mani
-Perform an un-monitored automatic application upgrade **owner: alexwun**
 
-Perform a monitored automatic application upgrade **owner: alexwun**
+### Upgrading your Application owner: Mani
 
-Perform an un-monitored manual application upgrade **owner: alexwun**
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md) **owner: subramar**
+
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
+
+[Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
+
+[Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
+
+[Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
+
+[Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
 Upgrade an application (PowerShell) **owner: alexwun**
 
-Handle application upgrade failures **owner: alexwun**
 
 ### Scale Services and Partitions owner: vturecek
 
