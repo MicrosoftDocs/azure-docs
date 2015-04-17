@@ -77,9 +77,9 @@ You cannot change:
 There are additional dependencies that are not available for customization such as the database and storage.  These are handled by Azure and come with the system.  The system storage supports up to 500 GB for the entire App Service Environment.  
 
 <!--Image references-->
-[1]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEblade.png
-[2]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEnetwork.png
-[3]: ./media/app-service-web-how-to-create-an-app-service-environment/createASEscale.png
+[1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
+[2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
+[3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/

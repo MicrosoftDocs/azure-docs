@@ -19,7 +19,7 @@
 # Securely Connecting to Backend Resources from an App Service Environment #
 
 ## Overview ##
-An App Service Environment is always created in a subnet of a regional [virtual network][virtualnetwork].  A new regional virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing regional virtual network and pre-existing subnet.  (for more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment]).
+An App Service Environment is always created in a subnet of a regional [virtual network][virtualnetwork].  A new regional virtual network and new subnet can be defined at the time an App Service Environment is created.  Alternatively, an App Service Environment can be created in a pre-existing regional virtual network and pre-existing subnet.  For more details on creating an App Service Environment see [How To Create an App Service Environment][HowToCreateAnAppServiceEnvironment].
 
 Inbound and outbound network traffic on a subnet can be controlled using [network security groups][NetworkSecurityGroups].  This is why an App Service Environment must always be created within a subnet.  The subnet provides a network boundary which can be used to lock down inbound traffic behind upstream devices and services such that HTTP and HTTPS traffic is only accepted from specific upstream IP addresses.
 

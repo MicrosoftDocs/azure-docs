@@ -57,10 +57,10 @@ As noted earlier, the owner of the ASE is responsible for the size of the system
 After creating your web app and ASP it is a good idea to scale it up.  In an ASE you always need to have at least 2 instances of your ASP to provide fault tolerance for your apps.  Scaling an ASP in an ASE is the same as normal through the ASP UI.  For more details around scaling read the document here [How to scale a web app in an App Service Environment][HowtoScale]
 
 <!--Image references-->
-[1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createASPnewwebapp.png
-[2]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createASPlocation.png
-[3]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createASPselected.png
-[4]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createASPworkerpool.png
+[1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspnewwebapp.png
+[2]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createasplocation.png
+[3]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspselected.png
+[4]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspworkerpool.png
 
 <!--Links-->
 [WhatisASE]:http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
