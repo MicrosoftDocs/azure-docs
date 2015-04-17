@@ -151,7 +151,7 @@ You can install WebMatrix from the [Management Portal][preview-portal].
 9. Now you can test the application locally. Right click the `index.php` file and select **Launch in browser**. Test the application by adding items, marking them complete, and deleting them.  
 
 
-<h2><a id="Publish"></a>Publish your application</h2>
+## Publish your application
 
 Before publishing your application to Azure Websites, the database connection information in `taskmodel.php` needs to be updated with the connection information you obtained earlier (in the [Create an Azure Web Site and MySQL Database](#CreateWebsite) section).
 
@@ -191,8 +191,6 @@ You can easily modify your application by editing the local copy of the site you
 
 
 ## Next Steps
-
-You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
