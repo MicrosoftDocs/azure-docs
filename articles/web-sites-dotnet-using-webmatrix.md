@@ -213,8 +213,6 @@ You can use WebMatrix to modify the site and republish it to your Azure website.
 
 ## Next Steps
 
-You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
-
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
