@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Azure Service Fabric How to monitor and diagnose services locally"
-   description="How to monitor and diagnose services locally"
+   pageTitle="Microsoft Azure Service Fabric How to monitor and diagnose services locally"
+   description="This article describes how you can monitor and diagnose your services written using Microsoft Azure Service Fabric on a local development machine."
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager=""
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/10/2015"
-   ms.author="kunaldsingh"/>
+   ms.author="kunalds"/>
 
 
 # Monitoring and Diagnosing Services in a local machine development setup
