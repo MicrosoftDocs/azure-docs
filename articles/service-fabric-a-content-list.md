@@ -59,7 +59,7 @@ Create Stateless and Stateful applications using .NET Actor Framework  (volatile
 
 [Reliable Service Programming Model Quick Start](../service-fabric-reliable-services-quick-start.md) **owner: masnider**
 
-[Reliable Services Programming Model Advanced Usage](../service-fabric-reliable-services-advanced-usage) **owner: jesseb**
+[Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
 Communicate with a Service
 
