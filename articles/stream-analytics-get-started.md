@@ -49,7 +49,7 @@ This sample application requires an Azure Storage account or a storage emulator 
 
 ### Generate Event Hubs sample data
 
-1.	Download [Service Bus Event Hubs Getting Started.zip][https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097], and then unzip it to your workstation.
+1.	Download [Service Bus Event Hubs Getting Started.zip](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Event-Hub-286fd097), and then unzip it to your workstation.
 2.	Open the **EventHubSample.sln** solution file in Visual Studio.
 3.	Open **app.config**.
 4.	Specify both the Service Bus and Storage account connection strings. The key names are **Microsoft.ServiceBus.ConnectionString** and **AzureStorageConnectionString**.  
@@ -76,7 +76,7 @@ This sample application requires an Azure Storage account or a storage emulator 
 7. After the events have been sent, press **ENTER** to close the application. 
  
 ### Create an event hub consumer group and shared access policy
-While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group.  We will walk you through the process of creating a Consumer Group below and you can learn more about them [here][https://msdn.microsoft.com/library/azure/dn836025.aspx].
+While there is already a shared access policy on the Service Bus namespace that can be used to connect to everything inside the namespace, for best security practices we will create a separate policy for the event hub only. As a best practice, each Stream Analytics job should read from a single Event Hub Consumer Group.  We will walk you through the process of creating a Consumer Group below and you can learn more about them [here](https://msdn.microsoft.com/library/azure/dn836025.aspx).
 
 1.	From the Azure portal, open the **SERVICE BUS** page, and then click the Service Bus namespace name.
 2.	Click **EVENT HUBS** at the top of the page.
@@ -100,7 +100,7 @@ If you already have an Azure SQL database to use for this tutorial, skip this se
 1.	From the Azure portal, click **NEW**, **DATA SERVICES**, **SQL DATABASE**, **QUICK CREATE**. Specify a database name on an existing or a new SQL Database server.
 2.	Select the newly created database.
 3.	Click **DASHBOARD**, click **Show connection strings** on the right pane of the page, and then copy the **ADO.NET** connection string. You will use it later in the tutorial.  
-4.	Make sure the server-level firewall settings enable you to connect to the database. You can do this by adding a new IP rule under the server's **Configure** tab. For more details, including how to handle dynamic IP, see [Azure SQL Database Firewall][http://msdn.microsoft.com/library/azure/ee621782.aspx].
+4.	Make sure the server-level firewall settings enable you to connect to the database. You can do this by adding a new IP rule under the server's **Configure** tab. For more details, including how to handle dynamic IP, see [Azure SQL Database Firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx).
 
 ### Create output tables
 1.	Open Visual Studio or SQL Server Management Studio.

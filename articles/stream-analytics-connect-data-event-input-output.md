@@ -23,7 +23,7 @@ In this document you will discover the different methods of configuring input so
 
 You can use Azure SQL databases as output for data that is relational in nature or for applications that depend on content being hosted in a database.
 
-[http://azure.microsoft.com/services/sql-database/][http://azure.microsoft.com/services/sql-database/]
+[http://azure.microsoft.com/services/sql-database/](http://azure.microsoft.com/services/sql-database/)
 
 To start using an Azure SQL database, you should have the following information about your database:
 
@@ -98,7 +98,7 @@ Partition Key Column:  Optional parameter for Event Hub outputs. The data attri
 
 One can use azure table for structured data with less constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 For more information see:
-  [Introduction to Azure Storage][http://azure.microsoft.com/storage-introduction/]
+  [Introduction to Azure Storage](http://azure.microsoft.com/storage-introduction/)
  
 To start using an Azure Table Storage, you should have the following information about your Table:
 
@@ -109,7 +109,7 @@ To start using an Azure Table Storage, you should have the following information
 5.   Row key (currently this is required , according to customers feedback, we are planning to make this optional)
 
 For a better design of Partition key and Row key, please refer article below
-[Designing a Scalable Partitioning Strategy for Azure Table Storage][https://msdn.microsoft.com/library/azure/hh508997.aspx].
+[Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 
 
 ![graphic11][graphic11]
@@ -133,7 +133,7 @@ Enter the Azure Table information on the next page. The output alias is the name
 ![graphic14][graphic14]
 ![graphic15][graphic15]
 
-Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx][https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx] for more details 
+Batch Size is the number of records for a batch operation, leave it as default if you are not familiar of it, or refer to [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details 
 
 
 If you are using a Azure storage that exists within the same subscription you're using, you can select "Use Storage Account from Current Subscription", and select the Storage Account from the dropdown.

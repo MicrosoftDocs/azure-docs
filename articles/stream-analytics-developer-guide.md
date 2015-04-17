@@ -133,7 +133,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 - Azure Event Hubs - Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Blob storage - Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage][https://msdn.microsoft.com/library/azure/hh508997.aspx].
+- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
