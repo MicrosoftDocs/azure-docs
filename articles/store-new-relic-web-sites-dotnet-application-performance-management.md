@@ -4,8 +4,8 @@
 	tags="azure-portal"
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
