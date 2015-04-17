@@ -33,7 +33,8 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 
 </div>
 
-## <a id="before" name="before" href="#before"></a>Prerequisites
+<a id="before" name="before" href="#before"></a>
+## Prerequisites
 
 <P>Make sure you have everything in place before you begin.</P>
 
@@ -43,7 +44,8 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 <LI><b>Virtual machines</b>—Virtual machines you want to protect should conform with Azure prerequisites for virtual machines. See <a href="http://go.microsoft.com/fwlink/?LinkId=522287">Virtual machine support</a>.</LI>
 
 </UL>
-## <a id="tutorial" name="tutorial" href="#tutorial"></a>Tutorial steps
+<a id="tutorial" name="tutorial" href="#tutorial"></a>
+## Tutorial steps
 After verifying the prerequisites, do the following:
 <UL>
 <LI><a href="#vault">Step 1: Create a vault</a>—Create an Azure Site Recovery vault.</LI>
