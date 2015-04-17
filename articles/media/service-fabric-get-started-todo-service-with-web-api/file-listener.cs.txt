@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Fabric;
-using System.Fabric.Data;
 using System.Fabric.Description;
-using System.Fabric.Services;
+using Microsoft.ServiceFabric.Data;
+using Microsoft.ServiceFabric.Services;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -31,11 +31,11 @@ namespace Todo
 		/// <summary>
 		/// the <c>State</c> needed by Controllers
 		/// </summary>
-		public IReliableObjectStateManager StateManager { get; private set; }
+		internal IReliableObjectStateManager StateManager { get; private set; }
 
-		public WebApiListener(IReliableObjectStateManager manager)
+		public WebApiListener(IReliableObjectStateManager state)
 		{
-			this.StateManager = manager;
+			this.StateManager = state;
 		}
 
 		static readonly string LocalNode = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
@@ -139,22 +139,22 @@ namespace Todo
 		static readonly object[] EmptyList = new object[0];
 
 		// create matching type signature
-		Type[] istates = new Type[] { typeof(IReliableObjectStateManager) };
+		Type[] IReliableObjectStateManagers = new Type[] { typeof(IReliableObjectStateManager) };
 		
 		// create argument container
 		object[] args = new object[1];
 		
-		public StateResolver(IReliableObjectStateManager manager)
+		public StateResolver(IReliableObjectStateManager state)
 		{
 			// store the instance for future controller creation
-			this.args[0] = manager;
+			this.args[0] = state;
 		}
 		
 		public object GetService(Type t)
 		{
 			if (t.IsSubclassOf(typeof(ApiController)))
 			{
-				var c = t.GetConstructor(istates);
+				var c = t.GetConstructor(IReliableObjectStateManagers);
 				if (c != null)
 					return c.Invoke(args);
 			}

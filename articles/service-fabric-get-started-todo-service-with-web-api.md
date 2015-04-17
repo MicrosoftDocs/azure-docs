@@ -382,4 +382,4 @@ In this tutorial, you created a stateful service with reliable collections, and 
 [10]: ./media/service-fabric-get-started-todo-service-with-web-api/web-api-install.png
 [11]: ./media/service-fabric-get-started-todo-service-with-web-api/web-api-options.png
 [12]: ./media/service-fabric-get-started-todo-service-with-web-api/web-api-setup.png
-[13]: ./media/service-fabric-get-started-todo-service-with-web-api/file-webapilistener.cs.txt
+[13]: ./media/service-fabric-get-started-todo-service-with-web-api/file-listener.cs.txt
