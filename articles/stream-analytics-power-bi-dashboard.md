@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/16/2015" 
+	ms.date="04/20/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
@@ -22,14 +22,14 @@ One of the common use case for Azure Stream Analytics is to analyze high volume 
 
 ##Prerequisites
 
-* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here] (https://www.arin.net/resources/request/org.html) ).
+* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here][https://www.arin.net/resources/request/org.html] ).
 * An input stream for ASA (Azure Stream Analytics) job to consume streaming data from. At this point, ASA accepts input from an Azure Eventhub or Azure Blob Store.  
 
 ##Create Azure Stream Analytics Job
 
-From [Azure Portal] (https://manage.windowsazure.com), click **New, Data Services, Stream Analytics, Quick Create**.
+From [Azure Portal][https://manage.windowsazure.com], click **New, Data Services, Stream Analytics, Quick Create**.
 
-Specifiy the following values, then click **Create Stream Analytics Job**:
+Specifiy the following values, then click **Create Stream Analytics job**:
 
 * **Job Name** - Enter a job name. For example, **DeviceTemperatures**.
 * **Region** - Select the region where you want the job located. Consider placing the job and the event hub in the same region to ensure optimal performance and avoid incurring data transfer costs between regions.
@@ -37,7 +37,7 @@ Specifiy the following values, then click **Create Stream Analytics Job**:
 
 Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
-![graphic1]
+![graphic1][graphic1]
 
 [AZURE.TIP] The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
 
@@ -70,19 +70,19 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 1.  Click **Output** from the top of the page, and then click **Add Output**. You will see Power BI listed as an output option.
 
-![graphic2]
+![graphic2][graphic2]
 
 [AZURE.NOTE] Note - Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
 
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
 
-![graphic3]
+![graphic3][graphic3]
 
-4.  In this step, you have to be careful to use the same Org Id that you are using for your ASA job. At this point, Power BI output has to use the same Org Id that your ASA job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog walking through details of Power BI sign up](http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx).
+4.  In this step, you have to be careful to use the same Org Id that you are using for your ASA job. At this point, Power BI output has to use the same Org Id that your ASA job uses. If you already have Power BI account using the same Org Id, select “Authorize Now”. If not, choose “Sign up now” and use same Org Id as your azure account while signing up for Power BI. [Here is a good blog walking through details of Power BI sign up][http://blogs.technet.com/b/powerbisupport/archive/2015/02/06/power-bi-sign-up-walkthrough.aspx].
 5.  Next you will see a screen like the following:
 
-![graphic4]
+![graphic4][graphic4]
 
 Provide values as below:
 
@@ -123,11 +123,11 @@ Start your job. Validate that your event hub is receiving events and your query 
 
 Go to [Powerbi.com] (https://powerbi.com) and login with your Org Id. If the ASA job query outputs results, you will see your dataset is already created:
 
-![graphic5]
+![graphic5][graphic5]
 
 For creating the dashboard, go to the Dashboards option and create a new Dashboard.
 
-![graphic6]
+![graphic6][graphic6]
 
 In this example we'll lable it "Demo Dashboard".
 
@@ -135,27 +135,37 @@ Now click on the dataset created by your ASA job (pbidemo in our current example
 
 Select Σ temp and time fields. They will automatically go to Value and Axis for the chart:
 
-![graphic7]
+![graphic7][graphic7]
 
 With this, you will automatically get a chart as below:
 
-![graphic8]
+![graphic8][graphic8]
 
 In the value section, click on the drop down for temp and choose **average** for the temperature and on the chart, click on **visualization** and choose **line chart**:
 
-![graphic9]
+![graphic9][graphic9]
 
 You will now get a line chart of average over time.  Using the pin option as below, you can pin this to your dashboard that you previously created:
 
-![graphic10]
+![graphic10][graphic10]
 
 Now when you view the dashboard with this pinned report, you will see report updating in real time. Try changing the data in your events – spike temp or something like that and you will see the real-time effect of that reflected in your dashboard.
 
-Note that this tutorial demonstrated how to create but one kind of chart for a dataset. However, the possibilities with Power BI are unlimited. For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
+Note that this tutorial demonstrated how to create but one kind of chart for a dataset. However, the possibilities with Power BI are unlimited. For another example of a Power BI dashboard, watch the [Getting Started with Power BI][https://youtu.be/L-Z_6P56aas?t=1m58s] video.
 
-Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
+Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview][http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview].
+
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream.analytics.forum.md). 
 
 
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream.analytics.introduction.md)
+- [Get started using Azure Stream Analytics](stream.analytics.get.started.md)
+- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference.md) 
 
 [graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
 [graphic2]: ./media/stream-analytics-power-bi-dashboard/2-stream-analytics-power-bi-dashboard.png

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics developer guide | Azure" 
+	pageTitle="Stream Analytics Key Concepts | Azure" 
 	description="Get guidance on the key components of a Stream Analytics job, including supported inputs and outputs, job configuration details, and exposed metrics." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/16/2015" 
+	ms.date="04/20/2015" 
 	ms.author="jeffstok"/>
 
 
-# Azure Stream Analytics developer guide 
+# Azure Stream Analytics key concepts 
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. In the preview release, Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
 
@@ -51,7 +51,7 @@ For example if the job has a reference input configured in the portal with the p
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV or JSON for reference data.
 
-### Generated Properties
+### Generated properties
 Depending on the input type used in the job, some additional fields with event metadata will be generated. These fields can be queried against just like other input columns. If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
 
 <table border="1">
@@ -133,7 +133,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 - Azure Event Hubs - Choose Event Hubs as an output target for scenarios when multiple streaming pipelines need to be composed together, such as issuing commands back to devices.
 - Azure Blob storage - Use Blob storage for long-term archival of output or for storing data for later processing.
-- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage](https://msdn.microsoft.com/library/azure/hh508997.aspx).
+- Azure Table storage - Azure Table storage is a structured data store with fewer constraints on the schema. Entities with different schema and different types can be stored in the same Azure table. Azure Table storage can be used to store data for persistence and efficient retrieval. For more information, see [Introduction to Azure Storage](storage.introduction.md) and [Designing a Scalable Partitioning Strategy for Azure Table Storage][https://msdn.microsoft.com/library/azure/hh508997.aspx].
 - Azure SQL Database - This output target is appropriate for data that is relational in nature or for applications that depend on content being hosted in a database.
 
 
@@ -186,17 +186,16 @@ The status of Stream Analytics jobs can be inspected in the Azure portal. Runnin
 
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream.analytics.forum). 
+For additional support, see [Azure Stream Analytics forum](stream.analytics.forum.md). 
 
 
 ## Next steps
 
-- [Introduction to Azure Stream Analytics](stream.analytics.introduction)
-- [Get started using Azure Stream Analytics](stream.analytics.get.started)
-- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs)
-- [Azure Stream Analytics limitations and known issues](stream.analytics.limitations)
-- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference)
-- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference) 
+- [Introduction to Azure Stream Analytics](stream.analytics.introduction.md)
+- [Get started using Azure Stream Analytics](stream.analytics.get.started.md)
+- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference.md) 
 
 
 
