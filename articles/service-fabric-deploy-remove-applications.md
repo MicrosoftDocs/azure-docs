@@ -124,7 +124,7 @@ The **Get-ServiceFabricService** command lists all service instances that were s
 
 Multiple application instances can be created for any given version of a registered application type. Each application instance will run in isolation, with its own work directory and process.
 
-#Remove an application
+## Remove an application
 
 When an application instance is no longer needed, it can be permanently removed using the **Remove-ServiceFabricApplication** command. This will automatically remove all services belonging to the application as well, permanently removing all service state. This operation cannot be reversed and application state cannot be recovered.
 
