@@ -175,14 +175,13 @@ After verifying the prerequisites, do the following:
 
 	The Enable Protection jobs begins. You can track progress on the **Jobs** tab. After the Finalize Protection job runs the virtual machine is ready for failover. After protection is enabled and initial replication is complete, you can view virtual machines under the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines**. 
 3. You can configure a virtual machines's failover properties by going to the **Protected Items** > **Protection Groups** > *protectiongroup_name* > **Virtual Machines** *virtual_machine_name* > **Configure**.
-4. Configure the **Role Size** and the **Target network** settings for the virtual machine. 
-	On the **Configure**page the following properties can be modified
-	a. The target size of the virtual machine when a fail-over is triggered. 
-	![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/VMProperties.png)
-	b. The number of network adapters of the target virtual machine - Number of network adapters on a target virtual machine depends on the target size of the virtual machine chosen. The number of network adapters of target virtual machine is minimum of the number of network adapters on the source virtual machine and maximum of network adapters supported by the target size of the virtual machine chosen.  
-	c. Network of the target virtual machine - In case source virtual machine has more than one network adapters, then all the network adapters need to be connected to the same azure virtual network.
-	d. Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.
-	e. Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the IP for the target virtual machine. User can use this capability to retain the IP of the source virtual machine after a fail-over. If no IP is provided any available IP would be given to network adapter at the time of fail-over. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the fail-over would fail.
+4. Configure the **Role Size** and the **Target network** settings for the virtual machine. On the **Configure**page the following properties can be modified
+	-The target size of the virtual machine when a fail-over is triggered.
+     ![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/VMProperties.png)
+	- The number of network adapters of the target virtual machine - Number of network adapters on a target virtual machine depends on the target size of the virtual machine chosen. The number of network adapters of target virtual machine is minimum of the number of network adapters on the source virtual machine and maximum of network adapters supported by the target size of the virtual machine chosen.  
+	- Network of the target virtual machine - In case source virtual machine has more than one network adapters, then all the network adapters need to be connected to the same azure virtual network.
+	- Subnet of each of the network adapters - For each network adapter the user can choose the subnet to which the failed over virtual machine would connect to.
+	- Target IP - If the network adapter of source virtual machine is configured to use static IP then the user can provide the IP for the target virtual machine. User can use this capability to retain the IP of the source virtual machine after a fail-over. If no IP is provided any available IP would be given to network adapter at the time of fail-over. In case the target IP provided by user is already used by some other virtual machine that is already running in Azure then the fail-over would fail.
 	
 	![Configure VM Properites](./media/hyper-v-recovery-manager-hypervsite/MultiNic.png)
 	
