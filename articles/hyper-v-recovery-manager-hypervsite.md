@@ -34,9 +34,10 @@ You can read full deployment instructions in the <a href="http://go.microsoft.co
 </div>
 
 <a id="before" name="before" href="#before"></a>
+
 ## Prerequisites
 
-<P>Make sure you have everything in place before you begin.</P>
+Make sure you have everything in place before you begin.
 
 <UL>
 <LI><b>Azure account</b>—You'll need an Azure account. If you don't have one, see <a href="http://aka.ms/try-azure">Azure free trial</a>. Get pricing information at <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Azure Site Recovery Manager Pricing Details</a>.</LI>
