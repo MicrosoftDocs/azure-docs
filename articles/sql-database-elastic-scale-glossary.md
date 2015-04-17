@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Azure Elastic Scale Glossary" 
-	description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" 
-	services="sql-database" 
-	documentationCenter="" 
-	manager="jhubbard" 
-	authors="sidneyh" 
-	editor=""/>
+    pageTitle="Elastic database tools glossary" 
+    description="Explanation of terms used for elastic database tools" 
+    services="sql-database" 
+    documentationCenter="" 
+    manager="jeffreyg" 
+    authors="sidneyh" 
+    editor=""/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="sidneyh@microsoft.com"/>
+    ms.service="sql-database" 
+    ms.workload="sql-database" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="04/17/2015" 
+    ms.author="sidneyh"/>
 
-#Elastic Scale Glossary
-The following terms are defined for the Elastic Scale feature of Azure SQL Database.
+#Elastic database tools glossary
+The following terms are defined for the elastic database client library and split-merge tool in Azure SQL Database.
 
 ![Elastic Scale terms][1]
 
@@ -77,5 +77,3 @@ The following terms are defined for the Elastic Scale feature of Azure SQL Datab
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
-
-
