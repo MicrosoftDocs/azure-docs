@@ -17,7 +17,7 @@
    ms.author="jesseb"/>
 
 # Advanced usage of the Reliable Services programming model
-Service Fabric simplifies writing and managing reliable stateless and stateful services. Familiarize yourself with the Reliable Services programming model by reading [the overview](../service-fabric-reliable-services-introduction). This guide will talk about advanced usages of the Reliable Services programming model to gain more control and flexibility over your services.
+Service Fabric simplifies writing and managing reliable stateless and stateful services. Familiarize yourself with the Reliable Services programming model by reading [the overview](service-fabric-reliable-services-introduction.md). This guide will talk about advanced usages of the Reliable Services programming model to gain more control and flexibility over your services.
 
 ## Stateless Service base classes
 The StatelessService base class provides CreateCommunicationListener() and RunAsync(), which is sufficient for the majority of stateless services. The StatelessServiceBase class underlies StatelessService and allows you to be notified of additional service lifecycle events.
@@ -59,7 +59,7 @@ StatefulServiceBase also provides the same four lifecycle events as StatelessSer
 
 For more advanced topics related to Service Fabric, see the following articles.
 
-- [Service Fabric Health Introduction](../service-fabric-health-introduction)
-- [Resource Balancing Overview](../service-fabric-resource-balancer-overview)
-- [Placement Constraints Overview](../service-fabric-placement-constraint)
-- [Secure replication traffic of stateful services in Azure Service Fabric](../service-fabric-replication-security)
+- [Service Fabric Health Introduction](service-fabric-health-introduction.md)
+- [Resource Balancing Overview](service-fabric-resource-balancer-overview.md)
+- [Placement Constraints Overview](service-fabric-placement-constraint.md)
+- [Secure replication traffic of stateful services in Azure Service Fabric](service-fabric-replication-security.md)
