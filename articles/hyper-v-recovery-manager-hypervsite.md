@@ -25,13 +25,11 @@
 This tutorial describes how to deploy Azure Site Recovery to protect workloads running on a Hyper-V server with Windows Server 2012 R2 in an on-premises site. Virtual machines on the Hyper-V server replicate to Azure using Hyper-V replication. This deployment is particularly useful if you have Hyper-V servers in your office or branch office but System Center VMM isn't deployed.
 
 
-<LI>This tutorial uses the quickest deployment path with minimum and default settings.
-You can read full deployment instructions in the <a href="http://go.microsoft.com/fwlink/?LinkId=522087">Planning</a> and <a href=" http://go.microsoft.com/fwlink/?LinkId=522088">Deployment</a> guides.</LI>
-<LI>You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.</LI>
-<LI>If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions to the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.</LI>
-</UL>
+- This tutorial uses the quickest deployment path with minimum and default settings. You can read full deployment instructions in the <a href="http://go.microsoft.com/fwlink/?LinkId=522087">Planning</a> and <a href=" http://go.microsoft.com/fwlink/?LinkId=522088">Deployment</a> guides.
 
-</div>
+- You can read about additional Azure Site Recovery deployment scenarios in <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Azure Site Recovery Overview</a>.
+
+- If you run into problems during this tutorial, review the wiki article <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Common Error Scenarios and Resolutions</a>, or post your questions to the <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure Recovery Services Forum</a>.
 
 <a id="before" name="before" href="#before"></a>
 
