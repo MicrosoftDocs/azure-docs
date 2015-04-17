@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/14/2015"
+   ms.date="04/17/2015"
    ms.author="larryfr"/>
 
 #Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
@@ -24,15 +24,15 @@ Learn how to use Apache Storm on HDInsight to process sensor data from Azure Eve
 
 * An Azure subscription
 
-* An <a href="../hdinsight-storm-getting-started/" target="_blank">Apache Storm on HDInsight cluster</a>
+* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
 
-* <a href="http://nodejs.org/" target="_blank">Node.js</a>: Used for the web dashboard and to send sensor data to Event Hub.
+* [Node.js](http://nodejs.org/): Used for the web dashboard and to send sensor data to Event Hub.
 
-* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java and the JDK 1.7</a>
+* [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-* <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
+* [Maven](http://maven.apache.org/what-is-maven.html)
 
-* <a href="http://git-scm.com/" target="_blank">Git</a>
+* [Git](http://git-scm.com/)
 
 > [AZURE.NOTE] Java, the JDK, Maven, and Git are also available through the [Chocolatey NuGet](http://chocolatey.org/) package manager.
 
@@ -54,15 +54,15 @@ This example consists of the following components:
 
 	* The website is implemented in Node.js, so it can run on any client operating system for testing, or it can be deployed to Azure Websites.
 
-	* <a href="http://socket.io/" target="_blank">Socket.io</a> is used for real-time communication between the Storm topology and the website.
+	* [Socket.io](http://socket.io/) is used for real-time communication between the Storm topology and the website.
 
 		> [AZURE.NOTE] This is an implementation detail. You can use any communications framework, such as raw WebSockets or SignalR.
 
-	* <a href="http://d3js.org/" target="_blank">D3.js</a> is used to graph the data that is sent to the website.
+	* [D3.js](http://d3js.org/) is used to graph the data that is sent to the website.
 
-The topology reads data from Event Hub by using the **com.microsoft.eventhubs.spout.EventHubSpout** class, which is provided in the Storm on HDInsight cluster. Communication with the website is accomplished by using <a href="https://github.com/nkzawa/socket.io-client.java" target="_blank">socket.io-client.java</a>.
+The topology reads data from Event Hub by using the **com.microsoft.eventhubs.spout.EventHubSpout** class, which is provided in the Storm on HDInsight cluster. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
-Optionally, communication with HBase is accomplished by using the <a href="https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html" target="_blank">org.apache.storm.hbase.bolt.HBaseBolt</a> class, which is provided as part of Storm.
+Optionally, communication with HBase is accomplished by using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class, which is provided as part of Storm.
 
 The following is a diagram of the topology.
 
@@ -256,7 +256,7 @@ In your development environment, use the following steps to run the Temperature 
 
 ###Publish the website dashboard
 
-1. To deploy the dashboard to an Azure Website, follow the steps in <a href="../web-sites-nodejs-develop-deploy-mac/" target="_blank">Build and deploy a Node.js website to Azure</a>. Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
+1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
 2. When the website is created, go to the site in the Azure portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
@@ -274,7 +274,7 @@ In your development environment, use the following steps to run the Temperature 
 
 	This will create a file named **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** directory of your project.
 
-2. Follow the steps in <a href="../hdinsight-storm-deploy-monitor-topology/" target="_blank">Deploy and manage Storm topologies</a> to upload and start the topology on your Storm on HDInsight cluster by using the **Storm Dashboard**.
+2. Follow the steps in [Deploy and manage Storm topologies](hdinsight-storm-deploy-monitor-topology.md) to upload and start the topology on your Storm on HDInsight cluster by using the **Storm Dashboard**.
 
 3. After the topology has started, open a browser to the website you published on Azure, then use the `node app.js` command to send data to Event Hub. You should see the web dashboard update to display the information.
 
