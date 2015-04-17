@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="04/13/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,8 +22,8 @@
 
 
 <!--
-GeneMi , 2015-April-06 Monday 13:23pm
-Original content from PM PehTeh.
+GeneMi , 2015-April-13 Monday 11:33am
+Original content from PM PehTeh. Updated by TT. Fixing broken table at bottom by removing trailing spaces.
 -->
 
 
@@ -50,16 +50,17 @@ The following table displays libraries that are released by Microsoft. The **Lib
 
 
 ##Third party libraries
-
+*The following table displays libraries that are released by third parties under third party license terms. You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries. You bear the risk of using these libraries. Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users. Nothing herein implies any kind of endorsement by Microsoft.*
 
 The following table displays libraries that are released by third parties such as other companies or by the community, rather than by Microsoft.
 
-| Platform | Libraries | 
+
+| Platform | Libraries |
 | :-- | :-- |
-| Python | pymssql | 
+| Python | pymssql |
 | Node.js | Tedious |
-| Node.js | Node-MSSQL | 
-| Node.js | Edge.js | 
+| Node.js | Node-MSSQL |
+| Node.js | Edge.js |
 
 
 <!--

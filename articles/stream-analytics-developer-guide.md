@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/30/2015" 
+	ms.date="04/13/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -42,8 +42,12 @@ Stream Analytics jobs are defined as one or more input sources, a query over the
 Each Stream Analytics job definition must contain at least one data-stream input source to be consumed and transformed by the job. [Azure Blob storage][azure.blob.storage] and [Azure Event Hubs][azure.event.hubs] are supported as data-stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
 
 ### Reference data
+Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage][azure.blob.storage] is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
-Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. In the preview release, Azure Blob storage is the only supported input source for reference data. A reference data source is limited to 100MB in size.
+To enable support for refreshing reference data the user needs to specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
+
+For example if the job has a reference input configured in the portal with the path pattern such as: /sample/{date}/{time}/products.csv where the date format is “YYYY-MM-DD” and the time format is “HH:mm” than the job will pick up a file named /sample/2015-04-16/17:30/products.csv at 5:30 PM on April 16th 2015 UTC time zone (which is equivalent to 10:30 AM on April 16th 2015 using PST time zone).
+
 
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV or JSON for reference data.

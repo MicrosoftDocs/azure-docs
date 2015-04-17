@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 # Define a custom API that supports periodic notifications
 
@@ -99,7 +99,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
-<h2><a name="update-app"></a>Update the app to turn on period notifications</h2>
+##<a name="update-app"></a>Update the app to turn on period notifications
 
 1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 

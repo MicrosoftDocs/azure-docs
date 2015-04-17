@@ -210,7 +210,7 @@ The following table demonstrates supported closed captioning and ad insertion st
 When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
 
 - Make sure you have sufficient free internet connectivity to send data to the ingest points. 
-- The incoming multi-bitrate stream can have a maximum of 10 video quality levels aka layers is 10, and maximum of 5 audio tracks.
+- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
 - The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
 - The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
@@ -218,14 +218,14 @@ When using an on-premises live encoder to send a multi-bitrate stream into a Cha
 
 Other considerations related to working with channels and related components:
 
-- Make sure you have sufficient free internet connectivity to send data to the ingest points. 
+
 - You are only billed when your Channel is in running state.
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
 - By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 
-##<a id="tasks"></a>Live Streaming Tasks
+##<a id="tasks"></a>Live Streaming Related Tasks
 
 ###Setting up your computer
 
