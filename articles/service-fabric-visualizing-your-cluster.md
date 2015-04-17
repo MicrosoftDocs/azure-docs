@@ -22,7 +22,7 @@ Service Fabric Explorer is a useful GUI tool for inspecting and managing cloud a
 
 ## Introduction to Service Fabric Explorer
 
-Ensure your local development environment is setup by following the instructions at [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment).
+Ensure your local development environment is setup by following the instructions at [Setting up your Service Fabric development environment](service-fabric-setup-your-development-environment.md).
 
 Run Service Fabric Explorer from your local installation path (%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe). The tool will automatically connect to a local development cluster, if one exists.  It displays information on the cluster such as:
 
@@ -43,7 +43,7 @@ One of the important visualizations is the cluster map, visible on the dashboard
 
 Service Fabric Explorer allows you to explore the applications running on your cluster.  Expand the **Application View** to view detailed information on your applications, services, partitions, and replicas.
 
-> [AZURE.NOTE] See the [Technical Overview](../service-fabric-technical-overview) to familiarize yourself with the key Service Fabric concepts.
+> [AZURE.NOTE] See the [Technical Overview](service-fabric-technical-overview.md) to familiarize yourself with the key Service Fabric concepts.
 
 The diagram below shows the application named **"fabric:/Stateful1Application"** has one stateless application named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
 
@@ -64,8 +64,8 @@ Service Fabric Explorer can connect to a cluster in Azure for visualizing the no
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](../service-fabric-testability-importance).
-- [Managing your service](../service-fabric-fabsrv-managing-your-service).
+- [Importance of testability](service-fabric-testability-importance.md).
+- [Managing your service](service-fabric-fabsrv-managing-your-service.md).
 
 <!--Image references-->
 [applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
