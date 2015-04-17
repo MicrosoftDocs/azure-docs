@@ -342,15 +342,24 @@ We can now implement our **TodoController** to receive requests via Web API.  In
 
 3. You can now send data to the service, and receive a response, following the PowerShell script:
 ```posh
-    Connect-WindowsFabricCluster -WarningAction Ignore | Out-Null
-    $app = Get-WindowsFabricApplication -ApplicationName 'fabric:/TodoApplication'
-    $instance = $app | Get-WindowsFabricService | Get-WindowsFabricPartition | Get-WindowsFabricReplica
-    $primary = $instance | ? { $_.ReplicaRole -eq 'Primary' }
-    $address = $primary.ReplicaAddress
+
 ```
 4. To add an item, use the following command:
 ```posh
-    Invoke-RestMethod -Method Post "$address/add" -Body '{ "value" : "foo" }' -ContentType "application/json"
+$app = Get-ServiceFabricApplication -ApplicationName 'fabric:/TodoApplication'
+$service = $app | Get-ServiceFabricService
+$partition = $service | Get-ServiceFabricPartition
+$replicas = $partition | Get-ServiceFabricReplica
+$primary = $replicas | ? { $_.ReplicaRole -eq 'Primary' }
+$address = $primary.ReplicaAddress
+$item = @{ value = "foo" };
+$argsAdd = @{
+    Uri = "$address/add";
+    Body = ConvertTo-Json $item;
+    Method = "Post";
+    ContentType = "application/json";
+    }
+Invoke-RestMethod @args 
 ```
 5. To peek at the item that was just added:
 ```posh
