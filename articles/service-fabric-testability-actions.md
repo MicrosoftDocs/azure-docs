@@ -136,7 +136,7 @@ The Testability powershell module is found in the Microsoft.ServiceFabric.Testab
 </table>
 
 
-## <u>Running a Testability Action with PowerShell:</u>
+## Running a Testability Action with PowerShell:
 
 This tutorial shows you how to run a Testability action with PowerShell. You will learn how to run a Testability action against a Local (aka. one-box) cluster or an Azure cluster. Microsoft.Fabric.Testability.Powershell.dll - the Testability PowerShell module - is installed automatically when you install the Microsoft Service Fabric MSI; and, the module is loaded automatically when you open a PowerShell prompt.
 
@@ -186,7 +186,7 @@ Connect-ServiceFabricCluster -testMode
 Invoke-ServiceFabricPartitionQuorumLoss -serviceName fabric:/app/svc -randomPartition
 ```
 
-## <u>Running a Testability Action with C#:</u>
+## Running a Testability Action with C#:
 
 To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action.
 Let us look at the RestartServiceFabricNode action:
@@ -243,7 +243,7 @@ fabricclient.ClusterManager.InvokeQuorumLossAsync(serviceName, partitionSelector
 
 ```
 
-##<u><a name="partition_replica_selector"></a>Partition Selector and Replica Selector:</u>
+##<a name="partition_replica_selector"></a>Partition Selector and Replica Selector:
 
 ###Partition Selector:
 PartitionSelector is a helper exposed in Testability and is used to select a specific partition on which to perform any of the Testability actions. It can be used to select a specific partition if the partition ID is known beforehand. Or, you can provide the partition key and the operation will resolve the partition ID internally. You also have the option of selecting a random partition.
