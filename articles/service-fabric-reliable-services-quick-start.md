@@ -20,4 +20,4 @@
 
 Service Fabric makes writing reliable stateless and stateful services much easier than before. This guide will talk about show you how to quickly get started.
 
-# Next Steps
+## Next Steps
