@@ -1,10 +1,10 @@
 <properties 
-	title="Split and Merge Service Tutorial" 
-	pageTitle="Azure SQL Split and Merge Service Tutorial" 
-	description="Splitting and Merging with Elastic Scale" 
-	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	title="Elastic database Split-Merge tool tutorial" 
+	pageTitle="Elastic database Split-Merge tool tutorial" 
+	description="Splitting and Merging with elastic database tools" 
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases" 
 	services="sql-database" documentationCenter=""  
-	manager="jhubbard" 
+	manager="jeffreyg" 
 	authors="sidneyh"/>
 
 <tags 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
-	ms.author="torsteng" />
+	ms.date="05/17/2015" 
+	ms.author="sidneyh" />
 
-#Elastic Scale Split and Merge Service Tutorial
+#Elastic database Split-Merge tool tutorial
 
 ## Download the Split-Merge packages 
 1. Download the latest NuGet version from [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
@@ -28,9 +28,9 @@ The steps above download the Split-Merge files to the current directory. The fil
 
 ## Prerequisites 
 
-1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure Management Portal](https://manage.windowsazure.com). At the bottom left, click **New**, then click **Data Services** -> **SQL Database** -> **Custom Create**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
+1. Create an Azure SQL DB database that will be used as the Split-Merge status database. Go to the [Azure preview portal](https://ms.portal.azure.com). Create a new **SQL Database**. Fill in the database name and create a new user and password. Be sure to record the name and password for later use.
 
-2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. Go to the [Azure Management Portal](https://manage.windowsazure.com), on the left pane, click **SQL Databases**. Then click **Servers** on the ribbon at the top of the screen, and select your server. Then click **Configure** at the top and ensure that the **Azure Services** setting is set to **Yes**.
+2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the [preview portal](https://ms.portal.azure.com), in the **Firewall Settings**, ensure that the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon. 
 
     ![Allowed services][1]
 
@@ -56,14 +56,14 @@ The steps above download the Split-Merge files to the current directory. The fil
 
         "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccessKey" 
     
-To determine the access key, go to the [Azure Management portal](https://manage.windowsazure.com), click the **Storage** tab on the left, select the name corresponding to your storage account, and click **Manage Access Keys** on the bottom. Click the **copy** button for **Primary Access Key**.
+To determine the access key, go to the [Azure Management Portal](https://manage.windowsazure.com), find the storage account. In the **Essentials** pane, and click the **Key icon**. Click the **copy** button for **Primary Access Key**.
 
 ![manage access keys][2]
 
 6.    Enter the name of the storage account and one of the access keys provided into the placeholders in the storage connection string. This connection string is used under both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString** setting. You can potentially use different storage accounts for the different roles. 
 
 ### Configuring security 
-For detailed instructions to configure the security of the service, refer to the [Elastic Scale Security Configurations](sql-database-elastic-scale-configure-security.md).
+For detailed instructions to configure the security of the service, refer to the [Split-Merge security configuration](sql-database-elastic-scale-configure-security.md).
 
 For the purposes of  a simple test deployment suitable to complete this tutorial, a minimal set of configuration steps will be performed to get the service up and running. These steps enable only the one machine/account executing them to communicate with the service.
 
@@ -328,9 +328,9 @@ This error means that your SSL certificate is not configured correctly. Please f
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
  
 <!--Image references-->
-[1]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/allowed-services.png
-[2]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/manage.png
-[3]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/staging.png
-[4]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/upload.png
-[5]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/storage.png
-[6]: ./media/sql-database-elastic-scale-split-and-merge-tutorial/logs.png
+[1]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/allowed-services.png
+[2]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/manage.png
+[3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
+[4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
+[5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
+
