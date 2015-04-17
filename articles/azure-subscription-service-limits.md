@@ -320,7 +320,7 @@ For Azure Active Directory (AD), please see the following topic:
   [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
   [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+  [storagelimits]: http://azure.microsoft.com/en-us/documentation/articles/storage-scalability-targets/
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
   [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
