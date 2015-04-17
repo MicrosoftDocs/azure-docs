@@ -19,7 +19,7 @@
 # Introduction to App Service Environment
 
 ## Overview ##
-An App Service Environment is a [Premium tier][PremiumTier] feature of Azure App Service that provides a fully isolated and dedicated environment for securely running all of your apps.  This includes [Web Apps][WebApps], [Mobile Apps][MobileApps], [Api Apps][ApiApps] and [Logic Apps][LogicApps] with expanded scaling options.  
+An App Service Environment is a [Premium tier][PremiumTier] feature of Azure App Service that provides a fully isolated and dedicated environment for securely running all of your apps.  This includes [Web Apps][WebApps], [Mobile Apps][MobileApps], [Api Apps][APIApps] and [Logic Apps][LogicApps] with expanded scaling options.  
 
 Compute resources for an App Service Environment are exclusively dedicated to running only your apps.  An App Service Environment is always created in a regional virtual network, which gives your apps new options for network isolation.  Furthermore an App Service Environment supports additional scaling options, with up to fifty (50) compute resources available to run your apps.
 
