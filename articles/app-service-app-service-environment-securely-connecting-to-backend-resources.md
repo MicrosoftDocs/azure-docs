@@ -3,7 +3,7 @@
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="stefsch" 
+	authors="ccompy" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -102,11 +102,11 @@ To get started with App Service Environments, see [Introduction to App Service E
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 <!-- LINKS -->
-[virtualnetwork]: https://msdn.microsoft.com/en-us/library/azure/dn133803.aspx
-[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/en-us/documentation/articles/TBD/
+[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [NetworkSecurityGroups]: https://msdn.microsoft.com/en-us/library/azure/dn848316.aspx
-[AzureAppService]: http://azure.microsoft.com/en-us/documentation/articles/app-service-value-prop-what-is/
-[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/en-us/documentation/articles/TBD/
+[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
+[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
  
 
 <!-- IMAGES -->

@@ -3,7 +3,7 @@
 	description="Learn about the App Service Environment feature that provides secure, VNet-joined, dedicated scale units for running all of your apps." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="stefsch" 
+	authors="ccompy" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -53,21 +53,21 @@ To get started with App Service Environments, see [How To Create An App Service 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 <!-- LINKS -->
-[PremiumTier]: http://azure.microsoft.com/en-us/pricing/details/app-service/
-[MoreInfoOnVirtualNetworks]: https://msdn.microsoft.com/en-us/library/azure/dn133803.aspx
-[AppServicePlan]: http://azure.microsoft.com/en-us/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
+[PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
+[MoreInfoOnVirtualNetworks]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
 [AzurePortal]: http://portal.azure.com
-[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/en-us/documentation/articles/TBD/
-[AzureAppService]: http://azure.microsoft.com/en-us/documentation/articles/app-service-value-prop-what-is/
-[WebApps]: http://azure.microsoft.com/en-us/documentation/articles/app-service-web-overview/
-[MobileApps]: http://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-value-prop-preview/
-[APIApps]: http://azure.microsoft.com/en-us/documentation/articles/app-service-api-apps-why-best-platform/
-[LogicApps]: http://azure.microsoft.com/en-us/documentation/articles/app-service-logic-what-are-logic-apps/
-[NetworkSecurityGroups]: https://msdn.microsoft.com/en-us/library/azure/dn848316.aspx
+[HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
+[WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
+[MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
+[APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
+[LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [SiteToSite]: https://msdn.microsoft.com/library/azure/dn133795.aspx
-[ExpressRoute]: http://azure.microsoft.com/en-us/services/expressroute/
-[HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/en-us/documentation/articles/TBD/
-[AppServicePricing]: http://azure.microsoft.com/en-us/pricing/details/app-service/ 
+[ExpressRoute]: http://azure.microsoft.com/services/expressroute/
+[HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
+[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
 
