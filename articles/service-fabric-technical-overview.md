@@ -48,7 +48,7 @@ Service Fabric is a distributed systems platform that makes it easy to build sca
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Application Scenarios](../service-fabric-application-scenarios). 
-For more information: [Service Model](../service-fabric-service-model). 
-For more information: [Application Model](../service-fabric-application-model). 
+For more information: [Application Scenarios](service-fabric-application-scenarios). 
+For more information: [Service Model](service-fabric-service-model). 
+For more information: [Application Model](service-fabric-application-model). 
 

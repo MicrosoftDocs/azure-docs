@@ -91,7 +91,7 @@ Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services
 
 The next step is to register this application with Service Fabric, which can be performed using the following command:
 
-```
+```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
@@ -101,14 +101,14 @@ If the above command doesn't succeed it is likely that you did a rebuild of all 
 
 Now, we are all set to start the application upgrade by using the following command:
 
-```
+```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
 ```
 
 
 Note the application name is as was described in the ApplicationManifest.xml file. Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a failure message that states the problem. Refer to the troubleshooting section, or increase the timeouts.
 
-Now, as the application upgrade proceeds, you can monitor it using WinFabExplorer, or using the following PS command: Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
+Now, as the application upgrade proceeds, you can monitor it using WinFabExplorer, or using the following PS command: 'Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects'
 
 In a few minutes, the UpgradeDomain status using the above PS command should state that all UDs were upgraded (completed). And you should find that the visual objects in your IE window will now have started rotating!
 
