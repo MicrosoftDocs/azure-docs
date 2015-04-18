@@ -24,7 +24,8 @@ This document describes how to install the Azure Cross-Platform Command-Line Int
 
 The xplat-cli is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/Azure/azure-xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
-## <a id="install">How to install the Azure Cross-Platform Command-Line Interface</a>
+<a id="install" />
+## How to install the Azure Cross-Platform Command-Line Interface
 
 There are two ways to install the xplat-cli.
 
@@ -33,7 +34,7 @@ There are two ways to install the xplat-cli.
 
 Once the xplat-cli has been installed, you will be able to use the **azure** command from your command-line interface (Bash, Terminal, Command prompt) to access the xplat-cli commands.
 
-##Using an installer
+## Using an installer
 
 The following installer packages are available:
 
@@ -44,7 +45,7 @@ The following installer packages are available:
 * [Linux installer][linux-installer]
 
 
-##Installing and using Node.js and npm
+## Installing and using Node.js and npm
 
 If Node.js is already installed on your system, use the following command to install the xplat-cli:
 
@@ -52,7 +53,7 @@ If Node.js is already installed on your system, use the following command to ins
 
 > [AZURE.NOTE] On Linux distributions, you may need to use `sudo` to successfully run the __npm__ command.
 
-###Installing node.js and npm on Linux distributions that use [dpkg](http://en.wikipedia.org/wiki/Dpkg) package management
+### Installing node.js and npm on Linux distributions that use [dpkg](http://en.wikipedia.org/wiki/Dpkg) package management
 The most common of these distributions use either the [advanced packaging tool (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) or other tools based on the `.deb` package format. Some examples are Ubuntu and Debian.
 
 Most of the more recent of these distributions require installing **nodejs-legacy** in order to get a properly configured **npm** tool to install the xplat-cli. The following code shows the commands that install **npm** properly on Ubuntu 14.04.
@@ -70,7 +71,7 @@ Some of the older distributions, such as Ubuntu 12.04, require installing the cu
 	sudo apt-get install -y nodejs
 	sudo npm install -g azure-cli
 
-###Installing node.js and npm on Linux distributions that use [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager) package management
+### Installing node.js and npm on Linux distributions that use [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager) package management
 
 Installing node.js on RPM-based distributions requires enabling the EPEL repository. The following code shows the best practices for installation on CentOS 7. (Note that in the first line below, the '-' (hyphen) is important!)
 
@@ -82,7 +83,7 @@ Installing node.js on RPM-based distributions requires enabling the EPEL reposit
 	yum install npm [enter]
 	npm install -g azure-cli  [enter]
 
-###Installing node.js and npm on Windows and Mac OS X
+### Installing node.js and npm on Windows and Mac OS X
 
 You can install node.js and npm on Windows and OS X using the installers from [Nodejs.org](https://nodejs.org/download/). You might need to restart the computer to complete the installation. Check if node and npm was installed properly by opening command prompt and typing
 
@@ -116,7 +117,8 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 Now you are ready! To start using xplat-cli and connect to Azure, see [Using the Azure Cross-platform command line interface](xplat-cli.md#configure).  
 
-## <a id="additional-resources">Additional resources</a>
+<a id="additional-resources" />
+## Additional resources
 
 * For more information on xplat-cli, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
