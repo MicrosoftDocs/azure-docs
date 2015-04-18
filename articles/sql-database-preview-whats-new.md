@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
