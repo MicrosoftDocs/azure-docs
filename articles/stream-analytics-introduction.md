@@ -3,7 +3,7 @@
 	description="Understand Azure Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="04/16/2015" 
+	ms.author="jeffstok"/>
 
 
 # Introduction to Azure Stream Analytics
