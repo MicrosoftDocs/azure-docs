@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to SQL Database by using Python with pymssql on Ubuntu Linux" 
-	description="Presents a code sample you can use to connect to Azure SQL Database."
+	pageTitle="Connect to SQL Database by using NodeJS with Tedious on Ubuntu Linux" 
+	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample uses the Tedious driver to connect."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -12,23 +12,23 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
+	ms.devlang="NodeJS" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/18/2015" 
 	ms.author="genemi"/>
 
 
-# Connect to SQL Database by using NodeJS with pymssql on Ubuntu Linux
+# Connect to SQL Database by using NodeJS with Tedious on Ubuntu Linux
 
 
 <!--
-2015-04-17
+2015-04-18
 sql-database-develop-nodejs-simple-linux.md
 meet-bhagdev , mebha: is the original author. GeneMi is merely editing and publishing for first publish.
 -->
 
 
-This topic presents a NodeJS code sample that runs on Unbutu Linux. The sample connects to Azure SQL Database by using the pymssql driver.
+This topic presents a NodeJS code sample that runs on Unbutu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
 
 
 ## Required software items
@@ -56,10 +56,10 @@ TODO, ERROR MUST BE FIXED: Must fix the following paragraph near the words "pres
 **npm init** creates a node project. To retain the defaults during your project creation, press until the project is created. Now you see a **package.json** file in your project directory.
 
 
-## Create an AdventureWorks database
+### Create an AdventureWorks database
 
 
-The code sample in this topic expects a standard **AdventureWorks** test database. If you do not already have one, see [Get started with SQL Database](http://azure.microsoft.com/documentation/articles/sql-database-get-started.md). It is important that you follow the guide to create an **AdventureWorks database template**. The examples shown below work only with the **AdventureWorks schema**. 
+The code sample in this topic expects an **AdventureWorks** test database. If you do not already have one, see [Get started with SQL Database](sql-database-get-started.md). It is important that you follow the guide to create an **AdventureWorks database template**. The examples shown below work only with the **AdventureWorks schema**. 
 
 
 ## Connect to your SQL Database
@@ -70,7 +70,7 @@ The code sample in this topic expects a standard **AdventureWorks** test databas
 		userName: 'yourusername',
 		password: 'yourpassword',
 		server: 'yourserver.database.windows.net',
-		// If you're on Windows Azure, you will need this:
+		// If you are on Microsoft Azure, you need this:
 		options: {encrypt: true, database: 'AdventureWorks'}
 	};
 	var connection = new Connection(config);
@@ -147,7 +147,7 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 		userName: 'yourusername',
 		password: 'yourpassword',
 		server: 'yourserver.database.windows.net',
-		// If you are on Azure SQL Database, you will need these next options.
+		// If you are on Azure SQL Database, you need these next options.
 		options: {encrypt: true, database: 'AdventureWorks'}
 	};
 	var connection = new Connection(config);
@@ -186,7 +186,11 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 
 
 <!--
-TODO: I do not see any Transaction related code in this section?
+TODO, ERRORS FOR MEET BHAGDEV TO FIX:
+.
+I do not see any Transaction related code in this section? Must fix!
+.
+Same problem in the next section about Stored procedures. Perhaps you can call sys.sp_helptext?
 -->
 
 
@@ -195,7 +199,7 @@ TODO: I do not see any Transaction related code in this section?
 		userName: 'yourusername',
 		password: 'yourpassword',
 		server: 'yourserver.database.windows.net',
-		// If you're on Windows Azure, you will need this:
+		// If you are on Microsoft Azure, you need this:
 		options: {encrypt: true, database: 'AdventureWorks'}
 	};
 	var connection = new Connection(config);
@@ -221,7 +225,7 @@ TODO: I do not see any Transaction related code in this section?
 		userName: 'yourusername',
 		password: 'yourpassword',
 		server: 'yourserver.database.windows.net',
-		// If you're on Windows Azure, you will need this:
+		// If you are on Microsoft Azure, you need this:
 		options: {encrypt: true, database: 'AdventureWorks'}
 	};
 	var connection = new Connection(config);

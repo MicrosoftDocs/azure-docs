@@ -1,6 +1,6 @@
-﻿<properties 
-	pageTitle="Connect to SQL Database by using NodeJS with msnodesql on Windows" 
-	description="Give a code sample you can use to connect to Azure SQL Database."
+<properties 
+	pageTitle="Connect to SQL Database by using NodeJS on Windows" 
+	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="04/18/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,7 +22,7 @@
 
 
 <!--
-2015-04-17
+2015-04-18
 Original author is Meet Bhagdev (mebha; or on github 'meet-bhagdev'). GeneMi did an edit pass, and did the first publish.
 -->
 
@@ -36,14 +36,23 @@ This topic presents a NodeJS code sample that you can use to connect to Azure SQ
 The following software items must exist on your client development computer.
 
 
--  Node.js – [Version 0.8.9 (32 bit version)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/). Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.
+<!--
+TODO, FIX ERROR?
+Is the Python 2.7.6 download truly necessary for the NodeJS sample to work, or was there a copy-paste error? If Python not needed in this NodeJS topic, we must remove that bullet line and its child bullet line.
+.
+2015-04-18 12:33pm, I (GeneMi) am taking an educated chance and am removing the Python download lines. Should they be re-added to the live text?
+.
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/), the installer for either x86 or x64. 
  - The x64 version is probably preferable. You want the "Installer" link, not the "program database" link.
+-->
+
+
+-  Node.js – [Version 0.8.9 (32 bit version)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/). Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.
 - [Visual C++ 2010](https://app.vssps.visualstudio.com/profile/review?download=true&family=VisualStudioCExpress&release=VisualStudio2010&type=web&slcid=0x409&context=eyJwZSI6MSwicGMiOjEsImljIjoxLCJhbyI6MCwiYW0iOjEsIm9wIjpudWxsLCJhZCI6bnVsbCwiZmEiOjAsImF1IjpudWxsLCJjdiI6OTY4OTg2MzU1LCJmcyI6MCwic3UiOjAsImVyIjoxfQ2) - the Express edition is freely available from Microsoft.
-- SQL Server Native Client 11.0 - available as Microsoft SQL Server 2012 Native Client found in the [SQL Server 2012 Feature Pack](http://www.microsoft.com/en-us/download/details.aspx?id=29065).
+- SQL Server Native Client 11.0 - available as Microsoft SQL Server 2012 Native Client found in the [SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065).
 
 
-## Install the required modules
+### Install the required modules
 
 
 In a **cmd.exe** command line window, navigate to the directory where you have msnodesql. Enter the following commands in the sequence shown.
@@ -60,12 +69,12 @@ Now that you have node-gyp installed, navigate to your directory *YourProjectDir
 	node-gyp build
 
 
-Next, navigate to the directory build\release\. Copy the **sqlserver.node** file and paste it into the **msnodesql\lib** directory. Replace the old file if necessary.
+Next, navigate to the directory **build\release**. Copy the **sqlserver.node** file and paste it into the **msnodesql\lib** directory. Replace the old file if necessary.
 
 
-## Create a database and retrieve your connection string
+### Create a database and retrieve your connection string
  
-See the [Get Started topic](http://example.com/) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below will only work with the **AdventureWorks schema**. 
+See the [Get Started topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below will only work with the **AdventureWorks schema**. 
 
 
 ## Connect to your SQL Database
