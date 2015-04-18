@@ -24,7 +24,7 @@ This document describes how to install the Azure Cross-Platform Command-Line Int
 
 The xplat-cli is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/Azure/azure-xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
-<a id="install" />
+<a id="install"></a>
 ## How to install the Azure Cross-Platform Command-Line Interface
 
 There are two ways to install the xplat-cli.
@@ -117,7 +117,7 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 Now you are ready! To start using xplat-cli and connect to Azure, see [Using the Azure Cross-platform command line interface](xplat-cli.md#configure).  
 
-<a id="additional-resources" />
+<a id="additional-resources"></a>
 ## Additional resources
 
 * For more information on xplat-cli, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
