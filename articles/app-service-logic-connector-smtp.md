@@ -78,7 +78,8 @@ Once your API app is created, you can now use the SMTP connector as an action fo
 		- File Name (String)
 	 
 	
-	![][5]![][6]
+	![][5] 
+	![][6]
 
 
 	<!--Image references-->

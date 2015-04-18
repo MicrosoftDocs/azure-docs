@@ -85,8 +85,8 @@ A **predictive pipeline** has these parts:
 	>
 	>     sink: 
 	>     {
-	>         "type": ""BlobSink"",     
-	>         blobWriterAddHeader: true 
+	>         "type": "BlobSink",     
+	>         "blobWriterAddHeader": true 
 	>     }
 	> 
 	> If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.

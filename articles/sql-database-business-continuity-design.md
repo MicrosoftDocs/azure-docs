@@ -25,7 +25,7 @@ Designing your application for business continuity requires you to answer the fo
 
 ##When to use Geo-restore
 
-SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). No special configuration or additional resource allocation necessary if you choose this method. It allows you to recover your database in any region using the geo-restore command. Use [Recover from an outage](sql-database-business-continuity-recovery.md) section for the details of using geo-restore to recover your application. 
+SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). No special configuration or additional resource allocation necessary if you choose this method. It allows you to recover your database in any region using the geo-restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application. 
 
 You should use the built-in protection if your application meets the following criteria:
 
@@ -37,7 +37,7 @@ You should use the built-in protection if your application meets the following c
 
 ##When to use Geo-replication
 
-Geo-replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-business-continuity-recovery.md) section for using failover to recover your application.
+Geo-replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
 
 You should use the geo-replication if your application meets the following criteria:
 
@@ -95,12 +95,5 @@ This API is asynchronous. After it returns use the [Get Database Copy](https://m
 ##How to choose the failover configuration 
 
 When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741328.aspx) for guidance which options bets fit your application pattern. 
-
-##When to initiate recovery 
-
-The recovery operation impacts the application. It requires changing the SQL connection string and could result in permanent data loss. Therefore it should be done only when the outage is likely to last longer than your application's RTO. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
-
-1. Permanent connectivity failure from the application tier to the database
-2. Your Azure Portal shows an alert about an incident in the region with broad impact
 
 

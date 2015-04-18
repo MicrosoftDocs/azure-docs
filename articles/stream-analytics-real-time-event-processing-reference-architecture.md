@@ -3,7 +3,7 @@
 	description="Learn how a set of Azure services can interoperate for enabling real-time event processing and analytics." 
 	services="stream-analytics,event-hubs,storage,sql-database" 
 	documentationCenter="" 
-	authors="charlesfeddersen" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/16/2015" 
-	ms.author="charlesf"/>
+	ms.date="04/16/2015" 
+	ms.author="jeffstok"/>
 
 # Reference Architecture: Real-Time Event Processing with Microsoft Azure Stream Analytics
 

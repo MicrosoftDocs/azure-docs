@@ -46,46 +46,23 @@ One of the first steps in sharing video content is deciding what type of experie
  
 There are four basic ways customers can access videos:
 
-- Offline Viewing 
+- Streaming\Adaptive Bitrate Streaming (most common)
+
+	Streaming technologies download a small piece of the video at a time and discard it once it has been displayed. This requires very little storage on the viewing device. The throughput of a network connection can vary, but customers still expect to be able to view videos regardless of network bandwidth. Adaptive bitrate technologies allow video player applications to determine network conditions and select from among several bitrates. When network communication degrades, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS.
+
 - Progressive Download
-- Streaming\Adaptive Bitrate Streaming
-
-####Offline viewing
-
-To view a video offline a customer will download the entire video onto their computer or device. Videos tend to be quite large so it may take some time for the download to complete. The benefit of offline viewing is you do not need a network connection to view the video once it has been downloaded to your device. 
-
-####Progressive download
-
-Progressive download requires that a customer is connected to the internet and allows them to start viewing the video before the entire video has been downloaded. Both offline viewing and progressive download approaches require that the device the customer is using to view the video has enough storage space to hold the entire video.
-
-####Streaming
-
-Streaming technologies also require an internet connection, but they download a small piece of the video at a time and discard it once it has been displayed. This requires very little storage on the viewing device. The throughput of a network connection can vary, but customers still expect to be able to view videos regardless of network bandwidth. Adaptive bitrate technologies allow video player applications to determine network conditions and select from among several bitrates. When network communication degrades, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS.
-
-###On what Devices
-
-Another decision that needs to be made is what type of devices your customer will be using to view your videos. Media Services provides support for web browsers, smart phones, tablets, XBOX, set-top boxes, and connected TVs.
-
-####Web Browsers
-
-Web browsers can be run on Windows PCs, Macintosh PCs, and Smart Phones. When running on PCs or Macintosh PCs you can take advantage of the large size screen and the large storage capacity. This allows you to stream higher quality videos. Windows PCs or Macintosh PCs can view videos delivered by Media Services by using a native application or an HTML-compatible web browser. Native applications can support Smooth Streaming, Apple HLS, Progressive Download, or offline viewing. HTML5 web pages support Progressive Download.
+	
+	Progressive download requires that a customer is connected to the internet and allows them to start viewing the video before the entire video has been downloaded. Both offline viewing and progressive download approaches require that the device the customer is using to view the video has enough storage space to hold the entire video.
 
 
-####Smart Phones
-
-Smart phones have small screens and smaller storage capacities. Streaming is the best choice for these devices. iPhones, Windows Phones, and Android phones are supported. iPhones and Android phones support Smooth Streaming and HLS. Windows Phones support Smooth Streaming.
-
-###Tablets
-
-Tablets have larger screens than smart phones, but till typically have smaller storage capacity. Streaming is the best choice for tablets. Tablets with larger storage capacities can also take advantage of offline viewing as well as Progressive Download.
-
-####XBox
-
-XBox consoles have the benefit of large screens and larger storage capacity, which makes offline, progressive download, and streaming a good fit.
-Set-top Boxes and Connected TVs
-These devices also have large screen but minimal storage capacity, streaming is the best fit.
+- Offline Viewing 
+	
+	To view a video offline a customer will download the entire video onto their computer or device. Videos tend to be quite large so it may take some time for the download to complete. The benefit of offline viewing is you do not need a network connection to view the video once it has been downloaded to your device. 
 
 ###Supported Technologies by Device
+
+
+You can blayback your content on any of the following devices: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes.
 
 The following table shows each type of device and the client technologies supported by  Media Services:
  
@@ -108,20 +85,9 @@ For more information, see [Delivering Media on-Demand with Azure Media Services]
 
 ##Delivering Live Streaming with Azure Media Services
 
-For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md) contains links to topics that show how to perform tasks mentioned above.
+For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md).
 
-##Clients
-
-Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes.
-
-- [Smooth Streaming Client SDK](http://www.iis.net/downloads/microsoft/smooth-streaming) 
-- [Microsoft Media Platform: Player Framework](http://playerframework.codeplex.com/) 
-- [HTML5 Player Framework Documentation](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
-- [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [Media Player Framework for iOS](https://github.com/Azure/azure-media-player-framework) 
-- [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://www.microsoft.com/mediaplatform/sspk.aspx) 
-- Building Video Applications on Windows 8 
-- [XBOX Video Application Development](http://xbox.create.msdn.com/) 
+##Consuming content
 
 For more information, see [Developing Video Player Applications](media-services-develop-video-players.md)
 
@@ -134,6 +100,8 @@ For more information, see [Developing Video Player Applications](media-services-
 ##Support
 
 [Azure Support](http://azure.microsoft.com/support/options/) provides support options for Azure, including Media Services.
+
+##Next Steps
 
 
 
