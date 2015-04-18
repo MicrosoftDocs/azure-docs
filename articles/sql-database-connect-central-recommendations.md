@@ -10,11 +10,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -27,6 +27,8 @@ sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
 Fix broken link to Troubleshooting topic. Remove link to retired blog post 4235 about throttling. Change title as suggested by PMs PehTeh and LFSantos (but not changing HTTP URL). Remove second definitions for 'persistent' versus 'transient'. Tweak subheading over Elastic Scale links.
+.
+ms.workload = data-management.  (4/17)
 -->
 
 
