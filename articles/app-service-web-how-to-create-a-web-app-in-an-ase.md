@@ -26,6 +26,8 @@ The first step to creating a web app is creating or selecting an App Service Pla
 
 ![][1]
 
+### App Service Plans ###
+
 If the term is unfamiliar, App Service Plans used to be called Web Hosting Plans. Simply put, App Service Plans are containers that hold a set of your web apps.  When you select pricing, that is applied against the App Service Plan.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth][Appserviceplans] 
 
 If you are using an App Service Plan that you have already created, select that plan, enter the name for your web app and select Create.  It's the same flow as when you create a web app normally.
@@ -34,9 +36,13 @@ If you are making a new App Service Plan though, there are some differences to c
 
 Another difference with App Service Environment hosted ASPs is the lack of pricing selection.  When you have an App Service Environment you are paying VMs used by the system and do not have added charges for the ASPs in that environment.  Normally when you create an ASP you select a pricing plan which determines your billing.  An App Service Environment is essentially a private location where you can create content.  
 
+### Selecting your App Service Environment ###
+
 Because an App Service Environment is essentially a private deployment location, you start by selecting the ASE you wish to use from your location picker. 
 
 ![][2]
+
+### Selecting your worker pool ###
 
 After selection the UI will update and replace the pricing plan picker with a worker pool picker.  The location shows the name of the ASE system and the region it is in.  Under the URL the domain name for the ASE replaces the normally present .azurewebsites.net.  Web apps created in this ASE will be accessed using that.  If you were creating a web app named mytestapp in an ASE named asedemo then it would be accessed at mytestapp.asedemo.p.azurewebsites.net.  
 
@@ -49,6 +55,8 @@ The worker pool selection UI shows the size of the VMs used for that worker pool
 ![][4]
 
 In this example you can see only two worker pools available. That is because the ASE administrator only allocated VMs into those two worker pools.  The third would show up when there are VMs allocated into it.  
+
+### After web app creation###
 
 There are a few considerations to running web apps and managing ASPs in an ASE that need to be taken into account.  
 
@@ -63,7 +71,7 @@ After creating your web app and ASP it is a good idea to scale it up.  In an ASE
 [4]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspworkerpool.png
 
 <!--Links-->
-[WhatisASE]:http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
-[Appserviceplans]:http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]:http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]:http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment
+[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
+[Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment
