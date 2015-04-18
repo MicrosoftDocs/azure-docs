@@ -110,14 +110,17 @@ Consuming large files from Blob storage may cause Stream Analytics jobs to crash
 Stream Analytics does not trim whitespace on column headers. Including whitespace at the beginning or end of a column name will result in null entries in the job output.   
 
 
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+
+
 ## Next steps
 
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Get started using Azure Stream Analytics][stream.analytics.get.started]
-- [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
-- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
-- [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics Management REST API Reference][stream.analytics.rest.api.reference] 
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
 
 <!--Anchors-->
 [Limitations]: #Limitations
