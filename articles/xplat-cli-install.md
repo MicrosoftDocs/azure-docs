@@ -39,9 +39,7 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 The following installer packages are available:
 
 * [Windows installer][windows-installer]
-
 * [OS X installer][mac-installer]
-
 * [Linux installer][linux-installer]
 
 
