@@ -64,7 +64,8 @@ Once your API app is created, you can now use the Twilio connector as an action 
 	- **To Phone Number** - The destination phone number. The format accepted is: +, followed by the country code, then the phone number. For example, +16175551212. If you omit the +, Twilio will use the country code you entered in the 'From' number.
 	- **Text** - The text of the message you want to send.
  
-	![][5]![][6] 
+	![][5]
+	![][6] 
 
 
 

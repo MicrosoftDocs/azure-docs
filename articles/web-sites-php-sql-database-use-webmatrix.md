@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="04/17/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -189,11 +189,7 @@ You can easily modify your application by editing the local copy of the site you
 
 ## Next Steps
 
-You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
-
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
-
-* [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, see [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398).
 
 
 

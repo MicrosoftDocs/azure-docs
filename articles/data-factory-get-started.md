@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="04/17/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -371,7 +371,7 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![Datasets with EmpTableFromBlob selected][image-data-factory-get-started-datasets-emptable-selected]   
 5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
 
-	Both **Recently updated slices** and **Recently failed slices** lists are sorts by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
     
 
 	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
@@ -403,10 +403,13 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 	![data slice blade][image-data-factory-get-started-dataslice-blade]
   
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. 
+
 11. In the **DATA SLICE** blade, you should see all activity runs in the list at the bottom. Click on an **activity run** to see the **ACTIVITY RUN DETAILS** blade. 
 
 	![Activity Run Details][image-data-factory-get-started-activity-run-details]
 
+	
 12. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialDataFactory**.
 14. (optional) Click **Pipelines** on the home page for **ADFTutorialDataFactory**, click **ADFTutorialPipeline** in the **Pipelines** blade, and drill through input tables (**Consumed**) or output tables (**Produced**).
 15. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted into the **emp** table in the database.
