@@ -29,7 +29,9 @@ While achieving elasticity and scale for cloud applications has been straightfor
 * Managing hotspots that may arise affecting a specific subset of data – such as a particularly busy end-customer (tenant).
 
 Traditionally, scenarios like these have been addressed by investing in larger-scale database servers to support the application. However, this option is limited in the cloud where all processing happens on predefined commodity hardware. Instead, distributing data and processing across many identically-structured databases (a scale-out pattern known as sharding) provides a compelling alternative to traditional scale-up approaches both in terms of cost and elasticity. 
+
 Elastic database features of Azure SQL Database make scaling-out simpler and more flexible than ever.  If you are developing Software as a Service applications, elastic database pools allows you to easily create individual databases for each of your end-customers or tenants, and allows each to dynamically grow or shrink its resource footprint automatically while maintaining a predictable budget.    Database jobs allow you to perform management operations across an entire set of databases at a time. 
+
 And whether you use separate databases for each tenant, or pack multiple ranges of data into each of a collection of databases, the elastic database client library and split/merge tool reduce the effort required to build and manage applications that take advantage of sharding.   Instead of writing code to document data layout across databases and route connections to the right location, the client library allows you to focus on the business logic of the application.
 
 ## Horizontal and vertical scaling
@@ -43,21 +45,15 @@ Vertical scaling refers to increasing or decreasing the performance level of an 
 
 Most cloud-scale database applications will use a combination of these two strategies. For example, a Software as a Service application may use horizontal scaling to provision new end-customers and vertical scaling to allow each end-customer’s database to grow or shrink resources as needed by the workload.
 
-For more information about scaling scenarios, see [Elastic Database Pools Overview](sql-database-elastic-scale-overview-split-and-merge.md).
+Elastic database tools simplify building applications that rely on sharding – handling horizontal scaling infrastructure.   And by using an elastic database pool for your family of databases, vertical scaling is handled automatically by the system. With pools, you are responsible for setting limits on the system overall and the range of variation you wish to permit per-database.  You can also manually change database editions or resource levels for databases that don’t participate in elastic database pools. For example, you may create a new shard to handle a massive influx of data at the end of a month. While the new data is arriving the shard is scaled up, and scaled back down as the influx abates.
 
+For more information about elastic database pools, see [Elastic database pools overview](sql-database-elastic-pool.md).
 
 ## Elastic database tools capabilities 
 
 Developing, scaling and managing scaled-out applications using sharding presents challenges for both the developer as well as the administrator. Elastic database tools make life easier for both these roles. The numbers in the figure below outline the main capabilities delivered by the elastic database client library and split-merge tool. The figure illustrates an environment with many databases, and each database corresponds to a shard. The tools make developing sharded Azure SQL DB applications easier through the following specific capabilities: 
 
 For definitions of terms used here, see [Elastic database tools glossary](sql-database-elastic-scale-glossary.md).
-
-## Elastic Scale with Sharding 
-
-**Shard Elasticity** is the capability that enables administrators to automate the vertical (dialing up and down the edition of a single shard) and horizontal (adding or removing shards from a shard map) scaling of their sharded environment via PowerShell scripts and by means of the Azure Automation Service. For details, see [Shard Elasticity](sql-database-elastic-scale-elasticity.md).
-
-The figure below shows the developer and the administrator on the left and right. Customers can expect to get full T-SQL functionality when submitting shard-local operations as opposed to cross-shard operations that have their own semantics. 
-The public preview release for Azure SQL Database Elastic Scale makes developing sharded Azure SQL DB applications easier through the following specific capabilities: 
 
 ![Elastic scale capabilities][1]
 
