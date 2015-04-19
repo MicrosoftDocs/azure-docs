@@ -18,7 +18,7 @@
 
 # Federations migration 
 
-The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [Elastic database client library APIs for sharding](http://go.microsoft.com/?linkid=9862592). The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
+The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [elastic database client library APIs for sharding](http://go.microsoft.com/?linkid=9862592). The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
 
 There are three major steps for migrating an existing Federations application to one that uses elastic database tools.
 
@@ -45,7 +45,7 @@ The cloning of the federation root to the Shard Map Manager is a copy and transl
 
 ## Modify the existing application 
 
-With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify the existing Federations application to utilize the elastic database client library. As shown in the figure above, the application connections via these APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard). Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses Federations and one that uses the elastic database client library—to be executed side-by-side to verify functionality.   
+With Shard Map Manager in place and the federation members and ranges registered with the Shard Map Manager (done via the migration utility), one can modify the existing Federations application to utilize the elastic database client library. As shown in the figure above, the application connections via these APIs will be routed through the Shard Map Manager to appropriate federation members (now also a shard). Mapping federation members to the Shard Map Manager enables two versions of an application – one that uses Federations and one that uses the elastic database client library — to be executed side-by-side to verify functionality.   
 
 During the migration of the application, there will be two core modifications to the existing application that will need to be made.
 
