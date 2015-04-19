@@ -18,7 +18,7 @@
 
 # Federations migration 
 
-The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [elastic database client library APIs for sharding](http://go.microsoft.com/?linkid=9862592). The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
+The Azure SQL Database Federations feature is being retired along with the Web/Business editions in September 2015. At that point in time, applications that utilize the Federations feature will cease to execute. To ensure a successful migration, it is highly encouraged that migration efforts begin as soon as possible to allow for sufficient planning and execution. This document provides the context, examples, and introduction to the Federations Migration Utility that illustrates how to successfully migrate a current Federations application seamlessly to the [Elastic database client library](http://go.microsoft.com/?linkid=9862592) APIs for sharding. The objective of the document is to walk you through the suggested steps to migrate a Federations application without any data movement.
 
 There are three major steps for migrating an existing Federations application to one that uses elastic database tools.
 
