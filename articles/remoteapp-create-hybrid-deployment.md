@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/27/2015" 
+	ms.date="04/08/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for RemoteApp
@@ -25,7 +25,7 @@ There are two kinds of RemoteApp collections:
 
 This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
-1.	Create a [custom template image for RemoteApp](remoteapp-create-custom-image.md).
+1.	Create a [custom image for RemoteApp](remoteapp-imageoptions.md).
 2.	Create a RemoteApp collection.
 2.	Link to a virtual network.
 3.	Link a template image.
@@ -42,7 +42,7 @@ You need to do the following before creating the collection:
 - Gather information about your on-premises network: IP address information and VPN device details.
 - Install the [Azure PowerShell](install-configure-powershell.md) module.
 - Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
-- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md) for detailed steps. 
+- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [Create a RemoteApp image](remoteapp-imageoptions.md) for more information. 
 - [Configure Active Directory for RemoteApp](remoteapp-ad.md).
 
 
@@ -93,7 +93,7 @@ A virtual network lets your users access data on your local network through Remo
 
 ## Step 3: Link to a RemoteApp template image ##
 
-A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created (from the instructions in [How to create a custom template image for RemoteApp](remoteapp-create-custom-image.md)) or link to an existing image (one already uploaded to Azure). You can also link to [one of the images included with your subscription](remoteapp-images.md).
+A RemoteApp template image contains the programs that you want to share with users. You can either create a new [template image](remoteapp-imageoptions.md) or link to an existing image (one already imported or uploaded to Azure RemoteApp). You can also link to one of the RemoteApp [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs. 
 
 If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 

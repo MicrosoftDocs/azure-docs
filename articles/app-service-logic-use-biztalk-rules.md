@@ -20,7 +20,7 @@
 
 Business Rules encapsulates the policies and decisions that control business processes. These policies may be formally defined in procedure manuals, contracts, or agreements, or may exist as knowledge or expertise embodied in employees. These policies are dynamic and subject to change over time due to changes in business plans, regulations or other reasons.
 
-Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of buisness process. This allows for making required changes to business policies without impacting the rest of the business process.
+Implementing these policies in traditional programming languages requires substantial time and coordination, and does not enable non-programmers to participate in creation and maintenance of business policies. BizTalk Business Rules provides a way to rapidly implement these policies and decouple the rest of the business process. This allows for making required changes to business policies without impacting the rest of the business process.
 
 ##Why Rules
 
@@ -208,7 +208,7 @@ The Rules API App can also be invoked using a rich set of APIs available. This w
 
 Following is an example of how one might use this API in C#
 
-   			// Constructing the JSON message to use in API call to Rules Microservice
+   			// Constructing the JSON message to use in API call to Rules API App
 
 			// xmlInstance is the XML message instance to be passed as input to our Policy
             string xmlInstance = "<ns0:Patient xmlns:ns0=\"http://tempuri.org/XMLSchema.xsd\">  <ns0:Name>Name_0</ns0:Name>  <ns0:Email>Email_0</ns0:Email>  <ns0:PatientID>PatientID_0</ns0:PatientID>  <ns0:Age>10.4</ns0:Age>  <ns0:Claim>    <ns0:ClaimDate>2012-05-31T13:20:00.000-05:00</ns0:ClaimDate>    <ns0:ClaimID>10</ns0:ClaimID>    <ns0:TreatmentID>12</ns0:TreatmentID>    <ns0:ClaimAmount>10000.0</ns0:ClaimAmount>    <ns0:ClaimStatus>ClaimStatus_0</ns0:ClaimStatus>    <ns0:ClaimStatusReason>ClaimStatusReason_0</ns0:ClaimStatusReason>  </ns0:Claim></ns0:Patient>";
@@ -222,7 +222,7 @@ Following is an example of how one might use this API in C#
             string stringContent = JsonConvert.SerializeObject(input);
 
 
-            // Making REST call to Rules Microservice
+            // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
 	
 			// The url is the Host URL of the Rules API App

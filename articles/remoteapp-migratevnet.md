@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="04/07/2015" 
     ms.author="elizapo" />
 
 
@@ -21,6 +21,8 @@
 # How to migrate a hybrid collection from a RemoteApp VNET to an Azure VNET
 
 Good news! We have enabled you to deploy hybrid RemoteApp collections directly into your existing Azure virtual networks (VNETs) instead of creating RemoteApp-specific VNETs. This lets you take advantage of the latest VNET features (like ExpressRoute and forced tunneling) and give your hybrid collections direct network access to other Azure services and virtual machines deployed to that VNET.  (This gets you better performance and easier setup than VNET-to-VNET configurations).
+
+> [AZURE.NOTE] This feature is currently only available in  private preview. 
 
 Let’s say that you’ve already created a hybrid RemoteApp collection called *OriginalCollection* with a RemoteApp VNET called *RemoteAppVNET*. Here are the steps to migrate it to a new Azure VNET called *AzureVNET*.
 

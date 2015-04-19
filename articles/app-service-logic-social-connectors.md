@@ -69,10 +69,8 @@ Here's a brief description of each of the social connectors:
 <td>Yammer
 <td>A Yammer connector allows you to post and read messages from Yammer groups.
 <td>New messages
-<td><li>Post message
-	<li>Tweet
-	<li>Get User Timeline
-	<li>Retweet
+<td><li>Post message	
+	<li>Get message from group\feed	
 </tr>
 
 <tr>
@@ -98,11 +96,7 @@ Let's get started.
 
 
 ## Create a Connector
-
-There are two ways to create connectors:
-
-- by using the Microsoft Azure portal (no coding required!)
-- by using REST APIs. 
+Connectors can be created at the Azure Portal 
 
 ### Create a Social Connector in the Microsoft Azure Portal
 
@@ -124,9 +118,9 @@ There are two ways to create connectors:
 Now that you've created your first connector, consider building a web, mobile or logic app with it. 
 
 
-### Create a Connector using REST APIs
+### Access Connector using REST APIs
 
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+[Access connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 
 ## Add your connector to an application 

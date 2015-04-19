@@ -43,31 +43,11 @@ Here's a brief overview of each of the App and Data Services connectors that are
 </tr>
 
 <tr>
-<td>Azure Mobile Services
-<td>An Azure Mobile Services connector lets you create and modify data and call custom APIs.
-<td>None
-<td><li>Query
-<li>Insert
-<li>Delete
-<li>Update
-<li>Custom API call
-
-</tr>
-
-<tr>
 <td>Azure Service Bus
 <td>Azure Service Bus connector lets you send messages from Service Bus entities like Queues and Topics and receive messages from Service Bus entities like Queues and Subscriptions.
 <td>New messages
 <td>Send message
 </tr>
-
-<tr>
-<td>Azure Storage Blob
-<td>Azure Storage Blob lets you connect to Blob storage and perform various actions.
-<td>New file added
-<td><li>Upload <li>Get <li>Delete <li>List <li>Copy <li>Snapshot
-</tr>
-
 <tr>
 <td>Azure Storage Table
 <td>Azure Storage Table Connector lets you connect to Azure Storage Table and perform various actions such as Get Entity, Query Entities, Insert Entity, Update Entity, Delete Entity and a trigger to retrieve data.
@@ -225,11 +205,7 @@ Imagine your company is a construction firm that receives very large files conta
 Let's get started. 
 
 ## Create a Connector
-
-There are two ways to create connectors:
-
-- by using the Microsoft Azure portal (no coding required!)
-- by using REST APIs. 
+Connector API Apps can be created using the Azure Portal
 
 ### Create a SharePoint Connector in the Microsoft Azure Portal
 
@@ -251,9 +227,9 @@ There are two ways to create connectors:
 Now that you've created your first connector, consider building a web, mobile or logic app with it. 
 
 
-### Create a Connector using REST APIs
+### Access Connector using REST APIs
 
-[Create connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
+[Access connectors with REST APIs](http://go.microsoft.com/fwlink/p/?LinkId=529766)
 
 ## Add your connector to an application 
 Microsoft Azure App Service exposes different application types that can use these Connectors. For example, you can create a *Logic* app by combining one or more of your connectors *logically* into a single app.

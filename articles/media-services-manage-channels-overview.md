@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Managing Channels and Programs" 
-	description="This topic describes how to create Media Services Channels and Programs for live streaming." 
+	pageTitle="Using On-premises Encoders to Send Multi-bitrate Live Stream to a Channel" 
+	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,70 +13,75 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="03/22/2015" 
+	ms.date="04/06/2015" 
 	ms.author="juliako"/>
 
-#Managing Channels and Programs
+#Using On-premises Encoders to Send Multi-bitrate Live Stream to a Channel
 
 ##Overview
 
-In Azure Media Services (AMS), the Channel entity represents a pipeline for processing live streaming content. A Program enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a channel has a constant stream of content and a program is scoped to some timed event on that channel. 
+In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Program** enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel. 
 
-A Channel receives live input streams from a 3rd party encoder that outputs multi-bitrate RTMP, Smooth Streaming (Fragmented MP4). The content can then be streamed to client playback applications through one or more streaming endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS.
+When working with Live Streaming, one of the components that is involved in the workflow is a live video encoder that converts signals from the camera to streams that are sent to a live streaming service. A **Channel** can receive live input streams from an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. You can use the following live encoders that output Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. The live encoder can also ingest a single bitrate stream, but since the stream is not processed, the client applications will also receive a single bitrate stream (this option is not recommended). Once the received content is published, it can be streamed to client playback applications through one or more **Streaming Endpoint**s. The following adaptive streaming protocols can be used to play the stream: HLS,  MPEG DASH, Smooth Stream,HDS. 
 
-A streaming endpoint represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the StreamingEndpoint service to handle growing bandwidth needs by adjusting streaming reserved units. It is recommended to allocate 1 or more streaming reserved units for applications in production environment. For more information, see  [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
+A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Live Streaming using an on-premises live encoder
-
-The following diagram represents the live streaming workflow using an on-premises live encoder that outputs multi-bitrate RTMP, or Smooth Streaming (Fragmented MP4). When using an on-premises encoder, the incoming stream passes through to the streaming endpoint without any encoding.
-
-Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also pass through, but the client applications will get a single bitrate stream.
-
+The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
 
 ![Live workflow][live-overview]
 
+This topic gives an overview of a Channel that receives a multi-bitrate live stream from an on-premises encoder. The topic also discusses components related to channels.
 
-##Concepts
+##<a id="scenarios"></a>A Common Live Streaming Scenario
 
-For information about concepts, see [Media Services Concepts](media-services-concepts.md#live-streaming). 
+The following steps describe tasks involved in creating common live streaming applications.
 
-##Basic Scenario
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+	
+	This step could also be performed after you create your Channel.
 
-This section describes the steps involved in creating most basic live streaming application.
+1. Create and start a Channel.
+1. Retrieve the Channel ingest URL. 
 
-###Deliver live streaming media using on-premises encoder
+	The ingest URL is used by the live encoder to send the stream to the Channel.
+1. Retrieve the Channel preview URL. 
 
-1. Create and start a channel.
-1. Retrieve the channel ingest (input) URL.
-1. Start and configure the live transcoder of your choice. For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
-1. Retrieve the channel’s preview endpoint and verify that your channel is properly receiving the live stream.
-2. Create an asset and configure asset delivery policy (used by dynamic packaging).
+	Use this URL to verify that your channel is properly receiving the live stream.
+
+2. Create an asset.
+3. If you want for the asset to be dynamically encrypted during playback, do the following: 	
+	
+	1. 	Create a content key. 
+	1. 	Configure the content key's authorization policy.
+1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
 3. Create a program and specify to use the asset that you created.
 1. Publish the asset associated with the program by creating an OnDemand locator.  
 
 	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
 1. Stop the program whenever you want to stop streaming and archiving the event.
-1. Delete the Program (and optionally delete the asset). 
+1. Delete the Program (and optionally delete the asset).   
 
-The rest of the topic describes the main components of the Media Services Channel and Program.
+The [live streaming tasks](media-services-manage-channels-overview.md#tasks) section links to topics that demonstrate how to achieve tasks described above.
+
 
 ##<a id="channel_input"></a>Channel input (ingest) configurations
 
 ###<a id="ingest_protocols"></a>Ingest streaming protocol
 
-Valid streaming protocol options are: **Multi-bitrate RTMP** and **Multi-bitrate Fragmented MP4**.
+Media Services supports ingesting live feeds using the following streaming protocol: 
 
-- **Multi-bitrate RTMP**. 
-	
+- **Multi-bitrate Fragmented MP4**
+ 
+- **Multi-bitrate RTMP** 
+
 	When the **RTMP** ingest streaming protocol is selected, two ingest(input) endpoints are created for the channel: 
 	
-	**Primary URL**: Specifies the fully qualified URL of channel's primary RTMP ingest endpoint.
+	**Primary URL**: Specifies the fully qualified URL of the channel's primary RTMP ingest endpoint.
 
-	**Secondary URL**(optional): Specifies the fully qualified URL of channel's secondary RTMP ingest endpoint. 
+	**Secondary URL**(optional): Specifies the fully qualified URL of the channel's secondary RTMP ingest endpoint. 
 
-	The reason the secondary URL is created is to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance. 
-	
+	Use the secondary URL to improve the durability and fault tolerance of your ingest stream as well as encoder failover and fault-tolerance. 
 	
 	- To improve ingest durability and fault-tolerance:
 		
@@ -86,41 +91,32 @@ Valid streaming protocol options are: **Multi-bitrate RTMP** and **Multi-bitrate
 		
 		Use multiple encoders to generate the same data and send it to the primary and secondary ingest URLs. This approach improves both ingest durability and encoder high availability. NOTE: the encoder needs to support high availability scenario and also needs to be time synchronized internally (for details, refer to your encoder manual).
 	
-	
-	Additional considerations:
-	
-	- 	Using secondary ingest URL will require additional bandwidth. To use primary/secondary ingest URL; you need ensure you have sufficient free internet connectivity to send data to the ingest points.
-	
-	- 	Currently, you cannot ingest RTMP over SSL.
+ 	Using secondary ingest URL requires additional bandwidth. 
 
-- **Multi-bitrate Fragmented MP4** (Smooth Streaming).  
-	
-	You can ingest live Fragmented MP4 (Smooth Streaming) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS
+Note that you can ingest a single bitrate into your channel, but since the stream is not processed by the channel, the client applications will also receive a single bitrate stream (this option is not recommended).
 
-Note that it is valid, but undesirable, for a single bitrate RTMP or Smooth Streaming live stream to be sent. The stream will also pass through, but the client applications will get a single bitrate stream.
+For information about RTMP live encoders, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
+The following considerations apply:
 
-You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
+- Make sure you have sufficient free Internet connectivity to send data to the ingest points. 
+- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (aka layers), and a maximum of 5 audio tracks.
+- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps.
+- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps.
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 
-###Allowed IP addresses
-
-You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’). 
-
-If no IP addresses are specified and there is no rule definition then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 ###Ingest URLs (endpoints) 
 
-A Channel provides an input endpoint (ingest URL) that you then use to ingest your live stream. The channel receives live input streams and makes the output streams available for streaming through one or more streaming endpoints. 
+A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
 
-You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data into the channel, the channel must be started. Once the live transcoder starts ingesting data, you can preview your stream through the preview URL.
+You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data into the channel, the channel must be started. Once the channel starts ingesting data, you can preview your stream through the preview URL.
 
-Media Services enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. 
-
-Currently, you cannot ingest an RTMP live stream over an SSL connection.
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over SSL. 
 
 ###<a id="keyframe_interval"></a>Keyframe interval
 
-When using an on-premise live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
+When using an on-premises live encoder to generate multi-bitrate stream, the keyframe interval specifies GOP duration (as used by that external encoder). Once this incoming stream is received by the Channel, you can then deliver your live stream to client playback applications in any of the following formats: Smooth Streaming, DASH and HLS. When doing live streaming, HLS is always packaged dynamically. By default, Media Services automatically calculates HLS segment packaging ratio (fragments per segment) based on the keyframe interval, also referred to as Group of Pictures – GOP, that is received from the live encoder. 
 
 The following table shows how the segment duration is being calculated:
 
@@ -138,6 +134,13 @@ You can also change the keyframe interval value, by setting the KeyFrameInterval
 If you explicitly set the KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated using the rules described above.  
 
 If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services will use the values set by you. 
+
+
+###Allowed IP addresses
+
+You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (e.g. ‘10.0.0.1’), an IP range using an IP address and a CIDR subnet mask (e.g. ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (e.g. ‘10.0.0.1(255.255.252.0)’). 
+
+If no IP addresses are specified and there is no rule definition, then no IP address will be allowed. To allow any IP address, create a rule and set 0.0.0.0/0.
 
 ##Channel preview 
 
@@ -181,17 +184,12 @@ Even after you stop and delete the program, the users would be able to stream yo
 
 If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
 
-If you want to protect your asset follow the steps below. You can find links to relevant articles [here](media-services-live-streaming-workflow.md). 
-
-- Configuring content key authorization policy.
-- Configuring asset delivery policy. 
-
 ##Channel state
 
 The current state of channel. Possible values include:
 
 - Stopped. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- Starting. Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- Starting. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
 - Running. The Channel is capable of processing live streams.
 - Stopping. The channel is being stopped. No updates or streaming is allowed during this state.
 - Deleting. The Channel is being deleted. No updates or streaming is allowed during this state. 
@@ -209,13 +207,80 @@ The following table demonstrates supported closed captioning and ad insertion st
 
 ##Considerations
 
-You are only billed when your channel is in running state.
+When using an on-premises live encoder to send a multi-bitrate stream into a Channel, the following constraints apply:
 
-Every time you reconfigure the transcoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
+- Make sure you have sufficient free internet connectivity to send data to the ingest points. 
+- The incoming multi-bitrate stream can have a maximum of 10 video quality levels (10 layers), and maximum of 5 audio tracks.
+- The highest average bitrate for any of the video quality levels or layers should be below 10 Mbps
+- The aggregate of the average bitrates for all the video and audio streams should be below 25 Mbps
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
 
-A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
 
-By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+Other considerations related to working with channels and related components:
+
+
+- You are only billed when your Channel is in running state.
+- Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
+- A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
+- By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+- You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
+
+##<a id="tasks"></a>Live Streaming Related Tasks
+
+###Setting up your computer
+
+For information on how to set up your computer, see [Set up your computer](media-services-set-up-computer.md).
+
+###Configuring streaming endpoints
+
+For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
+
+###Using On-premises Live Encoders to Output Multi-bitrate Stream to a Channel
+
+For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
+
+###Managing Channels, Programs, Assets
+For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+
+Choose **Portal**, **.NET**, **REST API** to see examples.
+
+[AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
+
+###Configuring asset delivery policy
+
+Configure asset delivery policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
+
+###Creating content key
+
+Create a content key with which you want to encrypt your asset using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-create-contentkey](../includes/media-services-selector-create-contentkey.md)]
+
+###Configuring content key authorization policy 
+
+Configure content protection and key authorization policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
+
+
+###Publishing assets
+
+Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
+
+[AZURE.INCLUDE [media-services-selector-publish](../includes/media-services-selector-publish.md)]
+
+
+###Enabling Azure CDN
+
+Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md#enable_cdn).
+
+###Scaling a Media Services account
+
+You can scale **Media Services** by specifying the number of **Streaming Reserved Units** you would like your account to be provisioned with. 
+
+For information about scaling streaming units, see: [How to scale streaming units](media-services-manage-origins.md#scale_streaming_endpoints.md).
 
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-current.png

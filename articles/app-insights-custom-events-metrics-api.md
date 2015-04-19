@@ -182,9 +182,13 @@ From the list below the chart, select an event name to see individual occurrence
 
 You can attach properties and measurements to your metrics, events, page views, and other telemetry data. 
 
-**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular.
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular. 
+
+There's a limit of about 1k on the string length. (If you want to send large chunks of data, use the message parameter of TrackTrace.)
 
 **Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
+
+Metric values should be >= 0 to be correctly displayed.
 
 *JavaScript*
 
@@ -324,6 +328,8 @@ Use TrackMetric to send metrics that are not attached to particular events. For 
 
 Metrics are displayed as statistical charts in metric explorer, but unlike events, you can't search for individual occurrences in diagnostic search.
 
+Metric values should be >= 0 to be correctly displayed.
+
 
 *JavaScript*
 
@@ -431,7 +437,9 @@ In Windows mobile apps, the SDK catches unhandled exceptions, so that you don't 
 
 ## Track Trace 
 
-Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. 
+Use this to help diagnose problems by sending a 'breadcrumb trail' to Application Insights. You can send chunks of diagnostic data, and inspect them in [Diagnostic search][diagnostic]. 
+
+ 
 
 [Log adapters][trace] use this API to send third-party logs to the portal.
 
@@ -439,6 +447,9 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
 
 ## Set default properties for all telemetry
 
@@ -568,6 +579,11 @@ In web pages, you might want to set it from the web server's state, rather than 
     }) // ...
 
 
+## Disable standard telemetry
+
+You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
+
+[Learn more][config].
 
 
 ## <a name="debug"></a>Developer mode

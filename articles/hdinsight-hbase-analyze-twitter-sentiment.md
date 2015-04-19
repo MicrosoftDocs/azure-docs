@@ -103,7 +103,7 @@ The Twitter streaming APIs use [OAuth](http://oauth.net/) to authorize requests.
 	<tr><td>Website</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
 	</table>
 
-	> [WACOM.NOTE] The Twitter application name must be an unique name.  
+	> [AZURE.NOTE] The Twitter application name must be an unique name.  
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 5. Click the **Permissions** tab. The default permission is **Read only**. This is sufficient for this tutorial. 
@@ -1307,6 +1307,7 @@ Optionally, you can deploy the application to Azure Websites. For instructions, 
 In this tutorial, you learned how to get tweets, analyze the sentiment of tweets, save the sentiment data to HBase, and present the real-time Twitter sentiment data to Bing maps. To learn more, see:
 
 - [Get started with HDInsight][hdinsight-get-started]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analyze Twitter data with Hadoop in HDInsight][hdinsight-analyze-twitter-data]
 - [Analyze flight delay data using HDInsight][hdinsight-analyze-flight-delay-data]
 - [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
