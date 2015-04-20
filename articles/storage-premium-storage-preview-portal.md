@@ -399,7 +399,11 @@ This PowerShell example shows how to create a new Premium Storage account and at
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Cross-Platform Command-Line Interface
 
-The [Azure Cross-Platform Command-Line Interface](xplat-cli.md)(xplat-cli) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use xplat-cli to create a new virtual machine, and attach a new data disk from a Premium Storage account. 
+The [Azure Cross-Platform Command-Line Interface](xplat-cli.md)(xplat-cli) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use xplat-cli (version 0.8.14 and later) to create a premium storage account, a new virtual machine, and attach a new data disk from a Premium Storage account. 
+
+#### Create a premium storage account
+
+	azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 
 #### Create a DS-series virtual machine
 
