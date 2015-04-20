@@ -3,7 +3,7 @@
    description="Learn about Service Fabric's Reliable Service programming model, and get started writing your own services."
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="masnider,jessebenson"
+   authors="masnider;jessebenson"
    manager="timlt"
    editor=""/>
 
