@@ -39,8 +39,8 @@ Occasions when using a diff package would be a good choice:
 
 ## Related Topics
 
-[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
-[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
-[Advanced Topics](./service-fabric-application-upgrade-advanced)
-[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
-[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial.md)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters.md)
+[Advanced Topics](./service-fabric-application-upgrade-advanced.md)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting.md)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart.md)

@@ -59,12 +59,12 @@ The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRet
 ## Related Topics
 
 
-[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial.md)
 
-[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Upgrade Parameters](./service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Advanced Topics](./service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting.md)
 
-[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
+[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart.md)
