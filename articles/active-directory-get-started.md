@@ -38,7 +38,7 @@ If you don't yet have a subscription for a Microsoft cloud service, then a new d
 Want to add a custom domain name, or use your own registered domain name? [Learn more about adding a custom domain](https://msdn.microsoft.com/library/azure/dn532272.aspx).
 
 ## How can I add my company branding?
-With Azure AD Premium, you can add your company's logo and other branding to the Azure sign in page and Access Panel pages. [Add company branding to your Sign In and Access Panel pages](https://msdn.microsoft.com/en-us/library/azure/dn532270.aspx)
+With Azure AD Premium, you can add your company's logo and other branding to the Azure sign in page and Access Panel pages. [Add company branding to your Sign In and Access Panel pages](https://msdn.microsoft.com/library/azure/dn532270.aspx)
 
 ## How can I integrate Azure AD with another directory?
 You can set up directory synchronization between an on-premises directory and Azure AD, including password sync, and enable single-sign on for access to applications on-premises and in the cloud. [Learn more about directory integration](https://technet.microsoft.com/library/jj573653.aspx). 
