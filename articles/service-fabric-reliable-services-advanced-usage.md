@@ -29,13 +29,13 @@ The StatelessService base class provides CreateCommunicationListener() and RunAs
     OnOpenAsync is called when the stateless service instance is about to be used. Extended service initialization tasks can be started at this time.
 
 - `Task OnCloseAsync(CancellationToken)`
-    OnCloseAsync is called when the stateless service instance is going to be gracefully shutdown. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a fault is detected. OnCloseAsync can be used to safely close any resources, stop any background processing, finish saving external state, or close down existing connections.
+    OnCloseAsync is called when the stateless service instance is going to be gracefully shutdown. This can occur when the service's code is being upgraded, the service instance is being moved due to load balancing, or a transient fault is detected. OnCloseAsync can be used to safely close any resources, stop any background processing, finish saving external state, or close down existing connections.
 
 - `void OnAbort()`
-    OnAbort is called when the stateless service instance is being forcefully shutdown. This is generally called when the service instance needs to be closed, but the OnOpenAsync task hasn't completed yet.
+    OnAbort is called when the stateless service instance is being forcefully shutdown. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
 
 ## Stateful Service base classes
-The StatefulService base class should be sufficient for most stateful services. Similar to stateless services, the StatefulServiceBase class underlies StatefulService and allows you to be notified of additional service lifecycle events. Additionally, it allows you to provide a custom reliable state provider.
+The StatefulService base class should be sufficient for most stateful services. Similar to stateless services, the StatefulServiceBase class underlies StatefulService and allows you to be notified of additional service lifecycle events. Additionally, it allows you to provide a custom reliable state provider and optionally support communication listeners on Secondaries.
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
     OnChangeRoleAsync is called when the stateful service is changing roles, for example to Primary or Secondary. Primary replicas are given write status (are allowed to create and write to the reliable collections), while Secondary replicas are given read status (can only read from existing reliable collections). You can start or update the background tasks in response to role changes, such as performing read-only validation, report generation, or data mining on a Secondary.
