@@ -24,13 +24,13 @@
 
 ## Next Steps
 
-[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial.md)
+[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
-[Upgrade Parameters](./service-fabric-application-upgrade-parameters.md)
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](./service-fabric-application-upgrade-advanced.md)
+[Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
 
 
 
