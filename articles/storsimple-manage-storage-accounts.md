@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/14/2015"
+   ms.date="04/20/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple storage account
@@ -37,7 +37,7 @@ On the **Configure** page, all storage accounts that are created for the billing
 - **SSL enabled** – Whether the SSL is enabled and device-to-cloud communication is over the secure channel.
 - **Used by** – The number of volumes using the storage account.
 
-The most common tasks related to storage accounts that can be performed on the Configure page are:
+The most common tasks related to storage accounts that can be performed on the **Configure** page are:
 
 - Add a storage account 
 - Edit a storage account 
@@ -54,9 +54,9 @@ There are three types of storage accounts that can be used with your StorSimple 
 
 ## Add a storage account
 
-You can add a storage account by specifying a unique friendly name and access credentials that are linked to the storage account (with the specified provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
+You can add a storage account by providing a unique friendly name and access credentials that are linked to the storage account (with the specified cloud service provider). You also have the option of enabling the secure sockets layer (SSL) mode to create a secure channel for network communication between your device and the cloud.
 
-You can create multiple accounts for a given cloud service provider. Be aware that after a storage account is created, you cannot change the cloud service provider.
+You can create multiple accounts for a given cloud service provider. Be aware, however, that after a storage account is created, you cannot change the cloud service provider.
 
 While the storage account is being saved, the service attempts to communicate with your cloud service provider. The credentials and the access material that you supplied will be authenticated at this time. A storage account is created only if the authentication succeeds. If the authentication fails, then an appropriate error message will be displayed.
 
@@ -64,13 +64,13 @@ While the storage account is being saved, the service attempts to communicate wi
 
 1. On the service landing page, select your service and double-click it. This will take you to the **Quick Start** page. 
 2. Access the **Configure** page.
-3. Click Add/edit storage account.
+3. Click **Add/edit storage account**.
 4. In the **Add/Edit Storage Accounts** dialog box, do the following:
   1. Click **Add new**.
   2. Provide a name for your storage account.
   3. Supply the primary **Storage account access key** for your Microsoft Azure storage account.
   4. Select the **Enable SSL mode** check box to create a secure channel for the network communication between your device and the cloud. Clear the **Enable SSL mode** check box only if you are operating within a private cloud.
-  5. Click the ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png). You will be notified after the storage account is created successfully.
+  5. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png). You will be notified after the storage account is created successfully.
 
     ![Add storage account](./media/storsimple-manage-storage-accounts/HCS_AddStorageAccount.png)
 
@@ -78,7 +78,7 @@ While the storage account is being saved, the service attempts to communicate wi
 
 ## Edit a storage account
 
-You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for your storage account. You can supply the new storage access key and save the updated settings.
+You can edit a storage account that is used by a volume container. If you edit a storage account that is currently in use, the only field available to modify is the access key for the storage account. You can supply the new storage access key and save the updated settings.
 
 ### To edit a storage account
 
@@ -91,7 +91,7 @@ You can edit a storage account that is used by a volume container. If you edit a
   1. In the drop-down list of **Storage Accounts**, choose an existing account that you would like to modify. This could also include the storage accounts that were automatically generated when the service was first created.
   2. If necessary, you can modify the **Enable SSL Mode** selection.
   3. You can choose to rotate your storage account access keys. See [Key rotation of storage accounts](#key-rotation-of-storage-accounts) for more information about how to perform key rotation.
-  4. Click the ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) to save the settings. The settings will be updated on the **Configure** page. Click **Save** to save the newly updated settings.
+  4. Click the check icon ![check icon](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png) to save the settings. The settings will be updated on the **Configure** page. Click **Save** to save the newly updated settings.
 
     ![Edit a storage account](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
@@ -115,7 +115,7 @@ For security reasons, key rotation is often a requirement in data centers.
 
 Each Microsoft Azure subscription can have one or more associated storage accounts. The access to these accounts is controlled by the subscription and access keys for each storage account. 
 
-When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be specified when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
+When you create a storage account, Microsoft Azure generates two 512-bit storage access keys that are used for authentication when the storage account is accessed. Having two storage access keys allows you to regenerate the keys with no interruption to your storage service or access to that service. The key that is currently in use is the *primary* key and the backup key is referred to as the *secondary* key. One of these two keys must be supplied when your Microsoft Azure StorSimple device accesses your cloud storage service provider.
 
 ## What is key rotation?
 
