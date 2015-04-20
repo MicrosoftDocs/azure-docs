@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="wesmc,ricksal"/>
+	ms.author="wesmc;ricksal"/>
 
 # Troubleshoot the Mobile Services .NET Backend
 
