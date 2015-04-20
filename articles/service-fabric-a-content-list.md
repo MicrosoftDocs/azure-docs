@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Scratch TOC- Don't Publish" 
-   description="" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="rwike77" 
-   manager="timlt" 
+<properties
+   pageTitle="Scratch TOC- Don't Publish"
+   description=""
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="02/18/2015"
    ms.author="ryanwi"/>
 
@@ -45,9 +45,9 @@ Install and extend the Samples **owner: vturecek**
 
 Choose a Programming Model **owner: seanmck**
 
-Create a Stateful Application **owner: Haishi** 
+Create a Stateful Application **owner: Haishi**
 
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi** 
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -55,7 +55,9 @@ Create Windows Fabric Stateful  applications using .NET Distributed Collections 
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
-[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
+[Reliable Service Programming Model Introduction](../service-fabric-reliable-services-introduction.md) **owner: masnider**
+
+[Reliable Service Programming Model Quick Start](../service-fabric-reliable-services-quick-start.md) **owner: masnider**
 
 Communicate with a Service
 
@@ -67,7 +69,7 @@ more advanced configuration stuff
 ### Configure an Application Manifest P2 owner: vturecek
 more advanced configuration stuff
 
-### Package and Deploy an Application P2 
+### Package and Deploy an Application P2
 Package and deploy using VS. Explain VS template. **owner: vturecek**
 
 Package and deploy using Cmdlets **owner: vturecek**
@@ -106,56 +108,35 @@ Testing in production - P2 **owner: rsinha**
 Writing a custom test scenario - P3 **owner: vturecek**
 
 
-### Troubleshoot and monitor services locally owners: kunalds, toddpf
-Connect to and view the local development cluster **owner: Kunalds**
+### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
+[How to Monitor and Diagnose Services locally](../service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally) - **owner:kunalds**
 
-View system events fromm the local development cluster using Visual Studio **owner: Kunalds**
 
-Write trace events from a service **owner: Kunalds**
+### Upgrading your Application owner: Mani
 
-View trace events for a service using Visual Studio **owner: Kunalds**
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md) **owner: subramar**
 
-Debug a service in Visual Studio using F5 **owner: Kunalds**
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
 
-### Upgrade an Application owner: Mani
-Perform an un-monitored automatic application upgrade **owner: alexwun**
+[Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
 
-Perform a monitored automatic application upgrade **owner: alexwun**
+[Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
 
-Perform an un-monitored manual application upgrade **owner: alexwun**
+[Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
+
+[Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
 Upgrade an application (PowerShell) **owner: alexwun**
 
-Handle application upgrade failures **owner: alexwun**
 
 ### Scale Services and Partitions owner: vturecek
 
-### Troubleshoot and monitor deployed services P2 (Phosphorus?)
-Setup Azure Diagnostics and OpInsights to collect diagnostics **owner: Kunalds**
-
-Setup AppInsights to collect metrics and alerts **owner: Kunalds**
-
-Identify slow performance requests in Service Fabric **owner: Kunalds**
-
-Identify slow performance requests in an Actor **owner: Kunalds**
-
-Troubleshoot an application upgrade **owner: Kunalds**
-
-View application upgrade history **owner: Kunalds**
-
-View performance data **owner: Kunalds**
-
-Download crash dumps **owner: Kunalds**
-
-View health information in Visual Studio **owner: oanapl**
-
- 
 ### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
-
 Query Health State and Events (PowerShell) **owner: oanapl**
 
+
 ### Add/Remove Services from Applications P2 owner: vturecek
- 
+
 ### Remove an Application owner: vturecek
 Remove an Application in Visual Studio **owner: vturecek**
 
@@ -172,7 +153,7 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
-### Monitoring and Diagnostics 
+### Monitoring and Diagnostics
 Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
@@ -181,35 +162,43 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
 
+[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+**owner: oanapl**
+
+[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+**owner: oanapl**
+
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+#### Actors
+- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
 
-[Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
+- [Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
 
-[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
+- [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
+- [Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
+- [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
+- [Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
+- [Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
+- [Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
+- [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
- [FabSrv Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
+#### Services
+- [Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
 
-[FabSrv Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
+- [Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
 
-[FabSrv API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
+- [Reliable Collections](../service-fabric-fabsrv-service-reliable-collection) **owners: mcoskun, tyadam**
 
-[FabSrv Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
+- [API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
 
+- [Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
 
- 
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
@@ -220,7 +209,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Image Store
 
 
-### System Services 
+### System Services
 Failover Manager Service
 
 Cluster Manager Service
@@ -247,7 +236,7 @@ Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
-### Replicas and Replica Sets
+### Replicas and Replica Sets owners: *aprameyr*
 Replica Role and State Lifetime
 
  Replication and State Consistency
@@ -261,4 +250,3 @@ Replica Role and State Lifetime
 ### FabricExplorer
 
 ### Glossary
-

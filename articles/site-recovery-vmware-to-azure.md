@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Set up protection between on-premises VMware virtual machines or physical servers and Azure"
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises VMware servers to Azure and between physical on-premises servers and Azure."
+	pageTitle="Set up protection between on-premises VMWare virtual machines or physical servers and Azure" 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises VMWare servers to Azure and between physical on-premises servers and Azure." 
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -17,13 +17,13 @@
 	ms.author="raynew"/>
 
 
-# Set up protection between on-premises VMware virtual machines or physical servers and Azure
+# Set up protection between on-premises VMWare virtual machines or physical servers and Azure
 
 Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Read about possible deployment scenarios in the [Azure Site Recovery overview](hyper-v-recovery-manager-overview.md).
 
 This walkthrough describes how to deploy Site Recovery to:
 
-- **Protect on-premises VMware virtual machines to Azure**
+- **Protect on-premises VMWare virtual machines to Azure**
 - **Protect on-premises physical Windows and Linux servers to Azure**
 
 Business advantages include:
@@ -31,8 +31,8 @@ Business advantages include:
 - Protection of physical Windows or Linux servers.
 - Simple replication, failover, and recovery using the Azure Site Recovery portal.
 - Data replication over the Internet, a site-to-site VPN connection, or over Azure ExpressRoute.
-- Failback (restore) from Azure to an on-premises VMware infrastructure.
-- Simplified discovery of VMware virtual machines.
+- Failback (restore) from Azure to an on-premises VMWare infrastructure. 
+- Simplified discovery of VMWare virtual machines.
 - Multi VM consistency so that virtual machines and physical servers running specific workloads can be recovered together to a consistent data point.
 - Recovery plans for simplified failover and recovery of workloads tiered over multiple machines.
 
@@ -52,9 +52,9 @@ This diagram illustrates the deployment components.
 
 ### Deployment components
 
-- **On-premises machines**—Your on-premises site has machines that you want to protect. These are either virtual machines running on a VMware hypervisor, or physical servers running Windows or Linux.
+- **On-premises machines**—Your on-premises site has machines that you want to protect. These are either virtual machines running on a VMWare hypervisor, or physical servers running Windows or Linux.
 
-- **On-premises process server**—Protected machines send replication data to the on-premises process server. The process server performs a number of actions on that data. It optimizes it before sending it on to the master target server in Azure. It has a disk-based cache to cache replication data that it receives. It also handles push installation of the Mobility Service which must be installed on each virtual machine or physical server you want to protect, and performs automatic discovery of VMware vCenter servers. The process server is a virtual or physical server running Windows Server 2012 R2. We recommend it's placed on the same network and LAN segment as the machines that you want to protect, but it can run on a different network as long as protected machines have L3 network visibility to it. During deploy you'll set up the process server and register it to the configuration server.
+- **On-premises process server**—Protected machines send replication data to the on-premises process server. The process server performs a number of actions on that data. It optimizes it before sending it on to the master target server in Azure. It has a disk-based cache to cache replication data that it receives. It also handles push installation of the Mobility Service which must be installed on each virtual machine or physical server you want to protect, and performs automatic discovery of VMWare vCenter servers. The process server is a virtual or physical server running Windows Server 2012 R2. We recommend it's placed on the same network and LAN segment as the machines that you want to protect, but it can run on a different network as long as protected machines have L3 network visibility to it. During deploy you'll set up the process server and register it to the configuration server.
 
 - **Azure Site Recovery vault**—The vault coordinates and orchestrates data replica, failover, and recovery between your on-premises site and Azure.
 
@@ -62,7 +62,7 @@ This diagram illustrates the deployment components.
 
 - **Master target server**—The master target server in Azure holds replicated data from your protected machines using attached VHDs created on blob storage in your Azure storage account. You deploy it as an Azure virtual machine as a Windows server based on a Windows Server 2012 R2 gallery  image (to protect Windows machines) or as a Linux server based on a OpenLogic CentOS 6.6 gallery image (to protect Linux machines). Two sizing options are available – standard A3 and standard D14. The server is connected to the same Azure network as the configuration server. During deployment you'll create the server and register it to the configuration server.
 
-- **Mobility service**—You install the Mobility service on each VMware virtual machine or Windows/Linux physical server that you want to protect. The service sends replication data to the process server, which in turn sends it to the master target server in Azure. The process server can automatically install the Mobility service on protected machines, or you can deploy the service manually using your internal software deployment process.
+- **Mobility service**—You install the Mobility service on each VMWare virtual machine or Windows/Linux physical server that you want to protect. The service sends replication data to the process server, which in turn sends it to the master target server in Azure. The process server can automatically install the Mobility service on protected machines, or you can deploy the service manually using your internal software deployment process.
 
 - **Data communication and replication channel**—There are a couple of options. Note that neither option requires you to open any inbound network ports on protected machines. All network communication is initiated from the on-premises site.
 	- **Over the Internet**—Communicates and replicates data from protected on-premises servers and Azure over a secure public internet connection. This is the default option.
@@ -107,18 +107,18 @@ The process server uses disk based cache. Ensure that there's enough free space 
 - Process server:
 	- You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.
 	- We recommend you place the server on the same network and subnet as the machines you want to protect.
-	- Install VMware vSphere CLI 5.1 on the server so it can perform automatic discover of VMware vCenter servers.
+	- Install VMware vSphere CLI 5.1 on the server so it can perform automatic discover of VMWare vCenter servers.
 - The installation path for the configuration server, master target server, process server, and failback servers should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux.
 
-### VMware prerequisites
+### VMWare prerequisites
 
-- A VMware vCenter server managing your VMware vSphere hypervisors. It should be running vCenter version 5.1 or 5.5 with the latest updates.
-- One or more vSphere hypervisors containing VMware virtual machines you want to protect. The hypervisor should be running version ESX/ESXi version 5.1 or 5.5 with the latest updates.
-- VMware virtual machines discovered through a vCenter server should have VMware tools installed and running.
+- A VMWare vCenter server managing your VMware vSphere hypervisors. It should be running vCenter version 5.1 or 5.5 with the latest updates.
+- One or more vSphere hypervisors containing VMWare virtual machines you want to protect. The hypervisor should be running version ESX/ESXi version 5.1 or 5.5 with the latest updates. 
+- VMWare virtual machines discovered through a vCenter server should have VMware tools installed and running.
 
 ### Protected Windows machine prerequisites
 
-Protected physical servers or VMware virtual machines running Windows should have:
+Protected physical servers or VMWare virtual machines running Windows should have:
 
 - A supported 64-bit operating system: Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 with at least SP1.
 - The host name, mount points, device names, Windows system path (eg: C:\Windows) should be in English only.
@@ -129,7 +129,7 @@ Protected physical servers or VMware virtual machines running Windows should hav
 
 ### Protected Linux machine prerequisites
 
-Protected physical servers or VMware virtual machines running Linux should have:
+Protected physical servers or VMWare virtual machines running Linux should have:
 
 - A supported operating system: Centos 6.4, 6.5, 6.6; Oracle Enterprise Linux  6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kern Release 3 (UEK3), SUSE Linux Enterprise Server 11 SP3
 - The host name, mount points, device names, and Linux system paths and file names (eg /etc/; /usr) should be in English only.
@@ -466,3 +466,4 @@ The information in Section A is regarding Third Party Code components from the p
 The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
 The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=530254). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+
