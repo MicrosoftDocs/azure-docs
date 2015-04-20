@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Delivering Video-on-Demand with Media Services REST APIs" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using REST APIs" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using REST APIs" 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/14/2015" 
 	ms.author="juliako"/>
 
-# Quickstart: Delivering Video-on-Demand with Media Services REST APIs 
+#Getting Started with Delivering Video on Demand (VoD) using REST APIs 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -225,11 +225,10 @@ One of the values that you have to provide when creating an asset is asset creat
 
  
 - **None** = **0** - No encryption is used. Note that when using this option your content is not protected in transit or at rest in storage.
-
 	If you plan to deliver an MP4 using progressive download, use this option. 
 - **StorageEncrypted** = **1** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
+- **CommonEncryptionProtected** = **2** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+- **EnvelopeEncryptionProtected** = **4** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
 ### Create an asset
 
@@ -1266,16 +1265,13 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 ## <a id="play"></a>Play your content  
 
-Once you have SAS URLs, you can progressively download your MP4 files by pasting a URL into a browser (for example, IE, Chrome, Safari).
+To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-To test adaptive streaming URLs use the following players:
+To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
-To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/), or [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
+##Next step
 
-To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
-
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
-
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 
 ##Additional Resources
