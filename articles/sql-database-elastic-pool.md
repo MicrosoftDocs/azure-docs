@@ -26,20 +26,20 @@ Elastic pools provide performance adaptability for a group of databases, while a
 An *elastic database pool* is a single pool of available resources that are shared by a group of databases. The shared resources consist of database throughput units (DTUs), and storage. The pool shares these resources and accommodates unpredictable periods of increased activity for databases in the pool while at the same time, provides a minimum amount of resources for all databases to reliably accommodate the average use for each database.
 
 
-> [AZURE.NOTE] Elastic Pools are in preview and only available for databases in V12 SQL Database Servers. For this preview, Elastic Pools can only be set to the Elastic Standard pricing tier, and you can only configure and manage Elastic Pools using the Azure Preview Portal, REST APIs, and PowerShell.
+> [AZURE.NOTE] Elastic database pools are in preview and only available for databases in V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the Microsoft Azure Portal, REST APIs, and PowerShell.
 
 
-For customers who have a large number of databases, where each database’s usage is varied and unpredictable, Elastic Pools provide a simple cost effective solution to maintain a reliable level of performance goals.
+For customers who have a large number of databases, where each database’s usage is varied and unpredictable, elastic pools provide a simple cost effective solution to maintain a reliable level of performance goals.
 
-For example, when hosting large numbers of databases, it is common to only have a subset of databases concurrently active at any given time. The actual databases that are simultaneously active change unpredictably throughout each month. By sharing resources in an Elastic Pool, the databases with increased activity are accommodated while maintaining a guaranteed level of resources for all other databases in the pool. 
+For example, when hosting large numbers of databases, it is common to only have a subset of databases concurrently active at any given time. The actual databases that are simultaneously active change unpredictably throughout each month. By sharing resources in an elastic pool, the databases with increased activity are accommodated while maintaining a guaranteed level of resources for all other databases in the pool. 
 
 The resources that are guaranteed to the pool are set by the user and shared by all databases in the pool. The performance of all databases in the pool is guaranteed by setting a DTU guarantee (or DTU MIN) per database. This prevents individual databases from consuming all resources in the pool. 
 
 The pool also sets the service tier (pricing tier?) of all databases in the pool. So if a pool is set to Elastic Standard, then all databases in the pool have all features available to the Standard tier, for example, Point in Time Restore (any restore point within the last 14 days) and Geo-Restore.
 
-## Create an elastic pool
+## Create an elastic database pool
 
-Create an Elastic Pool by adding a new Elastic Pool to a SQL Database Server. You can add multiple Elastic Pools to a server, but only 1 server can be associated with each elastic pool. Additionally, all or some of the databases on a server can be in an elastic pool.
+Create an elastic pool by adding a new elastic pool to a SQL Database Server. You can add multiple elastic pools to a server, but only 1 server can be associated with each elastic pool. Additionally, all or some of the databases on a server can be in an elastic pool.
 
 
 1.	Select a SQL Database Server that contains the databases you want to add to the elastic pool.
@@ -47,9 +47,9 @@ Create an Elastic Pool by adding a new Elastic Pool to a SQL Database Server. Yo
 
    ![Create Elastic Pool][1]
 
-## Configure an Elastic Pool
+## Configure an elastic pool
 
-Configure an Elastic Pool by setting the pricing tier, adding databases, and setting the performance characteristics of the pool.
+Configure an elastic pool by setting the pricing tier, adding databases, and setting the performance characteristics of the pool.
 
    ![Configure Elastic Pool][2]
 
@@ -58,11 +58,11 @@ Configure an Elastic Pool by setting the pricing tier, adding databases, and set
 
 An Elastic Pool's pricing tier is somewhat analogous to a SQL Database's service tier. The pricing tier determines the features available to each database in the pool, and the maximum number of DTUs (DTU MAX) available to each database. 
 
-> [AZURE.NOTE] The Elastic Pool preview is limited to the **Elastic Standard** pricing tier. Geo-replication is not supported in the current preview.
+> [AZURE.NOTE] This preview is limited to the **Elastic Standard** pricing tier. Geo-Replication is not supported in the current preview.
 
 | Pricing Tier | DTU MAX per Database | Supported Features |
 | :--- | :--- | :--- |
-| Elastic Standard | 100 MAX DTUs per database | Point in time restore (any point last 14 days) <br> Geo-Restore |
+| Elastic Standard | 100 MAX DTUs per database | Point in Time Restore (any point last 14 days) <br> Geo-Restore |
 
 ### Add databases
 
@@ -93,24 +93,24 @@ There are three parameters you can set that define the performance for the pool;
 
 ## Adding databases into an elastic pool
 
-You can create new databases, add or copy existing databases, and restore deleted databases into Elastic Pools.
+You can create new databases, add or copy existing databases, and restore deleted databases into elastic pools.
 
 
 ## Monitor an elastic pool
 
-After creating an Elastic Pool, you can monitor and manage the pool by adjusting the available performance parameters.
+After creating an elastic pool, you can monitor and manage the pool by adjusting the available performance parameters.
 
 ![Monitor Elastic Pool][4]
 
 
 ## Business continuity features for pooled databases
-Elastic Standard supports all business continuity features that are available to Standard tier databases except for geo-replication.
+Elastic Standard supports all business continuity features that are available to Standard tier databases except for Geo-Replication.
 
-### Backing up and restoring databases (point in time restore)
-Databases in Elastic Pools are backed up and retained under the same point in time restore policy as Standard tier databases. You can restore any database in an Elastic Standard pool from any point in time over the last 14 days.
+### Backing up and restoring databases (Point in Time Restore)
+Databases in elastic pools are backed up and retained under the same point in time restore policy as Standard tier databases. You can restore any database in an Elastic Standard pool from any point in time over the last 14 days.
 
-### Geo-restore
-Geo-restore considerations?
+### Geo-Restore
+Geo-Restore considerations?
 
 ## Limitations related to the preview
 - DTU guarantee for a pool is limited to the following values: 100, 200, 400, 800, 1200, and 1400.
@@ -130,7 +130,6 @@ Elastic pool provides a single pool of available resources to share across a gro
 ## Related
 - [Manage Elastic Pools with REST API]()
 - [Manage Elastic Pools with PowerShell]()
-- [Create Databases in Elastic Pools with T-SQL]()
 
 
 <!--Image references-->

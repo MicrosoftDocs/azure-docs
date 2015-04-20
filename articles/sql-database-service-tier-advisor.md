@@ -67,7 +67,7 @@ Run the service tier advisor by selecting an existing database and clicking on t
 
 > [AZURE.NOTE] You must sign up for the service tier advisor preview to enable service tier recommendations. You will be presented with the option to sign up for the preview after clicking the **Pricing tier** tile during step 5 below.
 
-1. Sign in to the new [Azure Management Portal](https://portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
 3. Click **SQL databases** in the **Browse** blade.
 4. In the **SQL databases** blade, click the database that you want the service tier advisor to analyze.
