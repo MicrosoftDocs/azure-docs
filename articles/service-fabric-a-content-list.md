@@ -3,7 +3,7 @@
    description=""
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -25,10 +25,6 @@ Learning Map P2 **owner: adegeo**
 
 [Application Scenarios](../service-fabric-application-scenarios) **owners: mfussell**
 
-PaaS v2 compared to other things(P2)- short blurb, point to competitive analysis topics **owner: claudioc**
-
-PaaS v2 vs Cloud Services- PaaS v2 is so much better, technical comparison. Is this really technical marketing info? **owner: mfussell**
-
 ## Getting Started
 Sign Up for a Free Account  **owner: vturecek**
 
@@ -43,7 +39,7 @@ Install and extend the Samples **owner: vturecek**
 
 ### Develop a Service owner: vturecek
 
-Choose a Programming Model **owner: seanmck**
+[Choose a Programming Model](../service-fabric-choose-framework) **owner: seanmck**
 
 Create a Stateful Application **owner: Haishi**
 
@@ -150,9 +146,6 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Managed Reference
 ### PowerShell Reference
 ### REST Reference
-### Application Manifest Schema and Settings P2
-### Service Manifest Schema and Settings P2
-### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
 ### Monitoring and Diagnostics
