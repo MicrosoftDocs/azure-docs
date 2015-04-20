@@ -1,6 +1,6 @@
 <properties
    pageTitle="Update your StorSimple device"
-   description="Explains how to use the StorSimple update feature to install maintenance mode updates."
+   description="Explains how to use the StorSimple update feature to install  regular and maintenance mode updates."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/14/2015"
+   ms.date="04/20/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
@@ -26,7 +26,7 @@ You can apply two types of device updates:
 - Regular (or Normal mode) updates
 - Maintenance mode updates
 
-You can install regular updates via the Managment Portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates. 
+You can install regular updates via the Management Portal or Windows PowerShell; however, you must use Windows PowerShell to install Maintenance mode updates. 
 
 Each update type is described separately, below.
 
