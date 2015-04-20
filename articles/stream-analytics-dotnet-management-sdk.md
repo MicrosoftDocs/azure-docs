@@ -19,7 +19,6 @@
 
 # Use Azure Stream Analytics Management .NET SDK
 
-[This is prerelease documentation and is subject to change in future releases.] 
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. In the preview release, Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
 

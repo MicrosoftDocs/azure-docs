@@ -39,7 +39,7 @@ To prevent the potential data loss when conducting a disaster recovery drill, we
 ####Recovery
 
 - Perform the geo-recovery of the database into a different server as described [here](sql-database-disaster-recovery.md). 
-- Change the application configuration to connect to the recovered database(s) and follow the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide to complete the recovery.
+- Change the application configuration to connect to the recovered database(s) and follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
 
 ####Validation
 
@@ -57,7 +57,7 @@ A database that is protected using Standard Geo-replication can only have one no
 ####Recovery
 
 - Change the application configuration to connect to the former read-only secondary which will become fully accessible and the application can use it as the new primary. 
-- Follow the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide to complete the recovery.
+- Follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
 
 ####Validation
 
@@ -75,7 +75,7 @@ The disaster recovery drill will be conducted by using a parallel target server 
 ####Recovery
 
 - Change the application configuration to connect to the former read only secondary which will become available for writes after termination.
-- Follow the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide to complete the recovery.
+- Follow the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide to complete the recovery.
 
 ####Validation
 
