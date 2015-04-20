@@ -3,7 +3,7 @@
 	description="Understand Azure Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
-	authors="mumian" 
+	authors="jeffstokes72" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/05/2015" 
-	ms.author="jgao"/>
+	ms.date="04/20/2015" 
+	ms.author="jeffstok"/>
 
 
 # Introduction to Azure Stream Analytics
@@ -110,21 +110,17 @@ Data from various devices and platforms that are distributed across the world is
  
 
 
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
-
-
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Get started using Azure Stream Analytics][stream.analytics.get.started]
-- [Azure Stream Analytics developer guide][stream.analytics.developer.guide]
-- [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
-- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
-- [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics Management REST API Reference][stream.analytics.rest.api.reference] 
-
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
 
 
 <!--Image references-->

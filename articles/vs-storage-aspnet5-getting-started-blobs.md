@@ -42,7 +42,7 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 
 2. Use the following code to get the configuration setting.
 
-		 Configuration = new Configuration()
+		 IConfigurationSourceRoot config = new Configuration()
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 

@@ -40,7 +40,7 @@ To programmatically access queues in ASP.NET 5 projects, you need to add the fol
 
 2. Use the following code to get the configuration setting.
 
-		 Configuration = new Configuration()
+		 IConfigurationSourceRoot config = new Configuration()
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 

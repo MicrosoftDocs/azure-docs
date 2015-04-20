@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="04/15/2015" 
 	ms.author="wesmc"/>
 
 #Azure Notification Hubs Notify Users
@@ -62,46 +62,66 @@ In this section, you update the code in the project you completed for the [Get s
 
 6. Back in the NuGet **Search** box, type **Json.net**. Install the **Json.NET** package, and then close the NuGet Package Manager window.
 
-7. Repeat the steps above for the **(
-8. Windows Phone 8.1)** project to install the **JSON.NET** NuGet package for the Windows Phone project.
+7. Repeat the steps above for the **(Windows Phone 8.1)** project to install the **JSON.NET** NuGet package for the Windows Phone project.
 
 
 8. In Solution Explorer, in the **(Windows 8.1)** project, double-click **MainPage.xaml** to open it in the Visual Studio editor.
 
-9. In the **MainPage.xaml** XML code, replace the `<Grid>` section with the following code:
+9. In the **MainPage.xaml** XML code, replace the `<Grid>` section with the following code. This code adds a username and password textbox that the user will authenticate with. It also adds textboxes for the notification message and the username tag that should receive the notification:
 
-		<Grid>
-	        <Grid.RowDefinitions>
-	            <RowDefinition Height="Auto"/>
-	            <RowDefinition Height="*"/>
-	        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-	        <TextBlock Grid.Row="0" Text="Secure Push" HorizontalAlignment="Center" FontSize="48"/>
+            <TextBlock Grid.Row="0" Text="Notify Users" HorizontalAlignment="Center" FontSize="48"/>
 
-        	<StackPanel Grid.Row="1" VerticalAlignment="Center">
-        	    <Grid>
-        	        <Grid.RowDefinitions>
-        	            <RowDefinition Height="Auto"/>
-        	            <RowDefinition Height="Auto"/>
-        	            <RowDefinition Height="Auto"/>
-        	            <RowDefinition Height="Auto"/>
-        	            <RowDefinition Height="Auto"/>
-        	            <RowDefinition Height="*"/>
-        	        </Grid.RowDefinitions>
-            	    <TextBlock Grid.Row="0" Text="Username" FontSize="24" Margin="20,0,20,0"/>
-            	    <TextBox Name="UsernameTextBox" Grid.Row="1" Margin="20,0,20,0"/>
-            	    <TextBlock Grid.Row="2" Text="Password" FontSize="24" Margin="20,0,20,0" />
-            	    <PasswordBox Name="PasswordTextBox" Grid.Row="3" Margin="20,0,20,0"/>
-	
-            	    <Button Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Content="1. Login and register" Click="LoginAndRegisterClick" />
+            <StackPanel Grid.Row="1" VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Username" FontSize="24" Margin="20,0,20,0"/>
+                    <TextBox Name="UsernameTextBox" Grid.Row="1" Grid.ColumnSpan="3" Margin="20,0,20,0"/>
+                    <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="Password" FontSize="24" Margin="20,0,20,0" />
+                    <PasswordBox Name="PasswordTextBox" Grid.Row="3" Grid.ColumnSpan="3" Margin="20,0,20,0"/>
 
-            	    <Button Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" Content="2. Send push" Click="PushClick" />
-            	</Grid>
-        	</StackPanel>
-    	</Grid>
+                    <Button Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                                Content="1. Login and register" Click="LoginAndRegisterClick" Margin="0,0,0,20"/>
 
-10. In Solution Explorer, in the **(Windows Phone 8.1)** project, open **MainPage.xaml** and replace the Windows Phone 8.1 `<Grid>` section with that same code above.
+                    <ToggleButton Name="toggleWNS" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Content="WNS" IsChecked="True" />
+                    <ToggleButton Name="toggleGCM" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Content="GCM" />
+                    <ToggleButton Name="toggleAPNS" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" Content="APNS" />
 
+                    <TextBlock Grid.Row="6" Grid.ColumnSpan="3" Text="Username Tag To Send To" FontSize="24" Margin="20,0,20,0"/>
+                    <TextBox Name="ToUserTagTextBox" Grid.Row="7" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
+                    <TextBlock Grid.Row="8" Grid.ColumnSpan="3" Text="Enter Notification Message" FontSize="24" Margin="20,0,20,0"/>
+                    <TextBox Name="NotificationMessageTextBox" Grid.Row="9" Grid.ColumnSpan="3" Margin="20,0,20,0" TextWrapping="Wrap" />
+                    <Button Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" Content="2. Send push" Click="PushClick" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+
+10. In Solution Explorer, in the **(Windows Phone 8.1)** project, open **MainPage.xaml** and replace the Windows Phone 8.1 `<Grid>` section with that same code above. The interface should look similar to whats shown below.
+
+	![][13]
 
 11. In Solution Explorer, open the **MainPage.xaml.cs** file for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. Add the following `using` statements at the top of both files:
 
@@ -110,54 +130,97 @@ In this section, you update the code in the project you completed for the [Get s
 		using System.Net.Http.Headers;
 		using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
+		using System.Threading.Tasks;
+
+12. In **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects, add the following member to the `MainPage` class. Be sure to replace `<Enter Your Backend Endpoint>` with the your actual backend endpoint obtained previously. For example, `http://mybackend.azurewebsites.net`.
+
+        private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
 
-12. Add the code below to the MainPage class in MainPage.xaml.cs for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. 
+
+13. Add the code below to the MainPage class in **MainPage.xaml.cs** for the **(Windows 8.1)** and **(Windows Phone 8.1)** projects. 
  
-	The callback for **Log in and register** stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend. The callback for **Send Push** calls the backend to trigger a secure notification to all devices of this user. 
+	The `PushClick` method is the click handler for the **Send Push** button. It calls the backend to trigger a notification to all devices with a username tag that matches the `to_tag` parameter. The notification message is sent as JSON content in the request body. 
 
-	Be sure to replace `{backend endpoint}` with the backend endpoint obtained previously:
+	The `LoginAndRegisterClick` method is the click handler for the **Log in and register** button. It stores the basic authentication token in local storage (note that this represents any token your authentication scheme uses), then uses `RegisterClient` to register for notifications using the backend.
+	
 
-		private async void PushClick(object sender, RoutedEventArgs e)
+        private async void PushClick(object sender, RoutedEventArgs e)
         {
-            var POST_URL = "{backend endpoint}/api/notifications";
+            if (toggleWNS.IsChecked.Value)
+            {
+                await sendPush("wns", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
+            }
+            if (toggleGCM.IsChecked.Value)
+            {
+                await sendPush("gcm", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
+            }
+            if (toggleAPNS.IsChecked.Value)
+            {
+                await sendPush("apns", ToUserTagTextBox.Text, this.NotificationMessageTextBox.Text);
+
+            }
+        }
+
+        private async Task sendPush(string pns, string userTag, string message)
+        {
+            var POST_URL = BACKEND_ENDPOINT + "/api/notifications?pns=" +
+                pns + "&to_tag=" + userTag;
 
             using (var httpClient = new HttpClient())
             {
                 var settings = ApplicationData.Current.LocalSettings.Values;
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", (string) settings["AuthenticationToken"]);
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", (string)settings["AuthenticationToken"]);
 
-                await httpClient.PostAsync(POST_URL, new StringContent(""));
+                try
+                {
+                    await httpClient.PostAsync(POST_URL, new StringContent("\"" + message + "\"",
+                        System.Text.Encoding.UTF8, "application/json"));
+                }
+                catch (Exception ex)
+                {
+                    MessageDialog alert = new MessageDialog(ex.Message, "Failed to send " + pns + " message");
+                    alert.ShowAsync();
+                }
             }
         }
 
         private async void LoginAndRegisterClick(object sender, RoutedEventArgs e)
         {
             SetAuthenticationTokenInLocalStorage();
-            
+
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
 
-            // The "username:<user name>" tag gets automatically added by the AuthenticationTestHandler
-			// on the backend when the request enters the backend.
+            // The "username:<user name>" tag gets automatically added by the message handler in the backend.
             // The tag passed here can be whatever other tags you may want to use.
-            await new RegisterClient().RegisterAsync(channel.Uri, new string[] { "myTag" });
+            try
+            {
+                await new RegisterClient(BACKEND_ENDPOINT).RegisterAsync(channel.Uri, new string[] { "myTag" });
 
-            var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
-            dialog.Commands.Add(new UICommand("OK"));
-            await dialog.ShowAsync();
+                var dialog = new MessageDialog("Registered as: " + UsernameTextBox.Text);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+                SendPushButton.IsEnabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageDialog alert = new MessageDialog(ex.Message, "Failed to register with RegisterClient");
+                alert.ShowAsync();
+            }
         }
 
         private void SetAuthenticationTokenInLocalStorage()
         {
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Password;
-            
+
             var token = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(username + ":" + password));
             ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
         }
 
 
-11. In Solution Explorer, under the **Shared** project, open the **App.xaml.cs** file. Find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handlers added above will initialize notifications.
+
+14. In Solution Explorer, under the **Shared** project, open the **App.xaml.cs** file. Find the call to `InitNotificationsAsync()` in the `OnLaunched()` event handler. Comment out or delete the call to `InitNotificationsAsync()`. The button handler added above will initialize notification registrations.
 
 
         protected override void OnLaunched(LaunchActivatedEventArgs e)
@@ -165,12 +228,12 @@ In this section, you update the code in the project you completed for the [Get s
             //InitNotificationsAsync();
 
 
-12. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. 
+15. In Solution Explorer, right-click the **Shared** project, then click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class. 
 	
 	This class will wrap the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). Note that it uses an authorization token stored in local storage when you click the **Log in and register** button.
 
 
-13. Add the following `using` statements at the top of the RegisterClient.cs file:
+16. Add the following `using` statements at the top of the RegisterClient.cs file:
 
 		using Windows.Storage;
 		using System.Net;
@@ -180,15 +243,20 @@ In this section, you update the code in the project you completed for the [Get s
 		using System.Threading.Tasks;
 		using System.Linq;
 
-14. Add the following code inside the `RegisterClient` class definition. Be sure to replace `{backend endpoint}` with the your backend endpoint obtained previously for your backend:
+17. Add the following code inside the `RegisterClient` class definition.
 
-		private string POST_URL = "{backend endpoint}/api/register";
+		private string POST_URL;
 
         private class DeviceRegistration
         {
             public string Platform { get; set; }
             public string Handle { get; set; }
             public string[] Tags { get; set; }
+        }
+
+        public RegisterClient(string backendEndpoint)
+        {
+            PostURL = backendEndpoint + "/api/register";
         }
 
         public async Task RegisterAsync(string handle, IEnumerable<string> tags)
@@ -260,32 +328,33 @@ In this section, you update the code in the project you completed for the [Get s
 
         }
 
-15. Save all your changes.
+18. Save all your changes.
 		
 
 ## Testing the Application
 
 1. Launch the application on both Windows 8.1 and Windows Phone 8.1. For Windows Phone 8.1 you can run the instance in the emulator or an actual device.
 
-2. On the Windows 8.1 instance of the app, enter a **Username** and **Password** similar to the screen below so that it will differ from the user name and password you enter on Windows Phone.
+2. In the Windows 8.1 instance of the app, enter a **Username** and **Password** as shown in the screen below. It should differ from the user name and password you enter on Windows Phone.
+
+
+3. Click **Log in and register** and verify a dialog shows that you have logged in. This will also enable the **Send Push** button. 
 
     ![][14]
 
-3. Click **Log in and register** and verify a dialog shows that you have logged in. 
+4. On the Windows Phone 8.1 instance, enter a user name string in both the **Username** and **Password** fields then click **Login and register**. 
+5. Then in the **Recipient Username Tag** field, enter the user name registered on Windows 8.1. Enter a notification message and click **Send Push**. 
 
-4. On the Windows Phone 8.1 instance, enter a **Username** and **Password** similar to the screen below so that it will differ from the user name and password you enteed on the Windows 8.1 instance of the app.
+    ![][16]
 
-    ![][15]
+6. Only the devices that have registered with the matching username tag receive the notification message.
+	
+	![][15] 
+ 
+## Next Steps
 
-5. Click **Log in and register** and verify a dialog shows that you have logged in. 
-
-6. Click **Send Push** on the Windows 8.1 instance and notice that the Windows 8.1 instance receives a toast notification. The Windows Phone instance does not receive a notification because the username tag doesn't match the tag expression being sent.
-
-7. Click **Send Push** on the Windows Phone instance and notice that the Windows Phone instance receives a toast notification. The Windows 8.1 instance does not receive a notification because the username tag doesn't match the tag expression being sent.
-
-8. Change the **Username** and **Password** of either instance so that it matched the other instance. Then click **Login and register** to verify the updated registration.
-9. Click **Send push** in either instance and notice both instance receive the toast notification because the tag registered match the tag expression being sent.
-
+* If you want to segment your users by interest groups, see [Use Notification Hubs to send breaking news]. 
+* To learn more about how to use Notification Hubs, see [Notification Hubs Guidance].
 
 
 
@@ -293,12 +362,15 @@ In this section, you update the code in the project you completed for the [Get s
 [10]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push10.png
 [11]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push11.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
-[13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
+[13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-wp-ui.png
 [14]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-windows-instance-username.png
-[15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-wp-instance-username.png
+[15]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-notification-received.png
+[16]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-wp-send-message.png
 
 
 
 <!-- URLs. -->
 [Get started with Notification Hubs]: notification-hubs-windows-store-dotnet-get-started.md
 [Secure Push]: notification-hubs-aspnet-backend-windows-dotnet-secure-push.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-store-dotnet-send-breaking-news.md
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

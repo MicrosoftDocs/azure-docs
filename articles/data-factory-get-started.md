@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="04/17/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -369,11 +369,27 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 5. In the **Datasets** blade, click **EmpTableFromBlob**. This is the input table for the **ADFTutorialPipeline**.
 
 	![Datasets with EmpTableFromBlob selected][image-data-factory-get-started-datasets-emptable-selected]   
-5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Problem slices** section at the bottom.
+5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.   
+
+	![Data Slices by Slice Time][DataSlicesBySliceTime]   
+
 6. Now, in the **Datasets** blade, click the **EmpSQLTable**. This is the output table for the **ADFTutorialPipeline**.
 
 	![data sets blade][image-data-factory-get-started-datasets-blade]
 
+
+
+	 
 6. You should see the **EmpSQLTable** blade as shown below:
 
 	![table blade][image-data-factory-get-started-table-blade]
@@ -387,10 +403,13 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 
 	![data slice blade][image-data-factory-get-started-dataslice-blade]
   
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. 
+
 11. In the **DATA SLICE** blade, you should see all activity runs in the list at the bottom. Click on an **activity run** to see the **ACTIVITY RUN DETAILS** blade. 
 
 	![Activity Run Details][image-data-factory-get-started-activity-run-details]
 
+	
 12. Click **X** to close all the blades until you get back to the home blade for the **ADFTutorialDataFactory**.
 14. (optional) Click **Pipelines** on the home page for **ADFTutorialDataFactory**, click **ADFTutorialPipeline** in the **Pipelines** blade, and drill through input tables (**Consumed**) or output tables (**Produced**).
 15. Launch **SQL Server Management Studio**, connect to the Azure SQL Database, and verify that the rows are inserted into the **emp** table in the database.
@@ -422,7 +441,7 @@ Article | Description
 [Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use **HDInsight Activity** to run a **hive/pig** script to process input data to produce output data.
 [Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an **end-to-end walkthrough** that shows how to implement a **real world scenario** using Azure Data Factory to transform data from log files into insights.
 [Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a **custom activity** and using it in a pipeline. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
+[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to **troubleshoot** Azure Data Factory issues. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
@@ -459,6 +478,7 @@ Article | Description
 
 <!--Image references-->
 
+[DataSlicesBySliceTime]: ./media/data-factory-get-started/DataSlicesBySliceTime.png
 
 [image-data-factory-getstarted-new-everything]: ./media/data-factory-get-started/GetStarted-New-Everything.png
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Get Started with Media Services using Azure Management Portal" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using Azure Management Portal." 
 	services="media-services" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Quickstart: Get Started with Media Services using Azure Management Portal
+#Getting Started with Delivering Video on Demand (VoD) using Azure Management Portal
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -199,7 +199,7 @@ To build an  MPEG DASH streaming URL, append (format=mpd-time-csf) to the URL.
 
 Locators have expiration date. When using Portal to publish your assets, locators with a 100 years expiration date are created. 
 
->[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a one year expiration date were created.  
+>[AZURE.NOTE] If you used Portal to create locators before March 2015, locators with a two year expiration date were created.  
 
 To update expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes. 
 
@@ -226,6 +226,11 @@ Some considerations apply:
 
 
 ![AMSPlayer][AMSPlayer]
+
+
+##Next step
+
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>

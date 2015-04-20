@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/31/2015"
+   ms.date="04/13/2015"
    ms.author="cherylmc" />
 
 # Connectivity Providers and Peering Locations
@@ -55,8 +55,8 @@ If your connectivity provider is not in the list above sections, you can still c
 	- Follow steps in [Configure your EXP connection](https://msdn.microsoft.com/library/azure/dn606306.aspx) to set up connectivity.
 
 ## Next Steps
-- Verify that you meet the [ExpressRoute prerequisites](https://msdn.microsoft.com/library/azure/dn606309#ExpressRoute_prereq).
-- Visit the [FAQ](https://msdn.microsoft.com/library/azure/dn606292.aspx) for more information.
+- Verify that you meet the [ExpressRoute prerequisites](expressroute-prerequisites.md).
+- Visit the [FAQ](expressroute-faqs.md) for more information.
 - Select your provider and configure your connection. See 
 [Configure your EXP connection](https://msdn.microsoft.com/library/azure/dn606306.aspx) or [Configure your NSP connection](https://msdn.microsoft.com/library/azure/dn643736.aspx) for configuration information.
 

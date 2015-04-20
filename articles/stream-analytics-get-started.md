@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="03/27/2015" 
+	ms.date="04/20/2015" 
 	ms.author="jeffstok" />
 
 
@@ -256,22 +256,17 @@ Now let us do a more interesting query over the data.
 3.	 To continue seeing events processed by the running job, rerun the BasicEventHubSample application.
 
 
-
-
-
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
 ## Next steps
-In this tutorial, you have learned how to use Stream Analytics to process weather data. To learn more, see the following articles:
 
-
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Azure Stream Analytics developer guide][stream.analytics.developer.guide]
-- [Scale Azure Stream Analytics jobs][stream.analytics.scale]
-- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
-- [Azure Stream Analytics query language reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics management REST API reference][stream.analytics.rest.api.reference]
-
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
+- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
 
 
 

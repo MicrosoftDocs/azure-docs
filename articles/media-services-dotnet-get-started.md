@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Get Started with Media Services SDK for .NET- Azure" 
+	pageTitle="Getting Started with Delivering Video on Demand (VoD) using .NET SDK" 
 	description="This tutorial walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application with Azure Media Services using .NET." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/24/2015" 
+	ms.date="04/16/2015" 
 	ms.author="juliako"/>
 
 
-# Quickstart: Delivering Video-on-Demand with Media Services SDK for .NET 
+# Getting Started with Delivering Video on Demand (VoD) using .NET SDK 
 
 [AZURE.INCLUDE [media-services-selector-get-started](../includes/media-services-selector-get-started.md)]
 
@@ -217,8 +217,8 @@ The **CreateFromFile** method takes **AssetCreationOptions** which lets you spec
 - **None** - No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
 If you plan to deliver an MP4 using progressive download, use this option. 
 - **StorageEncrypted** - Encrypts your clear content locally using AES-256 bit encryption and then uploads it to Azure Storage where it is stored encrypted at rest. Assets protected with Storage Encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for Storage Encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
-- **CommonEncryption** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
-- **EnvelopeEncrypted** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
+- **CommonEncryptionProtected** - Use this option if you are uploading content that has already been encrypted and protected with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+- **EnvelopeEncryptionProtected** – Use this option if you are uploading HLS encrypted with AES. Note that the files must have been encoded and encrypted by Transform Manager.
 
 The **CreateFromFile** method also lets you specify a callback in order to report the upload progress of the file.
 
@@ -444,15 +444,13 @@ Progressive download URLs (audio and video).
 	https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-To test smooth streaming, use [http://amsplayer.azurewebsites.net/](http://amsplayer.azurewebsites.net/), or [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor).
-
-To test MPEG DASH, use [http://dashif.org](http://dashif.org/reference/players/javascript/).
-
-To test HLS, use iOS or Safari devices, or [3ivx-hls-player](http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614). 
-
+To stream you video, use [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 
+##Next step
+
+Learn more about building Video on Demand applications [Build VoD applications](media-services-video-on-demand-workflow.md)
 
 ###Additional Resources
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure Media Services 101 - Get your video online now!</a>

@@ -13,30 +13,30 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="04/17/2015"
    ms.author="larryfr"/>
 
-#Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
+# Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
 
 Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub, and visualize it by using D3.js. This document also describes how to use an Azure virtual network to connect Storm on HDInsight with HBase on HDInsight, and store data from the topology into HBase.
 
-##Prerequisites
+## Prerequisites
 
 * An Azure subscription
 
-* An <a href="../hdinsight-storm-getting-started/" target="_blank">Apache Storm on HDInsight cluster</a>
+* An [Apache Storm on HDInsight cluster](hdinsight-storm-getting-started.md)
 
-* <a href="http://nodejs.org/" target="_blank">Node.js</a>: Used for the web dashboard and to send sensor data to Event Hub.
+* [Node.js](http://nodejs.org/): Used for the web dashboard and to send sensor data to Event Hub.
 
-* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java and the JDK 1.7</a>
+* [Java and the JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-* <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
+* [Maven](http://maven.apache.org/what-is-maven.html)
 
-* <a href="http://git-scm.com/" target="_blank">Git</a>
+* [Git](http://git-scm.com/)
 
 > [AZURE.NOTE] Java, the JDK, Maven, and Git are also available through the [Chocolatey NuGet](http://chocolatey.org/) package manager.
 
-##Architecture
+## Architecture
 
 ![architecture diagram](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
@@ -54,15 +54,15 @@ This example consists of the following components:
 
 	* The website is implemented in Node.js, so it can run on any client operating system for testing, or it can be deployed to Azure Websites.
 
-	* <a href="http://socket.io/" target="_blank">Socket.io</a> is used for real-time communication between the Storm topology and the website.
+	* [Socket.io](http://socket.io/) is used for real-time communication between the Storm topology and the website.
 
 		> [AZURE.NOTE] This is an implementation detail. You can use any communications framework, such as raw WebSockets or SignalR.
 
-	* <a href="http://d3js.org/" target="_blank">D3.js</a> is used to graph the data that is sent to the website.
+	* [D3.js](http://d3js.org/) is used to graph the data that is sent to the website.
 
-The topology reads data from Event Hub by using the **com.microsoft.eventhubs.spout.EventHubSpout** class, which is provided in the Storm on HDInsight cluster. Communication with the website is accomplished by using <a href="https://github.com/nkzawa/socket.io-client.java" target="_blank">socket.io-client.java</a>.
+The topology reads data from Event Hub by using the **com.microsoft.eventhubs.spout.EventHubSpout** class, which is provided in the Storm on HDInsight cluster. Communication with the website is accomplished by using [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
-Optionally, communication with HBase is accomplished by using the <a href="https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html" target="_blank">org.apache.storm.hbase.bolt.HBaseBolt</a> class, which is provided as part of Storm.
+Optionally, communication with HBase is accomplished by using the [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html) class, which is provided as part of Storm.
 
 The following is a diagram of the topology.
 
@@ -73,21 +73,21 @@ The following is a diagram of the topology.
 > * Data from the spout to the parser is load balanced.
 > * Data from the parser to the Dashboard and HBase (if used) is grouped by Device ID, so that messages from the same device always flow to the same component.
 
-###Components
+### Components
 
-* **EventHub Spout**: The spout is provided with your HDInsight cluster. The source code is not currently available.
+* **EventHub Spout**: The spout is provided as part of the [HDInsight Storm Examples](https://github.com/hdinsight/hdinsight-storm-examples) on GitHub.
 
 * **ParserBolt.java**: The data that is emitted by the spout is raw JSON, and occasionally more than one event is emitted at a time. This bolt demonstrates how to read the data emitted by the spout, and emit it to a new stream as a tuple that contains multiple fields.
 
 * **DashboardBolt.java**: This demonstrates how to use the Socket.io client library for Java to send data in real time to the web dashboard.
 
-##Prepare your environment
+## Prepare your environment
 
 Before you use this example, you must create an Azure Event Hub, which the Storm topology reads. You must also create a Storm on HDInsight topology because the component used to read data from Event Hub is only available in the cluster.
 
 > [AZURE.NOTE] Eventually the Event Hub spout will be available from Maven.
 
-###Configure Event Hub
+### Configure Event Hub
 
 Event Hub is the data source for this example. Use the following steps to create a new Event Hub.
 
@@ -111,7 +111,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 5. After saving the policies, use the **Shared access key generator** at the bottom of the page to retrieve the key for the **devices** and **storm** policies. Save these because you will use them later.
 
-###Create the Storm on HDInsight cluster
+### Create the Storm on HDInsight cluster
 
 1. Sign in to the [Azure portal](https://manage.windowsazure.com/).
 
@@ -129,19 +129,15 @@ Event Hub is the data source for this example. Use the following steps to create
 
 4. For **Storage Account**, select **Create New Storage** or select an existing storage account. Select or enter the **Account Name** and **Default container** to use. Select the check mark icon in the lower-left corner to create the Storm cluster.
 
-5. When the cluster is created, select the cluster in the portal and select **Configure** at the top of the cluster **Dashboard**.
+## Download and install the EventHubSpout
 
-3. At the bottom of the page, select **Enable Remote**. When prompted, enter a user name, password, and a date when Remote Desktop access will expire. Select the check box to enable Remote Desktop.
+1. Download the [HDInsight Storm Examples project](https://github.com/hdinsight/hdinsight-storm-examples/). Once downloaded, find the **lib/eventhubs/eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file.
 
-4. After Remote Desktop is enabled, you can select **Connect** at the bottom of the page. Follow the prompts to connect to the cluster.
-
-1. When connected, copy the **%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file to your local development environment. This contains the **events-storm-spout**.
-
-7. Use the following command to install the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file you downloaded previously into the local Maven store. This will allow you to easily add it as a reference in the Storm project in a later step.
+2. From the command prompt, use the following command to install the **eventhubs-storm-spout-0.9-jar-with-dependencies.jar** file into the local Maven store. This will allow you to easily add it as a reference in the Storm project in a later step.
 
 		mvn install:install-file -Dfile=target/eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-##Download and configure the project
+## Download and configure the project
 
 Use the following to download the project from GitHub.
 
@@ -173,18 +169,18 @@ Open the **Config.properties** file and add the information you previously used 
 
 	eventhubspout.partitions.count = <the number of partitions for the event hub>
 
-	# if not provided, will use storm's zookeeper settings
-	# zookeeper.connectionstring=localhost:2181
+	## if not provided, will use storm's zookeeper settings
+	## zookeeper.connectionstring=localhost:2181
 
 	eventhubspout.checkpoint.interval = 10
 
 	eventhub.receiver.credits = 1024
 
-##Compile and test locally
+## Compile and test locally
 
 Before testing, you must start the dashboard to view the output of the topology and generate data to store in Event Hub.
 
-###Start the web application
+### Start the web application
 
 1. Open a new command prompt or terminal, and change directories to the **hdinsight-eventhub-example/dashboard**, then use the following command to install the dependencies needed by the web application:
 
@@ -204,7 +200,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 
 	Leave this command prompt or terminal open. After testing, use Ctrl-C to stop the web server.
 
-###Start generating data
+### Start generating data
 
 > [AZURE.NOTE] The steps in this section use Node.js so that they can be run on any platform. For other language examples, see the **SendEvents** directory.
 
@@ -240,7 +236,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":8,"Temperature":43}
 		{"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":9,"Temperature":84}
 
-###Start the topology
+### Start the topology
 
 2. Start the topology locally by using the following command:
 
@@ -254,13 +250,13 @@ Before testing, you must start the dashboard to view the output of the topology 
 
 3. After verifying that this works, stop the topology by typing Ctrl+C. To stop the SendEvent app, select the window and press any key. You can use Ctrl+C to stop the web server also.
 
-##Package and deploy the topology to HDInsight
+## Package and deploy the topology to HDInsight
 
 In your development environment, use the following steps to run the Temperature topology on your HDInsight Storm cluster.
 
-###Publish the website dashboard
+### Publish the website dashboard
 
-1. To deploy the dashboard to an Azure Website, follow the steps in <a href="../web-sites-nodejs-develop-deploy-mac/" target="_blank">Build and deploy a Node.js website to Azure</a>. Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
+1. To deploy the dashboard to an Azure Website, follow the steps in [Build and deploy a Node.js website to Azure](web-sites-nodejs-develop-deploy-mac.md). Note the URL of the website, which will be similar to **mywebsite.azurewebsites.net**.
 
 2. When the website is created, go to the site in the Azure portal and select the **Configure** tab. Enable **Web Sockets**, and then click **Save** at the bottom of the page.
 
@@ -270,7 +266,7 @@ In your development environment, use the following steps to run the Temperature 
 
 3. Save the **DashboardBolt.java** file.
 
-###Package and deploy the topology
+### Package and deploy the topology
 
 1. Use the following command to create a JAR package from your project:
 
@@ -278,17 +274,17 @@ In your development environment, use the following steps to run the Temperature 
 
 	This will create a file named **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** directory of your project.
 
-2. Follow the steps in <a href="../hdinsight-storm-deploy-monitor-topology/" target="_blank">Deploy and manage Storm topologies</a> to upload and start the topology on your Storm on HDInsight cluster by using the **Storm Dashboard**.
+2. Follow the steps in [Deploy and manage Storm topologies](hdinsight-storm-deploy-monitor-topology.md) to upload and start the topology on your Storm on HDInsight cluster by using the **Storm Dashboard**.
 
 3. After the topology has started, open a browser to the website you published on Azure, then use the `node app.js` command to send data to Event Hub. You should see the web dashboard update to display the information.
 
 	![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-##Optional: Use HBase
+## Optional: Use HBase
 
 To use Storm and HBase together, you must create an Azure virtual network and then create a Storm and HBase cluster within the network.
 
-###Create an Azure virtual network (optional)
+### Create an Azure virtual network (optional)
 
 If you plan to use HBase with this example, you must create an Azure virtual network that will contain a Storm on HDInsight cluster and an HBase on HDInsight cluster.
 
@@ -326,7 +322,7 @@ If you plan to use HBase with this example, you must create an Azure virtual net
 
 11. Click **Save** at the bottom of the page.
 
-###Create a Storm and HBase cluster on the virtual network
+### Create a Storm and HBase cluster on the virtual network
 
 1. Sign in to the [Azure Portal](https://manage.windowsazure.com/).
 
@@ -352,7 +348,7 @@ If you plan to use HBase with this example, you must create an Azure virtual net
 
 	* **Storage Account**: You should use a different container than the one used for the Storm cluster.
 
-###Discover the HBase DNS suffix
+### Discover the HBase DNS suffix
 
 To write to HBase from the Storm cluster, you must use the fully qualified domain name (FQDN) for the HBase cluster. Use the following command to discover this information:
 
@@ -366,7 +362,7 @@ In the JSON data returned, find the **"host_name"** entry. This will contain the
 
 The portion of the domain name beginning with the cluster name is the DNS suffix, for example, **mycluster.b1.cloudapp.net**.
 
-###Enable the HBase bolt
+### Enable the HBase bolt
 
 1. Open **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml** and replace the `suffix` entries in the following line with the DNS suffix obtained previously for the HBase cluster. Save the file after you make these changes.
 
@@ -383,7 +379,7 @@ The portion of the domain name beginning with the cluster name is the DNS suffix
 
 	> [AZURE.NOTE] You should only enable the HBase bolt when you are deploying to the Storm cluster, not when you are testing locally.
 
-###HBase and Storm data
+### HBase and Storm data
 
 Before running the topology, you must prepare HBase to accept the data.
 
@@ -405,7 +401,7 @@ Before running the topology, you must prepare HBase to accept the data.
 When you have started the topology on the Storm cluster and processed data, you can use the `scan 'SensorData'` command again to verify that data was inserted into HBase.
 
 
-##Summary
+## Summary
 
 You have now learned how to use Storm to read data from Event Hub and display information from Storm on an external dashboard by using SignalR and D3.js. If you used the optional steps, you also learned how to configure HDInsight in a virtual network and how to communicate between a Storm topology and HBase by using the HBase bolt.
 
