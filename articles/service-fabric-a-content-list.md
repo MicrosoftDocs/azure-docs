@@ -248,5 +248,6 @@ Replica Role and State Lifetime
 ### Service Host Activation and Deactivation
 
 ### FabricExplorer
+[Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ### Glossary
