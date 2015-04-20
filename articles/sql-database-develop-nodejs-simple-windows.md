@@ -3,7 +3,7 @@
 	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="meet-bhagdev" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="04/18/2015" 
-	ms.author="genemi"/>
+	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using NodeJS on Windows
@@ -48,6 +48,7 @@ Is the Python 2.7.6 download truly necessary for the NodeJS sample to work, or w
 
 
 -  Node.js – [Version 0.8.9 (32 bit version)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/). Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.
+- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/), the installer for either x86 or x64. 
 - [Visual C++ 2010](https://app.vssps.visualstudio.com/profile/review?download=true&family=VisualStudioCExpress&release=VisualStudio2010&type=web&slcid=0x409&context=eyJwZSI6MSwicGMiOjEsImljIjoxLCJhbyI6MCwiYW0iOjEsIm9wIjpudWxsLCJhZCI6bnVsbCwiZmEiOjAsImF1IjpudWxsLCJjdiI6OTY4OTg2MzU1LCJmcyI6MCwic3UiOjAsImVyIjoxfQ2) - the Express edition is freely available from Microsoft.
 - SQL Server Native Client 11.0 - available as Microsoft SQL Server 2012 Native Client found in the [SQL Server 2012 Feature Pack](http://www.microsoft.com/download/details.aspx?id=29065).
 
@@ -93,7 +94,7 @@ TODO, to Meet: In this code sample, the connection string lines are excessively 
 		var http = require('http');
 		var fs = require('fs');
 		var useTrustedConnection = false;
-		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + "Database={AdventureWorks};";
+		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 				(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 				"Database={AdventureWorks};";
 		sql.open(conn_str, function (err, conn) {
 		    if (err) {
 		        console.log("Error opening the connection!");
