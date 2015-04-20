@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure SDK for .NET Release Notes" 
-   description="Azure SDK for .NET Release Notes" 
+   pageTitle="Azure SDK for .NET 2.5.1 Release Notes" 
+   description="Azure SDK for .NET 2.5.1 Release Notes" 
    services="app-service" 
    documentationCenter=".net,nodejs,java" 
    authors="adgoda" 
@@ -17,7 +17,7 @@
    ms.author="juliako"/>
 
 
-# Azure SDK for .NET Release Notes
+# Azure SDK for .NET 2.5.1 Release Notes
 
 This document contains the release notes for the Azure SDK for .NET 2.5.1 release. 
 
