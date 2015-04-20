@@ -20,7 +20,7 @@
 
  This article covers everything you need to start building Service Fabric apps, including installing the runtime, SDK, and tools and setting up a local cluster.
 
-** Prerequisites **
+## Prerequisites
 
 The Service Fabric tools depend on Visual Studio 2015. To install Visual Studio 2015 CTP6, go <a href="https://www.visualstudio.com/en-us/news/vs2015-vs.aspx">here</a>.
 
@@ -54,6 +54,6 @@ In a few moments you should see output that shows node information and confirmat
 
 Now that your development environment is set up, you can start building and running apps.
 
-- [Create and run your first Service Fabric app using Visual Studio](../service-fabric-stateless-helloworld)
-- [Learn the core concepts of a Service Fabric app in the WordCount tutorial](../service-fabric-wordcount-tutorial)
-- [Create a cluster in Microsoft Azure to enable deployment to the cloud](../service-fabric-create-an-azure-cluster)
+- [Create and run your first Service Fabric app using Visual Studio](../service-fabric-stateless-helloworld.md)
+- [Learn the core concepts of a Service Fabric app in the WordCount tutorial](../service-fabric-wordcount-tutorial.md)
+- [Create a cluster in Microsoft Azure to enable deployment to the cloud](../service-fabric-create-an-azure-cluster.md)
