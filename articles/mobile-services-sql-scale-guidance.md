@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
-	ms.author="donnam"/>
+	ms.date="04/20/2015" 
+	ms.author="donnam,ricksal"/>
+
 # Scale mobile services backed by Azure SQL Database
 
 Azure Mobile Services makes it very easy to get started and build an app that connects to a cloud-hosted backend that stores data in a SQL database. As your app grows, scaling your service instances is as simple as adjusting scale settings in the portal to add more computational and networking capacity. However, scaling the SQL database backing your service requires some proactive planning and monitoring as the service receives more load. This document will walk you through a set of best practices to ensure continued great performance of your SQL-backed mobile services.

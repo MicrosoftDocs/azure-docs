@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/20/2015" 
+	ms.author="wesmc,ricksal"/>
+
 # Troubleshoot the Mobile Services .NET Backend
 
 Developing with Mobile Services is usually easy and painless, but even then things can sometimes go wrong. This tutorial covers some techniques that let you troubleshoot common problems that can arise with the Mobile Services .NET backend. 
