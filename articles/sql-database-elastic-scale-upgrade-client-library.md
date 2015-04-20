@@ -80,7 +80,6 @@ These techniques for metadata upgrades can be applied multiple times without har
 
 * General availability release
 * Added support for Datetime types as sharding keys
-* API support for client library version information and ShardMapManager database schema version information 
 
 **Version 0.8 – March 2015**
 
