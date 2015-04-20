@@ -56,11 +56,11 @@ This procedure primarily uses the Management Portal, however, you must use Micro
 ![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
 There are 5 sections to plan and configure. Configure each section in the order listed below:
-  1. [Plan your IP address ranges](#anchor)
-  2. [Create your virtual networks](#anchor)
-  3. [Add local networks](#anchor)
-  4. [Create the dynamic routing gateways for each VNet](#anchor)
-  5. [Connect the VPN gateways](#anchor)
+  1. [Plan your IP address ranges](#plan-your-ip-address-ranges)
+  2. [Create your virtual networks](#create-your-virtual-networks)
+  3. [Add local networks](#add-local-networks)
+  4. [Create the dynamic routing gateways for each VNet](#create-the-dynamic-routing-gateways-for-each-vnet)
+  5. [Connect the VPN gateways](#connect-the-vpn-gateways)
 
 ## Plan your IP address ranges
 
