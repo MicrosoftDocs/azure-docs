@@ -20,7 +20,7 @@
 
 In this article is a roadmap for building applications that include Azure Search as a component that provides the search experience. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
 
-This article breaks out a typical workflow for initial prototypes that prove how well Azure Search meets the search requirements of your application, followed by a section on important design decisions that factor into a more serious application development effort. 
+This article breaks out a typical workflow for initial prototypes that will help you evaluate how well Azure Search meets the search requirements of your application, followed by a section on important design decisions that factor into a more serious application development effort. 
 
 Before you start prototyping, we recommend ramping up with one of our Getting Started tutorials. Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
@@ -28,7 +28,7 @@ Before you start prototyping, we recommend ramping up with one of our Getting St
 
 The quickest path to a successful prototype typically include the steps in this section.
 
-![1][]
+   ![][1]
 
 ###Step 1: Provision the service	
 
@@ -38,21 +38,23 @@ There are two pricing tiers to choose from. We recommend the shared service for 
 
 ###Step 2: Create the index	
 
-After you create the service, you can define your first index. An index is organized, persisted data that serves as the search corpus for all subsequent search operations. It is stored internally in the cloud as part of your Search service. An index contains searchable data as well as non-searchable data to support filtering, criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters).
+After you create the service, you can create an index, starting with its schema definition. 
 
-The fastest and easiest way to create an index is through the portal. You can type in fields, data types, and attributes for the data you want to index. You can also fill in scoring profiles or enable CORS.
+An index is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Search data is imported into an Azure Search index and stored internally in the cloud. The index schema you are about to build will determine the structure of the documents collection, including all of the fields in a document, data types, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
 
-An index, as it applies to the documents collection, is structured like a table in a database. If you’ve created tables in client tools before, this is a similar exercise.
+In addition to defining the document structure, an index also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests.
 
-To get started, see [Create an index in the portal](../search-create-index-portal/) for more information.
+We recommend that you start out simply by specifying the fields in a document, and then add other features incrementally (see Step 5).  
+
+The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data.
+
+To get started, see [Create an index in the portal](../search-create-index-portal/).
 
 ###Step 3: Load documents
 
-After creating the index, the next step is load documents. Loading documents is a separate operation that populates the index. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads. Storage is built into the service and managed for you. You cannot customize or substitute the data storage layer used in Azure Search.
+The next step is to populate the index with documents. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads. 
 
-Each document must have a unique key and a collection of fields containing searchable and non-searchable data. Document data is represented as a set of key/value pairs for each field, in JSON format.
-
-Data that you load to an index must conform to the schema you defined in the previous step. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
+Data that you load to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
 
 There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step is the most time consuming due to a coding requirement.
 
