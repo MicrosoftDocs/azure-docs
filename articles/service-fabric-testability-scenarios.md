@@ -1,6 +1,6 @@
 <properties
    pageTitle="Running the Chaos test."
-   description="This article talks about the Chaos test and its importance."
+   description="This article talks about the pre-canned service fabric scenarios shipped by Microsoft."
    services="service-fabric"
    documentationCenter=".net"
    authors="anmolah"
@@ -17,7 +17,7 @@
    ms.author="anmola"/>
 
 #Scenarios
-## Chaos Test.
+## Chaos Test
 
 Testing distributed application can be difficult. Service Fabric gives you the ability to induce fault actions to test your service business logic in the face of failures. However, targeted simulated faults will only get you so far. Since the infrastructure we run our services on is inherently unreliable, Service Fabric provides you with the ability to develop scalable reliable services on top of this unreliable infrastructure. Now In order to extensively test these services we provide the Chaos test scenario to simulate the the unreliable environment easily. The scenario simulates continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once configured with the rate and kind of faults, it runs as a client side tool, through either C# APIs or PowerShell to generate faults in the cluster and your service.
 
@@ -33,14 +33,14 @@ The chaos scenario compresses faults generally seen in months or years to a few 
 
 Chaos test runs multiple iterations of faults and cluster validations for the specified period of time. The time spent for the cluster to stabilize and validation to succeed is also configurable. The scenario fails when we hit a single failure in cluster validation. For example, consider a test set to run for 1 hour and with maximum 3 concurrent faults. The test will induce 3 faults, then validate the cluster health. The test will iterate through the previous step till cluster becomes unhealthy or 1 hour passes. If in any iteration the cluster becomes unhealthy, i.e. not stabilize within a configured time, the test will fail with an exception. This exception indicates something has gone wrong and needs further investigation. In its current form the test Chaos test fault generation engine induces only safe faults. This means that in absence of external faults a quorum or data loss will never occur.
 
-### Important Configuration options
+### Important configuration options
  - **TimeToRun**: Total time that the test will run before completing with success. The test can complete earlier in lieu of a validation failure.
  - **MaxClusterStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether Cluster Health is OK, whether Service Health is OK, Target replica set size achieved for service partition and no InBuild replicas.
  - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number the more aggressive the test hence resulting in more complex failovers and transition combinations. The test guarantees that in absence of external faults there will not be a quorum or data loss, irrespective of how high this configuration is.
  - **EnableMoveReplicaFaults**: Enables or disables the faults causing the move of the primary or secondary replicas. These faults are disabled by default.
  - **WaitTimeBetweenIterations**: Amount of time to wait between iterations i.e. after a round of Faults and corresponding validation.
 
-### How to Run Chaos Test
+### How to run Chaos Test
 C# Sample
 ```C#
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
@@ -132,25 +132,7 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 
 ```
 
-<properties
-   pageTitle="Running the Failover test."
-   description="This article talks about the Failover test and how to run it."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
-
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2014"
-   ms.author="anmola"/>
-
-## Failover Test.
+## Failover test
 
 The Failover test scenario is a version of the Chaos test scenario targeting a specific service partition. It tests the effect of failover on a specific service partition while leaving the other services unaffected. Once configured with the target partition information and other parameters it runs as a client side tool either using C# APIs or Powershell to generate faults for a service partition. The scenario iterates through a sequence of simulated faults and service validation while your business logic run on the side to provide a workload. A failure in service validation indicates an issue that needs further investigation.
 
@@ -164,13 +146,13 @@ The Failover test scenario is a version of the Chaos test scenario targeting a s
 
 Failover test works induces a chosen fault  and then runs validation on the service to ensure its stability. The Failover test only induces one fault at a time as opposed to possible multiple faults in Chaos test. If after each fault the service partition does not stabilize within the configured timeout the test fails The test induces only safe faults. This means that in absence of external failures a quorum or data loss will not occur.
 
-### Important Configuration options
+### Important configuration options
  - **PartitionSelector**: Selector object specifying the partition that needs to be targeted.
  - **TimeToRun**: Total time that the test will run before completing
  - **MaxServiceStabilizationTimeout**: Max amount of time to wait for the cluster to become healthy before failing the test. The checks performed are whether Service Health is OK, Target replica set size achieved for all partitions and no InBuild replicas.
  - **WaitTimeBetweenFaults**: Amount of time to wait between every fault and validation cycle
 
-### How to Run Failover Test
+### How to run Failover test
 C# Sample
 ```C#
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

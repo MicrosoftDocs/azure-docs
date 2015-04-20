@@ -16,7 +16,7 @@
    ms.date="03/17/2014"
    ms.author="heeldin"/>
 
-#Testability Actions
+# Testability actions
 
 Testability actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
 
@@ -26,7 +26,7 @@ Actions are found in the System.Fabric.Testability.dll assembly.
 
 The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.
 
-###Testability Actions List:
+## Testability actions list
 
 <table>
   <tr>
@@ -136,16 +136,16 @@ The Testability powershell module is found in the Microsoft.ServiceFabric.Testab
 </table>
 
 
-## Running a Testability Action with PowerShell:
+## Running a testability action with Powershell
 
 This tutorial shows you how to run a Testability action with PowerShell. You will learn how to run a Testability action against a Local (aka. one-box) cluster or an Azure cluster. Microsoft.Fabric.Testability.Powershell.dll - the Testability PowerShell module - is installed automatically when you install the Microsoft Service Fabric MSI; and, the module is loaded automatically when you open a PowerShell prompt.
 
 Tutorial segments:
 
-- [Run an Action Against a Local Cluster](#onebox_action)
-- [Run an Action Against an Azure Cluster](#azure_action)
+- [Run an action against a one-box cluster](#onebox_action)
+- [Run an action against an azure cluster](#azure_action)
 
-###<a name="onebox_action"></a>Run an Action Against a One-box Cluster:
+### Run an action against a one-box cluster
 
 To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
@@ -160,40 +160,38 @@ Here the action **Restart-ServiceFabricNode** is being run on a node named "Node
 
 The following screenshot shows the **Restart-ServiceFabricNode** Testability command in action.
 
-<!---
-![](media/service-fabric-testability-powershell-action/Restart-ServiceFabricNode.png)
--->
+![](media/service-fabric-testability-action/Restart-ServiceFabricNode.png)
 
 The output of the first *Get-ServiceFabricNode* (a cmdlet from the ServiceFabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5; then after executing the Testability action (cmdlet) **Restart-ServiceFabricNode** on the node, named Node.4, we see that the node's uptime has been reset.
 
-###<a name="azure_action"></a>Run an Action Against an Azure Cluster:
+### Run an action against an azure cluster
 
 Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.
 
 
-### Furthur examples of using an action in powershell:
+### Further examples of using an action in powershell
 Two examples will be viewed in this section, RestartReplica and InvokeQuorumLoss.
 
-####RestartReplica Action:
-```
+#### RestartReplica action
+```powershell
 Connect-ServiceFabricCluster -testMode
 
 Restart-ServiceFabricReplica -serviceName fabric:/app/svc -longPartitionKey 17 -selectPrimary
 ```
 
-####InvokeQuorumLoss Action:
-```
+#### InvokeQuorumLoss action
+```powershell
 Connect-ServiceFabricCluster -testMode
 
 Invoke-ServiceFabricPartitionQuorumLoss -serviceName fabric:/app/svc -randomPartition
 ```
 
-## Running a Testability Action with C#:
+## Running a Testability action with C#
 
 To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action.
 Let us look at the RestartServiceFabricNode action:
 
-```
+```C#
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
 Here, RestartServiceFabricNode uses nodeName in order to be executed.
@@ -206,10 +204,10 @@ Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
 Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica.
 
-[## Further information on Partition Selector and Replica Selector:](#partition_replica_selector)
+For further information see [Partition Selector and Replica Selector](#partition_replica_selector).
 
 
-```
+```C#
 using System.Fabric.Testability;
 
 public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeName, BigInteger nodeInstanceId, TimeSpan operationTimeout, CompletionMode completeMode)
@@ -230,29 +228,29 @@ public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeNam
 ```
 
 
-### Furthur examples of using an action in C# :
+### Furthur examples of using an action in C#
 
-####RestartReplica Action:
-```
+#### RestartReplica action
+```C#
 fabricclient.ClusterManager.RestartReplicaAsync(replicaSelector, completionMode).Wait();
 
 ```
 
-####InvokeQuorumLoss Action:
+#### InvokeQuorumLoss action
 
-```
+```C#
 fabricclient.ClusterManager.InvokeQuorumLossAsync(serviceName, partitionSelector).Wait();
 
 ```
 
-##<a name="partition_replica_selector"></a>Partition Selector and Replica Selector:
+## Partition Selector and Replica Selector
 
-###Partition Selector:
+### Partition Selector
 PartitionSelector is a helper exposed in Testability and is used to select a specific partition on which to perform any of the Testability actions. It can be used to select a specific partition if the partition ID is known beforehand. Or, you can provide the partition key and the operation will resolve the partition ID internally. You also have the option of selecting a random partition.
 
 To use, create the PartitionSelector object and select the partition using one of the Select* methods and then pass in the PartitionSelector object to the API that requires it. If no option is selected it defaults to random partition.
 
-```
+```C#
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 string partitionName = "Partition1";
@@ -271,12 +269,12 @@ PartitionSelector namedPartitionSelector = PartitionSelector.PartitionKeyOf(serv
 PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf(serviceName, partitionKeyUniformInt64);
 ```
 
-###Replica Selector:
+### Replica Selector
 ReplicaSelector is a helper exposed in Testability and is used to help select a replica on which to perform any of the Testability actions. It can be used to select a specific replica if the replica id is known beforehand. In addition, you have the option of selecting a primary replica or a random secondary as well. ReplicaSelector derives from PartitionSelector, so you need to select both the replica and the partition on which you wish to perform the Testability operation.
 
 To use, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected it defaults to random replica and random partition.
 
-```
+```C#
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
