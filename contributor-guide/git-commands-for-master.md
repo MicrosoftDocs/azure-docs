@@ -30,7 +30,7 @@ Follow the steps in this article to create a local working branch on your comput
 
         git push origin <working branch>
 
-7. Create your new article or make changes to an existing article.
+7. Create your new article or make changes to an existing article. Use Windows Explorer to open and create new markdown files, and use Atom (http://atom.io) as your markdown editor. After you created or modified your article and images, go to the next step.
 
 8. Add and commit the changes you made:
 
