@@ -91,9 +91,9 @@ The tags section uses this syntax:
 - **ruby** 
 - **mobile**: Deprecated. Replace with specific mobile platform.
 - **ios**: Verifing this new value
-- **android**: Verifing this new value
-- **windows**: Verifing this new value
-- **xamarin**: Verifing this new value
+- **android**: Verifying this new value
+- **windows**: Verifying this new value
+- **xamarin**: Verifying this new value
 
 ![](./media/article-metadata/checkmark-small.png)**authors**: Required, one value only. List the GitHub account for the primary author or article SME. This attribute drives the byline on the published article. List only one, in spite of the plural name of the attribute.
 

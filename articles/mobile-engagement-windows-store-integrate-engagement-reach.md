@@ -80,7 +80,7 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 
 -   Add to your namespaces declarations:
 
-			xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay"
+			xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
 -   Replace `engagement:EngagementPage` with `engagement:EngagementPageOverlay`:
 
@@ -95,7 +95,7 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 **With EngagementPageOverlay:**
 
 		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		
 		    <!-- layout -->
 		</engagement:EngagementPageOverlay>
@@ -103,7 +103,7 @@ In your .xaml file change EngagementPage reference to EngagementPageOverlay
 > **With EngagementPageOverlay for 8.1:**
 
 		<engagement:EngagementPageOverlay 
-		    xmlns:engagement="using:using:Microsoft.Azure.Engagement.Overlay">
+		    xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay">
 		    <Grid>
 		      <!-- layout -->
 		    </Grid>
