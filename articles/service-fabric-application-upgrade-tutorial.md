@@ -26,13 +26,13 @@ Service Fabric monitored rolling upgrade allows the application administrator to
 
 ## Step 1: Build & Deploy the Visual Objects Sample
 
-This steps can be done by opening the project in VS, and right clicking on the Solution and selecting the deploy command in the Windows Fabric Menu Item.  Alternatively, one may use PS.
+This steps can be done by opening the project in VS, and right clicking on the Solution and selecting the deploy command in the Service Fabric Menu Item.  Alternatively, one may use PS.
 
-_Before any of the Service Fabric commands may be used in PS, one has to first connect the cluster by using the Connect-WindowsFabricCluster cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine._
+_Before any of the Service Fabric commands may be used in PS, one has to first connect the cluster by using the Connect-ServiceFabricCluster cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine._
 
-After building the project in VS, one may use the PS commands Copy-WindowsFabricApplicationPackage to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the Register-WindowsFabricApplicationPackage, and finally starting an instance of the application by using the New-WindowsFabricApplication.  These three steps are analogous to using the Deploy menu item in VS.
+After building the project in VS, one may use the PS commands Copy-ServiceFabricApplicationPackage to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the Register-ServiceFabricApplicationPackage, and finally starting an instance of the application by using the New-ServiceFabricApplication.  These three steps are analogous to using the Deploy menu item in VS.
 
-Now, you can use WinfabExplorer to view the cluster and the application. The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use Get-WindowsFabricApplication to check the application status.
+Now, you can use WinfabExplorer to view the cluster and the application. The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use Get-ServiceFabricApplication to check the application status.
 
 ## Step 2: Update the Visual Objects Sample
 
@@ -80,19 +80,19 @@ UpgradeTimeout = 3000
 
 ## Step 4: Prepare Application for Upgrade
 
-Now, the application is built and ready to be upgraded. If you open up a PS as administrator and type Get-WindowsFabricApplication, it should let you know that it is Application Type 1.0.0.0 of VisualObjects that's been deployed.   The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
+Now, the application is built and ready to be upgraded. If you open up a PS as administrator and type Get-ServiceFabricApplication, it should let you know that it is Application Type 1.0.0.0 of VisualObjects that's been deployed.   The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
 
 Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric. The parameter ApplicationPackagePathInImageStore informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may have to modify paths again appropriately).
 
 ```powershell
-Copy-WindowsFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package 
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package 
 -ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
 The next step is to register this application with Service Fabric, which can be performed using the following command:
 
-```
-Register-WindowsFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
+```powershell
+Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
 If the above command doesn't succeed it is likely that you did a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
@@ -101,14 +101,14 @@ If the above command doesn't succeed it is likely that you did a rebuild of all 
 
 Now, we are all set to start the application upgrade by using the following command:
 
-```
-Start-WindowsFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
+```powershell
+Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
 ```
 
 
 Note the application name is as was described in the ApplicationManifest.xml file. Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a failure message that states the problem. Refer to the troubleshooting section, or increase the timeouts.
 
-Now, as the application upgrade proceeds, you can monitor it using WinFabExplorer, or using the following PS command: Get-WindowsFabricApplicationUpgrade fabric:/VisualObjects
+Now, as the application upgrade proceeds, you can monitor it using WinFabExplorer, or using the following PS command: 'Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects'
 
 In a few minutes, the UpgradeDomain status using the above PS command should state that all UDs were upgraded (completed). And you should find that the visual objects in your IE window will now have started rotating!
 
@@ -118,12 +118,12 @@ You may want to try changing the versions and moving from version 2 to version 3
 ## Related Topics
 
 
-[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
-[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
 
-[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
+[Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
