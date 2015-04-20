@@ -18,7 +18,9 @@
 
 # Visualizing your cluster using Service Fabric Explorer
 
-Service Fabric Explorer is a useful GUI tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.  Service Fabric Explorer can connect to both local development clusters and Azure clusters.
+Service Fabric Explorer is a visual tool for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster. Service Fabric Explorer can connect to both local development clusters and Azure clusters. For information on the Service Fabric PowerShell cmdlets, see the **Next Steps**.
+
+> [AZURE.NOTE] Creation of Service Fabric clusters in Azure is not yet available.
 
 ## Introduction to Service Fabric Explorer
 
@@ -34,7 +36,7 @@ Run Service Fabric Explorer from your local installation path (%Program Files%\M
 
 ![Visual representation of the Service Fabric cluster and the deployed applications][servicefabricexplorer]
 
-One of the important visualizations is the cluster map, visible on the dashboard for the cluster (e.g. clicking on **Onebox/Local cluster**). The cluster map shows the set of upgrade domains and failure domains, and which nodes are mapped to which domains.
+One of the important visualizations is the cluster map, visible on the dashboard for the cluster (e.g. clicking on **Onebox/Local cluster**). The cluster map shows the set of upgrade domains and failure domains, and which nodes are mapped to which domains.  See the [technical overview of Service Fabric](service-fabric-technical-overview.md) for more information on key concepts.
 
 ![Cluster map shows which upgrade domains and failure domains each node belongs to.][clustermap]
 
@@ -45,20 +47,20 @@ Service Fabric Explorer allows you to explore the applications running on your c
 
 > [AZURE.NOTE] See the [Technical Overview](service-fabric-technical-overview.md) to familiarize yourself with the key Service Fabric concepts.
 
-The diagram below shows the application named **"fabric:/Stateful1Application"** has one stateless application named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
+The diagram below shows that the application named **"fabric:/Stateful1Application"** has one stateless application named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
 
 ![View of the applications running on the Service Fabric cluster][applicationview]
 
-Clicking on an application, service, partition, or replica provides detailed information on that entity.  The diagram below shows the service replica health dashboard for one of the primaries of the stateful service.  This includes its role, the node it's running on, address it's listening on, the location of its files on disk, and health events.
+Clicking on an application, service, partition, or replica provides detailed information on that entity.  The diagram below shows the service replica health dashboard for one of the primary replicas of the stateful service.  This includes its role, the node it's running on, address it's listening on, the location of its files on disk, and health events.
 
 ![Detailed information on a Service Fabric replica][replicadetails]
 
 
-## Connecting to a Service Fabric cluster in Azure
+## Connecting to a remote Service Fabric cluster
 
-Service Fabric Explorer can connect to a cluster in Azure for visualizing the nodes running on actual virtual machines.  To view the cluster in Azure, click on **Connect** to bring up the **Connect to Service Fabric Cluster** dialog.  Enter the **ServiceFabric endpoint** for your cluster and click **Connect**.  The Service Fabric endpoint is typically the public name of your cluster service listening on port 19000.
+To view a remote Service Fabric cluster, click on **Connect** to bring up the **Connect to Service Fabric Cluster** dialog.  Enter the **ServiceFabric endpoint** for your cluster and click **Connect**.  The Service Fabric endpoint is typically the public name of your cluster service listening on port 19000.
 
-![Setup a connection to your Service Fabric cluster in Azure][connecttoazurecluster]
+![Setup a connection to your remote Service Fabric cluster][connecttocluster]
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -66,10 +68,11 @@ Service Fabric Explorer can connect to a cluster in Azure for visualizing the no
 
 - [Importance of testability](service-fabric-testability-importance.md).
 - [Managing your service](service-fabric-fabsrv-managing-your-service.md).
+- [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
 [applicationview]: ./media/service-fabric-visualizing-your-cluster/applicationview.png
 [clustermap]: ./media/service-fabric-visualizing-your-cluster/clustermap.png
-[connecttoazurecluster]: ./media/service-fabric-visualizing-your-cluster/connecttoazurecluster.png
+[connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
