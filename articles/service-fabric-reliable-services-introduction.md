@@ -3,7 +3,7 @@
    description="Learn about Service Fabric's Reliable Service programming model, and get started writing your own services."
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="masnider;jessebenson"
+   authors="masnider"
    manager="timlt"
    editor="jessebenson"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="masnider"/>
+   ms.author="masnider;jesseb"/>
 
 # Reliable Services Overview
 Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about:
