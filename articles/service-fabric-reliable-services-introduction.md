@@ -5,7 +5,7 @@
    documentationCenter=".net"
    authors="masnider;jessebenson"
    manager="timlt"
-   editor=""/>
+   editor="jessebenson"/>
 
 <tags
    ms.service="Service-Fabric"
