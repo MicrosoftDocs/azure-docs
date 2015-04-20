@@ -3,7 +3,7 @@
    description="Azure SDK for .NET 2.5.1 Release Notes" 
    services="app-service" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="Juliako" 
    manager="dwrede" 
    editor=""/>
 
