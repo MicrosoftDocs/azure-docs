@@ -4,7 +4,7 @@
 	tags="azure-classic-portal"
 	services="app-service\web" 
 	documentationCenter=".net" 
-	authors="chrischang12" 
+	authors="chrisckchang" 
 	manager="partners@mongolab.com" 
 	editor="mollybos"/>
 
@@ -400,8 +400,8 @@ Finally, your HomeController needs to instantiate your data access layer and app
             }
         }
     
-    
-<h2><a name="deploy"></a>Deploy the app</h2>
+<a name="deploy"></a> 
+## Deploy the app
 
 Now that the application has been developed, it's time to create a web app in Azure App Service to host it, configure that web app, and deploy the code. Central to this section is the use of the MongoDB connection string (URI). You're going to configure an environment variable in your web app with this URI to keep the URI separate from your code.  You should treat the URI as sensitive information as it contains credentials to connect to your database.
 

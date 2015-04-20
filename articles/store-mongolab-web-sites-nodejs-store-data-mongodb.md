@@ -4,7 +4,7 @@
 	tags="azure-classic-portal"
 	services="app-service\web, virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="chrischang12" 
+	authors="chrisckchang" 
 	manager="wpickett" 
 	editor=""/>
 
