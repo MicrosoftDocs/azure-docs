@@ -10,7 +10,7 @@
 
 <tags
 	ms.service="sql-database"
-	ms.workload="sql-database"
+	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
@@ -281,4 +281,3 @@ http://technet.microsoft.com/library/cc793139.aspx
 .
 Regardless, we should use direct URL, not indirect, in this type of one-time case. It might be different if this link were being placed into 25 different topics.
 -->
-
