@@ -28,7 +28,7 @@ Before you start prototyping, we recommend ramping up with one of our Getting St
 
 The quickest path to a successful prototype typically include the steps in this section.
 
-![1][]
+   ![][1]
 
 ###Step 1: Provision the service	
 
