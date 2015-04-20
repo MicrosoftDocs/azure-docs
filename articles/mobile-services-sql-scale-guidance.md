@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="04/20/2015" 
-	ms.author="donnam,ricksal"/>
+	ms.author="donnam;ricksal"/>
 
 # Scale mobile services backed by Azure SQL Database
 
@@ -190,7 +190,7 @@ Here are some guidelines to consider when querying the database:
     - Don't perform joins in your app code
     - Don't perform joins in your mobile service code. When using the JavaScript backend, be aware that the [table object](http://msdn.microsoft.com/library/windowsazure/jj554210.aspx) does not handle joins. Be sure to use the [mssql object](http://msdn.microsoft.com/library/windowsazure/jj554212.aspx) directly to ensure the join happens in the database. For more information, see [Join relational tables](mobile-services-how-to-use-server-scripts.md#joins). If using the .NET backend and querying via LINQ, joins are automatically handled at the database level by Entity Framework.
 - **Implement paging.** Querying the database can sometimes result in a large number of records being returned to the client. To minimize the size and latency of operations, consider implementing paging.
-    - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](http://azure.microsoft.com/documentation/articles/mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
+    - By default your mobile service will limit any incoming queries to a page size of 50, and you can manually request up to 1,000 records. For more information, see "Return data in pages" for [Windows Store](mobile-services-windows-dotnet-how-to-use-client-library.md#paging), [iOS](mobile-services-ios-how-to-use-client-library.md#paging), [Android](mobile-services-android-how-to-use-client-library.md#paging), [HTML/JavaScript](mobile-services-html-how-to-use-client-library/#paging), and [Xamarin](partner-xamarin-mobile-services-how-to-use-client-library.md#paging).
     - There is no default page size for queries made from your mobile service code. If your app does not implement paging, or as a defensive measure, consider applying default limits to your queries. In the JavaScript backend, use the **take** operator on the [query object](http://msdn.microsoft.com/library/azure/jj613353.aspx). If using the .NET backend, consider using the [Take method](http://msdn.microsoft.com/library/vstudio/bb503062(v=vs.110).aspx) as part of your LINQ query.  
 
 For more information on improving query design, including how to analyze query plans, see [Advanced Query Design](#AdvancedQuery) at the bottom of this document.
