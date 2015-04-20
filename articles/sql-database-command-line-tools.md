@@ -3,7 +3,7 @@
 	description="SQL Azure Manage with Command Line" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="stevestein" 
+	authors="TigerMint" 
 	manager="" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/13/2015" 
-	ms.author="sstein"/>
+	ms.author="vinsonyu"/>
 
 # Manage SQL Azure Resources with PowerShell
 

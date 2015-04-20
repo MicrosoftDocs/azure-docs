@@ -323,10 +323,20 @@ Validate that the process server registered successfully in the vault > **Config
 Note that if you didn't disable signature verification for the Mobility service when you registered the process server you can do it later as follows:
 
 1. Log onto the process server as an administrator and open the file C:\pushinstallsvc\pushinstaller.conf for editing. Under the section **[PushInstaller.transport]** add this line: **SignatureVerificationChecks=”0”**. Save and close the file.
-1. Restart the InMage PushInstall service.
+2. Restart the InMage PushInstall service.
 
 
-## Step 7: Add vCenter servers
+## Step 7: Install latest updates
+
+Before proceeding, ensure that you have the latest updates installed. Remember to install the updates in the following order:
+1. Log onto the configuration server using the **Virtual Machines** page in Azure and download the latest update from: [http://go.microsoft.com/fwlink/?LinkID=533809](http://go.microsoft.com/fwlink/?LinkID=533809). Follow the installer instructions to install the update
+2. On the server that you installed the process server, download the latest update from [http://go.microsoft.com/fwlink/?LinkID=533810](http://go.microsoft.com/fwlink/?LinkID=533810) and install it using the installer instructions
+3.	On the server that you have installed the master target server(s), install the latest update
+	1. For Windows master target server(s), log onto the Windows master target server(s) using the **Virtual Machines** page in Azure and download the latest update from [http://go.microsoft.com/fwlink/?LinkID=533811](http://go.microsoft.com/fwlink/?LinkID=533811). Follow the installer instructions to install the update
+	2. For Linux master target server(s), copy the installer tar file that is available at [http://go.microsoft.com/fwlink/?LinkID=533812](http://go.microsoft.com/fwlink/?LinkID=533812) using a sftp client. Alternatively you can log onto the Linux master target server(s) using the **Virtual Machines** page in Azure use wget to download the file. Extract the files from the gzipped installer and run the command “sudo ./install.sh” to install the update
+
+
+## Step 8: Add vCenter servers
 
 1. On the **Servers** > **Configuration Servers** tab select the configuration server and click to add a vCenter server.
 
@@ -338,7 +348,7 @@ Note that if you didn't disable signature verification for the Mobility service 
 	![vCenter server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_AddVCenter2.png)
 
 
-## Step 8: Create a protection group
+## Step 9: Create a protection group
 
 1. Open **Protected Items** > **Protection Group** and click to add a protection group.
 
@@ -360,7 +370,7 @@ Note that if you didn't disable signature verification for the Mobility service 
 
 You can monitor the protection group as they're created on the **Protected Items** page.
 
-## Step 9: Push the Mobility service
+## Step 10: Push the Mobility service
 
 When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. If you want use this automatic push mechanism for protected machines running Windows you'll need to do the following on each machine:
 
@@ -369,7 +379,7 @@ When you add machines to a protection group the  Mobility service is automatical
 
 	![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
 
-3. If the admin account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System create the entry LocalAccountTokenFilterPolicy if it doesn't exist and assign it a DWORD value of
+3. If the admin account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System create the entry LocalAccountTokenFilterPolicy if it doesn't exist and assign it a DWORD value of 1
 
 If you want to protect machines running Linux you'll need to do the following:
 
@@ -386,7 +396,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 		![Linux push mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
 
-## Step 10: Add machines to a protection group
+## Step 11: Add machines to a protection group
 
 1. Open **Protected Items** > **Protection Group** > **Machines** tab and add virtual or physical machines managed by a discovered vCenter server. We recommend that protection groups should mirror your workloads so that you add machines running a specific application to the same group.
 
@@ -405,7 +415,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-5. Provide the user credentials for the source server. This is required to automatically install the Mobility service on the source machines. For Windows server the account should have administrator privileges on the source server. For Linux the  account must have super user privileges on the server.
+5. Provide the user credentials for the source server. This is required to automatically install the Mobility service on the source machines. For Windows server the account should have administrator privileges on the source server. For Linux the  account must be root.
 
 	![Linux credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 
@@ -417,7 +427,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![Virtual machine jobs](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs.png)
 
-## Step 11: Set protected machine properties
+## Step 12: Set protected machine properties
 
 1. After a machines has a **Protected** status you can configure its failover properties. In the protection group details select the machine and open the **Configure** tab.
 2. You can modify the name that will be given to the machine in Azure after failover and the Azure size. You can also select the Azure network to which the machine will be connected after failover. Note that:
@@ -427,7 +437,7 @@ If you want to protect machines running Linux you'll need to do the following:
 
 	![Set virtual machine properties](./media/site-recovery-vmware-to-azure/ASRVMWare_VMProperties.png)
 
-## Step 12: Run a failover
+## Step 13: Run a failover
 
 1. On the **Recovery Plans** page and add a recovery plan. Specify details for the plan and select **Azure** as the target.
 
