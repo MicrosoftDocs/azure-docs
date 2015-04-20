@@ -1,6 +1,6 @@
 <properties 
-	title="Elastic database job service" 
-	pageTitle="Elastic database job service" 
+	title="Elastic database jobs overview" 
+	pageTitle="Elastic database jobs overview" 
 	description="Illustrates the elastic database job service" 
 	metaKeywords="azure sql database elastic databases" 
 	services="sql-database" documentationCenter=""  
@@ -16,7 +16,7 @@
 	ms.date="04/16/2015" 
 	ms.author="sidneyh" />
 
-# Elastic database jobs
+# Elastic database jobs overview
 
 The elastic job service (preview) enables you to run T-SQL scripts (jobs) against elastic any number of databases in an elastic database pool. For example, you can update the schema to every database in the deployment to include a new table. Normally, you must connect to each database in order to run TSQL statements or perform other tasks. The elastic database job service handles the task of logging in, and running the script for you, while logging the success of each step. 
 
@@ -36,6 +36,6 @@ The elastic job service (preview) enables you to run T-SQL scripts (jobs) agains
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-job-tools/elastic-jobs.png
+[1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 

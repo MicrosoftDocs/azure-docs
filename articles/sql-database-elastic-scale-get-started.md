@@ -44,7 +44,7 @@ To run the sample app, you must use Visual Studio, and you must have access to a
 
 ## Download and run the sample app
 
-The **Elastic DB with Azure SQ L— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [Shard Map Management](sql-database-elastic-scale-shard-map-management.md), [Data Dependent Routing](sql-database-elastic-scale-data-dependent-routing.md) and [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
+The **Elastic DB with Azure SQL— Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications using Azure SQL elastic database tools. It focuses on key use cases for [Shard Map Management](sql-database-elastic-scale-shard-map-management.md), [Data Dependent Routing](sql-database-elastic-scale-data-dependent-routing.md) and [Multi-Shard Querying](sql-database-elastic-scale-multishard-querying.md). To download and run the sample, follow these steps: 
 
 1. Open Visual Studio and select **File -> New -> Project**.
 2. In the dialog, click **Online**.
@@ -59,7 +59,7 @@ The **Elastic DB with Azure SQ L— Getting Started** sample application illustr
  
 5. Select the sample, choose a name and a location for the new project and press **OK** to create the project.
 6. Open the **app.config** file in the solution for the sample project and follow the instructions in the file to add your Azure SQL database server name and your login information (user name and password).
-7. Build and run the application. When asked, please allow Visual Studio to restore the NuGet packages of the solution. This will download the latest version of the elastic database client libraries from NuGet.
+7. Build and run the application. When asked, please allow Visual Studio to restore the NuGet packages of the solution. This will download the latest version of the elastic database client library from NuGet.
 8. Play with the different options to learn more about the client library capabilities. Note the steps the application takes in the console output and feel free to explore the code behind the scenes.
 
     ![progress][4]
@@ -78,8 +78,8 @@ file **AddNewShardsSample.cs**. Details of this topic are covered here: [Shard M
 
 ### Other elastic scale operations
 
-1. **Splitting an existing shard**: The capability to split shards is provided through the **split-merge tool**. You can find more information on this service here: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
-2. **Merging existing shards**: Shard merges are also performed using the **Split/Merge service**. For more information, refer to: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge).   
+1. **Splitting an existing shard**: The capability to split shards is provided through the **split-merge tool**. You can find more information on this tool here: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge.md).
+2. **Merging existing shards**: Shard merges are also performed using the **split-merge tool**. For more information, refer to: [split-merge tool overview](sql-database-elastic-scale-overview-split-and-merge).   
 
 
 ## Cost
