@@ -3,7 +3,7 @@
    description=""
    services="service-fabric"
    documentationCenter=".net"
-   authors="rwike77"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
