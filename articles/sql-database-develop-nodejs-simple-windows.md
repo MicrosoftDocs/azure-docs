@@ -94,7 +94,9 @@ TODO, to Meet: In this code sample, the connection string lines are excessively 
 		var http = require('http');
 		var fs = require('fs');
 		var useTrustedConnection = false;
-		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 				(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 				"Database={AdventureWorks};";
+		var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
+		(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
+		"Database={AdventureWorks};"
 		sql.open(conn_str, function (err, conn) {
 		    if (err) {
 		        console.log("Error opening the connection!");
@@ -119,7 +121,9 @@ TODO, to Meet: In this code sample, the connection string lines are excessively 
 	var http = require('http');
 	var fs = require('fs');
 	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + "Database={AdventureWorks};";
+	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
+	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
+	"Database={AdventureWorks};"
 	sql.open(conn_str, function (err, conn) {
 	    if (err) {
 	        console.log("Error opening the connection!");
@@ -149,7 +153,9 @@ TODO, to Meet: In this code sample, the connection string lines are excessively 
 	var http = require('http');
 	var fs = require('fs');
 	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + "Database={AdventureWorks};";
+	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
+	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
+	"Database={AdventureWorks};"
 	sql.open(conn_str, function (err, conn) {
 	    if (err) {
 	        console.log("Error opening the connection!");
@@ -182,7 +188,9 @@ The method **conn.beginTransactions** will not work in Azure SQL Database. Inste
 	var http = require('http');
 	var fs = require('fs');
 	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + "Database={AdventureWorks};";
+	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
+	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
+	"Database={AdventureWorks};"
 	sql.open(conn_str, function (err, conn) {
 	    if (err) {
 	        console.log("Error opening the connection!");
@@ -222,7 +230,9 @@ For this code sample to work, you must first have or create a stored procedure t
 	var http = require('http');
 	var fs = require('fs');
 	var useTrustedConnection = false;
-	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + (useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + "Database={AdventureWorks};";
+	var conn_str = "Driver={SQL Server Native Client 11.0};Server=tcp:yourserver.database.windows.net;" + 
+	(useTrustedConnection == true ? "Trusted_Connection={Yes};" : "UID=yourusername;PWD=yourpassword;") + 
+	"Database={AdventureWorks};"
 	sql.open(conn_str, function (err, conn) {
 	    if (err) {
 	        console.log("Error opening the connection!");
