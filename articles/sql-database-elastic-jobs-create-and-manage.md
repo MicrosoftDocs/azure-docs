@@ -57,9 +57,9 @@ If a job fails, a log of its execution can found. Click the name of the failed j
 To understand the job creation, see "Creating an elastic database job"
 
 <!--Image references-->
-[1]: ./media/sql-database-creating-managing-elastic-jobs/screen-1.png
-[2]: ./media/sql-database-creating-managing-elastic-jobs/running-jobs.png
-[3]: ./media/sql-database-creating-managing-elastic-jobs/click-manage-jobs.png
-[4]: ./media/sql-database-creating-managing-elastic-jobs/failed.png
+[1]: ./media/sql-database-elastic-jobs-create-and-manage/screen-1.png
+[2]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
+[3]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
+[4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 
 
