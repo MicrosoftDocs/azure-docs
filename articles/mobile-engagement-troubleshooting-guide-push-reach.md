@@ -39,7 +39,7 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 - Test just an In App push and just an Out of App push to determine if something is an In App or Out of App issue.
 - Test from both the UI and the API as a troubleshooting step to see what additional error information is available both places.
 - Out of App pushes won't work unless both Azure Mobile Engagement and Reach are integrated in the SDK.
-- Out of App pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only).
+- Out of App pushes won't work if certificates aren't valid, or are using PROD vs. DEV correctly (iOS only). (**Note:** "Out of app" push notifications may not be delivered to iOS, if you have both the development (DEV) and production (PROD) versions of your application installed on the same device since the security token associated with your certificate may be invalidated by Apple. To resolve this issue, uninstall both the DEV and PROD versions of your application and re-install only the one version on your device.)
 - Out of App push counts are handled differently in different platforms (iOS shows less information than Android if native pushes are disabled on a device, the API can provide more information than the UI on push stats).
 - Out of App pushes can be blocked by customers at OS level (iOS and Android).
 - Out of App pushes will be shown as disabled in the Azure Mobile Engagement UI if they aren't integrated correctly, but may fail silently from the API.
@@ -83,15 +83,23 @@ The following are possible issues you may encounter with how Azure Mobile Engage
 ### Causes
 
 - To link to a specific location in app requires “categories” (Android only).
+- Deep linking schemes to redirect users to an alternate location after clicking a push notification need to be created in and managed by your application and the device OS not by Mobile Engagement directly. (**Note:** Out of app notifications can't link directly to in app locations with iOS as they can with Android.)
 - External image servers need to be able to use HTTP "GET" and "HEAD" for big picture pushes to work (Android only).
 - In your code, you can disable the Azure Mobile Engagement agent when the keyboard is opened, and have your code re-activate the Azure Mobile Engagement agent once the keyboard is closed so that the keyboard won't affect the appearance of your notification (iOS only).
 - Some items don't work in test simulations, but only real campaigns (badge, ring, vibrate, picture, etc.).
 - No server side data is logged when you use the button to "test" pushes. Data is only logged for real push campaigns.
 - To help isolate your issue, troubleshoot with: test, simulate, and a real campaign since they each work slightly differently.
+- The length of time your "in app" and "any time" campaigns are scheduled to run can effect delivery numbers since a campaign will only be delivered to users who are "in app" while the campaign runs (and users who have their device settings set to receive notifications "out of app").
+- The differences between how Android and iOS handle out of app notifications makes it difficult to directly compare push statistics between the Android and iOS version of your application. Android provides more OS level notification information than iOS does. Android reports when a native notification is received, clicked, or deleted in the notification center, but iOS does not report this information unless 
+the notification is clicked. 
+- The main reason that "pushed" numbers are different than different than "delivered" numbers for reach campaigns is that "in app" and "out of app" notifications are counted differently. "In app" notifications are handled by Mobile Engagement, but "Out of app" notifications are handled by the notification center in the OS of your device.
 
 ### See also
 
 - [How Tos - First Push][Link 27], [Troubleshooting Guide - Push][Link 23], [HTTP Protocol Info]( http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
+- [Apple Developer - "Opt Out" UI Info](http://support.apple.com/kb/HT3576), [Apple Developer - "Opt Out" Dev Info](https://developer.apple.com/notifications/), [Apple Developer - "Opt Out" Troubleshooting](https://developer.apple.com/library/ios/technotes/tn2265/), [Apple Developer - URL Scheme](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
+- [Android Developer - "Opt Out" UI Info](http://developer.android.com/about/versions/jelly-bean.html), [Android Developer - "Opt Out" Patterns](http://developer.android.com/design/patterns/notifications.html), [Android Developer - "Opt Out" Notifier](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Android Developer - "Opt Out" Preview](https://developer.android.com/preview/notifications.html), [Android Developer - "Opt Out" Reference](http://developer.android.com/reference/android/app/Notification.html), [Android Developer - Intent Filter Scheme](http://developer.android.com/guide/components/intents-filters.html#DataTest), 
+ [Android Developer - Intent Filter Reference Guide](http://developer.android.com/reference/android/content/Intent.html#toUri)
 
 ## Push targeting
 
