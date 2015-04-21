@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/17/2015" 
+	ms.date="04/20/2015" 
 	ms.author="curtand"/>
 
 
@@ -22,7 +22,6 @@
 
 
 [What is Azure AD?](active-directory-whatis.md)<br>
-[How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
 [Next steps](active-directory-next-steps.md)<br>
 [Learn more](active-directory-learn-map.md)
