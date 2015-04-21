@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/9/2015" 
+	ms.date="04/21/2015" 
 	ms.author="bradsev" />
 
 
@@ -84,7 +84,7 @@ The clustering algorithm available in Azure Machine Learning is K-means clusteri
 
 K-means is one of the simplest unsupervised learning algorithms that solve well known clustering problem. The KMeans algorithm clusters data by trying to separate samples into N groups of equal variance, minimizing a criterion known as the inertia or within-cluster sum-of-squares. This algorithm requires the number of clusters to be specified. It scales well to large number of samples and has been used across a large range of application areas in many different fields.
 
-The **K-Means Clusterin**g module that implements the K-means algorithm returns an untrained K-means clustering model that can be passed to the **Train Clustering Model** module for training.
+The [K-Means Clustering][k-means-clustering] module that implements the K-means algorithm returns an untrained K-means clustering model that can be passed to the [Train Clustering Model][train-clustering-model] module for training.
 
 ![screenshot_of_experiment](./media/machine-learning-algorithm-choice/k4.png)
 
@@ -220,9 +220,9 @@ Poisson regression is often used for modeling count data. Poisson regression ass
 * Creating contingency tables
 
 
-
-
-
+<!-- Module References -->
+[k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
+[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
 
 
 

@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/21/2015" 
 	ms.author="sunliangms,fashah,msolhab,garye" /> 
 
 #<a name="heading"></a>Process Azure Blob data in your data science environment
@@ -148,10 +148,10 @@ For generating binned features, we proceed as follows:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure ML
+####<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 
-After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure ML using the following steps:
-Note that additional features can be created in the Azure ML Studio as well. 
+After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
+Note that additional features can be created in the Azure Machine Learning Studio as well. 
 1. Write the data frame to local file
 
 		dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
@@ -178,8 +178,12 @@ Note that additional features can be created in the Azure ML Studio as well.
 	    except:	        
 		    print ("Something went wrong with uploading blob:"+BLOBNAME)
 
-3. Now the data can be read from the blob using the Azure ML *Reader Module* as shown in the screen below:
+3. Now the data can be read from the blob using the Azure Machine Learning [Reader][reader] module as shown in the screen below:
  
 ![reader blob][1]
 
 [1]: ./media/machine-learning-data-science-sample-data-blob/reader_blob.png
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

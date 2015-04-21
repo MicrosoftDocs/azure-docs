@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/14/2015" 
+	ms.date="04/21/2015" 
 	ms.author="bradsev" />
 
 
@@ -50,7 +50,7 @@ What kind of features should be created to enhance the dataset when training a m
 When starting with Azure Machine Learning, it is easiest to grasp this process concretely using samples provided in the Studio. Two examples are presented here:
 
 * A regression example [Prediction of the number of bike rentals](machine-learning-sample-prediction-of-number-of-bike-rentals.md) in a supervised experiment where the target values are known 
-* A text mining classification example using [Feature Hashing](http://help.azureml.net/Content/html/C9A82660-2D9C-411D-8122-4D9E0B3CE92A.htm)
+* A text mining classification example using [Feature Hashing][feature-hashing]
 
 ### Example 1: Adding Temporal Features for Regression Model ###
 
@@ -65,7 +65,7 @@ With the goal of constructing effective features in the training data, four regr
 
 Besides feature set A, which already exist in the original raw data, the other three sets of features are created through the feature engineering process. Feature set B captures very recent demand for the bikes. Feature set C captures the demand for bikes at a particular hour. Feature set D captures demand for bikes at particular hour and particular day of the week. The four training datasets each includes feature set A, A+B, A+B+C, and A+B+C+D, respectively.
 
-In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an "Execute R Script" module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
+In the Azure Machine Learning experiment, these four training datasets are formed via four branches from the pre-processed input dataset. Except the left most branch, each of these branches contains an [Execute R Script][execute-r-script] module, in which a set of derived features (feature set B, C, and D) are respectively constructed and appended to the imported dataset. The following figure demonstrates the R script used to create feature set B in the second left branch.
 
 ![create features](./media/machine-learning-feature-selection-and-engineering/addFeature-Rscripts.png) 
 
@@ -79,7 +79,7 @@ Feature engineering is widely applied in tasks related to text mining, such as d
 
 To achieve this task, a technique called **feature hashing** is applied to efficiently turn arbitrary text features into indices. Instead of associating each text feature (words/phrases) to a particular index, this method functions by applying a hash function to the features and using their hash values as indices directly.
 
-In Azure Machine Learning, there is a [Feature Hashing](http://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a) module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this "Feature Hashing" module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
+In Azure Machine Learning, there is a [Feature Hashing][feature-hashing] module that creates these word/phrase features conveniently. Following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5, and the actual review content. The goal of this [Feature Hashing][feature-hashing] module is to retrieve a bunch of new features that show the occurrence frequency of the corresponding word(s)/phrase(s) within the particular book review. To use this module, we need to complete the following steps:
 
 * First, select the column that contains the input text ("Col2" in this example). 
 * Second, set the "Hashing bitsize" to 8, which means 2^8=256 features will be created. The word/phase in all the text will be hashed to 256 indices. The parameter "Hashing bitsize" ranges from 1 to 31. The word(s)/phrase(s) are less likely to be hashed into the same index if setting it to be a larger number. 
@@ -102,12 +102,12 @@ Although feature selection does seek to reduce the number of features in the dat
 
 Among others, one widely applied category of feature selection methods in a supervised context is called "filter based feature selection". By evaluating the correlation between each feature and the target attribute, these methods apply a statistical measure to assign a score to each feature. The features are then ranked by the score, which may be used to help set the threshold for keeping or eliminating a specific feature. Examples of the statistical measures used in these methods include Person correlation, mutual information, and the Chi squared test.
 
-In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include "Filter Based Feature Selection"and "Fisher Liner Discriminant Analysis".
+In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
  
 ![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
 
 
-Consider, for example, the use of the [Filter Based Feature Selection](http://help.azureml.net/Content/html/818b356b-045c-412b-aa12-94a1d2dad90f.htm) module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the "Feature Hashing" module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module "Filter Based Feature Selection" will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
+Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For the purpose of convenience, we continue to use the text mining example outlined above. Assume that we want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" and represents a book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] will produce a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters we just described.
 
 ![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection1.png)
 
@@ -119,9 +119,15 @@ The corresponding scores of the selected features are shown in the following fig
 
 ![Feature selection example](./media/machine-learning-feature-selection-and-engineering/feature-Selection3.png)
 
-By applying this **Filter Based Feature Selection** module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation". 
+By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation". 
 
 ## Conclusion
 Feature engineering and feature selection are two commonly performed steps to prepare the training data when building a machine learning model. Normally feature engineering is applied first to generate additional features, and then the feature selection step is performed to eliminate irrelevant, redundant, or highly correlated features. 
 
 Note that it is not always necessarily to perform feature engineering or feature selection. Whether it is needed or not depends on the data we have or collect, the algorithm we pick, and the objective of the experiment.       
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
+[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
+[fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
