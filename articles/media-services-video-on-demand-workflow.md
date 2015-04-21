@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -137,15 +137,19 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 ##Encoding 
 
-**Overview**: [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
+**Overview**: 
+
+- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
+
+Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
+ 
+[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 Advanced encoding with **Media Encoder Premium Workflow** using **.NET**. 
 
 [AZURE.INCLUDE [media-services-selector-advanced-encoding](../includes/media-services-selector-advanced-encoding.md)]
 
-Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
- 
-[AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
 
 ##Monitoring job progress
 
@@ -165,16 +169,17 @@ Configure content protection and key authorization policy using **.NET** or **RE
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-##Configuring asset delivery policy
+
+##Publishing and delivering assets
+
+**Overview**: 
+
+- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
-
-##Publishing and delivering assets
-
-**Overview**: [Delivering Content Overview](media-services-deliver-content-overview.md)
-
 
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 

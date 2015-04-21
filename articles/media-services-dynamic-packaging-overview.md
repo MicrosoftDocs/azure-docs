@@ -43,11 +43,11 @@ With dynamic packaging all you need is to create an asset that contains a set of
  
 1. Build the streaming URLs to access and stream your content.
  
->[AZURE.NOTE]Not all MP4 file formats are supported by dynamic packaging, for more information, see [Unsupported formats for dynamic packaging](media-services-dynamic-packaging.md#unsupported_formats).
+>[AZURE.NOTE]Not all MP4 file formats are supported by dynamic packaging, for more information, see [Unsupported formats for dynamic packaging](media-services-dynamic-packaging-overview.md#unsupported_formats).
 
 ##Preparing assets for dynamic streaming
 
-To prepare your asset for dynamic streaming you have the two options: 
+To prepare your asset for dynamic streaming you have two options: 
 
 - Upload a master file and produce H.264 MP4 adaptive bitrate sets using the Azure Media Encoder.
 - Upload existing adaptive bitrate sets and validate them using the Media Packager.
