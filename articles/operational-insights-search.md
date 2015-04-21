@@ -48,9 +48,9 @@ The most basic filters you can use are *keywords*, such as ‘error’ or ‘tim
 
 ### To conduct a simple search
 1. In the Operational Insights portal, click **Search Data Explorer**.
-<p> 
+
 ![search tile](./media/operational-insights-search/overview-search.png)
-<p>
+
 2. In the query field, type ```error``` and then click **Search**.
 ![search error](./media/operational-insights-search/search-error.png)
 
@@ -65,14 +65,14 @@ These filters are not really object types/classes. *Type* is just a tag, or a pr
 You can use either a colon (:) or a equal sign (=) after the field name and before the value. **Type:Event** and **Type=Event** are equivalent in meaning, you can chose the style you prefer.
 
 So, if the Type=PerfHourly records have a field called 'CounterName', then you can write a query resembling ```Type=PerfHourly CounterName="% Processor Time"```.
-<p>
+
 This will give you only the performance data where the performance counter name is "% Processor Time". 
 
 ### To search for processor time performance data
 - In the search query field, type ```Type=PerfHourly CounterName="% Processor Time"```
 
 You can also be more specific and use **InstanceName=_'Total'** in the query, which is a Windows performance counter. You can also select a facet and another **field:value**. The filter is automatically added to your filter in the query bar. You can see this in the following image. It shows you where to click to add **InstanceName:’_Total’** to the query without typing anything.
-<p>
+
 ![search facet](./media/operational-insights-search/search-facet.png)
 
 Your query now becomes ```Type=PerfHourly CounterName=”% Processor Time” InstanceName=”_Total”```
@@ -190,9 +190,9 @@ That's because it is the type of experience you are familiar with in logs. For e
 You can use Sort to change the way results are returned. The following examples show how this works.
 
 ```Type=Event EventID=1234 | Sort TimeGenerated asc```
-<p>
+
 ```Type=Event EventID=1234 | Sort Computer asc```
-<p>
+
 ```Type=Event EventID=1234 | Sort Computer asc,TimeGenerated desc```
 
 
@@ -202,7 +202,7 @@ The simple examples above show you how commands work--they change the shape of t
 Another less known command is LIMIT. Limit is a PowerShell-like verb. Limit is functionally identical to the TOP command. The following queries return the same results.
 
 ```Type=Event EventID=2110 | Limit 1```
-<p>
+
 ```Type=Event EventID=2110 | Top 1```
 
 
@@ -457,7 +457,8 @@ The parser supports the decimal integer and floating-point number syntax for num
 Examples:
 
 	Type:PerfHourly 0.5
-<p></p>
+
+
 	HTTP 500
 
 #### Date/Time
@@ -469,17 +470,23 @@ The timeline Chart/Time selector in Operational Insights shows a distribution of
 Syntax:
 
 	yyyy-mm-ddThh:mm:ss.dddZ
-<p></p>
+
+
 	yyyy-mm-ddThh:mm:ss.ddd
-<p></p>
+
+
 	yyyy-mm-ddThh:mm:ss
-<p></p>
+
+
 	yyyy-mm-ddThh:mm:ss
-<p></p>
+
+
 	yyyy-mm-ddThh:mm
-<p></p>
+
+
 	yyyy-mm-dd
-<p></p>
+
+
 
 Example:
 
@@ -503,9 +510,11 @@ Use the Date/Time math operators to offset or round the Date/Time value by using
 Syntax:
 
 	datetime/unit
-<p></p>
+
+
 	datetime[+|-]count unit
-<p></p>
+
+
 
 
 <table border="1" cellspacing="4" cellpadding="4">
@@ -637,9 +646,11 @@ Example:
 
 
 	TimeGenerated:NOW
-<p></p>
+
+
 	ObjectDisplayName:"server01.contoso.com"
-<p></p>
+
+
 	SampleValue:0.3
 
 **Syntax**
@@ -674,7 +685,8 @@ Provides range faceting.
 Example:
 
 	TimeGenerated:[NOW..NOW+1DAY]
-<p></p>
+
+
 	SampleValue:[0..2]
 #### Logical operators
 
@@ -683,7 +695,8 @@ The query languages support the logical operators (AND, OR, and NOT) and their C
 Examples:
 
 	system OR error
-<p></p>
+
+
 	Type:Alert AND NOT(Severity:1 OR ObjectId:"8066bbc0-9ec8-ca83-1edc-6f30d4779bcb8066bbc0-9ec8-ca83-1edc-6f30d4779bcb")
 You can omit the logical operator for the top-level filter arguments. In this case, the AND operator is assumed.
 
@@ -732,7 +745,8 @@ Sorts the results by particular fields. The asc/desc prefix is optional. If they
 Syntax:
 
 	top number
-<p></p>
+
+
 	limit number
 Limits the response to the top N results.
 
@@ -777,7 +791,8 @@ The **measure** command is used to apply statistical functions to the raw search
 Syntax:
 
 	measure aggregateFunction([aggregatedField]) [as fieldAlias] by groupField [interval interval]
-<p></p>
+
+
 	measure aggregateFunction([aggregatedField])  interval interval
 
 Aggregates the results by **groupField** and calculates the aggregated measure values by using **aggregatedField**.
@@ -956,12 +971,10 @@ Can only be used after a **Measure** command to further filter the aggregated re
 
 Examples:
 
-	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) as MAXCPU by RootObjectName | where MAXCPU>0
-<p></p>
-	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) by RootObjectName | where AggregatedValue >0
-<p></p>
+	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) as MAXCPU by 
+
 	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) by RootObjectName | where (AggregatedValue>50 and AggregatedValue<90)
-<p></p>
+
 
 
 
