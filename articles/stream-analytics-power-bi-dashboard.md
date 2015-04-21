@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/21/2015" 
+	ms.date="04/22/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
@@ -100,21 +100,21 @@ Provide values as below:
 
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following query:
 
-    SQL   
-    	SELECT 
-    		MAX(hmdt) AS hmdt,
-    		MAX(temp) AS temp,
-    		time 
-    	INTO
-    		OutPBI
-    	FROM
-    		Input
-    	WHERE 
-    		dspl = 'mysensor' 
-    	GROUP BY 
-    		TUMBLINGWINDOW(ss,1),
-    		time,
-    		dspl
+SQL   
+    SELECT 
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        time 
+    FROM
+        Input
+    INTO
+        OutPBI
+    WHERE 
+        dspl = 'mysensor' 
+    GROUP BY 
+        TUMBLINGWINDOW(ss,1),
+        time
+
     
     
 Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
