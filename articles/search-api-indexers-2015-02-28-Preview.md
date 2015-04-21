@@ -15,7 +15,7 @@ ms.tgt_pltfrm="na"
 ms.date="04/20/2015" 
 ms.author="heidist" />
 
-#Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
+#Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)
 
 > [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](../search-api-2015-02-28-preview). Currently the only difference between the `2015-02-28` version documented on [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here is that the preview provides *fieldMappings*, as described in [Create Indexer](#CreateIndexer).
 
@@ -372,7 +372,7 @@ The syntax for structuring the request payload is as follows. A sample request i
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: "P[nD][T[nH][nM]]". Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
+- `interval`: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
 - `startTime`: Required. An UTC datetime when the indexer should start running. 
 
