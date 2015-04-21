@@ -23,9 +23,11 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 
 ##Service Bus updates:
 
-- Added new feature for Event Hubs: allow targeted access control when sending events by exposing additional publisher endpoint for Event Hubs. 
-- Additional stability and improvement added to Event Hubs feature.
-- Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
+- Event Hubs: 
+
+	- Now allows targeted access control when sending events by exposing additional publisher endpoint for Event Hubs.
+	- Additional stability and improvement added to Event Hubs feature.
+	- Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
 
 ##HDInsight Tools for Visual Studio
 
@@ -36,7 +38,7 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 
 - **HDInsight emulator support**
 
-	Now HDInsight Tools for Visual Studio supports connecting to HDInsight emulator, so you could develop your Hive scripts locally without introducing any cost, then execute those scripts against your HDInsight clusters. 
+	Now HDInsight Tools for Visual Studio support connecting to HDInsight emulator, so you could develop your Hive scripts locally without introducing any cost, then execute those scripts against your HDInsight clusters. 
 
 	For more information, refer to [this manual](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
@@ -54,7 +56,7 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 
 - **In-Role Cache** was updated to use **Microsoft Azure Storage SDK** version 4.3. Until now, the **In-Role Cache** was using Azure Storage SDK version 1.7.
 
-	Customers using Azure SDK 2.5 or below should update to 2.6 to move to the new version of Azure Storage SDK. Note that, Azure Storage version 2011-08-18 will be removed on December 9th, 2015. For more details read [this announcement](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/). 
+	Customers using Azure SDK 2.5 or below should update to Azure SDK 2.6 and move to the new version of Azure Storage SDK. Note that Azure Storage version 2011-08-18 will be removed on December 9th, 2015. For more details read [this announcement](http://azure.microsoft.com/blog/2014/08/04/microsoft-azure-storage-service-version-removal/). 
 
 	For more information, see [In-Role Cache for Azure Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
@@ -68,5 +70,5 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 
 ##Azure Resource Manager Tools for Visual Studio updates
 
-- The **Cloud Deployment Project** project type available in the Azure SDK 2.5 has been renamed to **Azure Resource Group**.
-- **Cloud Deployment Project** projects created in the Azure SDK 2.5 can be used in 2.6 but deploying the template from Visual Studio will fail. However, deploying with the PowerShell script will still work as it did previously.  For more information about using **Cloud Deployment Project**s in 2.6 read this [post](http://go.microsoft.com/fwlink/?LinkID=534086).
+- The **Cloud Deployment Projects** project type available in the Azure SDK 2.5 has been renamed to **Azure Resource Group**.
+- **Cloud Deployment Projects** type of projects created in the Azure SDK 2.5 can be used in 2.6 but deploying the template from Visual Studio will fail. However, deploying with the PowerShell script will still work as it did previously.  For information on how to use **Cloud Deployment Projects** in 2.6 read this [post](http://go.microsoft.com/fwlink/?LinkID=534086).
