@@ -17,7 +17,7 @@
    ms.author="oanapl"/>
 
 # View Azure Service Fabric entities aggregated health
-Service Fabric introduces a [Health Model](service-fabric-health-introduction.md) comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#Health-store) aggregates all health data to determine whether entities are healthy.
+Service Fabric introduces a [Health Model](service-fabric-health-introduction.md) comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
 Out of the box, the cluster is populated with health reports sent by the System components. Read more at [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
@@ -50,7 +50,7 @@ The evaluation uses default policies from cluster manifest and application manif
 > [AZURE.NOTE] Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Health queries
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#Health-Entities-and-Hierarchy). They can be accessed trough API (methods on FabricClient.HealthManager), Powershell cmdlets and REST.
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed trough API (methods on FabricClient.HealthManager), Powershell cmdlets and REST.
 These queries return complete health information about the entity, including aggregated health state, health events reported on the entity, children health states (where applicable) and unhealthy evaluations when the entity is not healthy.
 
 > [AZURE.NOTE] A health entity is returned to the user when it is completely populated in the Health Store: the entity has a System report, it's active and parent entities on the hierarchy chain have System reports. If any of these conditions is not satisfied, the health queries return an exception showing why the entity is not returned.
@@ -656,7 +656,7 @@ HealthEvents          :
 ```
 
 ## General Queries
-The general queries return the list of Service Fabric entities of the specified type. They are exposed through API (methods on FabricClient.QueryManager), Powershell cmdlets and REST. These queries aggregate sub-queries from multiple components. One of them is the [Health Store](service-fabric-health-introduction.md#Health-Store), which populates the aggregated health state for each query result.  
+The general queries return the list of Service Fabric entities of the specified type. They are exposed through API (methods on FabricClient.QueryManager), Powershell cmdlets and REST. These queries aggregate sub-queries from multiple components. One of them is the [Health Store](service-fabric-health-introduction.md#health-store), which populates the aggregated health state for each query result.  
 
 > [AZURE.NOTE] The general queries return the aggregated health state of the entity and do not contain the rich health data. If an entity is not healthy, you can follow up with health queries to get all health information, like events, children health states and unhealthy evaluations.
 
