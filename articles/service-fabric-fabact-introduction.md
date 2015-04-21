@@ -3,7 +3,7 @@
    description="Introduction to Azure Service Fabric Actors programming model"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -77,7 +77,7 @@ The framework also includes a VolatileActorStateProvider. This state provider re
 The following code snippet shows how to changes all actors in the assembly that does not have an explicit state provider attribute to use VolatileActorStateProvider.
 
 ```
-[assembly:System.Fabric.Services.Actor.VolatileActorStateProvider]
+[assembly:Microsoft.ServiceFabric.Actors.VolatileActorStateProvider]
 ```
 
 The following code snippet shows how to change the state provider for a particular actor, VoicemailBox in this case to be VolatileActorStateProvider.
@@ -100,7 +100,7 @@ Please note that changing the state provider requires the actor service to be re
 ### Readonly Methods
 By default the framework saves Actor state upon exiting from an actor method call, timer callback and reminder callback. No other actor call is allowed until the save state is complete.  Depending upon the state provider, saving state may take time and during this time no other actor methods are being allowed in the actor. For example, the default KvsActorStateProvider replicates the data to a replica set and only when a quorum of replicas have committed the data to a persisted store, the save state is completed.
 
-There may be actor method that do not modify the state, in that case the additional time spent on saving the state can affect the overall throughput of the system. To avoid that you can mark the methods and timer callback that do not modify the state as Readonly.
+There may be actor methods that do not modify the state. In that case the additional time spent on saving the state can affect the overall throughput of the system. To avoid that you can mark the methods and timer callback that do not modify the state as Readonly.
 
 The example below shows how to mark an actor method as readonly using Readonly attribute.
 ```
