@@ -53,11 +53,11 @@ Reference-style links
 
 You can use reference style links to make your source content easier to read. The reference style links replace the inline link syntax with simplified syntax that allows you to move the long URLs to the end of the article. Here's Daring Fireball's example:
 
-- Inline text:
+Inline text:
 
     I get 10 times more traffic from [Google] [1] than from [Yahoo] [2] or [MSN] [3].
 
-- Link references at the end of the article
+Link references at the end of the article:
 
     <!--Reference links in article-->
     [1]: http://google.com/        
