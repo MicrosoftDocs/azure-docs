@@ -50,13 +50,13 @@ The Web API application itself doesn't change here - it's no different from Web 
 
 Start by creating a new Stateless Service in Visual Studio 2015:
 
-![](media/service-fabric-fabsrv-webapi/webapi-newproject.png)
+![](media/service-fabric-fabsrv-communication-webapi/webapi-newproject.png)
 
 This gives us an empty Stateless Service that will host the Web API application. We're going to set the application up from scratch to see how it's all put together.
 
 The first step is to pull in some NuGet packages for Web API. The package we want to use is **Microsoft.AspNet.WebApi.OwinSelfHost**. This package includes all the necessary Web API packages and the *host* packages - this will be important later. 
 
-![](media/service-fabric-fabsrv-webapi/webapi-nuget.png)
+![](media/service-fabric-fabsrv-communication-webapi/webapi-nuget.png)
 
 With the packages installed, we can begin building out the basic Web API project structure. If you've used  Web API, the project structure should look very familiar. Start by creating the basic Web API directories:
 
@@ -207,7 +207,7 @@ In Service Fabric, your service runs in a *service host process* - an executable
 
 If that looks suspiciously like the entry point to a console application, that's because it is:
 
-![](media/service-fabric-fabsrv-webapi/webapi-projectproperties.png)
+![](media/service-fabric-fabsrv-communication-webapi/webapi-projectproperties.png)
 
 Details about the service host process and service registration is beyond the scope of this article, but it's important to know for now that **your service code is running in its own process**.
 
@@ -506,7 +506,7 @@ And the complete OwinCommunicationListener class:
 With all the pieces in place, your project should now look like a typical Web API application with the Reliable Services API entry points and an OWIN host:
 
 
-![](media/service-fabric-fabsrv-webapi/webapi-projectstructure.png)
+![](media/service-fabric-fabsrv-communication-webapi/webapi-projectstructure.png)
 
 ## <a name="testlocally"></a>Run and connect through a web browser
 
@@ -517,7 +517,7 @@ If you haven't done so, launch a local cluster. Launch **Windows PowerShell** as
 You can now build and deploy your service. Press **F5** in Visual Studio to build and deploy the application. In the Diagnostics Events window, you should see a message indicating the web server opened on **http://localhost:8081/api**
 
 
-![](media/service-fabric-fabsrv-webapi/webapi-diagnostics.png)
+![](media/service-fabric-fabsrv-communication-webapi/webapi-diagnostics.png)
 
     >**NOTE**: If the port is already be open by another process on your machine, you may see an error here indicating the listener couldn't be opened. If that's the case, try using a different port in the Endpoint configuration in ServiceManifest.xml.
 
