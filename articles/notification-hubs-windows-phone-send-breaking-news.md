@@ -3,18 +3,18 @@
 	description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="ggailey777" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="12/03/2014" 
-	ms.author="glenga"/>
+	ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 

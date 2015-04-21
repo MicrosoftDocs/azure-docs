@@ -3,18 +3,18 @@
 	description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to Android devices." 
 	services="notification-hubs" 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 
 # Use Notification Hubs to send breaking news

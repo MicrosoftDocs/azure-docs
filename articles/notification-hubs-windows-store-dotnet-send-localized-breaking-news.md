@@ -3,18 +3,18 @@
 	description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 # Use Notification Hubs to send localized breaking news
 
 <div class="dev-center-tutorial-selector sublanding"> 

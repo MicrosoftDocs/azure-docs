@@ -3,7 +3,7 @@
 	description="Use  Azure Notification Hubs with tags in the registration to send breaking news to a universal Windows app." 
 	services="notification-hubs" 
 	documentationCenter="windows" 
-	authors="RickSaling" 
+	authors="wesmc7777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -12,11 +12,11 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
-	ms.author="ricksal"/>
+	ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news
 <div class="dev-center-tutorial-selector sublanding"> 
