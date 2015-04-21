@@ -100,17 +100,20 @@ Provide values as below:
 
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following query:
 
-    SQL   
-    	SELECT 
-    		MAX(hmdt) AS hmdt,
-    		MAX(temp) AS temp,
-    		time 
-    	INTO
-    		OutPBI
-    	FROM
-    		Input
-    	WHERE 
-    		dspl = 'mysensor' 
+SQL   
+    SELECT 
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        time 
+    FROM
+        Input
+    INTO
+        OutPBI
+    WHERE 
+        dspl = 'mysensor' 
+    GROUP BY 
+        TUMBLINGWINDOW(ss,1),
+        time
 
     
     
