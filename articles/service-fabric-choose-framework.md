@@ -34,4 +34,4 @@ Keep in mind that it is perfectly reasonable to use different frameworks for dif
 ## Next steps
 
 - [Learn more about the reliable actor APIs](service-fabric-fabact-introduction.md)
-- [Learn more about the reliable services APIs](service-fabric-fabsrv-getting-started.md)
+- [Learn more about the reliable services APIs](service-fabric-reliable-services-introduction.md)
