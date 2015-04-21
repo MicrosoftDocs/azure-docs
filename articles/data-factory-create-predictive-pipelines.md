@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/14/2015" 
 	ms.author="spelluru"/>
 
 # Create Predictive Pipelines using Azure Data Factory and Azure Machine Learning 
@@ -85,8 +85,8 @@ A **predictive pipeline** has these parts:
 	>
 	>     sink: 
 	>     {
-	>         "type": ""BlobSink"",     
-	>         blobWriterAddHeader: true 
+	>         "type": "BlobSink",     
+	>         "blobWriterAddHeader": true 
 	>     }
 	> 
 	> If the csv file does not have the header row, you may see the following error: **Error in Activity: Error reading string. Unexpected token: StartObject. Path '', line 1, position 1**.
@@ -167,14 +167,7 @@ A **predictive pipeline** has these parts:
 
 Article | Description
 ------ | ---------------
-[Introduction to Azure Data Factory][adf-introduction] | This article provides an overview of Azure Data Factory service and the scenarios it supports. 
-[Get started with Azure Data Factory][adf-getstarted] | This article provides a basic tutorial that provides step-by-step instructions for creating and monitoring a sample data factory.
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue. You can try the walkthrough in this article on the ADFTutorialDataFactory by introducing an error (deleting table in the Azure SQL Database). 
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
+[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, .NET class library, functions, etc… 
 
 [adf-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md

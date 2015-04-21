@@ -3,7 +3,7 @@
 Thank you for your interest in Azure documentation!
 
 * [Ways to contribute](#ways-to-contribute)
-* [About your contributions to Azure content](#about-your-contributions)
+* [About your contributions to Azure content](#about-your-contributions-to-azure-content)
 * [Repository organization](#repository-organization)
 * [Use GitHub, Git, and this repository](#use-github-git-and-this-repository)
 * [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
@@ -81,7 +81,7 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 
 - [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
-- [Printable markdown cheatsheet](./media/documents/markdown-cheatsheet.pptx?raw=true)
+- [Printable markdown cheatsheet](./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true)
 
 
 

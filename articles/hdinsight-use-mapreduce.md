@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/20/2015"
+   ms.date="04/16/2015"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -35,10 +35,27 @@ A basic word count MapReduce job example is illustrated in the following diagram
 
 The output of this job is a count of how many times each word occurred in the text that was analyzed.
 
-* The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a word occurs of the word is followed by a 1. The output is sorted before sending it to reducer. 
+* The mapper takes each line from the input text as an input and breaks it into words. It emits a key/value pair each time a word occurs of the word is followed by a 1. The output is sorted before sending it to reducer.
 
 * The reducer sums these individual counts for each word and emits a single key/value pair that contains the word followed by the sum of its occurrences.
 
+MapReduce can be implemented in a variety of languages. Java is the most common implementation, and is used for demonstration purposes in this document.
+
+### Hadoop Streaming
+
+Languages or frameworks that are based on Java and the Java Virtual Machine (for example, Scalding or Cascading,) can be ran directly as a MapReduce job, similar to a Java application. Others, such as C# or Python, or standalone executables, must use Hadoop streaming.
+
+Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT - the mapper and reducer read data a line at a time from STDIN, and write the output to STDOUT. Each line read or emitted by the mapper and reducer must be in the format of a key/value pair, delimited by a tab charaacter:
+
+    [key]/t[value]
+
+For more information, see [Hadoop Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+
+For examples of using Hadoop streaming with HDInsight, see the following:
+
+* [Develop C# Hadoop streaming programs](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+
+* [Develop Python MapReduce jobs](hdinsight-hadoop-streaming-python.md)
 
 ##<a id="data"></a>About the sample data
 
@@ -59,12 +76,12 @@ The MapReduce job that is used in this example is located at **wasb://example/ja
 > [AZURE.NOTE] On HDInsight 2.1 clusters, the file location is **wasb:///example/jars/hadoop-examples.jar**.
 
 For reference, the following is the Java code for the word count MapReduce job:
- 
+
 	package org.apache.hadoop.examples;
-	
+
 	import java.io.IOException;
 	import java.util.StringTokenizer;
-	
+
 	import org.apache.hadoop.conf.Configuration;
 	import org.apache.hadoop.fs.Path;
 	import org.apache.hadoop.io.IntWritable;
@@ -75,15 +92,15 @@ For reference, the following is the Java code for the word count MapReduce job:
 	import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 	import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 	import org.apache.hadoop.util.GenericOptionsParser;
-	
+
 	public class WordCount {
-	
-	  public static class TokenizerMapper 
+
+	  public static class TokenizerMapper
 	       extends Mapper<Object, Text, Text, IntWritable>{
-	    
+
 	    private final static IntWritable one = new IntWritable(1);
 	    private Text word = new Text();
-	      
+
 	    public void map(Object key, Text value, Context context
 	                    ) throws IOException, InterruptedException {
 	      StringTokenizer itr = new StringTokenizer(value.toString());
@@ -93,12 +110,12 @@ For reference, the following is the Java code for the word count MapReduce job:
 	      }
 	    }
 	  }
-	  
-	  public static class IntSumReducer 
+
+	  public static class IntSumReducer
 	       extends Reducer<Text,IntWritable,Text,IntWritable> {
 	    private IntWritable result = new IntWritable();
-	
-	    public void reduce(Text key, Iterable<IntWritable> values, 
+
+	    public void reduce(Text key, Iterable<IntWritable> values,
 	                       Context context
 	                       ) throws IOException, InterruptedException {
 	      int sum = 0;
@@ -109,7 +126,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 	      context.write(key, result);
 	    }
 	  }
-	
+
 	  public static void main(String[] args) throws Exception {
 	    Configuration conf = new Configuration();
 	    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
@@ -130,7 +147,7 @@ For reference, the following is the Java code for the word count MapReduce job:
 	  }
 	}
 
-For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs].
+For instructions to write your own MapReduce job, see [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md).
 
 ##<a id="run"></a>Run the MapReduce
 
@@ -143,16 +160,22 @@ HDInsight can run HiveQL jobs by using a variety of methods. Use the following t
 <a href="../hdinsight-hadoop-use-mapreduce-powershell/" target="_blank">Windows PowerShell</a> | Submit the job remotely by using **Windows PowerShell**| Linux or Windows | Windows
 <a href="../hdinsight-hadoop-use-mapreduce-remote-desktop/" target="_blank">Remote Desktop</a> |Use the Hadoop command through **Remote Desktop** | Windows | Windows
 
-	
 ##<a id="nextsteps"></a>Next steps
-Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. Other languages, such as Pig and Hive, provide an easier way to work with data in HDInsight. To learn more, see the following articles:
 
-* [Get Started with Azure HDInsight][hdinsight-get-started]
-* [Develop Java MapReduce programs for HDInsight][hdinsight-develop-MapReduce-jobs]
+Although MapReduce provides powerful diagnostic abilities, it can be a bit challenging to master. There are several Java-based frameworks that make it easier to define MapReduce applications, as well as technologies such as Pig and Hive, which provide an easier way to work with data in HDInsight. To learn more, see the following articles:
+
+* [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
+
 * [Develop Python streaming MapReduce programs for HDInsight](hdinsight-hadoop-streaming-python.md)
+
 * [Develop C# Hadoop streaming MapReduce programs for HDInsight][hdinsight-develop-streaming]
+
+* [Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
+
 * [Use Hive with HDInsight][hdinsight-use-hive]
-* [Use Pig with HDInsight][hdinsight-use-pig] 
+
+* [Use Pig with HDInsight][hdinsight-use-pig]
+
 * [Run the HDInsight Samples][hdinsight-samples]
 
 
@@ -168,8 +191,3 @@ Although MapReduce provides powerful diagnostic abilities, it can be a bit chall
 [powershell-install-configure]: powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
-
-
-
-
-

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Connection Libraries for SQL Database and SQL Server" 
+<properties
+	pageTitle="Connection Libraries for SQL Database and SQL Server"
 	description="Lists the minimum version number for each driver that client programs can use to connect to Azure SQL Database or to Microsoft SQL Server. A link is provided for version information about drivers that are released by the community rather than by Microsoft."
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/06/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/13/2015"
 	ms.author="genemi"/>
 
 
@@ -22,8 +22,8 @@
 
 
 <!--
-GeneMi , 2015-April-06 Monday 13:23pm
-Original content from PM PehTeh.
+GeneMi , 2015-April-13 Monday 11:33am
+Original content from PM PehTeh. Updated by TT. Fixing broken table at bottom by removing trailing spaces.
 -->
 
 
@@ -50,20 +50,19 @@ The following table displays libraries that are released by Microsoft. The **Lib
 
 
 ##Third party libraries
-
+*The following table displays libraries that are released by third parties under third party license terms. You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries. You bear the risk of using these libraries. Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users. Nothing herein implies any kind of endorsement by Microsoft.*
 
 The following table displays libraries that are released by third parties such as other companies or by the community, rather than by Microsoft.
 
-| Platform | Libraries | 
+
+| Platform | Libraries |
 | :-- | :-- |
-| Python | pymssql | 
+| Python | pymssql |
 | Node.js | Tedious |
-| Node.js | Node-MSSQL | 
-| Node.js | Edge.js | 
+| Node.js | Node-MSSQL |
+| Node.js | Edge.js |
 
 
 <!--
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
-
-
