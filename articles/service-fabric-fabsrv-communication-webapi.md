@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Web API Service Hello World" 
-   description="FabSrv" 
+   pageTitle="Service Fabric Web API Services with OWIN self-host | Microsoft Azure" 
+   description="This Service Fabric article explains how to implement service communication using ASP.NET Web API with OWIN self-hosting in Reliable Services." 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="vturecek" 
