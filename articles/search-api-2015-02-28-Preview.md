@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="04/08/2015"
+   ms.date="04/20/2015"
    ms.author="heidist"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview #
@@ -25,8 +25,8 @@ This article is the reference documentation for `api-version=2015-02-28-Preview`
 
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
-- [Scoring Profiles](../articles/search-api-scoring-profiles-2015-02-28-Preview.md)
-- [Indexers](../articles/search-api-indexers-2015-02-28-Preview.md)
+- [Scoring Profiles](../search-api-scoring-profiles-2015-02-28-preview.md)
+- [Indexers](../search-api-indexers-2015-02-28-preview.md)
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
@@ -1606,6 +1606,7 @@ The request URI specifies which index to query, for all documents that match the
 As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For Search Document operations, this includes:
 
 - `$filter`
+- `facet`
 - `highlightPreTag`
 - `highlightPostTag`
 - `search`
@@ -1723,8 +1724,6 @@ You can find additional examples on the [OData Expression Syntax for Azure Searc
 
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
-NOTE: Precision of DateTime fields is limited to milliseconds. If you push a timestamp that specifies values any smaller (for example, see the seconds portion of this timestamp: 10:30:09.7552052), the return value will be rounded up (or 10:30:09.7550000, per the example).
-
 2)	In a faceted search, search the index and retrieve facets for categories, rating, tags, as well as items with baseRate in specific ranges:
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
@@ -1779,7 +1778,7 @@ Note that you can only query one index at a time. Do not create multiple indexes
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
 
-Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users. If you want `-motel` to result in  a search behavior consistent with Google and Bing, include the `searchMode=all` query parameter in the query string.
+Note the use of `searchMode=all` above. Including this parameter overrides the default of `searchMode=any`, ensuring that `-motel` means "AND NOT" instead of "OR NOT". Without `searchMode=all`, you get "OR NOT" which expands rather than restricts search results, and this can be counter-intuitive to some users.
 
 
 <a name="LookupAPI"></a>
@@ -1892,6 +1891,17 @@ Suggestion requests aim at suggesting target documents, so the suggested text ma
 HTTPS is required for service requests. The **Suggestions** request can be constructed using the GET method.
 
 The request URI specifies the name of the index to query. It also includes the partially input search term in the query string.
+
+As a best practice, remember to [URL-encode](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx) specific query parameters when calling the REST API directly. For Suggestions operations, this includes:
+
+- `$filter`
+- `highlightPreTag`
+- `highlightPostTag`
+- `search`
+
+URL encoding is only recommended on the above query parameters. If you inadvertently URL-encode the entire query string (everything after the ?), requests will break.
+
+Also, URL encoding is only necessary when calling the REST API directly. Using the [.NET client library](https://msdn.microsoft.com/library/dn951165.aspx) handles URL encoding for you.
 
 **Query Parameters**
 

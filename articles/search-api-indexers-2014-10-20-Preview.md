@@ -1,6 +1,6 @@
 <properties title="" pageTitle="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" description="Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="01/16/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2014-10-20-Preview)#
 
@@ -338,9 +338,9 @@ An indexer can optionally specify a schedule. If a schedule is present, the inde
 
 An indexer can optionally specify several parameters that affect its behavior. All of the parameters are optional.  
 
-- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered as failure. Default is `1`. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
+- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered as failure. Default is `0`. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
 
-- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered as failure. Default is `1`.
+- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered as failure. Default is `0`.
 
 - `base64EncodeKeys`: Specifies whether or not document keys will be base-64 encoded. Azure Search imposes restrictions on characters that can be present in a document key. However, the values in your source data may contain characters that are invalid. If it is necessary to index such values as document keys, this flag can be set to true. Default is `false`.
 

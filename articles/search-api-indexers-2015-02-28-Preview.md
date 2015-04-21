@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="02/28/2015" 
+ms.date="04/20/2015" 
 ms.author="heidist" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](search-api-2015-02-28-preview.md). Currently there is no difference between the `2015-02-28` version documented on [MSDN](http://go.microsoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here. We provide this article to give you the full documentation set for `2015-02-28-Preview`, even though this API happens to be unchanged.
+> [AZURE.NOTE] This article describes indexers in the [2015-02-28-Preview](../search-api-2015-02-28-preview). Currently the only difference between the `2015-02-28` version documented on [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173) and the `2015-02-28-Preview` version described here is that the preview provides *fieldMappings*, as described in [Create Indexer](#CreateIndexer).
 
-## Overview ##
+## Overview
 
 Azure Search can integrate directly with some common data sources, removing the need to write code to index your data. To set up this up, you can call the Azure Search API to create and manage **indexers** and **data sources**. 
 
@@ -35,14 +35,14 @@ A **data source** specifies what data needs to be indexed, credentials to access
 
 The following data sources are currently supported:
 
-- Azure SQL Database
-- DocumentDB 
+- Azure SQL Database and SQL Server on Azure VMs
+- Azure DocumentDB 
 
 We're considering adding support for additional data sources in the future. To help us prioritize these decisions, please provide your feedback on the [Azure Search feedback forum](http://feedback.azure.com/forums/263029-azure-search).
 
 See [Limits and constraints](https://msdn.microsoft.com/library/azure/dn798934.aspx) for maximum limits related to indexer and data source resources.
 
-## Typical Usage Flow ##
+## Typical Usage Flow
 
 You can create and manage indexers and data sources via simple HTTP requests (POST, GET, PUT, DELETE) against a given `data source` or `indexer` resource.
 
@@ -63,7 +63,7 @@ After creating an indexer, you can retrieve its execution status using the [Get 
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## Create Data Source ##
+## Create Data Source
 
 You can create a new data source within an Azure Search service using an HTTP POST request.
 	
@@ -92,7 +92,7 @@ The following list describes the required and optional request headers.
 - `Content-Type`: Required. Set this to `application/json`
 - `api-key`: Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Data Source** request must include an `api-key` header set to your admin key (as opposed to a query key). 
  
-You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure management portal](https://portal.azure.com/). See [Get started with Azure Search](search-get-started.md) for page navigation help.
+You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the [Azure management portal](https://portal.azure.com/). See [Create a Search service in the portal](../search-create-service-portal/) for page navigation help.
 
 <a name="CreateDataSourceRequestSyntax"></a>
 **Request Body Syntax**
@@ -117,8 +117,8 @@ Request contains the following properties:
 - `name`: Required. The name of the data source. A data source name must only contain lowercase letters, digits or dashes, cannot start or end with dashes and is limited to 128 characters.
 - `description`: An optional description. 
 - `type`: Required. Must be one of the supported data source types:
-	- `azuresql` - Azure SQL Database
-	- `documentdb` - DocumentDB
+	- `azuresql` - Azure SQL Database or SQL Server on Azure VMs
+	- `documentdb` - Azure DocumentDB
 - `credentials`:
 	- The required `connectionString` property specifies the connection string for the data source. The format of the connection string depends on the data source type: 
 		- For Azure SQL, this is the usual SQL Server connection string. If you're using the Azure management portal to retrieve the connection string, use the `ADO.NET connection string` option.
@@ -177,7 +177,7 @@ When structuring the **Create Data Source** request, SQL integrated change track
 <a name="DataDeletionDetectionPolicies"></a>
 **Data Deletion Detection Policies**
 
-The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy, which can be specified as follows:
+The purpose of a data deletion detection policy is to efficiently identify deleted data items. Currently, the only supported policy is the `Soft Delete` policy, which allows identifying deleted items based on the value of a `soft delete` column or property in the data source. This policy can be specified as follows:
 
 	{ 
 		"@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
@@ -217,7 +217,7 @@ If you only intend to use the data source for one-time copy of the data, the pol
 For a successful request: 201 Created. 
 
 <a name="UpdateDataSource"></a>
-## Update Data Source ##
+## Update Data Source
 
 You can update an existing data source using an HTTP PUT request. You specify the name of the data source to update on the request URI:
 
@@ -227,7 +227,7 @@ You can update an existing data source using an HTTP PUT request. You specify th
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Request**
 The request body syntax is the same as for [Create Data Source requests](#CreateDataSourceRequestSyntax).
@@ -239,7 +239,7 @@ For a successful request: 201 Created if a new data source was created, and 204 
 Some properties cannot be updated on an existing data source. For example, you cannot change the type of an existing data source.  
 
 <a name="ListDataSource"></a>
-## List Data Sources ##
+## List Data Sources
 
 The **List Data Sources** operation returns a list of the data sources in your Azure Search service. 
 
@@ -248,7 +248,7 @@ The **List Data Sources** operation returns a list of the data sources in your A
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
@@ -278,7 +278,7 @@ In this case, the response from the above example would appear as follows:
 This is a useful technique to save bandwidth if you have a lot of data sources in your Search service.
 
 <a name="GetDataSource"></a>
-## Get Data Source ##
+## Get Data Source
 
 The **Get Data Source** operation gets the data source definition from Azure Search.
 
@@ -287,7 +287,7 @@ The **Get Data Source** operation gets the data source definition from Azure Sea
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
@@ -313,7 +313,7 @@ The response is similar to examples in [Create Data Source example requests](#Cr
 **NOTE** Do not set the `Accept` request header to `application/json;odata.metadata=none` when calling this API as doing so will cause `@odata.type` attribute to be omitted from the response and you won't be able to differentiate between data change and data deletion detection policies of different types. 
 
 <a name="DeleteDataSource"></a>
-## Delete Data Source ##
+## Delete Data Source
 
 The **Delete Data Source** operation removes a data source from your Azure Search service.
 
@@ -324,14 +324,14 @@ The **Delete Data Source** operation removes a data source from your Azure Searc
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
 Status Code: 204 No Content is returned for a successful response.
 
 <a name="CreateIndexer"></a>
-## Create Indexer ##
+## Create Indexer
 
 You can create a new indexer within an Azure Search service using an HTTP POST request.
 	
@@ -347,7 +347,7 @@ Alternatively, you can use PUT and specify the data source name on the URI. If t
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 
 <a name="CreateIndexerRequestSyntax"></a>
@@ -364,7 +364,8 @@ The syntax for structuring the request payload is as follows. A sample request i
     	"dataSourceName" : "Required. The name of an existing data source",
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
-        "parameters" : { Optional. See Indexing Parameters below. }
+        "parameters" : { Optional. See Indexing Parameters below. },
+        "fieldMappings" : { Optional. See Field Mappings below. }
 	}
 
 **Indexer Schedule**
@@ -379,11 +380,40 @@ An indexer can optionally specify a schedule. If a schedule is present, the inde
 
 An indexer can optionally specify several parameters that affect its behavior. All of the parameters are optional.  
 
-- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered as failure. Default is `1`. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
+- `maxFailedItems` : The number of items that can fail to be indexed before an indexer run is considered a failure. Default is 0. Information about failed items is returned by the [Get Indexer Status](#GetIndexerStatus) operation. 
 
-- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered as failure. Default is `1`.
+- `maxFailedItemsPerBatch` : The number of items that can fail to be indexed in each batch before an indexer run is considered a failure. Default is 0.
 
 - `base64EncodeKeys`: Specifies whether or not document keys will be base-64 encoded. Azure Search imposes restrictions on characters that can be present in a document key. However, the values in your source data may contain characters that are invalid. If it is necessary to index such values as document keys, this flag can be set to true. Default is `false`.
+
+**Field Mappings**
+
+You can use field mappings to map a field name in the data source to a different field name in the target index. For example, consider a source table with a field `_id`. Azure Search doesn't allow a field name starting with an underscore, so the field must be renamed. This can be done using the `fieldMappings` property of indexer as follows: 
+	
+	"fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
+
+You can specify multiple field mappings: 
+
+	"fieldMappings" : [ 
+		{ "sourceFieldName" : "_id", "targetFieldName" : "id" },
+        { "sourceFieldName" : "_timestamp", "targetFieldName" : "timestamp" },
+	 ]
+
+Both source and target field names are case-insensitive.
+
+<a name="FieldMappingFunctions"></a>
+***Field Mapping Functions***
+
+Field mappings can also be used to transform source field values using *mapping functions*.
+
+Only one such function is currently supported: `jsonArrayToStringCollection`. It parses a field that contains a string formatted as JSON array into a Collection(Edm.String) field in the target index. It is intended for use with Azure SQL indexer in particular, since SQL doesn't have a native collection data type. It can be used as follows: 
+
+	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
+
+(Note that `targetFieldName` property is optional; if left out, the `sourceFieldName` value is used). 
+
+EXAMPLE: If the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`. 
+
 
 <a name="CreateIndexerRequestExamples"></a>
 **Request Body Examples**
@@ -405,7 +435,7 @@ The following example creates an indexer that copies data from the table referen
 
 
 <a name="UpdateIndexer"></a>
-## Update Indexer ##
+## Update Indexer
 
 You can update an existing indexer using an HTTP PUT request. You specify the name of the indexer to update on the request URI:
 
@@ -415,7 +445,7 @@ You can update an existing indexer using an HTTP PUT request. You specify the na
 
 The `api-version` is required. The current version is `2015-02-28`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Request**
 
@@ -427,7 +457,7 @@ For a successful request: 201 Created if a new indexer was created, and 204 No C
 
 
 <a name="ListIndexers"></a>
-## List Indexers ##
+## List Indexers
 
 The **List Indexers** operation returns the list of indexers in your Azure Search service. 
 
@@ -437,7 +467,7 @@ The **List Indexers** operation returns the list of indexers in your Azure Searc
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
@@ -470,7 +500,7 @@ This is a useful technique to save bandwidth if you have a lot of indexers in yo
 
 
 <a name="GetIndexer"></a>
-## Get Indexer ##
+## Get Indexer
 
 The **Get Indexer** operation gets the indexer definition from Azure Search.
 
@@ -479,7 +509,7 @@ The **Get Indexer** operation gets the indexer definition from Azure Search.
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
@@ -498,7 +528,7 @@ The response is similar to examples in [Create Indexer example requests](#Create
 
 
 <a name="DeleteIndexer"></a>
-## Delete Indexer ##
+## Delete Indexer
 
 The **Delete Indexer** operation removes an indexer from your Azure Search service.
 
@@ -509,14 +539,14 @@ When an indexer is deleted, the indexer executions in progress at that time will
  
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
 Status Code: 204 No Content is returned for a successful response.
 
 <a name="RunIndexer"></a>
-## Run Indexer ##
+## Run Indexer
 
 In addition to running periodically on a schedule, an indexer can also be invoked on demand via the **Run Indexer** operation: 
 
@@ -525,14 +555,14 @@ In addition to running periodically on a schedule, an indexer can also be invoke
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
 Status Code: 202 Accepted is returned for a successful response.
 
 <a name="GetIndexerStatus"></a>
-## Get Indexer Status ##
+## Get Indexer Status
 
 The **Get Indexer Status** operation retrieves the current status and execution history of an indexer: 
 
@@ -542,7 +572,7 @@ The **Get Indexer Status** operation retrieves the current status and execution 
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
@@ -592,13 +622,13 @@ An indexer execution result contains information about a single indexer executio
 
 Indexer execution result contains the following properties: 
 
-- `status`: the status of this execution. See [Indexer Execution Status](#IndexerExecutionStatus) below for details. 
+- `status`: the status of an execution. See [Indexer Execution Status](#IndexerExecutionStatus) below for details. 
 
 - `errorMessage`: error message for a failed execution. 
 
-- `startTime`: the time in UTC when this execution has started.
+- `startTime`: the time in UTC when this execution started.
 
-- `endTime`: the time in UTC when this execution has ended. This value is not set if the execution is still in progress.
+- `endTime`: the time in UTC when this execution ended. This value is not set if the execution is still in progress.
 
 - `errors`: a list of item-level errors, if any. 
 
@@ -621,12 +651,12 @@ Indexer execution status captures the status of a single indexer execution. It c
 
 - `transientFailure` indicates that an indexer execution has failed. See `errorMessage` property for details. The failure may or may not require human intervention to fix - for example, fixing a schema incompatibility between the data source and the target index requires user action, while a temporary data source downtime does not. Indexer invocations will continue per schedule, if one is present. 
 
-- `persistentFailure` indicates that the indexer has failed in a way that likely requires human intervention. Scheduled indexer executions stop. After addressing the issue, use Reset Indexer API to restart the scheduled executions. 
+- `persistentFailure` indicates that the indexer has failed in a way that requires human intervention. Scheduled indexer executions stop. After addressing the issue, use Reset Indexer API to restart the scheduled executions. 
 
 - `reset` indicates that the indexer has been reset by a call to Reset Indexer API (see below). 
 
 <a name="ResetIndexer"></a>
-## Reset Indexer ##
+## Reset Indexer
 
 The **Reset Indexer** operation resets the change tracking state associated with the indexer. This allows you to trigger from-scratch re-indexing (for example, if your data source schema has changed), or to change the data change detection policy for a data source associated with the indexer.   
 
@@ -635,13 +665,13 @@ The **Reset Indexer** operation resets the change tracking state associated with
 
 The `api-version` is required. The preview version is `2015-02-28-Preview`. [Azure Search versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) has details and more information about alternative versions.
 
-The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Get started with Azure Search](search-get-started.md) explains how to get the service URL and key properties used in the request.
+The `api-key` must be an admin key (as opposed to a query key). Refer to the authentication section in [Search Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to learn more about keys. [Create a Search service in the portal](../search-create-service-portal/) explains how to get the service URL and key properties used in the request.
 
 **Response**
 
 Status Code: 204 No Content for a successful response.
 
-## Mapping between SQL Data Types and Azure Search Data Types ##
+## Mapping between SQL Data Types and Azure Search Data Types
 
 <table style="font-size:12">
 <tr>
@@ -678,8 +708,8 @@ Status Code: 204 No Content for a successful response.
 </tr>
 <tr>
 <td>char, nchar, varchar, nvarchar</td>
-<td>Edm.String</td>
-<td></td>
+<td>Edm.String<br/>Collection(Edm.String)</td>
+<td>See [Field Mapping Functions](#FieldMappingFunctions) in this document for details on how to transform a string column into a Collection(Edm.String)</td>
 </tr>
 <tr>
 <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
@@ -692,18 +722,23 @@ Status Code: 204 No Content for a successful response.
 <td></td>
 </tr>
 <tr>
+<td>geography</td>
+<td>Edm.GeographyPoint</td>
+<td>Only geography instances of type POINT with SRID 4326 (which is the default) are supported</td>
+</tr>
+<tr>
 <td>rowversion</td>
 <td>N/A</td>
 <td>Row-version columns cannot be stored in the search index, but they can be used for change tracking</td>
 </tr>
 <tr>
-<td>time, timespan<br>binary, varbinary, image<br>xml<br>geometry<br> geography<br>CLR types</td>
+<td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR types</td>
 <td>N/A</td>
 <td>Not supported</td>
 </tr>
 </table>
 
-## Mapping between JSON Data Types and Azure Search Data Types ##
+## Mapping between JSON Data Types and Azure Search Data Types
 
 <table style="font-size:12">
 <tr>
@@ -742,7 +777,12 @@ Status Code: 204 No Content for a successful response.
 <td></td>
 </tr>
 <tr>
-<td>JSON objects</td>
+<td>GeoJSON point objects</td>
+<td>Edm.GeographyPoint</td>
+<td>GeoJSON points are JSON objects in the following format: { "type" : "Point", "coordinates" : [long lat] } </td>
+</tr>
+<tr>
+<td>Other JSON objects</td>
 <td>N/A</td>
 <td>Not supported; Azure Search currently supports only primitive types and string collections</td>
 </tr>
