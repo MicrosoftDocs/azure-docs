@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-April-21 Tuesday 11:30am
+GeneMi , 2015-April-21 Tuesday 12:44pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
@@ -92,13 +92,13 @@ Regardless of which connection technology you use, certain firewall settings for
 ### Transient errors
 
 
-Cloud services such as Azure and its SQL Database service have the endless challenge of balancing workloads and generally managing resources. If two databases that are being served from the same computer are involved in exceptionally heavy processing at overlapping times, the management system might detect that it is necessary to shift the workload of one database to another resource which as excess capacity.
+Cloud services such as Azure and its SQL Database service have the endless challenge of balancing workloads and managing resources. If two databases that are being served from the same computer are involved in exceptionally heavy processing at overlapping times, the management system might detect the necessary of shifting the workload of one database to another resource which has excess capacity.
 
 
-During the shift, the database might be temporarily unavailable. This might block new connections, or it might cause your client program to lose its connection. But the resource shift is transient. After the shift is completed, your client program can reestablish its connection and resume its work. The pause in processing is better than an avoidable failure of the program.
+During the shift, the database might be temporarily unavailable. This might block new connections, or it might cause your client program to lose its connection. But the resource shift is transient, and it might resolve itself in a couple of minutes or in several seconds. After the shift is completed, your client program can reestablish its connection and resume its work. The pause in processing is better than an avoidable failure of your client program.
 
 
-When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The SqlException contains a numeric error code in its **Number** property. If the error code is one that is listed as a transient error, your program should retry the call.
+When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The SqlException contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
 
 
 - [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - its **Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
@@ -108,7 +108,7 @@ When any error occurs with SQL Database, an [SqlException](https://msdn.microsof
 Transient *errors* are sometimes called transient *faults*. This topic considers these two terms to be synonyms.
 
 
-For further assistance when you encounter a connection error, either persistent or transient, see:
+For further assistance when you encounter a connection error, whether transient or not, see:
 
 
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
@@ -123,7 +123,7 @@ The following topics contains links to code samples for several languages and dr
 Various code samples are given for clients that run on both Windows and Linux.
 
 
-Some code samples include demonstrations of *retry* logic for transient errors, which is essential for production clients that connect to database that is in the cloud:
+Some code samples include demonstrations of *retry* logic for transient errors, which is essential for production clients that connect to a database that is in the cloud:
 
 
 - [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
