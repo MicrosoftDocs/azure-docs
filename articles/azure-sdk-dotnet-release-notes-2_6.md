@@ -8,7 +8,7 @@
    editor=""/>
 
 <tags
-   ms.service="app-service/web"
+   ms.service="app-service"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
