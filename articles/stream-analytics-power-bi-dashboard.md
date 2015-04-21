@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/20/2015" 
+	ms.date="04/22/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
@@ -39,7 +39,7 @@ Click **Stream Analytics** in the left pane to list the Stream Analytics jobs.
 
 ![graphic1][graphic1]
 
-[AZURE.TIP] The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
+> [AZURE.TIP] The new job will be listed with a status of **Not Started**. Notice that the **Start** button on the bottom of the page is disabled. This is expected behavior as you must configure the job input, output, query, and so on before you can start the job.
 
 ##Specify job input
 
@@ -54,7 +54,7 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
   * **Event Hub** - If the Event Hub you created is in the same subscription as the Stream Analytics job, select the namespace that the event hub is in.
 *	If your event hub is in a different subscription, select **Use Event Hub from Another Subscription** and manually enter information for **Service Bus Namespace**, **Event Hub Name**, **Event Hub Policy Name**, **Event Hub Policy Key**, and **Event Hub Partition Count**.
 
-[AZURE.NOTE]	This sample uses the default number of partitions, which is 16.
+> [AZURE.NOTE]	This sample uses the default number of partitions, which is 16.
 
 * **Event Hub Name** - Select the name of the Azure event hub you have.
 * **Event Hub Policy Name** - Select the event-hub policy for the eventhub you are using. Ensure that this policy has manage permissions.
@@ -72,7 +72,7 @@ For this tutorial, we are assuming you are using EventHub as an input with JSON 
 
 ![graphic2][graphic2]
 
-[AZURE.NOTE] Note - Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
+> [AZURE.NOTE] Note - Power BI output is available only for Azure accounts using Org Ids. If you are not using an Org Id for your azure account (e.g. your live id/ personal Microsoft account), you will not see a Power BI output option.
 
 2.  Select **Power BI** and then click the right button.
 3.  You will see a screen like the following:
@@ -90,9 +90,9 @@ Provide values as below:
 * **Dataset Name** - Provide a dataset name that you want your Power BI output to have. For example, let’s use “pbidemo”.
 *	**Table Name** - Provide a table name under the dataset of your Power BI output. Let’s say we call it “pbidemo”. Currently, Power BI output from ASA jobs may only have one table in a dataset.
 
-[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
+> [AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
 
-[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
+> [AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
 
 *	Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
@@ -100,28 +100,28 @@ Provide values as below:
 
 Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following query:
 
-    SQL   
-    	SELECT 
-    		MAX(hmdt) AS hmdt,
-    		MAX(temp) AS temp,
-    		time 
-    	FROM
-    		Input
-    	INTO
-    		OutPBI
-    	WHERE 
-    		dspl = 'mysensor' 
-    	GROUP BY 
-    		TUMBLINGWINDOW(ss,1),
-    		time,
-    		dspl
+SQL   
+    SELECT 
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        time 
+    FROM
+        Input
+    INTO
+        OutPBI
+    WHERE 
+        dspl = 'mysensor' 
+    GROUP BY 
+        TUMBLINGWINDOW(ss,1),
+        time
+
     
     
 Start your job. Validate that your event hub is receiving events and your query generates the expected results. If your query outputs 0 rows, Power BI dataset and tables will not be automatically created.
 
 ##Create the Dashboard in Power BI
 
-Go to [Powerbi.com] (https://powerbi.com) and login with your Org Id. If the ASA job query outputs results, you will see your dataset is already created:
+Go to [Powerbi.com](https://powerbi.com) and login with your Org Id. If the ASA job query outputs results, you will see your dataset is already created:
 
 ![graphic5][graphic5]
 
@@ -164,8 +164,8 @@ For additional support, see [Azure Stream Analytics forum](stream-analytics-foru
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 [graphic1]: ./media/stream-analytics-power-bi-dashboard/1-stream-analytics-power-bi-dashboard.png
