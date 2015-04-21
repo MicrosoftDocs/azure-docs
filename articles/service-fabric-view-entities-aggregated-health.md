@@ -788,3 +788,7 @@ Whenever there is an issue in the cluster or in an application, look at the clus
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+
+[How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)

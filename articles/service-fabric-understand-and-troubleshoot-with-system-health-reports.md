@@ -172,3 +172,7 @@ System.Hosting reports Error if validation during upgrade fails or if upgrade fa
 
 ## Next Steps
 [View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+
+[How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
