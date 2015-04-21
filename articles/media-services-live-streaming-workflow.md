@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/19/2015" 
 	ms.author="juliako"/>
 
 
@@ -70,12 +70,6 @@ Choose **Portal**, **.NET**, **REST API** to see examples.
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
 
-##Configuring asset delivery policy
-
-Configure asset delivery policy using **.NET** or **REST API**.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
-
 ##Creating content key
 
 Create a content key with which you want to encrypt your asset using **.NET** or **REST API**.
@@ -91,7 +85,15 @@ Configure content protection and key authorization policy using **.NET** or **RE
 
 ##Publishing and delivering assets
 
-**Overview**: [Delivering Content Overview](media-services-deliver-content-overview.md)
+
+**Overview**: 
+
+- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Delivering Content Overview](media-services-deliver-content-overview.md)
+
+Configure asset delivery policy using **.NET** or **REST API**.
+
+[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 

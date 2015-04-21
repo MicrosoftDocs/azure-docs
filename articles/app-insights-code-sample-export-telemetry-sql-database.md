@@ -146,7 +146,7 @@ You can put this code in `WorkerRole.cs`.
 
     private static string GetConnectionString()
     {
-      return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnection-String");
+      return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
     }
 
 #### Run the worker at regular intervals
@@ -380,7 +380,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
         public string internal_data_documentVersion { get; set; }
 
-        public DateTime context_data_eventTime { get; set; }
+        public DateTime? context_data_eventTime { get; set; }
 
         public string context_device_id { get; set; }
 
@@ -466,7 +466,7 @@ This is the schema for the table that will be generated for PageView.
 	[User] [nvarchar](max) NULL,
 	[internal_data_id] [nvarchar](max) NULL,
 	[internal_data_documentVersion] [nvarchar](max) NULL,
-	[context_data_eventTime] [datetime] NOT NULL,
+	[context_data_eventTime] [datetime] NULL,
 	[context_device_id] [nvarchar](max) NULL,
 	[context_device_type] [nvarchar](max) NULL,
 	[context_device_os] [nvarchar](max) NULL,
@@ -502,7 +502,7 @@ This is the schema for the table that will be generated for PageView.
     GO
 
 
-[Download](https://sesitai.codeplex.com/) the complete working code.
+[Download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings & publish the worker role to Azure.
 
 
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]

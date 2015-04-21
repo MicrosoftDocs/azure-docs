@@ -1,6 +1,6 @@
 <properties
    pageTitle="SQL Database Service Tiers"
-   description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on-demand with no downtime."
+   description="Compare performance and business continuity features of Azure SQL Database service tiers to find the right balance of cost and capability as you scale on demand with no downtime."
    services="sql-database"
    documentationCenter=""
    authors="shontnew"
