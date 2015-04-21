@@ -19,20 +19,17 @@
 # Working List of Service Fabric Content
 We will not be publishing this topic.  The ACOM landing page, learning map, and left-hand navigation TOCs will be built from this content.
 ## About
-[Technical Overview](../service-fabric-technical-overview)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: mfussell**
+[Overview](service-fabric-overview.md) **owner: mfussell**
+
+[Technical Overview](service-fabric-technical-overview.md)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: mfussell**
 
 Learning Map P2 **owner: adegeo**
 
-[Application Scenarios](../service-fabric-application-scenarios) **owners: mfussell**
-
-PaaS v2 compared to other things(P2)- short blurb, point to competitive analysis topics **owner: claudioc**
-
-PaaS v2 vs Cloud Services- PaaS v2 is so much better, technical comparison. Is this really technical marketing info? **owner: mfussell**
+[Application Scenarios](service-fabric-application-scenarios.md) **owners: mfussell**
 
 ## Getting Started
-Sign Up for a Free Account  **owner: vturecek**
 
-[Setup your development environment](../service-fabric-setup-your-development-environment) **owner: seanmck**
+[Setup your development environment](service-fabric-setup-your-development-environment.md) **owner: seanmck**
 
 Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
 
@@ -43,11 +40,11 @@ Install and extend the Samples **owner: vturecek**
 
 ### Develop a Service owner: vturecek
 
-Choose a Programming Model **owner: seanmck**
+[Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
 Create a Stateful Application **owner: Haishi**
 
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -55,13 +52,17 @@ Create Windows Fabric Stateful  applications using .NET Distributed Collections 
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
-[Reliable Service Programming Model Introduction](../service-fabric-reliable-services-introduction.md) **owner: masnider**
+[Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
-[Reliable Service Programming Model Quick Start](../service-fabric-reliable-services-quick-start.md) **owner: masnider**
+[Reliable Service Programming Model Quick Start](service-fabric-reliable-services-quick-start.md) **owner: masnider**
+
+[Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
 Communicate with a Service
 
 Add Diagnostics code to a service **owner: Kunalds**
+
+[Secure replication traffic of stateful services](service-fabric-replication-security.md)
 
 ### Configure a Service Manifest P2  owner: vturecek
 more advanced configuration stuff
@@ -81,19 +82,15 @@ Create a Service Instance (PowerShell) **owner: vturecek**
 More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 ### Test a Service owner: vturecek, rsinha
-What is Testability - P1 **owner: vturecek**
+[Testability Overview](service-fabric-testability-overview.md) - P1 **owner: vturecek**
 
 Why is Testability important - P1 - **owner: rsinha**
 
 How does it work - P1 **owner: anmola**
 
-Run an action with PowerShell - P1 **owner: vturecek**
+[Run an action](service-fabric-testability-actions.md)  **owner: vturecek**
 
-Run an action with C# - P1 **owner: vturecek**
-
-Run a scenario with PowerShell - P1 **owner: vturecek**
-
-Run a scenario with C# - P1 **owner: vturecek**
+[Run a scenario](service-fabric-testability-scenarios.md) - P1 **owner: vturecek**
 
 Run the Chaos Test - P1 **owner: anmola**
 
@@ -109,22 +106,26 @@ Writing a custom test scenario - P3 **owner: vturecek**
 
 
 ### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
-[How to Monitor and Diagnose Services locally](../service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally) - **owner:kunalds**
+- [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
+### Package, Deploy and Remove an Application
+- [Application Model](service-fabric-application-model.md)
+
+- [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md) **owner: alexwun**
 
 ### Upgrading your Application owner: Mani
 
-[Service Fabric Application Upgrade](service-fabric-application-upgrade.md) **owner: subramar**
+- [Service Fabric Application Upgrade](service-fabric-application-upgrade.md) **owner: subramar**
 
-[Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
+- [Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
 
-[Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
+- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
 
-[Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
+- [Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
 
-[Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
+- [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
 
-[Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
+- [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
 Upgrade an application (PowerShell) **owner: alexwun**
 
@@ -148,16 +149,13 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Managed Reference
 ### PowerShell Reference
 ### REST Reference
-### Application Manifest Schema and Settings P2
-### Service Manifest Schema and Settings P2
-### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
 ### Monitoring and Diagnostics
 Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
-[Application Lifecycle](../service-fabric-application-lifecycle) **owner: matt**
+[Application Lifecycle](service-fabric-application-lifecycle.md) **owner: matt**
 
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
@@ -170,9 +168,9 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
 #### Actors
-- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+- [Introduction to the Service Fabric Actor Model](service-fabric-fabact-introduction.md) **owner: claudioc**
 
-- [Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
+- [Actor Model Design Patterns](service-fabric-fabact-patterns-introduction.md)  **owner: claudioc**
 
 - [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
 
@@ -188,16 +186,16 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
-#### Services
-- [Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
+#### Reliable Services
+- [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
 
-- [Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
+- [Architecture](service-fabric-fabsrv-platform-architecture.md) **owner: alanwar**
 
-- [Reliable Collections](../service-fabric-fabsrv-service-reliable-collection) **owners: mcoskun, tyadam**
+- [Reliable Collections](service-fabric-fabsrv-reliable-collections.md) **owners: mcoskun, tyadam**
 
-- [API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
+- [API Discussion](service-fabric-fabsrv-service-api-description.md) **owners: tyadam, mcoskun**
 
-- [Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
+- [Operations](service-fabric-fabsrv-managing-your-services.md) **owner: jesseb, alanwar**
 
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
@@ -248,5 +246,6 @@ Replica Role and State Lifetime
 ### Service Host Activation and Deactivation
 
 ### FabricExplorer
+[Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ### Glossary

@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="sidneyh"/>
 
-# Installing the elastic database job service
+# Installing the elastic database job components
 
 The Elastic database pool service provides a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing these databases can most easily accomplished using the elastic database job service. The service allows you to run scripts against each database elastic database pool. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. Here's how to install the service.
 

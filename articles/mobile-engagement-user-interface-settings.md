@@ -79,21 +79,18 @@ You will need your Package security identifier (SID) and your Secret key.
  
 ![settings5][50]
  
-### Android Native Push with GCM or ADM
-
 ### Google Cloud Messaging for Android (GCM)
-To enable Native Push using GCM, you need to follow the instructions at http://developer.android.com/guide/google/gcm/gs.html. 
-Then you must paste a server simple API key, configured without IP restrictions. 
+To enable Native Push using GCM, you need to follow the instructions from Google. Then you must paste a server simple API key, configured without IP restrictions. 
 Requires integration with the SDK for Android v1.12.0+.
 
 ### See also
-- [SDK Documentation - Android - How to Integrate GCM][Link 5]
+- [SDK Documentation - Android - How to Integrate GCM][Link 5], [Google Developer - GCM Guide](http://developer.android.com/guide/google/gcm/gs.html), [Google Developer - GCM Documentation](http://developer.android.com/google/gcm/index.html)
  
 ### Amazon Device Messaging for Android (ADM)
-To enable Native Push using ADM, you must provide <OAuth credentials> consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).
+To enable Native Push using ADM, you must provide Amazon <OAuth credentials> consisting of a Client ID and Client Secret (Requires integration with SDK for Android v2.1.0+).
 
 ### See also
-- [SDK Documentation - Android - How to Integrate ADM][Link 5]
+- [SDK Documentation - Android - How to Integrate ADM][Link 5], [Amazon Developer - ADM Documentation](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
