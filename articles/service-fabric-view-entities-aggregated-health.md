@@ -47,7 +47,7 @@ The evaluation uses default policies from cluster manifest and application manif
 > [AZURE.NOTE] Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
 ## Health queries
-Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#Health-Entities-and-Hierarchy). They can be accessed trough API (methods on FabricClient.HealthClient), Powershell cmdlets and REST.
+Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#Health-Entities-and-Hierarchy). They can be accessed trough API (methods on FabricClient.HealthManager), Powershell cmdlets and REST.
 These queries return complete health information about the entity, including aggregated health state, health events reported on the entity, children health states (where applicable) and unhealthy evaluations in case the entity is not healthy.
 
 > [AZURE.NOTE] A health entity is returned to the user when it is completely populated in the Health Store: the entity has a System report, it's active and parent entities on the hierarchy chain have System reports. If any of these conditions is not satisfied, the health queries return an exception showing why the entity is not returned.
@@ -63,13 +63,40 @@ An entity health contains the following information:
 - If the entity is not healthy, the unhealthy evaluations which point to the report that triggered the state of the entity.
 
 ### Get Cluster Health
-Returns the health of the cluster entity. Contains the health states of applications and the nodes children of the cluster.
-Input:
+Returns the health of the cluster entity. Contains the health states of applications and the nodes children of the cluster. Input:
 - [optional] Application health policy map with health policies used to override the application manifest policies.
 - [optional] Filter to return only events, nodes, applications with certain health state (eg. return only errors or warning or errors etc).
 
 #### API
-To get cluster health through API, create a FabricClient and call GetClusterHealthAsync method on its HealthClient.
+To get cluster health through API, create a FabricClient and call GetClusterHealthAsync method on its HealthManager.
+
+The following gets cluster health:
+```csharp
+ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync().Result;
+```
+The following gets cluster health using custom cluster health policy and filters for nodes and applications.
+
+```csharp
+var policy = new ClusterHealthPolicy()
+{
+    MaxPercentUnhealthyNodes = 20
+};
+var nodesFilter = new NodeHealthStatesFilter()
+{
+    HealthStateFilter = (long)(HealthStateFilter.Error | HealthStateFilter.Warning)
+};
+var applicationsFilter = new ApplicationHealthStatesFilter()
+{
+    HealthStateFilter = (long)HealthStateFilter.Error
+};
+var queryDescription = new ClusterHealthQueryDescription()
+{
+    HealthPolicy = policy,
+    ApplicationsFilter = applicationsFilter,
+    NodesFilter = nodesFilter,
+};
+ClusterHealth clusterHealth = fabricClient.HealthManager.GetClusterHealthAsync(queryDescription).Result;
+```
 
 #### Powershell
 The cmdlet to get cluster health is Get-ServiceFabricClusterHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet.
@@ -95,7 +122,6 @@ UnhealthyEvaluations    :
                                   Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Warning'.
 
                                       Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-
 
 NodeHealthStates        :
                           NodeName              : Node.4
@@ -165,7 +191,40 @@ HealthEvents            : None
 
 ### Get Application Health
 #### API
-To get an application health through API, create a FabricClient and call GetApplicationHealthAsync method on its HealthClient.
+To get an application health through API, create a FabricClient and call GetApplicationHealthAsync method on its HealthManager.
+
+The following gets the application health for the specified application name Uri.
+```csharp
+ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(applicationName).Result;
+```
+
+The following gets the application health for the specified application name Uri, specifying filters and custom policy.
+
+```csharp
+HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
+var serviceTypePolicy = new ServiceTypeHealthPolicy()
+{
+    MaxPercentUnhealthyPartitionsPerService = 0,
+    MaxPercentUnhealthyReplicasPerPartition = 5,
+    MaxPercentUnhealthyServices = 0,
+};
+var policy = new ApplicationHealthPolicy()
+{
+    ConsiderWarningAsError = false,
+    DefaultServiceTypeHealthPolicy = serviceTypePolicy,
+    MaxPercentUnhealthyDeployedApplications = 0,
+};
+
+var queryDescription = new ApplicationHealthQueryDescription(applicationName)
+{
+    HealthPolicy = policy,
+    EventsFilter = new HealthEventsFilter() { HealthStateFilter = (long)warningAndErrors },
+    ServicesFilter = new ServiceHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
+    DeployedApplicationsFilter = new DeployedApplicationHealthStatesFilter() { HealthStateFilter = (long)warningAndErrors },
+};
+
+ApplicationHealth applicationHealth = fabricClient.HealthManager.GetApplicationHealthAsync(queryDescription).Result;
+```
 
 #### Powershell
 The cmdlet to get application health is Get-ServiceFabricApplicationHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet.
@@ -264,7 +323,12 @@ HealthEvents                    : None
 
 ### Get Service Health
 #### API
-To get service health through API, create a FabricClient and call GetServiceHealthAsync method on its HealthClient.
+To get service health through API, create a FabricClient and call GetServiceHealthAsync method on its HealthManager.
+
+The following example get the health of a service with specified service name (Uri):
+```charp
+ServiceHealth serviceHealth = fabricClient.HealthManager.GetServiceHealthAsync(serviceName).Result;
+```
 
 #### Powershell
 The cmdlet to get service health is Get-ServiceFabricServiceHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet.
@@ -304,7 +368,7 @@ HealthEvents          :
 
 ### Get Partition Health
 #### API
-To get partition health through API, create a FabricClient and call GetPartitionHealthAsync method on its HealthClient.
+To get partition health through API, create a FabricClient and call GetPartitionHealthAsync method on its HealthManager.
 
 #### Powershell
 The cmdlet to get partition health is Get-ServiceFabricPartitionHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet.
@@ -351,7 +415,7 @@ HealthEvents          :
 
 ### Get Replica Health
 #### API
-To get replica health through API, create a FabricClient and call GetReplicaHealthAsync method on its HealthClient.
+To get replica health through API, create a FabricClient and call GetReplicaHealthAsync method on its HealthManager.
 
 #### Powershell
 The cmdlet to get replica health is Get-ServiceFabricReplicaHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet.
@@ -382,7 +446,7 @@ HealthEvents          :
 
 ### Get DeployedApplication Health
 #### API
-To get the health on an application deployed on a node through API, create a FabricClient and call GetDeployedApplicationHealthAsync method on its HealthClient.
+To get the health on an application deployed on a node through API, create a FabricClient and call GetDeployedApplicationHealthAsync method on its HealthManager.
 
 #### Powershell
 The cmdlet to get deployed application health is Get-ServiceFabricDeployedApplicationHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet. To find out where an application is deployed, run Get-ServiceFabricApplicationHealth and look at the deployed application children.
@@ -418,7 +482,7 @@ HealthEvents                       :
 
 ### Get DeployedServicePackage Health
 #### API
-To get the health of a deployed service package through API, create a FabricClient and call GetDeployedServicePackageHealthAsync method on its HealthClient.
+To get the health of a deployed service package through API, create a FabricClient and call GetDeployedServicePackageHealthAsync method on its HealthManager.
 
 #### Powershell
 The cmdlet to get deployed service package health is Get-ServiceFabricDeployedServicePackageHealth. First connect to the cluster with Connect-ServiceFabricCluster cmdlet. To see where an aplication is deployed, run Get-ServiceFabricApplicationHealth, look at deployed applications. To see what service packages are in an application, look at the deployed service package children in Get-ServiceFabricDeployedApplicationHealth output.
