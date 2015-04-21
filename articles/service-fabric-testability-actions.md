@@ -28,112 +28,23 @@ The Testability powershell module is found in the Microsoft.ServiceFabric.Testab
 
 ## Testability actions list
 
-<table>
-  <tr>
-    <td><b>Actions</b></td>
-    <td><b>Description</b></td>
-    <td><b>Managed API</b></td>
-    <td><b>Powershell Cmdlet</b></td>
-    <td><b>Gracefull/UnGracefull Faults</b></td>
-  </tr>
-  <tr>
-    <td>CleanTestState</td>
-    <td>Removes all the test state from the cluster in case of a bad shutdown of the test driver.</td>
-    <td>CleanTestStateAsync</td>
-    <td>Remove-ServiceFabricTestState</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>InvokeDataLoss</td>
-    <td>Induces data loss into a service partition.</td>
-    <td>InvokeDataLossAsync</td>
-    <td>Invoke-ServiceFabricPartitionDataLoss</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>InvokeQuorumLoss</td>
-    <td>Puts a given stateful service partition in to quorum loss.</td>
-    <td>InvokeQuorumLossAsync</td>
-    <td>Invoke-ServiceFabricQuorumLoss</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>Move Primary</td>
-    <td>Moves the specified primary replica of stateful service to the specified cluster node.</td>
-    <td>MovePrimaryAsync</td>
-    <td>Move-ServiceFabricPrimaryReplica</td>
-  </tr>
-  <tr>
-    <td>Move Secondary</td>
-    <td>Moves the current secondary replica of a stateful service to a different cluster node.</td>
-    <td>MoveSecondaryAsync</td>
-    <td>Move-ServiceFabricSecondaryReplica</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>RemoveReplica</td>
-    <td>Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster.</td>
-    <td>RemoveReplicaAsync</td>
-    <td>Remove-ServiceFabricReplica</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>RestartDeployedCodePackage</td>
-    <td>Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process which will restart all the user service replicas hosted in that process.</td>
-    <td>RestartDeployedCodePackageAsync</td>
-    <td>Restart-ServiceFabricDeployedCodePackage</td>
-    <td>UnGracefull</td>
-  </tr>
-  <tr>
-    <td>RestartNode</td>
-    <td>Simulates a Service Fabric cluster node failure by restarting a node.</td>
-    <td>RestartNodeAsync</td>
-    <td>Restart-ServiceFabricNode</td>
-    <td>UnGracefull</td>
-  </tr>
-  <tr>
-    <td>RestartPartition</td>
-    <td>Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition.</td>
-    <td>RestartPartitionAsync</td>
-    <td>Restart-ServiceFabricPartition</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>RestartReplica</td>
-    <td>Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it.</td>
-    <td>RestartReplicaAsync</td>
-    <td>Restart-ServiceFabricReplica</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>StartNode</td>
-    <td>Starts a node in a cluster which is already stopped.</td>
-    <td>StartNodeAsync</td>
-    <td>Start-ServiceFabricNode</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>StopNode</td>
-    <td>Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called.</td>
-    <td>StopNodeAsync</td>
-    <td>Stop-ServiceFabricNode</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>ValidateApplication</td>
-    <td>Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system.</td>
-    <td>ValidateApplicationAsync</td>
-    <td>Test-ServiceFabricApplication</td>
-    <td>Gracefull</td>
-  </tr>
-  <tr>
-    <td>ValidateService</td>
-    <td>Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system.</td>
-    <td>ValidateServiceAsync</td>
-    <td>Test-ServiceFabricService</td>
-    <td>Gracefull</td>
-  </tr>
-</table>
+| Actions | Description | Managed API | Powershell Cmdlet | Gracefull/UnGracefull Faults |
+|---------|-------------|-------------|-------------------|------------------------------|
+|CleanTestState| Removes all the test state from the cluster in case of a bad shutdown of the test driver. | CleanTestStateAsync | Remove-ServiceFabricTestState | Gracefull |
+| InvokeDataLoss | Induces data loss into a service partition. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Gracefull |
+| InvokeQuorumLoss | Puts a given stateful service partition in to quorum loss. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Gracefull |
+| Move Primary | Moves the specified primary replica of stateful service to the specified cluster node. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Gracefull |
+| Move Secondary | Moves the current secondary replica of a stateful service to a different cluster node. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Gracefull |
+| RemoveReplica | Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Gracefull |
+| RestartDeployedCodePackage | Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process which will restart all the user service replicas hosted in that process. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | UnGracefull |
+| RestartNode | Simulates a Service Fabric cluster node failure by restarting a node. | RestartNodeAsync | Restart-ServiceFabricNode | UnGracefull |
+| RestartPartition | Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition. | RestartPartitionAsync | Restart-ServiceFabricPartition | Gracefull |
+| RestartReplica | Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it. | RestartReplicaAsync | Restart-ServiceFabricReplica | Gracefull |
+| StartNode | Starts a node in a cluster which is already stopped. | StartNodeAsync | Start-ServiceFabricNode | Gracefull |
+| StopNode | Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called. | StopNodeAsync | Stop-ServiceFabricNode | Gracefull |
+| ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Gracefull |
+| ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Gracefull |
+
 
 
 ## Running a testability action with Powershell
