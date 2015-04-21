@@ -46,8 +46,6 @@ Create a Stateful Application **owner: Haishi**
 
 [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
 
-How to Create an ASP.NET v5 Application **owner: Haishi**
-
 Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
@@ -164,6 +162,9 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 **owner: oanapl**
 
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+**owner: oanapl**
+
+[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
 **owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
