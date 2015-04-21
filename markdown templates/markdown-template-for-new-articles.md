@@ -28,7 +28,7 @@ Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla ris
 
 Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris.
 
-I get 10 times more traffic from [Google] [1] than from [Yahoo] [2] or [MSN] [3].
+I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN] [msn].
 
 > [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
 
@@ -108,6 +108,6 @@ Vestibul ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia C
 [8]: ./media/markdown-template-for-new-articles/copytemplate.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[1]: http://google.com/        
-[2]: http://search.yahoo.com/  
-[3]: http://search.msn.com/    
+[gog]: http://google.com/        
+[yah]: http://search.yahoo.com/  
+[msn]: http://search.msn.com/    
