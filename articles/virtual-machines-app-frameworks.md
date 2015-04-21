@@ -11,7 +11,7 @@
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
    ms.date="04/20/2015"
    ms.author="rasquill"/>
