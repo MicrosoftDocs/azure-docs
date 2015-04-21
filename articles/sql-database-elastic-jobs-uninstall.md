@@ -18,12 +18,54 @@
 
 # How to uninstall the elastic database job components
 
-If a failure occurs when attempting to install the elastic database job service, simply delete the resource group for the service.
+If a failure occurs when attempting to install the elastic database job service, delete the resource group for the service.
 
 ## To uninstall the service components
 
-1. Open the [Resource Manager](azure-preview-portal-using-resource-groups.md) for your service.
-2. Delete the resource group. 
+1. Go to the [Azure classic portal](https://manage.windowsazure.com).
+2. Navigate to the subscription that contains the elastic job. 
+2. Navigate to the cloud service with the name that starts with "edj".
+3. Delete the cloud service.
+2. Open the [Azure preview portal](https://ms.portal.azure.com/).
+3. Navigate to the subscription that contains the elastic job.
+4. Click **Browse** and click **Resource groups**.
+5. Select the resource group named "__ElasticDatabaseJob".
+6. Delete the resource group.
+
+Alternatively, use this PowerShell script:
+
+1. Launch a Microsoft Azure PowerShell window.
+2. Ensure you are using PowerShell SDK version 0.8.10 or later.
+3. Run the script:
+
+		$ResourceGroupName = "__ElasticDatabaseJob"
+		Switch-AzureMode AzureResourceManager
+		
+		$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
+		if(!$resourceGroup)
+		{
+		    Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job is uninstalled."
+		    return
+		}
+		
+		# Delete the cloud service within the resource group first.
+		$domainResources = Get-AzureResource -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.ClassicCompute/domainNames" -ErrorAction SilentlyContinue
+		if($domainResources)
+		{
+		    Switch-AzureMode AzureServiceManagement
+		    Foreach($domainResource in $domainResources)
+		    {
+		        $domainNameToRemove = $domainResources.Name
+		        Write-Host "Removing Azure Service: $domainNameToRemove.  This may take a few minutes.”
+		        Remove-AzureService -ServiceName $domainNameToRemove -Force
+		        Write-Host "Completed removing Azure Service: $domainNameToRemove"
+		    }
+		    Switch-AzureMode AzureResourceManager
+		}
+		
+		Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
+		Remove-AzureResourceGroup -Name $ResourceGroupName -Force
+		Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job is now uninstalled."
 
 ## Next steps
 

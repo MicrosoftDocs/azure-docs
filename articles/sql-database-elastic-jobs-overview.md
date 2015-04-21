@@ -22,6 +22,19 @@ The elastic job service (preview) enables you to run T-SQL scripts (jobs) agains
 
 ![Elastic database job service][1]
 
+## Benefits
+* Define, maintain and persist T-SQL scripts to be executed across an elastic database pool
+* Execute T-SQL scripts with automatic retry 
+* Track job execution state
+
+## Scenarios
+* Update schemas reliably 
+* Update reference data, for example product information common across all databases
+* Run scripts to rebuild indexes. Configure to execute across a collection of databases on a recurring basis, such as during off-peak hours.
+* Collect query results from a set of databases into a central table on an on-going basis. Execute performance queries continually and configure them to trigger additional tasks.
+
+
+
 ## How the job service works
 
 1.	From the Elastic database pool view, click **Manage jobs**. 
