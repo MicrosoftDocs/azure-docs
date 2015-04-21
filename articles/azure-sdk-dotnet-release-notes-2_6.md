@@ -24,7 +24,7 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .NET 4.5.2 or .NET 4.6 provided that you manually install the target .NET Framework on the Cloud Service Role. See [Install .NET on a Cloud Service Role](http://go.microsoft.com/fwlink/?LinkID=309796).
 
 
-##Service Bus updates:
+##Service Bus updates
 
 - Event Hubs: 
 
@@ -32,7 +32,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 	- Additional stability and improvement added to Event Hubs feature.
 	- Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
 
-##HDInsight Tools for Visual Studio
+##HDInsight Tools for Visual Studio udpates
 
 - **IntelliSense enhancement**: remote metadata suggestion
 
