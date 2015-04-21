@@ -266,7 +266,7 @@ Other systems have a single centralized service at the cluster level parsing all
 
 The health model is heavily used for for monitoring and diagnosis, for evaluating the cluster and application health, and for monitored upgrades. Other services use the health data to perform automatic repairs, to build cluster health history and to issue alerts on certain conditions.
 
-## Next Steps
+## Next steps
 [View Azure Service Fabric entities aggregated health](service-fabric-view-entities-aggregated-health.md)
 
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)

@@ -92,7 +92,7 @@ GatewayInformation   : {
 ## Implement health reporting
 In order to report through API, users need to create a health report specific to the entity type they want to report on and then give it to a health client.
 
-## Next Steps
+## Next steps
 [View Azure Service Fabric entities aggregated health](service-fabric-view-entities-aggregated-health.md)
 
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
