@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="article-title" 
-   description="Article description that will be displayed on landing pages and in some search results" 
+   pageTitle="service-fabric-fabsrv-platform-architecture" 
+   description="High-level overview of the reliable service architecture" 
    services="service-fabric" 
    documentationCenter=".net" 
-   authors="" 
-   manager="timlt" 
+   authors="alanwar" 
+   manager="richhas" 
    editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="required" 
    ms.date="03/17/2015"
-   ms.author="Your MSFT alias or your full email address"/>
+   ms.author="alanwar"/>
 
 
 
@@ -24,7 +24,7 @@
    services="Service-Fabric"
    documentationCenter=".net"
    authors="alanwar"
-   manager="timlt"
+   manager="richhas"
    editor=""/>
 
 <tags
@@ -44,7 +44,7 @@ Service Fabric Reliable Services run within a specific architecture described in
 ## Reliable Stateful Service
 
 ### Reliable Stateful Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/primary.png)
+![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateful-service-architecture.png)
 
 ### Reliable Stateful Service
 
@@ -104,7 +104,7 @@ Aside from a user mode interface to the log, the log is written as a kernel mode
 ## Reliable Stateless Service
 
 ### Reliable Stateful Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/stateless.png)
+![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateless-service-architecture.png)
 
 ### Reliable Stateless Service
 
