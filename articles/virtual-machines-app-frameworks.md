@@ -16,7 +16,7 @@
    ms.date="04/20/2015"
    ms.author="rasquill"/>
 
-# Application Frameworks using templates with Azure Resource Manager (ARM)
+# Application Frameworks using templates
 
 Use this stuff to create great things, quickly.
 
