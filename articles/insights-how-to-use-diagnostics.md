@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="How to use diagnostics" 
 	description="Learn how to set up diagnostics for your resources in Azure." 
-	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	authors="alancameronwills" 
+	manager="ronmart" 
 	editor="" 
 	services="application-insights" 
 	documentationCenter=""/>
