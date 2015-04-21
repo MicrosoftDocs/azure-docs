@@ -46,8 +46,6 @@ Create a Stateful Application **owner: Haishi**
 
 [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
 
-How to Create an ASP.NET v5 Application **owner: Haishi**
-
 Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
