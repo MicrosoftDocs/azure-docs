@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure SQL Database: elastic database tools overview" 
+    pageTitle="Azure SQL Database - Elastic Database Tools" 
     description="Easily scale database resources in the cloud using elastic database tools." 
     services="sql-database" 
     documentationCenter="" 
@@ -16,7 +16,7 @@
     ms.date="04/17/2015" 
     ms.author="sidneyh"/>
 
-# Azure SQL Database: elastic database tools overview
+# Azure SQL Database - Elastic Database Tools
 
 ## Promises and challenges
 
