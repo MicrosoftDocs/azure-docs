@@ -1,6 +1,6 @@
 <properties
    pageTitle="Test a Service Fabric service"
-   description="Conceptual information and tutorials that help you understand how to test a Service Fabric service."
+   description="Conceptual information and tutorials that help you understand how to test a Service Fabric service by running Testability actions and scenarios."
    services="service-fabric"
    documentationCenter=".net"
    authors="rwike77"
