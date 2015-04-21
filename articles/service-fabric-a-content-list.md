@@ -19,20 +19,16 @@
 # Working List of Service Fabric Content
 We will not be publishing this topic.  The ACOM landing page, learning map, and left-hand navigation TOCs will be built from this content.
 ## About
-[Technical Overview](../service-fabric-technical-overview)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: mfussell**
+[Technical Overview](service-fabric-technical-overview.md)- Combines elements of what is, features and capabilities, key concepts: Cluster, nodes, applications, services, Programming models. **owner: mfussell**
 
 Learning Map P2 **owner: adegeo**
 
-[Application Scenarios](../service-fabric-application-scenarios) **owners: mfussell**
-
-PaaS v2 compared to other things(P2)- short blurb, point to competitive analysis topics **owner: claudioc**
-
-PaaS v2 vs Cloud Services- PaaS v2 is so much better, technical comparison. Is this really technical marketing info? **owner: mfussell**
+[Application Scenarios](service-fabric-application-scenarios.md) **owners: mfussell**
 
 ## Getting Started
 Sign Up for a Free Account  **owner: vturecek**
 
-[Setup your development environment](../service-fabric-setup-your-development-environment) **owner: seanmck**
+[Setup your development environment](service-fabric-setup-your-development-environment.md) **owner: seanmck**
 
 Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
 
@@ -43,11 +39,11 @@ Install and extend the Samples **owner: vturecek**
 
 ### Develop a Service owner: vturecek
 
-Choose a Programming Model **owner: seanmck**
+[Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
 Create a Stateful Application **owner: Haishi**
 
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-stateless-helloworld) **owner: Haishi**
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
 
 How to Create an ASP.NET v5 Application **owner: Haishi**
 
@@ -55,9 +51,11 @@ Create Windows Fabric Stateful  applications using .NET Distributed Collections 
 
 Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
 
-[Reliable Service Programming Model Introduction](../service-fabric-reliable-services-introduction.md) **owner: masnider**
+[Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
-[Reliable Service Programming Model Quick Start](../service-fabric-reliable-services-quick-start.md) **owner: masnider**
+[Reliable Service Programming Model Quick Start](service-fabric-reliable-services-quick-start.md) **owner: masnider**
+
+[Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
 Communicate with a Service
 
@@ -109,7 +107,7 @@ Writing a custom test scenario - P3 **owner: vturecek**
 
 
 ### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
-[How to Monitor and Diagnose Services locally](../service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally) - **owner:kunalds**
+[How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
 
 ### Upgrading your Application owner: Mani
@@ -148,16 +146,13 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### Managed Reference
 ### PowerShell Reference
 ### REST Reference
-### Application Manifest Schema and Settings P2
-### Service Manifest Schema and Settings P2
-### Cluster Manifest Schema and Settings (Phosphorus)
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
 ### Monitoring and Diagnostics
 Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
-[Application Lifecycle](../service-fabric-application-lifecycle) **owner: matt**
+[Application Lifecycle](service-fabric-application-lifecycle.md) **owner: matt**
 
 ### Health
 [Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
@@ -170,9 +165,9 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
 #### Actors
-- [Introduction to the Service Fabric Actor Model](../service-fabric-fabact-introduction) **owner: claudioc**
+- [Introduction to the Service Fabric Actor Model](service-fabric-fabact-introduction.md) **owner: claudioc**
 
-- [Actor Model Design Patterns](../service-fabric-fabact-patterns-introduction)  **owner: claudioc**
+- [Actor Model Design Patterns](service-fabric-fabact-patterns-introduction.md)  **owner: claudioc**
 
 - [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
 
@@ -189,15 +184,15 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 - [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
 #### Services
-- [Programming Model Overview](../service-fabric-fabsrv-service-overview)  **owners: masnider, richhas**
+- [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
 
-- [Architecture](../service-fabric-fabsrv-platform-architecture) **owner: alanwar**
+- [Architecture](service-fabric-fabsrv-platform-architecture.md) **owner: alanwar**
 
-- [Reliable Collections](../service-fabric-fabsrv-service-reliable-collection) **owners: mcoskun, tyadam**
+- [Reliable Collections](service-fabric-fabsrv-service-reliable-collection.md) **owners: mcoskun, tyadam**
 
-- [API Discussion](../service-fabric-fabsrv-service-api-description) **owners: tyadam, mcoskun**
+- [API Discussion](service-fabric-fabsrv-service-api-description.md) **owners: tyadam, mcoskun**
 
-- [Operations](../service-fabric-fabsrv-managing-your-services) **owner: jesseb, alanwar**
+- [Operations](service-fabric-fabsrv-managing-your-services.md) **owner: jesseb, alanwar**
 
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
@@ -248,5 +243,6 @@ Replica Role and State Lifetime
 ### Service Host Activation and Deactivation
 
 ### FabricExplorer
+[Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ### Glossary
