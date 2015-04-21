@@ -16,9 +16,9 @@
 	ms.date="04/21/2015" 
 	ms.author="sidneyh" />
 
-# Elastic database job (preview) pricing 
+# Elastic database jobs (preview) pricing 
 
-The elastic database job (preview) uses four Azure components that incur charges. These services are created and named automatically during setup. For more information, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md). The services are identifiable as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 characters.
+Elastic database jobs (preview) uses four Azure components that incur charges. These services are created and named automatically during setup. For more information, see [Elastic jobs overview](sql-database-elastic-jobs-overview.md). The services are identifiable as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 characters.
 
 ## Service components 
 
