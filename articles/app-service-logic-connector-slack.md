@@ -68,9 +68,14 @@ Once your API app is created, you can now use the Slack connector as an action f
 	Configure the input properties for "Post Message" action as follows:
 
  - **Text** - Specify the text of the message to be posted
- - **Channel Name** - Specify the Slack Channel to which this message is to be uploaded
+ - **Channel Name** - Specify the Slack Channel to which this message is to be uploaded. If this is not provided, then message will be posted in #general
 
-	Note that this will post to the channel as a "Bot" currently.
+ 	**Advanced Properties**
+
+ 	- **Bot User name** - Name of the bot to use for this message. Message will be posted as "Bot" if this is not specified.
+ 	- **Icon URL** - URL to an image to use as the icon for this message
+ 	- **Icon Emoji** - Emoji to use as the icon for this message. Overrides Icon URL
+ 
 
 7. To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->Slack Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector.
 
