@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/03/2015"
+   ms.date="04/21/2015"
    ms.author="nitinme"/>
 
 #Provision Hadoop clusters in HDInsight by using custom options
@@ -139,9 +139,9 @@ HDInsight clusters use an Azure Blob storage container as the default file syste
 
     <table border='1'>
 		<tr><th>Property</th><th>Value</th></tr>
-		<tr><td>User Name</td>
+		<tr><td>HTTP User Name</td>
 			<td>Specify the HDInsight cluster user name.</td></tr>
-		<tr><td>Password/Confirm Password</td>
+		<tr><td>HTTP Password/Confirm Password</td>
 			<td>Specify the HDInsight cluster user password.</td></tr>
 		<tr><td>Enable remote desktop for cluster</td>
 			<td>Select this check box to specify a username, password, and expiry date for a remote desktop user that can remote into the cluster nodes, once it is provisioned. You can also enable remote desktop later, after the cluster is provisioned. For instructions, see <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">Connect to HDInsight clusters using RDP</a>.</td></tr>
