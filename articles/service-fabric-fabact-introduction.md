@@ -3,7 +3,7 @@
    description="Introduction to Azure Service Fabric Actors programming model"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
