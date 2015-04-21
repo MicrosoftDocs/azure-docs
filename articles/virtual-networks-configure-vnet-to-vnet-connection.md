@@ -87,7 +87,7 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
-3. On the **Virtual Network Details** page, enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).</li>
+3. On the **Virtual Network Details** page, enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 
   ![Virtual Network Details](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
@@ -110,9 +110,9 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 
-6. Click the checkmark on the lower right of the page and your virtual network will begin to create. When it completes, you will see Created listed under **Status** on the **Networks** page in the Management Portal.</li>
+6. Click the checkmark on the lower right of the page and your virtual network will begin to create. When it completes, you will see Created listed under **Status** on the **Networks** page in the Management Portal.
 
-7. Create another virtual network. For the purposes of this tutorial, use these values: **VNet2**: Address Space = 10.2.0.0/16; Region=Japan East</li></ol>
+7. Create another virtual network. For the purposes of this tutorial, use these values: **VNet2**: Address Space = 10.2.0.0/16; Region=Japan East
 
 ## Add local networks
 
