@@ -3,7 +3,7 @@
 	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample uses the Tedious driver to connect."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="meet-bhagdev" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="NodeJS" 
 	ms.topic="article" 
 	ms.date="04/18/2015" 
-	ms.author="genemi"/>
+	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using NodeJS with Tedious on Ubuntu Linux
@@ -53,7 +53,7 @@ TODO, ERROR MUST BE FIXED: Must fix the following paragraph near the words "pres
 -->
 
 
-**npm init** creates a node project. To retain the defaults during your project creation, press until the project is created. Now you see a **package.json** file in your project directory.
+**npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
 
 
 ### Create an AdventureWorks database
