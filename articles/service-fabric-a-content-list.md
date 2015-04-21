@@ -82,10 +82,6 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 ### Test a Service owner: vturecek, rsinha
 [Testability Overview](service-fabric-testability-overview.md) - P1 **owner: vturecek**
 
-Why is Testability important - P1 - **owner: rsinha**
-
-How does it work - P1 **owner: anmola**
-
 [Run an action](service-fabric-testability-actions.md)  **owner: vturecek**
 
 [Run a scenario](service-fabric-testability-scenarios.md) - P1 **owner: vturecek**
