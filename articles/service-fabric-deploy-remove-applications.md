@@ -148,7 +148,7 @@ TODO [Upgrade applications][11]
 
 ## Troubleshooting
 
-## Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
+### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 
 The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the *Get-ServiceFabricClusterManifest* command:
 
