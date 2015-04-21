@@ -164,6 +164,9 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 **owner: oanapl**
 
+[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+**owner: oanapl**
+
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
 #### Actors
 - [Introduction to the Service Fabric Actor Model](service-fabric-fabact-introduction.md) **owner: claudioc**
