@@ -18,15 +18,9 @@
 
 # Testability overview
 
-Testability is a suite of tools specifically designed for testing your services built on Microsoft Azure Service Fabric. The tools allow you to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions your services will experience throughout their lifetimes, all in a controlled and safe manner.
+Testability is a suite of tools specifically designed for testing services built on Microsoft Azure Service Fabric. The tools allow the developer to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions a service will experience throughout its lifetimes, all in a controlled and safe manner.
 
-## Right tools for the right job
-
-Testability is all about executing runtime tests against your services using a set of PowerShell and C# APIs so you can write everything from test scripts that can be invoked via PowerShell in your development and test environments, to long-running services that continuously invoke test actions in production.
-
-## Actions and scenarios
-
- With Testability we provide Actions and Scenarios to do the job. Actions are individual faults or actions that can be performed against your service. These are the building blocks for running tests against your service. For example:
+Tesability provides Actions and Scenarios that allow the above to happen. Actions are the individual faults targetting a service for testing it.  A service developer can use these as building blocks to write complicated scenarios. For example:
 
   + Restart a node to simulate a any number of situations where a machine or VM is rebooted.
   + Move a replica of your stateful service to simulate load balancing, failover, or application upgrades.
@@ -37,6 +31,8 @@ Scenarios are complete tests that are composed of one or more actions, and since
 
   + Chaos Test
   + Failover Test
+
+Testability exposes both PowerShell and C# APIs. This allows the service developer to have greater agility with scripting of powershell and greater control wilth C# APIs as and when needed.
 
 ## Importance of Testability
 
