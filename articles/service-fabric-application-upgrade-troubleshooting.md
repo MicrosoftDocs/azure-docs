@@ -46,7 +46,7 @@ Users may have wondered about what happens if the timeouts are set inconsistentl
 
 Possible Cause:
 
-The time it takes for an upgrade to complete is dependent on the times specified for the various health checks and timeouts specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying and stabilizing). Being too aggressive with the timeouts might mean more failed upgrades, and thus starting conservatively is recommended and following the duration times for the upgrade domains and complete upgrade in the Get-WindowsFabricApplicationUpgrade to shorten as required. Generally, there shouldn't be any reason why one would want to optimize the upgrade cycle other than there being a critical bug fix that needs rapid deployment or such.
+The time it takes for an upgrade to complete is dependent on the times specified for the various health checks and timeouts specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying and stabilizing). Being too aggressive with the timeouts might mean more failed upgrades, and thus starting conservatively is recommended and following the duration times for the upgrade domains and complete upgrade in the Get-ServiceFabricApplicationUpgrade to shorten as required. Generally, there shouldn't be any reason why one would want to optimize the upgrade cycle other than there being a critical bug fix that needs rapid deployment or such.
 
 A quick refresher on how the timeouts interact with the upgrade times:
 
@@ -59,12 +59,12 @@ The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRet
 ## Related Topics
 
 
-[Upgrade Tutorial](./service-fabric-application-upgrade-tutorial)
+[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
-[Upgrade Parameters](./service-fabric-application-upgrade-parameters)
+[Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
-[Advanced Topics](./service-fabric-application-upgrade-advanced)
+[Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](./service-fabric-application-troubleshooting)
+[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
 
-[Upgrade Flowchart](./service-fabric-application-upgrade-flowchart)
+[Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
