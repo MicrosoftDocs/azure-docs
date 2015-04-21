@@ -395,7 +395,7 @@ If you're familiar with Microsoft System Center - Operations Manager, you can th
 
 You can use the query as a tile in **My Dashboard**, as a monitor of sorts, to see when computer CPUs are over-utilized. To learn more about dashboards, see [Operational Insights dashboards](operational-insights-use-dashboards). You can also create and use dashboards using the mobile app. For more information, see [Azure Operational Insights Mobile App ](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865). In the bottom two tiles of the following image, you can see the monitor displayed a list and as a number. Essentially, you always want the number to be zero and the list to be empty. Otherwise, it indicates an alert condition. If needed, you can use it to take a look at which machines are under pressure.
 
-![mobile dashboard](../media/operational-insights-search/search-mobile.png)
+![mobile dashboard](./media/operational-insights-search/search-mobile.png)
 
 ## Search syntax reference
 
