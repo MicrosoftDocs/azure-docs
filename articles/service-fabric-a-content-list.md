@@ -170,6 +170,8 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 #### Actors
 - [Introduction to the Service Fabric Actor Model](service-fabric-fabact-introduction.md) **owner: claudioc**
 
+- [Actor lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md) **owner: claudioc**
+
 - [Actor Model Design Patterns](service-fabric-fabact-patterns-introduction.md)  **owner: claudioc**
 
 - [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
