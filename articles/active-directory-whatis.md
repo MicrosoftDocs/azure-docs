@@ -13,13 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/17/2015" 
+	ms.date="04/20/2015" 
 	ms.author="curtand"/>
 
 
 # What is Azure Active Directory?
 
-[What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>
 [Get started](active-directory-get-started.md)<br>
 [Next steps](active-directory-next-steps.md)<br>
@@ -43,7 +42,7 @@ Azure AD directories let you centrally control access to applications and resour
 <br>
 <br>
 
-
+![][1]
 
 ### Manage identities in the cloud or extend an on-premises directory 
  
