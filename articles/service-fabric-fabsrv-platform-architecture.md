@@ -114,8 +114,8 @@ Aside from a minimal user mode interface to the log, the log is written as a ker
 
 ### Reliable Stateless Service
 
-Stateless services are written by deriving from the StatelessService or StatelessServiceBase class. Similarly to the StatefulService base classes, deriving from the StatelessServiceBase allows more flexibility 
-and the service implementation may override virtual methods. Both base classes manages the
+Stateless service implementations derive from the StatelessService or StatelessServiceBase class where the StatelessServiceBase class allows more flexibility than the StatelessService.
+Both base classes manages the
 lifetime and role of the service implememtation; the service implementation may override virtual methods of either base class if the service implementation has work to do
 at those points in the service implementation lifecycle. 
 
