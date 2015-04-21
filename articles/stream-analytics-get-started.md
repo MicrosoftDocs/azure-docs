@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/20/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jeffstok" />
 
 
@@ -265,8 +265,8 @@ For additional support, see [Azure Stream Analytics forum](stream-analytics-foru
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) 
 
 
 
