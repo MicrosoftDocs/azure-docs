@@ -18,30 +18,10 @@
 
 # Test a Service Fabric service
 
-What is Testability 
+[Testability Overview](service-fabric-testability-overview.md) 
 
-Why is Testability important 
+[Run an action](service-fabric-testability-actions.md)  
 
-How does it work 
-
-Run an action with PowerShell 
-
-Run an action with C# 
-
-Run a scenario with PowerShell 
-
-Run a scenario with C# 
-
-Run the Chaos Test 
-
-Validating and troubleshooting 
-
-Testing during development 
-
-Testing in test/staging 
-
-Testing in production 
-
-Writing a custom test scenario 
+[Run a scenario](service-fabric-testability-scenarios.md) 
 
 
