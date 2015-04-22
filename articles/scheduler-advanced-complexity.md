@@ -177,11 +177,12 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
 ## See Also
- [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
- [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
- [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
- [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
- [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
  

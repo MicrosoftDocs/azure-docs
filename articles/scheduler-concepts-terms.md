@@ -189,11 +189,11 @@ Retry interval, specified with the **retryInterval** object, is the interval bet
 
 ## See Also
 
- [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
- [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
+ [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
- [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
- [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
  

@@ -227,13 +227,13 @@ Finally, for all action types, you may change the schedule itself and its recurr
 
 ## See Also
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
- [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
- [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
- [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
  
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png

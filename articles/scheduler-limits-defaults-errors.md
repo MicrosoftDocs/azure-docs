@@ -75,11 +75,11 @@ API operations may also return additional error information that is defined by t
 
 ## See Also
 
- [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
- [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
- [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
- [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
+ [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
- [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
  
