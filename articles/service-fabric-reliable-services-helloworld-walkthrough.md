@@ -180,7 +180,7 @@ They also support *transactional* operations so you can keep state consistent be
 
 ## Run the application
 
-You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster. Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause* button, and then examine message details by expanding a message.
+You can now build and deploy your services. Press **F5**, and your application will be built and deployed to your local cluster. Once the services are running, you can see the generated ETW events in a **Diagnostic Events** window. Note that there are events displayed from both the stateless service and the stateful service in the application. You can pause the stream by clicking the *Pause* button, and then examine message details by expanding a message.
 
   > [AZURE.NOTE] Before running the application, make sure you have a local development cluster running. Check out the [Getting Started Guide](service-fabric-get-started.md) to get your local environment set up.
 
