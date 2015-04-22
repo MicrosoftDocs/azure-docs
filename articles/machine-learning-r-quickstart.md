@@ -16,7 +16,7 @@
 	ms.date="04/22/2015" 
 	ms.author="larryfr"/>
 
-#Quick start guide to R for Azure Machine Learning
+# Quick start guide to R for Azure Machine Learning
 
 Stephen F Elston, Ph.D.
 
@@ -435,7 +435,7 @@ To help organize the code we will create our first simple function, `num.month()
 	  12 * (Year - min.year) + Month - 1
 	}
 
-# Compute the new column for the dataframe
+	## Compute the new column for the dataframe
 	cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 
 Now run the updated experiment and use **Visualize** on the R Device port to view the results. These results are shown in Figure 12.
