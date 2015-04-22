@@ -16,9 +16,9 @@
    ms.date="03/17/2015"
    ms.author="anmola"/>
 
-# Writing Custom Scenarios
+# Custom scenarios for single services
 
-Testability is a suite of tools to help you test your services. The idea is to enable developers to make their business logic resilient to failures. Service Fabric makes it easy for application authors to easily write and deploy scalable and reliable services. Even with Service Fabric your distributed application can fail due to software error or infrastructure failures. You will still need to ensure your service is functioning the right way after it is restored following a machine failure. Sometimes the service process might fail in the middle of an operation which was not handling some corner case and on recovery your might end up in a corrupted state. Using Testability faults can help you test those scenarios. This can be done by inducing faults at different states in your application hence finding bugs and improving quality.
+The scenarios shipping with Testability enable developers to not worry about dealing with individual faults. There are scenarios however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults, ensures that the service is actually performing some action when failure happens. Given the level of control testability provides these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
 ## Graceful and Ungraceful failures
 To better understand how to test these services we need to classify the faults into two buckets.
