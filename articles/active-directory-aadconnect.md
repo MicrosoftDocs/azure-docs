@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 <properties 
-	pageTitle="Azure Active Directory Connect Hub" 
-	description="This is the one page for all things releated to Azure AD Connect." 
+	pageTitle="Azure Active Directory Connect - What is It?" 
+	description="This is the Azure AD Connect that describes what it is and why you would use it." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="billmath" 
@@ -41,7 +40,7 @@ For additional documentation click on one of the icons below.
 <center>[![How Azure AD Connect Works](./media/active-directory-aadconnect/AADConnect_HowItWorks2.png)](active-directory-aadconnect-howitworks.md) [![Getting Started with Azure AD Connect](./media/active-directory-aadconnect/AADConnect_GetStarted2.png)](active-directory-aadconnect-getstarted.md) [![Managing Azure AD Connect](./media/active-directory-aadconnect/AADConnect_Manage2.png)](active-directory-aadconnect-manage.md)</center>
 
 
-# Why use Azure AD Connect 
+## Why use Azure AD Connect 
 
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources.  With this integration users and organizations can take advantage of the following:
 	
@@ -55,13 +54,13 @@ Azure AD Connect makes this integration easy and simplifies the management of yo
 <center>![What is Azure AD Connect](./media/active-directory-aadconnect/cloudauth.png)</center>
 
 ----------------------------------------------------------------------------------------------------------
-# Download Azure AD Connect
+## Download Azure AD Connect
 
 To get started using Azure AD Connect you can download the latest version using the following:  [Download Azure AD Connect Public Preview](http://connect.microsoft.com/site1164/program8612) 
 
 ----------------------------------------------------------------------------------------------------------
 
-# Recent Updates
+## Recent Updates
 
 **Azure AD Connect Public Preview March 2015 Update** - March 2015
 
