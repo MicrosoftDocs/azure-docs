@@ -22,7 +22,7 @@
 
 Possible Cause 1:
 
- For all the percentages of health evaluation criteria, Service Fabric translate the percentages to the actual number of entities (i.e., replicas, partitions and services) in the systems and perform evaluation. During the translation Service Fabric always round up to the nearest number of whole entity when performing the evaluation. For example, if the maximum MaxPercentUnhealthyReplicasPerPartition is 21% and there are 5 replicas for the services, Service Fabric will allow up to "2" replicas (i.e., Math.Ceiling (5\*0.21)) to be unhealthy when evaluating the partition health.  Please tweak the health policy parameters accordingly to get around this issue.
+For all the percentages of health evaluation criteria, Service Fabric translate the percentages to the actual number of entities (i.e., replicas, partitions and services) in the systems and perform evaluation. During the translation Service Fabric always round up to the nearest number of whole entity when performing the evaluation. For example, if the maximum MaxPercentUnhealthyReplicasPerPartition is 21% and there are 5 replicas for the services, Service Fabric will allow up to "2" replicas (i.e., Math.Ceiling (5\*0.21)) to be unhealthy when evaluating the partition health.  Please tweak the health policy parameters accordingly to get around this issue.
 
 Possible Cause 2:
 
@@ -46,7 +46,7 @@ Users may have wondered about what happens if the timeouts are set inconsistentl
 
 Possible Cause:
 
-The time it takes for an upgrade to complete is dependent on the times specified for the various health checks and timeouts specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying and stabilizing). Being too aggressive with the timeouts might mean more failed upgrades, and thus starting conservatively is recommended and following the duration times for the upgrade domains and complete upgrade in the Get-ServiceFabricApplicationUpgrade to shorten as required. Generally, there shouldn't be any reason why one would want to optimize the upgrade cycle other than there being a critical bug fix that needs rapid deployment or such.
+The time it takes for an upgrade to complete is dependent on the times specified for the various health checks and timeouts specified, which in turn are dependent on the time it takes for your application to upgrade (including copying the package, deploying and stabilizing). Being too aggressive with the timeouts might mean more failed upgrades, and thus starting conservatively is recommended and following the duration times for the upgrade domains and complete upgrade in the `Get-ServiceFabricApplicationUpgrade` to shorten as required. Generally, there shouldn't be any reason why one would want to optimize the upgrade cycle other than there being a critical bug fix that needs rapid deployment or such.
 
 A quick refresher on how the timeouts interact with the upgrade times:
 
@@ -56,7 +56,7 @@ Upgrade rollback cannot occur faster than HealthCheckWaitDuration + HealthCheckR
 
 The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current UD begins.
 
-## Related Topics
+## Next Steps
 
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)

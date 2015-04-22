@@ -1,7 +1,7 @@
 
 <properties
-   pageTitle="Service Fabric Application Upgrade: Uprade Parameters"
-   description="This article described the various parameters related to upgrading a Service Fabric application."
+   pageTitle="Service Fabric Application Upgrade: Upgrade Parameters"
+   description="This article describes the various parameters related to upgrading a Service Fabric application."
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
@@ -79,4 +79,3 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService and Max
 [Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
 
 [Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
-
