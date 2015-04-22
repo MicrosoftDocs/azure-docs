@@ -154,7 +154,10 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.String</td>
     </tr>
     <tr>
-        <td>Arrays of primitive types, e.g. [ "a", "b", "c" ]</td>
+        <td>
+            Arrays of primitive types<br/>
+            e.g. [ "a", "b", "c" ]
+        </td>
         <td>Collection(Edm.String)</td>
     </tr>
     <tr>
@@ -162,7 +165,14 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.DateTimeOffset, Edm.String</td>
     </tr>
     <tr>
-        <td>JSON objects</td>
+        <td>
+            GeoJSON objects<br/>
+            e.g. { "type": "Point", "coordinates": [ long, lat ] }
+        </td>
+        <td>Edm.GeographyPoint</td>
+    </tr>
+    <tr>
+        <td>Other JSON objects</td>
         <td>N/A</td>
     </tr>
 </table>
