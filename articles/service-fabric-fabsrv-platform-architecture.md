@@ -18,7 +18,7 @@
 
 # Reliable Service Architecture
 
-A Service Fabric Reliable Services may be stateful or stateless. Each type of service runs within a specific architecture described in this article. 
+A Service Fabric Reliable Service may be stateful or stateless. Each type of service runs within a specific architecture described in this article. 
 See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) for more information about the differences between stateful and stateless services.
 
 ## Stateful Reliable Service
@@ -30,12 +30,11 @@ See [Reliable Service Overview](service-fabric-reliable-services-introduction.md
 
 Your stateful reliable service would derive from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
 provide various levels of support and abstraction for your stateful service to interface with Service Fabric and participate as a service within the Service Fabric Cluster. 
-Internally StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of service fabric.
+StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of Service Fabric.
 See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatefulService and StatefulServiceBase classes.
 
-Both base classes manage the
-lifetime and role of the service implememtation; the service implementation may override virtual methods of either base class if the service implementation has work to do
+Both base classes manage the lifetime and role of the service implememtation; the service implementation may override virtual methods of either base class if the service implementation has work to do
 at those points in the service implementation lifecycle and if the service implementation wants to create a communicator listener object. Note that although a service implementation 
 may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
 implemented by Service Fabric as the service implementation uses a communication listener implemented by Service Fabric.
@@ -61,7 +60,7 @@ The reliable dictionary and reliable queue are built upon the implementation of 
 
 ### Transactional Replicator
 
-The transactional replicator component is responsible for ensuring that the state of the your service, that is the state within the reliable state manager and reliable collections,
+The transactional replicator component is responsible for ensuring that the state of the your service, that is the state within the reliable state manager and the reliable collections,
 is consistent across all replicas running your service and that state is also persisted in the log. The reliable state manager interfaces with the transactional replicator
 via a private mechanism.
 
