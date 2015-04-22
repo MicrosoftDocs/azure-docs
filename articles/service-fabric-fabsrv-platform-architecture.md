@@ -1,28 +1,10 @@
 <properties 
-   pageTitle="service-fabric-fabsrv-platform-architecture" 
+   pageTitle="Service Fabric Reliable Service Architecture" 
    description="High-level overview of the reliable service architecture" 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="alanwar" 
-   manager="richhas" 
-   editor=""/>
-
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required" 
-   ms.date="03/17/2015"
-   ms.author="alanwar"/>
-
-<properties
-   pageTitle="Service Fabric Reliable Service Architecture"
-   description="A conceptual overview of placement constraints in Service Fabric"
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="alanwar"
-   manager="richhas"
+   manager="timlt" 
    editor=""/>
 
 <tags
@@ -36,8 +18,8 @@
 
 # Reliable Service Architecture
 
-A Service Fabric Reliable Services may be a stateful or stateless service. Each type of service runs within a specific architecture described in this article. 
-See [Reliable Service Overview](../service-fabric-fabsrv-service-introduction) for more information about the differences between stateful and stateless services.
+A Service Fabric Reliable Services may be stateful or stateless. Each type of service runs within a specific architecture described in this article. 
+See [Reliable Service Overview](service-fabric-reliable-services-introduction) for more information about the differences between stateful and stateless services.
 
 ## Reliable Stateful Service
 
@@ -46,66 +28,69 @@ See [Reliable Service Overview](../service-fabric-fabsrv-service-introduction) f
 
 ### Reliable Stateful Service
 
-A reliable stateful service implementation derives from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
-provide various levels of support and abstraction for a stateful service implementation to interface with Service Fabric and participate as a service within the Service Fabric Cluster. 
+Your reliable stateful service would derive from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
+provide various levels of support and abstraction for your stateful service to interface with Service Fabric and participate as a service within the Service Fabric Cluster. 
 Internally StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of service fabric.
+See [Reliable Service Overview](service-fabric-reliable-services-introduction) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage) for more information on the specifics
+of writing services using StatefulService and StatefulServiceBase classes.
 
-
-Both base classes manages the
+Both base classes manage the
 lifetime and role of the service implememtation; the service implementation may override virtual methods of either base class if the service implementation has work to do
-at those points in the service implementation lifecycle. 
+at those points in the service implementation lifecycle and if the service implementation wants to create a communicator listener object. Note that although a service implementation 
+may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
+implemented by Service Fabric as the service implementation uses a communication listener implemented by Service Fabric.
 
-The service implementation may override the RunAsync method if it wishes to perform actions when service starts operating and when it is shutting down.
-
-The service implementation may override the CreateCommunicationListener method if the service implementation wants to have a communication channel for clients of the service to 
-communicate with it. A communication listener exposes the ICommunicationListener interface which is used by the StatefulService base class to control the lifetime of the communication
-listener. Although a service implementation may implement its own communication listener object exposing ICommunicationListener, in the diagram below the communication listener is
-implemented by Service Fabric as the service implementation does not implement its own.
-
-The service implementation is able to use the reliable state manager to take advantage of reliable collections which are data structures that are highly available to the service, 
-that is, are always available regardless of service failovers. For more information on reliable collections see TODO [Reliable Collections Overview](../service-fabric-fabsrv-reliable-collections)
-
+Your stateful service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service, 
+that is, are always available regardless of service failovers. Each type of reliable colletion is implemented by a reliable state provider.
+For more information on reliable collections see [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections)
 
 ### Reliable State Manager And Providers
 
 The reliable state manager is the object that manages reliable state providers and has functionality to create, delete, enumerate and ensure that the reliable state providers are
 persisted and highly available. A reliable state provider instance represents an instance of a persisted and highly available data structure such as a 
-dictionary or a queue. Each reliable state provider exposes an interface that is used by the service implementation to interact with the reliable state provider. For example 
-IReliableDictionary is used to interface with the reliable dictionary while IReliableQueue is used to interface with the reliable queue.
+dictionary or a queue. Each reliable state provider exposes an interface that is used by your stateful service to interact with the reliable state provider. For example 
+IReliableDictionary is used to interface with the reliable dictionary while IReliableQueue is used to interface with the reliable queue. All reliable state providers implement
+IReliableState interface.
 
 The reliable state manager has an interface named IReliableStateManager which allows access to it by the stateful service implementation. Interfaces to reliable state providers
 are returned through IReliableStateManager.  
 
-The reliable state manager is architected in a way that would allow new types of state providers to be plugged in. 
+The reliable state manager is architected with a dynamic plug-in architecture so that new types of reliable collections can be plugged in dynamically.
 
-The reliable dictionary and reliable queue are built upon the implementation of a high performance versioned differental store.
+The reliable dictionary and reliable queue are built upon the implementation of a high performance versioned differential store.
 
 ### Transactional Replicator
 
-The transactional replicator component is responsible to ensuring that the state of the service implementation, that is the state within the reliable state manager and reliable collections,
-is consistent across all replicas running this service implementation and also persisted in the log for each replica. The reliable state manager interfaces with the transactional replicator
+The transactional replicator component is responsible for ensuring that the state of the your service, that is the state within the reliable state manager and reliable collections,
+is consistent across all replicas running your service and that state is also persisted in the log. The reliable state manager interfaces with the transactional replicator
 via a private mechanism.
 
-The transactional replicator uses private network protocol to communicate state with other replicas of the service instance so that all replicas have up to date state information.
+The transactional replicator uses a network protocol to communicate state with other replicas of the service instance so that all replicas have up to date state information.
 
 The transactional replicator uses a log to persist state information so that the state information survives process or node crashes. The interface to the log is via a private mechanism. 
 
 ### Log
 
-The log component provides a high performance persistent store that can be optimized for writing to spinning or solid state disks. The design of the log is for the persistent storage (ie, hard disks) 
-to be local to
-the node that is running the stateful service. This allows for low latencies and high throughput as compared to persistent storage that is not local to the node. Each replica has its own dedicated 
-log which has only state information for that replica. The dedicated log is contained within a single file in the service's work directory.
+The log component provides a high performance persistent store that can be optimized for writing to spinning or solid state disks and also optimized for most efficient use of disk space. The design 
+of the log is for the persistent storage (ie, hard disks) 
+to be local to the nodes that are running your stateful service to allow for low latencies and high throughput as compared to persistent storage that is not local to the node. 
 
-When the log component is configured for solid state disks the state information is written directly to the dedicated log. When the log component is configured for spinning disks the
-state information is first written to a node-wide shared log and then lazily destaged to the dedicated log in the background. The node-wide shared log is expected to be on a disk that
-is reserved only for the shared log. In using this approach the state information is written to the shared log with low latency to allow the service to make progress more quickly. On
-a node with a number of replicas writing state information simultaneously writes to the shared log disk are optimized as compared to writing only to dedicated logs.
+The log component uses two types of log files. There is a node-wide shared log file which should be on a disk that is only used for that log file. This file is placed in the Service Fabric node 
+work directory. Each replica for your service also has a dedicated log file and is placed within the service's work directory. The shared log is a transitional area for the state information 
+while the dedicated log file is its ultimate destination where it is persisted. In this design the state information is first written to the shared log file and then lazily destaged to the dedicated log 
+file in the background. In this way the write to the shared log would have the lowest latency and highest throughput to allow the service to make progress faster.  
 
-The log component can be optimized for maximum write performance by preallocating disk space for the logs. Or the log component can be optimized for using minimal disk space by use
-of NTFS sparse files that underly the log.
+However when the log component is configured for optimizing for solid state disks using the OptimizeForLocalSSD setting, the state information is written directly to the dedicated 
+log file and bypasses the shared log file. Since solid state disks do not suffer from delays due to head movement contention, there is no penalty for writing directly to the dedicated log file.
 
-Aside from a minimal user mode interface to the log, the log is written as a kernel mode driver.
+When the log component is optimized to minimize the use of disk space using the OptimizeLogForLowerDiskUsage, the dedicated log files are created as NTFS sparse files.  Since log files typically 
+are not always completely full of state information, the use of sparse files allows overprovisioning of the disk space avaialble to more replicas. If not configured in this way the log file space
+is preallocated and the log component can write directly to the file with the highest performance.
+
+Aside from a minimal user mode interface to the log, the log is written as a kernel mode driver. By running as a kernel mode driver the log can provide the highest performance to all services that
+use it.
+
+For more information about configuring the log see [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration).
 
 ## Reliable Stateless Service
 
@@ -116,17 +101,16 @@ Aside from a minimal user mode interface to the log, the log is written as a ker
 
 Stateless service implementations derive from the StatelessService or StatelessServiceBase class where the StatelessServiceBase class allows more flexibility than the StatelessService.
 Both base classes manages the
-lifetime and role of the service implememtation; the service implementation may override virtual methods of either base class if the service implementation has work to do
-at those points in the service implementation lifecycle. 
+lifetime and role of the your service; the service implementation may override virtual methods of either base class if your service has work to do
+at those points in the service lifecycle and if your service wants to create a communicator listener object. Note that although your service  
+may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
+implemented by Service Fabric as that service implementation uses a communication listener implemented by Service Fabric.
 
-The service implementation may override the RunAsync method if it wishes to perform actions when service starts operating and when it is shutting down.
-
-The service implementation may override the CreateCommunicationListener method if the service implementation wants to have a communication channel for clients of the service to 
-communicate with it. A communication listener exposes the ICommunicationListener interface which is used by the StatefulService base class to control the lifetime of the communication
-listener. Although a service implementation may implement its own communication listener object exposing ICommunicationListener, in the diagram below the communication listener is
-implemented by Service Fabric as the service implementation does not implement its own.
-
+See [Reliable Service Overview](service-fabric-reliable-services-introduction) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage) for more information on the specifics
+of writing services using StatelessService and StatelessServiceBase classes.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-For more information: [Reliable Service Overview](../service-fabric-fabsrv-service-overview).
+For more information: 
+[Reliable Service Overview](../service-fabric-fabsrv-service-overview), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration)
+
