@@ -76,6 +76,12 @@ In windows fabric through the Testability module and service, we are proposing t
 
 With Service Fabric, though the scale of failures would be different in the different environments the actual mechanism would be identical. This allows for a much quicker code to deployment pipeline and the ability to test the services while still being under real world load.
 
-----------
+## Using Testability
+### Using Testability in C# 
+The various testability features are present in the System.Fabric.Testability.dll. This dll can be found in the Microsoft.ServiceFabric.Testability.nupack nuget package. In order to use the testability features, include the nuget package in as a reference in your project.
 
+## Using Testability in PowerShell
+To use the Testability PowerShell an installation of the runtime msi is required. Once the MSI is required, the ServiceFabricTestability PowerShell module is auto loaded for developers to use.
+
+## Conclusion
 In order to crate cloud scale services the ability to ensure that such services can stand real world failures before being deployed (and also while in production deployment) is very critical. Also in the services world today, the ability to quickly innovate and move code to production is very important. The Testability module in Service Fabric allows service developers to do the above precisely.
