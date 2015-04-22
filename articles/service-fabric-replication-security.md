@@ -17,48 +17,61 @@
    ms.author="leikong"/>
 
 # What is Secured?
-When replication is enabled, Stateful services replicate states across replicas. This page is about how to protect such traffic.
+When replication is enabled, Stateful services replicate states across replicas. This page is about how to configure the protection on such traffic.
 
-In general, SecurityCredentials has two categories of information:
-- Local credential to use
-- Identity of expected remote credentials
+There are 2 types of security settings that are supported.
+- X509
+- Windows
 
-TODO: Add details of X509 and Windows Credentials
+The following section shows how to configure the above 2 types of settings.
+The configuration "CredentialType" determines which type is being used.
 
-## Configuration Names
-TODO: Add Configuration Names
+
+## CredentialType=X509
+
+### Configuration Names
+|Name|Supported Values|Remarks|
+|----|----------------|-------|
+|StoreLocation|CurrentUser,LocalMachine|Store location to find the certificate.|
+|StoreName|N/A. |Store name to find the certificate.|
+|FindType|FindBySubjectName|Identifies the type of value provided by in the FindValue parameter.|
+|FindValue|N/A. This is a required configuration|Search target for finding the certificate.|
+|AllowedCommonNames|N/A. This is a required configuration|A comma separated list of certificate common names/dns names used by replicators.|
+|IssuerThumbprints|empty string|A comma separated list of issuer certificate thumbprints. When empty, no issuer checking will be done.|
+|RemoteCertThumbprints|empty string|A comma separated list of certificate thumbprints used by replicators.|
+|ProtectionLevel|EncryptAndSign|
+
+## CredentialType=Windows
+
+### Configuration Names
+|Name|Supported Values|Remarks|
+|----|----------------|-------|
+|ServicePrincipalName|
+|WindowsIdentities|
+|ProtectionLevel|
 
 ## Samples
-The following is a sample configuration file for setting.
-```
-<?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Section Name="VoicemailBoxActorServiceReplicatorSecurityConfig">
-      <Parameter Name="CredentialType" Value="X509" />
-      <Parameter Name="FindType" Value="FindByThumbprint" />
-      <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
-      <Parameter Name="StoreLocation" Value="LocalMachine" />
-      <Parameter Name="StoreName" Value="My" />
-      <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
-      <Parameter Name="AllowedCommonNames" Value="WinFabric-Test-SAN1-Alice,WinFabric-Test-SAN1-Bob" />
-   </Section>
-</Settings>
-```
-In the example above, CredentailTye is set to "X509", which tells Service Fabric to create X509Credentials, another supported value is "Windows", for which WindowsCredentials will be created. The rest of section VoicemailBoxActorServiceReplicatorSecurityConfig maps to properties of X509Credentials, the following is the complete mapping.
 
-|X509Credentials property|Configuration parameter|
-|------------------------|-----------------------|
-|StoreLocation|StoreLocation|
-|StoreName|StoreName|
-|FindType|FindType|
-|FindValue|FindValue|
-|RemoteCommonNames|AllowedCommonNames|
-|IssuerThumbprints|IssuerThumbprints|
-|RemoteCertThumbprints|RemoteCertThumbprints|
-|ProtectionLevel|ProtectionLevel|
+### X509 Sample
 
-|WindowsCredentials property|Configuration parameter|
-|---------------------------|-----------------------|
-|RemoteSpn|ServicePrincipalName|
-|RemoteIdentities|WindowsIdentities|
-|ProtectionLevel|ProtectionLevel|
+```
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="X509" />
+  <Parameter Name="FindType" Value="FindByThumbprint" />
+  <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
+  <Parameter Name="StoreLocation" Value="LocalMachine" />
+  <Parameter Name="StoreName" Value="My" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+  <Parameter Name="AllowedCommonNames" Value="My-Test-SAN1-Alice,My-Test-SAN1-Bob" />
+</Section>
+```
+### Windows Sample
+
+```
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="Windows" />
+  <Parameter Name="ServicePrincipalName" Value="TODO" />
+  <Parameter Name="WindowsIdentities" Value="TODO" />
+  <Parameter Name="ProtectionLevel" Value="TODO" />
+</Section>
+```
