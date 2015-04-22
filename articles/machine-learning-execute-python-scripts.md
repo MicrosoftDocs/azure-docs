@@ -62,14 +62,14 @@ More detailed semantics of how the input ports get mapped to parameters of the `
 Table 1. Mapping of input ports to function parameters.
 
 Note that the mapping between input ports and function parameters is positional, i.e., the first connected input port is mapped to the first parameter of the function and the second input (if connected) is mapped to the second parameter of the function.
- 
+
 ## Translation of input and output types
 As explained earlier, input datasets in Azure Machine Learning are converted to data frames in Pandas and output data frames are converted back to Azure Machine Learning datasets. The following conversions are performed:
 
 1.	String and numeric columns are converted as-is and missing values in a dataset are converted to ‘NA’ values in Pandas. The same conversion happens on the way back (NA values in Pandas are converted to missing values in Azure Machine Learning).
 2.	Index vectors in Pandas are not supported in Azure Machine Learning and all input data frames in the Python function will always have a 64-bit numerical index from 0 through the number of rows minus 1. 
 3.	Azure Machine Learning datasets cannot have duplicate column names and column names that are not strings. If an output data frame contains non-numeric columns, the framework calls `str` on the column names. Likewise, any duplicate column names are automatically mangled to insure the names are unique. The suffix (2) is added to the first duplicate, (3) to the second duplicate, etc.
- 
+
 ## Operationalizing Python scripts
 Any **Execute Python Script** modules in a scoring experiment are called when published as a web service. For example, Figure 3 shows a scoring experiment containing the code to evaluate a single Python expression. 
 
@@ -80,7 +80,7 @@ Any **Execute Python Script** modules in a scoring experiment are called when pu
 Figure 3. Web service for evaluating a Python expression.
 
 A web service created from this experiment takes as input a Python expression (as a string), sends it to the Python interpreter and returns a table containing both the expression and the evaluated result.
- 
+
 ## Importing existing Python modules
 A common use-case for many data scientists is to incorporate existing Python scripts into Azure Machine Learning experiments. Instead of concatenating and pasting all the code into a single script box, the **Execute Python Script** module accepts a third input port to which a zip file that contains the Python modules can be connected. The file is then unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly.
 

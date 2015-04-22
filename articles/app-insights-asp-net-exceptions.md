@@ -19,43 +19,43 @@
 
 [Visual Studio Application Insights][start] lets you monitor your live application for its availability, performance and usage. Exception telemetry is of course, a central piece of this. This article looks at the compelling diagnostics experience enabled by capturing exceptions along with request telemetry. You'll learn how to configure your application so as to make sure you capture all the exceptions for failed requests, in any .NET application (Framework 4.0+). 
 
-There are some situations where Application Insights can’t automatically capture all the exceptions you might like to see because they are cleared before they get to its HTTPModule. But you can use [Application Insights SDK][api] to send all the unhandled exceptions, plus any exceptions that are handled in your application but that you’d still like to have reported. 
+There are some situations where Application Insights can't automatically capture all the exceptions you might like to see because they are cleared before they get to its HTTPModule. But you can use [Application Insights SDK][api] to send all the unhandled exceptions, plus any exceptions that are handled in your application but that you'd still like to have reported. 
 
 ## Rich diagnostics with exceptions
 
-Capturing exceptions along with request and page-view telemetry is a powerful diagnostic experience, especially since it’s possible to get handled and unhandled exceptions from both client and server.
+Capturing exceptions along with request and page-view telemetry is a powerful diagnostic experience, especially since it's possible to get handled and unhandled exceptions from both client and server.
 
 The good experience starts on the Overview screen, where you can see at a glance when failed requests are correlated with server or browser exceptions, and click through to get a breakdown of specific exceptions:
 
 
-![](./media/app-insights-asp-net-exceptions/010-ov.png)
+![Select the Browser Exceptions chart to see more detail](./media/app-insights-asp-net-exceptions/010-ov.png)
 
  
 Drill into any exception to see its occurrences, and then click further to see what requests were affected by it:
 
 
-![](./media/app-insights-asp-net-exceptions/020-drill.png)
+![Select an occurrence of an exception](./media/app-insights-asp-net-exceptions/020-drill.png)
 
 Or instead, you can start from a failed request and get to the exceptions associated with it:
 
 
-![](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![Select an instance of a failed request, and under exception details, get to instances of the exception.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-From the exception reports you can get a stack listing and see what’s going on. To learn more about reading and searching the exception data, see [Diagnostic search][diagnostics].
+From the exception reports you can get a stack listing and see what's going on. To learn more about reading and searching the exception data, see [Diagnostic search][diagnostic].
 
 This is clearly a powerful diagnostic experience, and to start getting it you only have to add Application Insights to your project in Visual Studio, or install Status Monitor on your server. To collect browser-side data, you [add a script to your master page][client], though this is done for you when you create a new web project.
 
-Those tools will get you all the request telemetry and browser exceptions, and some of the server side exceptions. But in many cases, there’s a bit more you have to do to get all the server-side exceptions. It’s slightly different for each technology, and that’s what the rest of this blog is about.
+Those tools will get you all the request telemetry and browser exceptions, and some of the server side exceptions. But in many cases, there's a bit more you have to do to get all the server-side exceptions. It's slightly different for each technology, and that's what the rest of this blog is about.
 
 ## How to capture exception telemetry
 
-You don’t usually have to load them yourself, but it’s helpful to be aware that the Application Insights tools load the following packages:
+You don't usually have to load them yourself, but it's helpful to be aware that the Application Insights tools load the following packages:
 
 * [Application Insights for Web Applications](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/), which collects the server-side data by using an [HTTP Module](https://msdn.microsoft.com/library/ms178468.aspx). 
-* [Application Insights .NET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) which includes the TrackException API. We’ll look at how use this to send exception telemetry that the HTTPModule doesn’t see. 
+* [Application Insights .NET SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) which includes the TrackException API. We'll look at how use this to send exception telemetry that the HTTPModule doesn't see. 
 * On the client side, [Application Insights JavaScript SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.JavaScript/) is loaded by the web page script. 
 
-The Application Insights HTTP Module captures server side Request telemetry, and it also captures any unhandled exceptions when the HTTPResponse has status code 400 and above. Unfortunately, in most project types and depending on the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuration, the exception information might have been cleared lower in the stack, so that our HTTP Module doesn’t see it. But you can fix this so that all unhandled exceptions are reported. You just have to write a few lines of code using the TrackException API. (You can of course use the same API to send data from your own exception handlers.) We will go over how you can collect unhandled exceptions for the following application types in the sections below. 
+The Application Insights HTTP Module captures server side Request telemetry, and it also captures any unhandled exceptions when the HTTPResponse has status code 400 and above. Unfortunately, in most project types and depending on the [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) configuration, the exception information might have been cleared lower in the stack, so that our HTTP Module doesn't see it. But you can fix this so that all unhandled exceptions are reported. You just have to write a few lines of code using the TrackException API. (You can of course use the same API to send data from your own exception handlers.) We will go over how you can collect unhandled exceptions for the following application types in the sections below. 
 
 ## MVC
 
@@ -113,8 +113,6 @@ Register `AiHandleErrorAttribute` as a global filter in Global.asax.cs:
 
 [Sample](https://github.com/AppInsightsSamples/Mvc3UnhandledExceptionTelemetry)
 
-
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
 #### MVC 4, MVC5
@@ -330,4 +328,48 @@ But if you have eligible redirects, then add the following lines to the Applicat
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
+
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
+

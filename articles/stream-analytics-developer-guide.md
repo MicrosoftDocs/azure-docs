@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Stream Analytics developer guide | Azure" 
+	pageTitle="Stream Analytics Key Concepts | Azure" 
 	description="Get guidance on the key components of a Stream Analytics job, including supported inputs and outputs, job configuration details, and exposed metrics." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/16/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Azure Stream Analytics developer guide 
+# Azure Stream Analytics key concepts 
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. In the preview release, Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
 
@@ -51,7 +51,7 @@ For example if the job has a reference input configured in the portal with the p
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV or JSON for reference data.
 
-### Generated Properties
+### Generated properties
 Depending on the input type used in the job, some additional fields with event metadata will be generated. These fields can be queried against just like other input columns. If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
 
 <table border="1">
@@ -186,17 +186,16 @@ The status of Stream Analytics jobs can be inspected in the Azure portal. Runnin
 
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream.analytics.forum). 
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
 ## Next steps
 
-- [Introduction to Azure Stream Analytics](stream.analytics.introduction)
-- [Get started using Azure Stream Analytics](stream.analytics.get.started)
-- [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs)
-- [Azure Stream Analytics limitations and known issues](stream.analytics.limitations)
-- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference)
-- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference) 
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

@@ -46,6 +46,8 @@ The health entities are:
 - **DeployedApplication**. Represents the health of an *application running on a node*. Deployed application health reports describe conditions specific to the application on the node that can't be narrowed down to service packages deployed on the same node. Example: the application package can't be downloaded on that node or there is an issue setting up application security principals on the node.
 - **DeployedServicePackage**. Represents the health of a service package of an application running in a node in the cluster. It describes conditions specific to a service package that do not affect the other service packages on the same node for the same application. Example: a code package in the service package cannot be started or configuration package cannot be read.
 
+> [AZURE.NOTE] The key concepts in Service Fabric are described at [Service Fabric technical overview](service-fabric-technical-overview.md). Then you can read more about [Service Fabric application model](service-fabric-application-model.md).
+
 The granularity of the health model makes it easy to detect and correct issues. For example, if a service is not responding, it is feasible to report that the application instance is unhealthy; however, it is not ideal because the issue might not be affecting all services within that application. The report should be applied on the unhealthy service, or, if more information points to a specific child partition, on that partition. The data will automatically surface through the hierarchy: an unhealthy partition will be made visible at service and application levels. This will help resolve the issue closer to the root cause.
 
 The health hierarchy is composed of parent-children relationships. Cluster is composed of nodes and applications; applications have services and deployed applications; deployed applications have deployed service packages. Services have partitions, and each partition has one or more replicas. There is a special relationship between nodes and deployed entities. If a node is unhealthy as reported by system components, it will affect the deployed applications, service packages and replicas deployed on it.
@@ -264,9 +266,13 @@ Other systems have a single centralized service at the cluster level parsing all
 
 The health model is heavily used for for monitoring and diagnosis, for evaluating the cluster and application health, and for monitored upgrades. Other services use the health data to perform automatic repairs, to build cluster health history and to issue alerts on certain conditions.
 
-## Next Steps
+## Next steps
 [View Azure Service Fabric entities aggregated health](service-fabric-view-entities-aggregated-health.md)
 
 [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+
+[How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
