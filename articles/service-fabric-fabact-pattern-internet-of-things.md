@@ -42,7 +42,7 @@ All the devices periodically send their telemetry information to the correspondi
 
 ## IoT code sample – Telemetry
 
-```
+```csharp
 public interface IThing : IActor
     {
         Task ActivateMe(string region, int version);
@@ -97,8 +97,6 @@ public class Thing : Actor<ThingState>, IThing
         return deviceGroup.RegisterDevice(State._deviceInfo);
     }
 }
-
-
 ```
 
 At the group level, as per our sample, our goal is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to specific regions where there are a certain number of fault devices. Of course our customer would like to reduce costs by minimising engineering time spent on the road. For this reason, each group actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to replace/repair these devices.
@@ -106,7 +104,7 @@ Let’s have a look how it is done:
 
 ## IoT code sample – grouping and aggregation
 
-```
+```csharp
 public interface IThingGroup : IActor
 {
     Task RegisterDevice(ThingInfo deviceInfo);
@@ -171,7 +169,6 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
         return TaskDone.Done;
     }
 }
-
 ```
 
 As we can see it is pretty straight forward. After running simple tests, the output looks like this:
