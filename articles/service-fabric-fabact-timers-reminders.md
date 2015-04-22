@@ -17,7 +17,7 @@
    ms.author="amanbha"/>
 
 
-#Actor Timers
+# Actor Timers
 Actor timers provides a simple wrapper around .NET timer such that the callback methods respects the turn based concurrency guarantees provided by the actor framework.
 
 The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due MoveObject method will be called by the framework and it is guaranteed to respect the turn based concurrency, which means that no other actor methods or timer callbacks will be in progress when this callback is invoked.
