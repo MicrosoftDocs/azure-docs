@@ -45,6 +45,7 @@ Fabric Actors allows you to create the actors that are either stateless or state
 Stateless actors, as the name suggests do not have the state that is managed by the framework. The stateless actors derive from Actor base class. They can have member variables and those would be preserved throughout the lifetime of that actor just like any other .NET types. However if that actor instance is garbage collected after being idle for some time it would lose the state stored in its member variables. Similarly if the actor process or the node fails it would lose the state stored in its member variables as well.
 
 Following is an example of a stateless actor.
+
 ```csharp
 class HelloActor : Actor, IHello
 {
@@ -57,6 +58,7 @@ class HelloActor : Actor, IHello
 
 ### Stateful Actors
 Stateful  actors have a state that needs to be preserved across activation and failovers. The stateful actors derive from Actor<TState> base class where TState is the type of the state that needs to be preserved across activations and failovers. The state can be accessed in the actor methods via State property on the base class Actor<TState>.  Following is an example of a stateful actor accessing the state.
+
 ```csharp
 class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 {
@@ -68,6 +70,7 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
+
 The storage and retrieval of the state is provided by an actor state provider. There are few default actor state providers that are included in the framework. The durability and reliability of the state is determined by the guarantees offered by the state provider. When an actor is activated its State is loaded in memory. Once the actor method returns modified state is automatically saved by the framework by calling a method on the state provider. If failure occurs during the save state, the framework recycles that actor instance. A new actor instance is created and loaded with the last consistent data from the state provider.
 
 State provider can be configured per actor or for all actors within an assembly by the state provider specific attribute. By default a stateful actor uses key value store actor state provider. This state provider is built on the distributed Key-Value store provided by Service Fabric platform. The state is durably saved on the local disk as well as replicated and durably saved on secondary replicas as well. The state save is complete only when a quorum of replicas has committed the state to their local disks. The Key-Value store has advance capabilities to detect inconsistencies such as false progress and correct them automatically. More details on the KvsActorStateProvider can be found here.
@@ -103,6 +106,7 @@ By default the framework saves Actor state upon exiting from an actor method cal
 There may be actor methods that do not modify the state. In that case the additional time spent on saving the state can affect the overall throughput of the system. To avoid that you can mark the methods and timer callback that do not modify the state as Readonly.
 
 The example below shows how to mark an actor method as readonly using Readonly attribute.
+
 ```csharp
 public interface IVoicemailBoxActor : IActor
 {
@@ -110,6 +114,7 @@ public interface IVoicemailBoxActor : IActor
     Task<List<Voicemail>> GetMessagesAsync();
 }
 ```
+
 Similarly you can pass Readonly flag when registering a timer or reminder.
 
 ## Actor Communication
@@ -121,7 +126,6 @@ The code snippet below shows the example of creating the ActorProxy to communica
 var friend = ActorProxy.Create<IHello>(ActorId.GetRandom(), ApplicationName);
 
 Console.WriteLine("\n\nFrom Actor {1}: {0}\n\n", friend.SayHello("Good morning!").Result, friend.GetActorId());
-
 ```
 
 ## See Also
