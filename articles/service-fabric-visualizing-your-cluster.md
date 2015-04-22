@@ -67,7 +67,7 @@ To view a remote Service Fabric cluster, click on **Connect** to bring up the **
 ## Next steps
 
 - [Importance of testability](service-fabric-testability-importance.md).
-- [Managing your service](service-fabric-fabsrv-managing-your-service.md).
+- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 - [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
