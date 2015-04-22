@@ -331,7 +331,7 @@ No audio stream in input media.</td></tr>
 
 ##<a id="supported_languages"></a>Supported Languages
 
-Currently, only the English language is supported.
+Currently, the English and Spanish languages are supported. For more information, see [Azure Media Indexer Spanish](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ##Related links
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using On-premises Encoders to Send Multi-bitrate Live Stream to a Channel" 
+	pageTitle="Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders Overview" 
 	description="This topic describes how to set up a Channel that receives a multi-bitrate live stream from an on-premises encoder. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/06/2015" 
 	ms.author="juliako"/>
 
-#Using On-premises Encoders to Send Multi-bitrate Live Stream to a Channel
+#Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders Overview
 
 ##Overview
 
@@ -235,12 +235,11 @@ For information on how to set up your computer, see [Set up your computer](media
 
 For an overview about streaming endpoints and information on how to manage them, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-manage-origins.md)
 
-###Using On-premises Live Encoders to Output Multi-bitrate Stream to a Channel
+###Using on-premises live encoders to output multi-bitrate stream to a Channel
 
 For more information, see [Using 3rd Party Live Encoders with Azure Media Services](https://msdn.microsoft.com/library/azure/dn783464.aspx).
 
-###Managing Channels, Programs, Assets
-For a detailed overview, see [Managing Channels and Programs overview](media-services-manage-channels-overview.md).
+###Creating Channels that receive multi-bitrate live stream from on-premises encoders
 
 Choose **Portal**, **.NET**, **REST API** to see examples.
 
