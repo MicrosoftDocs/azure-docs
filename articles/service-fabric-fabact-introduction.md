@@ -168,7 +168,7 @@ public interface IVoicemailBoxActor : IActor
 
 Timer callbacks can be marked with the `Readonly` attribute in a similar way. For reminders, the read-only flag is passed in as an argument to the `RegisterReminder` method that is invoked to register the reminder.
 
-## See Also
+## Next steps
 ### Concepts
 [Actor Lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md)
 
