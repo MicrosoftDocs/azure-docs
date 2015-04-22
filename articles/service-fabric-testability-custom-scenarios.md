@@ -18,10 +18,10 @@
 
 # Writing Custom Scenarios
 
-Testability is a suite of tools to help you test your services. The idea is to enable developers to make their business logic resilient to failures. Service Fabric makes it easy for application authors to easily write and deploy scalable and reliable services. Even with Service Fabric your distributed application can fail due to software error or infrastructure failures. You will still need to ensure your service is functioning the right way after it is restored after a machine failure. Sometimes the Service process might fail in the middle of some operation which was not handling some corner case and on recovery your might end up in some corrupted state. Using Testability faults can help you test those scenarios. This can be done by inducing faults at different states in your application hence finding bugs and improving quality.
+Testability is a suite of tools to help you test your services. The idea is to enable developers to make their business logic resilient to failures. Service Fabric makes it easy for application authors to easily write and deploy scalable and reliable services. Even with Service Fabric your distributed application can fail due to software error or infrastructure failures. You will still need to ensure your service is functioning the right way after it is restored following a machine failure. Sometimes the service process might fail in the middle of an operation which was not handling some corner case and on recovery your might end up in a corrupted state. Using Testability faults can help you test those scenarios. This can be done by inducing faults at different states in your application hence finding bugs and improving quality.
 
 ## Graceful and Ungraceful failures
-To better understand how to test these services we need to understand the two main buckets of failures.
+To better understand how to test these services we need to classify the faults into two buckets.
   + Ungraceful failures like machine restarts and process crashes.
   + Graceful failures like replica moves and drops triggered by load balancing.
 
@@ -33,6 +33,7 @@ Lets walk through an example of a serice that exposes four workloads A, B, C and
   + RemoveReplica: Graceful fault to simulate replica removal
   + MovePrimary: Graceful fault to simulate replica moves triggered by Service Fabric Load Balancer
  
+
   ```C#
     public enum ServiceWorkloads
     {
