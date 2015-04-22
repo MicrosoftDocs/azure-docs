@@ -1,6 +1,21 @@
+<properties 
+ pageTitle="Scheduler Limits, Defaults, and Error Codes" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+ 
 # Scheduler Limits, Defaults, and Error Codes
-
-Updated: January 13, 2015
 
 ## Scheduler Quotas, Limits, Defaults, and Throttles
 
@@ -58,12 +73,13 @@ API operations may also return additional error information that is defined by t
 			<Message>detailed-error-message</Message>  
 		</Error>  
 
-## See Also 
+## See Also
 
-#### Concepts
-
-[Scheduler Concepts, Terminology, and Entity Hierarchy](https://msdn.microsoft.com/library/dn528941)   
- [Get Started Using Scheduler in the Management Portal](https://msdn.microsoft.com/library/dn495651)   
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
+ [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler Outbound Authentication](https://msdn.microsoft.com/library/dn864828)   
- [Scheduler High-Availability and Reliability](https://msdn.microsoft.com/library/dn919260)
+ [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
+ [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ 

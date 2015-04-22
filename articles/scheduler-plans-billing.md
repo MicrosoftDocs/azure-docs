@@ -1,3 +1,20 @@
+<properties 
+ pageTitle="Plans and Billing in Azure Scheduler" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+ 
 # Plans and Billing in Azure Scheduler
 
 ## Job Collection Plans
@@ -48,3 +65,13 @@ Although you may disable all jobs within a job collection in a single operation,
 ## Pricing
 
 For pricing details, please see [Scheduler Pricing](http://azure.microsoft.com/pricing/details/scheduler/).
+
+## See Also
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
+ [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
+ [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
+ [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ 

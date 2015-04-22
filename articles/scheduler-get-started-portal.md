@@ -1,12 +1,10 @@
 # Get Started Using Scheduler in the Management Portal
 
-Updated: January 13, 2015
-
 ## Configure Azure Scheduler using Azure Management Portal to Quickly and Easily Create Jobs
 
 To complete this tutorial, you need an Azure account that has the Azure Scheduler feature enabled. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, refer to [Azure Free Trial](https://msdn.microsoft.com/library/).
 
-### Getting Started
+## Getting Started
 
 It's easy to create jobs and job collections on Azure Scheduler using the Azure Management Portal. This tutorial will walk you through the creation of the job collection you will use to store jobs, the creation of a job in a job collection, and an overview of the job monitoring and management tasks available through the management portal. You need prior experience with Azure to use this tutorial.
 
@@ -14,7 +12,7 @@ The first time you open the Azure Management Portal, you are automatically place
 
 ![1]
 
-### Create a Job Collection and a Job
+## Create a Job Collection and a Job
 
 1.  Sign in to the [Management Portal](https://manage.windowsazure.com/).  
 
@@ -58,7 +56,7 @@ The first time you open the Azure Management Portal, you are automatically place
 
    	![][7]
 
-### Managing and Monitoring Job Collections and Jobs
+## Managing and Monitoring Job Collections and Jobs
 
 Once a job collection is created, it shows up in the main Scheduler management screen.
 
@@ -70,9 +68,9 @@ Clicking on a job collection opens a new window with the following options:
 
 2.  Scale  
 
-3.  Jobs  
+3.  History  
 
-4.  History  
+4.  Jobs  
 
 The following topics describe these tabs in greater detail
 
@@ -210,16 +208,16 @@ The job config page appears as shown below for storage queue jobs. For storage q
 
 Finally, for all action types, you may change the schedule itself and its recurrence behavior. You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.) After making any changes, you may save changes by clicking ‘Save’ or discard changes by clicking ‘Discard.’
 
-## See Also 
+## See Also
 
-#### Concepts
-
-[Scheduler Concepts, Terminology, and Entity Hierarchy](https://msdn.microsoft.com/library/dn528941)   
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler Outbound Authentication](https://msdn.microsoft.com/library/dn864828)   
- [Scheduler High-Availability and Reliability](https://msdn.microsoft.com/library/dn919260)   
- [Scheduler Limits, Defaults, and Error Codes](https://msdn.microsoft.com/library/dn479786)
-
+ [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
+ [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
+ [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ 
 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png

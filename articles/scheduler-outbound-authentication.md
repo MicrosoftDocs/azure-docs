@@ -1,3 +1,20 @@
+<properties 
+ pageTitle="Scheduler Outbound Authentication" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+ 
 # Scheduler Outbound Authentication
 
 Scheduler jobs may need to call out to services that require authentication. This way, a called service can determine if the Scheduler job can access its resources. Some of these services include other Azure services, Salesforce.com, Facebook, and secure custom websites.
@@ -314,12 +331,11 @@ Once this request is sent, the response is as follows:
 	  }
 	}
 
-## <span>See Also</span> 
-
-#### Concepts
-
-[Scheduler Concepts, Terminology, and Entity Hierarchy](https://msdn.microsoft.com/library/dn528941)   
- [Get Started Using Scheduler in the Management Portal](https://msdn.microsoft.com/library/dn495651)   
+## See Also
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
+ [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler High-Availability and Reliability](https://msdn.microsoft.com/library/dn919260)   
- [Scheduler Limits, Defaults, and Error Codes](https://msdn.microsoft.com/library/dn479786)
+ [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
+ [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md

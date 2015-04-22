@@ -1,5 +1,24 @@
-# How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  #
-## Overview ##
+<properties 
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+
+# How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
+
+## Overview
+
 At the heart of an Azure Scheduler job is the *schedule*. The schedule determines when and how the Scheduler executes the job.
 
 Azure Scheduler allows you to specify different one-time and recurring schedules for a job. *One-time* schedules fire once at a specified time – effectively, they are *recurring* schedules that execute only once. Recurring schedules fire on a predetermined frequency.
@@ -14,7 +33,8 @@ With this flexibility, Azure Scheduler lets you support a wide variety of busine
 
 In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/azure/dn528946.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/azure/dn528937.aspx).
 
-## Supported Scenarios ##
+## Supported Scenarios
+
 The many examples in this topic illustrate the breadth of scenarios that Azure Scheduler supports. Broadly, these examples illustrate how to create schedules for many behavior patterns, including the ones below:
 
 -	Run once at a particular date and time
@@ -24,11 +44,14 @@ The many examples in this topic illustrate the breadth of scenarios that Azure S
 -	Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
 -	Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
 
-## Dates and DateTimes ##
+## Dates and DateTimes
+
 Dates in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include only the date.
 
 Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification](http://en.wikipedia.org/wiki/ISO_8601) and include both date and time parts. A Date-Time that does not specify a UTC offset is assumed to be UTC.  
-## How To: Use JSON and REST API for Creating Schedules ##
+
+## How To: Use JSON and REST API for Creating Schedules
+
 To create a simple schedule using the JSON examples in this article and the Azure Scheduler REST API, [first create a cloud service](https://msdn.microsoft.com/library/azure/dn528943.aspx), [then create a job collection](https://msdn.microsoft.com/library/azure/dn528940.aspx), and [finally create a job](https://msdn.microsoft.com/library/azure/dn528937.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
 
 	{
@@ -48,7 +71,9 @@ To create a simple schedule using the JSON examples in this article and the Azur
 	    },
 	    …
 	}
-## Overview: Job Schema Basics ##
+	
+## Overview: Job Schema Basics
+
 The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job: 
 
 |**JSON name**|**Description**|
@@ -60,6 +85,7 @@ The following table provides a high-level overview of the major elements related
 |**_endTime_**|The _endTime_ string specifies the date-time past which the job should not execute.It is not valid to have an _endTime_ in the past. If no _endTime_ or count is specified, the job runs infinitely.Both _endTime_ and _count_ cannot be included for the same job.|
 |**_count_**|<p>The _count_ is a positive integer (greater than zero) that specifies the number of times this job should run before completing.</p><p>The _count_ represents the number of times the job runs before being determined as completed. For example, for a job that is executed daily with _count_ 5 and start date of Monday, the job completes after execution on Friday.If the start date is in the past, the first execution is calculated from the creation time.</p><p>If no _endTime_ or _count_ is specified, the job runs infinitely.Both _endTime_ and _count_ cannot be included for the same job.</p>|
 |**_schedule_**|A job with a specified frequency alters its recurrence based on a recurrence schedule. A _schedule_ contains modifications based on minutes, hours, week days, month days, and week number.|
+
 ## Overview: Job Schema Defaults, Limits, and Examples
 
 After this overview, let’s discuss each of these elements in detail.
@@ -150,3 +176,12 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
+## See Also
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
+ [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+ [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ [Scheduler High-Availability and Reliability]: scheduler-high-availability-reliability.md
+ [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
+ [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ 

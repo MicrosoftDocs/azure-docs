@@ -1,6 +1,22 @@
+<properties 
+ pageTitle="Scheduler High-Availability and Reliability" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+ 
+ 
 # Scheduler High-Availability and Reliability
-
-Updated: January 13, 2015
 
 ## Azure Scheduler High-Availability
 
@@ -44,16 +60,18 @@ Note that the same retry policy applies to both the original action and the alte
 
 To learn how to configure an alternate endpoint, [refer to the section on errorAction in this topic](https://msdn.microsoft.com/library/azure/dn528941.aspx).
 
-## <span>See Also</span> 
+## See Also
 
-#### Concepts
-
-[Scheduler Concepts, Terminology, and Entity Hierarchy](https://msdn.microsoft.com/library/dn528941)   
- [Get Started Using Scheduler in the Management Portal](https://msdn.microsoft.com/library/dn495651)   
+ [Scheduler Concepts, Terminology, and Entity Hierarchy]: scheduler-concepts-terms.md
+ [Get Started Using Scheduler in the Management Portal]: scheduler-get-started-portal.md
+ [Plans and Billing in Azure Scheduler]: scheduler-plans-billing.md
+ [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler]: scheduler-advanced-complexity.md
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
- [Scheduler Outbound Authentication](https://msdn.microsoft.com/library/dn864828)   
- [Scheduler Limits, Defaults, and Error Codes](https://msdn.microsoft.com/library/dn479786)
+ [Scheduler Limits, Defaults, and Error Codes]: scheduler-limits-defaults-errors.md
+ [Scheduler Outbound Authentication]: scheduler-outbound-authentication.md
+ 
 
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+
