@@ -191,6 +191,12 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
+- [Actor Events](service-fabric-fabact-events.md) **owner: myamanbh**
+
+- [Actor Reentrancy](service-fabric-fabact-reentrancy.md) **owner: myamanbh**
+
+- [Actor Timers](service-fabric-fabact-timers-reminders.md) **owner: myamanbh**
+
 #### Reliable Services
 - [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
 
