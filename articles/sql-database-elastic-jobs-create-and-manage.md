@@ -18,9 +18,7 @@
 
 # Creating and managing elastic database jobs
 
-**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. Here's how to use elastic database jobs:
-
-**Estimated time to complete:** 10 minutes.
+**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. 
 
 ## Prerequistes
 
@@ -30,19 +28,38 @@
 
 ## Creating jobs
 
-1. In the elastic database job pool view, click **Create job**.
-2. In the Create Job view, type a name for the job.
+1. In the elastic database job pool blade, click **Create job**.
+2. In the **Create Job** blade, type a name for the job.
 3. Paste or type in the T-SQL script.
 4. Click **Save** and then click **Run**.
 
 	![Name the job, type or paste in code, and click Run][1]
-## Checking running jobs
 
-After a job has begun, you can check on its progress. Click on the name (a) of the running job. The job's page appears (b). The list (c) below the description shows the progress of the script against databases in the pool.
+## Run idempotent jobs
+
+When you run a script against a set of databases, you must be sure that the script is idempotent. That is, the script must be able to run multiple times, even if it has failed before in an incomplete state. For example, when a script fails, the job will be automatically retried until it succeeds (within limits, as the retry logic will eventually cease the retrying). The way to do this is to use the an "IF EXISTS" clause and delete any found instance before creating a new object. An example is shown here:
+
+	IF EXISTS (SELECT name FROM sys.indexes
+            WHERE name = N'IX_ProductVendor_VendorID')
+    DROP INDEX IX_ProductVendor_VendorID ON Purchasing.ProductVendor;
+	GO
+	CREATE INDEX IX_ProductVendor_VendorID 
+    ON Purchasing.ProductVendor (VendorID);
+
+
+## Checking job status
+
+After a job has begun, you can check on its progress. 
+
+1. From the elastic database pool page, click **Manage jobs**.
+
+	![Check other jobs from elastic database pool][3]
+
+2. Click on the name (a) of the running job. The job's page appears (b). The list (c) below the description shows the progress of the script against databases in the pool.
 
 ![Checking a running job][2]
 
-To check on an job that has finished runnning, from the elastic database job pool, click **Manage jobs**. Then click on the name of any job to view its details. 
+To check on an job that has finished running, from the elastic database job pool, click **Manage jobs**. Then click on the name of any job to view its details. 
 
 ![Check other jobs from elastic database pool][3]
 
