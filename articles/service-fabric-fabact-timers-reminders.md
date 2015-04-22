@@ -18,75 +18,98 @@
 
 
 # Actor Timers
-Actor timers provides a simple wrapper around .NET timer such that the callback methods respects the turn based concurrency guarantees provided by the actor framework.
+Actor timers provides a simple wrapper around .NET timer such that the callback methods respect the turn-based concurrency guarantees provided by the actor framework.
 
-The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due MoveObject method will be called by the framework and it is guaranteed to respect the turn based concurrency, which means that no other actor methods or timer callbacks will be in progress when this callback is invoked.
-
-The next period of the timer starts after the callback returns. The framework will also try to save the state when the method returns if the Actor is a stateful actor like in this case below. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a readonly timer callback in RegisterTimer.
+Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due `MoveObject` method will be called by the framework and it is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
 
 ```csharp
-    class VisualObjectActor : Actor<VisualObject>, IVisualObject
+class VisualObjectActor : Actor<VisualObject>, IVisualObject
+{
+    private IActorTimer _updateTimer;
+
+    public override Task OnActivateAsync()
     {
-        private IActorTimer _updateTimer;
- 
-        public override Task OnActivateAsync()
-        {
-         ...
- 
-            _updateTimer = RegisterTimer(
-                MoveObject,                     // callback method
-                null,                           // state to be passed to the callback method
-                TimeSpan.FromMilliseconds(15),  // amount of time to delay before callback is invoked
-                TimeSpan.FromMilliseconds(15)); // time interval between invocation of the callback method
- 
-            return base.OnActivateAsync();
-        }
- 
- 
-        public override Task OnDeactivateAsync()
-        {
-            if (_updateTimer != null)
-            {
-                UnregisterTimer(_updateTimer);
-            }
- 
-            return base.OnDeactivateAsync();
-        }
- 
-        private Task MoveObject(object state)
-        {
- 
-          ...
-            return TaskDone.Done;
-        }
+        ...
+
+        _updateTimer = RegisterTimer(
+            MoveObject,                     // callback method
+            callback method
+            TimeSpan.FromMilliseconds(15),  // amount of time to delay before callback is invoked
+            TimeSpan.FromMilliseconds(15)); // time interval between invocation of the callback method
+
+        return base.OnActivateAsync();
     }
+
+    public override Task OnDeactivateAsync()
+    {
+        if (_updateTimer != null)
+        {
+            UnregisterTimer(_updateTimer);
+        }
+
+        return base.OnDeactivateAsync();
+    }
+
+    private Task MoveObject(object state)
+    {
+        ...
+        return TaskDone.Done;
+    }
+}
 ```
+
+The next period of the timer starts after the callback completes execution. This implies that the timer is stopped while the callback is executing and is started when the callback has completed.
+
+The framework saves the actor state when the callback completes if the Actor is a stateful actor like in the example above. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a read-only timer callback by specifying the Readonly attribute on the timer callback, as described in the section on [readonly methods](service-fabric-fabact-introduction.md#readonly-methods).
+
+All timers are stopped when the actor is deactivated as part of garbage collection and no timer callbacks are invoked after that. Also, the actor framework does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, please see the section on [actor garbage collection](service-fabric-fabact-lifecycle.md).
+
 ## Actor Reminders
-Fabric Actors provides reminders are a mechanism to trigger persistent callbacks on Actor. Reminders unlike Timers are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Actors that need to provide support for reminders must implement IRemindable interface
+Reminders are a mechanism to trigger persistent callbacks on an Actor at specified times. Their functionality is similar to timers, but unlike timers reminders are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Specifically, reminders are triggered across actor deactivations and failovers because the actor framework persists information about the actor's reminders.
+
+Reminders are supported for stateful actors only. Stateless actors cannot use reminders. The actors state providers are responsible for storing information about the reminders that have been registered by actors.  
+
+To register a reminder an actor calls the `RegisterReminder` method provided on base class, as shown in the example below.
 
 ```csharp
-public interface IRemindable
+string task = "Pay cell phone bill";
+int amountInDollars = 100;
+Task<IActorReminder> reminderRegistration = RegisterReminder(
+                                                task,
+                                                BitConverter.GetBytes(amountInDollars),
+                                                TimeSpan.FromDays(3),
+                                                TimeSpan.FromDays(1),
+                                                ActorReminderAttributes.None);
+```
+
+In the example above, `"Pay cell phone bill"` is the reminder name, which is a string that the actor uses to uniquely identify a reminder. `BitConverter.GetBytes(amountInDollars)` is the context that is associated with the reminder. It will be passed back to the actor as an argument to the reminder callback, i.e. `IRemindable.ReceiveReminderAsync`.
+
+Actors that use reminders must implement `IRemindable` interface, as shown in the example below.
+
+```csharp
+public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
 {
-    Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan  period);
+    public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
+    {
+        if (reminderName.Equals("Pay cell phone bill"))
+        {
+            int amountToPay = BitConverter.ToInt32(context, 0);
+            System.Console.WriteLine("Please pay your cell phone bill of ${0}!", amountToPay);
+        }
+        return Task.FromResult(true);
+    }
 }
 ```
-When a reminder is triggered, Fabric Actors runtime will invoke ReceiveReminderAsync method on the Actor and pass in the context duetime and period parameters specified during registration.
-To register a reminder an actor can call Register method provided on base class
-```csharp
-async Task<IActorReminder> RegisterReminder(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period, ActorReminderAttributes attribute);
-```
- ReminderName parameter is a string that uniquely identifies the reminder for an Actor. Context contains any state that must be passed to ReceiveReminderAsync method. DueTime is the time span after which the first reminder fires and period is the time span for repeated reminder invocations.
-ActorReminderAttributes specify if state must be saved after ReceiveReminderAsync method call returns from Actor. The attribute can have the following values
+
+When a reminder is triggered, Fabric Actors runtime will invoke `ReceiveReminderAsync` method on the Actor. An actor can register multiple reminders and the `ReceiveReminderAsync` method is invoked any time any of those reminders is triggered. The actor can use the reminder name that is passed in to the `ReceiveReminderAsync` method to figure out which reminder was triggered.
+
+The framework saves the actor state when the `ReceiveReminderAsync` call completes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. To specify that the state need not be saved upon completion of the reminder callback, the `ActorReminderAttributes.ReadOnly` flag can be set in the `attributes` parameter when the `RegisterReminder` method is called to create the reminder.
+
+To unregister a reminder, the `UnregisterReminder` method should be called, as shown in the example below.
 
 ```csharp
-public enum ActorReminderAttributes : long
-{
-    None = 0x00,
-    ReadOnly = 0x01
-}
+IActorReminder reminder = GetReminder("Pay cell phone bill");
+Task reminderUnregistration = UnregisterReminder(reminder);
 ```
-A registered reminder will keep triggering for an Actor even after an actor has been garbage collected. To unregister a reminder Unregister method should be called.
 
-```csharp
-async Task UnregisterReminder(IActorReminder reminder);
-```
+As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
