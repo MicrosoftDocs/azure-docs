@@ -21,7 +21,10 @@
 
 This document contains the release notes for the Azure SDK for .NET 2.6 release. 
 
-##Service Bus updates:
+With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .NET 4.5.2 or .NET 4.6 provided that you manually install the target .NET Framework on the Cloud Service Role. See [Install .NET on a Cloud Service Role](http://go.microsoft.com/fwlink/?LinkID=309796).
+
+
+##Service Bus updates
 
 - Event Hubs: 
 
@@ -29,8 +32,7 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 	- Additional stability and improvement added to Event Hubs feature.
 	- Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
 
-##HDInsight Tools for Visual Studio
-
+##HDInsight Tools for Visual Studio udpates
 
 - **IntelliSense enhancement**: remote metadata suggestion
 
@@ -62,13 +64,29 @@ This document contains the release notes for the Azure SDK for .NET 2.6 release.
 
 ##Azure Tools updates
 
+The following items were updated in the Azure SDK 2.6 release.
+
 - Azure publishing enhanced to include Azure API Apps as a deployment target.
 - API Apps provisioning functionality to enable users with API App creation and provisioning functionality.
 - Server Explorer changed to reflect new App Service node, with Web, Mobile, and API apps grouped by Resource Group.
 - Add Azure API App Client gesture added to most C# projects that will enable automatic generation of Swagger-enabled API Apps running in a user’s Azure subscription.
 - API Apps tooling and App Service nodes in Server Explorer are available in Visual Studio 2013 only. 
 
-##Azure Resource Manager Tools for Visual Studio updates
+##Azure Resource Manager Tools updates
+
+The Azure resource manager tools have been updated to include templates for Virtual Machines, Networking and Storage. The JSON editing experience has been updated to include a new outline view for templates and the ability to edit the templates using JSON snippets. Templates deployed from Visual Studio use a PowerShell script provided with the project, so any changes made to the script will be used by Visual Studio.
+
+##Diagnostics improvements 
+
+Azure SDK 2.6 brings back support for collecting diagnostics logs in the Azure compute emulator and transferring them to development storage. Any diagnostics logs (including application trace Logs, Event Tracing for Windows (ETW) logs, performance counters, infrastructure logs and windows event logs) generated when the application is running in the emulator can be transferred to development storage to verify that your diagnostics logging is working on your local machine. 
+
+##Breaking changes
+
+###Azure Resource Manager Tools 
 
 - The **Cloud Deployment Projects** project type available in the Azure SDK 2.5 has been renamed to **Azure Resource Group**.
 - **Cloud Deployment Projects** type of projects created in the Azure SDK 2.5 can be used in 2.6 but deploying the template from Visual Studio will fail. However, deploying with the PowerShell script will still work as it did previously.  For information on how to use **Cloud Deployment Projects** in 2.6 read this [post](http://go.microsoft.com/fwlink/?LinkID=534086).
+ 
+##Known issues
+
+Collecting diagnostics logs in the emulator requires a 64-bit operating system. Diagnostics logs will not be collected when running on a 32-bit operating system. This does not affect any other emulator functionality. 
