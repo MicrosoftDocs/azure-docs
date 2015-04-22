@@ -120,10 +120,6 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 ### Scale Services and Partitions owner: vturecek
 
-### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
-Query Health State and Events (PowerShell) **owner: oanapl**
-
-
 ### Add/Remove Services from Applications P2 owner: vturecek
 
 ### Remove an Application owner: vturecek
