@@ -36,10 +36,54 @@ Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanm
 Install and extend the Samples **owner: vturecek**
 
 
-## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
+## Work with Applications and Services- task oriented
 
-### Develop a Service owner: vturecek
+just enough conceptual info to perform a task.  Links to Further Reading sections.
 
+### Develop a Service; owner: vturecek
+
+Choose a Programming Model **owner: seanmck**
+
+#### Manage Services
+
+Create basic management tutorial **owner: Brad**
+[Microsoft Azure Service Fabric Application Basic Management](../service-fabric-get-started-basic-management.md)
+
+
+#### Create Framework Services
+
+Create a Stateful Application **owner: vturecek**
+[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-get-started-hello-world-stateless) **owner: vturecek**
+
+Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#) **owner: vturecek**
+[]()
+
+#### Create Actor Services
+
+Create Stateless using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
+[Hello World with Actors](../service-fabric-get-started-hello-world-with-actors.md)
+
+Create Stateful using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
+**pending prioritization**
+[]()
+
+#### Communicate with services
+
+Create stateless service with Web API
+[Echo Service using Web API](../service-fabric-get-started-echo-service-using-web-api.md)
+
+Create stateful service with Web API
+[Todo Service using Web API](../service-fabric-get-started-todo-service-with-web-api.md)
+
+Create an ASP.NET v5 Application **owner: Brad**
+**skipped for //build due to lack of project-k integration**
+
+#### Fabric Service Programming Models
+
+[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
+
+Add Diagnostics code to a service **owner: Kunalds**
+=======
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
 - HOLs/tutorials **owners: Haishi, bmerrill**
@@ -55,6 +99,7 @@ Install and extend the Samples **owner: vturecek**
 - Add Diagnostics code to a service **owner: Kunalds**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)
+
 
 ### Configure a Service Manifest P2  owner: vturecek
 more advanced configuration stuff
