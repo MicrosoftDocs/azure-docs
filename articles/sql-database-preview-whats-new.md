@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -156,7 +156,7 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 | Japan East | General Availability (GA) | February 24th, 2015 |
 | North Europe | General Availability (GA) | January 29th, 2015 |
 | West Europe | General Availability (GA) | January 29th, 2015 |
-| Brazil South | Not available | Third quarter 2015, estimated |
+| Brazil South | General Availability (GA) | April 21st, 2015 |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
 

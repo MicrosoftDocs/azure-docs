@@ -39,7 +39,7 @@ Basic databases have 7 days of retention, Standard databases have 14 days of ret
 5. Specify a database name, point in time and then click **Create**.
 6. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 ###PowerShell
 Use PowerShell to programatically perform database restore.
 
@@ -49,7 +49,7 @@ To restore a database with Point in Time Restore, use the [Start-AzureSqlDatabas
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceDatabase $Database –TargetDatabaseName “NewDatabaseName” –PointInTime “2015-01-01 06:00:00”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###REST API 
 Use REST to programatically perform database restore.
@@ -60,7 +60,7 @@ Use REST to programatically perform database restore.
 	
 3.	Track the restore request using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ##Recover a deleted database
 In the event a database is deleted, Azure SQL Database allows you to restore the deleted database to the point in time of deletion. Azure SQL Database stores the deleted database backup for the retention period of the database.
@@ -76,7 +76,7 @@ The retention period of a deleted database is determined by the service tier of 
 6. Specify a database name and click **Create**.
 7. The database restore process will begin and can be monitored using **NOTIFICATIONS** on the left side of the screen.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###PowerShell
 Use PowerShell to programatically perform database restore.
@@ -93,7 +93,7 @@ To restore a deleted database, use the [Start-AzureSqlDatabaseRestore](https://m
 		$RestoreRequest = Start-AzureSqlDatabaseRestore -SourceRestorableDroppedDatabase $Database –TargetDatabaseName “NewDatabaseName”
 		Get-AzureSqlDatabaseOperation –ServerName "YourServerName" –OperationGuid $RestoreRequest.RequestID
 		 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.
 
 ###REST API 
 Use REST to programatically perform database restore.
@@ -106,4 +106,4 @@ Use REST to programatically perform database restore.
 	
 4.	Track the status of your restore by using the [Database Operation Status](http://msdn.microsoft.com/library/azure/dn720371.aspx) operation.
 
-After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalized.md) guide.
+After the restore has completed, you can configure your recovered database to be used by following the [Finalize a Recovered Database](sql-database-recovered-finalize.md) guide.

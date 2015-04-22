@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Stream Analytics developer guide | Azure" 
-	description="Learn how to develop Azure Stream Analytics applications" 
+	pageTitle="Stream Analytics Key Concepts | Azure" 
+	description="Get guidance on the key components of a Stream Analytics job, including supported inputs and outputs, job configuration details, and exposed metrics." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,15 +13,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/13/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jeffstok"/>
 
 
-# Azure Stream Analytics developer guide 
-
-[This is prerelease documentation and is subject to change in future releases.] 
+# Azure Stream Analytics key concepts 
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable, complex event processing over streaming data in the cloud. In the preview release, Stream Analytics enables customers to set up streaming jobs to analyze data streams, and allows customers to drive near real-time analytics.  
+
 
 Targeted scenarios of Stream Analytics:
 
@@ -30,7 +29,7 @@ Targeted scenarios of Stream Analytics:
 - Process telemetry data for near real-time monitoring and diagnostics 
 - Capture and archive real-time events for future processing
 
-For more information, see [Introduction to Azure Stream Analytics][stream.analytics.introduction]. 
+For more information, see [Introduction to Azure Stream Analytics](stream.analytics.introduction). 
 
 Stream Analytics jobs are defined as one or more input sources, a query over the incoming stream data, and an output target.  
 
@@ -39,10 +38,10 @@ Stream Analytics jobs are defined as one or more input sources, a query over the
 
 ### Data stream
 
-Each Stream Analytics job definition must contain at least one data-stream input source to be consumed and transformed by the job. [Azure Blob storage][azure.blob.storage] and [Azure Event Hubs][azure.event.hubs] are supported as data-stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
+Each Stream Analytics job definition must contain at least one data-stream input source to be consumed and transformed by the job. [Azure Blob storage](azure.blob.storage) and [Azure Event Hubs](azure.event.hubs) are supported as data-stream input sources. Event Hubs input sources are used to collect event streams from multiple different devices and services, while Blob storage can be used an input source for ingesting large amounts of data. Because blobs do not stream data, Stream Analytics jobs over blobs will not be temporal in nature unless the records in the blob contain timestamps.
 
 ### Reference data
-Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage][azure.blob.storage] is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
+Stream Analytics also supports a second type of input source: reference data. This is auxiliary data used for performing correlation and lookups, and the data here is usually static or infrequently changing. [Azure Blob storage](azure.blob.storage) is the only supported input source for reference data. Reference data source blobs are limited to 50MB in size.
 
 To enable support for refreshing reference data the user needs to specify a list of blobs in the input configuration using the {date} and {time} tokens inside the path pattern. The job will load the corresponding blob based on the date and time encoded in the blob names using UTC time zone.
 
@@ -52,7 +51,7 @@ For example if the job has a reference input configured in the portal with the p
 ### Serialization
 To ensure correct behavior of queries, Stream Analytics must be aware of the serialization format being used on incoming data streams. Currently supported formats are JSON, CSV, and Avro for streaming data and CSV or JSON for reference data.
 
-### Generated Properties
+### Generated properties
 Depending on the input type used in the job, some additional fields with event metadata will be generated. These fields can be queried against just like other input columns. If an existing event has a field that has the same name as one of the properties below, it will be overwritten with the input metadata.
 
 <table border="1">
@@ -100,7 +99,7 @@ When reading from input sources that have multiple partitions, and one or more p
 When streaming job query uses the TIMESTAMP BY keyword, there are no guarantees about the order in which the events will arrive to input, Some events in the same input partition may be lagging, parameter ‘Maximum allowed disorder within an input’ causes the streaming job to act on events that are outside of the order tolerance, according to ‘Action for late events’ setting, dropping their events or adjusting their events’ timestamps.
 
 ### Additional resources
-For details on creating input sources, see [Azure Event Hubs developer guide][azure.event.hubs.developer.guide] and [Use Azure Blob Storage][azure.blob.storage.use].  
+For details on creating input sources, see [Azure Event Hubs developer guide](azure.event.hubs.developer.guide) and [Use Azure Blob Storage](azure.blob.storage.use).  
 
 
 
@@ -127,7 +126,7 @@ For more complex queries, the standard SQL clause **WITH** can be used to specif
 	FROM step1 
 	GROUP BY TumblingWindow (day, 1) 
 
-To learn more about the query language, see [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]. 
+To learn more about the query language, see [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference). 
 
 ## Output
 The output target is where the results of the Stream Analytics job will be written to. Results are written continuously to the output target as the job processes input events. The following output targets are supported:
@@ -142,7 +141,7 @@ The output target is where the results of the Stream Analytics job will be writt
 
 A Stream Analytics job can be scaled through configuring streaming units, which define the amount of processing power a job receives. Each streaming unit corresponds to roughly 1MB/second of throughput. Each subscription has a quota of 12 streaming units per region to be allocated across jobs in that region.
 
-For details, see [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs].
+For details, see [Scale Azure Stream Analytics jobs](stream.analytics.scale.jobs).
 
 
 ## Monitor and troubleshoot jobs
@@ -187,17 +186,16 @@ The status of Stream Analytics jobs can be inspected in the Azure portal. Runnin
 
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum][stream.analytics.forum]. 
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
 
 ## Next steps
 
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Get started using Azure Stream Analytics][stream.analytics.get.started]
-- [Scale Azure Stream Analytics jobs][stream.analytics.scale.jobs]
-- [Azure Stream Analytics limitations and known issues][stream.analytics.limitations]
-- [Azure Stream Analytics Query Language Reference][stream.analytics.query.language.reference]
-- [Azure Stream Analytics Management REST API Reference][stream.analytics.rest.api.reference] 
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 

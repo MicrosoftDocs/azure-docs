@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/01/2015"
+   ms.date="04/17/2015"
    ms.author="larryfr"/>
 
 # Working with HDInsight on Linux (preview)
@@ -34,11 +34,11 @@ The fully qualified domain name (FQDN) to use when connecting to the cluster is 
 
 	While Ambari for your cluster is accessible directly over the Internet, some functionality relies on accessing nodes by the internal domain name used by the cluster. Since this is an internal domain name, and not public, you will receive "server not found" errors when trying to access some features over the Internet.
 
-	To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node. Use the following articles to create an SSH tunnel from a port on your local machine to the cluster:
+	To work around this problem, use an SSH tunnel to proxy web traffic to the cluster head node. Use the **SSH tunneling** section of the following articles to create an SSH tunnel from a port on your local machine to the cluster:
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X</a> - Steps on creating an SSH tunnel by using the `ssh` command.
+	* [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md): Steps on creating an SSH tunnel by using the `ssh` command.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Use SSH with Linux-based Hadoop on HDInsight from Windows</a> - Steps on using PuTTY to create an SSH tunnel.
+	* [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows): Steps on using PuTTY to create an SSH tunnel.
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -86,9 +86,23 @@ HDInsight also allows you to associate multiple Blob storage accounts with a clu
 
 During cluster creation, you selected to either use an existing Azure Storage account and container, or create a new one. Then, you probably forgot about it. You can find the Storage account and container by using the following methods.
 
+**Ambari API**
+
+1. Use the following command to retrieve HDFS configuration information:
+
+        curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
+
+2. Find the `fs.defaultFS` entry. This will contain default container and storage account name in a format similar to the following:
+
+        wasb://CONTAINTERNAME@STORAGEACCOUNTNAME.blob.core.windows.net
+
+> [AZURE.TIP] If you have installed [jq](http://stedolan.github.io/jq/), you can use the following to return just the `fs.defaultFS` entry:
+>
+> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
+
 **Azure portal**
 
-1. In the <a href="https://manage.windowsazure.com/" target="_blank">Azure portal</a>, select your HDInsight cluster.
+1. In the [Azure portal](https://manage.windowsazure.com/), select your HDInsight cluster.
 
 2. Select **Dashboard** at the top of the page.
 
@@ -96,31 +110,29 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 
 	![linked resources](./media/hdinsight-hadoop-linux-information/storageportal.png)
 
-**Azure Cross-Platform Command-Line Interface**
-
-*Coming soon!*
-
 ### How do I access Blob storage?
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface</a>. After installing, see `azure storage` for help on using storage, or see `azure blob` for blob-specific commands.
+* [Azure Cross-Platform Command-Line Interface](xplat-cli.md): Cross-platform commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
+
+* [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 
 * A variety of SDKs:
 
-	* <a href="https://github.com/Azure/azure-sdk-for-java" target="_blank">Java</a>
+	* [Java](https://github.com/Azure/azure-sdk-for-java)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-node" target="_blank">Node.js</a>
+	* [Node.js](https://github.com/Azure/azure-sdk-for-node)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-php" target="_blank">PHP</a>
+	* [PHP](https://github.com/Azure/azure-sdk-for-php)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-python" target="_blank">Python</a>
+	* [Python](https://github.com/Azure/azure-sdk-for-python)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-ruby" target="_blank">Ruby</a>
+	* [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
 
-	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
+	* [.NET](https://github.com/Azure/azure-sdk-for-net)
 
-* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">Storage REST API.</a>
+* [Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
 ## Next steps
 

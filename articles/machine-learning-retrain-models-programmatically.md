@@ -97,7 +97,7 @@ The sample code for BES will upload a file from a local drive (e.g. “C:\temp\C
   
 	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard.
 
-	With the success of this call, the new endpoint will start using a retrained model.   
+	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
 
 ##Summary  
 Using the Retraining APIs, we can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  

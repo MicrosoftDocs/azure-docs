@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Plan and prepare to upgrade to SQL Database V12" 
-	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="Plan and prepare to upgrade to SQL Database V12"
+	description="Describes the preparations and limitations involved in upgrading to version V12 of Azure SQL Database."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="sql-database" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/06/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/06/2015"
 	ms.author="genemi"/>
 
 
