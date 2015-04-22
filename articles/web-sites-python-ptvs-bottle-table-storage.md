@@ -77,7 +77,7 @@ To use storage operations, you need an Azure storage account. You can create a s
 
 	When the storage account has been created, the **Notifications** button will flash a green **SUCCESS** and the storage account's blade is open to show that it belongs to the new resource group you created.
 
-  	![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
+  	<!-- ![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png) -->
 
 5. Click the **Settings** part in the storage account's blade. Take note of the account name and the primary key.
 
