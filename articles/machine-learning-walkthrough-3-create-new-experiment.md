@@ -17,28 +17,19 @@
 	ms.author="garye"/>
 
 
-This is the third step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+# Walkthrough Step 3: Create a new Azure Machine Learning experiment
 
-[develop]: machine-learning-walkthrough-develop-predictive-solution.md
+This is the third step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.	[Create an ML workspace][create-workspace]
-2.	[Upload existing data][upload-data]
+1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3.	**Create a new experiment**
-4.	[Train and evaluate the models][train-models]
-5.	[Publish the web service][publish]
-6.	[Access the web service][access-ws]
-
-[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
-[upload-data]: machine-learning-walkthrough-2-upload-data.md
-[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
-[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
-[publish]: machine-learning-walkthrough-5-publish-web-service.md
-[access-ws]: machine-learning-walkthrough-6-access-web-service.md
+4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
-# Step 3: Create a new Azure Machine Learning experiment
 
 We need to create a new experiment in ML Studio that uses the dataset we uploaded.  
 
@@ -112,11 +103,9 @@ Our experiment now looks something like this:
  
 ![Adding Split module and R scripts][3]
 
-For more information on using R scripts in your experiments, see [Extend your experiment with R][r].
+For more information on using R scripts in your experiments, see [Extend your experiment with R](machine-learning-extend-your-experiment-with-r.md).
 
-[r]: machine-learning-extend-your-experiment-with-r.md
-
-**Next: [Train and evaluate the models][train-models]**
+**Next: [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
 
 [1]: ./media/machine-learning-walkthrough-3-create-new-experiment/create1.png

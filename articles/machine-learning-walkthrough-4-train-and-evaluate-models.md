@@ -17,28 +17,19 @@
 	ms.author="garye"/>
 
 
-This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+# Walkthrough Step 4: Train and evaluate the predictive analytic models
 
-[develop]: machine-learning-walkthrough-develop-predictive-solution.md
+This is the fourth step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
-1.	[Create an ML workspace][create-workspace]
-2.	[Upload existing data][upload-data]
-3.	[Create a new experiment][create-new]
+
+1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**Train and evaluate the models**
-5.	[Publish the web service][publish]
-6.	[Access the web service][access-ws]
-
-[create-workspace]: machine-learning-walkthrough-1-create-ml-workspace.md
-[upload-data]: machine-learning-walkthrough-2-upload-data.md
-[create-new]: machine-learning-walkthrough-3-create-new-experiment.md
-[train-models]: machine-learning-walkthrough-4-train-and-evaluate-models.md
-[publish]: machine-learning-walkthrough-5-publish-web-service.md
-[access-ws]: machine-learning-walkthrough-6-access-web-service.md
+5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
+6.	[Access the web service](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
-
-# Step 4: Train and evaluate the predictive analytic models
-
 
 In this experiment we want to try different algorithms for our predictive model. We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
@@ -116,9 +107,7 @@ Click **Scored dataset** or **Scored dataset to compare** to highlight the assoc
  
 By examining these values you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing values in the different models.  
 
-> [AZURE.TIP] Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open. For more information, see [Manage experiment iterations in Azure Machine Learning Studio][iteration].
-
-[iteration]: machine-learning-manage-experiment-iterations.md
+> [AZURE.TIP] Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open. For more information, see [Manage experiment iterations in Azure Machine Learning Studio](machine-learning-manage-experiment-iterations.md).
 
 You can also make a copy of any iteration of your experiment by clicking **SAVE AS** below the canvas. This makes a duplicate of the experiment, creating a new Run History to track your iterations of this version. The new copy is displayed in the **EXPERIMENTS** list alongside the original. This can be helpful if you want to start a new branch of experiment iterations.  
 
@@ -127,7 +116,7 @@ As an additional help to track the changes you make to module parameters, you ca
 
 ----------
 
-**Next: [Publish the web service][publish]**
+**Next: [Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png

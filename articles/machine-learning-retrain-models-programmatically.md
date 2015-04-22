@@ -9,13 +9,12 @@
 
 <tags
 	ms.service="machine-learning"
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm=""
-	ms.workload="big-data" 
 	ms.date="04/22/2015"
 	ms.author="raymondl;garye"/>
-
 
 
 #Retrain Machine Learning models programmatically  
