@@ -21,28 +21,25 @@ In order to simulate an unreliable infrastructure, Service Fabric provides devel
 
 Service Fabric provides some common test scenarios out of the box composed of these actions. It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failures case. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.
 
-C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability powershell module is installed to allow for easy use.
+C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.
 
 ## Testability actions list
-
-| Actions | Description | Managed API | Powershell Cmdlet | Gracefull/UnGracefull Faults |
+| Actions | Description | Managed API | Powershell Cmdlet | Graceful/UnGraceful Faults |
 |---------|-------------|-------------|-------------------|------------------------------|
-|CleanTestState| Removes all the test state from the cluster in case of a bad shutdown of the test driver. | CleanTestStateAsync | Remove-ServiceFabricTestState | Gracefull |
-| InvokeDataLoss | Induces data loss into a service partition. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Gracefull |
-| InvokeQuorumLoss | Puts a given stateful service partition in to quorum loss. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Gracefull |
-| Move Primary | Moves the specified primary replica of stateful service to the specified cluster node. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Gracefull |
-| Move Secondary | Moves the current secondary replica of a stateful service to a different cluster node. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Gracefull |
-| RemoveReplica | Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Gracefull |
-| RestartDeployedCodePackage | Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process which will restart all the user service replicas hosted in that process. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | UnGracefull |
-| RestartNode | Simulates a Service Fabric cluster node failure by restarting a node. | RestartNodeAsync | Restart-ServiceFabricNode | UnGracefull |
-| RestartPartition | Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition. | RestartPartitionAsync | Restart-ServiceFabricPartition | Gracefull |
-| RestartReplica | Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it. | RestartReplicaAsync | Restart-ServiceFabricReplica | Gracefull |
+|CleanTestState| Removes all the test state from the cluster in case of a bad shutdown of the test driver. | CleanTestStateAsync | Remove-ServiceFabricTestState | Graceful |
+| InvokeDataLoss | Induces data loss into a service partition. | InvokeDataLossAsync | Invoke-ServiceFabricPartitionDataLoss | Graceful |
+| InvokeQuorumLoss | Puts a given stateful service partition in to quorum loss. | InvokeQuorumLossAsync | Invoke-ServiceFabricQuorumLoss | Graceful |
+| Move Primary | Moves the specified primary replica of stateful service to the specified cluster node. | MovePrimaryAsync | Move-ServiceFabricPrimaryReplica | Graceful |
+| Move Secondary | Moves the current secondary replica of a stateful service to a different cluster node. | MoveSecondaryAsync | Move-ServiceFabricSecondaryReplica | Graceful |
+| RemoveReplica | Simulates a replica failure by removing a replica from a cluster. This will close the replica and will transition it to role 'None', removing all of its state from the cluster. | RemoveReplicaAsync | Remove-ServiceFabricReplica | Graceful |
+| RestartDeployedCodePackage | Simulates a code package process failure by restarting a code package deployed on a node in a cluster. This aborts the code package process which will restart all the user service replicas hosted in that process. | RestartDeployedCodePackageAsync | Restart-ServiceFabricDeployedCodePackage | UnGraceful |
+| RestartNode | Simulates a Service Fabric cluster node failure by restarting a node. | RestartNodeAsync | Restart-ServiceFabricNode | UnGraceful |
+| RestartPartition | Simulates a data center blackout or cluster blackout scenario by restarting some or all replicas of a partition. | RestartPartitionAsync | Restart-ServiceFabricPartition | Graceful |
+| RestartReplica | Simulates a replica failure by restarting a persisted replica in a cluster, closing the replica and then reopening it. | RestartReplicaAsync | Restart-ServiceFabricReplica | Graceful |
 | StartNode | Starts a node in a cluster which is already stopped. | StartNodeAsync | Start-ServiceFabricNode | Gracefull |
-| StopNode | Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called. | StopNodeAsync | Stop-ServiceFabricNode | Gracefull |
-| ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Gracefull |
-| ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Gracefull |
-
-
+| StopNode | Simulates a node failure by stopping a node in a cluster. The node will stay down until StartNode is called. | StopNodeAsync | Stop-ServiceFabricNode | Graceful |
+| ValidateApplication | Validates the availability and health of all Service Fabric services within an application, usually after inducing some fault into the system. | ValidateApplicationAsync | Test-ServiceFabricApplication | Graceful |
+| ValidateService | Validates the availability and health of a Service Fabric service, usually after inducing some fault into the system. | ValidateServiceAsync | Test-ServiceFabricService | Graceful |
 
 ## Running a testability action with Powershell
 
@@ -57,12 +54,16 @@ Tutorial segments:
 
 To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
+```Powershell
     Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
+```
 
 Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1" and the completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica, as follows:
 
+```Powershell
     Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed
     -PartitionKey Partition3 -CompletionMode Verify
+```
 
 **Restart-ServiceFabricNode** should be used to restart a service fabric node in a cluster. This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
 
@@ -75,7 +76,6 @@ The output of the first *Get-ServiceFabricNode* (a cmdlet from the ServiceFabric
 ### Run an action against an azure cluster
 
 Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.
-
 
 ### Further examples of using an action in powershell
 Two examples will be viewed in this section, RestartReplica and InvokeQuorumLoss.
@@ -104,7 +104,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 ```
 Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
-<u>Several parameter explaination</u> :
+Several parameter explaination:
 
 <b>CompleteMode</b> - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
 <b>OperationTimeout</b> - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
@@ -113,7 +113,6 @@ Here, RestartServiceFabricNode uses nodeName in order to be executed.
 Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica.
 
 For further information see [Partition Selector and Replica Selector](#partition_replica_selector).
-
 
 ```C#
 using System.Fabric.Testability;
@@ -132,23 +131,19 @@ public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeNam
     fabclient.ClusterManager.RestartNodeAsync(rs, completeMode).Wait();
 
 }
-
 ```
-
 
 ### Furthur examples of using an action in C#
 
 #### RestartReplica action
 ```C#
 fabricclient.ClusterManager.RestartReplicaAsync(replicaSelector, completionMode).Wait();
-
 ```
 
 #### InvokeQuorumLoss action
 
 ```C#
 fabricclient.ClusterManager.InvokeQuorumLossAsync(serviceName, partitionSelector).Wait();
-
 ```
 
 ## Partition Selector and Replica Selector
