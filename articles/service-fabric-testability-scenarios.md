@@ -121,7 +121,7 @@ class Test
 ```
 
 Powershell
-```Powershell
+```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
@@ -232,7 +232,7 @@ class Test
 ```
 
 Powershell
-```Powershell
+```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
