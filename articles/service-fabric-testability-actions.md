@@ -17,14 +17,11 @@
    ms.author="heeldin"/>
 
 # Testability actions
-
-Testability actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
+In order to simulate an unreliable infrastructure, Service Fabric provides developers with ways to simulate various real world failures and state transitions. These are exposed as Testability actions. The actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
 
 Service Fabric provides some common test scenarios out of the box composed of these actions. It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failures case. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.
 
-Actions are found in the System.Fabric.Testability.dll assembly.
-
-The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly.
+C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability powershell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability powershell module is installed to allow for easy use.
 
 ## Testability actions list
 
@@ -53,8 +50,8 @@ This tutorial shows you how to run a Testability action with PowerShell. You wil
 
 Tutorial segments:
 
-- [Run an action against a one-box cluster](#onebox_action)
-- [Run an action against an azure cluster](#azure_action)
+- [Run an action against a one-box cluster](#run-an-action-against-a-one-box-cluster)
+- [Run an action against an azure cluster](#Run-an-action-against-an-azure-cluster)
 
 ### Run an action against a one-box cluster
 
