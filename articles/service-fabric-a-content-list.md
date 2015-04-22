@@ -42,13 +42,7 @@ Install and extend the Samples **owner: vturecek**
 
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
-- Create a Stateful Application **owner: Haishi**
-
-- [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
-
-- Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
-
-- Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
+- HOLs/tutorials **owners: Haishi, bmerril**
 
 - [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
