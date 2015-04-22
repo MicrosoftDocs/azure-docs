@@ -27,7 +27,7 @@
 
 The article including best practice recommendations that you should read before deploying Azure Site Recovery. If you're looking for an introduction to Site Recovery read the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
 
-If you have any questions after reading this article post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hypervrecovmgr).
+If you have any questions after reading this article post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## Setting up Azure
@@ -76,15 +76,15 @@ You might want to set up a couple of things in Azure before you begin deployment
 
 ## Setting up VMM
 
-- **Single server**: We recommend you deploy Site Recovery with two VMM servers, one in the primary source site and one in the secondary target site. However if you need to you can deploy a single VMM server for both sites. For details see [Deploy protection with a single VMM server](https://msdn.microsoft.com/en-us/library/azure/dn495054.aspx).
+- **Single server**: We recommend you deploy Site Recovery with two VMM servers, one in the primary source site and one in the secondary target site. However if you need to you can deploy a single VMM server for both sites. For details see [Deploy protection with a single VMM server](https://msdn.microsoft.com/library/azure/dn495054.aspx).
 - **SAN replication**: If you want to replicate using SAN you'll need a primary and secondary datacenter with a VMM server in each site.
-- No VMM server: If you don't have an on-premises VMM server you can still deploy protection with Site Recovery. You can define a Hyper-V site that contains one or more on-premises Hyper-V servers and set up protection to Azure. [Read more](https://msdn.microsoft.com/en-us/library/azure/dn879142.aspx).
+- No VMM server: If you don't have an on-premises VMM server you can still deploy protection with Site Recovery. You can define a Hyper-V site that contains one or more on-premises Hyper-V servers and set up protection to Azure. [Read more](https://msdn.microsoft.com/library/azure/dn879142.aspx).
 
 
 ## Protecting virtual machines
 
 - **Supported operating system**: Site Recovery can protect virtual machines running an operating system that's supported by Azure. This includes most versions of Windows and Linux. 
-- **Azure requirements**: Make sure any virtual machines you want to protect conform with [Azure prerequisites](https://msdn.microsoft.com/en-us/library/azure/dn469078.aspx#BKMK_E2A). Note that Azure now supports generation 2 virtual machines.
+- **Azure requirements**: Make sure any virtual machines you want to protect conform with [Azure prerequisites](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A). Note that Azure now supports generation 2 virtual machines.
 - **VHDX support**: Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises the virtual machines continue to use the VHDX format.
 
 
@@ -94,7 +94,7 @@ You might want to set up a couple of things in Azure before you begin deployment
 
 - **Azure storage account**: If you're replicating to Azure you'll need an Azure storage account. The account should have geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. To learn more read [Introduction to Microsoft Azure Storage](storage-introduction).
 - **Storage classifications**: If you're replicating between two on-premises datacenters by default the replica virtual machine will be stored on the located indicated on the target Hyper-V host server. You can configure more granular control with storage mapping that maps between storage classifications on source and target VMM servers. If you want to use this feature make sure you have storage classifications set up before you begin deployment. See 
-Configure storage classifications on the VMM servers before you begin Azure Site Recovery deployment. See [How to create storage classifications in VMM](https://technet.microsoft.com/en-us/library/gg610685.aspx).
+Configure storage classifications on the VMM servers before you begin Azure Site Recovery deployment. See [How to create storage classifications in VMM](https://technet.microsoft.com/library/gg610685.aspx).
 	- Storage classifications must be available to the host groups located in source and target clouds.
 	- Classifications don’t need to have the same type of storage. For example you can map a source classification that contains SMB shares to a target classification that contains CSVs.
 - **SAN**: If you want to replicate between two on-premises sites with SAN replication note that:
@@ -104,7 +104,7 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 	- To do this you'll need to discover and classify SAN storage in VMM, and create LUNs and allocate storage. For instructions see [Integrate and classify storage](site-recovery-vmm-san/#step-1-prepare-the-vmm-infrastructure).
 	- You can only replicate Hyper-V virtual machines to a secondary datacenter using SAN replication. You can't replicate to Azure.
 	- Before you start deployment make sure your SAN array is [supported](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx).
-	- Make sure your Hyper-V host clusters are running Windows Server 2012 or 2012 R2 if you want to deploy SAN replication. [Read about](https://technet.microsoft.com/en-us/library/cc794868%28v=ws.10%29.aspx) guest operating systems supported by different versions of Hyper-V.
+	- Make sure your Hyper-V host clusters are running Windows Server 2012 or 2012 R2 if you want to deploy SAN replication. [Read about](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx) guest operating systems supported by different versions of Hyper-V.
 
 
 ## Setting up networks
@@ -117,10 +117,10 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 	- **Network mapping to secondary site**: If you're replicating to a secondary VMM site network mapping ensures that virtual machines are connected to appropriate networks after failover and that replica virtual machines are optimally placed on Hyper-V host servers. If you don't configure network mapping replicated machines won't be connected to any VM network.
 
 - **Set up VMM networks**:
-	- Configure logical and VM networks correctly in VMM. Read about [logical networks](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) and [VM networks](https://technet.microsoft.com/en-us/library/jj721575.aspx).
+	- Configure logical and VM networks correctly in VMM. Read about [logical networks](http://blogs.technet.com/b/scvmm/archive/2013/02/14/networking-in-vmm-2012-sp1-logical-networks-part-i.aspx) and [VM networks](https://technet.microsoft.com/library/jj721575.aspx).
 	- Make sure that all virtual machines on the source VMM server are connected to a VM network.
 	- Check that VM networks are linked to a logical network associated with the cloud.
-	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](https://msdn.microsoft.com/en-US/library/azure/dn133795.aspx).
+	- If you're replicating to Azure create virtual networks in Azure. Note that multiple VM networks can be mapped to a single Azure network. Read [Virtual network configuration tasks](https://msdn.microsoft.com/library/azure/dn133795.aspx).
 
 
 ## Optimizing performance
@@ -133,7 +133,7 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 - **Replication bandwidth**: If you're short on replication bandwidth note that:
 	- **ExpressRoute**: Site Recovery works with Azure ExpressRoute and WAN optimizers such as Riverbed. [Read more](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) about ExpressRoute.
 	- **Replication traffic**: Site Recovery uses performs a smart initial replication using only data blocks and not the entire VHD. Only changes are replicated during ongoing replication.
-	- **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/en-us/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://msdn.microsoft.com/en-us/library/azure/dn168844.aspx).
+	- **Network traffic**: You can control network traffic used for replication by setting up [Windows QoS](https://technet.microsoft.com/library/hh967468.aspx) with a policy based on the destination IP address and port.  In addition if you're replicating to Azure Site Recovery using the Azure Backup agent. You can configure throttling for that agent. [Read more](https://msdn.microsoft.com/library/azure/dn168844.aspx).
 - **RTO**: If you want to measure the recovery time objective (RTO) you can expect with Site Recovery we suggest you run a test failover and view the Site Recovery jobs to analyze how much time it takes to complete the operations. If you're failing over to Azure, for the best RTO we recommend that you automate all manual actions by integrating with Azure automation and recovery plans.
 - **RPO**: Site Recovery supports a near-synchronous recovery point objective (RPO) when you replicate to Azure. This assumes sufficient bandwith between your datacenter and Azure.
 
@@ -145,7 +145,7 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 - **Retain non-RFC internal addresses in Azure**: You can retain non-RFC 1918 address spacees after failover to Azure.
 - **Partial failover to secondary datacenter**: If you fail over a partial site to your secondary datacenter and want to connect back to the primary site, you can use site-to-site VPN to connect a failed over application on the secondary site to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
 - **Partial failover to Azure**: If you fail over a partial site to Azure and want to connect back to the primary site, you can use a site-to-site VPN to connect a failed over application in Azure to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
-- **Retain drive letter**: If you want to retain drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**.  [Read more](https://technet.microsoft.com/en-us/library/gg252636.aspx).
+- **Retain drive letter**: If you want to retain drive letter on virtual machines after failover you can set the SAN policy for the virtual machine to **On**.  [Read more](https://technet.microsoft.com/library/gg252636.aspx).
 - **Routing client requests after failover to Azure**: Site Recovery works with Azure Traffic Manager to route client requests to your application after failover. You can use scripts in recovery plans (with Azure Automation) to perform DNS updates.
 
 ## Integration
@@ -157,7 +157,7 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 After reviewing these best practices you can start deploying Site Recovery:
 
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure) 
-- [Set up protection between an on-premises Hyper-V site and Azure](https://msdn.microsoft.com/en-us/library/azure/dn879142.aspx) 
+- [Set up protection between an on-premises Hyper-V site and Azure](https://msdn.microsoft.com/library/azure/dn879142.aspx) 
 - [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm) 
 - [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san) 
 
