@@ -35,7 +35,7 @@ You'll need an account in [Microsoft Azure](http://azure.com). You might already
 
 What you want | What to do  | What you get
 ---|---|---
-[![ASP.NET](./media/appinsights/appinsights-gs-i-01-perf.png)][greenbrown] | [Add Application Insights SDK to your web project][greenbrown] <br/> ![gets](./media/appinsights/appinsights-00arrow.png)  | [![Performance and usage monitoring](./media/appinsights/appinsights-gs-r-01-perf.png)][greenbrown]
+[![ASP.NET](./media/appinsights/appinsights-gs-i-01-perf.png)][greenbrown]|[Add Application Insights SDK to your web project][greenbrown]<br/>![gets](./media/appinsights/appinsights-00arrow.png)  | [![Performance and usage monitoring](./media/appinsights/appinsights-gs-r-01-perf.png)][greenbrown]
 [![ASP.NET site already live](./media/appinsights/appinsights-gs-i-04-red2.png)][redfield]<br/>[![Dependency and performance monitoring](./media/appinsights/appinsights-gs-i-03-red.png)][redfield]|[Install Status Monitor on your IIS server][redfield]<br/>![gets](./media/appinsights/appinsights-00arrow.png) | [![ASP.NET dependency monitoring](./media/appinsights/appinsights-gs-r-03-red.png)][redfield]
 [![Azure web app or VM](./media/appinsights/appinsights-gs-i-10-azure.png)][azure]|[Enable Insights in your Azure web app or VM][azure]<br/>![gets](./media/appinsights/appinsights-00arrow.png)  | [![Dependency and performance monitoring](./media/appinsights/appinsights-gs-r-03-red.png)][azure]
 [![Java](./media/appinsights/appinsights-gs-i-11-java.png)][java]|[Add the SDK to your Java project][java]<br/>![gets](./media/appinsights/appinsights-00arrow.png)  | [![Performance and usage monitoring](./media/appinsights/appinsights-gs-r-10-java.png)][java]
