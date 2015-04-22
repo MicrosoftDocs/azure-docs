@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/21/2015" 
+	ms.date="04/22/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
@@ -107,15 +107,15 @@ Go to the **Query** tab of your job. Write your query, the output of which you w
     		MAX(hmdt) AS hmdt,
     		MAX(temp) AS temp,
     		time 
+    FROM
+        Input
     	INTO
     		OutPBI
-    	FROM
-    		Input
     	WHERE 
     		dspl = 'mysensor' 
     	GROUP BY 
     		TUMBLINGWINDOW(ss,1),
-    		time,
+        time
 
     
     

@@ -16,17 +16,15 @@
 	ms.date="04/13/2015" 
 	ms.author="garye"/>
 
-#Create a simple experiment in Azure Machine Learning Studio 
+#Create your first experiment in Azure Machine Learning Studio 
  
-In this article, 
-we'll create a machine learning model that will predict the price of an automobile based on different variables such as make and technical specifications. 
-To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
+In this article, we'll create a machine learning model that will predict the price of an automobile based on different variables such as make and technical specifications. To do this, we'll use Azure Machine Learning Studio to develop and iterate on a simple predictive analytics experiment. 
 
 A predictive analytics experiment, at its core, consists of components to *create a model*, *train the model*, and *score and test the model*. You can combine these to create an experiment that takes data, trains a model against it, and applies the model to new data. You can also add modules to preprocess data and select features, split data into training and test sets, and evaluate or cross-validate the quality of your model.  
 
 To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For help getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/). 
 
-And for more general information about Azure Machine Learning, see [What is machine learning?](machine-learning-what-is-machine-learning.md).
+And for more general information about Machine Learning Studio, see [What is Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
  
 
 ##Five steps to create an experiment 

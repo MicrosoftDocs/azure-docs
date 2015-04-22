@@ -3,7 +3,7 @@
 	description="Presents a Python code sample you can use to connect to Azure SQL Database from a Windows client. The sample uses the pyodbc driver."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="meet-bhagdev" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="04/18/2015" 
-	ms.author="genemi"/>
+	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using Python on Windows

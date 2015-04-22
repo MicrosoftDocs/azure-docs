@@ -24,7 +24,7 @@ API Apps are part of the [Azure App Service](app-service-value-prop-what-is.md) 
 
 The API Apps part of this suite provides a highly scalable, globally available platform for RESTful web services.
 
-## Why API apps?
+## Why API Apps?
 
 An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.   
 

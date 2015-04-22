@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/21/2015"
+	ms.date="04/22/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs
@@ -198,7 +198,7 @@ Below are the results with increasing number of Streaming units and correspondin
 <tr><td>48</td>
 <td>48</td>
 <td>48</td>
-<td>32.32 MB/s</td>
+<td>38.32 MB/s</td>
 </tr>
 
 <tr><td>192</td>
@@ -207,6 +207,17 @@ Below are the results with increasing number of Streaming units and correspondin
 <td>172.67 MB/s</td>
 </tr>
 
+<tr><td>480</td>
+<td>480</td>
+<td>480</td>
+<td>454.27 MB/s</td>
+</tr>
+
+<tr><td>720</td>
+<td>720</td>
+<td>720</td>
+<td>609.69 MB/s</td>
+</tr>
 </table>
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
