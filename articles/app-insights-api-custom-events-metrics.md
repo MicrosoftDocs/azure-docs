@@ -115,29 +115,6 @@ Use the same string as the first parameter in the start and stop calls.
 
 Look at the Page Duration metric in [Metrics Explorer][metrics].
 
-## Authenticated users
-
-By default, users are counted by installing cookies in their browsers. But if your application requires users to login, you can use the authenticated user ids to provide more accurate figures.
-
-As well as a user id, you can supply an [organizational account id](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions). This enables you to see how many companies or institutions have used your app.
-
-*JavaScript* - insert this before first call to trackPageView:
-
-    // Queue until all scripts are loaded:
-    appInsights.queue.push(function(){
-
-      // Individual user id:
-      appInsights.context.user.id = "userId";
-
-      // Organization account id:
-      appInsights.context.user.accountId = "orgId";
-    }); 
-
-Since authentication is done in the server, you would insert the IDs on generating the web page. For example in a Razor script in ASP.NET MVC:
-
-      appInsights.context.user.id = "@User.Identity.Name";
-
-To see the resulting data in Application Insights, create new charts in [Metric Explorer][metrics] to display the Users and User Accounts metrics.
 
 ## Track Event
 
@@ -365,33 +342,6 @@ To see the results, open Metrics Explorer and add a new chart. Set it to display
 ![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 
-
-## Pre-aggregation
-
-If you have a large volume of metrics you want to send, you can save some bandwidth by aggregating them in your application. Send the results at intervals:
-
-
-*C#*
-
-    private double sum, min, max = 0;
-    private int count = 0;
-
-    // Call this instead of TrackMetric
-    private void LogMyMetric(double value) {
-      sum += value;
-      if (value < min || count == 0) min = value;
-      if (value > max || count == 0) max = value;
-      count++;
-      if (count >= 100)
-      {
-        appInsights.TrackMetric("MyMetric", 
-          sum/count, // average
-          count,
-          min, max,
-          properties);
-        sum = count = 0;
-      }
-    }
 
 ## Track Request
 
