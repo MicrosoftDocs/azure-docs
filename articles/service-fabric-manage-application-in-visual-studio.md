@@ -69,7 +69,7 @@ An application package needs to be created in order to deploy the application an
 - [Visualizing your cluster using Service Fabric Explorer](../service-fabric-visualizing-your-cluster)
 
 <!--Image references-->
-[addserviceproject]:./media/service-fabric-fabsrv-managing-your-services/addserviceproject.png
-[manageservicefabric]: ./media/service-fabric-fabsrv-managing-your-services/manageservicefabric.png
-[newservice]:./media/service-fabric-fabsrv-managing-your-services/newservice.png
-[newserviceapplicationmanifest]:./media/service-fabric-fabsrv-managing-your-services/newserviceapplicationmanifest.png
+[addserviceproject]:./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
+[manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
+[newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
+[newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png

@@ -51,8 +51,8 @@ You can save time and money by deploying and debugging your Service Fabric appli
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](../service-fabric-testability-importance).
-- [Managing your service](../service-fabric-fabsrv-managing-your-service).
+- [Importance of testability](service-fabric-testability-importance.md).
+- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
