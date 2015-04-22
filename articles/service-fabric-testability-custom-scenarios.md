@@ -3,7 +3,7 @@
    description="How to harden your services against Graceful/Ungraceful failures"
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmola"
+   authors="anmolah"
    manager="timlt"
    editor=""/>
 
