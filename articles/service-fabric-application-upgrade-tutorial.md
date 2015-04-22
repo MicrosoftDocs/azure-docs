@@ -115,7 +115,7 @@ In a few minutes, the UpgradeDomain status using the above PowerShell command sh
 You may want to try changing the versions and moving from version 2 to version 3 as an exercise, or even from version 2 back to version 1 (yes, you can upgrade from v2 to v1). Play with timeouts and health policies to make yourself familiar. When you are deploying to an Azure cluster, the parameters used will be different than those that worked when deploying to a local cluster - it is recommended to set the timeouts conservatively.
 
 
-## Next Steps
+## Next steps
 
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)

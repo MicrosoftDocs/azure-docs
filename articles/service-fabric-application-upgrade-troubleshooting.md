@@ -56,7 +56,7 @@ Upgrade rollback cannot occur faster than HealthCheckWaitDuration + HealthCheckR
 
 The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current UD begins.
 
-## Next Steps
+## Next steps
 
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)

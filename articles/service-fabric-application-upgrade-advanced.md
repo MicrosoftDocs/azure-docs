@@ -38,7 +38,7 @@ Occasions when using a diff package would be a good choice:
 
 * A diff package is preferred when you have a deployment system which generates the build layout directly from your application build process. In this case, even though nothing in the code has changed, newly built assemblies will have a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
 
-## Next Steps
+## Next steps
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
