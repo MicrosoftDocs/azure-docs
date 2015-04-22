@@ -101,9 +101,12 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
 ### Package, Deploy and Remove an Application
+
 - [Service Model](service-fabric-service-model.md)
 
 - [Application Model](service-fabric-application-model.md)
+
+- [Package an Application](service-fabric-application-model.md) **owner: alexwun**
 
 - [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md) **owner: alexwun**
 
