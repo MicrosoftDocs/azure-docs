@@ -3,7 +3,7 @@
    description="High-level overview of the reliable service architecture" 
    services="service-fabric" 
    documentationCenter=".net" 
-   authors="alanwar" 
+   authors="AlanWarwick" 
    manager="timlt" 
    editor=""/>
 
