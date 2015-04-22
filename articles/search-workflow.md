@@ -22,7 +22,7 @@ This article is a roadmap for including Azure Search as a component that provide
 
 In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort. 
 
-Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/en-us/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
 ##Prototype development
 
