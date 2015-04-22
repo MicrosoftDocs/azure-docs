@@ -6,7 +6,7 @@
    authors="AlanWarwick" 
    manager="timlt" 
    editor=""/>
-
+ 
 <tags
    ms.service="Service-Fabric"
    ms.devlang="dotnet"
