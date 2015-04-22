@@ -34,7 +34,7 @@ If a failure occurs when attempting to install the elastic database job service,
 
 Alternatively, use this PowerShell script:
 
-1. Launch a Microsoft Azure PowerShell window.
+1. Launch a [Microsoft Azure PowerShell window](powershell-install-configure.md). 
 2. Ensure you are using PowerShell SDK version 0.8.10 or later.
 3. Run the script:
 

@@ -35,11 +35,15 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) 
 - [Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) 
 - [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) 
+- [Actor Events](service-fabric-fabact-events.md)
+- [Actor Reentrancy](service-fabric-fabact-reentrancy.md)
+- [Actor Timers](service-fabric-fabact-timers-reminders.md)
 
 ## Reliable Service programming model
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
 
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md) 
+- [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-fabsrv-communication-webapi)
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) 
 - [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  
 - [Architecture](service-fabric-fabsrv-platform-architecture.md) 
