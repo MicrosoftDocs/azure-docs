@@ -23,7 +23,7 @@ Service Fabric provides some common test scenarios out of the box composed of th
 
 C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.
 
-## Graceful vs ungraceful fault actions
+## Graceful vs. ungraceful fault actions
 Testability actions are classified into to major buckets. 
 
 •Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of state can run before the application starts up again.
