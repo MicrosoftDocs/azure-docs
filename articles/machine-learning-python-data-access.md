@@ -3,7 +3,7 @@
 	description="Install and use the Python client library to access and manage Azure Machine Learning data securely from a local Python environment." 
 	services="machine-learning" 
 	documentationCenter="python" 
-	authors="huvalo, bradsev" 
+	authors="huguesv" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
-	ms.author="bradsev" />
+	ms.author="huvalo;bradsev" />
 
 
 #Access datasets with Python using the Azure Machine Learning Python client library 

@@ -3,7 +3,7 @@
 	description="Outlines the design principles underlying support for Python in Azure Machine Learning and the basic usage scenarios, capabilities, and limitations." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
-	ms.author="bradsev" />
+	ms.author="bradsev;garye" />
 
 
 # Execute Python scripts in Azure Machine Learning

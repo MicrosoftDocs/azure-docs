@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sunliangms,fashah,msolhab" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
-	ms.author="sunliangms,fashah,msolhab,garye" /> 
+	ms.author="sunliangms;fashah;msolhab;garye" /> 
 
 #<a name="heading"></a>Process Azure Blob data in your data science environment
 

@@ -3,7 +3,7 @@
 	description="Explains how to evaluate model performance in Azure Machine Learning." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
-	ms.author="bradsev" />
+	ms.author="bradsev;garye" />
 
 
 # How to evaluate model performance in Azure Machine Learning

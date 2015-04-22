@@ -5,7 +5,7 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="kbaroni" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun"  />
 
@@ -16,7 +16,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/21/2015" 
-	ms.author="kbaroni;" />
+	ms.author="kbaroni;garye" />
 
 # Using linear regression in Azure Machine Learning
 

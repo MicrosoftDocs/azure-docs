@@ -2,6 +2,7 @@
 	pageTitle="Creating Endpoints" 
 	description="Creating web service endpoints in Azure Machine Learning" 
 	services="machine-learning" 
+	documentationCenter="" 
 	authors="hiteshmadan" 
 	manager="padou" 
 	editor="cgronlun"/>
