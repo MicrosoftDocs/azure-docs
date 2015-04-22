@@ -66,11 +66,11 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-In this tutorial, we will focus on the **RunAsync()** entry point method where you can immediately start running your code. 
+In this tutorial, we will focus on the `RunAsync()` entry point method where you can immediately start running your code. 
 
 > [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-fabsrv-communication-webapi.md)
 
-The project template includes an example implementation of *RunAsync()* that increments a rolling count.
+The project template includes an example implementation of `RunAsync()` that increments a rolling count.
 
 ### RunAsync
 
@@ -92,7 +92,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 The platform calls this method when an instance of your service is placed and ready to execute. For stateless services, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole, because the system may move your service instances around for resource balancing, when faults occur, during application or system upgrades, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
 
-*RunAsync* is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is **important** to honor the cancellation token, finish up any work, and exit the RunAsync method as quickly as possible when cancellation is requested by the system. 
+`RunAsync()` is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is **important** to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when cancellation is requested by the system. 
 
 In the stateless service, the count is stored in a local variable. But because this is a stateless service, the value that's being stored only exists for the lifetime of the service instance that it's in. When the service moves or restarts, the value is lost. 
 
