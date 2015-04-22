@@ -125,7 +125,7 @@ Elastic pool provides a single pool of available resources to share across a gro
 
 
 ## Next steps
-- [Create Jobs against all databases in a pool]()
+- [Create Jobs against all databases in a pool](sql-database-elastic-jobs-create-and-manage.md)
 
 ## Related
 - [Manage Elastic Pools with REST API]()

@@ -13,31 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/15/2015"
+   ms.date="04/21/2015"
    ms.author="ryanwi"/>
 
 # Diagnose and troubleshoot a Service Fabric service
+Monitoring, detecting, diagnosing and troubleshooting allows for services to continue with minimal disruption to user experience. To learn more, read:
 
-### Troubleshoot and monitor services locally owners: kunalds, toddpf
-Connect to and view the local development cluster 
+- [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+- [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
 
-View system events fromm the local development cluster using Visual Studio 
+## Health model
+Service Fabric introduces a health model that provides a rich, flexible and extensible reporting and evaluation functionality for Service Fabric entities. Service Fabric components report health out of the box on all entities. User services can enrich the health data with information specific to their logic, reported on themselves or other entities in the cluster. To learn more, read:
 
-Write trace events from a service 
-
-View trace events for a service using Visual Studio 
-
-Debug a service in Visual Studio using F5 
-
-### Upgrade an Application 
-Perform an un-monitored automatic application upgrade 
-
-Perform a monitored automatic application upgrade 
-
-Perform an un-monitored manual application upgrade 
-
-Upgrade an application (PowerShell) 
-
-Handle application upgrade failures 
-
-
+- [Azure Service Fabric Health](service-fabric-health-introduction.md) 
+- [View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+- [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
