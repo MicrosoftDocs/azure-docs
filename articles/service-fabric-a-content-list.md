@@ -86,8 +86,6 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 - [Run a scenario](service-fabric-testability-scenarios.md) - P1 **owner: vturecek**
 
-- Run the Chaos Test - P1 **owner: anmola**
-
 - Validating and troubleshooting - P1 **owner: anmola**
 
 - Testing during development - P2 **owner: rsinha**
@@ -103,6 +101,8 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
 ### Package, Deploy and Remove an Application
+- [Service Model](service-fabric-service-model.md)
+
 - [Application Model](service-fabric-application-model.md)
 
 - [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md) **owner: alexwun**
@@ -199,6 +199,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Operations](service-fabric-fabsrv-managing-your-services.md) **owner: jesseb, alanwar**
 
+## P2 conceptual topics
 ### PaaS v2 and Cloud Applications
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
