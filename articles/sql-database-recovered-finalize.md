@@ -32,7 +32,7 @@ This article provides a checklist of tasks that you need to go through before pu
 
 ## Update Connection Strings
 
-Verify connection strings of your application are pointing to the newly recovered database, Update your connection strings if one of the below situations applies:
+Verify connection strings of your application are pointing to the newly recovered database. Update your connection strings if one of the below situations applies:
 
   + The recovered database uses a different name from the source database name
   + The recovered database is on a different server from the source server
