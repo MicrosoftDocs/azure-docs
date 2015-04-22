@@ -20,7 +20,132 @@
 
 A Service Fabric Application contains one or more services that run your code. This tutorial walks you through the steps of creating both stateless and stateful "Hello World" Service Fabric Applications using the [*Reliable Services* programming model](service-fabric-reliable-services-introduction.md). 
 
-A stateless service is the type of service that mostly exists in cloud applications today. The service is considered stateless because the service itself does not contain data that needs to stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable. 
+A stateless service is the type of service that mostly exists in cloud applications today. The service is con
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sidered stateless because the service itself does not contain data that needs to stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable. 
 
 Service Fabric introduces a new kind of service that is stateful: A service that can maintain state reliably within the service itself, co-located with the code that's using it. Your state is  made highly available by Service Fabric without the need to persist state to an external store. 
 
@@ -154,7 +279,7 @@ IReliableDictionary<string, long> myDictionary = await this.StateManager.GetOrAd
 
 Reliable Collections can store any .NET type - including your custom types - with a couple of caveats:
 
- 1. Service Fabric makes your state highly-available by *replicating* state across nodes and storing it to local disk. This means everything that is stored in a Reliable Collection must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/en-us/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/en-us/library/ms731923%28v=vs.110%29.aspx) when using the default serializer.
+ 1. Service Fabric makes your state highly-available by *replicating* state across nodes and storing it to local disk. This means everything that is stored in a Reliable Collection must be *serializable*. By default, Reliable Collections use [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) for serialization, so it's important to make sure your types are [supported by the Data Contract Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) when using the default serializer.
  2. Objects are replicated for high-availability when you commit a transaction on a Reliable Collection. Objects stored in Reliable Collections are kept in local memory in your service, which means you have a local reference to the object. It is important that you do not mutate local instances of those objects without performing an update operation on the Reliable Collection in a transaction, as those changes will not be replicated automatically.
 
 The *StateManager* takes care of managing Reliable Collections for you. Simply ask the StateManager for a reliable collection by name at any time, any place in your service and it ensures you get a reference back. Saving references to Reliable Collection instances in class member variables or properties is not recommended, as special care must be taken to ensure the reference is set to an instance at all times in the service lifecycle. The StateManager handles this work for you, optimized for repeat visits. 
