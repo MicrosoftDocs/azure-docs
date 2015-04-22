@@ -1,6 +1,6 @@
 ﻿<properties
    pageTitle="Azure Backup - Offline Backup using Azure Import/Export Service"
-   description="Learn how Azure Backup enables you to send data off-the-network using Azure Import/Export service"
+   description="Learn how Azure Backup enables you to send data off-the-network using Azure Import/Export service. This articles explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
    authors="prvijay"
@@ -52,12 +52,19 @@ The information provided in this section is for completing the **Offline Backup*
   ![DPM Import screen][8]
 
 where:
+
 + **Staging Location** - This refers to the temporary storage location to which the initial backup copy is written. This could be on a network share or on the local machine.
+
 + **Azure Import Job Name** - As part of completing this workflow, you will need to create an *Import job* in the Azure portal (covered in the later part of the document). Provide an input which you plan to use later in the Azure portal as well.
+
 + **Azure Publish Settings** - This is an XML file which contains information about your subscription profile. It also contains secure credentials associated to your subscription. The file can be downloaded from [here](https://manage.windowsazure.com/publishsettings). Provide the local path to the publish settings file.
+
 + **Azure Subscription ID** - Provide the Azure subscription id in which you plan to initiate the Azure Import job. If you have multiple Azure subscriptions, use the ID associated with the Import job.
+
 + **Azure Storage Account** - Enter the name of the Azure storage account that will be associated with this Import job.
+
 + **Azure Storage Container** - Enter the name of the destination storage blob where this job’s data will be imported.
+
 
 Complete the workflow and select **Backup Now** in the Azure Backup mmc, to initiate the offline backup copy. The initial backup is written to the staging area as part of this step.<br/>
 
