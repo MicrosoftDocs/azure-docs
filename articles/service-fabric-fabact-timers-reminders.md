@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Lifecycle"
-   description="Azure Service Fabric Actor Lifecycle"
+   pageTitle="Azure Service Fabric Actors Timers and Reminders"
+   description="Azure Service Fabric Actors Timers and Reminders"
    services="service-fabric"
    documentationCenter=".net"
    authors="myamanbh"

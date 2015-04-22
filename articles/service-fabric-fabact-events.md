@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Lifecycle"
-   description="Azure Service Fabric Actor Lifecycle"
+   pageTitle="Azure Service Fabric Actors Events"
+   description="Azure Service Fabric Actor Events"
    services="service-fabric"
    documentationCenter=".net"
    authors="myamanbh"
@@ -17,7 +17,7 @@
    ms.author="amanbha"/>
 
 
-## Actor Events
+# Actor Events
 Actor events provides a way to send best effort notifications of changes from the Actor to the clients. Actor events are designed for Actor-Client communication and should NOT be used for Actor-to-Actor communication.
 
 Following code snippets shows how to use actor events in your application.
