@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/16/2015"
+ ms.date="04/17/2015"
  ms.author="larryfr"/>
 
 # Develop Scalding MapReduce jobs with Apache Hadoop on HDInsight
@@ -31,7 +31,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 or later
 
-## Create the project
+## Create and build the project
 
 1. Use the following command to create a new Maven project:
 
@@ -181,7 +181,7 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
         mvn package
 
-    Once this job completes, the application package can be found at **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
+    Once this job completes, the package containing the WordCount application can be found at **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
 ## Run the job on a Linux-based cluster
 
@@ -256,7 +256,25 @@ In this document, learn how to use Maven to create a basic word count MapReduce 
 
         Get-HDInsightFile -clusterName $clusterName -remotePath example/wordcountout/part-00000 -localPath output.txt
 
-    The output consists of tab delimited word and count values. You can view it in notepad or any other text editor.
+7. The output consists of tab delimited word and count values. use the following command to display the results.
+
+        cat output.txt
+
+    The file should contain values similar to the following:
+
+        writers 9
+        writes  18
+        writhed 1
+        writing 51
+        writings        24
+        written 208
+        writtenthese    1
+        wrong   11
+        wrongly 2
+        wrongplace      1
+        wrote   34
+        wrotefootnote   1
+        wrought 7
 
 7. If the output is empty, or the file doesn't exist, you can use the following to view any errors that occurred when running the job:
 

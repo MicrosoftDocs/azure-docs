@@ -4,7 +4,7 @@
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="04/20/2015" 
 	ms.author="awills"/>
 
 # Custom events and metrics with the Application Insights API
@@ -115,29 +115,6 @@ Use the same string as the first parameter in the start and stop calls.
 
 Look at the Page Duration metric in [Metrics Explorer][metrics].
 
-## Authenticated users
-
-By default, users are counted by installing cookies in their browsers. But if your application requires users to login, you can use the authenticated user ids to provide more accurate figures.
-
-As well as a user id, you can supply an [organizational account id](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions). This enables you to see how many companies or institutions have used your app.
-
-*JavaScript* - insert this before first call to trackPageView:
-
-    // Queue until all scripts are loaded:
-    appInsights.queue.push(function(){
-
-      // Individual user id:
-      appInsights.context.user.id = "userId";
-
-      // Organization account id:
-      appInsights.context.user.accountId = "orgId";
-    }); 
-
-Since authentication is done in the server, you would insert the IDs on generating the web page. For example in a Razor script in ASP.NET MVC:
-
-      appInsights.context.user.id = "@User.Identity.Name";
-
-To see the resulting data in Application Insights, create new charts in [Metric Explorer][metrics] to display the Users and User Accounts metrics.
 
 ## Track Event
 
@@ -165,24 +142,24 @@ For example, to count how many games have been won:
 
 The top events show up on the overview blade:
 
-![](./media/appinsights/appinsights-23-customevents-1.png)
+![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
 Click through to see an overview chart and a complete list.
 
 Select the chart and segment it by Event name to see the relative contributions of the most significant events.
 
-![](./media/appinsights/appinsights-23-customevents-2.png)
+![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
 From the list below the chart, select an event name to see individual occurrences of the event.
 
-![](./media/appinsights/appinsights-23-customevents-3.png)
+![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 
 ## <a name="properties"></a>Filter, search and segment your data with properties
 
 You can attach properties and measurements to your metrics, events, page views, and other telemetry data. 
 
-**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you’ll want to attach the name of the game to each event, so that you can see which games are more popular. 
+**Properties** are string values that you can use to filter your telemetry in the usage reports. For example if your app provides several games, you'll want to attach the name of the game to each event, so that you can see which games are more popular. 
 
 There's a limit of about 1k on the string length. (If you want to send large chunks of data, use the message parameter of TrackTrace.)
 
@@ -244,27 +221,27 @@ Metric values should be >= 0 to be correctly displayed.
 
 **If you used metrics**, open Metric Explorer and select the metric from the Custom group:
 
-![](./media/app-insights-web-track-usage/03-track-custom.png)
+![Open metric explorer, select the chart, and select the metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 *If your metric doesn't appear, close the selection blade, wait a while, and click Refresh.*
 
 **If you used properties and metrics**, segment the metric by the property:
 
 
-![](./media/app-insights-web-track-usage/04-segment-metric-event.png)
+![Set Grouping, then select the property under Group by](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
 
 
 **In Diagnostic Search**, you can view the properties and metrics of individual occurrences of an event.
 
 
-![](./media/appinsights/appinsights-23-customevents-4.png)
+![Select an instance, then select '...'](./media/appinsights/appinsights-23-customevents-4.png)
 
 
 Use the Search field to see event occurrences with a particular property value.
 
 
-![](./media/appinsights/appinsights-23-customevents-5.png)
+![Type a term into Search](./media/appinsights/appinsights-23-customevents-5.png)
 
 [Learn more about search strings][diagnostic]
 
@@ -362,36 +339,9 @@ In fact, you might do this in a background thread:
 
 To see the results, open Metrics Explorer and add a new chart. Set it to display your metric.
 
-![](./media/app-insights-web-track-usage/03-track-custom.png)
+![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 
-
-## Pre-aggregation
-
-If you have a large volume of metrics you want to send, you can save some bandwidth by aggregating them in your application. Send the results at intervals:
-
-
-*C#*
-
-    private double sum, min, max = 0;
-    private int count = 0;
-
-    // Call this instead of TrackMetric
-    private void LogMyMetric(double value) {
-      sum += value;
-      if (value < min || count == 0) min = value;
-      if (value > max || count == 0) max = value;
-      count++;
-      if (count >= 100)
-      {
-        appInsights.TrackMetric("MyMetric", 
-          sum/count, // average
-          count,
-          min, max,
-          properties);
-        sum = count = 0;
-      }
-    }
 
 ## Track Request
 
@@ -505,6 +455,44 @@ This includes standard telemetry sent by the platform-specific telemetry modules
       appInsights.config.measurements = {Score: game.score};
     });
 
+
+## Set instrumentation key in code for all telemetry
+
+Instead of getting the instrumentation key from the configuration file, you can set it in your code. You might want to do this, for example, to send telemetry from test installations to a different Application Insights resource than telemetry from the live application.
+
+Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+
+*C#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+In web pages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a web page generated in an ASP.NET app:
+
+*JavaScript in Razor*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
 ## <a name="defaults"></a>Set defaults for selected custom telemetry
 
 If you just want to set default property values for some of the custom events that you write, you can set them in a TelemetryClient. They are attached to every telemetry item sent from that client. 
@@ -542,41 +530,14 @@ Individual telemetry calls can override the default values in their property dic
 
 
 
-
-## Set instrumentation key in code
-
-Instead of getting the instrumentation key from the configuration file, you can set it in your code. You might want to do this, for example, to send telemetry from test installations to a different Application Insights resource than telemetry from the live application.
-
-Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+## Set the instrumentation key for selected custom telemetry
 
 *C#*
+    
+    var telemetry = new TelemetryClient();
+    telemetry.Context.InstrumentationKey = "---my key---";
+    // ...
 
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.Settings["ikey"];
-      ...
-
-*JavaScript*
-
-    appInsights.config.instrumentationKey = myKey; 
-
-
-In web pages, you might want to set it from the web server's state, rather than coding it literally into the script. For example, in a web page generated in an ASP.NET app:
-
-*JavaScript in Razor*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
 
 
 ## Disable standard telemetry
@@ -610,6 +571,10 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 * [Java reference](http://dl.windowsazure.com/applicationinsights/javadoc/)
 
 
+* *Q: Is there a REST API?*
+
+    Yes, but we aren't publishing it yet.
+
 ## <a name="next"></a>Next steps
 
 
@@ -618,8 +583,48 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 [Troubleshooting][qna]
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

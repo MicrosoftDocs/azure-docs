@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Monitor any web site's availability and responsiveness" 
+	pageTitle="Monitor availability and responsiveness of any web site" 
 	description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,10 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="04/21/2015" 
 	ms.author="awills"/>
  
-# Monitor any web site's availability and responsiveness
+# Monitor availability and responsiveness of any web site
+
+
+[AZURE.INCLUDE [app-insights-get-started](../includes/app-insights-get-started.md)]
 
 After you've deployed your web application, you can set up web tests to monitor its availability and responsiveness. Application Insights will send web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
 
@@ -23,11 +26,16 @@ After you've deployed your web application, you can set up web tests to monitor 
 
 You can set up web tests for any HTTP endpoint that is accessible from the public internet.
 
-*Is it an Azure website? Just [create the web test in the website blade][azurewebtest].*
+There are two types of web test:
+
+* [URL ping test](#set-up-a-url-ping-test): a simple test that you can create in the Azure portal.
+* [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
+
+*Is it an Azure web app? Just [create the web test in the web app blade][azure-availability].*
 
 
 
-## Set up a web test
+## Set up a URL ping test
 
 ### <a name="create"></a>1. Create a new resource?
 
@@ -39,35 +47,34 @@ Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https
 
 ### <a name="setup"></a>2. Create a web test
 
-Go to the Web test blade for your application, and add a new web test. 
+Open the Web tests blade for your application, and add a web test. 
 
 ![Fill at least the URL of your website](./media/app-insights-web-tests-availability/13-availability.png)
 
 - **The URL** must be visible from the public internet. It can include a query string - so for example you could exercise your database a little. If the URL resolves to a redirect, we will follow it, up to 10 redirects.
 
-- **Test locations** are the places from where our servers send web requests to your URL. Choose two or three so that you can distinguish problems in your website from network issues. You can't select more than three.
+- **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 - **Success criteria**:
-    **HTTP return codes**: 200 is usual. 
 
-    **Content match** string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+    **HTTP status code**: 200 is usual. 
 
-- **Alerts**: By default, alerts are sent to you if there are repeated failures over 15 minutes. But you can change it to be more or less sensitive, and you can also change the notified email addresses.
+    **Content match**: a string, like "Welcome!" We'll test that it occurs in every response. It must be a plain string, without wildcards. Don't forget that if your page content changes you might have to update it.
+
+- **Alerts** are, by default, sent to you if there are repeated failures over 15 minutes. But you can change it to be more or less sensitive, and you can also change the notified email addresses.
 
 #### Test more URLs
 
-You can add more tests for as many URLs as you like. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
-
-![On the web tests blade, choose Add](./media/app-insights-web-tests-availability/16-another-test.png)
+You can add tests for as many URLs as you like. For example, as well as testing your home page, you could make sure your database is running by testing the URL for a search.
 
 
 ### <a name="monitor"></a>3. View availability reports
 
-After 1-2 minutes, click Refresh on the overview blade. (In this release, it doesn't refresh automatically.)
+After 1-2 minutes, click Refresh on the availability blade. (It doesn't refresh automatically.)
 
 ![Summary results on the home blade](./media/app-insights-web-tests-availability/14-availSummary.png)
 
-The chart on the overview blade combines results for all the web tests of this application.
+The chart on the availability blade combines results for all the web tests of this application.
 
 #### Page components
 
@@ -79,24 +86,25 @@ If any component fails to load, the test is marked failed.
 
 ## <a name="failures"></a>If you see failures...
 
-Click through to the webtests blade to see separate results for each test.
-
-Open a specific web test.
+In the Web tests blade, scroll down and click a test where you see failures.
 
 ![Click a specific webtest](./media/app-insights-web-tests-availability/15-webTestList.png)
 
-Scroll down to **Failed tests** and pick a result.
+This shows you the results for that test.
+
+![Click a specific webtest](./media/app-insights-web-tests-availability/16-1test.png)
+
+The test is run from several locations - pick one where the results are less than 100%.
 
 ![Click a specific webtest](./media/app-insights-web-tests-availability/17-availViewDetails.png)
 
-The result shows the reason for failure.
+
+Scroll down to **Failed tests** and pick a result.
+
+Click the result to evaluate it in the portal and see why it failed.
 
 ![Webtest run result](./media/app-insights-web-tests-availability/18-availDetails.png)
 
-For more details you can click on the web test result and evaluate it step by step right in the portal. By clicking on individual failure you can see response header, response body and exceptions.
-
-
-![Webtest run result](./media/app-insights-web-tests-availability/appinsights-71webtestResultonthePortal.png)
 
 Alternatively, you can download the result file and inspect it in Visual Studio.
 
@@ -105,7 +113,7 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 
 
 
-##<a name="multistep"></a>Multi-step web tests
+## Multi-step web tests
 
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you could test that adding items to the shopping cart works correctly. 
 
@@ -202,9 +210,48 @@ You might want to disable web tests while you are performing maintenance on your
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 
-
-
-[azurewebtest]: insights-create-web-tests.md

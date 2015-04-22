@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="2/5/2015" 
+	ms.date="04/17/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -211,11 +211,7 @@ You can use WebMatrix to modify the site and republish it to your Azure website.
 
 8. Click on the link to open the website in your browser and test the update on your Azure website.
 
-# Next Steps
-
-You've seen how to create and deploy a website from WebMatrix to Azure. To learn more about WebMatrix, check out these resources:
-
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+## Next Steps
 
 * [WebMatrix web site](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 

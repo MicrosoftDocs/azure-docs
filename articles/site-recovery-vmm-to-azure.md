@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2015"
+	ms.date="04/14/2015"
 	ms.author="raynew"/>
 
 #  Set up protection between an on-premises VMM site and Azure

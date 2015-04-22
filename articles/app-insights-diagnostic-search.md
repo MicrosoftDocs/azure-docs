@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/04/2015" 
+	ms.date="04/22/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -117,131 +117,37 @@ You might want to set a time range, as searches over a shorter range are faster.
 
 Search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
-<table>
-  <tr><th>term</th><th>is NOT matched by</th><th>but these do match</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+term|is *not* matched by|but these do match
+---|---|---
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
+
 
 Here are the search expressions you can use:
 
-<table>
-                    <tr>
-                      <th>
-                        <p>Sample query</p>
-                      </th>
-                      <th>
-                        <p>Effect</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">slow</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find all events in the date range whose fields include the term "slow"</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">database??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database01, databaseAB, ...</p>
-                        <p>? is not allowed at the start of a search term.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">database*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database, database01, databaseNNNN</p>
-                        <p>* is not allowed at the start of a search term</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain both terms. Use capital "AND", not "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain either term. Use "OR", not "or".</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple -banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain one term but not the other.</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>app* AND banana NOT (grape OR pear)</p>
-                        <p>
-                          <span class="code">app* AND banana -(grape pear)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Logical operators and bracketing.</p>
-                        <p>Shorter form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>"Metric" : 0 TO 500</p>
-                        <p>
-                          "Metric" : 500 TO *
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain the named measurement within the value range.</p>
-                        <p></p>
-                      </td>
-                    </tr>
+Sample query | Effect 
+---|---
+slow|Find all events in the date range whose fields include the term "slow"
+database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
+database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
+apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
+apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
+app* AND banana -(grape pear)|Logical operators and bracketing.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Find events that contain the named measurement within the value range.
 
-</table>
 
 ## Save your search
 
 When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
 
-![](./media/app-insights-diagnostic-search/08-favorite-save.png)
+![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
 
 
 To see the search again, **go to the overview blade** and open Favorites:
 
-![](./media/app-insights-diagnostic-search/09-favorite-get.png)
+![Favorites tile](./media/app-insights-diagnostic-search/09-favorite-get.png)
 
 If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
 
@@ -262,6 +168,10 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 
 Up to 500 events per second from each application. Events are retained for seven days.
 
+### How can I see POST data in my server requests?
+
+We don't log the POST data automatically, but you can use [TrackTrace or log calls][trace]. Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
+
 ## <a name="add"></a>Next steps
 
 * [Send logs and custom telemetry to Application Insights][trace]
@@ -272,8 +182,48 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 
