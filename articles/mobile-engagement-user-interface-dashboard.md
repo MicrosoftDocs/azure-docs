@@ -16,22 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-user-interface.md)
-- [Navigation](mobile-engagement-user-interface-navigation.md)
-- [Home](mobile-engagement-user-interface-home.md)
-- [My Account](mobile-engagement-user-interface-my-account.md)
-- [Analytics](mobile-engagement-user-interface-analytics.md)
-- [Monitor](mobile-engagement-user-interface-monitor.md)
-- [Reach](mobile-engagement-user-interface-reach.md)
-- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
-- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
-- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
-- [Reach - How To](mobile-engagement-how-tos.md)
-- [Segments](mobile-engagement-user-interface-segments.md)
-- [Dashboard](mobile-engagement-user-interface-dashboard.md)
-- [Settings](mobile-engagement-user-interface-settings.md)
-
 # How to view and manage charts of data about your application
 The Dashboard section of the UI allows customers to create customized charts to maximize their time by providing the exact information they want instead of searching for it in the analytics section. A dashboard shows the trends of your application and the Active User Counts for the different versions of your application during a given time (hour/day/week/month/customized). The trends shown are based on the last 7 days.
 

@@ -16,23 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="../mobile-engagement-user-interface-home/" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-reach-campaign" title="Reach-Campaign">Reach - Campaign</a>
-<a href="../mobile-engagement-user-interface-reach-criterion" title="Reach-Criterion">Reach - Criterion</a>
-<a href="../mobile-engagement-user-interface-reach-content" title="Reach-Content">Reach - Content</a>
-<a href="../mobile-engagement-how-tos" title="Reach-How-To">Reach - How To</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
 # How to manage the global settings of your application
 The Settings menu options available for an application vary, depending on the platform of the application and the permissions you have been granted for the application. Settings include the following: Details, Projects, Native Push, Push Speed, SDK, Tracking, App Info, Commercial Pressure, and Permissions. Only the App Info menu option of the Settings section of the UI contains elements that can be managed with the “Tag” feature of the Device API. The “Glossary” in “Concepts” includes the definitions of terms and abbreviations, such as the following: APNS, GCM, IDFA, API, SDK, API Key, SDK Key, Application ID (App ID), AppStore ID, Tag Plan, User ID, Device ID, App Delegate, Stack Trace, and Deep linking.
 

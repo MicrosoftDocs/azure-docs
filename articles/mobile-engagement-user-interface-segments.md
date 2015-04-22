@@ -16,22 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-user-interface.md)
-- [Navigation](mobile-engagement-user-interface-navigation.md)
-- [Home](mobile-engagement-user-interface-home.md)
-- [My Account](mobile-engagement-user-interface-my-account.md)
-- [Analytics](mobile-engagement-user-interface-analytics.md)
-- [Monitor](mobile-engagement-user-interface-monitor.md)
-- [Reach](mobile-engagement-user-interface-reach.md)
-- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
-- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
-- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
-- [Reach - How To](mobile-engagement-how-tos.md)
-- [Segments](mobile-engagement-user-interface-segments.md)
-- [Dashboard](mobile-engagement-user-interface-dashboard.md)
-- [Settings](mobile-engagement-user-interface-settings.md)
-
 # How to create and manage segments of users to identify usage patterns
 The Segments section of the UI allows you to work on segmenting your users based on the different behavior and analytics that you can get from the application and can also access through the Segments API. Segments are first computed 24 hours after they are created, and they are recomputed every 24 hours based on the latest analytics information. Once a segment is calculated, it displays a "Day to day history" chart each day.
 

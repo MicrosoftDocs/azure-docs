@@ -16,15 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-troubleshooting-guide.md)
-- [Analytics](mobile-engagement-troubleshooting-guide-analytics.md)
-- [APIs](mobile-engagement-troubleshooting-guide-apis.md)
-- [Push/Reach](mobile-engagement-troubleshooting-guide-push-reach.md)
-- [Service](mobile-engagement-troubleshooting-guide-service.md)
-- [SDK](mobile-engagement-troubleshooting-guide-sdk.md)
-- [Service Request Info](mobile-engagement-troubleshooting-guide-sr-info.md)
-
 # Troubleshooting guide for API issues
 
 The following are possible issues you may encounter with how administrators interact with Azure Mobile Engagement via the APIs.

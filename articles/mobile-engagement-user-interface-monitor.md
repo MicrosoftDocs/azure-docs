@@ -16,22 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-user-interface.md)
-- [Navigation](mobile-engagement-user-interface-navigation.md)
-- [Home](mobile-engagement-user-interface-home.md)
-- [My Account](mobile-engagement-user-interface-my-account.md)
-- [Analytics](mobile-engagement-user-interface-analytics.md)
-- [Monitor](mobile-engagement-user-interface-monitor.md)
-- [Reach](mobile-engagement-user-interface-reach.md)
-- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
-- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
-- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
-- [Reach - How To](mobile-engagement-how-tos.md)
-- [Segments](mobile-engagement-user-interface-segments.md)
-- [Dashboard](mobile-engagement-user-interface-dashboard.md)
-- [Settings](mobile-engagement-user-interface-settings.md)
-
 # How to monitor real time data about your application
 The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the "Analytics" section of the UI. The “Glossary” in “Concepts” has the definitions of terms and abbreviations in Analytics and Monitoring, such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info.
 

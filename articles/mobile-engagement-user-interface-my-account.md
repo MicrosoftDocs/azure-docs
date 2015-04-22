@@ -16,23 +16,6 @@
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-
-> [AZURE.SELECTOR]
-- [Introduction](mobile-engagement-user-interface.md)
-- [Navigation](mobile-engagement-user-interface-navigation.md)
-- [Home](mobile-engagement-user-interface-home.md)
-- [My Account](mobile-engagement-user-interface-my-account.md)
-- [Analytics](mobile-engagement-user-interface-analytics.md)
-- [Monitor](mobile-engagement-user-interface-monitor.md)
-- [Reach](mobile-engagement-user-interface-reach.md)
-- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
-- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
-- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
-- [Reach - How To](mobile-engagement-how-tos.md)
-- [Segments](mobile-engagement-user-interface-segments.md)
-- [Dashboard](mobile-engagement-user-interface-dashboard.md)
-- [Settings](mobile-engagement-user-interface-settings.md)
-
 # How to manage your account profile and test devices 
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 
