@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Service Fabric Actors Events"
-   description="Azure Service Fabric Actor Events"
+   description="Introduction to Events for Azure Service Fabric Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="myamanbh"
@@ -24,14 +24,14 @@ Following code snippets shows how to use actor events in your application.
 
 Define an interface that describes the events published by the actor. The arguments of the methods must be data contract serializable. The methods must return void as event notifications are one-way and best effort.
 
-```
+```csharp
   public interface IGameEvents
   {
      void GameScoreUpdated(Guid gameId, string currentScore);
   }
 ```
 Declare the events published by the actor in the actor interface.
-```
+```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 {
     Task UpdateGameStatus(GameStatus status);
@@ -42,7 +42,7 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
 ```
 
 On the client side implement the event handler.
-```
+```csharp
 class GameEventsHandler : IGameEvents
 {
     public void GameScoreUpdated(Guid gameId, string currentScore)
@@ -52,7 +52,7 @@ class GameEventsHandler : IGameEvents
 }
 ```
 On the client, create proxy to the actor that publishes the event and subscribe to them.
-```
+```csharp
 var proxy = ActorProxy.Create<IGameActor>(
               new ActorId(Guid.Parse(arg)), ApplicationName);
 
@@ -61,7 +61,7 @@ proxy.SubscribeAsync(new GameEventsHandler()).Wait();
 In the event of failovers the actor may failover to a different process or node. The actor proxy manages the active subscriptions and automatically re-subscribes them. You can control the re-subscription interval through SubscribeAsync API. To unsubscribe use Unsubscribe API.
 
 On the actor simply publishes the events as they happen. If there are subscribers subscribed to the event, the framework will send them the notification.
-```
+```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), State.Status.Score);
 ```

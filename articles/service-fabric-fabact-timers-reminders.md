@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Service Fabric Actors Timers and Reminders"
-   description="Azure Service Fabric Actors Timers and Reminders"
+   description="Introduction to Timers and Reminders for Azure Service Fabric Actors."
    services="service-fabric"
    documentationCenter=".net"
    authors="myamanbh"
@@ -24,7 +24,7 @@ The example below shows the use of timer APIs. The APIs are very similar to the 
 
 The next period of the timer starts after the callback returns. The framework will also try to save the state when the method returns if the Actor is a stateful actor like in this case below. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a readonly timer callback in RegisterTimer.
 
-```
+```csharp
     class VisualObjectActor : Actor<VisualObject>, IVisualObject
     {
         private IActorTimer _updateTimer;
@@ -64,7 +64,7 @@ The next period of the timer starts after the callback returns. The framework wi
 ## Actor Reminders
 Fabric Actors provides reminders are a mechanism to trigger persistent callbacks on Actor. Reminders unlike Timers are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Actors that need to provide support for reminders must implement IRemindable interface
 
-```
+```csharp
 public interface IRemindable
 {
     Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan  period);
@@ -72,13 +72,13 @@ public interface IRemindable
 ```
 When a reminder is triggered, Fabric Actors runtime will invoke ReceiveReminderAsync method on the Actor and pass in the context duetime and period parameters specified during registration.
 To register a reminder an actor can call Register method provided on base class
-```
+```csharp
 async Task<IActorReminder> RegisterReminder(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period, ActorReminderAttributes attribute);
 ```
  ReminderName parameter is a string that uniquely identifies the reminder for an Actor. Context contains any state that must be passed to ReceiveReminderAsync method. DueTime is the time span after which the first reminder fires and period is the time span for repeated reminder invocations.
 ActorReminderAttributes specify if state must be saved after ReceiveReminderAsync method call returns from Actor. The attribute can have the following values
 
-```
+```csharp
 public enum ActorReminderAttributes : long
 {
     None = 0x00,
@@ -87,6 +87,6 @@ public enum ActorReminderAttributes : long
 ```
 A registered reminder will keep triggering for an Actor even after an actor has been garbage collected. To unregister a reminder Unregister method should be called.
 
-```
+```csharp
 async Task UnregisterReminder(IActorReminder reminder);
 ```

@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Service Fabric Actors Reentrancy"
-   description="Azure Service Fabric Actor Reentrancy"
+   description="Introduction to Reentrancy for Azure Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
    authors="myamanbh"
@@ -23,7 +23,7 @@
    Actors that want to disallow logical call context based reentrancy can disable it by decorating the actor class with ReentranAttribute(ReentrancyMode.Disallowed).
 
 
-   ```
+   ```csharp
    public enum ReentrancyMode
    {
        LogicalCallContext = 1,
@@ -33,7 +33,7 @@
 
    The following code shows actor class that sets the reentrancy mode to Disallowed. In this case if an actor sends a reentrant message to another actor an exception of type FabricException will be thrown
 
-   ```
+   ```csharp
    [Reentrant(ReentrancyMode.Disallowed)]
    class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
    {
