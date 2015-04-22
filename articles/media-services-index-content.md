@@ -3,7 +3,7 @@
 	description="Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. This topic shows how to use Media Indexer." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/21/2015" 
 	ms.author="juliako"/>
 
 
@@ -331,7 +331,7 @@ No audio stream in input media.</td></tr>
 
 ##<a id="supported_languages"></a>Supported Languages
 
-Currently, only the English language is supported.
+Currently, the English and Spanish languages are supported. For more information, see [Azure Media Indexer Spanish](http://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ##Related links
 

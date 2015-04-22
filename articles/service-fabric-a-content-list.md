@@ -42,13 +42,7 @@ Install and extend the Samples **owner: vturecek**
 
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
-- Create a Stateful Application **owner: Haishi**
-
-- [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-stateless-helloworld.md) **owner: Haishi**
-
-- Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#)
-
-- Create Stateless and Stateful applications using .NET Actor Framework  (volatile, durable stateful)
+- HOLs/tutorials **owners: Haishi, bmerrill**
 
 - [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
@@ -124,14 +118,7 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
-Upgrade an application (PowerShell) **owner: alexwun**
-
-
 ### Scale Services and Partitions owner: vturecek
-
-### Query and Evaluate Application, Service, Partition, Replica Health  Owners: kunalds, oanapl
-Query Health State and Events (PowerShell) **owner: oanapl**
-
 
 ### Add/Remove Services from Applications P2 owner: vturecek
 
@@ -191,6 +178,12 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
 
+- [Actor Events](service-fabric-fabact-events.md) **owner: myamanbh**
+
+- [Actor Reentrancy](service-fabric-fabact-reentrancy.md) **owner: myamanbh**
+
+- [Actor Timers](service-fabric-fabact-timers-reminders.md) **owner: myamanbh**
+
 #### Reliable Services
 - [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
 
@@ -207,7 +200,6 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
 ### Service State
-### Service Model
 ### Application and Service Types
 ### Names and Properties/Naming Service
 ### Image Store
