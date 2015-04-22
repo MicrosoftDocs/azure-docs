@@ -51,7 +51,7 @@ This tutorial shows you how to run a Testability action with PowerShell. You wil
 Tutorial segments:
 
 - [Run an action against a one-box cluster](#run-an-action-against-a-one-box-cluster)
-- [Run an action against an azure cluster](#Run-an-action-against-an-azure-cluster)
+- [Run an action against an azure cluster](#run-an-action-against-an-azure-cluster)
 
 ### Run an action against a one-box cluster
 
