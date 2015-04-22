@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="4/22/2015" 
+ ms.date="04/22/2015" 
  ms.author="krisragh"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
