@@ -1,6 +1,6 @@
 <properties
-	pageTitle="The Azure Cross-Platform Command-Line Interface"
-	description="Connect to Azure subscription from the Azure Cross-Platform Command-Line Interface"
+	pageTitle="Log in from the Azure CLI for Mac, Linux, and Windows"
+	description="Connect to Azure subscription from the Azure CLI for Mac, Linux, and Windows"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/20/2015"
+	ms.date="04/22/2015"
 	ms.author="dkshir"/>
 
 # Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows
@@ -124,9 +124,9 @@ Once you are connected to your Azure subscription, you can start using the xplat
 <a id="additional-resources"></a>
 ## Additional resources
 
-* [List of detailed Service Management commands][Using the Azure Cross-Platform Command Line Interface]
+* [Using the Azure CLI with the Service Management (or ASM mode) commands][xplatasm]
 
-* [Using the Azure Cross-platform command line interface with the Resource Manager][xplatarm]
+* [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
 
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
@@ -140,7 +140,7 @@ Once you are connected to your Azure subscription, you can start using the xplat
 
 [authandsub]: http://msdn.microsoft.com/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
 [free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
-[xplatarm]: xplat-cli-azure-resource-manager.md
 [portal]: https://manage.windowsazure.com
 [signuporg]: http://azure.microsoft.com/en-us/documentation/articles/sign-up-organization/
-[Using the Azure Cross-Platform Command Line Interface]: virtual-machines-command-line-tools.md
+[xplatasm]: virtual-machines-command-line-tools.md
+[xplatarm]: xplat-cli-azure-resource-manager.md
