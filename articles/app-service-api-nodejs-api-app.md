@@ -2,7 +2,7 @@
 	pageTitle="Build and deploy a Node.js API app in Azure App Service"
 	description="Learn how to create a Node.js API app package and deploy it to Azure App Service."
 	services="app-service\api"
-	documentationCenter=".net"
+	documentationCenter="nodejs"
 	authors="pkefal"
   manager="",
   editor=""/>
@@ -11,7 +11,7 @@
 	ms.service="app-service-api"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
+	ms.devlang="nodejs"
 	ms.topic="article"
 	ms.date="04/21/2015"
 	ms.author="pakefali"/>
