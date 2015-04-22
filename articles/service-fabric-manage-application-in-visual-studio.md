@@ -40,7 +40,7 @@ The deployment can be removed using **Remove Deployment**.  This will revert the
 
 1. Remove any running application instances
 2. Unregister the application type
-3. Removing the application package from the image store
+3. Remove the application package from the image store
 
 ## Adding a service to your Service Fabric application
 
