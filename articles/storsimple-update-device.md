@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2015"
+   ms.date="04/22/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
@@ -42,7 +42,7 @@ Regular updates are non-disruptive updates that can be installed when the device
 
 ### Maintenance mode updates
 
-Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](#change device modes). You cannot use the Management Portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
+Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](#change-device-modes). You cannot use the Management Portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
 
 For details on how to install Maintenance mode updates, see [Install Maintenance mode updates via Windows PowerShell for StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 
@@ -50,17 +50,15 @@ For details on how to install Maintenance mode updates, see [Install Maintenance
 
 ## Install regular updates via the Management Portal
 
-You can use the Management Portal to apply updates manually or you can use the portal to configure automatic updates.
+You can use the Management Portal to apply updates to your StorSimple device.
 
-[AZURE.INCLUDE] [storsimple-install-updates-manually-include](../includes/storsimple-install-updates-manually-include.md)
-
-[AZURE.INCLUDE] [storsimple-configure-auto-updates-include](../includes/storsimple-configure-auto-update-include.md)
+[AZURE.INCLUDE] [storsimple-install-updates-manually](../includes/storsimple-install-updates-manually.md)
 
 ## Install regular updates via Windows PowerShell for StorSimple
 
 Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.
 
-[AZURE.INCLUDE] [storsimple-install-regular-updates-powershell-include](../includes/storsimple-install-regular-updates-powershell-include.md)
+[AZURE.INCLUDE] [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)
 
 ## Install Maintenance mode updates via Windows PowerShell for StorSimple
 
