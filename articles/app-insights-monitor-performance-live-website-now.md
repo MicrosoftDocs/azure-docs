@@ -31,7 +31,7 @@ Status Monitor works for ASP.NET applications hosted on an IIS server. It enable
 Beside enabling monitoring, Status Monitor helps troubleshoot issues with Application Insights SDK and shows you the status of monitoring of all web applications running on the computer. 
 
 
-*Are you using an [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/) or [Azure Web App](websites-learning-map.md)? Just [add the monitor from the control panel](insights-perf-analytics.md).*
+*Are you using an [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/) or [Azure App Service Web Apps](websites-learning-map.md)? Just [add the monitor from the control panel](insights-perf-analytics.md).*
 
 
 ## Install Application Insights Status Monitor on your web server
