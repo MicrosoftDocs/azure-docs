@@ -16,9 +16,9 @@
    ms.date="04/10/2015"
    ms.author="alexwun"/>
 
-#Model an application in Service Fabric
+# Model an application in Service Fabric
 
-##Understand the application model
+## Understand the application model
 
 An application is composed of one or more services, each of which is further composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
