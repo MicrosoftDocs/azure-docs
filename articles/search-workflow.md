@@ -18,64 +18,73 @@
 
 # Typical workflow for Azure Search development
 
-In this article is a roadmap for building applications that include Azure Search as a component that provides the search experience. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
+This article is a roadmap for including Azure Search as a component that provides the search experience in your custom application. Depending on whether you are testing the waters or ready to dive right in, you’ll want some preliminary guidance on how to integrate Azure Search into your custom development project.
 
-This article breaks out a typical workflow for initial prototypes that will help you evaluate how well Azure Search meets the search requirements of your application, followed by a section on important design decisions that factor into a more serious application development effort. 
+In the following sections, we break out a typical workflow for an initial prototype that will help you evaluate how well Azure Search meets the search requirements of your application. Part two of this article covers important design decisions that factor into a more serious application development effort. 
 
-Before you start prototyping, we recommend ramping up with one of our Getting Started tutorials. Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+Before you start prototyping, we recommend that you ramp up with one of our Getting Started tutorials or this [one-hour deep dive presentation video](http://azure.microsoft.com/en-us/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/). Get Started tutorials are offered in these languages: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
-##Prototype project development
+##Prototype development
 
-The quickest path to a successful prototype typically include the steps in this section.
+The quickest path to a successful prototype typically include the steps in this section. Steps include provisioning a service, define a schema for your index, load the index with documents, and query the index. 
+
+For applications with volatile data (for example, if the common case includes rapid changes to inventory or content), your prototype should include a component for updating documents as well.
 
    ![][1]
 
 ###Step 1: Provision the service	
 
-Azure Search is a fully-managed online service available through an Azure subscription. [Once you sign up](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. Visit [Create a Search service in the portal](../search-create-service-portal/) for instructions on how to add a Search service to your subscription.
+Azure Search is a fully-managed online service available through an Azure subscription. [Once you sign up for Azure](http://azure.microsoft.com/pricing/free-trial/), adding the Search service is quick. Visit [Create a Search service in the portal](../search-create-service-portal/) for instructions on how to add a Search service to your subscription.
 
-There are two pricing tiers to choose from. We recommend the shared service for prototyping, with the caveat that you will need to work with a small subset of your data. The shared service is free to existing subscribers (trial or regular memberships) and fast to setup, but limits the number of indexes and documents you can work with.
+There are two pricing tiers to choose from. We recommend the shared (free) service for prototyping, with the caveat that you will need to work with a small subset of your data. The shared service is free to existing subscribers (through trial or regular memberships) and is fast to setup, but it constrains the number of indexes and documents you can use to 3 indexes, up to 10,000 documents per index, or 50 MB of storage total, whichever comes first.
 
 ###Step 2: Create the index	
 
-After you create the service, you can create an index, starting with its schema definition. 
-
-An index is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Search data is imported into an Azure Search index and stored internally in the cloud. The index schema you are about to build will determine the structure of the documents collection, including all of the fields in a document, data types, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
-
-In addition to defining the document structure, an index also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests.
-
-We recommend that you start out simply by specifying the fields in a document, and then add other features incrementally (see Step 5).  
+After you create the service, you are ready to create an index, starting with its schema definition. 
 
 The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data.
 
 To get started, see [Create an index in the portal](../search-create-index-portal/).
 
+####Inside an index in Azure Search
+
+An index is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Your search data is stored in the cloud as part of your Search service subscription, which enable search operations to execute quickly and consistently. For an online retail application, the search index would include all of the products or services that are searchable in your application, such as items, sizes, prices, colors, brands, and even references to images or other resource files that you want returned within search results.
+
+The index schema that you define in this step determines the structure of the documents collection, which provides the bulk of your searchable data. In search terminology, a document is the set of fields that comprise an item of interest (for example, an online retailer would have one document for each SKU). The schema should define all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
+
+In addition to defining the document structure, an index also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests. **For prototypes, we recommend that you start out simply by specifying just the fields in a document**, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).  
+
+
 ###Step 3: Load documents
 
-The next step is to populate the index with documents. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads. 
+After saving the index in Azure Search, the next step is to populate the index with documents. In this step, data is uploaded, analyzed, tokenized, and stored in data structures (such as inverted indexes) that are designed for search workloads. 
 
-Data that you load to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
+Data that you upload to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
 
 There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step is the most time consuming due to a coding requirement.
 
-For minimal coding and very small datasets, you could use [Fiddler](../search-fiddler) or [Chrome Postman](../search-chrome-postman) to upload documents. 
+> [AZURE.TIP] For minimal coding and very small datasets, you can use [Fiddler](../search-fiddler) or [Chrome Postman](../search-chrome-postman) to upload documents. 
+
+####How to load data into an index
 
 For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use [indexers](https://msdn.microsoft.com/library/dn946891.aspx) as an alternative for loading documents.
 
-You could also write a simple program using either the REST API or the .NET library that loads the documents:
+You could also write a simple program using either the [REST API]() or the [.NET library]() that loads the documents:
 
 - [Add, update, or delete documents (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Samples that include code for loading documents are provided for these Getting started tutorials: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+Modify any of the samples that include code for loading documents. Code that loads documents can be found in any of these Getting started tutorials: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
 You can also review this code sample for an [Adventure Works C# REST API example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or this [scoring profiles C# REST API example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
 
-Remember that the shared service limits you to 10,000 documents per index. See [Limits and constraints](https://msdn.microsoft.com/library/dn798934.aspx) for more information.
+> [AZURE.NOTE] Remember that the shared service limits you to 10,000 documents per index. See [Limits and constraints](https://msdn.microsoft.com/library/dn798934.aspx) for details.
 
 ###Step 4: Query documents
 
-Once documents are loaded into the index, you can write your first query. The fastest way to get initial search results back from your Search service is to use [Fiddler](../search-fiddler) or [Chrome Postman](../search-chrome-postman) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format. 
+Once documents are loaded into the index, you can write your first query. 
+
+The fastest way to get initial search results back from your Search service is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to view a response, but realistically, you will want to write some simple UI code to view the results in a readable format. 
 
 APIs for search operations include:
 
@@ -86,11 +95,13 @@ Queries in Azure Search can be very simple. Including `search=*` on the URI will
 
 50 documents is the default. You can change the number of items returned using the `$Count` query parameter. This parameter is documented in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx).
 
-The most comprehensive list of query examples can be found in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx), but you might also want to review the [syntax reference](https://msdn.microsoft.com/library/dn798920.aspx) to review the list of supported operators.
+> [AZURE.TIP] The most comprehensive list of query examples can be found in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx), but you might also want to review the [syntax reference](https://msdn.microsoft.com/library/dn798920.aspx) to review the list of supported operators.
 
-###Step 5: Evaluate results and explore capabilities
+###Step 5: Explore more features
 
-Now that you have a service and index, you can experiment with features to further evolve the search experience. A short list of features to explore are listed next.
+Now that you have a service and index, you can experiment with features to further evolve the search experience. A short list of features to investigate are listed next.
+
+**Search pages** often include document counts in a result set, or use pagination to subdivide results into more manageable numbers. See [Pagination](../search-pagination-page-layout/) for details.
 
 **searchMode=all** is a query parameter that changes how Azure Search evaluates the NOT operator. By default, queries that include NOT (-) expand rather than narrow the results. You can set this parameter to change how the operator is evaluated. It’s documented in [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx) or [SearchMode Enumeration](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx).
 
@@ -98,9 +109,7 @@ Now that you have a service and index, you can experiment with features to furth
 
 **Filters** are used to narrow search results by providing additional criteria on the selection. Filter expressions are placed within the query. See [Search Documents](https://msdn.microsoft.com/library/dn798927.aspx) for details.
 
-**Faceted navigation** is used for self-directed filtering. Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page. See [Faceted Navigation](../search-faceted-navigation/) for details. 
-
-**Search pages** typically include counts in a result set, or use pagination to subdivide results into more manageable numbers. See [Pagination](../search-pagination-page-layout/) for details.
+**Faceted navigation** is used for self-directed filtering. Azure Search builds and returns the structure, and your code renders the faceted navigation structure in a search results page. See [Faceted Navigation](../search-faceted-navigation/) for details.
 
 **Suggesters** refers to type-ahead or auto-complete queries that return suggested search terms as the user types in the first characters of a search phrase. See [Suggestions operation](https://msdn.microsoft.com/library/dn798936.aspx) or [Suggesters Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx) for more information.
 
@@ -112,25 +121,26 @@ Some of the features that you want to evaluate might require an update to your i
 
 If you need to update an index or documents, for example to add suggesters or specify language analyzers on fields that you’ve added for that purpose, see the following links for instructions:
 
-- [Update Index operation](https://msdn.microsoft.com/library/dn800964.aspx)
-- [Update Indexer operation](https://msdn.microsoft.com//library/dn946892.aspx)
-- [Add, update or delete documents operation](https://msdn.microsoft.com/library/dn798930.aspx)
-- [Index Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.index.aspx)
-- [Documents Class](https://msdn.microsoft.com/library/microsoft.azure.search.models.document.aspx)
+- [Update Index operation (REST API)](https://msdn.microsoft.com/library/dn800964.aspx)
+- [Update Indexer operation (REST API)](https://msdn.microsoft.com/library/dn946892.aspx)
+- [Add, update or delete documents operation (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
+- [Index Class (.NET library)](https://msdn.microsoft.com/library/microsoft.azure.search.models.index.aspx)
+- [Documents Class (.NET library)](https://msdn.microsoft.com/library/microsoft.azure.search.models.document.aspx)
 
-Once you have built a prototype that establishes proof-of-concept, you can take what you’ve learned to the next level by designing an application development project that can support production workloads.
+Once you have built a prototype that establishes proof-of-concept, you can take what you’ve learned to the next level by designing a development project that can support production workloads.
 
 ##Application development
 
 Advancing to the next phase now requires decisions about which APIs to use, how to manage documents and upload frequency, and whether to include external resources in your search results.
 
+Your solution design will still need to include all of the steps described for prototypes, but instead of prioritizing the most expedient path, you will want to consider which approaches are the most compatible with your overall solution.
+
 ###Choose an API
 
-You can use the .NET library if your application is written in managed code, or the REST API if your programming language is Java, JavaScript, or another language that does not target the Microsoft .NET Framework.
+Azure Search provides two programming models: the .NET library for managed code, and a REST API for programming languages like Java, JavaScript, or another language that does not target the Microsoft .NET Framework.
 
 Currently, a small subset of features are not yet in the .NET library, so even if you prefer to write managed code, you might need to use the REST API to get the features you want. Features that are only available in the REST API include:
 
-- [Indexers](https://msdn.microsoft.com/library/dn946891.aspx)
 - [Microsoft Natural Language processors - preview only](../search-api-2015-02-28-preview/)
 - [moreLikeThis feature - preview only](../search-api-2015-02-28-preview/)
 - [Management API](https://msdn.microsoft.com/library/dn832684.aspx)
@@ -152,9 +162,10 @@ Pull models are usually scheduled operations that retrieve data from external da
 We recommend adding documents in batches to improve throughput. You can batch up to 1,000 documents, assuming an average document size of about 1-2KB.
 
 There is an overall status code for the POST request. Status codes are either HTTP 200 (Success) or HTTP 207 (Multi-Status) if there is combination of successful and failed documents. In addition to the status code for the POST request, Azure Search maintains a status field for each document. Given a batch upload, you need a way to get per-document status that indicates whether the insert succeeded or failed for each document. The status field provides that information. It will be set to false if the document failed to load.
+
 Under heavy load, it's not uncommon to have some upload failures. Should this occur, the overall status code is 207, indicating a partial success, and the documents that failed indexing will have the 'status' property set to false.
 
-> AZURE.NOTE  When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
+> [AZURE.NOTE]  When the service receives documents, they are queued up for indexing and may not be immediately included in search results. When not under a heavy load, documents are typically indexed within a few seconds.
 
 When updating an index, you can combine multiple actions (insert, merge, delete) into the same batch, eliminating the need for multiple round trips. Currently Azure Search does not support partial updates (HTTP PATCH), so if you need to update an index, you must resend the index definition.
 
@@ -174,7 +185,7 @@ As a last step, review the existing resource levels for both replicas and partit
 
 Remember that only the standard pricing tier can be scaled up or down. Additionally, depending on the degree of adjustment, it can take anywhere from several minutes to several hours to deploy additional clusters for your service.
 
-> AZURE.NOTE Capacity can be adjusted programmatically by using the Management REST API. For more information, see [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
+> [AZURE.NOTE] Capacity can be adjusted programmatically by using the Management REST API. For more information, see [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx).
 
 
 <!--Image references-->
