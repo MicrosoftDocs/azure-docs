@@ -2,7 +2,7 @@
 	pageTitle="Azure Data Science Process in Action: using HDInsight Hadoop clusters | Azure" 
 	description="End-to-end Azure Data Science Process using an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
 	metaKeywords="" 
-	services="machine-learning" 
+	services="machine-learning,hdinsight" 
 	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
