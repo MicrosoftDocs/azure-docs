@@ -18,16 +18,16 @@
 
 # Writing Custom Scenarios
 
-Testability is a suite of tools to help you test your services. The idea is to enable developers to make their business logic resilient to failures. Service Fabric makes it easy for application authors to easily write and deploy scalable and reliable services. Even with Service Fabric your distributed application can fail due to software error or infrastructure failures. You will still need to ensure your service is functioning the right way after it is restored following a machine failure. Sometimes the service process might fail in the middle of an operation which was not handling some corner case and on recovery your might end up in a corrupted state. Using Testability faults can help you test those scenarios. This can be done by inducing faults at different states in your application hence finding bugs and improving quality.
+Testability is a suite of tools to help you test your services. The idea is to enable developers to make their business logic resilient to failures. Service Fabric makes it easy for application authors to easily write and deploy scalable and reliable services. Even with Service Fabric your distributed application can fail due to software error or infrastructure failures. You will still need to ensure your service is functioning the right way after it is restored following a machine failure. For example the service process might crash in the middle of an operation, after which due to a bug in the service code end up in a corrupted state after the process recovers. Using Testability faults can help you simulate and test these scenarios. This can be done by inducing faults at different points in your application workflows finding bugs and improving quality.
 
-## Graceful and Ungraceful failures
+## Graceful and Ungraceful faults
 To better understand how to test these services we need to classify the faults into two buckets.
-  + Ungraceful failures like machine restarts and process crashes.
-  + Graceful failures like replica moves and drops triggered by load balancing.
+  + Ungraceful faults which simulate machine restarts and process crashes.
+  + Graceful failures which simulate replica moves and drops triggered by load balancing.
 
-To test run your service and walk through your business workload while inducing graceful and ungraceful failures. This faults should be induced while in the middle of service operations or compute for best results. 
+To test run your service and walk through your business workload while inducing graceful and ungraceful faults. Ungraceful faults will exercise the scenarios where the service process abruptly exits in the middle of some workflow, testing the recovery path once the service replica is restored by Service Fabric. This will help you test data consistency and whether the service state is mainted correctly after failures. The other set of failures i.e. the graceful failures test that your service corectly reacts to replicas being moved around by Service Fabric. This tests how you handle cancellation in the RunAsync method. You need to check for the Cancellation token being set, correctly save your state and return from the RunAsync method. 
 
-Lets walk through an example of a serice that exposes four workloads A, B, C and D. Each corresponds to a set of workflows and could be compute, storage or a mix. For the sake of simplicity we will abstract out the workloads in our example. The different faults executed in this example are. 
+Let's walk through an example of a serice that exposes four workloads A, B, C and D. Each corresponds to a set of workflows and could be compute, storage or a mix. For the sake of simplicity we will abstract out the workloads in our example. The different faults executed in this example are. 
   + RestartNode: Ungraceful fault to simulate a machine restart
   + RestartDeployedCodePackage: Ungraceful fault to simulate service host process crashes
   + RemoveReplica: Graceful fault to simulate replica removal
