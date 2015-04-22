@@ -52,7 +52,6 @@ Install and extend the Samples **owner: vturecek**
 
 - Communicate with a Service
 
-- Add Diagnostics code to a service **owner: Kunalds**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)
 
@@ -135,8 +134,6 @@ Remove a Service and Application (PowerShell) **owner: vturecek**
 ### REST Reference
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
-### Monitoring and Diagnostics
-Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
 [Application Lifecycle](service-fabric-application-lifecycle.md) **owner: matt**
