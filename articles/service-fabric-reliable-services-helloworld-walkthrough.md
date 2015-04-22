@@ -145,7 +145,7 @@ A stateless service is the type of service that mostly exists in cloud applicati
 
 
 
-sidered stateless because the service itself does not contain data that needs to stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable. 
+sidered stateless because the service itself does not contain data that needs to be stored reliably or made highly available - in other words, if an instance of a stateless service shuts down, all of its internal state is lost. In these types of services, state must be persisted to an external store, such as Azure Tables or a SQL database, to be made highly-available and reliable. 
 
 Service Fabric introduces a new kind of service that is stateful: A service that can maintain state reliably within the service itself, co-located with the code that's using it. Your state is  made highly available by Service Fabric without the need to persist state to an external store. 
 
@@ -155,7 +155,7 @@ In this tutorial, you'll implement both a stateless service and a stateful servi
 
 Let's start with a stateless service.
 
-Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Stateless Service** Project (named _HelloWorld_):
+Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Stateless Service** Project named *HelloWorld*:
 
 ![](media/service-fabric-reliable-services-helloworld-walkthrough/hello-stateless-NewProject.png)
 	
@@ -192,10 +192,10 @@ protected override ICommunicationListener CreateCommunicationListener()
 ```
 
 In this tutorial, we will focus on the `RunAsync()` entry point method where you can immediately start running your code. 
-
-> [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-fabsrv-communication-webapi.md)
-
 The project template includes an example implementation of `RunAsync()` that increments a rolling count.
+
+ > [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-fabsrv-communication-webapi.md)
+
 
 ### RunAsync
 
@@ -217,9 +217,9 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 The platform calls this method when an instance of your service is placed and ready to execute. For stateless services, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open-close cycle of a service instance can occur many times over the lifetime of your service as a whole, because the system may move your service instances around for resource balancing, when faults occur, during application or system upgrades, or when the underlying hardware experiences an outage. This orchestration is managed by the system in the interest of keeping your service highly available and properly balanced.
 
-`RunAsync()` is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is **important** to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when cancellation is requested by the system. 
+`RunAsync()` is executed in its own Task. Note in the code snippet here we jump right into a while loop - there is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (either by successful completion, cancellation, or faulted) before it moves on, so it is *important* to honor the cancellation token, finish up any work, and exit `RunAsync()` as quickly as possible when cancellation is requested by the system. 
 
-In the stateless service, the count is stored in a local variable. But because this is a stateless service, the value that's being stored only exists for the lifetime of the service instance that it's in. When the service moves or restarts, the value is lost. 
+In the this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's being stored only exists for the current lifecycle of the service instance that it's in. When the service moves or restarts, the value is lost. 
 
 ## Create a Stateful Service
 
@@ -288,7 +288,7 @@ The *StateManager* takes care of managing Reliable Collections for you. Simply a
 
 ```C#
   
-using (var tx = this.StateManager.CreateTransaction())
+using (ITransaction tx = this.StateManager.CreateTransaction())
 {
     var result = await myDictionary.TryGetValueAsync(tx, "Counter-1");
             
