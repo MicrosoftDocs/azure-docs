@@ -30,6 +30,8 @@ Testability actions are classified into to major buckets.
 
 * Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
 
+To test run your service and walk through your business workload while inducing graceful and ungraceful faults. Ungraceful faults will exercise the scenarios where the service process abruptly exits in the middle of some workflow, testing the recovery path once the service replica is restored by Service Fabric. This will help you test data consistency and whether the service state is maintained correctly after failures. The other set of failures i.e. the graceful failures test that your service correctly reacts to replicas being moved around by Service Fabric. This tests how you handle cancellation in the RunAsync method. You need to check for the Cancellation token being set, correctly save your state and return from the RunAsync method. 
+
 ## Testability actions list
 
 | Actions | Description | Managed API | Powershell Cmdlet | Graceful/UnGraceful Faults |
@@ -193,6 +195,7 @@ Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
 
+```csharp
 // Select Random replica
 ReplicaSelector randomReplicaSelector = ReplicaSelector.RandomOf(partitionSelector);
 
