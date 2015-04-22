@@ -179,10 +179,17 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 ## See Also
 
  [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
+ 
  [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
+ 
  [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
+ 
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ 
  [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
+ 
  [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
+ 
  [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
+ 
  
