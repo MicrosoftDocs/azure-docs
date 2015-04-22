@@ -24,7 +24,7 @@ Service Fabric provides some common test scenarios out of the box composed of th
 C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.
 
 ## Graceful vs. ungraceful fault actions
-Testability actions are classified into to major buckets. 
+Testability actions are classified into to major buckets.
 
 •Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of state can run before the application starts up again.
 
@@ -62,13 +62,13 @@ Tutorial segments:
 
 To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
-```Powershell
+```powershell
     Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
 Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1" and the completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica, as follows:
 
-```Powershell
+```powershell
     Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed
     -PartitionKey Partition3 -CompletionMode Verify
 ```
@@ -104,12 +104,12 @@ Connect-ServiceFabricCluster -testMode
 Invoke-ServiceFabricPartitionQuorumLoss -serviceName fabric:/app/svc -randomPartition
 ```
 
-## Running a Testability action with C# 
+## Running a Testability action with C#
 
 To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action.
 Let us look at the RestartServiceFabricNode action:
 
-```C#
+```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
 
@@ -117,15 +117,15 @@ Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
 Several parameter explaination:
 
-<b>CompleteMode</b> - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
-<b>OperationTimeout</b> - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
-<b>CancellationToken</b> - enables a pending call to be canceled.
+**CompleteMode** - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
+**OperationTimeout** - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
+**CancellationToken** - enables a pending call to be canceled.
 
 Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica.
 
 For further information see [Partition Selector and Replica Selector](#partition_replica_selector).
 
-```C#
+```csharp
 using System.Fabric.Testability;
 
 public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeName, BigInteger nodeInstanceId, TimeSpan operationTimeout, CompletionMode completeMode)
@@ -144,17 +144,17 @@ public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeNam
 }
 ```
 
-### Furthur examples of using an action in C# 
+### Furthur examples of using an action in C#
 
 #### RestartReplica action
 
-```C#
+```csharp
 fabricclient.ClusterManager.RestartReplicaAsync(replicaSelector, completionMode).Wait();
 ```
 
 #### InvokeQuorumLoss action
 
-```C#
+```csharp
 fabricclient.ClusterManager.InvokeQuorumLossAsync(serviceName, partitionSelector).Wait();
 ```
 
@@ -165,7 +165,7 @@ PartitionSelector is a helper exposed in Testability and is used to select a spe
 
 To use, create the PartitionSelector object and select the partition using one of the Select* methods and then pass in the PartitionSelector object to the API that requires it. If no option is selected it defaults to random partition.
 
-```C#
+```csharp
 Uri serviceName = new Uri("fabric:/samples/InMemoryToDoListApp/InMemoryToDoListService");
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 string partitionName = "Partition1";
@@ -189,7 +189,6 @@ ReplicaSelector is a helper exposed in Testability and is used to help select a 
 
 To use, create a ReplicaSelector object and set the way you want to select the replica and the partition. You can then pass it into the API that requires it. If no option is selected it defaults to random replica and random partition.
 
-```C#
 Guid partitionIdGuid = new Guid("8fb7ebcc-56ee-4862-9cc0-7c6421e68829");
 PartitionSelector partitionSelector = PartitionSelector.PartitionIdOf(serviceName, partitionIdGuid);
 long replicaId = 130559876481875498;
