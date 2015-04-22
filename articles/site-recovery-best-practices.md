@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Best practices for Site Recovery deployment" 
-	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises Hyper-V servers to Azure." 
+	description="Azure Site Recovery coordinates the replication, failover and recovery of virtual machines located on on-premises servers to Azure or a secondary datacenter." 
 	services="site-recovery" 
 	documentationCenter="" 
 	authors="rayne-wiselman" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="04/23/2015" 
 	ms.author="raynew"/>
 
 # Best practices for Site Recovery deployment
@@ -31,8 +31,6 @@ If you have any questions after reading this article post them on the [Azure Rec
 
 
 ## Setting up Azure
-
-You might want to set up a couple of things in Azure before you begin deployment:
 
 - **Azure account**: You'll need an [Microsoft Azure](http://azure.microsoft.com/) account. If you don't have one, start with a [free trial](pricing/free-trial/).
 - Read about [pricing](pricing/details/site-recovery/) for the Site Recovery service.
