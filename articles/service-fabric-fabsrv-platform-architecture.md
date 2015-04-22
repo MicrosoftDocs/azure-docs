@@ -19,7 +19,7 @@
 # Reliable Service Architecture
 
 A Service Fabric Reliable Services may be stateful or stateless. Each type of service runs within a specific architecture described in this article. 
-See [Reliable Service Overview](service-fabric-reliable-services-introduction) for more information about the differences between stateful and stateless services.
+See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) for more information about the differences between stateful and stateless services.
 
 ## Stateful Reliable Service
 
@@ -31,7 +31,7 @@ See [Reliable Service Overview](service-fabric-reliable-services-introduction) f
 Your stateful reliable service would derive from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
 provide various levels of support and abstraction for your stateful service to interface with Service Fabric and participate as a service within the Service Fabric Cluster. 
 Internally StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of service fabric.
-See [Reliable Service Overview](service-fabric-reliable-services-introduction) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage) for more information on the specifics
+See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatefulService and StatefulServiceBase classes.
 
 Both base classes manage the
@@ -42,7 +42,7 @@ implemented by Service Fabric as the service implementation uses a communication
 
 Your stateful reliable service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service, 
 that is, are always available regardless of service failovers. Each type of reliable colletion is implemented by a reliable state provider.
-For more information on reliable collections see [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections)
+For more information on reliable collections see [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md)
 
 ### Reliable State Manager And Providers
 
@@ -90,7 +90,7 @@ is preallocated and the log component can write directly to the file with the hi
 Aside from a minimal user mode interface to the log, the log is written as a kernel mode driver. By running as a kernel mode driver the log can provide the highest performance to all services that
 use it.
 
-For more information about configuring the log see [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration).
+For more information about configuring the log see [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md).
 
 ## Stateless Reliable Service
 
@@ -106,11 +106,11 @@ at those points in the service lifecycle and if your service wants to create a c
 may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
 implemented by Service Fabric as that service implementation uses a communication listener implemented by Service Fabric.
 
-See [Reliable Service Overview](service-fabric-reliable-services-introduction) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage) for more information on the specifics
+See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatelessService and StatelessServiceBase classes.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 For more information: 
-[Reliable Service Overview](../service-fabric-fabsrv-service-overview), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration)
+[Reliable Service Overview](service-fabric-fabsrv-service-overview.md), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)
 
