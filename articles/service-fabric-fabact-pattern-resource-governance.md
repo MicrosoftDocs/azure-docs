@@ -37,7 +37,7 @@ Here is a very simple example—we do modulo arithmetic to determine the databas
 
 ## Resource Governance code sample – static resolution
 
-```
+```csharp
 private static string _connectionString = "none";
 
 private static string ResolveConnectionString(long userId, int region)
@@ -62,7 +62,7 @@ The User and Resolver actors look like this:
 
 ## Resource Governance code sample – Resolver
 
-```
+```csharp
 public interface IUser : IActor
 {
     Task UpdateProfile(string name, string country, int age);
@@ -100,12 +100,11 @@ public class User : Actor<UserState>, IUser
         return TaskDone.Done;
     }
 }
-
 ```
 
 Resource Governance – Resolver Example
 
-```
+```csharp
 public interface IResolver : IActor
 {
     Task<Resolution> ResolveAsync(long entity);
@@ -113,7 +112,7 @@ public interface IResolver : IActor
 
 [DataContract]
 public class ResolverState {
-… 
+...
 }
 
 public class Resolver : Actor<ResolverState>, IResolver
@@ -155,7 +154,7 @@ In the sample code below, the EventProcessor actor does two things: it first dec
 
 ## Resource Governance code sample – Event Processor
 
-```   
+```csharp
 public interface IEventProcessor : IActor
 {
     Task ProcessEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
@@ -178,13 +177,12 @@ public class EventProcessor : Actor, IEventProcessor
         return eventType;
     }
 }
-
 ```
 
 Now let’s have a look at the EventWriter actor. It really doesn’t do much apart from control exclusive access to the constrained resource, in this case the file and writing events to it.
 ## Resource Governance code sample – Event Writer
 
-```   
+```csharp
 public interface IEventWriter : IActor
 {
     Task WriteEventAsync(long eventId, long eventType, DateTime eventTime, string payload);
@@ -224,13 +222,12 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         await _writer.FlushAsync();
     }
  }
-
 ```
 
 Having a single actor responsible for the resource allows us to add capabilities such as buffering. We can buffer incoming events and write these events periodically using a timer or when our buffer is full. Here is a simple timer based example:
 ## Resource Governance code sample – Event Writer with buffer
 
-```    
+```csharp
 [DataMember]
 public class EventWriterState {
 
@@ -288,13 +285,12 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         return TaskDone.Done;
     }
 }
-
 ```
 
 While the code above will work fine, clients will not know whether their event made it to the underlying store. To allow buffering and let clients be aware what is happening to their request, we introduce the following approach to let clients wait until their event is written to the .CSV file:
 ## Resource Governance code sample – Async batching
 
-```    
+```csharp
 public class AsyncBatchExecutor
 {
     private readonly List<TaskCompletionSource<bool>> actionPromises;
@@ -329,7 +325,6 @@ public class AsyncBatchExecutor
         actionPromises.Clear();
     }
 }
-
 ```
 
 We will use this class to create and maintain a list of incomplete tasks (to block clients) and complete them in one go once we write the buffered events to storage.
@@ -337,7 +332,7 @@ In the EventWriter class, we need to do three things: mark the actor class as Re
 
 ## Resource Governance code sample – Buffering with async batching
     
-```
+```csharp
 public class EventWriter : Actor<EventWriterState>, IEventWriter
 {
     public override Task OnActivateAsync()
@@ -395,7 +390,6 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
         return _batchExecuter.SubmitNext();
     }
 }
-
 ```
 
 Seem easy? Well it is. But the ease belies the enterprise power. With this architecture we get:

@@ -31,7 +31,7 @@ The Actor model provides flexibility to approach the materialization problem. We
 
 Sample code populating Friends Feed:
 
-```
+```csharp
 public interface ISocialPerson : IActor
 {
     Task AddFriend(long person);
@@ -118,6 +118,7 @@ public class SocialPerson : Actor, ISocialPerson
     }
 }
 ```
+
 Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materialising the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimise the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update. 
 When modelling an actor in a social network, one should also consider “super users,” users with millions of followers. Developers should model the state and behaviour of such users differently to meet the demand.
 Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well. Group chat or game hosting scenarios are two examples.
@@ -125,7 +126,7 @@ Let’s take the group chat example; a set of participants create a group chat a
 
 ## Smart Cache code sample – GroupChat
 
-```        
+```csharp
 public interface IGroupChat : IActor
 {
     Task PublishMessageAsync(long participantId, string message);

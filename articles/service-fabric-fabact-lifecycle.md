@@ -60,6 +60,10 @@ class HelloActor : Actor, IHello
 }
 ```
 
+The framework scans for actors every ScanIntervalInSeconds to see if it can be garbage collected and collects it if it is not being used for IdleTimeoutInSeconds. If Actor gets reused, then idle time for Actor is reset to 0.
+
+In the example above, if an Actor was activated at time T1, framework will scan every 2 seconds to see if Actor can be garbage collected and after T1+10 it will be collected, if the actor does not get reused. Now if the Actor gets reused at T1+3 seconds, then framework will wait again for 10 seconds before collecting it, scanning every 2 seconds.
+
 To change default value of `ActorGarbageCollection` attribute at Assembly level, add following snippet to `AssemblyInfo.cs`.
 
 ```csharp
