@@ -33,7 +33,7 @@ Lets walk through an example of a serice that exposes four workloads A, B, C and
   + RemoveReplica: Graceful fault to simulate replica removal
   + MovePrimary: Graceful fault to simulate replica moves triggered by Service Fabric Load Balancer
  
-  ```
+  ```C#
     public enum ServiceWorkloads
     {
         A,
