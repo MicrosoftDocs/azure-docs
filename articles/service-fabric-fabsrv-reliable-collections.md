@@ -1,6 +1,6 @@
 <properties
    pageTitle="Reliable Collections"
-   description="Reliable Collections Dictionary Queue Isolation Lock"
+   description="Reliable Collections enable you to write highly available, scalable, and low latency cloud applications."
    services="service-fabric"
    documentationCenter=".net"
    authors="mcoskun"
@@ -20,7 +20,7 @@
 
 Reliable Collections enable you to write highly available, scalable, and low latency
 cloud applications as though you are writing single machine applications.
-The classes in the Microsoft.ServiceFabric.Data.Collections namespace provide a set of out-of-the-box
+The classes in the `Microsoft.ServiceFabric.Data.Collections` namespace provide a set of out-of-the-box
 collections that automatically make your state highly available.
 Developers need only to program to the Reliable Collection APIs and let Reliable Collections
 manage the replicated and local state.
@@ -34,7 +34,7 @@ This means that:
 
 ![Image of Evolution of Collections.](media/service-fabric-fabsrv-reliable-collections/ReliableCollectionsEvolution.png)
 
-Reliable Collections can be thought of as the natural evolution of the System.Collections
+Reliable Collections can be thought of as the natural evolution of the `System.Collections`
 classes: a new set of collections that are designed for the cloud and multi-machine
 applications without increasing complexity for the developer.
 As such, they are:
@@ -51,14 +51,14 @@ To achieve weaker consistency, application can acknowledge back to the client / 
 before the asynchronous commit returns.
 
 The Reliable Collections APIs are an evolution of concurrent collections APIs
-(found in the System.Collections.Concurrent namespace):
+(found in the `System.Collections.Concurrent` namespace):
 1. Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.
-2. No out parameters: Uses ConditionalResult<T> to return a bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to be a struct.
+2. No out parameters: Uses `ConditionalResult<T>` to return a bool and a value instead of out parameters. `ConditionalResult<T>` is like `Nullable<T>` but does not require T to be a struct.
 3. Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
-Today, Microsoft.ServiceFabric.Data.Collections contains two collections:
-1. Reliable Dictionary: Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to ConcurrentDictionary, both the key and the value can be of any type.
-2. Reliable Queue: Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to ConcurrentQueue, the value can be of any type.
+Today, `Microsoft.ServiceFabric.Data.Collections` contains two collections:
+1. Reliable Dictionary: Represents a replicated, transactional, and asynchronous collection of key/value pairs. Similar to `ConcurrentDictionary`, both the key and the value can be of any type.
+2. Reliable Queue: Represents a replicated, transactional, and asynchronous strict first-in first-out (FIFO) queue. Similar to `ConcurrentQueue`, the value can be of any type.
 
 ## Isolation Levels
 Isolation level is a measure of the degree isolation is achieved.
@@ -141,14 +141,14 @@ In this case, one or both of the operations will timeout.
 Note that the above deadlock scenario is a great example of how Update lock can prevent deadlocks.
 
 ## Recommendations
-- **DO NOT** modify an object of custom type returned by read operations (e.g TryPeekAsync or TryGetAsync). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
+- **DO NOT** modify an object of custom type returned by read operations (e.g `TryPeekAsync` or `TryGetAsync`). Reliable Collections, just like Concurrent Collections, return a reference to the objects and not a copy.
 - **DO** deep copy returned object of custom type before modifying it. Since, structs and built-in types are pass-by-value, you do not need to do a deep copy on them.
-- **DO NOT** use MaxValue for timeouts. Timeouts should be used to detect deadlocks.
-- **DO NOT** create a transaction within another transaction’s using statement because it can cause deadlocks.
+- **DO NOT** use `TimeSpan.MaxValue` for timeouts. Timeouts should be used to detect deadlocks.
+- **DO NOT** create a transaction within another transaction’s `using` statement because it can cause deadlocks.
 
 Here are some things to keep in mind:
 - The default timeout is 4 seconds for all the Reliable Collection APIs. Most users should not override this.
-- The default CancellationToken is CancellationToken.None in all Reliable Collections APIs.
+- The default cancellation token is `CancellationToken.None` in all Reliable Collections APIs.
 - Enumerations are snapshot consistent within a collection. However, enumerations of multiple collections are not consistent across collections.
 - To achieve high availability for the Reliable Collections, each service should have at least a target and minimum replica set size of 3.
 
