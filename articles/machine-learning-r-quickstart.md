@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/22/2015" 
 	ms.author="larryfr"/>
 
 #Quick start guide to R for Azure Machine Learning
@@ -56,31 +56,31 @@ We will progress through several steps as you learn how to create, test and exec
 
 This section takes you through some basics of interacting with R in the Machine Learning Studio environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the Azure Machine Learning environment.
 
-I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an Execute R Script module in Machine Learning Studio ready to run.  
+I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module in Machine Learning Studio ready to run.  
 
 ###The Execute R Script module
 
-Within Machine Learning Studio, R scripts are run within the Execute R Script module. An example of the Execute R Script module in Machine Learning Studio is shown in Figure 1.
+Within Machine Learning Studio, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio is shown in Figure 1.
 
  ![The Machine Learning Studio environment showing the Execute R Script module selected][1]
 
 *Figure 1. The Machine Learning Studio environment showing the Execute R Script module selected.*
 
-Referring to Figure 1, let's look at some of the key parts of the Machine Learning Studio environment for working with the Execute R Script module.
+Referring to Figure 1, let's look at some of the key parts of the Machine Learning Studio environment for working with the [Execute R Script][execute-r-script] module.
 
 - The modules in the experiment are shown in the center pane.
 
 - The upper part of the right pane contains a window to view and edit your R scripts.  
 
-- The lower part of right pane shows some properties of the Execute R Script. You can view the error and output logs by clicking on the appropriate spots of this pane.
+- The lower part of right pane shows some properties of the [Execute R Script][execute-r-script]. You can view the error and output logs by clicking on the appropriate spots of this pane.
 
-We will, of course, be discussing the Execute R Script in greater detail in the rest of this document.
+We will, of course, be discussing the [Execute R Script][execute-r-script] in greater detail in the rest of this document.
 
-When working with complex R functions, I recommend that you edit, test and debug in RStudio. As with any software development, extend your code incrementally and test it on small simple test cases. Then cut and paste your functions into the R script window of the Execute R Script module. This approach allows you to harness both the RStudio integrated development environment (IDE) and the power of Azure Machine Learning.  
+When working with complex R functions, I recommend that you edit, test and debug in RStudio. As with any software development, extend your code incrementally and test it on small simple test cases. Then cut and paste your functions into the R script window of the [Execute R Script][execute-r-script] module. This approach allows you to harness both the RStudio integrated development environment (IDE) and the power of Azure Machine Learning.  
 
 ####Executing R code
 
-Any R code in the Execute R Script module will execute when you run the experiment by clicking on the **Run** button. When execution has completed, a check mark will appear on the Execute R Script icon.
+Any R code in the [Execute R Script][execute-r-script] module will execute when you run the experiment by clicking on the **Run** button. When execution has completed, a check mark will appear on the [Execute R Script][execute-r-script] icon.
 
 ####Defensive R coding for Azure Machine Learning
 
@@ -91,13 +91,13 @@ If you need a more complete treatment of R exception handling, I recommend you r
 
 ####Debugging and testing R in Machine Learning Studio
 
-To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the Execute R Script itself. In addition, it is good practice to check your results in Machine Learning Studio.
+To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the [Execute R Script][execute-r-script] itself. In addition, it is good practice to check your results in Machine Learning Studio.
 
 Output from the execution of your R code and on the Azure Machine Learning platform is found primarily in output.log. Some additional information will be seen in error.log.  
 
-If an error occurs in Machine Learning Studio while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, click on **View error log** on the **properties pane** for the Execute R Script containing the error.
+If an error occurs in Machine Learning Studio while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, click on **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
 
-For example, I ran the following R code, with an undefined variable y, in an Execute R Script module:
+For example, I ran the following R code, with an undefined variable y, in an [Execute R Script][execute-r-script] module:
 
 ```r
 x <- 1.0
@@ -110,7 +110,7 @@ This code fails to execute, resulting in an error condition. Clicking on **View 
 
 *Figure 2. Error message pop-up.*
 
-It looks like we need to look in output.log to see the R error message. Click on the Execute R Script and then click on the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following.
+It looks like we need to look in output.log to see the R error message. Click on the [Execute R Script][execute-r-script] and then click on the **View output.log** item on the **properties pane** to the right. A new browser window opens, and I see the following.
 
 
 	[ModuleOutput] [1] 14000
@@ -129,7 +129,7 @@ To inspect the value of any object in R, you can print these values to the outpu
 
 ####Packages in Machine Learning Studio
 
-Azure Machine Learning comes with over 350 preinstalled R packages. You can use the following code in the Execute R Script module to retrieve a list of the preinstalled packages.
+Azure Machine Learning comes with over 350 preinstalled R packages. You can use the following code in the [Execute R Script][execute-r-script] module to retrieve a list of the preinstalled packages.
 
 ```r
 data.set <- data.frame(installed.packages())
@@ -140,7 +140,7 @@ If you don't understand the last line of this code at the moment, read on. In th
 
 ###	Introducing RStudio
 
-RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this quick start guide. Once R code is tested and ready, you simply cut and paste from the RStudio editor into a Machine Learning Studio Execute R Script module.  
+RStudio is a widely used IDE for R. I will use RStudio for editing, testing and debugging some of the R code used in this quick start guide. Once R code is tested and ready, you simply cut and paste from the RStudio editor into a Machine Learning Studio [Execute R Script][execute-r-script] module.  
 
 If you do not have R installed on your desktop machine, I recommend you do so now. Free downloads of open source R are available at the Comprehensive R Archive Network (CRAN) at http://www.r-project.org/. There are downloads available for Windows, Mac OS, and Linux/UNIX. Choose a nearby mirror and follow the download directions. In addition, CRAN contains a wealth of useful analytics and data manipulation packages.
 
@@ -152,7 +152,7 @@ I provide some additional information on using RStudio in [Appendix A][appendixa
 
 ##<a id="scriptmodule"></a>Getting data in and out of the Execute R Script module
 
-In this section we will discuss how you get data into and out of the Execute R Script module. We will review how to handle various data types read into and out of the Execute R Script module.
+In this section we will discuss how you get data into and out of the [Execute R Script][execute-r-script] module. We will review how to handle various data types read into and out of the [Execute R Script][execute-r-script] module.
 
 The complete code for this section is in the zip file you downloaded earlier.
 
@@ -186,11 +186,11 @@ Now that we have some data in Machine Learning Studio, we need to create an expe
 
 - Drag and drop the **csdairydata.csv dataset** onto the experiment.  
 
-- In the **Search experiment items** box on the top of the left pane, type **Execute R Script**. You will see the module appear in the search list.
+- In the **Search experiment items** box on the top of the left pane, type [Execute R Script][execute-r-script]. You will see the module appear in the search list.
 
-- Drag and drop the Execute R Script module onto your pallet.  
+- Drag and drop the [Execute R Script][execute-r-script] module onto your pallet.  
 
-- Connect the output of the **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the Execute R Script.
+- Connect the output of the **csdairydata.csv dataset** to the leftmost input (**Dataset1**) of the [Execute R Script][execute-r-script].
 
 - **Don't forget to click on 'Save'!**  
 
@@ -231,15 +231,15 @@ Now I need to transfer this script to Azure Machine Learning Studio. I could sim
 
 ###	Data input to the Execute R Script module
 
-Let's have a look at the inputs to the Execute R Script module. In this example we will read the California dairy data into the Execute R Script module.  
+Let's have a look at the inputs to the [Execute R Script][execute-r-script] module. In this example we will read the California dairy data into the [Execute R Script][execute-r-script] module.  
 
-There are three possible inputs for the Execute R Script module. You may use any one or all of these inputs, depending on your application. It is also perfectly reasonable to use an R script that takes no input at all.  
+There are three possible inputs for the [Execute R Script][execute-r-script] module. You may use any one or all of these inputs, depending on your application. It is also perfectly reasonable to use an R script that takes no input at all.  
 
 Let's look at each of these inputs, going from left to right. You can see the names of each of the inputs by placing your cursor over the input and reading the tooltip.  
 
 ####	Script Bundle
 
-The Script Bundle input allows you to pass the contents of a zip file into Execute R Script module. You can use one of the following commands to read the contents of the zip file into your R code.
+The Script Bundle input allows you to pass the contents of a zip file into [Execute R Script][execute-r-script] module. You can use one of the following commands to read the contents of the zip file into your R code.
 
 ```r
 source("src/yourfile.R") # Reads a zipped R script
@@ -258,13 +258,13 @@ We already discussed loading datasets in [Loading the dataset](#loading). Once y
 
 4.	Drag and drop the zip file from **datasets** onto the **ML Studio canvas**.
 
-5.	Connect the output of the **zip data** icon to the **Script Bundle** input of the **Execute R script** module.
+5.	Connect the output of the **zip data** icon to the **Script Bundle** input of the [Execute R Script][execute-r-script] module.
 
-6.	Type the `source()` function with your zip file name into the code window for the **Execute R Script** module. In my case I typed `source("src/SimplePlot.R")`.  
+6.	Type the `source()` function with your zip file name into the code window for the [Execute R Script][execute-r-script] module. In my case I typed `source("src/SimplePlot.R")`.  
 
 7.	Make sure you click **Save**.
 
-Once these steps are complete, the Execute R Script module will execute the R script in the zip file when the experiment is run. At this point your experiment should look something like Figure 5.
+Once these steps are complete, the [Execute R Script][execute-r-script] module will execute the R script in the zip file when the experiment is run. At this point your experiment should look something like Figure 5.
 
 ![Experiment using zipped R script][6]
 
@@ -278,7 +278,7 @@ You can pass a rectangular table of data to your R code by using the Dataset1 in
 cadairydata <- maml.mapInputPort(1)
 ```
 
-Execute your experiment by clicking on the **Run** button. When the execution finishes, click on the Execute R Script module and then click **View output log** on the properties pane. A new page should appear in your browser showing the contents of the output.log file. When you scroll down you should see something like the following.
+Execute your experiment by clicking on the **Run** button. When the execution finishes, click on the [Execute R Script][execute-r-script] module and then click **View output log** on the properties pane. A new page should appear in your browser showing the contents of the output.log file. When you scroll down you should see something like the following.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -304,7 +304,7 @@ Execute your experiment by clicking on the **Run** button. When the execution fi
 
 These results are mostly as expected, with 228 observations and 9 columns in the dataframe. We can see the column names, the R data type and a sample of each column.
 
-> [AZURE.NOTE] This same printed output is conveniently available from the R Device output of the Execute R Script module. We will discuss the outputs of the Execute R module in the next section.  
+> [AZURE.NOTE] This same printed output is conveniently available from the R Device output of the [Execute R Script][execute-r-script] module. We will discuss the outputs of the [Execute R Script][execute-r-script] module in the next section.  
 
 ####Dataset2
 
@@ -330,7 +330,7 @@ This output looks identical to the input, exactly as we expected.
 
 ###	R Device output
 
-The Device output of the Execute R Script module contains messages and graphics output. Both standard output and standard error messages from R are sent to the R Device output port.  
+The Device output of the [Execute R Script][execute-r-script] module contains messages and graphics output. Both standard output and standard error messages from R are sent to the R Device output port.  
 
 To view the R Device output, click on the port and then on **Visualize**. We see the standard output and standard error from the R script in Figure 7.
 
@@ -354,7 +354,7 @@ The complete R code for this section is available in the zip file you downloaded
 
 ###	Type transformations
 
-Now that we can read the California dairy data into the R code in the Execute R Script module, we need to ensure that the data in the columns has the intended type and format.  
+Now that we can read the California dairy data into the R code in the [Execute R Script][execute-r-script] module, we need to ensure that the data in the columns has the intended type and format.  
 
 R is a dynamically typed language, which means that data types are coerced from one to another as required. The atomic data types in R include numeric, logical and character. The factor type is used to compactly store categorical data. You can find much more information on data types in the references in [Appendix B - Further reading](#appendixb).
 
@@ -374,7 +374,7 @@ The syntax for any of these conversions is simple: `as.datatype()`. These type c
 
 Looking at the data types of the columns we input in the previous section: all columns are of type numeric, except for the column labeled 'Month', which is of type character. Let's convert this to a factor and test the results.  
 
-I have deleted the line that created the scatterplot matrix and added a line converting the 'Month' column to a factor. In my experiment I will just cut and paste the R code into the code window of the Execute R Script Module. You could also update the zip file and upload it to Azure Machine Learning Studio, but this takes several steps.  
+I have deleted the line that created the scatterplot matrix and added a line converting the 'Month' column to a factor. In my experiment I will just cut and paste the R code into the code window of the [Execute R Script][execute-r-script] Module. You could also update the zip file and upload it to Azure Machine Learning Studio, but this takes several steps.  
 
 ```r
 ## Only one of the following two lines should be used
@@ -419,9 +419,9 @@ R dataframes support powerful filtering capabilities. Datasets can be subsetted 
 
 There is one bit of filtering we should do on our dataset. If you look at the columns in the cadairydata dataframe, you will see two unnecessary columns. The first column just holds a row number, which is not very useful. The second column, Year.Month, contains redundant information. We can easily exclude these columns by using the following R code.
 
-> [AZURE.NOTE] From now on in this section, I will just show you the additional code I am adding in the Execute R Script module. I will add each new line **before** the `str()` function. I use this function to verify my results in Azure Machine Learning Studio.
+> [AZURE.NOTE] From now on in this section, I will just show you the additional code I am adding in the [Execute R Script][execute-r-script] module. I will add each new line **before** the `str()` function. I use this function to verify my results in Azure Machine Learning Studio.
 
-I add the following line to my R code in the Execute R Script module.
+I add the following line to my R code in the [Execute R Script][execute-r-script] module.
 
 ```r
 # Remove two columns we do not need
@@ -531,7 +531,7 @@ Execute this R code in your experiment and have a look at the printed output in 
 
 We see the values have been transformed. Milk production now greatly exceeds all other dairy product production, recalling that we are now looking at a log scale.
 
-At this point our data is cleaned up and we are ready for some modeling. Looking at the visualization summary for the Result Dataset output of our Execute R Script module, you will see the 'Month' column is 'Categorical' with 12 unique values, again, just as we wanted.
+At this point our data is cleaned up and we are ready for some modeling. Looking at the visualization summary for the Result Dataset output of our [Execute R Script][execute-r-script] module, you will see the 'Month' column is 'Categorical' with 12 unique values, again, just as we wanted.
 
 ##<a id="timeseries"></a>Time series objects and correlation analysis
 
@@ -548,7 +548,7 @@ The POSIXct time series class is commonly used and is relatively simple. This ti
 
 ###	Time series object example
 
-Let's get started with our example. Drag and drop a **new Execute R Script module** into your experiment. Connect the Result Dataset1 output port of the existing Execute R Script module to the Dataset1 input port of the new Execute R Script module.
+Let's get started with our example. Drag and drop a **new** [Execute R Script][execute-r-script] module into your experiment. Connect the Result Dataset1 output port of the existing [Execute R Script][execute-r-script] module to the Dataset1 input port of the new [Execute R Script][execute-r-script] module.
 
 As I did for the first examples, as we progress through the example, at some points I will show only the incremental additional lines of R code at each step.  
 
@@ -740,7 +740,7 @@ The first line of code is a bit tricky, and some explanation may help you unders
 
 3.  The `data.frame()` function coerces the result produced by `do.call()` to a dataframe.
 
-Note that the row names are in a column of the dataframe. Doing so preserves the row names when they are output from the Execute R Script.
+Note that the row names are in a column of the dataframe. Doing so preserves the row names when they are output from the [Execute R Script][execute-r-script].
 
 Running the code produces the output shown in Figure 19 when I **Visualize** the output at the Result Dataset port. The row names are in the first column, as intended.
 
@@ -758,7 +758,7 @@ The complete R code for this section is in the zip file you downloaded earlier.
 
 ###	Creating the dataframe for analysis
 
-Start by adding a **new Execute R Script module** to your experiment. Connect the **Result Dataset** output of the existing Execute R Script module to the **Dataset1** input of the new module. The result should look something like Figure 20.
+Start by adding a **new** [Execute R Script][execute-r-script] module to your experiment. Connect the **Result Dataset** output of the existing [Execute R Script][execute-r-script] module to the **Dataset1** input of the new module. The result should look something like Figure 20.
 
 ![The experiment with the new Execute R Script module added][21]
 
@@ -884,7 +884,7 @@ This generates the following.
 
 This looks better. All of the terms are significant. However, the 2e-16 value is a default value, and should not be taken too seriously.  
 
-As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning Execute R Script model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
+As a sanity test, let's make a time series plot of the California dairy production data with the trend curve shown. I have added the following code in the Azure Machine Learning [Execute R Script][execute-r-script] model (not RStudio) to create the model and make a plot. The result is shown in Figure 23.
 
 ```r
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -948,7 +948,7 @@ This generates the following.
 
 We see that the model no longer has an intercept term and has 12 significant month factors. This is exactly what we wanted to see.
 
-Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning Execute R Script to create the model and make a plot.
+Let's make another time series plot of the California dairy production data to see how well the seasonal model is working. I have added the following code in the Azure Machine Learning [Execute R Script][execute-r-script] to create the model and make a plot.
 
 ```r
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1173,3 +1173,7 @@ Some great internet resources:
 <!--links-->
 [appendixa]: #appendixa
 [download]: https://azurebigdatatutorials.blob.core.windows.net/rquickstart/RFiles.zip
+
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/

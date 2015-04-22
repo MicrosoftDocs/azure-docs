@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
@@ -42,19 +42,19 @@ This is the fourth step of the walkthrough, [Developing a Predictive Solution wi
 
 In this experiment we want to try different algorithms for our predictive model. We'll create two different types of models and then compare their scoring results to decide which algorithm we want to use in our final experiment.  
 
-There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules. We'll use the appropriate modules to initialize the learning algorithms and use **Train Model** modules to train the models.   
+There are a number of models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the Support Vector Machine (SVM) and the Two-Class Boosted Decision Trees modules. We'll use the appropriate modules to initialize the learning algorithms and use [Train Model][train-model] modules to train the models.   
 
 ##Train the models
 First, let's set up the boosted decision tree model:  
 
-1.	Find the **Two-Class Boosted Decision Tree** module in the module palette and drag it onto the canvas.
-2.	Find the **Train Model** module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the **Train Model** module.
-3.	Connect the output of the left **Execute R Script** module to the right input port ("Dataset") of the **Train Model** module.
+1.	Find the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module in the module palette and drag it onto the canvas.
+2.	Find the [Train Model][train-model] module, drag it onto the canvas, and then connect the output of the boosted decision tree module to the left input port ("Untrained model") of the [Train Model][train-model] module.
+3.	Connect the output of the left [Execute R Script][execute-r-script] module to the right input port ("Dataset") of the [Train Model][train-model] module.
 
-	> [AZURE.TIP] We don't need two of the inputs and one of the outputs of the **Execute R Script** module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
+	> [AZURE.TIP] We don't need two of the inputs and one of the outputs of the [Execute R Script][execute-r-script] module for this experiment, so we'll just leave them unattached. This is not uncommon for some modules.
 
 
-4.	Select the **Train Model** module. In the **Properties** pane, click **Launch column selector**, select **Include** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field (you can also select **Column name** and enter "Credit Risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
+4.	Select the [Train Model][train-model] module. In the **Properties** pane, click **Launch column selector**, select **Include** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field (you can also select **Column name** and enter "Credit Risk"). This identifies column 21, the credit risk value, as the column for the model to predict.
 
 
 This portion of the experiment now looks something like this:  
@@ -63,21 +63,21 @@ This portion of the experiment now looks something like this:
  
 Next, we'll set up the SVM model.  
 
-Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale. To convert all numeric features to the same scale, we use the **Normalize Data** module with a Tanh transformation, which transforms features into the [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict, so we need to leave it alone.  
+Boosted decision trees work well with features of any type. However, since the SVM module generates a linear classifier, the model that it generates has the best test error when all numeric features have the same scale. To convert all numeric features to the same scale, we use the [Normalize Data][normalize-data] module with a Tanh transformation, which transforms features into the [0,1] range. Note that string features are converted by the SVM module to categorical features and then to binary 0/1 features, so we don't need to manually transform string features. Also, we don't want to transform the Credit Risk column (column 21) - it's numeric, but it's the value we're training the model to predict, so we need to leave it alone.  
 
-1.	Find the **Two-Class Support Vector Machine** module in the module palette and drag it onto the canvas.
-2.	Right-click the **Train Model** module, select **Copy**, and then right-click the canvas and select **Paste**. Note that the copy of the **Train Model** module has the same column selection as the original.
-3.	Connect the output of the SVM module to the left input port ("Untrained model") of the **Train Model** module.
-4.	Find the **Normalize Data** module and drag it onto the canvas.
-5.	Connect the input of this transform module to the output of the left **Execute R Script** module.
-6.	Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the **Train Model** module.
+1.	Find the [Two-Class Support Vector Machine][two-class-support-vector-machine] module in the module palette and drag it onto the canvas.
+2.	Right-click the [Train Model][train-model] module, select **Copy**, and then right-click the canvas and select **Paste**. Note that the copy of the [Train Model][train-model] module has the same column selection as the original.
+3.	Connect the output of the SVM module to the left input port ("Untrained model") of the [Train Model][train-model] module.
+4.	Find the [Normalize Data][normalize-data] module and drag it onto the canvas.
+5.	Connect the input of this transform module to the output of the left [Execute R Script][execute-r-script] module.
+6.	Connect the left output port ("Transformed Dataset") of the transform module to the right input port ("Dataset") of the [Train Model][train-model] module.
 7.	In the **Properties** pane for the transform module, select **Tanh** for the **Transformation method** parameter.
 8.	Click **Launch column selector**, select **Include** in the first dropdown, select **column type** in the second dropdown, and select **Numeric** in the third dropdown. This specifies that all the numeric columns (and only numeric) will be transformed.
 9.	Click the plus sign (+), which creates a new row of dropdowns. Select **Exclude** in the first dropdown, select **column indices** in the second dropdown, and enter "21" in the text field. This specifies that column 21 (the Credit Risk column) will be ignored.
 10.	Click **OK**.  
 
 
-The **Normalize Data** module is now set to perform a Tanh transformation on all numeric columns except for the Credit Risk column.  
+The [Normalize Data][normalize-data] module is now set to perform a Tanh transformation on all numeric columns except for the Credit Risk column.  
 
 This portion of our experiment should now look something like this:  
 
@@ -86,19 +86,19 @@ This portion of our experiment should now look something like this:
 ##Score and evaluate the models
 We'll use the scoring data that was separated out by the **Split** module to score our trained models. We can then compare the results of the two models to see which generated better results.  
 
-1.	Find the **Score Model** module and drag it onto the canvas.
-2.	Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the **Train Model** module that's connected to the **Two-Class Boosted Decision Tree** module).
-3.	Connect the right input port of the **Score Model** module to the output of the right **Execute R Script** module. Note that it's okay to have the output of a module go to multiple places.
-4.	Copy and paste the **Score Model** module to create a second copy, or drag a new module onto the canvas.
-5.	Connect the left input port of this module to the SVM model (that is, connect to the output port of the **Train Model** module that's connected to the **Two-Class Support Vector Machine** module).
-6.	For the SVM model, we have to do the same transformation to the test data as we did to the training data. So copy and paste the **Normalize Data** module to create a second copy and connect it to the output of the right **Execute R Script** module.
-7.	Connect the right input port of the **Score Model** module to the output of the **Normalize Data** module.  
+1.	Find the [Score Model][score-model] module and drag it onto the canvas.
+2.	Connect the left input port of this module to the boosted decision tree model (that is, connect it to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module).
+3.	Connect the right input port of the [Score Model][score-model] module to the output of the right [Execute R Script][execute-r-script] module. Note that it's okay to have the output of a module go to multiple places.
+4.	Copy and paste the [Score Model][score-model] module to create a second copy, or drag a new module onto the canvas.
+5.	Connect the left input port of this module to the SVM model (that is, connect to the output port of the [Train Model][train-model] module that's connected to the [Two-Class Support Vector Machine][two-class-support-vector-machine] module).
+6.	For the SVM model, we have to do the same transformation to the test data as we did to the training data. So copy and paste the [Normalize Data][normalize-data] module to create a second copy and connect it to the output of the right [Execute R Script][execute-r-script] module.
+7.	Connect the right input port of the [Score Model][score-model] module to the output of the [Normalize Data][normalize-data] module.  
 
-To evaluate the two scoring results we'll use the **Evaluate Model** module.  
+To evaluate the two scoring results we'll use the [Evaluate Model][evaluate-model] module.  
 
-1.	Find the **Evaluate Model** module and drag it onto the canvas.
-2.	Connect the left input port to the output port of the **Score Model** module associated with the boosted decision tree model.
-3.	Connect the right input port to the other **Score Model** module.  
+1.	Find the [Evaluate Model][evaluate-model] module and drag it onto the canvas.
+2.	Connect the left input port to the output port of the [Score Model][score-model] module associated with the boosted decision tree model.
+3.	Connect the right input port to the other [Score Model][score-model] module.  
 
 The experiment should now look something like this:  
 
@@ -106,11 +106,11 @@ The experiment should now look something like this:
  
 Click the **RUN** button below the canvas to run the experiment. It may take a few minutes. You'll see a spinning indicator on each module to indicate that it's running, and then a green check mark when the module is finished.   
 
-When all the modules have a check mark, the experiment has finished running. To check the results, right-click the output port of the **Evaluate Model** module and select **Visualize**.  
+When all the modules have a check mark, the experiment has finished running. To check the results, right-click the output port of the [Evaluate Model][evaluate-model] module and select **Visualize**.  
 
-The **Evaluate Model** module produces a pair of curves and metrics that allow you to compare the results of the two scored models. You can view the results as Receiver Operator Characteristic (ROC) curves, Precision/Recall curves, or Lift curves. Additional data displayed includes a confusion matrix, cumulative values for the area under the curve (AUC), and other metrics. You can change the threshold value by moving the slider left or right and see how it affects the set of metrics.  
+The [Evaluate Model][evaluate-model] module produces a pair of curves and metrics that allow you to compare the results of the two scored models. You can view the results as Receiver Operator Characteristic (ROC) curves, Precision/Recall curves, or Lift curves. Additional data displayed includes a confusion matrix, cumulative values for the area under the curve (AUC), and other metrics. You can change the threshold value by moving the slider left or right and see how it affects the set of metrics.  
 
-Click **Scored dataset** or **Scored dataset to compare** to highlight the associated curve and to display the associated metrics below. In the legend for the curves, "Scored dataset" corresponds to the left input port of the **Evaluate Model** module - in our case, this is the boosted decision tree model. "Scored dataset to compare" corresponds to the right input port - the SVM model in our case. When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.  
+Click **Scored dataset** or **Scored dataset to compare** to highlight the associated curve and to display the associated metrics below. In the legend for the curves, "Scored dataset" corresponds to the left input port of the [Evaluate Model][evaluate-model] module - in our case, this is the boosted decision tree model. "Scored dataset to compare" corresponds to the right input port - the SVM model in our case. When you click one of these labels you will highlight the curve for that model and display the corresponding metrics below.  
 
 ![ROC curves for models][4]
  
@@ -133,3 +133,13 @@ As an additional help to track the changes you make to module parameters, you ca
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
 [3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
+
+
+<!-- Module References -->
+[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
+[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
