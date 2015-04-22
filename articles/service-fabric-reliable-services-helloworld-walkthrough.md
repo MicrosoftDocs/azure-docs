@@ -30,7 +30,7 @@ In this tutorial, you'll implement both a stateless service and a stateful servi
 
 Let's start with a stateless service.
 
-Launch Visual Studio 2015 RC as an **Administrator**, and create a new **Windows Fabric Stateless Service** Project (named _HelloWorld_):
+Launch Visual Studio 2015 RC as **Administrator**, and create a new **Service Fabric Stateless Service** Project (named _HelloWorld_):
 
 ![](media/service-fabric-reliable-services-helloworld-walkthrough/hello-stateless-NewProject.png)
 	
