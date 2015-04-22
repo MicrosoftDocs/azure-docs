@@ -193,7 +193,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [API Discussion](service-fabric-fabsrv-service-api-description.md) **owners: tyadam, mcoskun**
 
-- [Operations](service-fabric-fabsrv-managing-your-services.md) **owner: jesseb, alanwar**
+- [Operations](service-fabric-manage-application-in-visual-studio.md) **owner: jesseb, alanwar**
 
 ## P2 conceptual topics
 ### PaaS v2 and Cloud Applications
