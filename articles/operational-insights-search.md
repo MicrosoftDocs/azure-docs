@@ -80,7 +80,7 @@ Your query now becomes `Type=PerfHourly CounterName=”% Processor Time” Insta
 In this example, you don't have to specify **Type=PerfHourly** to get to this result. Because the fields CounterName and InstanceName only exist for records of Type=PerfHourly, the query is specific enough to return the same results as the longer, previous one: 
 ```
 CounterName=”% Processor Time” InstanceName=”_Total”
-```.
+```
 
 This is because all the filters in the query are evaluated as being in *AND* with each other. Effectively, the more fields you add to the criteria, you get less, more specific and refined results. 
 
