@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="required"
    ms.date="04/08/2015"
-   ms.author="mcoskun@microsoft.com"/>
+   ms.author="mcoskun;jesseb"/>
 
 # Reliable Collections
 
@@ -53,7 +53,7 @@ before the asynchronous commit returns.
 The Reliable Collections APIs are an evolution of concurrent collections APIs
 (found in the System.Collections.Concurrent namespace):
 1. Asynchronous: Returns a Task since, unlike Reliable Collections, the operations are replicated and persisted.
-2. No out parameters: Uses ConditionalResult<T> to return a bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to a struct.
+2. No out parameters: Uses ConditionalResult<T> to return a bool and a value instead of out parameters. ConditionalResult<T> is like Nullable<T> but does not require T to be a struct.
 3. Transactions: Uses a transaction object to enable the user to group actions on multiple Reliable Collections in a transaction.
 
 Today, Microsoft.ServiceFabric.Data.Collections contains two collections:
