@@ -65,14 +65,13 @@ Tutorial segments:
 To run a Testability action against a Local Cluster, first you need to connect to the cluster and you should open the PowerShell prompt in administrator mode. Let us look at the **Restart-ServiceFabricNode** action.
 
 ```powershell
-    Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
+Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
 ```
 
 Here the action **Restart-ServiceFabricNode** is being run on a node named "Node1" and the completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded. Instead of directly specifying the node by its name, you can specify via a partition key and the kind of replica, as follows:
 
 ```powershell
-    Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed
-    -PartitionKey Partition3 -CompletionMode Verify
+Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
 ```
 
 **Restart-ServiceFabricNode** should be used to restart a service fabric node in a cluster. This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
