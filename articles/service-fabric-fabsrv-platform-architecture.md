@@ -21,14 +21,14 @@
 A Service Fabric Reliable Services may be stateful or stateless. Each type of service runs within a specific architecture described in this article. 
 See [Reliable Service Overview](service-fabric-reliable-services-introduction) for more information about the differences between stateful and stateless services.
 
-## Reliable Stateful Service
+## Stateful Reliable Service
 
-### Reliable Stateful Service Architecture Diagram
+### Stateful Reliable Service Architecture Diagram
 ![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateful-service-architecture.png)
 
-### Reliable Stateful Service
+### Stateful Reliable Service
 
-Your reliable stateful service would derive from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
+Your stateful reliable service would derive from the StatefulService or StatefulServiceBase class. Both of these base classes are provided by Service Fabric and
 provide various levels of support and abstraction for your stateful service to interface with Service Fabric and participate as a service within the Service Fabric Cluster. 
 Internally StatefulService derives from StatefulServiceBase; StatefulServiceBase offers services more flexibility but requires more understanding of the internals of service fabric.
 See [Reliable Service Overview](service-fabric-reliable-services-introduction) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage) for more information on the specifics
@@ -40,7 +40,7 @@ at those points in the service implementation lifecycle and if the service imple
 may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
 implemented by Service Fabric as the service implementation uses a communication listener implemented by Service Fabric.
 
-Your stateful service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service, 
+Your stateful reliable service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service, 
 that is, are always available regardless of service failovers. Each type of reliable colletion is implemented by a reliable state provider.
 For more information on reliable collections see [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections)
 
@@ -92,12 +92,12 @@ use it.
 
 For more information about configuring the log see [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration).
 
-## Reliable Stateless Service
+## Stateless Reliable Service
 
-### Reliable Stateless Service Architecture Diagram
+### Stateless Reliable Service Architecture Diagram
 ![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateless-service-architecture.png)
 
-### Reliable Stateless Service
+### Stateless Reliable Service
 
 Stateless service implementations derive from the StatelessService or StatelessServiceBase class where the StatelessServiceBase class allows more flexibility than the StatelessService.
 Both base classes manages the
