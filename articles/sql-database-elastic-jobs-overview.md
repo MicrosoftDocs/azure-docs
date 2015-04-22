@@ -18,7 +18,7 @@
 
 # Elastic database jobs overview
 
-The elastic job service (preview) enables you to run T-SQL scripts (jobs) against elastic any number of databases in an elastic database pool. For example, you can update the schema to every database in the deployment to include a new table. Normally, you must connect to each database in order to run TSQL statements or perform other tasks. The elastic database job service handles the task of logging in, and running the script for you, while logging the success of each step. 
+The [elastic job service (preview)](sql-database-elastic-pool.md) enables you to run T-SQL scripts (jobs) against elastic any number of databases in an elastic database pool. For example, you can update the schema to every database in the deployment to include a new table. Normally, you must connect to each database in order to run TSQL statements or perform other tasks. The elastic database job service handles the task of logging in, and running the script for you, while logging the success of each step. 
 
 ![Elastic database job service][1]
 
@@ -35,17 +35,19 @@ The elastic job service (preview) enables you to run T-SQL scripts (jobs) agains
 
 
 
-## How the job service works
+## How to use elastic database jobs 
 
-1.	From the Elastic database pool view, click **Manage jobs**. 
-2.	Type in the user name and password of a SQL Server login that will execute the script.
+1.	Install the services used by elastic database jobs. See [Installing elastic database jobs](sql-database-elastic-jobs-service-installation.md). If the installation fails, see [how to uninstall](sql-database-elastic-jobs-uninstall.md).
+2.	Configure the elastic database pool by [adding a user to each database](sql-database-elastic-jobs-add-logins-to-dbs.md).
+2.	From the elastic database pool view, click  **Create jobs**. 
+2.	Type in the user name and password of a SQL Server login that will execute the script. (You create the username and password when installing the service).
 3.	Type the name of the job, and paste in or type the script.
 4.	Click **Run** and the service executes the script against each database.
 5.	A management view allows you to see all jobs running, or that have run. 
 6.	Click any job to see its log of steps.
 7.	If a job fails, click on its name  to see the error log.
 
-## Service components
+## Manage jobs 
 
 The following components work together to create a an Azure Cloud service that enables the execution of ad-hoc administrative jobs. The components are installed and configured automatically at setup, in your subscription. You can identify the services as they all have the same auto-generated name. The name is unique, and consists of the prefix "edj" followed by 21 randomly generated characters.
 
