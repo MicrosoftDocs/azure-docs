@@ -42,7 +42,7 @@ Install and extend the Samples **owner: vturecek**
 
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
-- HOLs/tutorials **owners: Haishi, bmerril**
+- HOLs/tutorials **owners: Haishi, bmerrill**
 
 - [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
@@ -117,9 +117,6 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
 
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
-
-Upgrade an application (PowerShell) **owner: alexwun**
-
 
 ### Scale Services and Partitions owner: vturecek
 
@@ -207,7 +204,6 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 ### Applications, Services, Partitions, Replicas, and Replica Sets
 ### Cluster
 ### Service State
-### Service Model
 ### Application and Service Types
 ### Names and Properties/Naming Service
 ### Image Store
