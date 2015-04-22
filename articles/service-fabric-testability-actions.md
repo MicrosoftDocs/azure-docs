@@ -104,7 +104,7 @@ Connect-ServiceFabricCluster -testMode
 Invoke-ServiceFabricPartitionQuorumLoss -serviceName fabric:/app/svc -randomPartition
 ```
 
-## Running a Testability action with C#
+## Running a Testability action with C# 
 
 To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action.
 Let us look at the RestartServiceFabricNode action:
@@ -144,7 +144,7 @@ public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeNam
 }
 ```
 
-### Furthur examples of using an action in C#
+### Furthur examples of using an action in C# 
 
 #### RestartReplica action
 
