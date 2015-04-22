@@ -18,15 +18,9 @@
 
 # Testability overview
 
-Testability is a suite of tools specifically designed for testing your services built on Microsoft Azure Service Fabric. The tools allow you to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions your services will experience throughout their lifetimes, all in a controlled and safe manner.
+Testability is a suite of tools specifically designed for testing services built on Microsoft Azure Service Fabric. The tools allow the developer to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions a service will experience throughout its lifetimes, all in a controlled and safe manner.
 
-## Right tools for the right job
-
-Testability is all about executing runtime tests against your services using a set of PowerShell and C# APIs so you can write everything from test scripts that can be invoked via PowerShell in your development and test environments, to long-running services that continuously invoke test actions in production.
-
-## Actions and scenarios
-
- With Testability we provide Actions and Scenarios to do the job. Actions are individual faults or actions that can be performed against your service. These are the building blocks for running tests against your service. For example:
+Tesability provides Actions and Scenarios that allow the above to happen. Actions are the individual faults targetting a service for testing it.  A service developer can use these as building blocks to write complicated scenarios. For example:
 
   + Restart a node to simulate a any number of situations where a machine or VM is rebooted.
   + Move a replica of your stateful service to simulate load balancing, failover, or application upgrades.
@@ -37,6 +31,8 @@ Scenarios are complete tests that are composed of one or more actions, and since
 
   + Chaos Test
   + Failover Test
+
+Testability exposes both PowerShell and C# APIs. This allows the service developer to have greater agility with scripting of powershell and greater control wilth C# APIs as and when needed.
 
 ## Importance of Testability
 
@@ -80,6 +76,12 @@ In windows fabric through the Testability module and service, we are proposing t
 
 With Service Fabric, though the scale of failures would be different in the different environments the actual mechanism would be identical. This allows for a much quicker code to deployment pipeline and the ability to test the services while still being under real world load.
 
-----------
+## Using Testability
+### Using Testability in C# 
+The various testability features are present in the System.Fabric.Testability.dll. This dll can be found in the Microsoft.ServiceFabric.Testability.nupack nuget package. In order to use the testability features, include the nuget package in as a reference in your project.
 
+## Using Testability in PowerShell
+To use the Testability PowerShell an installation of the runtime msi is required. Once the MSI is required, the ServiceFabricTestability PowerShell module is auto loaded for developers to use.
+
+## Conclusion
 In order to crate cloud scale services the ability to ensure that such services can stand real world failures before being deployed (and also while in production deployment) is very critical. Also in the services world today, the ability to quickly innovate and move code to production is very important. The Testability module in Service Fabric allows service developers to do the above precisely.
