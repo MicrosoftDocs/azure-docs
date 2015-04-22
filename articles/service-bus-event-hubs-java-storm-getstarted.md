@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="hero-article" 
-	ms.date="1/13/2015" 
+	ms.date="04/22/2015" 
 	ms.author="sethm"/>
 
 # Get started with Event Hubs
@@ -26,7 +26,7 @@ Event Hubs is a highly scalable ingestion system that can intake millions of eve
 
 For more information, please see [Event Hubs Overview].
 
-In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
+In this tutorial, you will learn how to collect messages into an Event Hub using a console application in Java, and to retrieve them in parallel using Apache Storm.
 
 In order to complete this tutorial you will need the following:
 
