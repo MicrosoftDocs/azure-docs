@@ -36,7 +36,7 @@ Run Service Fabric Explorer from your local installation path (%Program Files%\M
 
 ![Visual representation of the Service Fabric cluster and the deployed applications][servicefabricexplorer]
 
-One of the important visualizations is the cluster map, visible on the dashboard for the cluster (e.g. clicking on **Onebox/Local cluster**). The cluster map shows the set of upgrade domains and failure domains, and which nodes are mapped to which domains.  See the [technical overview of Service Fabric](service-fabric-technical-overview.md) for more information on key concepts.
+One of the important visualizations is the cluster map, visible on the dashboard for the cluster (e.g. clicking on **Onebox/Local cluster**). The cluster map shows the set of upgrade domains and failure domains, and which nodes are mapped to which domains.  See the [technical overview of Service Fabric](service-fabric-technical-overview.md) to familiarize yourself with key Service Fabric concepts.
 
 ![Cluster map shows which upgrade domains and failure domains each node belongs to.][clustermap]
 
@@ -45,9 +45,7 @@ One of the important visualizations is the cluster map, visible on the dashboard
 
 Service Fabric Explorer allows you to explore the applications running on your cluster.  Expand the **Application View** to view detailed information on your applications, services, partitions, and replicas.
 
-> [AZURE.NOTE] See the [Technical Overview](service-fabric-technical-overview.md) to familiarize yourself with the key Service Fabric concepts.
-
-The diagram below shows that the application named **"fabric:/Stateful1Application"** has one stateless application named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
+The diagram below shows that the application named **"fabric:/Stateful1Application"** has one stateless service named **"fabric:/Stateful1Application/MyFrontEnd"** and one stateful service named **"fabric:/Stateful1Application/Stateful1"**. The stateless service has one partition with one replica running on **Node.4**. The stateful service has two partitions, each with 3 replicas, running on several different nodes.
 
 ![View of the applications running on the Service Fabric cluster][applicationview]
 
