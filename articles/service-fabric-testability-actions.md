@@ -25,7 +25,9 @@ C# implementation of the actions are found in the System.Fabric.Testability.dll 
 
 ## Graceful vs ungraceful fault actions
 Testability actions are classified into to major buckets. 
+
 •Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of state can run before the application starts up again.
+
 •Graceful failures: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
 
 ## Testability actions list
@@ -87,6 +89,7 @@ Running a Testability action (with PowerShell) against an Azure Cluster is simil
 Two examples will be viewed in this section, RestartReplica and InvokeQuorumLoss.
 
 #### RestartReplica action
+
 ```powershell
 Connect-ServiceFabricCluster -testMode
 
@@ -94,6 +97,7 @@ Restart-ServiceFabricReplica -serviceName fabric:/app/svc -longPartitionKey 17 -
 ```
 
 #### InvokeQuorumLoss action
+
 ```powershell
 Connect-ServiceFabricCluster -testMode
 
@@ -108,6 +112,7 @@ Let us look at the RestartServiceFabricNode action:
 ```C#
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
+
 Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
 Several parameter explaination:
@@ -142,6 +147,7 @@ public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeNam
 ### Furthur examples of using an action in C# 
 
 #### RestartReplica action
+
 ```C#
 fabricclient.ClusterManager.RestartReplicaAsync(replicaSelector, completionMode).Wait();
 ```
