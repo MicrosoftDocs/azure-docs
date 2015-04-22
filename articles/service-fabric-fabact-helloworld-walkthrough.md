@@ -175,7 +175,7 @@ From Visual Studio you can also package and deploy the application in the local 
 [1]: ./media/service-fabric-fabact/fabact-newproject.PNG
 [2]: ./media/service-fabric-fabact/fabact-projectstructure.PNG
 [3]: ./media/service-fabric-fabact/debugging-output.PNG
-[4]: ./media/service-fabric-fabact/vs-context-menu.PNG
+[4]: ./media/service-fabric-fabact/vs-context-menu.png
 
 
 
