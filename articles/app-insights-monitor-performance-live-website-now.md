@@ -20,8 +20,7 @@
 
 *Application Insights is in preview.*
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 Got an ASP.NET web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
 

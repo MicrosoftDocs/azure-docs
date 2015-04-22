@@ -17,7 +17,7 @@
  
 # Application Insights: platforms
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 #### Can I use Application Insights with ...?
 

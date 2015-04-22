@@ -17,7 +17,7 @@
 
 # Application Insights: Get started with Windows Phone and Store apps
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 Application Insights lets you monitor your published application for:
 

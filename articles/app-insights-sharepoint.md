@@ -17,10 +17,11 @@
 
 # Monitor a SharePoint site with Application Insights
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
 Visual Studio Application Insights monitors the availability, performance and usage of your apps. Here you'll learn how to set it up for a SharePoint app.
 
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
 
 ## Create an Application Insights resource
 

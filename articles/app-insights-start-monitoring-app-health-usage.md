@@ -17,7 +17,7 @@
 
 # Add Application Insights SDK to monitor your ASP.NET app
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 *Application Insights is in preview.*
 

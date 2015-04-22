@@ -17,7 +17,7 @@
  
 # Application Insights for JavaScript apps and web pages
 
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-get-started.md)]
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
