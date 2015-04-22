@@ -28,7 +28,7 @@ Testability actions are classified into to major buckets.
 
 •Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of state can run before the application starts up again.
 
-•Graceful failures: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
+•Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
 
 ## Testability actions list
 
