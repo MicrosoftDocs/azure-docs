@@ -55,10 +55,13 @@ StatefulServiceBase also provides the same four lifecycle events as StatelessSer
 - `Task OnCloseAsync(CancellationToken)`
 - `void OnAbort()`
 
-## Next Steps
+## Next steps
 For more advanced topics related to Service Fabric, see the following articles.
 
 - [Service Fabric Health Introduction](service-fabric-health-introduction.md)
+
 - [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+
 - [Placement Constraints Overview](service-fabric-placement-constraint.md)
+
 - [Secure replication traffic of Stateful Services in Azure Service Fabric](service-fabric-replication-security.md)
