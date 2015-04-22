@@ -1,3 +1,20 @@
+<properties 
+ pageTitle="Get Started Using Scheduler in the Management Portal" 
+ description="" 
+ services="scheduler" 
+ documentationCenter=".NET" 
+ authors="krisragh" 
+ manager="dwrede" 
+ editor=""/>
+<tags 
+ ms.service="scheduler" 
+ ms.workload="infrastructure-services" 
+ ms.tgt_pltfrm="na" 
+ ms.devlang="dotnet" 
+ ms.topic="article" 
+ ms.date="4/22/2015" 
+ ms.author="krisragh"/>
+
 # Get Started Using Scheduler in the Management Portal
 
 ## Configure Azure Scheduler using Azure Management Portal to Quickly and Easily Create Jobs
