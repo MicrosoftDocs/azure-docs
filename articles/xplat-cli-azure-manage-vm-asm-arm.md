@@ -1,25 +1,25 @@
 <properties
-	pageTitle="ASM Mode and Equivalent ARM Mode Commands for VM Operations with the Azure Cross-Platform Command-Line Interface"
-	description="Shows equivalent Azure cross-platform CLI commands to create and manage Azure VMs in ASM mode and ARM mode"
-	editor=""
-	manager="timlt"
+	pageTitle="Equivalent asm and arm ARM Mode Commands for VM Operations with the Azure Cross-Platform Command-Line Interface"
+	description="Shows equivalent Azure xplat-cli commands to create and manage Azure VMs in asm mode and arm mode"
+	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
-	services="virtual-machines"/>
+	manager="timlt"
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure-services"
 	ms.date="04/28/2015"
 	ms.author="danlep"/>
 
 # Equivalent asm and arm Mode Commands for VM Operations with the Azure Command-Line Interface
 This article shows equivalent Azure cross-platform command-line interface (xplat-cli) commands to create and manage Azure VMs in Service Management (asm) mode and Resource Manager (arm) mode. Use this as a handy guide to migrate scripts from one command mode to the other.
 
-* If you haven't already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface](xplat-cli.md) and [Connect to Your Azure Subscription from the Azure Cross-Platform Command-Line Interface](xplatcliconnect.md).
+* If you haven't already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 
 * To get started with arm mode in the xplat-cli and switch command modes, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
 
