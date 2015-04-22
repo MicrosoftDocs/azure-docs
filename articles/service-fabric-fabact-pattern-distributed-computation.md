@@ -37,8 +37,7 @@ In the following example, we simply calculate Pi using a Monte Carlo Simulation.
 
 ## Distributed computation code sample – Monte Carlo simulation
 
-```
-
+```csharp
 public interface IProcessor : IActor
 {
     Task ProcessAsync(int tries, int seed, int taskCount);
@@ -87,7 +86,6 @@ public class PooledTask : Actor, IPooledTask
         return agg.AggregateAsync(pi);
     }
 }
-
 ```
 
 A common way of aggregating results in Azure Service Fabric is to use timers. We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops. 
@@ -95,8 +93,7 @@ Here is how the Aggregator and Finaliser look:
 
 ## Distributed computation code sample – aggregator
 
-```   
-  
+```csharp
 public interface IAggregator : IActor
 {
     Task AggregateAsync(Pi pi);
@@ -181,7 +178,6 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
         return TaskDone.Done;
     }
 }
-
 ```
 
 At this point, it should be clear how we could potentially enhance the Leaderboard example with an aggregator for scale and performance.

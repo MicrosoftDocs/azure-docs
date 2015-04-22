@@ -45,6 +45,7 @@ While the actor will not get garbage collected during the execution of the timer
 Typically you do not need to change these settings. These intervals can be changed at an assembly level for all actor types in that assembly or at an actor type level by  ActorGarbageCollection attribute.
 
 The example below shows the change in the garbage collection intervals for HelloActor.  
+
 ```csharp
 [ActorGarbageCollection(IdleTimeoutInSeconds = 10, ScanIntervalInSeconds = 2)]
 class HelloActor : Actor, Ihello
@@ -55,6 +56,7 @@ class HelloActor : Actor, Ihello
     }
 }
 ```
+
 The framework scans for actors every ScanIntervalInSeconds to see if it can be garbage collected and collects it if it's not being used for IdleTimeoutInSeconds. If Actor gets reused, then idle time for Actor is reset to 0.
 
 In the example above, if an Actor was activated at time T1, framework will scan every 2 seconds to see if Actor can be garbage collected and after T1+10 it will be collected, if the actor does not get reused. Now if the Actor gets reused at T1+3 seconds, then framework will wait again for 10 seconds before collecting it, scanning every 2 seconds.
@@ -62,6 +64,7 @@ In the example above, if an Actor was activated at time T1, framework will scan 
 Note that as mentioned previously, if the actor spends more than 10 seconds inside a method execution, it will not be garbage collected. However while the actor will not get garbage collected during the execution of the timer callback, the actor timers will not activate the actor nor it can keep the actor alive (keep it from being garbage collected). If the HelloActor in the above example had an actor timer that fired every second, after being activated at T1 the actor will get garbage collected at time T1 + 10 seconds, if the actor is not used (actor method call / reminder callback) in that duration.
 
 To change default value of ActorGarbageCollection attribute at Assembly level, add following snippet to AssemblyInfo.cs
+
 ```csharp
 [assembly: ActorGarbageCollection(IdleTimeoutInSeconds = 10, ScanIntervalInSeconds = 2)]
 ```
