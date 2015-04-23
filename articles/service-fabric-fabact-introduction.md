@@ -177,3 +177,5 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 [Actor Events](service-fabric-fabact-events.md)
 
 [Actor Reentrancy](service-fabric-fabact-reentrancy.md)
+
+[Actor Diagnostics](service-fabric-fabact-diagnostics.md)
