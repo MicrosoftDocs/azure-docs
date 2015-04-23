@@ -22,5 +22,7 @@ Testability is a suite of tools specifically designed for testing your services 
 - [Testability Overview](service-fabric-testability-overview.md) 
 - [Run an action](service-fabric-testability-actions.md)  
 - [Run a scenario](service-fabric-testability-scenarios.md) 
-
+- How to write tests for your service
+    - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+    - [Service to service communication failures](service-fabric-testability-scenarios-service-communication.md)
 
