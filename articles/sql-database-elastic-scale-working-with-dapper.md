@@ -17,11 +17,11 @@
 
 # Using elastic database client library with Dapper 
 
-This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](sql-database-elastic-scale-introduction.md) to elastically grow and shrink capacity through sharding and scale-out for their applications. This document illustrates the changes in Dapper-based applications that are necessary to integrate with the current elastic database tooling capabilities. Our focus is on composing the elastic database shard management and data dependent routing with Dapper. 
+This document is for developers that rely on Dapper to build applications, but also want to embrace [elastic database tooling](sql-database-elastic-scale-introduction.md) to create applications that implement sharding to scale-out their data tier.  This document illustrates the changes in Dapper-based applications that are necessary to integrate with elastic database tools. Our focus is on composing the elastic database shard management and data dependent routing with Dapper. 
 
 **Sample Code**: [Elastic database tools for Azure SQL Database - Dapper integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
  
-Integrating **Dapper** and **DapperExtensions** with the elastic database for Azure SQL Database is easy. Your applications can use elastic scale data dependent routing by changing the creation and opening of new [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objects to use the [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) call from the [client library](http://msdn.microsoft.com/library/azure/dn765902.aspx). This limits changes in your application to only where new connections are created and opened. 
+Integrating **Dapper** and **DapperExtensions** with the elastic database client library for Azure SQL Database is easy. Your applications can use data dependent routing by changing the creation and opening of new [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objects to use the [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) call from the [client library](http://msdn.microsoft.com/library/azure/dn765902.aspx). This limits changes in your application to only where new connections are created and opened. 
 
 ## Dapper overview
 **Dapper** is an object-relational mapper. It maps .NET objects from your application to a relational database (and vice versa). The first part of the sample code illustrates how you can integrate the elastic database client library with Dapper-based applications. The second part of the sample code illustrates how to integrate when using both Dapper and DapperExtensions.  
@@ -36,7 +36,7 @@ To get the Dapper assemblies, see [Dapper dot net](http://www.nuget.org/packages
 
 ## A quick Look at the elastic database client library
 
-With Azure SQL Database Elastic Scale, you define partitions of your application data called *shardlets* , map them to databases, and identify them by *sharding keys*. You can have as many databases as you need and distribute your shardlets across these databases. The mapping of sharding key values to the databases is stored by a shard map provided by the library’s APIs. This capability is called **shard map management**. The shard map also serves as the broker of database connections for requests that carry a sharding key. This capability is referred to as **data dependent routing**.
+With the elastic database client library, you define partitions of your application data called *shardlets* , map them to databases, and identify them by *sharding keys*. You can have as many databases as you need and distribute your shardlets across these databases. The mapping of sharding key values to the databases is stored by a shard map provided by the library’s APIs. This capability is called **shard map management**. The shard map also serves as the broker of database connections for requests that carry a sharding key. This capability is referred to as **data dependent routing**.
 
 ![Shard maps and data dependent routing][1]
 

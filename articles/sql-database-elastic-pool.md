@@ -17,7 +17,10 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure SQL Database - Elastic Database Pool
+# Azure SQL Database Elastic Database Pool
+
+> [AZURE.SELECTOR]
+- [Create an elastic pool - PowerShell](sql-database-elastic-pool-powershell.md)
 
 Elastic pools provide performance adaptability for a group of databases, while also providing the ability to control price within a set budget.
 
@@ -125,11 +128,13 @@ Elastic pool provides a single pool of available resources to share across a gro
 
 
 ## Next steps
-- [Create Jobs against all databases in a pool](sql-database-elastic-jobs-create-and-manage.md)
+After creating an elastic pool, you can manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool.
+
+For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+
 
 ## Related
-- [Manage Elastic Pools with REST API]()
-- [Manage Elastic Pools with PowerShell]()
+[Create an Azure SQL Database elastic pool using Azure PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 <!--Image references-->
