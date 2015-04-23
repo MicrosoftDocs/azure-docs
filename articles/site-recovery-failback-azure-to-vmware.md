@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Steps to failback from Azure to VMware when protecting using InMage" 
    description="This article describes how Azure Site Recovery and vContinuum tool can be used to failback a virtual machine back to VMware." 
    services="site-recovery" 
@@ -56,7 +56,7 @@ The vContinuum setup will be at http://go.microsoft.com/fwlink/?linkid=526305
 1.  Launch the setup to begin installation of vContinuum. After the
     welcome screen click next to begin specifying the settings
 
-    ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+![](./media/site-recovery-failback-azure-to-vmware/image2.png)
 
 2.  Specify the CX server IP address and the CX server port. Ensure to
     select HTTPs in the checkbox.
@@ -67,7 +67,7 @@ The vContinuum setup will be at http://go.microsoft.com/fwlink/?linkid=526305
         its dashboard. The public IP address will be displayed under
         Public Virtual IP address.
 
-    ![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+![](./media/site-recovery-failback-azure-to-vmware/image4.png)
 
     b.  To discover the CX public port go to the endpoints tab in the VM
         page and identify the HTTPs endpoints public port
