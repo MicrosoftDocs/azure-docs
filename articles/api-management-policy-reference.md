@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/10/2015" 
+	ms.date="04/23/2015" 
 	ms.author="sdanie"/>
 
 # Azure API Management Policy Reference
@@ -49,6 +49,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Find and replace string in body][] - Finds a request or response substring and replaces it with a different substring.
 	-	[Mask URLs in content][] - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the proxy.
 	-	[Set backend service][] - Changes the backend service for an incoming request.
+	-	[Set body][] - Sets the message body for incoming and outgoing requests.
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.
 	-	[Set query string parameter][] - Adds, replaces value of, or deletes request query string parameter.
 	-	[Rewrite URL][] - Converts a request URL from its public form to the form expected by the web service.
@@ -85,6 +86,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 [Find and replace string in body]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#Findandreplacestringinbody
 [Mask URLs in content]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#MaskURLSContent
 [Set backend service]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetBackendService
+[Set body]: https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBody
 [Set HTTP header]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetHTTPheader
 [Set query string parameter]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#SetQueryStringParameter
 [Rewrite URL]: https://msdn.microsoft.com/library/azure/7406a8ce-5f9c-4fae-9b0f-e574befb2ee9#RewriteURL

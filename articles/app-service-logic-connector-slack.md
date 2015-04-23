@@ -20,7 +20,7 @@
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
 
-Slack Connector lets you post messages to and receive messages from Slack channels.
+Slack Connector lets you post messages to Slack channels.
 
 ## Creating a Slack connector for your Logic App ##
 To use the Slack connector, you need to first create an instance of the Slack connector API app. This can be done as follows:
@@ -71,7 +71,6 @@ Once your API app is created, you can now use the Slack connector as an action f
  - **Channel Name** - Specify the Slack Channel to which this message is to be uploaded. If this is not provided, then message will be posted in #general
 
  	**Advanced Properties**
-
  	- **Bot User name** - Name of the bot to use for this message. Message will be posted as "Bot" if this is not specified.
  	- **Icon URL** - URL to an image to use as the icon for this message
  	- **Icon Emoji** - Emoji to use as the icon for this message. Overrides Icon URL
@@ -96,4 +95,4 @@ Once your API app is created, you can now use the Slack connector as an action f
 
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[Slack API Definition]: https://msdn.microsoft.com/en-us/library/dn948518.aspx
+[Slack API Definition]: http://slackconnector1582e22a63384574892faff988e5bb67.azurewebsites.net/PostMessage/

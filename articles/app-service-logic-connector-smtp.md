@@ -21,9 +21,7 @@
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
 
-SMTP Connector lets you connect to a SMTP server and perform an action to send email with attachments.
-
-- SMTP connector "Send Email" action lets you send email to the specified email address(es). 
+SMTP Connector lets you connect to a SMTP server and perform an action to send email with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es). 
 
 ## Creating an SMTP connector for your Logic App ##
 To use the SMTP connector, you need to first create an instance of the SMTP connector API app. This can be done as follows:
