@@ -60,7 +60,7 @@ To get started using Azure AD Connect you can download the latest version using 
 
 ----------------------------------------------------------------------------------------------------------
 
-## Recent Updates
+## Recent updates
 
 **Azure AD Connect Public Preview March 2015 Update** - March 2015
 
