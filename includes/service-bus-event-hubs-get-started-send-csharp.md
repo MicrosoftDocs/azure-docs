@@ -34,13 +34,13 @@ In this section, you'll write a Windows console app that sends events to your Ev
                 try
                 {
                     var message = Guid.NewGuid().ToString();
-                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now.ToString(), message);
+                    Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
                     await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
                 }
                 catch (Exception exception)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now.ToString(), exception.Message);
+                    Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
                     Console.ResetColor();
                 }
 
