@@ -1,6 +1,6 @@
 <properties
    pageTitle="Testability Action."
-   description="This article talks about the testability actions found in ServiceFabric."
+   description="This article talks about the testability actions found in Microsoft Azure Service Fabric."
    services="service-fabric"
    documentationCenter=".net"
    authors="heeldin"
@@ -19,18 +19,18 @@
 # Testability actions
 In order to simulate an unreliable infrastructure, Service Fabric provides developers with ways to simulate various real world failures and state transitions. These are exposed as Testability actions. The actions are the low level APIs that cause a specific fault injection, state transition or validation. Combining these actions, a service developer can write comprehensive test scenarios for your services.
 
-Service Fabric provides some common test scenarios out of the box composed of these actions. It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failures case. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.
+Service Fabric provides some common test scenarios out of the box composed of these actions. It is highly recommended to utilize these built-in scenarios, which are carefully chosen to test common state transitions and failure cases. However, actions can be used to create custom test scenarios when you want to add coverage for scenarios that are either not covered by the built-in scenarios yet or custom tailored for your application.
 
 C# implementation of the actions are found in the System.Fabric.Testability.dll assembly. The Testability PowerShell module is found in the Microsoft.ServiceFabric.Testability.Powershell.dll assembly. As part of runtime installation the ServiceFabricTestability PowerShell module is installed to allow for easy use.
 
 ## Graceful vs. ungraceful fault actions
-Testability actions are classified into to major buckets.
+Testability actions are classified into two major buckets:
 
 * Ungraceful faults: These faults simulate failures like machine restarts and process crashes. In such cases of failures, the execution context of process stops abruptly. This means no cleanup of state can run before the application starts up again.
 
 * Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
 
-To test run your service and walk through your business workload while inducing graceful and ungraceful faults. Ungraceful faults will exercise the scenarios where the service process abruptly exits in the middle of some workflow, testing the recovery path once the service replica is restored by Service Fabric. This will help you test data consistency and whether the service state is maintained correctly after failures. The other set of failures i.e. the graceful failures test that your service correctly reacts to replicas being moved around by Service Fabric. This tests how you handle cancellation in the RunAsync method. You need to check for the Cancellation token being set, correctly save your state and return from the RunAsync method. 
+For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures i.e. the graceful failures test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the Cancellation token being set, correctly save its state and exit the RunAsync method. 
 
 ## Testability actions list
 
@@ -58,7 +58,7 @@ This tutorial shows you how to run a Testability action with PowerShell. You wil
 Tutorial segments:
 
 - [Run an action against a one-box cluster](#run-an-action-against-a-one-box-cluster)
-- [Run an action against an azure cluster](#run-an-action-against-an-azure-cluster)
+- [Run an action against an Azure cluster](#run-an-action-against-an-azure-cluster)
 
 ### Run an action against a one-box cluster
 
@@ -74,7 +74,7 @@ Here the action **Restart-ServiceFabricNode** is being run on a node named "Node
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
 ```
 
-**Restart-ServiceFabricNode** should be used to restart a service fabric node in a cluster. This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
+**Restart-ServiceFabricNode** should be used to restart a Service Fabric node in a cluster. This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
 
 The following screenshot shows the **Restart-ServiceFabricNode** Testability command in action.
 
@@ -82,7 +82,7 @@ The following screenshot shows the **Restart-ServiceFabricNode** Testability com
 
 The output of the first *Get-ServiceFabricNode* (a cmdlet from the ServiceFabric PowerShell module) shows that the local cluster has five nodes: Node.1 to Node.5; then after executing the Testability action (cmdlet) **Restart-ServiceFabricNode** on the node, named Node.4, we see that the node's uptime has been reset.
 
-### Run an action against an azure cluster
+### Run an action against an Azure cluster
 
 Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.
 
@@ -116,7 +116,7 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
-Several parameter explaination:
+Several parameter explanation:
 
 **CompleteMode** - completion mode specifies that it should not verify whether the restart action actually succeeded; specifying the completion mode as "Verify" will cause it to verify whether the restart action actually succeeded.  
 **OperationTimeout** - sets the amount of time for the operation to finish before a TimeoutException exception is thrown.
@@ -207,3 +207,10 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 // Select random secondary replica
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
+
+## Next Steps
+
+- [Testability Scenarios](service-fabric-testability-scenarios.md)
+- How to test your service
+   - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+   - [Service to service communication failures](service-fabric-testability-scenarios-service-communication.md)

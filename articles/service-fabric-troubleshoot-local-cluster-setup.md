@@ -68,7 +68,7 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
 
 Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully connect.
 
-## See also
+## Next steps 
 
 - [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

@@ -18,9 +18,9 @@
 
 
 # Actor Timers
-Actor timers provide a simple wrapper around .NET timer such that the callback methods respect the turn-based concurrency guarantees provided by the actor framework.
+Actor timers provide a simple wrapper around .NET timer such that the callback methods respect the turn-based concurrency guarantees provided by the Actors runtime.
 
-Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due the `MoveObject` method will be called by the framework and it is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
+Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base class to register and unregister their timers. The example below shows the use of timer APIs. The APIs are very similar to the .NET timer. In the example below when the timer is due the `MoveObject` method will be called by the Actors runtime and it is guaranteed to respect the turn-based concurrency, which means that no other actor methods or timer/reminder callbacks will be in progress until this callback completes execution.
 
 ```csharp
 class VisualObjectActor : Actor<VisualObject>, IVisualObject
@@ -60,12 +60,12 @@ class VisualObjectActor : Actor<VisualObject>, IVisualObject
 
 The next period of the timer starts after the callback completes execution. This implies that the timer is stopped while the callback is executing and is started when the callback has completed.
 
-The framework saves the actor state when the callback completes if the Actor is a stateful actor like in the example above. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a read-only timer callback by specifying the Readonly attribute on the timer callback, as described in the section on [readonly methods](service-fabric-fabact-introduction.md#readonly-methods).
+The Actors runtime saves the actor state when the callback completes if the Actor is a stateful actor like in the example above. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. A callback method that does not modify the actor state can be registered as a read-only timer callback by specifying the Readonly attribute on the timer callback, as described in the section on [readonly methods](service-fabric-fabact-introduction.md#readonly-methods).
 
-All timers are stopped when the actor is deactivated as part of garbage collection and no timer callbacks are invoked after that. Also, the actor framework does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, please see the section on [actor garbage collection](service-fabric-fabact-lifecycle.md).
+All timers are stopped when the actor is deactivated as part of garbage collection and no timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, please see the section on [actor garbage collection](service-fabric-fabact-lifecycle.md).
 
 ## Actor Reminders
-Reminders are a mechanism to trigger persistent callbacks on an Actor at specified times. Their functionality is similar to timers, but unlike timers reminders are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Specifically, reminders are triggered across actor deactivations and failovers because the actor framework persists information about the actor's reminders.
+Reminders are a mechanism to trigger persistent callbacks on an Actor at specified times. Their functionality is similar to timers, but unlike timers reminders are triggered under all circumstances until the Reminder is explicitly unregistered by the Actor. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
 
 Reminders are supported for stateful actors only. Stateless actors cannot use reminders. The actors state providers are responsible for storing information about the reminders that have been registered by actors.  
 
@@ -103,7 +103,7 @@ public class ToDoListActor : Actor<ToDoList>, IToDoListActor, IRemindable
 
 When a reminder is triggered, Fabric Actors runtime will invoke `ReceiveReminderAsync` method on the Actor. An actor can register multiple reminders and the `ReceiveReminderAsync` method is invoked any time any of those reminders is triggered. The actor can use the reminder name that is passed in to the `ReceiveReminderAsync` method to figure out which reminder was triggered.
 
-The framework saves the actor state when the `ReceiveReminderAsync` call completes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. To specify that the state need not be saved upon completion of the reminder callback, the `ActorReminderAttributes.ReadOnly` flag can be set in the `attributes` parameter when the `RegisterReminder` method is called to create the reminder.
+The Actors runtime saves the actor state when the `ReceiveReminderAsync` call completes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. To specify that the state need not be saved upon completion of the reminder callback, the `ActorReminderAttributes.ReadOnly` flag can be set in the `attributes` parameter when the `RegisterReminder` method is called to create the reminder.
 
 To unregister a reminder, the `UnregisterReminder` method should be called, as shown in the example below.
 
