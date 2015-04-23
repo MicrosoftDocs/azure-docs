@@ -1,22 +1,23 @@
 <properties 
-	pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" 
-	description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" 
-	services="web-sites" 
+	pageTitle="Connect to on-premises SQL Server from a web app in Azure App Service using Hybrid Connections" 
+	description="Create a web app on Microsoft Azure and connect it to an on-premises SQL Server database"
+	tags="azure-portal" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/23/2015" 
 	ms.author="cephalin"/>
 
-# Connect to an on-premises SQL Server from an Azure website using Hybrid Connections
+# Connect to on-premises SQL Server from a web app in Azure App Service using Hybrid Connections
 
 Hybrid Connections can connect Microsoft Azure websites to on-premises resources that use a static TCP port. Supported resources include Microsoft SQL Server, MySQL, HTTP Web APIs, Mobile Services, and most custom Web Services. 
 
