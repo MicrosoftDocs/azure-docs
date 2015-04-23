@@ -20,25 +20,25 @@
 
 # Application Upgrade Tutorial
 
-This most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next UD or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST.
+The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Service Fabric monitors the health of the application being upgraded based on a set of health policies. When the applications in an upgrade domain (UD) have been upgraded, Service Fabric evaluates the application health and determines whether to proceed to the next UD or fail the upgrade based on the health policies. A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST.
 
 Service Fabric monitored rolling upgrade allows the application administrator to configure the health evaluation policy that Service Fabric uses to determine the application is healthy. In addition, it also allows the administrator to configure the action to be taken when the health evaluation fails such as automatically roll-back. This section walkthrough a monitored upgrade for one of the SDK samples.
 
 ## Step 1: Build & Deploy the Visual Objects Sample
 
-This steps can be done by opening the project in VS, and right clicking on the Solution and selecting the deploy command in the Service Fabric Menu Item.  Alternatively, one may use PS.
+These steps can be done by opening the project in Visual Studio, and right clicking on the Solution and selecting the deploy command in the Service Fabric menu item.  See [managing your Service Fabric application in Visual Studio](service-fabric-manage-application-in-visual-studio.md) for more information.  Alternatively, one may use PowerShell.
 
-_Before any of the Service Fabric commands may be used in PS, one has to first connect the cluster by using the Connect-ServiceFabricCluster cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine._
+> [AZURE.NOTE] Before any of the Service Fabric commands may be used in PowerShell, one has to first connect to the cluster by using the `Connect-ServiceFabricCluster` cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine. See the article on [setting up your Service Fabric development environment](service-fabric-get-started.md).
 
-After building the project in VS, one may use the PS commands Copy-ServiceFabricApplicationPackage to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the Register-ServiceFabricApplicationPackage, and finally starting an instance of the application by using the New-ServiceFabricApplication.  These three steps are analogous to using the Deploy menu item in VS.
+After building the project in Visual Studio, one may use the PowerShell command `Copy-ServiceFabricApplicationPackage` to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the `Register-ServiceFabricApplicationPackage` cmdlet, and finally starting an instance of the application by using the `New-ServiceFabricApplication` cmdlet.  These three steps are analogous to using the Deploy menu item in Visual Studio.
 
-Now, you can use WinfabExplorer to view the cluster and the application. The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use Get-ServiceFabricApplication to check the application status.
+Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use `Get-ServiceFabricApplication` to check the application status.
 
 ## Step 2: Update the Visual Objects Sample
 
 You might notice that with the version that was deployed in Step 1, the visual objects do not rotate. Let us upgrade this application to one where the visual objects also rotate.
 
-Select the VisualObjects.DataService  project within the VisualObjects solution, and open the VisualObjects.cs file in that project. Within that file navigate to the method CreateMovedObject, and find the line where rotation of the visual objects is set (search for the following lines in the CreateMovedObject method). Comment out the line nextObject.Rotation = 1, and uncomment the line below it. Your code should look like the following after the changes are made:
+Select the VisualObjects.DataService project within the VisualObjects solution, and open the VisualObjects.cs file in that project. Within that file navigate to the method `CreateMovedObject`, and find the line where rotation of the visual objects is set (search for the following lines in the `CreateMovedObject` method). Comment out the line `nextObject.Rotation = 1`, and uncomment the line below it. Your code should look like the following after the changes are made:
 
 ```c#
             //nextObject.Rotation = 1;
@@ -80,9 +80,9 @@ UpgradeTimeout = 3000
 
 ## Step 4: Prepare Application for Upgrade
 
-Now, the application is built and ready to be upgraded. If you open up a PS as administrator and type Get-ServiceFabricApplication, it should let you know that it is Application Type 1.0.0.0 of VisualObjects that's been deployed.   The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
+Now, the application is built and ready to be upgraded. If you open up a PowerShell window as administrator and type `Get-ServiceFabricApplication`, it should let you know that it is Application Type 1.0.0.0 of VisualObjects that's been deployed.  The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
 
-Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric. The parameter ApplicationPackagePathInImageStore informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may have to modify paths again appropriately).
+Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric). The parameter ApplicationPackagePathInImageStore informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may have to modify paths again appropriately).
 
 ```powershell
 Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
@@ -95,7 +95,7 @@ The next step is to register this application with Service Fabric, which can be 
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
 ```
 
-If the above command doesn't succeed it is likely that you did a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
+If the above command doesn't succeed it is likely that you need a rebuild of all services. As mentioned in Step 2, you may have to update your WebService version as well.
 
 ## Step 5: Start Application Upgrade
 
@@ -108,14 +108,14 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Note the application name is as was described in the ApplicationManifest.xml file. Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a failure message that states the problem. Refer to the troubleshooting section, or increase the timeouts.
 
-Now, as the application upgrade proceeds, you can monitor it using WinFabExplorer, or using the following PS command: 'Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects'
+Now, as the application upgrade proceeds, you can monitor it using Service Fabric Explorer, or using the following PowerShell command: `Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects`.
 
-In a few minutes, the UpgradeDomain status using the above PS command should state that all UDs were upgraded (completed). And you should find that the visual objects in your IE window will now have started rotating!
+In a few minutes, the UpgradeDomain status using the above PowerShell command should state that all UDs were upgraded (completed). And you should find that the visual objects in your browser window will now have started rotating!
 
 You may want to try changing the versions and moving from version 2 to version 3 as an exercise, or even from version 2 back to version 1 (yes, you can upgrade from v2 to v1). Play with timeouts and health policies to make yourself familiar. When you are deploying to an Azure cluster, the parameters used will be different than those that worked when deploying to a local cluster - it is recommended to set the timeouts conservatively.
 
 
-## Related Topics
+## Next steps
 
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
