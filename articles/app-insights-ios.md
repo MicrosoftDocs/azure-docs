@@ -265,7 +265,7 @@ pod "ApplicationInsights", '1.0-beta.1'
 
 ## Run your app
 
-Run the app either in debug or published.
+Run the app in debug mode, or publish it.
 
 ## View your data in Application Insights
 
@@ -273,7 +273,15 @@ Return to http://portal.azure.com and browse to your Application Insights resour
 
 Click Search to open Diagnostic Search - that's where the first events will appear. If you don't see anything, wait a minute or two and click Refresh.
 
-As people use your app, data will appear in the overview page. 
+![Click Diagnostic Search](./media/app-insights-ios/21-search.png)
+
+As your app is used, data will appear in the overview blade.
+
+![Overview blade](./media/app-insights-ios/22-oview.png)
+
+Click on any chart to get more detail. For example, crashes:
+
+![Click the crash chart](./media/app-insights-ios/23-crashes.png)
 
 ## <a name="usage"></a>Next Steps
 
