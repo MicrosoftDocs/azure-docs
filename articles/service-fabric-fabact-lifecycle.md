@@ -18,7 +18,7 @@
 
 
 #Actor lifecycle and Garbage Collection
-An Actor is activated when first call is made to it and its deactivated(Garbage Collected by framework) if it is not used for some period of time. To configure this time period please see section on Actor Garbage Collection below.
+An Actor is activated when first call is made to it and its deactivated(Garbage Collected by Actors runtime) if it is not used for some period of time. To configure this time period please see section on Actor Garbage Collection below.
 
 What happens on Actor Activation?
 
@@ -33,7 +33,7 @@ What happens on Actor Deactivation?
 - `OnDeactivateAsync` method (which can be overridden in actor implementation) is called which clears all the timers for the actor.
 
 ## Actor Garbage Collection
-The framework periodically scans for actors that have not been used for some period of time, and deactivates them. Once they are deactivated they can be garbage collected by CLR.
+The Actors runtime periodically scans for actors that have not been used for some period of time, and deactivates them. Once they are deactivated they can be garbage collected by CLR.
 
 What counts as “being used” for the purpose of garbage collection?
 
@@ -44,7 +44,7 @@ It is worth noting that if the actor uses timers and its timer callback is invok
 
 Before going into the details of garbage collection, it is important to define the following terms:
 
-- *Scan interval* - This is the interval at which the framework scans its Active Actors table for actors that can be garbage collected. The default value for this is 1 minute.
+- *Scan interval* - This is the interval at which the Actors runtime scans its Active Actors table for actors that can be garbage collected. The default value for this is 1 minute.
 - *Idle timeout* - This is the amount of time an actor needs to remain unused (idle) before it can be garbage collected. The default value for this is 60 minutes.
 
 Typically you do not need to change these defaults. However, if necessary, these intervals can be changed at an assembly level for all actor types in that assembly or at an actor type level using the `ActorGarbageCollection` attribute. The example below shows the change in the garbage collection intervals for HelloActor.
@@ -60,17 +60,13 @@ class HelloActor : Actor, IHello
 }
 ```
 
-The framework scans for actors every ScanIntervalInSeconds to see if it can be garbage collected and collects it if it is not being used for IdleTimeoutInSeconds. If Actor gets reused, then idle time for Actor is reset to 0.
-
-In the example above, if an Actor was activated at time T1, framework will scan every 2 seconds to see if Actor can be garbage collected and after T1+10 it will be collected, if the actor does not get reused. Now if the Actor gets reused at T1+3 seconds, then framework will wait again for 10 seconds before collecting it, scanning every 2 seconds.
-
 To change default value of `ActorGarbageCollection` attribute at Assembly level, add following snippet to `AssemblyInfo.cs`.
 
 ```csharp
 [assembly: ActorGarbageCollection(IdleTimeoutInSeconds = 10, ScanIntervalInSeconds = 2)]
 ```
 
-For each actor in its Active Actors table, the framework keeps track of the amount of time it has been idle (i.e. not used). The framework checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if has been idle for `IdleTimeoutInSeconds`.
+For each actor in its Active Actors table, the Actors runtime keeps track of the amount of time it has been idle (i.e. not used). The Actors runtime checks each of the actors every `ScanIntervalInSeconds` to see if it can be garbage collected and collects it if has been idle for `IdleTimeoutInSeconds`.
 
 Any time an actor gets used, its idle time reset to 0. After this, the actor can only be garbage collected if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
 
