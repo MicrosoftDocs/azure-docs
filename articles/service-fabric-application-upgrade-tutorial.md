@@ -122,6 +122,8 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
+[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
+
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
 [Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
