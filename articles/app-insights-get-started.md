@@ -91,11 +91,10 @@ If your app is a web site or service, there are some optional additions and vari
 * Instrument an already-live server-side application without rebuilding or redeploying it. This is available for [IIS servers][redfield] and [Azure web apps][azure].
 * Monitor dependency calls that your app makes to other components such as databases or through REST APIs. Available for [IIS servers][redfield] and [Azure web apps][azure].
 
-
 <!--Link references-->
 
 [alerts]: app-insights-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
+[android]:app-insights-android.md
 [api]: app-insights-custom-events-metrics-api.md
 [apiproperties]: app-insights-custom-events-metrics-api.md#properties
 [apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
@@ -115,6 +114,7 @@ If your app is a web site or service, there are some optional additions and vari
 [export]: app-insights-export-telemetry.md
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[ios]: app-insights-ios.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [javareqs]: app-insights-java-track-http-requests.md
@@ -128,12 +128,12 @@ If your app is a web site or service, there are some optional additions and vari
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
+[roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
+[universal]: app-insights-windows-get-started.md#universal
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
-

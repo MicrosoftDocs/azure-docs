@@ -187,11 +187,10 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 
 
 
-
 <!--Link references-->
 
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
+[alerts]: app-insights-alerts.md
+[android]:app-insights-android.md
 [api]: app-insights-custom-events-metrics-api.md
 [apiproperties]: app-insights-custom-events-metrics-api.md#properties
 [apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
@@ -211,6 +210,7 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 [export]: app-insights-export-telemetry.md
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[ios]: app-insights-ios.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [javareqs]: app-insights-java-track-http-requests.md
@@ -224,12 +224,12 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
+[roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 [trace]: app-insights-search-diagnostic-logs.md
 [track]: app-insights-custom-events-metrics-api.md
+[universal]: app-insights-windows-get-started.md#universal
 [usage]: app-insights-web-track-usage.md
 [windows]: app-insights-windows-get-started.md
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
-
