@@ -17,38 +17,39 @@
    ms.author="leikong"/>
 
 # What is Secured?
-When replication is enabled, Stateful services replicate states across replicas. This page is about how to configure the protection on such traffic.
+When replication is enabled, Stateful services replicate state across replicas. This page is about how to configure protection on such traffic.
 
 There are 2 types of security settings that are supported.
-- X509
-- Windows
+- X509: Uses X509 certificate to secure the communication channel. Users are expected to ACL certificate private keys to allow Actor/Service host processes to be able to use the certificate credentials.
+- Windows: Uses windows security(requires Active Directory) to secure the communication channel.
 
 The following section shows how to configure the above 2 types of settings.
 The configuration "CredentialType" determines which type is being used.
 
-
 ## CredentialType=X509
 
 ### Configuration Names
-|Name|Supported Values|Remarks|
-|----|----------------|-------|
-|StoreLocation|CurrentUser,LocalMachine|Store location to find the certificate.|
-|StoreName|N/A. |Store name to find the certificate.|
-|FindType|FindBySubjectName|Identifies the type of value provided by in the FindValue parameter.|
-|FindValue|N/A. This is a required configuration|Search target for finding the certificate.|
-|AllowedCommonNames|N/A. This is a required configuration|A comma separated list of certificate common names/dns names used by replicators.|
-|IssuerThumbprints|empty string|A comma separated list of issuer certificate thumbprints. When empty, no issuer checking will be done.|
-|RemoteCertThumbprints|empty string|A comma separated list of certificate thumbprints used by replicators.|
-|ProtectionLevel|EncryptAndSign|
+
+|Name|Remarks|
+|----|-------|
+|StoreLocation|Store location to find the certificate: CurrentUser or LocalMachine|
+|StoreName|Store name to find the certificate|
+|FindType|Identifies the type of value provided by in the FindValue parameter: FindBySubjectName or FindByThumbPrint|
+|FindValue|Search target for finding the certificate|
+|AllowedCommonNames|A comma separated list of certificate common names/dns names used by replicators.|
+|IssuerThumbprints|A comma separated list of issuer certificate thumbprints. When specified, the incoming certificate is validated if it is issued by one of the entries in the list. Chain validation is always performed.|
+|RemoteCertThumbprints|A comma separated list of certificate thumbprints used by replicators.|
+|ProtectionLevel|Indicates how the data is protected: Sign or EncryptAndSign or None|
 
 ## CredentialType=Windows
 
 ### Configuration Names
-|Name|Supported Values|Remarks|
-|----|----------------|-------|
-|ServicePrincipalName|
-|WindowsIdentities|
-|ProtectionLevel|
+
+|Name|Remarks|
+|----|-------|
+|ServicePrincipalName|Service Principal name registered for the service. Can be empty if the service/actor host processes runs as a machine account (e.g: NetworkService, LocalSystem etc.)|
+|WindowsIdentities|A comma separated list of windows identities of all service/actor host processes.
+|ProtectionLevel|Indicates how the data is protected: Sign or EncryptAndSign or None|
 
 ## Samples
 
@@ -65,13 +66,29 @@ The configuration "CredentialType" determines which type is being used.
   <Parameter Name="AllowedCommonNames" Value="My-Test-SAN1-Alice,My-Test-SAN1-Bob" />
 </Section>
 ```
-### Windows Sample
+
+### Windows Sample 1 - Empty ServicePrincipalName
+This snippet shows a sample when all the service/actor host processes run as NetworkService or LocalSystem.
 
 ```
 <Section Name="SecurityConfig">
   <Parameter Name="CredentialType" Value="Windows" />
-  <Parameter Name="ServicePrincipalName" Value="TODO" />
-  <Parameter Name="WindowsIdentities" Value="TODO" />
-  <Parameter Name="ProtectionLevel" Value="TODO" />
+  <Parameter Name="ServicePrincipalName" Value="" />
+  <!--This machine group contains all machines in a cluster-->
+  <Parameter Name="WindowsIdentities" Value="redmond\ClusterMachineGroup" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+</Section>
+```
+
+### Windows Sample 2 - Valid ServicePrincipalName
+This snippet shows a sample when all the service/actor host processes run as a group managed serice account.
+
+```
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="Windows" />
+  <Parameter Name="ServicePrincipalName" Value="servicefabric/cluster.microsoft.com" />
+  <--All actor/service host processes run as redmond\GroupManagedServiceAccount-->
+  <Parameter Name="WindowsIdentities" Value="redmond\GroupManagedServiceAccount" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
 </Section>
 ```
