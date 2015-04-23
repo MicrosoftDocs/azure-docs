@@ -5,7 +5,7 @@
 	manager="stevenka"
 	documentationCenter=""
 	services=""
-	authors="coreyp69"/>
+	authors="coreyp-at-msft"/>
 
 <tags
 	ms.service="multiple"
