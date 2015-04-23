@@ -24,7 +24,7 @@ The EventSource name for Fabric Actors runtime is "Microsoft-ServiceFabric-Actor
 
 Service Fabric also offers the option of directing these events to [Application Insights](http://azure.microsoft.com/services/application-insights/). For more information on this, please see the article on [Application Insights setup for Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
-Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Windows Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
 All events that belong to the Fabric Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
@@ -36,7 +36,7 @@ All events that belong to the Fabric Actors EventSource are associated with one 
 |0x4|Set of events related to saving actor state|
 |0x8|Set of events related to turn-based concurrency in the actor|
 
-# Performance counters
+## Performance counters
 The Fabric Actors runtime defines the following performance counter categories.
 
 |Category|Description|
@@ -46,12 +46,12 @@ The Fabric Actors runtime defines the following performance counter categories.
 
 Each of the above categories has one or more counters.
 
-The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Windows Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/) is another option for collecting performance counter data and uploading it to Azure tables.
+The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/) is another option for collecting performance counter data and uploading it to Azure tables.
 
-## Performance counter instance names
+### Performance counter instance names
 A cluster with a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instances names can help in identifying the specific entity that the performance counter instance is associated with.
 
-### `Service Fabric Actor` category
+#### `Service Fabric Actor` category
 For the category `Service Fabric Actor`, the counter instance names are in the following format:
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
@@ -66,7 +66,7 @@ The following is an example of a counter instance name for a counter belonging t
 
 In the example above, `2740af29-78aa-44bc-a20b-7e60fb783264` is the string representation of the Service Fabric partition ID and `635650083799324046` is the 64-bit ID that is generated for the runtime's internal use.
 
-### `Service Fabric Actor Method` category
+#### `Service Fabric Actor Method` category
 For the category `Service Fabric Actor Method`, the counter instance names are in the following format:
 
 `MethodName_ActorsRuntimeMethodId_ServiceFabricPartitionID_ActorsRuntimeInternalID`
