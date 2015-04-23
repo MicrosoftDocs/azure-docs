@@ -14,9 +14,9 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="appi101"/>
+   ms.author="aprameyr"/>
 
-#Service State
+# Service State
 **Service State** is the data the service requires in order to function. It is the data structures and variables that the service reads and writes in order to do work.
 
 For example: Consider a simple calculator service. This service takes two numbers and returns their sum. This is a purely stateless service that has no data associated with it.
@@ -25,7 +25,7 @@ Now, consider the same calculator but in addition to computing sum it also has a
 
 In Service Fabric, the first service is called a Stateless Service. The second service is called a Stateful Service.
 
-##Storing Service State
+## Storing Service State
 State can either be externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or store. In our calculator example, this could be a SQL database where the current result is stored in a table. Every request to compute the sum performs an update on this row.
 
 State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric are built using this model. Service Fabric provides the infrastructure to ensure this state is highly available and fault tolerant in the event of failures.

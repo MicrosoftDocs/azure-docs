@@ -39,6 +39,5 @@ The Service Fabric platform in Azure is ideal for the following categories of ap
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 [Defining and Managing Service State]../service-fabric-concepts-state
-[Availability of Stateless services]../service-fabric-concepts-availability-stateless-services
-[Availability of Stateful services]../service-fabric-concepts-availability-stateful-services
+[Availability of services]../service-fabric-concepts-availability-services
 [Scalability of Service Fabric services]../service-fabric-concepts-scalability

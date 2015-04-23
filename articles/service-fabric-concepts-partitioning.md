@@ -14,22 +14,22 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="appi101"/>
+   ms.author="aprameyr"/>
 
-#Partition Service Fabric services
+# Partition Service Fabric services
 Service Fabric makes it easy to build scalable stateful services by supporting partitioning of the service state and having each partition operate on a subset of the total state. Each partition becomes a unit that is made [highly available]../service-fabric-concepts-availability-stateful-services. The replicas of partitions are distributed across the nodes in the cluster and are balanced.
 
 >[AZURE.NOTE] While Stateless Services can also be partitioned this scenario is rare and unnecessary for most Service Fabric services.  
 
 There are three different partitioning schemes available.
 
-##Singleton Partitioning Scheme
+## Singleton Partitioning Scheme
 This is used to specify that the service does not need partitioning.
 
-##Named Partitioning Scheme
+## Named Partitioning Scheme
 This is used to specify a fixed set of names for each partition of the service. Individual partitions can be looked up by their name.
 
-##Ranged Partitioning Scheme
+## Ranged Partitioning Scheme
 This is used to specify an integer range (identified by a low and a high key) and a number of partitions (n). It creates n partitions, each responsible for a non-overlapping subrange. Example: A ranged partitioning scheme (for a service with three replicas) with a low key of 0, a high key of 99 and a count of 4 would create 4 partitions as shown below
 
 ![Range Partitioning](./media/service-fabric-concepts/range-partitioning.png)
@@ -38,7 +38,7 @@ The common case is to create a hash for a unique key within a dataset. Some comm
 
 Additionally, you should estimate the number of partitions high enough to handle worst-case resource load (such as memory limitations or network bandwidth) but not so much that partitions are extremely sparse.
 
-###Selecting a hash algorithm
+### Selecting a hash algorithm
 An important part of hashing is selecting your hash algorithm. An important consideration is whether the goal is to group similar keys near each other (Locality sensitive hashing), or if activity should be distributed broadly across all partitions (Distribution Hashing).
 
 A good resource for general hash code algorithm choices is [the Wikipedia page on Hash Functions](http://en.wikipedia.org/wiki/Hash_function).
