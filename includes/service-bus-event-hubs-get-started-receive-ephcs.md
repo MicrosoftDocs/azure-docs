@@ -46,7 +46,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 	        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
 	        {
-	            Console.WriteLine(string.Format("Processor Shuting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason.ToString()));
+	            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
 	            if (reason == CloseReason.Shutdown)
 	            {
 	                await context.CheckpointAsync();
@@ -55,7 +55,7 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 	        Task IEventProcessor.OpenAsync(PartitionContext context)
 	        {
-	            Console.WriteLine(string.Format("SimpleEventProcessor initialize.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset));
+	            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
 	            this.checkpointStopWatch = new Stopwatch();
 	            this.checkpointStopWatch.Start();
 	            return Task.FromResult<object>(null);
