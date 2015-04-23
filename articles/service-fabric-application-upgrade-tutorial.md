@@ -30,9 +30,9 @@ These steps can be done by opening the project in Visual Studio, and right click
 
 > [AZURE.NOTE] Before any of the Service Fabric commands may be used in PowerShell, one has to first connect to the cluster by using the `Connect-ServiceFabricCluster` cmdlet. Similarly, it is assumed that the Cluster has already been setup on your local machine. See the article on [setting up your Service Fabric development environment](service-fabric-get-started.md).
 
-After building the project in Visual Studio, one may use the PowerShell command `Copy-ServiceFabricApplicationPackage` to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the `Register-ServiceFabricApplicationPackage` cmdlet, and finally starting an instance of the application by using the `New-ServiceFabricApplication` cmdlet.  These three steps are analogous to using the Deploy menu item in Visual Studio.
+After building the project in Visual Studio, one may use the PowerShell command **Copy-ServiceFabricApplicationPackage** to copy the application package to the ImageStore, followed by registering the application to the Service Fabric runtime by using the **Register-ServiceFabricApplicationPackage** cmdlet, and finally starting an instance of the application by using the **New-ServiceFabricApplication** cmdlet.  These three steps are analogous to using the Deploy menu item in Visual Studio.
 
-Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use `Get-ServiceFabricApplication` to check the application status.
+Now, you can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The application has a web service that can be navigated to in Internet Explorer by typing [http://localhost:80](http://localhost:80) in the address bar.  You should see some floating visual objects moving around in the screen.  Additionally, one may use **Get-ServiceFabricApplication** to check the application status.
 
 ## Step 2: Update the Visual Objects Sample
 
@@ -48,7 +48,7 @@ Select the VisualObjects.DataService project within the VisualObjects solution, 
              nextObject.Rotation = (nextObject.Rotation + 10) % 360;
 ```
 
-We also need to update the ServiceManifest.xml file (under PackageRoot) of the VisualObjects.DataService. Update the CodePackage and the Service version to 2.0, and the corresponding lines in the ServiceManifest.xml file should look like the following (highlighted portions show the changes):
+We also need to update the *ServiceManifest.xml* file (under PackageRoot) of the project **VisualObjects.DataService**. Update the *CodePackage* and the service version to 2.0, and the corresponding lines in the *ServiceManifest.xml* file should look like the following (highlighted portions show the changes):
 
 ```xml
 <ServiceManifestName="VisualObjects.DataService"Version="2.0"xmlns="http://schemas.microsoft.com/2011/01/fabric"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -56,7 +56,7 @@ We also need to update the ServiceManifest.xml file (under PackageRoot) of the V
 <CodePackageName="Code"Version="2.0">
 ```
 
-Now, we need to update the ApplicationManifest.xml file (found under the VisualObjects project under the VisualObjects solution) to use version 2.0 of the VisualObjects.DataService project and also update the Application version to 2.0.0.0 from 1.0.0.0. Now, the corresponding lines in the ApplicationManifest should read like the following:
+Now, we need to update the *ApplicationManifest.xml* file (found under the **VisualObjects** project under the **VisualObjects** solution) to use version 2.0 of the **VisualObjects.DataService** project and also update the Application version to 2.0.0.0 from 1.0.0.0. Now, the corresponding lines in the *ApplicationManifest.xml* should read like the following:
 
 ```xml
 <ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema"xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"ApplicationTypeName="VisualObjects"ApplicationTypeVersion="2.0.0.0"xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -80,7 +80,7 @@ UpgradeTimeout = 3000
 
 ## Step 4: Prepare Application for Upgrade
 
-Now, the application is built and ready to be upgraded. If you open up a PowerShell window as administrator and type `Get-ServiceFabricApplication`, it should let you know that it is Application Type 1.0.0.0 of VisualObjects that's been deployed.  The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
+Now, the application is built and ready to be upgraded. If you open up a PowerShell window as administrator and type **Get-ServiceFabricApplication**, it should let you know that it is Application Type 1.0.0.0 of **VisualObjects** that's been deployed.  The application package is stored under the following relative path where you uncompressed the Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. You should find a "Package" folder in that directory - this is where the application package is stored. Please check the timestamps to ensure that it is the latest build (and you may need to modify the paths appropriately as well).
 
 Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric). The parameter *ApplicationPackagePathInImageStore* informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may have to modify paths again appropriately).
 
@@ -108,7 +108,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Note the application name is as was described in the *ApplicationManifest.xml* file. Service Fabric uses this name to identify which application is getting upgraded. If you set the timeouts to be too short, you may encounter a failure message that states the problem. Refer to the troubleshooting section, or increase the timeouts.
 
-Now, as the application upgrade proceeds, you can monitor it using Service Fabric Explorer, or using the following PowerShell command: `Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects`.
+Now, as the application upgrade proceeds, you can monitor it using Service Fabric Explorer, or using the following PowerShell command: **Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects**.
 
 In a few minutes, the status using the above PowerShell command should state that all upgrade domains were upgraded (completed). And you should find that the visual objects in your browser window will now have started rotating!
 

@@ -36,14 +36,14 @@ The health policies are specified in terms of percentages, and not actual servic
 
 Possible Cause:
 
-As mentioned earlier, if the health evaluation criteria is not supplied, the application health policy specified in the pre-upgraded ApplicationManifest.xml of the application instance is used (for example, if upgrading Application X from v1 to v2, application health policies specified for Application X in v1 is used). If a different policy should be used for the upgrade, the policy (health evaluation criteria) needs to be specified as part of the application upgrade API call. The criteria specified as part of the APIs are transient and are only valid for that particular upgrade. Once the upgrade is completed, the policy specifies in the ApplicationManifest.xml is used.
+As mentioned earlier, if the health evaluation criteria is not supplied, the application health policy specified in the pre-upgraded *ApplicationManifest.xml* of the application instance is used (for example, if upgrading Application X from v1 to v2, application health policies specified for Application X in v1 is used). If a different policy should be used for the upgrade, the policy (health evaluation criteria) needs to be specified as part of the application upgrade API call. The criteria specified as part of the APIs are transient and are only valid for that particular upgrade. Once the upgrade is completed, the policy specifies in the *ApplicationManifest.xml* is used.
 
 
 ## Incorrect Timeous specified.
 
 Possible Cause:
 
-Users may have wondered about what happens if the timeouts are set inconsistently, for example, having an UpgradeDomainTimeout less than the UpgradeTimeout. The answer is that an error is returned. Other cases where this may happen is if UpgradeDomainTimeout is less than the sum of HealthCheckWaitDuration and HealthCheckRetryTimeout or if UpgradeDomainTimeout is less than the sum of HealthCheckWaitDuration and HealthCheckStableDuration.
+Users may have wondered about what happens if the timeouts are set inconsistently, for example, having an *UpgradeDomainTimeout* less than the *UpgradeTimeout*. The answer is that an error is returned. Other cases where this may happen is if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckRetryTimeout* or if *UpgradeDomainTimeout* is less than the sum of *HealthCheckWaitDuration* and *HealthCheckStableDuration*.
 
 
 ## My upgrades are taking too long.
@@ -54,11 +54,11 @@ The time it takes for an upgrade to complete is dependent on the times specified
 
 A quick refresher on how the timeouts interact with the upgrade times:
 
-Upgrade for a upgrade domain cannot complete faster than HealthCheckWaitDuration + HealthCheckStableDuration.
+Upgrade for a upgrade domain cannot complete faster than *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
-Upgrade rollback cannot occur faster than HealthCheckWaitDuration + HealthCheckRetryTimeout.
+Upgrade rollback cannot occur faster than *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-The upgrade time for a upgrade domain is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current upgrade domain begins.
+The upgrade time for a upgrade domain is limited by *UpgradeDomainTimeout*.  If *HealthCheckRetryTimeout* and *HealthCheckStableDuration* are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on *UpgradeDomainTimeout*. *UpgradeDomainTimeout* starts counting down once the upgrade for the current upgrade domain begins.
 
 
 ## Next steps

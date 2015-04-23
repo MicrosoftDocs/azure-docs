@@ -21,6 +21,7 @@
 
 # Application Upgrade Parameters
 
+This article describes the various parameters that apply during the upgrade of a Service Fabric application.  The parameters include the name and version of the application, and are knobs that control the timeouts and health checks that are applied during the upgrade and specify the policies must be applied when an upgrade fails. 
 
 
 <br>
