@@ -210,7 +210,6 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
 
 ## Next Steps
 
-- [Testability Actions](service-fabric-testability-actions.md)
 - [Testability Scenarios](service-fabric-testability-actions.md)
 - How to test your service
    - [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
