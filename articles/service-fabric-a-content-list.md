@@ -29,9 +29,11 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 ## Getting Started
 
-[Setup your development environment](service-fabric-setup-your-development-environment.md) **owner: seanmck**
+[Setup your development environment](service-fabric-get-started.md) **owner: seanmck**
 
-Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
+[Get started with reliable services](service-fabric-reliable-services-quick-start.md) **owner: vturecek**
+
+[Get started with reliable actors](service-fabric-fabact-get-started.md) **owner: claudioc**
 
 Install and extend the Samples **owner: vturecek**
 
