@@ -111,5 +111,5 @@ of writing services using StatelessService and StatelessServiceBase classes.
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 For more information: 
-[Reliable Service Overview](service-fabric-fabsrv-service-overview.md), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)
+[Reliable Service Overview](service-fabric-fabsrv-service-overview.md), [Quick Start](service-fabric-reliable-services-quick-start.md), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)  
 
