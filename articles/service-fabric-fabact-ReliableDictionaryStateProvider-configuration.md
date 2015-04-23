@@ -24,14 +24,14 @@ Service-Fabric runtime looks for pre-defined section names in the "settings.xml"
 ## Replicator Security Configuration
 Replicator Security Configurations are used to secure the communication channel that is used during replication.
 ### Section Name
-'ActorName' followed by ServiceReplicatorSecurityConfig
+&lt;ActorName&gt;ServiceReplicatorSecurityConfig
 ### Configuration Names
 Refer to [Replication Security](service-fabric-replication-security.md)
 
 ## Replicator Configuration
 Replicator Configurations are used to configure the replicator that is responsible for making the Actor State Provider state highly reliable by replicating and persisting the state locally.
 ### Section Name
-'ActorName' followed by ServiceReplicatorConfig
+&lt;ActorName&gt;ServiceReplicatorConfig
 ### Configuration Names
 
 |Name|Unit|Default Value|Remarks|
@@ -73,6 +73,8 @@ Replicator Configurations are used to configure the replicator that is responsib
 ```
 
 ## Remarks
+BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
+The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
 
 The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Since the stored information state is used
 to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state

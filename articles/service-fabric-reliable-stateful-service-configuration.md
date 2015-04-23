@@ -36,7 +36,7 @@ ReplicatorConfig
 
 |Name|Unit|Default Value|Remarks|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary.|
+|BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
 |ReplicatorEndpoint|N/A|0 (dynamic port)|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP Resource Endpoint in the service manifest.|
 |RetryInterval|Seconds|5|Time period after which the replicator re-transmits a message if it does not receive an acknowledgement for an operation.|
 |MaxReplicationMessageSize|Bytes|50MB|Maximum size of replication data that can be transmitted in a single message.|
@@ -72,9 +72,10 @@ ReplicatorConfig
 ```
 
 ## Remarks
-The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Since the stored information state is used
-to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state
-of the primary. However larger log files may use more disk space and thus reduce the number of replicas that can be hosted on a particular node.  
+BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
+The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
+
+The value for MaxStreamSizeInMB determines the amount of disk space that the replicator can use to store state information in the replica's dedicated log file. Since the stored information state is used to allow another replica to match the state of a primary replica, it is generally better to have a larger log file as this will reduce the amount of time it takes for the other replica to match the state of the primary. However larger log files may use more disk space and thus reduce the number of replicas that can be hosted on a particular node.  
 
 The OptimizeForLowerDiskUsage setting allows log file space to be "over-provisioned" so that active replicas can store more state information in their log files while inactive replicas would use less disk
 space. Although this allows more replicas to be hosted on a node than would otherwise happen because of a lack of disk space, by setting OptimizeForLowerDiskUsage to false the state information is written to

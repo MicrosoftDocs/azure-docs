@@ -24,14 +24,14 @@ Service-Fabric runtime looks for pre-defined section names in the "settings.xml"
 ## Replicator Security Configuration
 Replicator Security Configurations are used to secure the communication channel that is used during replication.
 ### Section Name
-'ActorName' followed by ServiceReplicatorSecurityConfig
+&lt;ActorName&gt;ServiceReplicatorSecurityConfig
 ### Configuration Names
 Refer to [Replication Security](service-fabric-replication-security.md)
 
 ## Replicator Configuration
 Replicator Configurations are used to configure the replicator that is responsible for making the Actor State Provider state highly reliable.
 ### Section Name
-'ActorName' followed by ServiceReplicatorConfig
+&lt;ActorName&gt;ServiceReplicatorConfig
 ### Configuration Names
 
 |Name|Unit|Default Value|Remarks|
@@ -46,7 +46,7 @@ Replicator Configurations are used to configure the replicator that is responsib
 ## Store Configuration
 Store Configurations are used to configure the local store that is used to persist the state that is being replicated.
 ### Section Name
-'ActorName' followed by ServiceLocalStoreConfig
+&lt;ActorName&gt;ServiceLocalStoreConfig
 ### Configuration Names
 
 |Name|Unit|Default Value|Remarks|
@@ -77,3 +77,7 @@ Store Configurations are used to configure the local store that is used to persi
    </Section>
 </Settings>
 ```
+## Remarks
+
+BatchAcknowledgementInterval controls replication latency. A value of '0' results in the lowest possible latency, at the cost of throughput (as more acknowledgement messages must be sent and processed, each containing fewer acknowledgements).
+The larger the value for BatchAcknowledgementInterval, the higher the overall replication throughput, at the cost of higher operation latency. This directly translates to the latency of transaction commits.
