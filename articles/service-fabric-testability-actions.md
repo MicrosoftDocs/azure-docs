@@ -207,3 +207,11 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 // Select random secondary replica
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
+
+## Next Steps
+
+- [Testability Actions](service-fabric-testability-actions.md)
+- [Testability Scenarios](service-fabric-testability-actions.md)
+- How to test your service
+	- [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)
+   - [Service to service communication failures](service-fabric-testability-scenarios-service-communication.md)
