@@ -49,7 +49,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 4. Record the value that is returned for ApplicationId in the response from the previous step. You will need it later in this tutorial:
 
-	![Create an AD application](./media/virtual-machines-deployment/azureapplicationid.png)
+	![Create an AD application](./media/virtual-machines-arm-deployment/azureapplicationid.png)
 
 	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Azure portal.	
 
