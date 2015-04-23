@@ -9,16 +9,16 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="java"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
 #Determine Twitter trending topics with Apache Storm on HDInsight
 
-Learn how to use Trident to create a Storm topology that determines trending topics (hash tags) on Twitter. 
+Learn how to use Trident to create a Storm topology that determines trending topics (hash tags) on Twitter.
 
 Trident is a high-level abstraction that provides tools such as joins, aggregations, grouping, functions, and filters. Additionally, Trident adds primitives for doing stateful, incremental processing. This example demonstrates how you can build a topology using a custom spout, function, and several built-in functions provided by Trident.
 
@@ -69,13 +69,13 @@ This code does the following:
 4. Because we are only interested in the most popular hash tags for a given batch of tweets, the **FirstN** assembly is applied to return only the top 10 values, based on the count field.
 
 > [AZURE.NOTE] Other than the spout and HashtagExtractor, we are using built-in Trident functionality.
-> 
+>
 > For information about built-in operations, see <a href="https://storm.apache.org/apidocs/storm/trident/operation/builtin/package-summary.html" target="_blank">Package storm.trident.operation.builtin</a>.
-> 
+>
 > For Trident-state implementations other than MemoryMapState, see the following:
-> 
+>
 > * <a href="https://github.com/fhussonnois/storm-trident-elasticsearch" target="_blank">Storm Trident elastic search</a>
-> 
+>
 > * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident-redis</a>
 
 ###The spout
