@@ -55,7 +55,7 @@ The configuration "CredentialType" determines which type is being used.
 
 ### X509 Sample
 
-```
+```xml
 <Section Name="SecurityConfig">
   <Parameter Name="CredentialType" Value="X509" />
   <Parameter Name="FindType" Value="FindByThumbprint" />
@@ -70,7 +70,7 @@ The configuration "CredentialType" determines which type is being used.
 ### Windows Sample 1 - Empty ServicePrincipalName
 This snippet shows a sample when all the service/actor host processes run as NetworkService or LocalSystem.
 
-```
+```xml
 <Section Name="SecurityConfig">
   <Parameter Name="CredentialType" Value="Windows" />
   <Parameter Name="ServicePrincipalName" Value="" />
@@ -83,7 +83,7 @@ This snippet shows a sample when all the service/actor host processes run as Net
 ### Windows Sample 2 - Valid ServicePrincipalName
 This snippet shows a sample when all the service/actor host processes run as a group managed serice account.
 
-```
+```xml
 <Section Name="SecurityConfig">
   <Parameter Name="CredentialType" Value="Windows" />
   <Parameter Name="ServicePrincipalName" Value="servicefabric/cluster.microsoft.com" />
