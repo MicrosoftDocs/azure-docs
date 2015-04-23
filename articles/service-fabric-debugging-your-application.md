@@ -48,14 +48,19 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
     ![Filter, pause and resume, or inspect events in real time][diagnosticeventsactions]
 
+8. Debugging services is similar to debugging any other application. Breakpoints can be set normally through Visual Studio for easy debugging. Even though Reliable Collections are replicated across multiple nodes, they still implement IEnumerable, which means you can use the Results View in Visual Studio while debugging to see what you've stored inside. Simply set a break point anywhere in your code.
+
+    ![Start debugging an application][breakpoint]
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-- [Importance of testability](../service-fabric-testability-importance).
-- [Managing your service](../service-fabric-fabsrv-managing-your-service).
+- [Importance of testability](service-fabric-testability-importance.md).
+- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png
 [diagnosticevents]: ./media/service-fabric-debugging-your-application/diagnosticevents.png
 [viewdiagnosticevents]: ./media/service-fabric-debugging-your-application/viewdiagnosticevents.png
 [diagnosticeventsactions]: ./media/service-fabric-debugging-your-application/diagnosticeventsactions.png
+[breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
