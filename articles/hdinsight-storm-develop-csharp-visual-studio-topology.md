@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
-#Develop C# topologies for Apache Storm on HDInsight using Visual Studio
+# Develop C# topologies for Apache Storm on HDInsight using Visual Studio
 
 Learn how to create a C# Storm topology by using the HDInsight tools for Visual Studio. This tutorial walks through the process of creating a new Storm project in Visual Studio, testing it locally, and deploying it to an Apache Storm on HDInsight cluster.
 
