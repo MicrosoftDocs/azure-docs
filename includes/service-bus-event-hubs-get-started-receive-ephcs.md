@@ -82,26 +82,40 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 
 	This class will be called by the **EventProcessorHost** to process events received from the Event Hub. Note that the `SimpleEventProcessor` class uses a stopwatch to periodically call the checkpoint method on the **EventProcessorHost** context. This ensures that, if the receiver is restarted, it will lose no more than five minutes of processing work.
 
-9. In the **Program** class, add the following `using` statements at the top:
+9. Since this program uses asynchronous methods, it requires a synchronization context to behave properly.  By default, console applications
+   do not have a synchronous context, so we'll need to provide one.   We can use the `AsyncPump` class from 
+   [this blog post][Async Await in Console Apps], which you can download directly [here][AsyncPump.cs].
+
+   Add the `AsyncPump.cs` file to your project.
+
+10. In the **Program** class, add the following `using` statements at the top:
 
 		using Microsoft.ServiceBus.Messaging;
+		using Microsoft.Threading;
 		using System.Threading.Tasks;
 
-	Then, add the following code in the **Main** method, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
+	Then, add the following method to the **Program** class, substituting the Event Hub name and connection string, and the storage account and key that you copied in the previous sections:
 
-		string eventHubConnectionString = "{event hub connection string}";
-        string eventHubName = "{event hub name}";
-        string storageAccountName = "{storage account name}";
-        string storageAccountKey = "{storage account key}";
-        string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                    storageAccountName, storageAccountKey);
+		static async Task MainAsync()
+		{
+		    string eventHubConnectionString = "{event hub connection string}";
+		    string eventHubName = "{event hub name}";
+		    string storageAccountName = "{storage account name}";
+		    string storageAccountKey = "{storage account key}";
+		    string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
+		        storageAccountName, storageAccountKey);
+		
+		    string eventProcessorHostName = Guid.NewGuid().ToString();
+		    EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
+		    await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
+		
+		    Console.WriteLine("Receiving. Press enter key to stop worker.");
+		    Console.ReadLine();
+		}
 
-        string eventProcessorHostName = Guid.NewGuid().ToString();
-        EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-        eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>().Wait();
+    Then, add the following code in the **Main** method:
 
-        Console.WriteLine("Receiving. Press enter key to stop worker.");
-        Console.ReadLine();
+		AsyncPump.Run(MainAsync);
 
 > [AZURE.NOTE] This tutorial uses a single instance of [EventProcessorHost]. To increase throughput, it is recommended that you run multiple instances of [EventProcessorHost], as shown in the [Scaled out event processing] sample. In those cases, the various instances  automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for [EventProcessorHost] instances based on the machines (or roles) in which they are deployed. For more information about these topics, refer to the [Event Hubs Overview] and [Event Hubs Programming Guide] topics.
 
@@ -120,3 +134,5 @@ In order to use [EventProcessorHost], you must have an [Azure Storage account]:
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
 [Event Hubs Programming Guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
+[AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
