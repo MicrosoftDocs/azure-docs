@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="anmola"/>
 
-# Custom scenarios for single services
+# Simulate failures during service workloads
 
 The scenarios shipping with Testability enable developers to not worry about dealing with individual faults. There are scenarios however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults, ensures that the service is actually performing some action when failure happens. Given the level of control testability provides these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
