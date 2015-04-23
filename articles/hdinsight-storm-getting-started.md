@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/12/2015"
+   ms.date="04/22/2015"
    ms.author="larryfr"/>
 
 
@@ -216,6 +216,7 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
+  * [Use Power BI to visualize data from Apache Storm on HDInsight](hdinsight-storm-power-bi-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
