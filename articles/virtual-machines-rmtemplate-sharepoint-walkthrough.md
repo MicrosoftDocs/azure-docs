@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="The High-Availability SharePoint Farm Resource Manager Template" 
-	description="." 
+	description="Easily deploy a high-availability SharePoint farm and get a walkthrough of its Resource Manager template." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

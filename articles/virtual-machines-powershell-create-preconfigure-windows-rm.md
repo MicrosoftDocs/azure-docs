@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell" 
-	description="." 
+	description="Use the Resource Manager mode of PowerShell to quicly create a new Windows virtual machine preconfigured with extra disks and other options." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

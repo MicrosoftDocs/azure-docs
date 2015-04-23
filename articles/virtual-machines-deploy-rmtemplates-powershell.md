@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Deploying Virtual Machines using Azure Resource Manager Templates and PowerShell" 
-	description="." 
+	description="Easily deploy the most common set of configurations for Azure virtual machines using Resource Manager Templates and PowerShell." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

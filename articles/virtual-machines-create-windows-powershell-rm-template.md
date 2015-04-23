@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a Windows virtual machine with a Resource Manager template" 
-	description="." 
+	description="Use a Resource Manager template to easily create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

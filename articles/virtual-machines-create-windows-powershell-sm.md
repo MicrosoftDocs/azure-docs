@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a Windows virtual machine with PowerShell (ASM version)" 
-	description="." 
+	description="Use Azure PowerShell to quickly create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a Windows virtual machine with PowerShell (RM version)" 
-	description="." 
+	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
