@@ -49,7 +49,7 @@ During a rolling upgrade, there are two main scenarios where the serializer may 
 
 > [AZURE.NOTE] The "new version" and "old version" here refer to the version of your code that is running. The "new serializer" refers to the serializer code executing in the new version of your application. The "new data" refers to the serialized C# class from the new version of your application.
 
-The two versions of code and data format must be forwards and backwards compatible. If they are not compatible, the rolling upgrade may fail or data may be lost. The rolling upgrade may fail because the code or serializer may throw exceptions or fault when encountering the opposite version. Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.
+The two versions of code and data format must be both forward and backward compatible. If they are not compatible, the rolling upgrade may fail or data may be lost. The rolling upgrade may fail because the code or serializer may throw exceptions or fault when encountering the other version. Data may be lost if, for example, a new property was added but the old serializer discards it during deserialization.
 
 
 ## Data Contract
