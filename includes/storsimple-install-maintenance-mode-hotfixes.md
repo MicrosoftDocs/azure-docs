@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2015"
+   ms.date="04/23/2015"
    ms.author="v-sharos" />
 
 ### To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
