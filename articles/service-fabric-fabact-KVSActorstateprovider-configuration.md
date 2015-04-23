@@ -36,7 +36,7 @@ Replicator Configurations are used to configure the replicator that is responsib
 
 |Name|Unit|Default Value|Remarks|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary.|
+|BatchAcknowledgementInterval|Seconds|0.05|Time period for which the replicator at the secondary waits after receiving an operation before sending back an acknowledgement to the primary. Any other acknowledgements to be sent for operations processed within this interval are sent as one response.|
 |ReplicatorEndpoint|N/A|0 (dynamic port)|IP address and port that the primary/secondary replicator will use to communicate with other replicators in the replica set. This should reference a TCP Resource Endpoint in the service manifest.|
 |RetryInterval|Seconds|5|Time period after which the replicator re-transmits a message if it does not receive an acknowledgement for an operation.|
 |MaxReplicationMessageSize|Bytes|50MB|Maximum size of replication data that can be transmitted in a single message.|
