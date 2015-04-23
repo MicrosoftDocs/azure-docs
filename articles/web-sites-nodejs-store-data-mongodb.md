@@ -4,8 +4,7 @@
 	tags="azure-portal" 
 	services="app-service\web, virtual-machines" 
 	documentationCenter="nodejs" 
-	authors="wpickett" 
-	writer="MikeWasson" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
