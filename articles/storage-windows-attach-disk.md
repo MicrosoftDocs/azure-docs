@@ -36,11 +36,7 @@ You can attach empty disks and disks that contain data. In both cases, the disks
 
 4. The **Disks** section lists disk 0, disk 1, and disk 2. Disk 0 is the OS disk, disk 1 is the temporary disk (which should not be used for data storage), and disk 2 is the data disk you have attached to the virtual machine. The data disk has a capacity of 5 GB, based on what you specified when you attached the disk. Right-click disk 2 and  select **Initialize**.
 
-	![Initialize the volume](./media/storage-windows-attach-disk/initializedisk.png)
-
 5.	You're notified that all data will be erased when the disk is initialized. Click **Yes** to acknowledge the warning and initialize the disk. Then, right-click disk 2 again and select **New Volume**. 
-
-	![Create the volume](./media/storage-windows-attach-disk/initializediskvolume.png)
 
 6.	Complete the wizard using the default values. When the wizard is done, the **Volumes** section lists the new volume. The disk is now online and ready to store data.
 
