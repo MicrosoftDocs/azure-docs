@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Adding a Shard To an Elastic Scale Application" 
+	pageTitle="Adding a shard using elastic database tools" 
 	description="How to use Elastic Scale APIs to add new shards to a shard set." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/15/2015" 
 	ms.author="sidneyh"/>
 
-# Adding a Shard using Elastic Database Tools
+# Adding a shard using elastic database tools
 
 ## To add a shard for a new range or key  
 
