@@ -3,7 +3,7 @@
    description="This article talks about the testability actions found in ServiceFabric."
    services="service-fabric"
    documentationCenter=".net"
-   authors="heeldin"
+   authors="heeldin","motanv"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/17/2014"
-   ms.author="heeldin"/>
+   ms.author="heeldin,motanv"/>
 
 # Testability actions
 
