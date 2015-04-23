@@ -29,63 +29,17 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 ## Getting Started
 
-[Setup your development environment](service-fabric-get-started.md) **owner: seanmck**
+[Setup your development environment](service-fabric-setup-your-development-environment.md) **owner: seanmck**
 
-[Get started with reliable services](service-fabric-reliable-services-quick-start.md) **owner: vturecek**
-
-[Get started with reliable actors](service-fabric-fabact-get-started.md) **owner: claudioc**
+Run HelloWorld Quick Start- Deploy Locally, Test, Deploy to Cloud **owner: seanmck**
 
 Install and extend the Samples **owner: vturecek**
 
 
-## Work with Applications and Services- task oriented
+## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
 
-just enough conceptual info to perform a task.  Links to Further Reading sections.
+### Develop a Service owner: vturecek
 
-### Develop a Service; owner: vturecek
-
-Choose a Programming Model **owner: seanmck**
-
-#### Manage Services
-
-Create basic management tutorial **owner: Brad**
-[Microsoft Azure Service Fabric Application Basic Management](../service-fabric-get-started-basic-management.md)
-
-
-#### Create Framework Services
-
-Create a Stateful Application **owner: vturecek**
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-get-started-hello-world-stateless) **owner: vturecek**
-
-Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#) **owner: vturecek**
-[]()
-
-#### Create Actor Services
-
-Create Stateless using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
-[Hello World with Actors](../service-fabric-get-started-hello-world-with-actors.md)
-
-Create Stateful using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
-**pending prioritization**
-[]()
-
-#### Communicate with services
-
-Create stateless service with Web API
-[Echo Service using Web API](../service-fabric-get-started-echo-service-using-web-api.md)
-
-Create stateful service with Web API
-[Todo Service using Web API](../service-fabric-get-started-todo-service-with-web-api.md)
-
-Create an ASP.NET v5 Application **owner: Brad**
-**skipped for //build due to lack of project-k integration**
-
-#### Fabric Service Programming Models
-
-[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
-
-Add Diagnostics code to a service **owner: Kunalds**
-=======
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
 
 - HOLs/tutorials **owners: Haishi, bmerrill**
@@ -101,7 +55,6 @@ Add Diagnostics code to a service **owner: Kunalds**
 - Add Diagnostics code to a service **owner: Kunalds**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)
-
 
 ### Configure a Service Manifest P2  owner: vturecek
 more advanced configuration stuff
@@ -244,7 +197,10 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ## P2 conceptual topics
 ### PaaS v2 and Cloud Applications
+### Applications, Services, Partitions, Replicas, and Replica Sets
+### Cluster
 ### Service State
+### Application and Service Types
 ### Names and Properties/Naming Service
 ### Image Store
 
@@ -257,13 +213,22 @@ Cluster Manager Service
 ImageStore Service
 
 Naming Service
-
+### Cluster Lifecycle
+### Management APIs
 ### Application Security
 ### Cluster and Client Security
  Node-to-Node Security
 
  Client-to-Node Security
 
+### Resource Balancing a Cluster
+Balancing Strategies
+
+Describe the Cluster
+
+Describe Services
+
+Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
@@ -279,19 +244,3 @@ Replica Role and State Lifetime
 ### Service Host Activation and Deactivation
 
 ### Glossary
-
-
-### Post-BUILD
-
-
-### Resource Balancing a Cluster
-Balancing Strategies
-
-Describe the Cluster
-
-Describe Services
-
-Proactive Metric Packing
-
-### Cluster Lifecycle
-### Management APIs
