@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL Database Elastic Pool" 
+	pageTitle="Azure SQL Database elastic database pools" 
 	description="Create a single pool of resources to share across a group of Azure SQL Databases." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -10,26 +10,25 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/01/2015" 
+	ms.date="04/23/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure SQL Database Elastic Database Pool
+# Azure SQL Database elastic database pools
 
 > [AZURE.SELECTOR]
 - [Create an elastic pool - PowerShell](sql-database-elastic-pool-powershell.md)
 
-Elastic pools provide performance adaptability for a group of databases, while also providing the ability to control price within a set budget.
+An elastic database pool is a collection of available resources that are shared by a group of databases. Elastic pools provide performance adaptability for a group of databases, while also providing the ability to control price within a set budget.
+
+> [AZURE.NOTE] Elastic database pools are in preview and only available for databases in V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the Microsoft Azure Portal, REST APIs, and PowerShell.
 
 ## Overview
 
-An *elastic database pool* is a single pool of available resources that are shared by a group of databases. The shared resources consist of database throughput units (DTUs), and storage. The pool shares these resources and accommodates unpredictable periods of increased activity for databases in the pool while at the same time, provides a minimum amount of resources for all databases to reliably accommodate the average use for each database.
-
-
-> [AZURE.NOTE] Elastic database pools are in preview and only available for databases in V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the Microsoft Azure Portal, REST APIs, and PowerShell.
+ An elastic pool is a resource collection that consists of database throughput units (DTUs), and storage (GBs). The databases in the pool shares these resources which accommodates unpredictable periods of increased activity for  several databases in the pool, while at the same time provides a minimum amount of resources for all databases to reliably accommodate the average use for each database.
 
 
 For customers who have a large number of databases, where each database’s usage is varied and unpredictable, elastic pools provide a simple cost effective solution to maintain a reliable level of performance goals.
@@ -39,6 +38,8 @@ For example, when hosting large numbers of databases, it is common to only have 
 The resources that are guaranteed to the pool are set by the user and shared by all databases in the pool. The performance of all databases in the pool is guaranteed by setting a DTU guarantee (or DTU MIN) per database. This prevents individual databases from consuming all resources in the pool. 
 
 The pool also sets the service tier (pricing tier?) of all databases in the pool. So if a pool is set to Elastic Standard, then all databases in the pool have all features available to the Standard tier, for example, Point in Time Restore (any restore point within the last 14 days) and Geo-Restore.
+
+
 
 ## Create an elastic database pool
 
