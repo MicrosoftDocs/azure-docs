@@ -17,6 +17,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 4. Add the following `using` statement at the top of the **Program.cs** file:
 
+		using System.Threading;
 		using Microsoft.ServiceBus.Messaging;
 
 5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights:
@@ -26,7 +27,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 6. Add the following method to the **Program** class:
 
-		static async Task SendingRandomMessages()
+		static void SendingRandomMessages()
         {
             var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
             while (true)
@@ -35,7 +36,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
                 {
                     var message = Guid.NewGuid().ToString();
                     Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, message);
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
+                    eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
                 }
                 catch (Exception exception)
                 {
@@ -44,7 +45,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
                     Console.ResetColor();
                 }
 
-                await Task.Delay(200);
+                Thread.Sleep(200);
             }
         }
 
@@ -55,7 +56,7 @@ In this section, you'll write a Windows console app that sends events to your Ev
 		Console.WriteLine("Press Ctrl-C to stop the sender process");
         Console.WriteLine("Press Enter to start now");
         Console.ReadLine();
-        SendingRandomMessages().Wait();
+        SendingRandomMessages();
 
 
 <!-- Images -->
