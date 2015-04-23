@@ -56,7 +56,7 @@ You can check that your cluster was created successfully using the Service Fabri
 
 3. Ensure that all child elements are green.
 
-If any element is not green or you see an error, wait a few moments and click the refresh button. If you still have issues, check out the [setup troubleshooting steps](service-fabric-setup-troubleshooting.md).
+If any element is not green or you see an error, wait a few moments and click the refresh button. If you still have issues, check out the [local cluster troubleshooting steps](service-fabric-troubleshoot-local-cluster-setup.md).
 
 ## Next steps
 Now that your development environment is set up, you can start building and running apps.
