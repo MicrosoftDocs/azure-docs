@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of the Service Fabric Reliable Stateful Service Configuration"
-   description="Learn about configuring Service Fabric Reliable Stateful Service"
+   pageTitle="Stateful Reliable Service Diagnostics"
+   description="Diagnostic Functionalitys for Stateful Reliable Services"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="AlanWarwick"
