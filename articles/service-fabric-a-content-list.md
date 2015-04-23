@@ -197,10 +197,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ## P2 conceptual topics
 ### PaaS v2 and Cloud Applications
-### Applications, Services, Partitions, Replicas, and Replica Sets
-### Cluster
 ### Service State
-### Application and Service Types
 ### Names and Properties/Naming Service
 ### Image Store
 
@@ -213,22 +210,13 @@ Cluster Manager Service
 ImageStore Service
 
 Naming Service
-### Cluster Lifecycle
-### Management APIs
+
 ### Application Security
 ### Cluster and Client Security
  Node-to-Node Security
 
  Client-to-Node Security
 
-### Resource Balancing a Cluster
-Balancing Strategies
-
-Describe the Cluster
-
-Describe Services
-
-Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
@@ -244,3 +232,19 @@ Replica Role and State Lifetime
 ### Service Host Activation and Deactivation
 
 ### Glossary
+
+
+### Post-BUILD
+
+
+### Resource Balancing a Cluster
+Balancing Strategies
+
+Describe the Cluster
+
+Describe Services
+
+Proactive Metric Packing
+
+### Cluster Lifecycle
+### Management APIs
