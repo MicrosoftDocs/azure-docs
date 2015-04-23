@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-April-22 Wednesday 23:51pm
+GeneMi , 2015-April-23 Thursday 09:54am
 Removed '-preview' node from links, replaced with '-v12'. See also the other four '-preview' topics:
   sql-database-preview-whats-new.md  (this topic)
   sql-database-preview-plan-prepare-upgrade.md
@@ -207,11 +207,15 @@ There are important things to know about limitations during and after an upgrade
 This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated some time in 2015. Information about new features and other announcements is shifting to the announcements link that follows:
 
 
+- Follow us on Twitter: @SQLSchedCentral.
+
+
+<!--
 - [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
  - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
 - [Dynamically generated list](http://azure.microsoft.com/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
  - The list include topics that have only minor updates.
-- Follow us on Twitter: @SQLSchedCentral.
+-->
 
 
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
