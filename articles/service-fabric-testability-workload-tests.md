@@ -3,7 +3,7 @@
    description="How to harden your services against Graceful/Ungraceful failures"
    services="service-fabric"
    documentationCenter=".net"
-   authors="anmolah"
+   authors="rishirsinha"
    manager="timlt"
    editor=""/>
 
@@ -16,12 +16,12 @@
    ms.date="03/17/2015"
    ms.author="anmola"/>
 
-# Custom scenarios for single services
+# Simulate failures during service workloads
 
 The scenarios shipping with Testability enable developers to not worry about dealing with individual faults. There are scenarios however, where an explicit interleaving of client workload and failures might be needed. The interleaving of client workload and faults, ensures that the service is actually performing some action when failure happens. Given the level of control testability provides these could be at precise points of the workload execution. This induction of faults at different states in the application can find bugs and improve quality.
 
 ## Sample custom scenario
-This test shows a scenario where the interleaving of business workload with [graceful and ungraceful failures](service-fabric-testability-actions#graceful-vs-ungraceful-fault-actions). The faults should be induced while in the middle of service operations or compute for best results.
+This test shows a scenario where the interleaving of business workload with [graceful and ungraceful failures](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). The faults should be induced while in the middle of service operations or compute for best results.
 
 Lets walk through an example of a serice that exposes four workloads A, B, C and D. Each corresponds to a set of workflows and could be compute, storage or a mix. For the sake of simplicity we will abstract out the workloads in our example. The different faults executed in this example are.
   + RestartNode: Ungraceful fault to simulate a machine restart
