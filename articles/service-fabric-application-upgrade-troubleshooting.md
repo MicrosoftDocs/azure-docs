@@ -25,11 +25,11 @@ This article covers some of the common errors related to upgrading a Service Fab
 
 Possible Cause 1:
 
-For all the percentages of health evaluation criteria, Service Fabric translate the percentages to the actual number of entities (i.e., replicas, partitions and services) in the systems and perform evaluation. During the translation Service Fabric always round up to the nearest number of whole entity when performing the evaluation. For example, if the maximum MaxPercentUnhealthyReplicasPerPartition is 21% and there are 5 replicas for the services, Service Fabric will allow up to "2" replicas (i.e., Math.Ceiling (5\*0.21)) to be unhealthy when evaluating the partition health.  Please tweak the health policy parameters accordingly to get around this issue.
+For all the percentages of health evaluation criteria, Service Fabric translate the percentages to the actual number of entities (i.e., replicas, partitions and services) in the systems and perform evaluation. During the translation Service Fabric always round up to the nearest number of whole entity when performing the evaluation. For example, if the maximum _MaxPercentUnhealthyReplicasPerPartition_ is 21% and there are 5 replicas for the services, Service Fabric will allow up to "2" replicas (i.e., `Math.Ceiling (5\*0.21)`) to be unhealthy when evaluating the partition health.  Please tweak the health policy parameters accordingly to get around this issue.
 
 Possible Cause 2:
 
-The health policies are specified in terms of percentages, and not actual services. For example, before an upgrade, assume that an application had four services A, B, C and D and one service, service D was unhealthy (and the unhealthy service wasn't impactful). For the upgrade, one sets the parameter MaxPercentUnhealthyServices to be 25% assuming only A, B and C needed to be healthy. However, during the upgrade Service Fabric found A, B, and D to be healthy and C to be unhealthy but completed the upgrade successfully (25% of services are unhealthy).  This might result in unanticipated errors since C being unhealthy may lead to serious errors.   The takeaway is that it is always beneficial to have a clean slate before starting an upgrade and set MaxUnhealthyServices and likewise parameters to be 0%. In the above example, a first upgrade which removes Service D from the application, followed by the upgrade (the actual desired upgrade) would solve this problem.
+The health policies are specified in terms of percentages, and not actual services. For example, before an upgrade, assume that an application had four services A, B, C and D and one service, service D was unhealthy (and the unhealthy service wasn't impactful). For the upgrade, one sets the parameter *MaxPercentUnhealthyServices* to be 25% assuming only A, B and C needed to be healthy. However, during the upgrade Service Fabric found A, B, and D to be healthy and C to be unhealthy but completed the upgrade successfully (25% of services are unhealthy).  This might result in unanticipated errors since C being unhealthy may lead to serious errors.   The takeaway is that it is always beneficial to have a clean slate before starting an upgrade and set *MaxUnhealthyServices* and similar parameters to be 0%, so the application is health before an upgrade. In the above example, a first upgrade which removes Service D from the application, followed by the upgrade (the actual desired upgrade) would solve this problem.
 
 
 ## I did not specify a health policy for application upgrade. But, the upgrade still fails for some timeouts which I never specified.
@@ -54,11 +54,11 @@ The time it takes for an upgrade to complete is dependent on the times specified
 
 A quick refresher on how the timeouts interact with the upgrade times:
 
-Upgrade for a UD cannot complete faster than HealthCheckWaitDuration + HealthCheckStableDuration.
+Upgrade for a upgrade domain cannot complete faster than HealthCheckWaitDuration + HealthCheckStableDuration.
 
 Upgrade rollback cannot occur faster than HealthCheckWaitDuration + HealthCheckRetryTimeout.
 
-The upgrade time for a UD is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current UD begins.
+The upgrade time for a upgrade domain is limited by UpgradeDomainTimeout.  If HealthCheckRetryTimeout and HealthCheckStableDuration are both non-zero and the health of the application keeps switching back and forth, then the upgrade will eventually timeout on UpgradeDomainTimeout. UpgradeDomainTimeout starts counting down once the upgrade for the current upgrade domain begins.
 
 
 ## Next steps
