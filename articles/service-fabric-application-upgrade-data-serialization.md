@@ -37,7 +37,7 @@ Since the data format is determined by C# classes, changes to the classes may ca
 
 ### Default serializer
 
-The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/en-us/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not. The data serializer plays an important role in enabling rolling upgrades.
+The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not. The data serializer plays an important role in enabling rolling upgrades.
 
 
 ## How the data format affects rolling upgrade
@@ -54,7 +54,7 @@ The two versions of code and data format must be forwards and backwards compatib
 
 ## Data Contract
 
-Data Contract is the suggested solution for ensuring your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/en-us/library/ms733127.aspx).
+Data Contract is the suggested solution for ensuring your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
 
 
 ## Next steps
