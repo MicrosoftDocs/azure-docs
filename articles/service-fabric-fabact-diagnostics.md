@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure Service Fabric Actors Diagnostics"
-   description="Diagnostics for Azure Service Fabric Actors"
+   pageTitle="Azure Service Fabric Actors Diagnostics and Performance Monitoring"
+   description="This article describes the diagnostics and performance monitoring features in the Fabric Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
    authors="abhishekram"
@@ -17,17 +17,17 @@
    ms.author="abhisram"/>
 
 # Introduction
-Fabric Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting.
+Fabric Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
 The EventSource name for Fabric Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
 Service Fabric also offers the option of directing these events to [Application Insights](http://azure.microsoft.com/services/application-insights/). For more information on this, please see the article on [Application Insights setup for Service Fabric](service-fabric-diagnostics-application-insights-setup.md).
 
-Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Windows Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Other examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Windows Azure Diagnostics](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx) and the [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
-All events belong to the Fabric Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
+All events that belong to the Fabric Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
 
 |Bit|Description|
 |-|-|
