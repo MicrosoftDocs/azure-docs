@@ -85,7 +85,7 @@ Now, the application is built and ready to be upgraded. If you open up a PS as a
 Now let's copy the updated application package to the Service Fabric ImageStore (where the application packages are stored by Service Fabric. The parameter ApplicationPackagePathInImageStore informs Service Fabric where it can find the application package. We have put the updated application in "VisualObjects\_V2" with the following command (you may have to modify paths again appropriately).
 
 ```powershell
-Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package 
+Copy-ServiceFabricApplicationPackage  -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package
 -ImageStoreConnectionString fabric:ImageStore   -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
@@ -121,6 +121,8 @@ You may want to try changing the versions and moving from version 2 to version 3
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+
+[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
