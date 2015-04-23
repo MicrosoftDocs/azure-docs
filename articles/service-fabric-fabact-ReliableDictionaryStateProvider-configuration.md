@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Overview of the Service Fabric Reliable Actors 'ReliableDictionaryStateProvider' Configuration"
-   description="Learn about configuring Service Fabric Stateful actors of type 'ReliableDictionaryStateProvider'"
+   pageTitle="Overview of the Service Fabric Reliable Actors 'ReliableDictionaryActorStateProvider' Configuration"
+   description="Learn about configuring Service Fabric Stateful actors of type 'ReliableDictionaryActorStateProvider'"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="sumukhs"
@@ -16,8 +16,8 @@
    ms.date="04/20/2015"
    ms.author="sumukhs"/>
 
-# ReliableDictionaryStateProvider Configuration
-ReliableDictionaryStateProvider's default configuration can be modified by changing the "settings.xml" file generated in the Visual Studio package root under the "Config" folder for the specified actor in question.
+# ReliableDictionaryActorStateProvider Configuration
+ReliableDictionaryActorStateProvider's default configuration can be modified by changing the "settings.xml" file generated in the Visual Studio package root under the "Config" folder for the specified actor in question.
 
 Service-Fabric runtime looks for pre-defined section names in the "settings.xml" file and consumes the configuration values while creating the underlying runtime components.
 
