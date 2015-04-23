@@ -3,7 +3,7 @@
 	description="Learn how to use a web app in Azure App Service with io.js." 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
-	authors="mwasson" 
+	authors="felixrieseberg" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="nodejs" 
 	ms.topic="article" 
 	ms.date="04/23/2015" 
-	ms.author="feriese" />
+	ms.author="mwasson" />
 
 # How to use io.js with Azure App Service Web Apps
 
