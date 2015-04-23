@@ -13,11 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-<<<<<<< HEAD
-   ms.date="04/13/2015"
-=======
    ms.date="04/21/2015"
->>>>>>> d9c63ecec877884fb6bf154cc13122887a09a3d0
    ms.author="jgao"/>
 
 # Provision HBase clusters on Azure Virtual Network
@@ -81,11 +77,9 @@ A DNS server is optional, but necessary in some cases.  The procedure has been d
 4. Assign the DNS server to the virtual network 
 
 
-<<<<<<< HEAD
 **To create an Azure Storage account and a Blob storage container to be used by the cluster**
-=======
+
 > [AZURE.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight](hdinsight-use-blob-storage.md). You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
->>>>>>> d9c63ecec877884fb6bf154cc13122887a09a3d0
 
 Like other HDInsight clusters, HBase cluster requires an Azure Storage account and a Blob storage container as the default file system. The storage account location must match the virtual network location and the cluster location. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. When you provision an HBase cluster, you have the options to create new or use existing ones. This procedure shows you how to create a storage account and a Blob storage container using the Azure portal.
 

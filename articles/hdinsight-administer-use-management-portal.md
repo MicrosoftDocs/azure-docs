@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" 
-	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript chtonsole, and open the Hadoop command console." 
+	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 

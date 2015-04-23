@@ -153,8 +153,7 @@ The following Azure PowerShell script submits the word-count sample job:
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-
-storage].
+For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-storage].
 
 **To download the MapReduce job output**
 
