@@ -9,18 +9,18 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
 # Use Pig with Hadoop on HDInsight
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
-<a href="http://pig.apache.org/" target="_blank">Apache Pig</a> is a platform for creating programs for Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight.
+[Apache Pig](http://pig.apache.org/) is a platform for creating programs for Hadoop by using a procedural language known as *Pig Latin*. Pig is an alternative to Java for creating *MapReduce* solutions, and it is included with Azure HDInsight.
 
 In this article, you will learn how you can use Pig with HDInsight.
 
@@ -38,9 +38,13 @@ The Pig Latin language allows you to describe the data flow from raw input, thro
 
 Pig Latin also supports user-defined functions (UDF), which allows you to invoke external components that implement logic that is difficult to model in Pig Latin.
 
-For more information about Pig Latin, see <a href="http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html" target="_blank">Pig Latin Reference Manual 1</a> and <a href="http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html" target="_blank">Pig Latin Reference Manual 2</a>.
+For more information about Pig Latin, see [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) and [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
 
-For an example of using a UDF with Pig, see <a href="/documentation/articles/hdinsight-python/" target="_blank">Using Python with Pig and Hive</a>.
+For an example of using UDFs with Pig, see the following documents:
+
+* [Using Python with Pig and Hive in HDInsight](hdinsight-python.md)
+
+* [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ##<a id="data"></a>About the sample data
 
@@ -50,7 +54,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to your blob. See <a href="hdinsight-upload-data.md" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how blobs in Azure storage are used with HDInsight, see <a href="/documentation/articles/hdinsight-use-blob-storage" target="_blank">Use Azure Blob Storage with HDInsight</a>.
+> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to your blob. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how blobs in Azure storage are used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system for Hadoop clusters. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -81,13 +85,13 @@ The following image shows a breakdown of what each transformation does to the da
 
 HDInsight can run Pig Latin jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
-|**Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system**|
------------------------------------ | :------------------------: | :----------------:| ------------| --------|
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-ssh/" target="_blank">SSH</a> | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, or Windows
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-powershell/" target="_blank">Windows PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
+| **Use this** if you want...                                   | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
+|:--------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-hadoop-use-pig-ssh.md)                        |              ✔              |            ✔            | Linux                                     | Linux, Unix, Mac OS X, or Windows        |
+| [Curl](hdinsight-hadoop-use-pig-curl.md)                      |           &nbsp;            |            ✔            | Linux or Windows                          | Linux, Unix, Mac OS X, or Windows        |
+| [.NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md) |           &nbsp;            |            ✔            | Linux or Windows                          | Windows (for now)                        |
+| [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md)  |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
+| [Remote Desktop](hdinsight-hadoop-use-pig-remote-desktop.md)  |              ✔              |            ✔            | Windows                                   | Windows                                  |
 
 ##<a id="nextsteps"></a>Next steps
 

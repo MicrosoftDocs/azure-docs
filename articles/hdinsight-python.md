@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Use Python with Hive and Pig in Azure HDInsight" 
-	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Use Python with Hive and Pig in Azure HDInsight"
+	description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="04/23/2015" 
 	ms.author="larryfr"/>
 
 #Use Python with Hive and Pig in HDInsight
@@ -36,7 +36,7 @@ Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement
 **Linux-based HDInsight**
 
 	add file wasb:///streaming.py;
-	
+
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'streaming.py' AS
 	  (clientid string, phoneLable string, phoneHash string)
@@ -46,7 +46,7 @@ Python can be used as a UDF from Hive through the HiveQL **TRANSFORM** statement
 **Windows-based HDInsight**
 
 	add file wasb:///streaming.py;
-	
+
 	SELECT TRANSFORM (clientid, devicemake, devicemodel)
 	  USING 'D:\Python27\python.exe streaming.py' AS
 	  (clientid string, phoneLable string, phoneHash string)
@@ -71,12 +71,12 @@ Here's the **streaming.py** file used by the HiveQL example.
 	import sys
 	import string
 	import hashlib
-	
+
 	while True:
 	  line = sys.stdin.readline()
 	  if not line:
 	    break
-	
+
 	  line = string.strip(line, "\n ")
 	  clientid, devicemake, devicemodel = string.split(line, "\t")
 	  phone_label = devicemake + ' ' + devicemodel
@@ -166,7 +166,7 @@ For more information on using SSH, see <a href="../hdinsight-hadoop-linux-use-ss
 
 3. Use SSH to connect to the cluster. For example, the following would connect to a cluster named **mycluster** as user **myuser**.
 
-		ssh myuser@mycluster-ssh.azurehdinsight.net 
+		ssh myuser@mycluster-ssh.azurehdinsight.net
 
 4. From the SSH session, add the python files uploaded previously to the WASB storage for the cluster.
 
@@ -232,7 +232,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
 		$storageAccountName = $hdiStore.DefaultStorageAccount.StorageAccountName.Split(".",2)[0]
 		$storageAccountKey = $hdiStore.defaultstorageaccount.storageaccountkey
 		$defaultContainer = $hdiStore.DefaultStorageAccount.StorageContainerName
-		
+
 		$destContext = new-azurestoragecontext -storageaccountname $storageAccountName -storageaccountkey $storageAccountKey
 		set-azurestorageblobcontent -file $pathToStreamingFile -Container $defaultContainer -Blob "streaming.py" -context $destContext
 		set-azurestorageblobcontent -file $pathToJythonFile -Container $defaultContainer -Blob "jython.py" -context $destContext
@@ -244,7 +244,7 @@ These steps use Azure PowerShell. If this is not already installed and configure
 After uploading the files, use the following PowerShell scripts to start the jobs. When the job completes, the output should be written to the PowerShell console.
 
 ####Hive
-    
+
     # Replace 'YourHDIClusterName' with the name of your cluster
 	$clusterName = YourHDIClusterName
 
@@ -254,9 +254,9 @@ After uploading the files, use the following PowerShell scripts to start the job
 	               "(clientid string, phoneLabel string, phoneHash string) " +
 	             "FROM hivesampletable " +
 	             "ORDER BY clientid LIMIT 50;"
-	
+
 	$jobDefinition = New-AzureHDInsightHiveJobDefinition -Query $HiveQuery -StatusFolder '/hivepython'
-	
+
 	$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 	Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
 	Wait-AzureHDInsightJob -Job $job
@@ -283,9 +283,9 @@ The output for the **Hive** job should appear similar to the following:
 	            "LOG = FILTER LOGS by LINE is not null;" +
 	            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
 	            "DUMP DETAILS;"
-	
+
 	$jobDefinition = New-AzureHDInsightPigJobDefinition -Query $PigQuery -StatusFolder '/pigpython'
-	
+
 	$job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
 	Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
 	Wait-AzureHDInsightJob -Job $job

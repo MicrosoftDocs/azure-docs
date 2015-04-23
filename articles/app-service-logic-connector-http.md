@@ -3,7 +3,7 @@
    description="Using the HTTP listener and HTTP action in your Logic App" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="prkumar" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -48,6 +48,14 @@ To use the HTTP listener, you need to first create an instance of the HTTP liste
 6.	Once the API app instance is created, open up the settings to configure security. The HTTP listener currently supports basic authentication. You can configure this using the Security option when you open the HTTP listener.
 
 	![][3]
+<br>
+<br>
+<b><u>Known issue</u></b><br>
+*The Security settings show "None" as the default value, however it is undefined. You must change the setting to Basic and back to None before saving it to ensure that the HTTP Listener is configured correctly.*
+
+7. Lastly, you need to set the security settings of the API App to Public (Anonymous) to allow external clients to access the end point. This setting is available under "All settings > Application Settings" of the HTTP Listener API App.
+
+	![][10]
 
 Once that’s done, you can now create a logic App in the same resource group to use the HTTP listener.
 
@@ -56,7 +64,7 @@ Once your API app is created, you can now use the HTTP listener as a trigger for
 
 4.	Create a new Logic App and choose the same resource group which has the HTTP Listener.
 5.	Open “Triggers and Actions” to open the Logic Apps Designer and configure your flow. The HTTP Listener would appear in the “Recently Used” section in the gallery on the right hand side. Select that.
-6.	You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow.
+6.	You can now set the HTTP Method and the relative URL on which you require the listener to trigger the flow.<br>
 
 	![][4]
 	![][5]
@@ -65,7 +73,7 @@ Once your API app is created, you can now use the HTTP listener as a trigger for
 
 
 	![][6]
-8.	You can now use the data received in the HTTP Request in other actions in the flow as follows:
+8.	You can now use the data received in the HTTP Request in other actions in the flow as follows:<br>
 	![][7]
 	![][8]
 9.	Lastly, to send a response, add another HTTP Listener and select the Send HTTP Response action. Set the Request ID to the RequestID obtained from the HTTP Listener, and populate the response body and HTTP status you want to return back
@@ -87,6 +95,7 @@ The output of the HTTP action is headers and body, which can be used further dow
 [7]: ./media/app-service-logic-connector-http/7.png
 [8]: ./media/app-service-logic-connector-http/8.png
 [9]: ./media/app-service-logic-connector-http/9.png
+[10]: ./media/app-service-logic-connector-http/10.png
 
 
 

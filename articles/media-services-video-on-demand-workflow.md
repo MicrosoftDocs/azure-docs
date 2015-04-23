@@ -139,7 +139,7 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 **Overview**: 
 
-- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
 - [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
@@ -174,7 +174,7 @@ Configure content protection and key authorization policy using **.NET** or **RE
 
 **Overview**: 
 
-- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
 - [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
