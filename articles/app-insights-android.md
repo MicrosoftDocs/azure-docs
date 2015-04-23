@@ -25,6 +25,7 @@ You'll need:
 
 * A subscription with [Microsoft Azure](http://azure.com).  You login with a Microsoft subscription, which you might have for XBox Live or other Microsoft cloud services.
 * Android Studio
+* Android SDK Version 9 or above
 
 ## Create an Application Insights resource
 
@@ -35,7 +36,7 @@ In the [Azure portal][portal], create a new Application Insights resource.  Pick
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
 
 
-### Copy the Instrumentation Key.
+### Copy the Instrumentation Key
 
 You'll need this shortly, to direct the data from the SDK in your app to the resource you just created.
 
@@ -95,7 +96,7 @@ At this point the following reference has been added to the modules build.gradle
     </manifest>
 ```
 
-**Optional: set instrumentation key in code**
+#### Optional: set instrumentation key in code
 
 It is also possible to set the instrumentation key in code. This will override the one set in `AndroidManifest.xml`
 
@@ -106,7 +107,8 @@ It is also possible to set the instrumentation key in code. This will override t
 ```
 
 
-## <a name="usage"></a> Use the SDK
+## Use the SDK
+
 Initialize the SDK and start tracking telemetry.
 
 Add the following import to your apps root activity 
@@ -126,10 +128,10 @@ And add the following to the activity's `onCreate` callback.
 
 Once `AppInsights.start()` is called, the SDK will begin tracking android lifecycle activity and any unhandled exceptions. 
 
-> Note: Application lifecycle events are only collected in Android SDK version 15 and up (Ice Cream Sandwich+), the SDK supports SDK version 9+ but this feature is only available in version 15+.
+> [AZURE.NOTE] Application lifecycle events are only collected in Android SDK version 15 and up (Ice Cream Sandwich+).
 
-In addition to this custom events, traces, metrics, and handled exceptions can be collected. 
-Use any of the [Application Insights API][track] to send telemetry. 
+In addition to this, custom events, traces, metrics, and handled exceptions can be collected. 
+Use any of the [Application Insights API][api] to send telemetry. 
 
 * TrackEvent(eventName) for other user actions
 * TrackTrace(logEvent) for [diagnostic logging][diagnostic]
@@ -163,25 +165,40 @@ An example of initialization and manual telemetry collection follows.
 
 
 
-## <a name="run"></a>Run your project and view data in the Azure portal
+## <a name="run"></a> Run your project and view data in the Azure portal
 
-Run your application (SHIFT + F10 in Windows, CTRL + R in OS X) to generate telemetry. 
+Run your application (SHIFT+F10 in Windows, CTRL+R in OS X) to generate telemetry. 
 
 Return to your application blade in the Azure portal.
 
-The first events will appear in Diagnostic Search. 
+## Run your app
 
-Click Refresh after a few seconds if you're expecting more data.
+Run the app in debug mode, or publish it.
 
-If you used TrackMetric or the measurements parameter of TrackEvent, open [Metric Explorer][metrics] and open the Filters blade, where you'll see your metrics.
+## View your data in Application Insights
 
+Return to http://portal.azure.com and browse to your Application Insights resource.
+
+Click Search to open [Diagnostic Search][diagnostic] - that's where the first events will appear. If you don't see anything, wait a minute or two and click Refresh.
+
+![Click Diagnostic Search](./media/app-insights-android/21-search.png)
+
+As your app is used, data will appear in the overview blade.
+
+![Overview blade](./media/app-insights-android/22-oview.png)
+
+Click on any chart to get more detail. For example, crashes:
+
+![Click the crash chart](./media/app-insights-android/23-crashes.png)
 
 
 ## <a name="usage"></a>Next Steps
 
 [Track usage of your app][track]
 
-[Capture and search diagnostic logs][diagnostic]
+[Diagnostic search][diagnostic]
+
+[Metric Explorer][metrics]
 
 [Troubleshooting][qna]
 

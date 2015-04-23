@@ -285,12 +285,14 @@ Click on any chart to get more detail. For example, crashes:
 
 ## <a name="usage"></a>Next Steps
 
+
 [Track usage of your app][track]
 
-[Capture and search diagnostic logs][diagnostic]
+[Diagnostic search][diagnostic]
+
+[Metric Explorer][metrics]
 
 [Troubleshooting][qna]
-
 
 
 <!--Link references-->
