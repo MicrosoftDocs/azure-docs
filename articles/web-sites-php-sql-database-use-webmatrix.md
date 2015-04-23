@@ -67,7 +67,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 Follow these steps to create an Azure web app and a SQL Database:
 
-1. Log in to the [Azure Portal][management-portal].
+1. Log in to the [Azure Portal](https://portal.azure.com).
 
 2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
 	
