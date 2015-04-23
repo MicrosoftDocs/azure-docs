@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/10/2015"
+   ms.date="04/23/2015"
    ms.author="alexwun"/>
 
 # Deploy an application
@@ -150,7 +150,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 
-The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the *Get-ServiceFabricClusterManifest* command:
+The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the **Get-ServiceFabricClusterManifest** command:
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -175,6 +175,16 @@ Copy application package succeeded
 
 PS D:\temp>
 ~~~
+
+## Next steps
+
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
+
+[Service Fabric Health Introduction](service-fabric-health-introduction.md)
+
+[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-troubleshoot-your-service-index.md)
+
+[Model an application in Service Fabric](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: ./service-fabric-application-model.md
