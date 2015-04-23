@@ -3,7 +3,7 @@
 	description="Demonstrates how to create a database in Azure SQL Database Update V12" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sonalmm" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -14,10 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
 	ms.date="04/22/2015" 
-	ms.author="sonalm"/>
+	ms.author="genemi"/>
 
 
 # Create a database in SQL Database V12
+
+
+<!--
+True author is: authors="sonalmm" , ms.author="sonalm".
+-->
+
 
 [Sign up](https://portal.azure.com) for the SQL Database V12 [(Preview in some regions)](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable) to take advantage of the next generation of  SQL Database on Microsoft Azure. To get started, you need a subscription for Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
 
@@ -39,7 +45,7 @@
 | 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](azure-preview-portal-using-resource-groups.md)|![Specify Resource group][11]
 | 10. Click **Create**. A new database with SQL Database V12 features is created. |![Creates a new database][12]
 
-# Related Links  #
+## Related Links
 
 - [What's new in SQL Database V12](sql-database-v12-whats-new.md)
 - [Plan and Prepare to Upgrade to Azure SQL Database V12](sql-database-v12-plan-prepare-upgrade.md)
