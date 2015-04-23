@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="How to debug a Node.js web app in Azure App Service" 
-	description="Learn how to debug a Node.js web app in Azure App Service." 
+	description="Learn how to debug a Node.js web app in Azure App Service."
+	tags="azure-portal" 
 	services="app-service\web" 
 	documentationCenter="nodejs" 
 	authors="MikeWasson" 
