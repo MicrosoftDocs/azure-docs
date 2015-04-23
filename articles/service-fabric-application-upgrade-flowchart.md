@@ -18,11 +18,11 @@
 
 
 
-# Application Upgrade Flowchart 
+# Application Upgrade Flowchart
 
 ![The Upgrade Process for a Service Fabric Application][image]
 
-## Next Steps
+## Next steps
 
 [Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
 
