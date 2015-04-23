@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/22/2015"
+   ms.date="04/23/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
@@ -52,13 +52,13 @@ For details on how to install Maintenance mode updates, see [Install Maintenance
 
 You can use the Management Portal to apply updates to your StorSimple device.
 
-[AZURE.INCLUDE] [storsimple-install-updates-manually](../includes/storsimple-install-updates-manually.md)
+[AZURE.INCLUDE [storsimple-install-updates-manually](../includes/storsimple-install-updates-manually.md)]
 
 ## Install regular updates via Windows PowerShell for StorSimple
 
 Alternatively, you can use Windows PowerShell for StorSimple to apply regular (Normal mode) updates.
 
-[AZURE.INCLUDE] [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)
+[AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../includes/storsimple-install-regular-updates-powershell.md)]
 
 ## Install Maintenance mode updates via Windows PowerShell for StorSimple
 
@@ -73,19 +73,19 @@ If you need to apply Maintenance mode updates, you will receive an alert through
 
 First, use an application such as PuTTY to access the serial console.
 
-[AZURE.INCLUDE] [storsimple-use-putty](storsimple-use-putty.md)
+[AZURE.INCLUDE [storsimple-use-putty](../includes/storsimple-use-putty.md)]
 
 Then, determine whether there are updates to install, and install them.
 
-[AZURE.INCLUDE] [storsimple-enter-maintenance-mode](../includes/storsimple-enter-maintenance-mode.md)
+[AZURE.INCLUDE [storsimple-enter-maintenance-mode](../includes/storsimple-enter-maintenance-mode.md)]
 
 Next, install your updates.
 
-[AZURE.INCLUDE] [storsimple-install-maintenance-mode-updates](../includes/storsimple-install-maintenance-mode-updates.md)
+[AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../includes/storsimple-install-maintenance-mode-updates.md)]
 
 Finally, exit Maintenance mode.
 
-[AZURE.INCLUDE] storsimple[-exit-maintenance-mode](../includes/storsimple-exit-maintenance-mode.md)
+[AZURE.INCLUDE storsimple[-exit-maintenance-mode](../includes/storsimple-exit-maintenance-mode.md)]
 
 ## Install hotfixes via Windows PowerShell or StorSimple
 
@@ -96,9 +96,9 @@ Unlike updates for Microsoft Azure StorSimple, hotfixes are installed from a sha
 
 The following procedures explain how to use Windows PowerShell for StorSimple to install regular and Maintenance mode hotfixes.
 
-[AZURE.INCLUDE] [storsimple-install-regular-hotfixes](../includes/storsimple-install-regular-hotfixes.md)
+[AZURE.INCLUDE [storsimple-install-regular-hotfixes](../includes/storsimple-install-regular-hotfixes.md)]
 
-[AZURE.INCLUDE] [storsimple-install-maintenance-mode-hotfixes](../includes/storsimple-install-maintenance-mode-hotfixes.md)
+[AZURE.INCLUDE [storsimple-install-maintenance-mode-hotfixes](../includes/storsimple-install-maintenance-mode-hotfixes.md)]
 
 ## What happens to updates if you perform a factory reset of the device?
 
