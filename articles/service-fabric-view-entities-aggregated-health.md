@@ -46,8 +46,11 @@ Service Fabric Explorer provides a visual view of the cluster. In the picture be
 
 The evaluation uses default policies from cluster manifest and application manifest, which are the strict policies (do not tolerate any failure).
 
-![View of the cluster with ServiceFabricExplorer.][1] View of the cluster with ServiceFabricExplorer.
-[1]: ./media/service-fabric-health\servicefabric-explorer-cluster-health.png
+![View of the cluster with ServiceFabricExplorer.][1]
+
+View of the cluster with ServiceFabricExplorer.
+
+[1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 > [AZURE.NOTE] Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 
