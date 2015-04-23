@@ -19,21 +19,21 @@
 # Manage a Service Fabric service
 This page has links to overview and conceptual articles and tutorial to help you learn to manage a Service Fabric service.
 
-- [Application Lifecycle](../service-fabric-application-lifecycle) 
+- [Application Lifecycle](../service-fabric-application-lifecycle)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ## Package, deploy and remove an application
 
 - [Application Model](service-fabric-application-model.md)
-- [Package an Application](service-fabric-application-model.md) 
-- [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md) 
+- [Package an Application](service-fabric-application-model.md)
+- [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md)
+- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
-## Upgrade an application 
+## Upgrade an application
 
-- [Service Fabric Application Upgrade](service-fabric-application-upgrade.md) 
-- [Upgrade Parameters](service-fabric-application-upgrade-parameters.md) 
-- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) 
-- [Advanced Topics](service-fabric-application-upgrade-advanced.md) 
-- [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) 
-- [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) 
-
+- [Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
+- [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
+- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
+- [Advanced Topics](service-fabric-application-upgrade-advanced.md)
+- [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
+- [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md)
