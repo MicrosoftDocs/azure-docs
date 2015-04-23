@@ -9,7 +9,7 @@
 
 <tags
  ms.service="hdinsight"
- ms.devlang="na"
+ ms.devlang="dotnet"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
