@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Service Fabric Testability Scenarios: Service Communication" 
-   description="Article description that will be displayed on landing pages and in some search results" 
+   description="Service-to-service communication is a critical integration point of a Service Fabric application. This article discusses design consideration and testing techniques." 
    services="service-fabric" 
    documentationCenter=".net" 
    authors="vturecek" 
@@ -87,13 +87,16 @@ Stateful services use a quorum-based system for replicating state for high-avail
 
 Service Fabric's Testability tools allow you to inject a fault that induces quorum loss to test this type of scenario. Although rare, it is important that clients and services that depend on stateful service are prepared to handle situations where they cannot make write requests to the stateful service. At the same time it is also important that the stateful service itself is aware of this possibiliy and can gracefully communicate it to callers. 
 
-Quorum loss can be induced using the Invoke-ServicePartitionQuorumLoss PowerShell cmdlet:
+Quorum loss can be induced using the Invoke-ServiceFabricPartitionQuorumLoss PowerShell cmdlet:
 
 ```powershell
 
-PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialitQuorumLoss -QuorumLossDurationInSeconds
+PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/MyService -QuorumLossMode PartialQuorumLoss -QuorumLossDurationInSeconds 20
 
 ```
+
+In this example, we set `QuorumLossMode` to `PartialQuorumLoss` to indicate we want to induce quorum loss without taking down all replicas, so that read operations are still possible. To test a scenario where an entire partition is unavailable, you can set this switch to `FullQuorumLoss`.
+
 ## Next steps
 
 [Learn more about Testability Actions](service-fabric-testability-actions.md)
