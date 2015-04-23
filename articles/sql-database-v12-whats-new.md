@@ -22,7 +22,7 @@
 
 
 <!--
-GeneMi , 2015-April-23 Thursday 09:54am
+GeneMi , 2015-April-23 Thursday 09:59am
 Removed '-preview' node from links, replaced with '-v12'. See also the other four '-preview' topics:
   sql-database-preview-whats-new.md  (this topic)
   sql-database-preview-plan-prepare-upgrade.md
@@ -211,9 +211,9 @@ This *what's new* topic for Azure SQL Database V12 will be finalized and no long
 
 
 <!--
-- [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
+- Announcements h ttp : / / a zure . m icrosoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
  - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
-- [Dynamically generated list](http://azure.microsoft.com/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
+- Dynamically generated list h ttp : / / a zure . m icrosoft.com/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
  - The list include topics that have only minor updates.
 -->
 
