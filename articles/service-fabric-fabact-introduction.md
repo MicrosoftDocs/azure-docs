@@ -69,7 +69,7 @@ As shown in the above example, there were two pieces of information that were us
 
 The actors are virtual actors meaning that they always exist. You do not need to explicitly create them nor destroy them. The Actors runtime automatically activates an actor the first time it receives a request for that actor. If an actor is not used for certain time the Actors runtime will garbage collect it and will activate it at later time if required. More details on this are in the section on [Actor lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md).
 
-The Actors client API also provides the location transparency and failover. The `ActorProxy` class on the client side performs the necessary resolution and locates the actor service partition where the actor with the specified ID is hosted and opens a communication channel with it. The `ActorProxy` retries on the communication failures and in case of failovers.  This means that it is possible for an Actor implementation to get duplicate messages from the same client.
+The Actors client API also provides the location transparency and failover. The `ActorProxy` class on the client side performs the necessary resolution and locates the actor service [partition](service-fabric-fabact-platform.md) where the actor with the specified ID is hosted and opens a communication channel with it. The `ActorProxy` retries on the communication failures and in case of failovers.  This means that it is possible for an Actor implementation to get duplicate messages from the same client.
 
 ## Concurrency
 The Actors runtime provides a simple turn-based concurrency for actor methods. This means that no more than one thread can be active inside the actor code at any time.
