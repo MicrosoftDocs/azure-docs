@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="04/23/2015" 
 	ms.author="kathydav"/>
 
 # How to Attach a Data Disk to a Windows Virtual Machine
