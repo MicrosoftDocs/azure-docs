@@ -41,7 +41,7 @@ implemented by Service Fabric as the service implementation uses a communication
 
 Your stateful reliable service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service,
 that is, are always available regardless of service failovers. Each type of reliable collection is implemented by a reliable state provider.
-For more information on reliable collections see [the Reliable Collections overview](service-fabric-fabsrv-reliable-collections.md)
+For more information on reliable collections see [the Reliable Collections overview](service-fabric-reliable-services-reliable-collections.md)
 
 ### Reliable State Manager And Providers
 
