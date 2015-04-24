@@ -180,6 +180,4 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 
 [Configuring KVSActorStateProvider Actor](service-fabric-fabact-KVSActorstateprovider-configuration.md)
 
-[Configuring ReliableDictionaryActorStateProvider Actor](service-fabric-fabact-ReliableDictionaryStateProvider-configuration.md)
-
 [Actor Diagnostics and Performance Monitoring](service-fabric-fabact-diagnostics.md)
