@@ -184,6 +184,7 @@ The sequence of operations to add or remove endpoints can also be ‘piped’, p
 
 Both profile and endpoint parameters can be changed off-line, and the changes committed using Set-AzureTrafficManagerProfile.  The only exception is that the profile RelativeDnsName cannot be changed after the profile is created (to change this value, delete and re-create the profile).
 For example, to change the profile TTL and the status of the first endpoint:
+
 	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 	PS C:\> $profile.Ttl = 300
 	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
