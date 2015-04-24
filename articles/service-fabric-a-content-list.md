@@ -42,6 +42,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Reliable Services Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
+- [Communicating with Services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
+
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
 - [Communicating with services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
@@ -99,8 +101,6 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 - [Service Fabric Application Upgrade](service-fabric-application-upgrade.md) **owner: subramar**
 
 - [Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
-
-- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
 
 - [Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
 
