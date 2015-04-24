@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Resource Manager support for Traffic Manager "
-   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM)"
+   pageTitle="Azure Resource Manager support for Traffic Manager | Microsoft Azure "
+   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM) in preview"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
@@ -20,14 +20,14 @@
 
 
 
-#Azure Resource Manager support for Azure Traffic Manager Preview
+# Azure Resource Manager support for Azure Traffic Manager Preview
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](./azure-preview-portal-using-resource-groups.md).
 
 >[AZURE.NOTE] ARM support for Traffic Manager is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
 
 
 
-##Resource model
+## Resource model
 
 Azure Traffic Manager is configured using a collection of settings called a Traffic Manager profile. This contains DNS settings, traffic routing settings, endpoint monitoring settings and the list of service endpoints to which traffic will be routed.
 
@@ -35,7 +35,7 @@ In ARM, each Traffic Manager profile is represented by an ARM resource, of type 
 
 	https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
 
-##Comparison with the Azure Traffic Manager Service Management API
+## Comparison with the Azure Traffic Manager Service Management API
 
 Using ARM to configure Traffic Manager profiles provides access to the same set of Traffic Manager features as the (non-ARM) service management API, with the exception of the Preview Limitations listed below.
 
@@ -47,7 +47,7 @@ However, whilst the features remain the same, some terminology has changed:
 
 - The ‘failover’ traffic routing method has been renamed ‘priority’.
 
-##Preview limitations
+## Preview limitations
 As the Azure Resource Manager support for Traffic Manager is a Preview service, there are currently a small number of limitations:
 
 - Traffic Manager profiles created using the existing (non-ARM) service management API, tools and Portal are not available via ARM, and vice versa. Migration of profiles from non-ARM to ARM APIs is not currently supported.
@@ -55,46 +55,46 @@ As the Azure Resource Manager support for Traffic Manager is a Preview service, 
 - 	The REST API does not support PATCHing of Traffic Manager profiles.  To update a profile property, you must GET the profile, and PUT the modified profile.
 - 	Only ‘external’ endpoints are supported.  These can still be used to use Traffic Manager with Azure-based services, and when doing so those endpoints will be billed at the internal endpoint rate.  (The only impact of using external endpoints is that they will not be disabled or deleted automatically if the underlying Azure service is disabled or deleted, instead you will have to disable or delete the endpoint manually).
 
-##Setting up Azure PowerShell
+## Setting up Azure PowerShell
 
 These instructions use Microsoft Azure PowerShell, which needs to be configured using the steps below.
 
 For non-PowerShell users, the same operations can also be executed via the other interfaces.
 
-###Step 1 
+### Step 1 
 Install the latest Azure PowerShell, available from the Azure downloads page.
-###Step 2
+### Step 2
 Switch PowerShell mode to use the ARM cmdlets. More info is available at Using Windows Powershell with Resource Manager.
 
 	PS C:\> Switch-AzureMode -Name AzureResourceManager
-###Step 3 
+### Step 3 
 Log in to your Azure account.
 
 	PS C:\> Add-AzureAccount
 
 You will be prompted to Authenticate with your credentials.
 
-###Step 4
+### Step 4
 Choose which of your Azure subscriptions to use. 
 
 	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 To see a list of available subscriptions, use the ‘Get-AzureSubscription’ cmdlet.
 
-###Step 5
+### Step 5
 
  The Traffic Manager service is managed by the Microsoft.Network resource provider.  Your Azure subscription needs to be registered to use this resource provider before you can use Traffic Manager via ARM.  This is a one-time operation for each subscription.
 
 	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
-###Step 6
+### Step 6
 Create a resource group (skip this step if using an existing resource group)
 
 	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all Traffic Manager profile resources are global, not regional, the choice of resource group location has no impact on Azure Traffic Manager.
 
-##Create a Traffic Manager Profile
+## Create a Traffic Manager Profile
 
 To create a Traffic Manager profile, use the New-AzureTrafficManagerProfile cmdlet:
 
@@ -118,9 +118,9 @@ The parameters are as follows:
 
 -	MonitorPath: Specifies the path relative to the endpoint domain name used to probe for endpoint health.
 
-The cmdlet creates a Traffic Manager profile in Azure Traffic Manager and returns a corresponding profile object.  At this point, the profile does not contain any endpoints—see Update a Traffic Manager Profile for details of how to add endpoints to a Traffic Manager profile.
+The cmdlet creates a Traffic Manager profile in Azure Traffic Manager and returns a corresponding profile object.  At this point, the profile does not contain any endpoints—see [Update a Traffic Manager Profile](#update-a-traffic-manager-profile) for details of how to add endpoints to a Traffic Manager profile.
 
-##Get a Traffic Manager Profile
+## Get a Traffic Manager Profile
 
 To retrieve an existing Traffic Manager profile object, use the Get-AzureTrafficManagerProfle cmdlet:
 
@@ -128,7 +128,7 @@ To retrieve an existing Traffic Manager profile object, use the Get-AzureTraffic
 
 This cmdlet returns a Traffic Manager profile object.
 
-##Update a Traffic Manager Profile [](#update-traffic-manager-profile)
+## Update a Traffic Manager Profile [](#update-traffic-manager-profile)
 
 Modifying Traffic Manager profiles, for example to add or remove endpoints or modify profile settings, follows a 3-step process:
 
@@ -140,7 +140,7 @@ Modifying Traffic Manager profiles, for example to add or remove endpoints or mo
 
 This can be further explained using the examples below:
 
-###Add endpoints to a Profile
+### Add endpoints to a Profile
 
 Endpoints can be added to a Traffic Manager profile using the ‘Add-AzureTrafficManagerEndpointConfig’ cmdlet:
 
@@ -165,9 +165,10 @@ The parameters to Add-AzureTrafficManagerEndpointConfig are as follows:
 -	Priority: Specifies the priority of this endpoint when using the ‘priority’ traffic routing method. Priority must lie in the range 1…1000.  Lower values represent higher priority.
 
 -	EndpointLocation: Specifies the location of the external endpoint, for use with the ‘Performance’ traffic routing method.  For a list of possible locations, see Get-AzureLocation.
-Endpoint Status, Weight, Priority and EndpointLocation are optional parameters.  If omitted, they are not passed by PowerShell and the server-side defaults apply see [REST API](https://msdn.microsoft.com/library/azure/hh758255.aspx).
 
-###Remove endpoints from a Profile
+Endpoint Status, Weight and Priority are optional parameters.  If omitted, they are not passed by PowerShell and the server-side defaults apply.
+
+### Remove endpoints from a Profile
 
 To remove an endpoint from a profile, use ‘Remove-AzureTrafficmanagerEndpointConfig’, specifying the name of the endpoint to be removed:
 
@@ -179,7 +180,7 @@ The sequence of operations to add or remove endpoints can also be ‘piped’, p
 
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
-###Change profile or endpoint settings
+### Change profile or endpoint settings
 
 Both profile and endpoint parameters can be changed off-line, and the changes committed using Set-AzureTrafficManagerProfile.  The only exception is that the profile RelativeDnsName cannot be changed after the profile is created (to change this value, delete and re-create the profile).
 For example, to change the profile TTL and the status of the first endpoint:
@@ -188,7 +189,7 @@ For example, to change the profile TTL and the status of the first endpoint:
 	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
 	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
-###Delete a Traffic Manager Profile
+### Delete a Traffic Manager Profile
 To delete a Traffic Manager profile, use the Remove-AzureTrafficManagerProfile cmdlet, specifying the profile name and resource group name:
 
 	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
@@ -204,7 +205,7 @@ This sequence can also be piped:
 	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
-##See Also
+## See Also
 
 [Traffic Manager Overview](./traffic-manager-overview.md)
 
