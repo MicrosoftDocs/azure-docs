@@ -22,7 +22,7 @@
 
 This topic describes how to create, manage, and delete Azure resources using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
 
->[AZURE.NOTE] To create and manage Azure resources on the command-line, you're going to need an Azure account ([free trial here](http://azure.microsoft.com/en-us/pricing/free-trial/)), you're going to need to [install the Azure CLI](xplat-cli-install.md), and you're going to need to [log on to use Azure resources associated with your account](xplat-connect.md). If you've done these things, you're ready to go.
+>[AZURE.NOTE] To create and manage Azure resources on the command-line, you're going to need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)), you're going to need to [install the Azure CLI](xplat-cli-install.md), and you're going to need to [log on to use Azure resources associated with your account](xplat-connect.md). If you've done these things, you're ready to go.
 
 ## Azure Resources
 
