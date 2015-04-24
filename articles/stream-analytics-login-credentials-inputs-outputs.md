@@ -184,7 +184,7 @@ You should get the following confirmation:
 
 	Command(s) completed successfully.
 
-## Get Help
+## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
