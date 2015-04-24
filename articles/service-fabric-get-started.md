@@ -26,20 +26,21 @@ The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC. To insta
 ## Installing the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
 
-1. Launch the Web Platform Installer by clicking [here](http://replacewiththeresultwebpiuri.com).
+1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
 
-2. Click Add to include Service Fabric in the cart.
+2. Click Install to begin the install process.
 
-3. Click Install to begin the install process.
-
-4. Review and accept the EULA.
+3. Review and accept the EULA.
 
 Installation will proceed automatically.
 
 ## Installing and starting a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
+
 1. Launch a new Powershell window as an Adminstator.
+
 2. Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
+
 3. Run ./DevClusterSetup.ps1
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
