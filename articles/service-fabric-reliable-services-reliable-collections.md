@@ -154,5 +154,5 @@ Here are some things to keep in mind:
 
 ## Next Steps
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
-- [Getting Started with Service Fabric Web API services](service-fabric-fabsrv-communication-webapi.md)
+- [Getting Started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
 - [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)
