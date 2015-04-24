@@ -116,6 +116,8 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 }
 ```
 
+> [Note] please refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for mode details on how interfaces and Actor State types should be defined.  
+
 #### Actor state providers
 The storage and retrieval of the state is provided by an actor state provider. State provider can be configured per actor or for all actors within an assembly by the state provider specific attribute. There are some default actor state providers that are included in the Actors runtime. The durability and reliability of the state is determined by the guarantees offered by the state provider. When an actor is activated its state is loaded in memory. When an actor method completes, the modified state is automatically saved by the Actors runtime by calling a method on the state provider. If failure occurs during the save state, the Actors runtime recycles that actor instance. A new actor instance is created and loaded with the last consistent state from the state provider.
 
