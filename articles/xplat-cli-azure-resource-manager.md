@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Resources" 
-	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Resources." 
+	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management" 
+	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management." 
 	editor="tysonn" 
 	manager="timlt" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/23/2015" 
 	ms.author="rasquill"/>
 
-# Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
+# Using the Azure Cross-Platform Command-Line Interface with Azure Resource Management
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
@@ -26,9 +26,9 @@ This topic describes how to create, manage, and delete Azure resources using the
 
 ## Azure Resources
 
-The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database as resources.
+The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database as resources. You can create, manage, and delete these resources imperatively on the command line, just like you can in the **asm** mode.
 
-To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
+Using the **arm** mode, you can manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template language also describes parameters that can be filled in either inline when running a command or stored in a separate JSON **azuredeploy-parameters.json** file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group.
 
