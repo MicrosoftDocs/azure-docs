@@ -154,7 +154,7 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic19][graphic19]
 
-## Get Help
+## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
