@@ -37,13 +37,13 @@ The Web API application itself doesn't change here - it's no different from Web 
 
 Start by creating a new Stateless Service in Visual Studio 2015:
 
-![](media/service-fabric-fabsrv-communication-webapi/webapi-newproject.png)
+![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
 
 This gives us an empty Stateless Service that will host the Web API application. We're going to set the application up from scratch to see how it's all put together.
 
 The first step is to pull in some NuGet packages for Web API. The package we want to use is **Microsoft.AspNet.WebApi.OwinSelfHost**. This package includes all the necessary Web API packages and the *host* packages - this will be important later. 
 
-![](media/service-fabric-fabsrv-communication-webapi/webapi-nuget.png)
+![](media/service-fabric-reliable-services-communication-webapi/webapi-nuget.png)
 
 With the packages installed, we can begin building out the basic Web API project structure. If you've used  Web API, the project structure should look very familiar. Start by creating the basic Web API directories:
 

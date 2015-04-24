@@ -78,6 +78,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 ### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
+- [Setting up Application Insights for your Service Fabric application](service-fabric-diagnostics-application-insights-setup.md) **owner:mattrow**
+
 ### Package, Deploy and Remove an Application
 
 - [Service Model](service-fabric-service-model.md)
