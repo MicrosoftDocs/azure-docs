@@ -725,8 +725,8 @@ Learn how to work with HDInsight by walking through some basic scenarios (such a
 
 **Note**: To demonstrate the new capabilities made available by cluster customization, the procedures using Script Action to install Spark and R modules on a cluster have been documented. For further information, see:
 
-* [Install and use Spark 1.0 on HDInsight clusters][hdinsight-install-spark]
-* [Install and use R on HDInsight Hadoop clusters][hdinsight-r-scripts]
+* [Install and use Spark 1.0 on HDInsight clusters](hdinsight-hadoop-spark-install.md)
+* [Install and use R on HDInsight Hadoop clusters](hdinsight-hadoop-r-scripts.md)
 
 
 
@@ -1053,7 +1053,7 @@ The following version changes were made between HDInsight 2.x (HDP1.x) and HDIns
 
 
 ###Drivers
-The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver][connect-excel-with-hive-ODBC].
+The Java Database Connnectivity (JDBC) driver for SQL Server is used internally by HDInsight and is not used for external operations. If you want to connect to HDInsight by using Open Database Connectivity (ODBC), please use the Microsoft Hive ODBC driver. For more information, see [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md).
 
 
 ### Bug fixes ###
