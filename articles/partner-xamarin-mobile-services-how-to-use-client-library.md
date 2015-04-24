@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
+	ms.date="04/24/2015" 
 	ms.author="donnam"/>
 
 # How to use the Xamarin Component client for Azure Mobile Services
