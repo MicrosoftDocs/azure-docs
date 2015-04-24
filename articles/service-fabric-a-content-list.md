@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2015"
+   ms.date="04/24/2015"
    ms.author="ryanwi"/>
 
 # Working List of Service Fabric Content
@@ -43,6 +43,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 - [Reliable Services Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
+
+- [Communicating with services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)  **owner: leikong**
 
@@ -79,6 +81,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
 - [Setting up Application Insights for your Service Fabric application](service-fabric-diagnostics-application-insights-setup.md) **owner:mattrow**
+
+- [Troubleshoot your local development cluster setup](service-fabric-troubleshoot-local-cluster-setup.md)  **owner: seanmck**
 
 ### Package, Deploy and Remove an Application
 

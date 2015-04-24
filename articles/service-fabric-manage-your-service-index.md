@@ -21,8 +21,10 @@ This page has links to overview and conceptual articles and tutorial to help you
 
 - [Application Lifecycle](../service-fabric-application-lifecycle)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+- [Secure replication traffic of stateful services](service-fabric-replication-security.md)
 
 ## Package, deploy and remove an application
+The following topics discuss the Service Fabric application model as well as how to package and deploy your applications.
 
 - [Application Model](service-fabric-application-model.md)
 - [Package an Application](service-fabric-application-model.md)
@@ -30,6 +32,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 
 ## Upgrade an application
+Read the following to learn how to upgrade an application:
 
 - [Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
 - [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
@@ -37,3 +40,5 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md)
+- [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) 
+- [Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md)
