@@ -3,7 +3,7 @@
    description="design patterns that work well with Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

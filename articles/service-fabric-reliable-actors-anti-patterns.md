@@ -3,7 +3,7 @@
    description="Some potential pitfalls for customers who are learning Azure Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

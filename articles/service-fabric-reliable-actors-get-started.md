@@ -3,7 +3,7 @@
    description="This tutorial walks you through the steps of creating a canonical HelloWorld service using Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

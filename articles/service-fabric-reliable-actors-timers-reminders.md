@@ -3,7 +3,7 @@
    description="Introduction to Timers and Reminders for Azure Service Fabric Actors."
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

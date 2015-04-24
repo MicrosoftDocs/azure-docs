@@ -3,7 +3,7 @@
    description="Explains Lifecycle and Garbage Colelction for Azure Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="myamanbh"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

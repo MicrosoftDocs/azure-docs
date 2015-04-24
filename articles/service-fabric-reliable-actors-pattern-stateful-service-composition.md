@@ -4,7 +4,7 @@
    description="Service Fabric Actors design pattern that uses Stateful actors to maintain state between service calls as well as cache previous service results. State can be persisted or transient."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

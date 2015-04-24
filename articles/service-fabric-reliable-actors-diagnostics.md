@@ -3,7 +3,7 @@
    description="This article describes the diagnostics and performance monitoring features in the Fabric Actors runtime, including the events and performance counters emitted by it."
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhishekram"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

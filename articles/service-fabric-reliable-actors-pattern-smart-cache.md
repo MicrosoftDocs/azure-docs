@@ -3,7 +3,7 @@
    description="Design pattern on how to use Service Fabric Actors as Caching infrastructure on web-based applications"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 

@@ -3,7 +3,7 @@
    description="Design pattern on how Service Fabric Actors can be used to model application what needs to scale but use constrained resources"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
