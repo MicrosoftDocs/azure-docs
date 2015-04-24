@@ -27,12 +27,12 @@ Cluster administrators can create one or more actor services of each service typ
 ## Service Fabric partition concepts for stateless actors
 Stateless actors are created within a partition of a Service Fabric stateless service. The actor ID determines which partition the actor is created under. The actor is created inside one or more [instances](service-fabric-availability-services.md#availability-of-service-fabric-stateless-services) within that partition. Indeed, it is possible that multiple instances within a partition each have an active actor with the same actor ID.
 
-> [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateless actor instances](service-fabric-fabact-diagnostics.md#events-related-to-stateless-actor-instances). They are useful in diagnostics and performance monitoring.
+> [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateless actor instances](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateless-actor-instances). They are useful in diagnostics and performance monitoring.
 
 ## Service Fabric partition concepts for stateful actors
 Stateful actors are created within a partition of the Service Fabric stateful service. The actor ID determines which partition the actor is created under. Each partition of the service can have one or more [replicas](service-fabric-availability-services.md#availability-of-service-fabric-stateful-services) that are placed on different nodes in the cluster. Having multiple replicas provides reliability for the actor state. The resource manager optimizes the placement based on the available fault and upgrade domains in the cluster. Two replicas of the same partition are never placed on the same node. The actors are always created in the primary replica of the partition to which their actor ID maps to.
 
-> [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateful actor replicas](service-fabric-fabact-diagnostics.md#events-related-to-stateful-actor-replicas). They are useful in diagnostics and performance monitoring.
+> [AZURE.TIP] The Fabric Actors runtime emits some [events related to stateful actor replicas](service-fabric-reliable-actors-diagnostics.md#events-related-to-stateful-actor-replicas). They are useful in diagnostics and performance monitoring.
 
 ## Actor state provider choices
 There are some default actor state providers that are included in the Actors runtime. In order to choose an appropriate state provider for an actor service, it is necessary to understand how the state providers use the underlying Service Fabric platform features to make the actor state highly available.
