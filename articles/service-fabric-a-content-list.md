@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/18/2015"
+   ms.date="04/24/2015"
    ms.author="ryanwi"/>
 
 # Working List of Service Fabric Content
@@ -38,28 +38,32 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Reliable Service Programming Model Quick Start](service-fabric-reliable-services-quick-start.md) **owner: masnider**
 
-- [Actor Programming Model Quick Start](service-fabric-fabact-get-started.md)
+- [Reliable Actors Programming Model Quick Start](service-fabric-reliable-actors-get-started.md)
 
-- [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
+- [Reliable Services Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
+
+- [Communicating with Services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
 
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
+
+- [Communicating with services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)  **owner: leikong**
 
 
 ### Tutorials
 
-- [Microsoft Azure Service Fabric Application Basic Management](../service-fabric-get-started-basic-management.md)  **owner: bmerrill**
+- [Microsoft Azure Service Fabric Application Basic Management](service-fabric-get-started-basic-management.md)  **owner: bmerrill**
 
 - [Implement a Communication Listener using Web API](service-fabric-get-started-communication-listener-with-web-api.md) **owner: bmerrill**
 
-- [Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-get-started-hello-world-stateless) **owner: vturecek**
+- [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-get-started-hello-world-stateless) **owner: vturecek**
 
-- [Hello World with Actors](../service-fabric-get-started-hello-world-with-actors.md) **owner: bmerrill**
+- [Hello World with Actors](service-fabric-get-started-hello-world-with-actors.md) **owner: bmerrill**
 
-- [Echo Service using Web API](../service-fabric-get-started-echo-service-using-web-api.md) **owner: bmerrill**
+- [Echo Service using Web API](service-fabric-get-started-echo-service-using-web-api.md) **owner: bmerrill**
 
-- [Todo Service using Web API](../service-fabric-get-started-todo-service-with-web-api.md) **owner: bmerrill**
+- [Todo Service using Web API](service-fabric-get-started-todo-service-with-web-api.md) **owner: bmerrill**
 
 
 
@@ -78,6 +82,10 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 ### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
 - [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) - **owner:kunalds**
 
+- [Setting up Application Insights for your Service Fabric application](service-fabric-diagnostics-application-insights-setup.md) **owner:mattrow**
+
+- [Troubleshoot your local development cluster setup](service-fabric-troubleshoot-local-cluster-setup.md)  **owner: seanmck**
+
 ### Package, Deploy and Remove an Application
 
 - [Service Model](service-fabric-service-model.md)
@@ -94,17 +102,15 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
 
-- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
-
 - [Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
 
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
 
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
-- [Service Fabric Application Upgrade: Data Serialization](service-fabric-upgrade-data-serialization.md) **owner: jesseb**
+- [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) **owner: jesseb**
 
--[Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md) **owner:alexwun**
+- [Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md) **owner:alexwun**
 
 
 ## Reference
@@ -113,8 +119,6 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 ### REST Reference
 
 ## Further Reading- Deep conceptual content, link back to Work with... topics
-### Monitoring and Diagnostics
-Introduction to monitoring and diagnostics in Service Fabric- overview, crash dump, perf counters, AppInsights, OpInsights, WAD. **owner: kunalds**
 
 ### Application Lifecycle
 [Application Lifecycle](service-fabric-application-lifecycle.md) **owner: matt**
@@ -136,37 +140,37 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
 #### Actors
-- [Introduction to the Service Fabric Actor Model](service-fabric-fabact-introduction.md) **owner: claudioc**
+- [Introduction to the Service Fabric Actor Model](service-fabric-reliable-actors-introduction.md) **owner: claudioc**
 
-- [Actor lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md) **owner: claudioc**
+- [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md) **owner: claudioc**
 
-- [Actor Model Design Patterns](service-fabric-fabact-patterns-introduction.md)  **owner: claudioc**
+- [Actor Model Design Patterns](service-fabric-reliable-actors-patterns-introduction.md)  **owner: claudioc**
 
-- [Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md) **owner: claudioc**
+- [Pattern: Smart Cache](winfab-reliable-actors-pattern-smartcache.md) **owner: claudioc**
 
-- [Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
+- [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md) **owner: claudioc**
 
-- [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md) **owner: claudioc**
+- [Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md) **owner: claudioc**
 
-- [Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md) **owner: claudioc**
+- [Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md) **owner: claudioc**
 
-- [Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md) **owner: claudioc**
+- [Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md) **owner: claudioc**
 
-- [Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md) **owner: claudioc**
+- [Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md) **owner: claudioc**
 
-- [Some Anti-patterns](service-fabric-fabact-anti-patterns.md) **owner: claudioc**
+- [Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md) **owner: claudioc**
 
-- [Actor Events](service-fabric-fabact-events.md) **owner: myamanbh**
+- [Actor Events](service-fabric-reliable-actors-events.md) **owner: myamanbh**
 
-- [Actor Reentrancy](service-fabric-fabact-reentrancy.md) **owner: myamanbh**
+- [Actor Reentrancy](service-fabric-reliable-actors-reentrancy.md) **owner: myamanbh**
 
-- [Actor Timers](service-fabric-fabact-timers-reminders.md) **owner: myamanbh**
+- [Actor Timers](service-fabric-reliable-actors-timers-reminders.md) **owner: myamanbh**
 
-- [Actor Diagnostics](service-fabric-fabact-diagnostics.md) **abhisram**
+- [Actor Diagnostics](service-fabric-reliable-actors-diagnostics.md) **abhisram**
 
-- [KVSActorStateProvider Configuration](service-fabric-fabact-KVSActorstateprovider-configuration.md) **owner: sumukhs**
+- [KVSActorStateProvider Configuration](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md) **owner: sumukhs**
 
-- [ReliableDictionaryActorStateProvider Configuration](service-fabric-fabact-ReliableDictionaryStateProvider-configuration.md) **owner: sumukhs**
+- [ReliableDictionaryActorStateProvider Configuration](service-fabric-reliable-actors-ReliableDictionaryStateProvider-configuration.md) **owner: sumukhs**
 
 #### Reliable Services
 - [Programming Model Overview](service-fabric-reliable-services-introduction.md)  **owners: masnider, richhas**
