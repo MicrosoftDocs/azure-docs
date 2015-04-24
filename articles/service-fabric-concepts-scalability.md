@@ -35,7 +35,7 @@ Increasing the number of nodes will allow Service Fabric to utilize the resource
 ![Partition Layout With Four Nodes](./media/service-fabric-concepts/layout-four-nodes.png)
 
 ## Scaling at the service name level
-A service instance is a specific named instance of an application name and a service type name (see [Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md)). It is during service creation that you specify the partition scheme ([Partitioning Service Fabric Services](srvice-fabric-concepts-partitioning.md)) to be used.
+A service instance is a specific named instance of an application name and a service type name (see [Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md)). It is during service creation that you specify the partition scheme ([Partitioning Service Fabric Services](service-fabric-concepts-partitioning.md)) to be used.
 
 The first level of scaling is by service names. You can create new instances of a service, with a different level of partitioning, as your older service instances become busy. This allows new service consumers to use less busy service instances in favor of busier ones.
 
