@@ -161,7 +161,7 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 | Japan East | General Availability (GA) | February 24th, 2015 |
 | North Europe | General Availability (GA) | January 29th, 2015 |
 | West Europe | General Availability (GA) | January 29th, 2015 |
-| Brazil South | Not available | Third quarter 2015, estimated |
+| Brazil South | General Availability (GA) | April 21st, 2015 |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
 
@@ -175,7 +175,7 @@ At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or m
 ## How to proceed
 
 
-You can learn how to upgrade your databases from Azure SQL Database V11 to V12 at [Plan and Prepare to Upgrade to the Latest Azure SQL Database Update Preview](sql-database-v12-plan-prepare-upgrade.md).
+You can learn how to upgrade your databases from Azure SQL Database V11 to V12 at [Plan and Prepare to Upgrade to Azure SQL Database V12](sql-database-v12-plan-prepare-upgrade.md).
 
 
 Version numbers like V12 refer to the value returned by the following Transact-SQL statement:<br/>
@@ -189,7 +189,7 @@ Version numbers like V12 refer to the value returned by the following Transact-S
 For the latest pricing details about V12 see [SQL Database Pricing](http://azure.microsoft.com/pricing/details/sql-database/).
 
 
-## Cautions for the V12 preview
+## Cautions for the V12 upgrade
 
 
 There are important things to know about limitations during and after an upgrade of your V11 database to V12. You can read the details at this link to a [midpoint](sql-database-v12-plan-prepare-upgrade.md#limitations) in the *Plan and prepare to upgrade to SQL Database V12* topic.
@@ -198,13 +198,11 @@ There are important things to know about limitations during and after an upgrade
 ## Other sources of latest news
 
 
-This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated some time in 2015. Information about new features and other announcements is shifting to the announcements link that follows:
+This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated, probably after April 30th 2015. Information about new features and other announcements is shifting to the announcements link that follows:
 
 
 - [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
  - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
-- [Dynamically generated list](http://azure.microsoft.com/en-us/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
- - The list include topics that have only minor updates.
 - Follow us on Twitter: @SQLSchedCentral.
 
 
