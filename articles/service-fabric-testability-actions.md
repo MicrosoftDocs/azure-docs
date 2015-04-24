@@ -95,7 +95,7 @@ The output of the first *Get-ServiceFabricNode* (a cmdlet from the ServiceFabric
 
 Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.
 
-## Running a Testability action with C#
+## Running a Testability action with C# 
 
 To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action. Different parameters can be used to run the same action.
 Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (Node Name and Node Instance ID) in the cluster.
