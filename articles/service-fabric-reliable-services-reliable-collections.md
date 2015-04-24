@@ -3,7 +3,7 @@
    description="Reliable Collections enable you to write highly available, scalable, and low latency cloud applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="mcoskun"
+   authors="rwike77"
    manager="timlt"
    editor="masnider,jessebenson"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="required"
    ms.date="04/08/2015"
-   ms.author="mcoskun;jesseb"/>
+   ms.author="ryanwi"/>
 
 # Reliable Collections
 
