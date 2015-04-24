@@ -9,28 +9,34 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
 # Use Hive with Hadoop on HDInsight
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
-<a href="http://hive.apache.org/" target="_blank">Apache Hive</a> is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL). Hive can be used to interactively explorer your data or to create reusable batch processing jobs.
+[Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL). Hive can be used to interactively explorer your data or to create reusable batch processing jobs.
 
 In this article, you will learn how you can use Hive with HDInsight.
 
 ##<a id="why"></a>Why use Hive?
 
-Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce. **HiveQL** (the Hive query language) allows you to write queries with statements that are similar to T-SQL. 
+Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce. **HiveQL** (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
 
-Hive understands how to work with structured and semi-structured documents, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see <a href="http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx" target="_blank">How to use a custom JSON SerDe with HDInsight</a>.
+Hive understands how to work with structured and semi-structured documents, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
-Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using a UDF with Hive, see <a href="http://azure.microsoft.com/documentation/articles/hdinsight-python/" target="_blank">Using Python with Hive and Pig in HDInsight</a> and <a href="http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx" target="_blank">How to add a custom Hive UDF to HDInsight</a>.
+Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
+
+* [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
+
+* [Use C# with Hive and Pig in HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+
+* [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ##<a id="data"></a>About the sample data
 
@@ -40,7 +46,7 @@ This example uses a *log4j* sample file, which is stored at **/example/data/samp
 
 In the previous example, the log level is ERROR.
 
-> [AZURE.NOTE] You can also generate a log4j file by using the <a href="http://en.wikipedia.org/wiki/Log4j" target="_blank">Apache Log4j</a> logging tool and then upload that file to the blob container. See <a href="hdinsight-upload-data.md" target="_blank">Upload Data to HDInsight</a> for instructions. For more information about how Azure Blob storage is used with HDInsight, see <a href="hdinsight-use-blob-storage.md/" target="_blank">Use Azure Blob Storage with HDInsight</a>.
+> [AZURE.NOTE] You can also generate a log4j file by using the [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) logging tool and then upload that file to the blob container. See [Upload Data to HDInsight](hdinsight-upload-data.md) for instructions. For more information about how Azure Blob storage is used with HDInsight, see [Use Azure Blob Storage with HDInsight](hdinsight-use-blob-storage.md).
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
@@ -76,7 +82,7 @@ After creating the external table, the following statements are used to create a
 
 	CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
 	STORED AS ORC;
-	INSERT OVERWRITE TABLE errorLogs 
+	INSERT OVERWRITE TABLE errorLogs
 	SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
 These statements perform the following actions:
@@ -89,28 +95,28 @@ These statements perform the following actions:
 
 ##<a id="usetez"></a>Using Tez For Improved Performance
 
-<a href="http://tez.apache.org" target="_blank">Apache Tez</a> is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. In the latest release of HDInsight, Hive supports running on Tez. This is currently off by default and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
+[Apache Tez](http://tez.apache.org) is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. In the latest release of HDInsight, Hive supports running on Tez. This is currently off by default and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
 
 	set hive.execution.engine=tez;
 
-This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in <a href="hdinsight-provision-clusters.md" target="_blank">Provisioning HDInsight Clusters</a>.
+This can be submitted on a per-query basis by placing it at the beginning of your query. You can also set this to be on by default on a cluster by setting the configuration value when you create the cluster. You can find more details in [Provisioning HDInsight Clusters](hdinsight-provision-clusters.md).
 
-The <a href="https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez" target="_blank">Hive on Tez design documents</a> contain a number of details about the implementation choices and tuning configurations.
+The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contain a number of details about the implementation choices and tuning configurations.
 
 
 ##<a id="run"></a>Run the HiveQL job
 
 HDInsight can run HiveQL jobs using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
-|**Use this** if you want... | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system**|
------------------------------------ | :------------------------: | :----------------:| ------------| --------|
-<a href="../hdinsight-hadoop-use-hive-ssh/" target="_blank">SSH</a> | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, or Windows
-<a href="../hdinsight-hadoop-use-hive-curl/" target="_blank">Curl</a> | &nbsp; | ✔ | Linux or Windows | Linux, Unix, Mac OS X, or Windows
-<a href="../hdinsight-hadoop-use-hive-query-console/" target="_blank">Query console</a> | &nbsp; | ✔ | Windows | Browser-based
-<a href="../hdinsight-hadoop-use-hive-visual-studio/" target="_blank">HDInsight tools for Visual Studio</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="/documentation/articles/hdinsight-hadoop-use-pig-dotnet-sdk/" target="_blank">.NET SDK for Hadoop</a> | &nbsp; | ✔ | Linux or Windows | Windows (for now)
-<a href="../hdinsight-hadoop-use-hive-powershell/" target="_blank">Windows PowerShell</a> | &nbsp; | ✔ | Linux or Windows | Windows
-<a href="../hdinsight-hadoop-use-hive-remote-desktop/" target="_blank">Remote Desktop</a> | ✔ | ✔ | Windows | Windows
+| **Use this** if you want...                                                     | ...an **interactive** shell | ...**batch** processing | ...with this **cluster operating system** | ...from this **client operating system** |
+|:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-hadoop-use-hive-ssh.md)                                         |              ✔              |            ✔            | Linux                                     | Linux, Unix, Mac OS X, or Windows        |
+| [Curl](hdinsight-hadoop-use-hive-curl.md)                                       |           &nbsp;            |            ✔            | Linux or Windows                          | Linux, Unix, Mac OS X, or Windows        |
+| [Query console](hdinsight-hadoop-use-hive-query-console.md)                     |           &nbsp;            |            ✔            | Windows                                   | Browser-based                            |
+| [HDInsight tools for Visual Studio](hdinsight-hadoop-use-hive-visual-studio.md) |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
+| [.NET SDK for Hadoop](hdinsight-hadoop-use-pig-dotnet-sdk.md)                   |           &nbsp;            |            ✔            | Linux or Windows                          | Windows (for now)                        |
+| [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md)                   |           &nbsp;            |            ✔            | Linux or Windows                          | Windows                                  |
+| [Remote Desktop](hdinsight-hadoop-use-hive-remote-desktop.md)                   |              ✔              |            ✔            | Windows                                   | Windows                                  |
 
 ##<a id="nextsteps"></a>Next steps
 

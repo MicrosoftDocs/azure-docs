@@ -13,13 +13,15 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/09/2015" 
+	ms.date="04/25/2015" 
 	ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization#
 
 In this article, you will learn how to use Azure Search indexers to implement these scenarios: 
 
+- Rename fields between a datasource and a target index 
+- Transform strings from a database table into string collections
 - Switch the change detection policy on a datasource 
 - URL-encode document keys that contain URL-unsafe characters 
 - Tolerate failures to index some documents 
@@ -28,7 +30,46 @@ If you’re not familiar with Azure Search indexers, you might want to take a lo
 
 - [Connecting Azure SQL Database to Azure Search using indexers](http://azure.microsoft.com/en-us/documentation/articles/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/)
 - [Connecting DocumentDB with Azure Search using indexers](http://azure.microsoft.com/en-us/documentation/articles/documentdb-search-indexer/)
+- [.NET SDK with support for indexers](https://msdn.microsoft.com/library/dn951165.aspx) or 
 - [Indexers REST API reference](https://msdn.microsoft.com/en-us/library/azure/dn946891.aspx)
+
+##Rename fields between a datasource and a target index##
+
+**Field mappings** are properties that reconcile differences between field definitions. The most common examples are found in field names that violate Azure Search naming rules. Consider a source table where one or more field names start with a leading underscore (such as `_id`). Azure Search doesn't allow field names to lead with an underscore, thus the field must be renamed. 
+
+The following example illustrates updating an indexer to include a field mapping that "renames" `_id` field of the datasource into `id` field in the target index:
+
+	PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin key]
+    {
+        "dataSourceName" : "mydatasource",
+        "targetIndexName" : "myindex",
+        "fieldMappings" : [ { "sourceFieldName" : "_id", "targetFieldName" : "id" } ] 
+    } 
+
+**NOTE:** You need to use a preview API version 2015-02-28-Preview to use field mappings. 
+
+You can specify multiple field mappings: 
+
+	"fieldMappings" : [ 
+		{ "sourceFieldName" : "_id", "targetFieldName" : "id" },
+        { "sourceFieldName" : "_timestamp", "targetFieldName" : "timestamp" },
+	 ]
+
+Both source and target field names are case-insensitive.
+
+##Transform strings from a database table into string collections##
+
+Field mappings can also be used to transform source field values using *mapping functions*.
+
+One such function, `jsonArrayToStringCollection`, parses a field that contains a string formatted as JSON array into a Collection(Edm.String) field in the target index. It is intended for use with Azure SQL indexer in particular, since SQL doesn't have a native collection data type. It can be used as follows: 
+
+	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
+
+For example, if the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`.
+
+Note that the `targetFieldName` property is optional; if left out, the `sourceFieldName` value is used.
 
 ##Switching the change detection policy on a datasource##
   

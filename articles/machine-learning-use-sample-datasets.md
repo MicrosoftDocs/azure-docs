@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
@@ -25,7 +25,7 @@ When you create a new workspace in Azure Machine Learning, a number of sample ex
 Many of these sample datasets are used by the sample models in the [Azure Machine Learning Model Gallery](http://azure.microsoft.com/documentation/services/machine-learning/models/), and others are included as examples of various types of data used in machine learning. 
 
 Some of these datasets are available in Azure BLOB storage. For these datasets the tables below provide a direct link.
-You can use these datasets in your experiments by using the **Reader** module - to see an example of how to access a dataset, view the properties of the **Reader** module in the sample experiment associated with the dataset.
+You can use these datasets in your experiments by using the [Reader][reader] module - to see an example of how to access a dataset, view the properties of the [Reader][reader] module in the sample experiment associated with the dataset.
 
 The rest of these sample datasets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
 You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
@@ -376,3 +376,7 @@ You can use any of these datasets in your own experiment by dragging it to your 
 
 
 </table>
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
