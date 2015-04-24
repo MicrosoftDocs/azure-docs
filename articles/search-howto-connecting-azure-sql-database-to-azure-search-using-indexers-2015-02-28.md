@@ -44,7 +44,7 @@ Depending on several factors relating to your data, the use of Azure SQL indexer
 	- If the data is scattered across multiple tables, you can create a view and use that view with the indexer. However, be aware that if you use a view, you won’t be able to use SQL Server integrated change detection. See this section for more details. 
 - The data types used in the data source are supported by the indexer. Most but not all of the SQL types are supported. For details, see [Mapping data types in Azure Search](http://go.microsoft.com/fwlink/p/?LinkID=528105). 
 - You don’t need near real-time updates to the index when a row changes. 
-	- The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/en-us/library/azure/dn798930.aspx) directly. 
+	- The indexer can re-index your table at most every 5 minutes. If your data changes frequently and the changes need to be reflected in the index within seconds or single minutes, we recommend using [Azure Search Index API](https://msdn.microsoft.com/library/azure/dn798930.aspx) directly. 
 - If you have a large data set and plan to run the indexer on a schedule, your schema allows to us to efficiently identify changed (and deleted, if applicable) rows. For more details, see "Capturing Changed and Deleted Rows" below. 
 - The size of the indexed fields in a row doesn’t exceed the maximum size of an Azure Search indexing request, which is 16 MB. 
 
