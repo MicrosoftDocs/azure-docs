@@ -75,7 +75,7 @@ The following steps create BizTalk integration API Apps using the API Apps blade
 Name | Enter any name for your API App. For example, you can name it *RulesDiscountTaxCode* or *APIAppValidateXML*.
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
+Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](resource-group-overview.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the integration API Apps to your Starboard (the home page).

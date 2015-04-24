@@ -23,7 +23,7 @@ Service Fabric simplifies writing and managing reliable stateless and stateful s
 2. The different choices you have to make when writing a reliable service
 3. Some of the different scenarios and examples of when you would use Reliable Services and how they are written.
 
-Reliable Services are one of the programming models available on Service Fabric. For more information on the Reliable Objects programming model, check out [the introduction](service-fabric-fabact-introduction.md).
+Reliable Services are one of the programming models available on Service Fabric. For more information on the Reliable Objects programming model, check out [the introduction](service-fabric-reliable-actors-introduction.md).
 
 In Service Fabric, a service is composed of configuration, application code, and optionally state.
 
@@ -129,5 +129,5 @@ If any of the following characterize your application service needs, then the Re
   + Stateless
   + Stateful
 + [Check out Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
-+ [Read the Reliable Objects programming model](service-fabric-fabact-introduction.md)
++ [Read the Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
 + API Documentation
