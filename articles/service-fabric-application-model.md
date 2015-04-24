@@ -25,7 +25,7 @@ An application is a collection of constituent services that perform a certain fu
 ![][1]
 
 
-An application type is categorization of an application, consisting of a bundle of service types. A service type is the categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
+An application type is a categorization of an application, consisting of a bundle of service types. A service type is the categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
 Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how applications are composed of service types, which in turn are composed of code, configuration, and packages.
 
