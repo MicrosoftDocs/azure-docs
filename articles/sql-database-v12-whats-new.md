@@ -169,6 +169,9 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
 
 
+For any region that is in preview and is not yet at GA, you must [activate the option to use V12 databases](sql-database-v12-sign-up.md).
+
+
 At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](sql-database-upgrade-new-service-tiers.md).
 
 
