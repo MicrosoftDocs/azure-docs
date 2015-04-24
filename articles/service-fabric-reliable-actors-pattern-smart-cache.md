@@ -295,20 +295,20 @@ Essentially Smart Cache provides:
 
 
 ## Next Steps
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/smartcache-arch.png
+[1]: ./media/service-fabric-reliable-actors/smartcache-arch.png

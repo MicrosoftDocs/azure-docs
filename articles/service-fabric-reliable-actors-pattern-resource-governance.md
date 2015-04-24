@@ -407,21 +407,21 @@ This pattern is very common in scenarios where developers either have constraine
 
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/resourcegovernance_arch1.png
-[2]: ./media/service-fabric-fabact/resourcegovernance_arch2.png
-[3]: ./media/service-fabric-fabact/resourcegovernance_arch3.png
+[1]: ./media/service-fabric-reliable-actors/resourcegovernance_arch1.png
+[2]: ./media/service-fabric-reliable-actors/resourcegovernance_arch2.png
+[3]: ./media/service-fabric-reliable-actors/resourcegovernance_arch3.png

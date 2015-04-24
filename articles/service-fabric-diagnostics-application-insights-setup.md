@@ -24,14 +24,14 @@
 This article assumes you have a Service Fabric app already created in Visual Studio. To find out how [click here](service-fabric-stateless-helloworld.md).
 
 ## Installing the NuGet package
-Released as part of the Service Fabric SDK is a prerelease version of our nuget package Microsoft.ServiceFabric.Telemetry.ApplicationInsights. 
+Released as part of the Service Fabric SDK is a prerelease version of our nuget package Microsoft.ServiceFabric.Telemetry.ApplicationInsights.
 This package ties together the Service Fabric EventSource events with Application Insights to give you automated instrumentation of your Service Fabric app.
 This package will be continue to be updated with new events which will be automatically emitted by your application.
 
 You can install the package with the following steps:
 
 1. Open the NuGet Package Manager for your Service Fabric app.  This can be done by right-clicking your project in Visual Studio and selecting 'Manage NuGet Packages...'.
-2. You will need to select 'Microsoft Azure Service Fabric' as your package source to list packages included in the Service Fabric SDK. 
+2. You will need to select 'Microsoft Azure Service Fabric' as your package source to list packages included in the Service Fabric SDK.
 ![VS2015 NuGet Package Manager](media/service-fabric-diagnostics-application-insights-setup/AI-nuget-package-manager.jpg)
 3. Select the Microsoft.ServiceFabric.Telemetry.ApplicationInsights package on the left.
 4. Click Install to begin the install process.
@@ -42,7 +42,7 @@ In order to receive Service Fabric events automatically in Application Insights 
 You can do this by inserting the following line of code into your app.
 
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
- 
+
 #### Example for StatefulActor\Program.cs:
 
     public static void Main(string[] args)
@@ -65,7 +65,7 @@ You can do this by inserting the following line of code into your app.
     }
 
 
-You can learn about the events emitted from the Fabric Actors runtime [here](service-fabric-fabact-diagnostics.md) and Fabric Services runtime [here](service-fabric-fabsrv-diagnostics.md).
+You can learn about the events emitted from the Fabric Actors runtime [here](service-fabric-reliable-actors-diagnostics.md) and Fabric Services runtime [here](service-fabric-fabsrv-diagnostics.md).
 
 Note that in order to get Fabric Actor runtime method calls, EventLevel.Verbose must be used (as shown in examples above).
 
@@ -80,7 +80,7 @@ Once you have your instrumentation key, you can insert it into the ApplicationIn
     <InstrumentationKey>INSERT YOUR KEY HERE</InstrumentationKey>
 
 ## Viewing data
-You can [customize the App Insights blade](app-insights-metrics-explorer.md) to fit your needs. 
+You can [customize the App Insights blade](app-insights-metrics-explorer.md) to fit your needs.
 Most Service Fabric events will show up as 'Custom Events', while Fabric Actor method calls and service RunAsync() calls will show up as requests.  
 Modeling these events as requests allows you to use the 'request name' dimension and 'request duration' metric when building charts.
 New charts, metrics, and events will continue to be added which you will be able to leverage in the future.

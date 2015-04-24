@@ -72,7 +72,7 @@ double result = calculatorActor.AddAsync(2, 3).Result;
 
 As shown in the above example, there were two pieces of information that were used to create the actor proxy object - the actor ID and the application name. The actor ID is an identifier that uniquely identifies the actor. The application name is the name of the Service Fabric application that the actor is deployed as.
 
-The actors are virtual actors meaning that they always exist. You do not need to explicitly create them nor destroy them. The Actors runtime automatically activates an actor the first time it receives a request for that actor. If an actor is not used for certain time the Actors runtime will garbage collect it and will activate it at later time if required. More details on this are in the section on [Actor lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md).
+The actors are virtual actors meaning that they always exist. You do not need to explicitly create them nor destroy them. The Actors runtime automatically activates an actor the first time it receives a request for that actor. If an actor is not used for certain time the Actors runtime will garbage collect it and will activate it at later time if required. More details on this are in the section on [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
 
 The Actors client API also provides the location transparency and failover. The `ActorProxy` class on the client side performs the necessary resolution and locates the actor service partition where the actor with the specified ID is hosted and opens a communication channel with it. The `ActorProxy` retries on the communication failures and in case of failovers.  This means that it is possible for an Actor implementation to get duplicate messages from the same client.
 
@@ -83,9 +83,9 @@ A turn consists of the complete execution of an actor method in response to the 
 
 The following example illustrates the above concepts. Consider an actor that implements two asynchronous methods (say Method1 and Method2), a timer and a reminder. The Actors runtime guarantees that while Method2 is executing in response to a client request, it will not invoke Method1 or Method2 on behalf of any other client request. In addition, it will not invoke any timer or reminder callbacks while Method2 is executing. Any new method or timer/reminder callback will be invoked only after the execution has returned from Method2 and the Task returned by Method2 has completed.
 
-The Actors runtime however, allows reentrancy by default. This means that if an actor method of Actor A calls method on Actor B which in turn calls another method on actor A, that method is allowed to run as it is part of the same logical call chain context. All timer and reminder calls start with the new logical call context. See [Reentrancy](service-fabric-fabact-reentrancy.md) section for more details.
+The Actors runtime however, allows reentrancy by default. This means that if an actor method of Actor A calls method on Actor B which in turn calls another method on actor A, that method is allowed to run as it is part of the same logical call chain context. All timer and reminder calls start with the new logical call context. See [Reentrancy](service-fabric-reliable-actors-reentrancy.md) section for more details.
 
-The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to receiving a client request and for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some Task that is not associated with the Task returned by the actor methods, or if it is invoked from a thread that the actor creates on its own, then the runtime cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [Actor Timers or Actor Reminders](service-fabric-fabact-timers-reminders.md) that respect the turn-based concurrency.
+The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to receiving a client request and for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some Task that is not associated with the Task returned by the actor methods, or if it is invoked from a thread that the actor creates on its own, then the runtime cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [Actor Timers or Actor Reminders](service-fabric-reliable-actors-timers-reminders.md) that respect the turn-based concurrency.
 
 ## Actor State Management
 Fabric Actors allows you to create the actors that are either stateless or stateful.
@@ -170,14 +170,14 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 
 ## Next steps
 ### Concepts
-[Actor Lifecycle and Garbage Collection](service-fabric-fabact-lifecycle.md)
+[Actor Lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 
-[Actor Timers & Reminders](service-fabric-fabact-timers-reminders.md)
+[Actor Timers & Reminders](service-fabric-reliable-actors-timers-reminders.md)
 
-[Actor Events](service-fabric-fabact-events.md)
+[Actor Events](service-fabric-reliable-actors-events.md)
 
-[Actor Reentrancy](service-fabric-fabact-reentrancy.md)
+[Actor Reentrancy](service-fabric-reliable-actors-reentrancy.md)
 
-[Configuring KVSActorStateProvider Actor](service-fabric-fabact-KVSActorstateprovider-configuration.md)
+[Configuring KVSActorStateProvider Actor](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
-[Actor Diagnostics and Performance Monitoring](service-fabric-fabact-diagnostics.md)
+[Actor Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)

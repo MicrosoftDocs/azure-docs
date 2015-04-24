@@ -26,7 +26,7 @@ While SOA services scaled horizontally seamlessly due to their stateless nature,
 Some developers tried to solve the problem by replicating their storage tier. However, this approach didn’t scale well and quickly hits CAP boundaries.
 The second challenge has evolved around changing requirements; both end-users and businesses are demanding interactive services—responding to requests in milliseconds rather than seconds as the norm. To respond, developers started building façade services on top of other services, in some cases 10s of services to create user-centric services. However composing multiple downstream services quickly showed latency issues.
 
-Once again developers turned to caches and in-memory object stores, in some cases different implementations to meet performance requirements. They started building backend worker processes to build the cache periodically to minimise expensive on-demand cache population. Finally, they started deconstructing their workloads to isolate asynchronous operations from synchronous ones to gain more room for interactive operations to react to changes in state, which is particularly hard in SOA.
+Once again developers turned to caches and in-memory object stores, in some cases different implementations to meet performance requirements. They started building backend worker processes to build the cache periodically to minimize expensive on-demand cache population. Finally, they started deconstructing their workloads to isolate asynchronous operations from synchronous ones to gain more room for interactive operations to react to changes in state, which is particularly hard in SOA.
 
 They introduced further tiers such as queues and workers adding more complexity to their solutions.
 Essentially, developers started looking for solutions to build “stateful services,” in other words, collocate “state” and “service behaviour” to address user centric and interactive experiences. And this is where Azure Service Fabric Actors as a service composition tier comes in, not as a replacement for these services.
@@ -79,22 +79,22 @@ We see drawbacks of “stateless service” in building scalable services to pro
 
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/stateful-service-composition-1.png
-[2]: ./media/service-fabric-fabact/stateful-service-composition-2.png
-[3]: ./media/service-fabric-fabact/stateful-service-composition-3.png
+[1]: ./media/service-fabric-reliable-actors/stateful-service-composition-1.png
+[2]: ./media/service-fabric-reliable-actors/stateful-service-composition-2.png
+[3]: ./media/service-fabric-reliable-actors/stateful-service-composition-3.png
