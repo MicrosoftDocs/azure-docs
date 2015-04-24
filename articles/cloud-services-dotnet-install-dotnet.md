@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/23/2015"
-   ms.author="saurabh@microsoft.com"/>
+   ms.author="saurabh"/>
 
 # Install .NET on a Cloud Service Role 
 
