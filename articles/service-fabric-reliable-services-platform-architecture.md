@@ -24,7 +24,7 @@ See [Reliable Service Overview](service-fabric-reliable-services-introduction.md
 ## Stateful Reliable Service
 
 ### Stateful Reliable Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateful-service-architecture.png)
+![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
 ### Stateful Reliable Service
 
@@ -94,7 +94,7 @@ For more information about configuring the log see [Reliable Service Configurati
 ## Stateless Reliable Service
 
 ### Stateless Reliable Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateless-service-architecture.png)
+![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
 ### Stateless Reliable Service
 
@@ -116,7 +116,7 @@ For more information about Service Fabric, see:
 
 [Quick Start](service-fabric-reliable-services-quick-start.md)
 
-[Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md)
+[Reliable Collections Overview](service-fabric-reliable-services-reliable-collections.md)
 
 [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
 
