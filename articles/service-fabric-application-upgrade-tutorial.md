@@ -118,8 +118,6 @@ You may want to try changing the versions and moving from version 2 to version 3
 ## Next steps
 
 
-[Upgrade Tutorial](service-fabric-application-upgrade-tutorial.md)
-
 [Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
 
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
@@ -128,5 +126,5 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 
