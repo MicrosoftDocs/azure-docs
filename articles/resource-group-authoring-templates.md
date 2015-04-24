@@ -295,7 +295,7 @@ The following example shows a value that is returned in the Outputs section.
 
 ## Template language functions and operations:
 
-#### base64 (inputString)
+**base64 (inputString)**
 
 Returns the base64 representation of the input string.
 
@@ -310,7 +310,7 @@ The following example show how to use the base64 function.
       "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-#### concat (arg1, arg2, arg3, ...)
+**concat (arg1, arg2, arg3, ...)**
 
 Combines multiple string values and returns the resulting string value. This function can take any number of arguments.
 
@@ -323,7 +323,7 @@ The following example shows how to combine multiple values to return a value.
         }
     }
 
-#### copy
+**copy**
 
 Enables you to use iterate through an array and use each element when deploying a resource.
    
@@ -357,7 +357,7 @@ The following example deploys three web sites named examplecopy-Contoso, example
       } 
     ]
 
-#### listKeys (resourceName or resourceIdentifier, [apiVersion])
+**listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
 Returns the keys of a storage account. This function takes the resourceId and the API version as parameters. The resourceId can be specified by using the resourceId function described above or by using the format 'providerNamespace/resourceType/resourceName'). You can use the function to get the primaryKey and secondaryKey.
   
@@ -375,7 +375,7 @@ The following example shows how to return the keys from a storage account in the
       } 
     } 
 
-#### nested template
+**nested template**
 
 You can include one template inside of another template by providing the URI of the nested template, as shown below.
 
@@ -395,7 +395,7 @@ You can include one template inside of another template by providing the URI of 
       } 
     ] 
 
-#### parameters (parameterName)
+**parameters (parameterName)**
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
@@ -419,7 +419,7 @@ The following example shows a simplified use of the parameters function.
        }
     ]
 
-#### provider (providerNamespace, [resourceType])
+**provider (providerNamespace, [resourceType])**
 
 Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
 
@@ -445,7 +445,7 @@ The following example shows how to use the provider function:
 	    }
     }
 
-#### reference (resourceName or resourceIdentifier, [apiVersion])
+**reference (resourceName or resourceIdentifier, [apiVersion])**
 
 Enables an expression to derive its value from another resource's runtime state.
 
@@ -465,7 +465,7 @@ By using the reference expression, you declare that one resource depends on anot
       }
     }
 
-#### resourceGroup
+**resourceGroup()**
 
 Returns a structured object (with id, name, and location properties) that represents the current resource group. The object will be in the following format:
 
@@ -487,7 +487,7 @@ The following example uses the resource group location to assign the location fo
        }
     ]
 
-#### resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)
+**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within same template. The identifier is returned in the following format:
 
@@ -505,7 +505,7 @@ The following examples show how to retrieve the resource id for a web site and a
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
     [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
 
-#### subscription()
+**subscription()**
 
 Returns details about the subscription in the following format.
 
@@ -523,7 +523,7 @@ The following example shows the subscription function called in the outputs sect
       } 
     } 
 
-#### variables (variableName)
+**variables (variableName)**
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
 
