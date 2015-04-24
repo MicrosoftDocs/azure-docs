@@ -2,7 +2,7 @@
    pageTitle="How Fabric Actors use the Service Fabric platform"
    description="This articles describes how Fabric Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
    services="service-fabric"
-   documentationCenter="dev-center-name"
+   documentationCenter=".net"
    authors="abhishekram"
    manager="timlt"
    editor=""/>
