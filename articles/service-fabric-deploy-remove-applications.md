@@ -24,6 +24,8 @@ Once an [application type has been packaged][10], it's ready for deployment into
 2. Registering the application type
 3. Creating the application instance
 
+>[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically by invoking the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
+
 ## Upload the application package
 
 Uploading the application package puts it in a location accessible by internal Service Fabric components and can be performed through PowerShell. Before running any PowerShell commands in this article, always start by first connecting to the Service Fabric cluster using **Connect-ServiceFabricCluster**.
