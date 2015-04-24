@@ -87,7 +87,6 @@ Once `[MSAIApplicationInsights start]` is called, the SDK will begin tracking se
 
 You can add additional events as follows:
 
-    ```objectivec   
     // Send an event with custom properties and measuremnts data
     [MSAITelemetryManager trackEventWithName:@"Hello World event!"
                                   properties:@{@"Test property 1":@"Some value",
@@ -107,7 +106,6 @@ You can add additional events as follows:
     // Send custom metrics
     [MSAITelemetryManager trackMetricWithName:@"Test metric" 
                                         value:42.2];
-    ```
 
 ## View your data in Application Insights
 
