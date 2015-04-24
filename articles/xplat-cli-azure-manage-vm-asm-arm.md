@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Equivalent asm and arm ARM Mode Commands for VM Operations with the Azure Command-Line Interface for Mac, Linux, and Windows"
+	pageTitle="Equivalent asm and arm Mode Commands for VM Operations with the Azure Command-Line Interface for Mac, Linux, and Windows"
 	description="Shows equivalent Azure CLI commands to create and manage Azure VMs in asm mode and arm mode"
 	services="virtual-machines"
 	documentationCenter=""
