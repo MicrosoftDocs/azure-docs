@@ -58,11 +58,6 @@ Before doing this it is important to make sure you will have adequate capacity f
 
 Moving a web app from one worker pool will cause a restart of your web apps.  This can cause a small amount of downtime for your app depending on how long it takes to restart.  
 
-### Web app operations ###
-
-There are a number of capabilities available to web apps in Azure App Services.  All of those features are still available .  
-
-
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/scaleasp.png
 [2]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/scaleinstances.png
