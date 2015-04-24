@@ -29,7 +29,7 @@ Both the .NET library and REST APIs have multiple versions. Older APIs remain op
 
 ##.NET SDK 0.10.0-preview
 
-This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for Indexers. You can now use .NET classes to create, manage, and use indexers. For Azure SQL Indexers, there is new support for indexing geography points.
+This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for creating, managing, and using Indexers via .NET classes. Additionally, for Azure SQL Indexers, there is new support for indexing geography points.
 
 - [Indexers Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)
 - [DataSource Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx)
@@ -44,7 +44,7 @@ This is the first public release of the .NET SDK for Azure Search. It includes a
 
 Excludes:
 
-- [Indexers](http://go.microsoft.com/fwlink/p/?LinkId=528173)
+- [Indexers](http://go.microsoft.com/fwlink/p/?LinkId=528173) (this feature is no longer excluded in the 0.10.0-preview version)
 - [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx)
 - [2015-02-28-Preview](search-api-2015-02-28-Preview.md) features (currently, preview-only features consist of Microsoft natural language processors and `moreLikeThis`).
 
