@@ -66,7 +66,7 @@ First, create the data source:
 
 You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
 
-Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/en-us/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
+Then, create the target Azure Search index if you don’t have one already. You can do this from the [portal UI](https://portal.azure.com) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).  Ensure that the schema of your target index is compatible with the schema of the source table. See the following table for the mapping between SQL and Azure search data types.
 
 **Mapping between SQL Data Types and Azure Search Data Types**
 <table style="font-size:12">
@@ -105,7 +105,7 @@ Then, create the target Azure Search index if you don’t have one already. You 
 <tr>
 <td>char, nchar, varchar, nvarchar</td>
 <td>Edm.String<br/>Collection(Edm.String)</td>
-<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](http://azure.microsoft.com/en-us/documentation/articles/search-api-indexers-2015-02-28-Preview/#create-indexer) for details</td>
+<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](http://azure.microsoft.com/documentation/articles/search-api-indexers-2015-02-28-Preview/#create-indexer) for details</td>
 </tr>
 <tr>
 <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
@@ -208,7 +208,7 @@ You can also arrange the indexer to run periodically on a schedule. To do this, 
 	    "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
 	}
 
-The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
+The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
 
 The optional **startTime** indicates when the scheduled executions should commence; if it is omitted, the current UTC time will be used. This time can be in the past – in which case the first execution will be scheduled as if the indexer has been running continuously since the startTime.  
 
