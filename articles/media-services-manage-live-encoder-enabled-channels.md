@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream" 
+	pageTitle="Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services" 
 	description="This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH, HDS." 
 	services="media-services" 
 	documentationCenter="" 
@@ -16,18 +16,18 @@
 	ms.date="04/06/2015" 
 	ms.author="juliako"/>
 
-#Working with Channels that Perform Live Encoding to Adaptive Bitrate Stream with Azure Media Services (Preview)
+#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services(Preview)
 
 ##Overview
 
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
 
-- Use an on-premises live encoder to output multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel, which then prepares this stream for delivery, or
-- Send a single bitrate RTMP, Smooth Streaming (Fragmented MP4), or RTP (MPEG-TS) stream to a live-encoding enabled Channel. The Channel then performs a multi-bitrate encode of the incoming stream, and prepares it for delivery.
+- An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. The Channel does not process the stream. When requested, Media Services delivers the stream to customers. 
+- A single bitrate RTMP, Smooth Streaming (Fragmented MP4), or RTP (MPEG-TS) stream is sent to a channel that is enabled to perform live encoding with Media Services. The Channel then encodes the incoming stream to a multi-bitrate video stream. When requested, Media Services delivers the stream to customers. 
 
-	This feature is currently in **Preview**.
+	Encoding a live stream with Media Services is currently in Preview.
 
-Starting with the Media Services 2.10 release, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
+Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
 
 - **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream. In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
@@ -35,7 +35,7 @@ Starting with the Media Services 2.10 release, you can specify in which way you 
 
 	Encoding a live stream with Media Services is currently in Preview.
 
->[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are note enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
+>[AZURE.NOTE]This topic discusses attributes of channels that are enabled to perform live encoding (**Standard** encoding type). For information about working with channels that are not enabled to perform live encoding, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
 
 The following diagram represents a live streaming workflow where a channel receives a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS); it then encodes the stream to a multi-bitrate stream. 
 
@@ -393,11 +393,14 @@ Choose **.NET** or **REST API** to programmatically connect to Azure Media Servi
 
 [AZURE.INCLUDE [media-services-selector-connect](../includes/media-services-selector-connect.md)]
 
-###Creating Channels that perform live encoding to adaptive bitrate stream with Azure Media Services
+###Creating Channels that perform live encoding from a singe bitrate to adaptive bitrate stream 
 
 Choose **Portal**, **.NET**, **REST API** to see how to create and manage channels and programs.
 
-[AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
 
 ###Protecting assets
 
