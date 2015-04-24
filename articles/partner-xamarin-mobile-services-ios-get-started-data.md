@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/24/2014"
+	ms.date="04/24/2015"
 	ms.author="donnam"/>
 
 # Add Mobile Services to an existing app
