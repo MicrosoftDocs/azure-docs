@@ -37,7 +37,7 @@ The following is a list of ports used by an App Service Environment:
 - 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment
 - 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment
 - 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.
-- 6000: Data channel for FTP.  As with the control channel, this port can be safely blocked if FTP is not being used   (**Note:** the FTP data channel will change during preview.)
+- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   (**Note:** the FTP data channels may change during preview.)
 - 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.
 - 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.
 - 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.
@@ -59,7 +59,7 @@ The example below shows a rule that explicitly grants access to the management p
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
     
 
-When locking down access to port 80 and 443 to "hide" an App Service Environment behind upstread devices or services, you will need to know the upstream IP address.  For example, if you are using a web application firewall (WAF), the WAF will have its own IP address (or addresses) which it uses when proxying traffic to a downstream App Service Environment.  You will need to use this IP address in the *SourceAddressPrefix* parameter of a network security rule.
+When locking down access to port 80 and 443 to "hide" an App Service Environment behind upstream devices or services, you will need to know the upstream IP address.  For example, if you are using a web application firewall (WAF), the WAF will have its own IP address (or addresses) which it uses when proxying traffic to a downstream App Service Environment.  You will need to use this IP address in the *SourceAddressPrefix* parameter of a network security rule.
 
 In the example below, inbound traffic from a specific upstream IP address is explicitly allowed.  The address *1.2.3.4* is used as a placeholder for the IP address of an upstream WAF.  Change the value to match the address used by your upstream device or service.
 
@@ -69,9 +69,9 @@ In the example below, inbound traffic from a specific upstream IP address is exp
 If FTP support is desired, the following rules can be used as a template to grant access to the FTP control port and data channel ports.  Since FTP is a stateful protocol, you may not be able to route FTP traffic through a traditional HTTP/HTTPS firewall or proxy device.  In this case you will need to set the *SourceAddressPrefix* to a different value - for example the IP address range of developer or deployment machines on which FTP clients are running. 
 
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
-    Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '6000' -Protocol TCP
+    Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-(**Note:**  the data channel port range will change during preview period.)
+(**Note:**  the data channel port range may change during the preview period.)
 
 If remote debugging with Visual Studio is used, the following rules demonstrate how to grant access.  There is a separate rule for each supported version of Visual Studio since each version uses a different port for remote debugging.  As with FTP access, remote debugging traffic may not flow properly through a traditional WAF or proxy device.  The *SourceAddressPrefix* can instead be set to the IP address range of developer machines running Visual Studio.
 
@@ -97,7 +97,7 @@ For completeness the following example shows how to remove and thus dis-associat
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecurityGroupFromSubnet -VirtualNetworkName 'testVNet' -SubnetName 'Subnet-test'
 
 ## Special Considerations for Explicit IP-SSL ##
-If an app is configured with an explicit IP address, instead of the default IP address of the App Service Environment, both HTTP and HTTPS traffic flows over a different set of ports than ports 80 and 443.
+If an app is configured with an explicit IP address, instead of the default IP address of the App Service Environment, both HTTP and HTTPS traffic flows into the subnet over a different set of ports than ports 80 and 443.
 
 During the initial preview of App Service Environments it is not possible to determine the specific ports used by IP-SSL.  However once this information is exposed through the portal, command-line tools and REST APIs, developers will be able to  configure network security groups to also control traffic over these ports.
 
