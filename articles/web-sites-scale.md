@@ -43,7 +43,7 @@ For information about App Service plans, see [What is an App Service Plan?](web-
 	
 	The **Notifications** tab will flash a green **SUCCESS** once the operation is complete. 
 	
-5. Slide the **Instance** bar from left to right to increase the number of instances, then click **Save** in hte command bar. The instance size option is not available in **Shared** mode. For more information about these instance sizes, see [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes].
+5. Slide the **Instance** bar from left to right to increase the number of instances, then click **Save** in the command bar. The instance size option is not available in **Shared** mode. For more information about these instance sizes, see [Virtual Machine and Cloud Service Sizes for Microsoft Azure][vmsizes].
 	
 	![Instance size for Basic mode][ChooseBasicInstances]
 	
