@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/23/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -197,7 +197,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
         		{
             		"frequency": "hour",
             		"interval": 1,
-            		"waitonexternal": {}
+            		"waitOnExternal": {}
        		 	}
     		}
 		}
