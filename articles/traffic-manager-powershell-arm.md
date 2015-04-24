@@ -47,7 +47,7 @@ However, whilst the features remain the same, some terminology has changed:
 
 - The ‘failover’ traffic routing method has been renamed ‘priority’.
 
-##Preview limitations [](#preview-limitations)
+##Preview limitations
 As the Azure Resource Manager support for Traffic Manager is a Preview service, there are currently a small number of limitations:
 
 - Traffic Manager profiles created using the existing (non-ARM) service management API, tools and Portal are not available via ARM, and vice versa. Migration of profiles from non-ARM to ARM APIs is not currently supported.
