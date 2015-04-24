@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="04/23/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - Frequently Asked Questions
@@ -79,8 +79,8 @@ You can author/create data factories using one of the following:
 ## Activities - FAQ
 ### Q: What are the supported data sources and activities?
 
-- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System. 
-- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, and MapReduce transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
+- **Supported data sources:** Azure Storage (Blob and Tables), SQL Server, Azure SQL Database, File System, Oracle Database.
+- **Supported activities:**: Copy Activity (on-premises to cloud, and cloud to on-premises), HDInsight Activity (Pig, Hive, MapReduce, Hadoop Streaming transformations), Azure Machine Learning Batch Scoring Activity, Stored Procedure activity, and custom C# activities.
 
 ### When does an activity run?
 The **availability** configuration setting in the output data table determines when the activity is run. The activity checks whether all the input data dependencies are satisfied (i.e., **Ready** state) before it starts running.

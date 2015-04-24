@@ -20,7 +20,7 @@
 
 You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
-1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](../service-fabric-setup-your-development-environment)
+1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md)
 
 2. Press **F5** or click **Debug** > **Start Debugging**
 

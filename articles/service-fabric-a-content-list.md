@@ -25,100 +25,43 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Application Scenarios](service-fabric-application-scenarios.md) **owners: mfussell**
 
-- Learning Map P2 **owner: adegeo**
 
 ## Getting Started
 
-[Setup your development environment](service-fabric-get-started.md) **owner: seanmck**
+[Get started with Service Fabric](service-fabric-get-started.md)  **owner: seanmck**
 
-[Get started with reliable services](service-fabric-reliable-services-quick-start.md) **owner: vturecek**
+## Work with Applications and Services- task oriented, just enough conceptual info to perform a task.  Links to Further Reading sections.
 
-[Get started with reliable actors](service-fabric-fabact-get-started.md) **owner: claudioc**
+### Develop a Service owner: vturecek
 
-Install and extend the Samples **owner: vturecek**
-
-
-## Work with Applications and Services- task oriented
-
-just enough conceptual info to perform a task.  Links to Further Reading sections.
-
-### Develop a Service; owner: vturecek
-
-Choose a Programming Model **owner: seanmck**
-
-#### Manage Services
-
-Create basic management tutorial **owner: Brad**
-[Microsoft Azure Service Fabric Application Basic Management](../service-fabric-get-started-basic-management.md)
-
-
-#### Create Framework Services
-
-Create a Stateful Application **owner: vturecek**
-[Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-get-started-hello-world-stateless) **owner: vturecek**
-
-Create Windows Fabric Stateful  applications using .NET Distributed Collections (C#) **owner: vturecek**
-[]()
-
-#### Create Actor Services
-
-Create Stateless using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
-[Hello World with Actors](../service-fabric-get-started-hello-world-with-actors.md)
-
-Create Stateful using .NET Actor Framework  (volatile, durable stateful) **owner: Brad**
-**pending prioritization**
-[]()
-
-#### Communicate with services
-
-Create stateless service with Web API
-[Echo Service using Web API](../service-fabric-get-started-echo-service-using-web-api.md)
-
-Create stateful service with Web API
-[Todo Service using Web API](../service-fabric-get-started-todo-service-with-web-api.md)
-
-Create an ASP.NET v5 Application **owner: Brad**
-**skipped for //build due to lack of project-k integration**
-
-#### Fabric Service Programming Models
-
-[Getting Started with FabSrv programming model](../service-fabric-fabsrv-getting-started) **owners: masnider, alanwar, tyadam, sumukhs**
-
-Add Diagnostics code to a service **owner: Kunalds**
-=======
 - [Choose a Programming Model](service-fabric-choose-framework.md) **owner: seanmck**
-
-- HOLs/tutorials **owners: Haishi, bmerrill**
-
-- [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
 - [Reliable Service Programming Model Quick Start](service-fabric-reliable-services-quick-start.md) **owner: masnider**
 
+- [Actor Programming Model Quick Start](service-fabric-fabact-get-started.md)
+
+- [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
+
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
-- Communicate with a Service
-
-- Add Diagnostics code to a service **owner: Kunalds**
-
-- [Secure replication traffic of stateful services](service-fabric-replication-security.md)
+- [Secure replication traffic of stateful services](service-fabric-replication-security.md)  **owner: leikong**
 
 
-### Configure a Service Manifest P2  owner: vturecek
-more advanced configuration stuff
+### Tutorials
 
-### Configure an Application Manifest P2 owner: vturecek
-more advanced configuration stuff
+- [Microsoft Azure Service Fabric Application Basic Management](../service-fabric-get-started-basic-management.md)  **owner: bmerrill**
 
-### Package and Deploy an Application P2
-Package and deploy using VS. Explain VS template. **owner: vturecek**
+- [Implement a Communication Listener using Web API](service-fabric-get-started-communication-listener-with-web-api.md) **owner: bmerrill**
 
-Package and deploy using Cmdlets **owner: vturecek**
+- [Getting Started with Microsoft Azure Service Fabric Stateless Services](../service-fabric-get-started-hello-world-stateless) **owner: vturecek**
 
-Create an Application Instance (PowerShell) **owner: vturecek**
+- [Hello World with Actors](../service-fabric-get-started-hello-world-with-actors.md) **owner: bmerrill**
 
-Create a Service Instance (PowerShell) **owner: vturecek**
+- [Echo Service using Web API](../service-fabric-get-started-echo-service-using-web-api.md) **owner: bmerrill**
 
-More advanced conceptual topics, this handled by VS **owner: vturecek**
+- [Todo Service using Web API](../service-fabric-get-started-todo-service-with-web-api.md) **owner: bmerrill**
+
+
 
 ### Test a Service owner: vturecek, rsinha
 - [Testability Overview](service-fabric-testability-overview.md) - P1 **owner: vturecek**
@@ -127,15 +70,9 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 - [Run a scenario](service-fabric-testability-scenarios.md) - P1 **owner: vturecek**
 
-- Validating and troubleshooting - P1 **owner: anmola**
+- [Service Fabric Testability Scenarios: Service Communication](service-fabric-testability-scenarios-service-communication.md) **owner: vturecek**
 
-- Testing during development - P2 **owner: rsinha**
-
-- Testing in test/staging - P2 **owner: rsinha**
-
-- Testing in production - P2 **owner: rsinha**
-
-- Writing a custom test scenario - P3 **owner: vturecek**
+- [Simulate failures during service workloads](service-fabric-testability-workload-tests.md)  **owner: anmola**
 
 
 ### Monitoring and Diagnostics owners: kunalds, toddpf, oanapl
@@ -165,16 +102,8 @@ More advanced conceptual topics, this handled by VS **owner: vturecek**
 
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
-### Scale Services and Partitions owner: vturecek
+- [Service Fabric Application Upgrade: Data Serialization](service-fabric-upgrade-data-serialization.md) **owner: jesseb**
 
-### Add/Remove Services from Applications P2 owner: vturecek
-
-### Remove an Application owner: vturecek
-Remove an Application in Visual Studio **owner: vturecek**
-
-Remove an Application **owner: vturecek**
-
-Remove a Service and Application (PowerShell) **owner: vturecek**
 
 ## Reference
 ### Managed Reference
@@ -231,8 +160,14 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Actor Timers](service-fabric-fabact-timers-reminders.md) **owner: myamanbh**
 
+- [Actor Diagnostics](service-fabric-fabact-diagnostics.md) **abhisram**
+
+- [KVSActorStateProvider Configuration](service-fabric-fabact-KVSActorstateprovider-configuration.md) **owner: sumukhs**
+
+- [ReliableDictionaryActorStateProvider Configuration](service-fabric-fabact-ReliableDictionaryStateProvider-configuration.md) **owner: sumukhs**
+
 #### Reliable Services
-- [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
+- [Programming Model Overview](service-fabric-reliable-services-introduction.md)  **owners: masnider, richhas**
 
 - [Architecture](service-fabric-fabsrv-platform-architecture.md) **owner: alanwar**
 
@@ -242,12 +177,23 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 
 - [Operations](service-fabric-manage-application-in-visual-studio.md) **owner: jesseb, alanwar**
 
+
+
 ## P2 conceptual topics
+### Partitioning, Scaling, Service State
+
+- [Partition Service Fabric services](service-fabric-concepts-partitioning.md) **owner: aprameyr**
+- [Scaling Service Fabric Applications](service-fabric-concepts-scalability.md) **owner: aprameyr**
+- [Service State](service-fabric-concepts-state.md) **owner: aprameyr**
+- [Availability of Service Fabric services](service-fabric-availability-services.md) **owner: aprameyr**
+
 ### PaaS v2 and Cloud Applications
-### Service State
+### Applications, Services, Partitions, Replicas, and Replica Sets
+### Cluster
+
+### Application and Service Types
 ### Names and Properties/Naming Service
 ### Image Store
-
 
 ### System Services
 Failover Manager Service
@@ -257,13 +203,22 @@ Cluster Manager Service
 ImageStore Service
 
 Naming Service
-
+### Cluster Lifecycle
+### Management APIs
 ### Application Security
 ### Cluster and Client Security
  Node-to-Node Security
 
  Client-to-Node Security
 
+### Resource Balancing a Cluster
+Balancing Strategies
+
+Describe the Cluster
+
+Describe Services
+
+Proactive Metric Packing
 
 ### PaaSv2 compared to other systems...
 
@@ -280,18 +235,30 @@ Replica Role and State Lifetime
 
 ### Glossary
 
+## P2 how to topics
 
-### Post-BUILD
+### Configure a Service Manifest P2  owner: vturecek
+more advanced configuration stuff
 
+### Configure an Application Manifest P2 owner: vturecek
+more advanced configuration stuff
 
-### Resource Balancing a Cluster
-Balancing Strategies
+### Package and Deploy an Application P2
+Package and deploy using VS. Explain VS template. **owner: vturecek**
 
-Describe the Cluster
+Package and deploy using Cmdlets **owner: vturecek**
 
-Describe Services
+Create an Application Instance (PowerShell) **owner: vturecek**
 
-Proactive Metric Packing
+Create a Service Instance (PowerShell) **owner: vturecek**
 
-### Cluster Lifecycle
-### Management APIs
+More advanced conceptual topics, this handled by VS **owner: vturecek**
+
+### Add/Remove Services from Applications P2 owner: vturecek
+
+### Remove an Application owner: vturecek
+Remove an Application in Visual Studio **owner: vturecek**
+
+Remove an Application **owner: vturecek**
+
+Remove a Service and Application (PowerShell) **owner: vturecek**
