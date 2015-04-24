@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/21/2015" 
+	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 
 #Delay in Azure Storage account configuration
@@ -52,9 +52,8 @@ When using SQL Database as an output target, very high volumes of output data ma
 
 PowerBI does not support more than one table in a given dataset.
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get Help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
