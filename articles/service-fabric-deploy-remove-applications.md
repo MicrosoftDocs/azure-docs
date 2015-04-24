@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/10/2015"
+   ms.date="04/23/2015"
    ms.author="alexwun"/>
 
 # Deploy an application
@@ -23,6 +23,8 @@ Once an [application type has been packaged][10], it's ready for deployment into
 1. Uploading the application package
 2. Registering the application type
 3. Creating the application instance
+
+>[AZURE.NOTE] If you use Visual Studio for deploying and debugging applications on your local development cluster, all of the steps described below are handled automatically by invoking the PowerShell scripts found in the Scripts folder of the application project. This article provides background on what those scripts are doing so that you can perform the same operations outside of Visual Studio.
 
 ## Upload the application package
 
@@ -140,6 +142,39 @@ PS D:\temp> Get-ServiceFabricApplication
 PS D:\temp>
 ~~~
 
+When a particular version of an application type is no longer needed, it should be unregistered using the **Unregister-ServiceFabricApplicationType** command. Unregistering unused types will release storage space used by the application package contents of that type on the Image Store. An application type can be unregistered as long as there are no applications instantiated against it or pending application upgrades referencing it.
+
+~~~
+PS D:\temp> Get-ServiceFabricApplicationType
+
+ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}
+
+ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}
+
+ApplicationTypeName    : MyApplicationType
+ApplicationTypeVersion : AppManifestVersion1
+DefaultParameters      : {}
+
+PS D:\temp> Unregister-ServiceFabricApplicationType MyApplicationType AppManifestVersion1
+Unregister application type succeeded
+
+PS D:\temp> Get-ServiceFabricApplicationType
+
+ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v1
+DefaultParameters      : {}
+
+ApplicationTypeName    : DemoAppType
+ApplicationTypeVersion : v2
+DefaultParameters      : {}
+
+PS D:\temp>
+~~~
+
 <!--
 ## Next steps
 
@@ -150,7 +185,7 @@ TODO [Upgrade applications][11]
 
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 
-The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the *Get-ServiceFabricClusterManifest* command:
+The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value being used by the Service Fabric cluster, which can be found in the cluster manifest retrieved using the **Get-ServiceFabricClusterManifest** command:
 
 ~~~
 PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
@@ -175,6 +210,16 @@ Copy application package succeeded
 
 PS D:\temp>
 ~~~
+
+## Next steps
+
+[Service Fabric Application Upgrade](service-fabric-application-upgrade.md)
+
+[Service Fabric Health Introduction](service-fabric-health-introduction.md)
+
+[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-troubleshoot-your-service-index.md)
+
+[Model an application in Service Fabric](service-fabric-application-model.md)
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: ./service-fabric-application-model.md

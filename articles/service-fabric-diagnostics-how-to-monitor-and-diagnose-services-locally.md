@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="kunaldsingh"
-   manager="timlt"
+   manager="samgeo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/10/2015"
+   ms.date="04/22/2015"
    ms.author="kunalds"/>
 
 
@@ -21,35 +21,56 @@
 Monitoring, detecting, diagnosing and troubleshooting allows for services to continue with minimal disruption to user experience. While it is critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure that it works when you move to a real world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across single machine local development and real world production cluster setups.
 
 ## Tracing and logging
-ETW is the recommended technology for tracing messages in Service Fabric, some reasons for this are:
-- There is built-in support in Service Fabric Visual Studio tools to view ETW events
-- ETW tracing works seamlessly across local development environments and also real world cluster setups which means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
-- ETW is fast, it was built as a tracing technology that has a minimal impact on your code execution times.
-- Service Fabric system code also traces messages as ETW thus allowing you to view your application traces interleaved with Service Fabric system traces which makes it easier to understand the sequence of operations and the interrelationship between what your application code is doing and what is happening in the underlying system.
+[Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is the recommended technology for tracing messages in Service Fabric. Reasons for this are:
+- ETW is fast. It was built as a tracing technology that has a minimal impact on your code execution times.
+- ETW tracing works seamlessly across local development environments and also real world cluster setups. This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
+- Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.
+- There is built-in support in Service Fabric Visual Studio tools to view ETW events.
+
 
 ## View Service Fabric system events in Visual Studio
+
 Service Fabric emits ETW events to help application developers understand what is happening in the platform. To view these events follow these steps:
-1. Launch Visual Studio with the installed Service Fabric tools.
-2. Create or open an existing Service Fabric project.
-3. Go to Server Explorer tab in Visual Studio, right-click the Service Fabric cluster and choose "View Diagnostic Events" in the context menu. You will see a windows like this
-4. Run the application and observe as events emitted from Service Fabric show up in the Diagnostics Events window. Notice how each event has standard metadata information which tells you the node, application and service the event is coming from.
+
+1. You must have the following pre-requisties installed.
+   - Visual Studio 2015
+   - Service Fabric SDK
+2. Launch Visual Studio as an administrator.
+3. Create (or open an existing) project for a stateful or stateless Actor or Service.
+![Create a Service Fabric Project](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+4. Press F5 to debug the application. The Service Fabric events should show up in the Diagnostics Events window. Each event has standard metadata information which tells you the node, application and service the event is coming from. You can also filter the list of events using the "Filter events" box at the top of the windows, for example you can filter on Node Name or Service Name.
+![Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+
+5. If the Diagnostics Events window does not automatically show, Go to Server Explorer tab in Visual Studio, right-click the Service Fabric cluster and choose "View Diagnostic Events" in the context menu.
+
+![Open the Visual Studio Diagnostics Events Viewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## Add your own custom traces to the application code
-There is sample code in the templates that shows you how to easily add custom ETW traces from your application code that show up in the Visual Studio ETW viewer alongside system traces from Service Fabric. Just follow these steps to add your first custom trace and view it.
-If you created a project from the stateful or stateless service templates (for Actor templates see instructions further below):
-1. Open the Service.cs file and you will see a call to "ServiceEventSource.Current.Message" in the RunAsync method. This is an example of a custom ETW trace from the application code.
-2. If you open the ServiceEventSource.cs file you will find to overloads for the ServiceEventSource.Message method that you can choose from to write the custom ETW traces.
-3. The advantage of using these ServiceEventSource.Message methods for tracing is that the traces have helpful metadata automatically added to them and also the Visual Studio Diagnostic Viewer is already configured to display these.
+The Service Fabric Visual Studio project templates contain sample code. The code shows how to add custom application code ETW traces which show up in the Visual Studio ETW viewer alongside system traces from Service Fabric. The advantage of this method is that metadata is automatically added to traces, and the Visual Studio Diagnostic Viewer is already configured to display them.
 
-If you created a project from the Actor stateful or stateless service templates:
-1. Open the "ProjectName".cs file and you will see a call to "ActorEventSource.Current.ActorMessage" in the DoWorkAsync method. This is an example of a custom ETW trace from the application code.
-2. If you open the ActorEventSource.cs file you will find to overloads for the ActorEventSource.ActorMessage method that you can choose from to write the custom ETW traces.
-3. The advantage of using these ActorEventSource.ActorMessage methods for tracing is that the traces have helpful metadata automatically added to them and also the Visual Studio Diagnostic Viewer is already configured to display these.
+For projects created from the **service templates** (stateless or stateful):
 
-After you have added a custom ETW trace in your service code you can build, deploy and run the application again to see your event(s)in the Diagnostic Viewer. If you debug the application with F5, the Diagnostic Viewer will be opened up automatically.
+1. Open the **Service.cs** file. The call to `ServiceEventSource.Current.Message` in the *RunAsync* method shows an example of a custom ETW trace from the application code.
+2. In the **ServiceEventSource.cs** file, the overloads of the `ServiceEventSource.Message` method show an option of how to write custom ETW traces.
 
-## Other documentation to check out
-1. <Health monitoring doc link>
-2. <Application Insights setup>
-3. <Description of Actor diagnostic events>
-4. <Description of FabServ diagnostic events>
+For projects created from the **actor templates** (stateless or stateful):
+
+1. Open the **"ProjectName".cs** file where *ProjectName* is the name you chose for your Visual Studio project.  
+2. Find the code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` in the *DoWorkAsync* method.  This is an example of a custom ETW trace from application code.  
+3. In file **ActorEventSource.cs**, the overloads for the `ActorEventSource.ActorMessage` method show an option of how to write custom ETW traces.
+
+After adding custom ETW tracing to your service code, you can build, deploy, and run the application again to see your event(s) in the Diagnostic Viewer. If you debug the application with F5, the Diagnostic Viewer will  open automatically.
+
+##Coming soon
+The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running the same code on an Azure cluster. Details for this are coming soon.
+
+## Next steps
+
+- [Service Fabric Health Introduction](service-fabric-health-introduction.md)
+
+- [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
+
+- [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
+
+- [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)

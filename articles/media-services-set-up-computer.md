@@ -11,17 +11,22 @@
 	ms.service="media-services" 
 	ms.workload="media" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="04/21/2015" 
 	ms.author="juliako"/>
 
 #Set up your environment
 
 ##<a id="create_account"></a>Create a Media Services account
 
-Use **Azure Management Portal** to [Create Azure Media Services Account](media-services-create-account.md). 
+Use **Azure Management Portal**, **.NET SDK**, or **REST API** to create Azure Media Services account. 
 
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-create-account.md)
+- [PowerShell](media-services-manage-with-powershell.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn167014.aspx)
 
 ##<a id="setup_dev_env"></a>Set up development environment  
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/10/2015"
+   ms.date="04/23/2015"
    ms.author="alexwun"/>
 
 # Model an application in Service Fabric
@@ -26,7 +26,7 @@ An application is composed of one or more services, each of which is further com
 
 Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently.
 
-##Describe a service
+## Describe a service
 
 A service manifest describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
@@ -128,6 +128,8 @@ For more information about other features supported by application manifests, re
 
 ## Package an application
 
+### Package layout
+
 The application manifest, service manifest(s), and other necessary package files must be organized in a specific layout for deployment into a Service Fabric cluster. The example manifests in this article would need to be organized in the following directory structure:
 
 ~~~
@@ -149,7 +151,21 @@ D:\TEMP\MYAPPLICATIONTYPE
             init.dat
 ~~~
 
-The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names containing the necessary binaries for each code package. The package structure can be locally verified through PowerShell using the **Test-ServiceFabricApplicationPackage** command, which will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package - it will not verify any of the code or data package contents beyond checking that all necessary files are present:
+The folders are named to match the **Name** attributes of each corresponding element. For example, if the service manifest contained two code packages with names **MyCodeA** and **MyCodeB**, then there would need to be two folders with the same names containing the necessary binaries for each code package.
+
+### Building a package using Visual Studio
+
+If you use Visual Studio 2015 to create your application, you can use the Package command to automatically create a package that matches the layout described above.
+
+To create a package, simply right click on the application project in Solution Explorer and choose the Package command, as shown below:
+
+![][2]
+
+When packaging is complete, you will find the location of the package in the Output window. Note that the packaging step occurs automatically when you deploy or debug your application in Visual Studio.
+
+### Testing the package
+
+The package structure can be locally verified through PowerShell using the **Test-ServiceFabricApplicationPackage** command, which will check for manifest parsing issues and verify all references. Note that this command only verifies the structural correctness of the directories and files in the package - it will not verify any of the code or data package contents beyond checking that all necessary files are present:
 
 ~~~
 PS D:\temp> Test-ServiceFabricApplicationPackage .\MyApplicationType
@@ -192,6 +208,7 @@ Once the application is packaged correctly and passes verification, then it's re
 
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
+[2]: ./media/service-fabric-application-model/vs-package-command.png
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: ./service-fabric-deploy-remove-applications.md

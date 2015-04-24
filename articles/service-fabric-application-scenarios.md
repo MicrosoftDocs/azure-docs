@@ -16,13 +16,15 @@
    ms.date="04/24/2015"
    ms.author="mfussell"/>
 
-# Application Scenarios 
+# Service Fabric Application Scenarios
 
 Service Fabric and Azure offer a reliable and flexible cloud infrastructure platform that enables you to run many types of business applications and services. These applications and microservices can be stateless or stateful, and they are resource balanced across the virtual machines to maximize efficiency. The unique architecture of Service Fabric enables you to perform near real-time data analysis, in-memory computation, parallel transactions, and event processing in your applications. You can easily scale your applications up or down, depending on your changing resource requirements. 
 
 The Service Fabric platform in Azure is ideal for the following categories of applications and services:
 
-- **Highly available, scalable services**: Service Fabric services provide extremely fast failover. Multiple secondary service replicas remain available. If a node goes down due to hardware failure, one of the secondary replicas is immediately promoted to a primary replica with negligible loss of service to customers. Services can be quickly and easily scaled up from a few instances to thousands of instances and then scaled down to a few instances, depending on your resource needs. You can use Service Fabric to build and manage the lifecycle of these scalable cloud services.
+- **Highly available services**: Service Fabric services provide extremely fast failover. Multiple secondary service replicas remain available. If a node goes down due to hardware failure, one of the secondary replicas is immediately promoted to a primary replica with negligible loss of service to customers. Services can be quickly and easily scaled up from a few instances to thousands of instances and then scaled down to a few instances, depending on your resource needs. You can use Service Fabric to build and manage the lifecycle of these scalable cloud services.
+
+- **Scalable services**: Individual Services can be partitioned allowing for state to be scaled out across the cluster. In addition, Service Fabric multiple services can be created and scaled out.
  
 - **Computation on non-static data**: Service Fabric enables you to build data I/O and compute intensive, stateful applications. The processing and data resources in Service Fabric applications are located together, so when your application requires fast reads and writes the network latency that is associated with an external data cache or storage tier is eliminated. For example, say you had an application that performs near real-time advertisement selection with a round-trip time < 100ms, where the computation of advertising selection rules provides a responsive experience to the user.  
  
@@ -47,9 +49,17 @@ Stateful microservices simplify application designs as they remove the need for 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
-Get started building stateless and stateful services with the Service Fabric 
-[reliable services](../service-fabric-reliable-services-quick-start) and [reliable actors](../service-fabric-fabact-get-started) programming models 
 
+Get started building stateless and stateful services with the Service Fabric 
+[reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-fabact-get-started.md) programming models 
+
+Also see the following topics
+
+[Defining and Managing Service State](service-fabric-concepts-state.md)
+
+[Availability of services](service-fabric-concepts-availability-services.md)
+
+[Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
