@@ -59,13 +59,6 @@ To get started with Logic Apps, follow the [create a Logic App][create] tutorial
 
 For more information on Azure App Service platform, see [Azure App Service][appservice].
 
-##The SaaS, PaaS and Hybrid Explosion
-
-The cloud era is bringing an explosion in the usage of SaaS and PaaS systems, putting increasing strain on developers everywhere. Meanwhile, IT's application backlogs are getting longer and these heterogeneous and distributed solutions present new integration challenges.  Furthermore, enterprises need to leverage their on-premises data and services in their solutions, and need to do so securely.
-
-Building solutions that span these systems poses non-trivial challenges that are time consuming and error prone for development teams.
-
-
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
