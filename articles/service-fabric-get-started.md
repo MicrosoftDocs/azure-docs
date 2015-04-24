@@ -26,13 +26,11 @@ The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC. To insta
 ## Installing the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
 
-1. Launch the Web Platform Installer by clicking [here](http://replacewiththeresultwebpiuri.com).
+1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
 
-2. Click Add to include Service Fabric in the cart.
+2. Click Install to begin the install process.
 
-3. Click Install to begin the install process.
-
-4. Review and accept the EULA.
+3. Review and accept the EULA.
 
 Installation will proceed automatically.
 
