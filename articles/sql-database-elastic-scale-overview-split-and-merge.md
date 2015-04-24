@@ -1,8 +1,6 @@
 <properties 
-	title="Scaling using the elastic database split-merge tool" 
 	pageTitle="Scaling using the elastic database split-merge tool" 
 	description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
-	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
