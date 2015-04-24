@@ -91,7 +91,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Feature | Description |
 | :--- | :--- |
 | . | ***April 2015:*** |
-| Full-Text Search | [Full-Text Search](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/>- Search for any synonym of your search term.<br/>- Search for cell values that contain your two search terms in close physical proximity to each other.<br/><br/>Get to know Transact-SQL keywords such as CONTAINS, FREETEXT, FORMSOF, THESAURUS and others. |
+| Full-Text Search | [Full-Text Search (FTS)](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/>- Search for any synonym of your search term.<br/>- Search for cell values that contain your two search terms in close physical proximity to each other.<br/><br/>Get to know Transact-SQL keywords such as CONTAINS, FREETEXT, FORMSOF and others.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use. The range of FTS preview functionality is a subset of the FTS range in Microsoft SQL Server. |
 | . | ***February 2015:*** |
 | <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md). |
 | . | ***January 2015:*** |
@@ -198,11 +198,13 @@ There are important things to know about limitations during and after an upgrade
 ## Other sources of latest news
 
 
-This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated, probably after April 30th 2015. Information about new features and other announcements is shifting to the announcements link that follows:
+This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated some time in 2015. Information about new features and other announcements is shifting to the announcements link that follows:
 
 
 - [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
  - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
+- [Dynamically generated list](http://azure.microsoft.com/en-us/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
+ - The list include topics that have only minor updates.
 - Follow us on Twitter: @SQLSchedCentral.
 
 
