@@ -26,7 +26,7 @@ In Azure App Service an API app is a [web app](app-service-web-overview.md) that
 
 Every resource group that contains at least one API app also includes a  *gateway*. The gateway acts as a proxy, handling authentication and other administrative functions for all API apps in a resource group. Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a **Gateway** blade for gateway-specific functions, and a **Gateway host** blade for managing the underlying web app.
 
-### API App blade tasks 
+### API app blade tasks 
 
 You use the **API app** blade for the following tasks:
 
@@ -42,9 +42,9 @@ The **API app** blade enables you to do many tasks that pertain to the underlyin
 
 The only functions provided on **API app** blade that are not duplicates from the **API app host** blade are listed in the previous section.
 
-### API App Host blade tasks
+### API app host blade tasks
 
-You use the **API App Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
+You use the **API app host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
 
 ### Gateway blade tasks
 
@@ -53,11 +53,11 @@ You use the **Gateway** blade for the following tasks:
 - Authentication provider configuration for incoming calls to API apps - Click **Settings > Identity**. If the gateway needs to authenticate users before allowing them to call API apps in the resource group, the required configuration values are entered here. For more information, see [Configure and test a SaaS connector in Azure App Service](app-service-api-connnect-your-app-to-saas-connector.md). 
 - Configure [RBAC](role-based-access-control-configure.md) - Click **Settings > Users**. The same comments above explaining the relationship between RBAC configuration entered on the API app and API app host blades applies to the Gateway and Gateway host blades.
 
-### Gateway Host blade tasks
+### Gateway host blade tasks
 
 You use the **Gateway Host** blade for all of the tasks that you would do for any web app. For more information, see [Manage web apps in the portal](web-sites-manage.md).  
 
-## Navigate to the API App blade 
+## Navigate to the API app blade 
 
 One way to get to the **API App** blade is through the Azure portal's browse feature.  In the portal home page, click **Browse > API Apps** to see all the API apps that you can manage. 
 
@@ -69,7 +69,7 @@ When you click a row in the **API Apps** list blade, the portal displays the **A
 
 ![](./media/app-service-api-manage-in-portal/apiappblade.png)
 
-## Navigate to the API App Host blade
+## Navigate to the API app host blade
 
 To get to the **API App Host** blade, click **API app host** in the **API App** blade.
 
