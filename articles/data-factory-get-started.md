@@ -250,7 +250,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
         		],
         		"location":
         		{
-            		"type": "AzureSQLTableLocation",
+            		"type": "AzureSqlTableLocation",
             		"tableName": "emp",
             		"linkedServiceName": "AzureSqlLinkedService"
         		},
