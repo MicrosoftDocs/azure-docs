@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/21/2015" 
+	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 
 #Connect to inputs and outputs
@@ -154,9 +154,8 @@ In this example, the credentials that were provided were incorrect. You can corr
 
 ![graphic19][graphic19]
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get Help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
