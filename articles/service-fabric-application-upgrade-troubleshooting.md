@@ -39,7 +39,7 @@ Possible Cause:
 As mentioned earlier, if the health evaluation criteria is not supplied, the application health policy specified in the pre-upgraded *ApplicationManifest.xml* of the application instance is used (for example, if upgrading Application X from v1 to v2, application health policies specified for Application X in v1 is used). If a different policy should be used for the upgrade, the policy (health evaluation criteria) needs to be specified as part of the application upgrade API call. The criteria specified as part of the APIs are transient and are only valid for that particular upgrade. Once the upgrade is completed, the policy specifies in the *ApplicationManifest.xml* is used.
 
 
-## Incorrect Timeous specified.
+## Incorrect Timeouts specified.
 
 Possible Cause:
 
@@ -69,6 +69,6 @@ The upgrade time for a upgrade domain is limited by *UpgradeDomainTimeout*.  If 
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
-
 [Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
+
+[Data Serialization](service-fabric-application-upgrade-data-serialization.md)
