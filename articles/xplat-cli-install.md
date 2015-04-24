@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Install Azure Cross-Platform Command-Line Interface"
-	description="Install the Azure Cross-Platform Command-Line Interface to start using Azure Services"
+	pageTitle="Install Azure CLI for Mac, Linux, and Windows"
+	description="Install the Azure CLI for Mac, Linux, and Windows to start using Azure Services"
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/17/2015"
+	ms.date="04/22/2015"
 	ms.author="dkshir"/>
 
-# Install the Azure Cross-Platform Command-Line Interface
+# Install the Azure CLI for Mac, Linux, and Windows
 
-This document describes how to install the Azure Cross-Platform Command-Line Interface (xplat-cli) on Windows, Mac, and Linux. The xplat-cli provides a set of open source shell-based commands for managing resources on Microsoft Azure.
+This document describes how to install the Azure Command-Line Interface (also called the _xplat-cli_) on Mac, Linux, and Windows. The xplat-cli provides a set of open source shell-based commands for managing resources on Microsoft Azure.
 
-> [AZURE.NOTE] If you've already installed the xplat-cli, connect the xplat-cli with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli.md#configure).
+> [AZURE.NOTE] If you've already installed the xplat-cli, connect it with your Azure resources. For more, see [How to connect to your Azure Subscription](xplat-cli-connect.md#configure).
 
 The xplat-cli is written in JavaScript, and requires [Node.js](https://nodejs.org). It is implemented using the [Azure SDK for Node](https://github.com/azure/azure-sdk-for-node), and released under an Apache 2.0 license. The project repository is located at [https://github.com/Azure/azure-xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
 <a id="install"></a>
-## How to install the Azure Cross-Platform Command-Line Interface
+## How to install the Azure CLI for Mac, Linux, and Windows
 
 There are two ways to install the xplat-cli.
 
@@ -115,10 +115,14 @@ Once the xplat-cli has been installed, you will be able to use the **azure** com
 
 >[AZURE.NOTE] For Linux systems, you can also install the xplat-cli by building it from the [source](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). For more information on building from source, see the INSTALL file included in the archive.
 
-Now you are ready! To start using xplat-cli and connect to Azure, see [Using the Azure Cross-platform command line interface](xplat-cli.md#configure).  
+Now you are ready! Next you can [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md) and start using the **azure** commands.
 
 <a id="additional-resources"></a>
 ## Additional resources
+
+* [Using the Azure CLI with the Service Management (or ASM mode) commands][xplatasm]
+
+* [Using the Azure CLI with the Resource Management (or ARM mode) commands][xplatarm]
 
 * For more information on xplat-cli, download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
@@ -132,3 +136,5 @@ Now you are ready! To start using xplat-cli and connect to Azure, see [Using the
 [mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
 [windows-installer]: http://go.microsoft.com/?linkid=9828653&clcid=0x409
 [linux-installer]: http://go.microsoft.com/fwlink/?linkid=253472
+[xplatasm]: virtual-machines-command-line-tools.md
+[xplatarm]: xplat-cli-azure-resource-manager.md
