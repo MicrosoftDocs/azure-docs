@@ -109,7 +109,7 @@ Data from various devices and platforms that are distributed across the world is
 ![Azure Stream Analytics event archival for future processing][img.stream.analytics.scenario3]
  
 ## Get Help
-For further assistance, try our [Support Forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
