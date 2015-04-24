@@ -20,15 +20,32 @@
 
 ## Understand the application model
 
+
 An application is composed of one or more services, each of which is further composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.
 
 ![][1]
 
-Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently.
+An application is a collection of constituent services that perform a certain function(s). A service hand performs a complete and standalone function (they can start and run independent of other services). 
+
+
+An application type is categorization of an application, consisting of a bundle of service types. A service type is the categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
+
+Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how applications are composed of service types, which in turn are composed of code, configuration, and packages.
+
+![Service Fabric ApplicationTypes and ServiceTypes][Image1]
+
+Two different manifest files are used to describe applications and services: the service manifest and application manifest, which are covered in detail in the ensuing sections.
+
+There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy allowing for the service to be avaialble even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster. More information on partitioning is available [here](service-fabric-concepts-partitioning.md).
+
+The following diagram shows the relationship between applications and service instances, partitions, and replicas.
+
+![Partitions and Replicas within a Service][Image2]
+
 
 ## Describe a service
 
-A service manifest describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
+The service manifest declaratively defines the service type and version and specifies service metadata such as service type, health properties, load balancing metrics, and the service binaries and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. Here is a simple example service manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -87,7 +104,9 @@ For more information about other features supported by service manifests, refer 
 
 ## Describe an application
 
-An application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
+
+The application manifest declaratively describes the application type and version and specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load balancing domains into which the application is placed are also described.
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is a simple example application manifest:
 
 ~~~
 <?xml version="1.0" encoding="utf-8" ?>
@@ -209,6 +228,9 @@ Once the application is packaged correctly and passes verification, then it's re
 <!--Image references-->
 [1]: ./media/service-fabric-application-model/application-model.jpg
 [2]: ./media/service-fabric-application-model/vs-package-command.png
+[Image1]: media/service-fabric-application-model/Service1.jpg
+[Image2]: media/service-fabric-application-model/Service2.jpg
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: ./service-fabric-deploy-remove-applications.md
+
