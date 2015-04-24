@@ -42,6 +42,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Reliable Services Programming Model Introduction](service-fabric-reliable-services-introduction.md) **owner: masnider**
 
+- [Communicating with Services](service-fabric-connect-and-communicate-with-services.md) **owner: kunalds**
+
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md) **owner: jesseb**
 
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)  **owner: leikong**
