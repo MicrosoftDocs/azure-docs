@@ -17,11 +17,11 @@
    ms.author="mattrow"/>
 
 # Setting up Application Insights for your Service Fabric application
- This article will walk you through enabling Application Insights for your Service Fabric app.
+ This article will walk you through enabling Application Insights for your Service Fabric application.
 
 ## Prerequisites
 
-This article assumes you have a Service Fabric app already created in Visual Studio. To find out how [click here](service-fabric-stateless-helloworld.md).
+This article assumes you have a Service Fabric application already created in Visual Studio. To find out how [click here](service-fabric-reliable-services-quick-start.md).
 
 ## Installing the NuGet package
 Released as part of the Service Fabric SDK is a prerelease version of our nuget package Microsoft.ServiceFabric.Telemetry.ApplicationInsights. 
@@ -41,10 +41,13 @@ You can install the package with the following steps:
 In order to receive Service Fabric events automatically in Application Insights you will need to enable our listener.
 You can do this by inserting the following line of code into your app.
 
+```csharp
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
+```
  
-#### Example for StatefulActor\Program.cs:
+### Example for StatefulActor\Program.cs:
 
+```csharp
     public static void Main(string[] args)
     {
         Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
@@ -63,21 +66,23 @@ You can do this by inserting the following line of code into your app.
             throw;
         }
     }
+```
 
+You can learn about the events emitted from the Reliable Actors runtime [here](service-fabric-reliable-actors-diagnostics.md) and Reliable Services runtime [here](service-fabric-reliable-services-diagnostics.md).
 
-You can learn about the events emitted from the Fabric Actors runtime [here](service-fabric-fabact-diagnostics.md) and Fabric Services runtime [here](service-fabric-fabsrv-diagnostics.md).
-
-Note that in order to get Fabric Actor runtime method calls, EventLevel.Verbose must be used (as shown in examples above).
+Note that in order to get Reliable Actors runtime method calls, EventLevel.Verbose must be used (as shown in examples above).
 
 ## Setting up Application Insights
-An instrumentation key is what ties your Service Fabric app to your Application Insights resource.  You can learn how to get your instrumentation key by following Application Insight's [guide](app-insights-create-new-resource.md#create-an-application-insights-resource).
+An instrumentation key is what ties your Service Fabric app to your Application Insights resource.  You can learn how to get your instrumentation key by following [Application Insight's guide](app-insights-create-new-resource.md#create-an-application-insights-resource).
 Select 'Other' for application type when creating resources.
 
 ![Select Other for AI app type](media/service-fabric-diagnostics-application-insights-setup/AI-app-type-other.JPG)
 
 Once you have your instrumentation key, you can insert it into the ApplicationInsights.config file like so:
 
+```xml
     <InstrumentationKey>INSERT YOUR KEY HERE</InstrumentationKey>
+```
 
 ## Viewing data
 You can [customize the App Insights blade](app-insights-metrics-explorer.md) to fit your needs. 

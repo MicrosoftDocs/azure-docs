@@ -85,7 +85,7 @@ Name | Enter any name for the TPM instance. For example, you can name it *Accoun
 Package Settings | Enter the ADO.NET **Database Connection String** to the Azure SQL Database you created. <br/><br/>When you copy the connection string, the password is not added to the connection string. Be sure to enter the password in the connection string.
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
+Resource Group | Create a new one or use an existing group. All API Apps and connectors for your Logic Apps, Web Apps, and Mobile Apps must be in the same Resource Group. <br/><br/>[Using resource groups](resource-group-overview.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).
@@ -107,7 +107,7 @@ Name | Enter any name for the AS2 connector. For example, you can name it *AS2Co
 Package Settings | Enter the settings specific to that API App, like the TPM Instance name. <br/><br/>See [Add AS2 Package Settings](#AddAS2Conn) in this topic for the specific properties. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. [Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
+Resource Group | Create a new one or use an existing group. [Using resource groups](resource-group-overview.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).
@@ -136,7 +136,7 @@ Name | Enter any name for the B2B API App. For example, you can name it *EDI850A
 Package Settings | Enter the settings specific to that API App, like the TPM Instance name. <br/><br/>See [X12 or EDIFACT Package Settings](#AddX12) in this topic for the specific properties. 
 App Service Plan | Lists your payment plan. You can change it if you need more or less resources.
 Pricing Tier | Read-only property that lists the pricing category within your Azure subscription. 
-Resource Group | Create a new one or use an existing group. [Using resource groups](azure-preview-portal-using-resource-groups.md) explains this property. 
+Resource Group | Create a new one or use an existing group. [Using resource groups](resource-group-overview.md) explains this property. 
 Subscription | Read-only property that lists your current subscription.
 Location | The Geographic location that hosts your Azure service. 
 Add to Startboard | Select this to add the B2B API App to your Starboard (the home page).

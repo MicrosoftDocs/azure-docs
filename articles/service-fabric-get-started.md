@@ -67,5 +67,5 @@ Now that your development environment is set up, you can start building and runn
 
 - [Learn about the high-level frameworks: reliable actors and reliable services](service-fabric-choose-framework.md)
 - [Get started with reliable services](service-fabric-reliable-services-quick-start.md)
-- [Get started with reliable actors](service-fabric-fabact-get-started.md)
+- [Get started with reliable actors](service-fabric-reliable-actors-get-started.md)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
