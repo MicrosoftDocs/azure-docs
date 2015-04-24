@@ -14,7 +14,7 @@
 	ms.devlang="objective-c" 
 	ms.topic="article" 
 	ms.date="02/26/2015" 
-	ms.author="wesmc,yuaxu"/>
+	ms.author="wesmc"/>
 # Register the current user for push notifications by using ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">

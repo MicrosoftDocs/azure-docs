@@ -86,7 +86,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
+##<a name="publish-the-service"></a>Publish the mobile service to Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
