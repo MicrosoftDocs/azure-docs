@@ -39,7 +39,7 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [API Reference](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [Batch Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
+* [Batch Forum](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [Tutorial: Getting Started with Azure Batch Library for .NET](batch-dotnet-get-started.md)
 
@@ -63,7 +63,7 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 
 * [Tutorial: Set up a Hybrid Cluster with HPC Pack in Azure](cloud-services-setup-hybrid-hpcpack-cluster.md)
 
-* [Windows HPC Forums](https://social.microsoft.com/Forums/en-US/home?category=windowshpc)
+* [Windows HPC Forums](https://social.microsoft.com/Forums/home?category=windowshpc)
 
 ## Microsoft MPI
 
@@ -74,7 +74,7 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 
 * [MS-MPI Reference](https://msdn.microsoft.com/library/dn473458.aspx)
 
-* [MPI Forum](https://social.microsoft.com/Forums/en-US/home?forum=windowshpcmpi)
+* [MPI Forum](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
 
 ## Compute intensive instances
@@ -82,9 +82,9 @@ Migrate or extend your existing Windows HPC cluster to run your compute intensiv
 Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn197896.aspx), including [A8, A9, A10, and A11 instances](https://msdn.microsoft.com/library/azure/dn689095.aspx), to run your Batch and HPC workloads.
 
 
-* [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/en-us/library/azure/dn594431.aspx)
+* [A8 and A9 Instances: Quick Start with HPC Pack](https://msdn.microsoft.com/library/azure/dn594431.aspx)
 
-* [Run MPI Applications on A8 and A9 Instances](https://msdn.microsoft.com/en-us/library/azure/dn592104.aspx)
+* [Run MPI Applications on A8 and A9 Instances](https://msdn.microsoft.com/library/azure/dn592104.aspx)
 
 ## Architecture blueprints
 
