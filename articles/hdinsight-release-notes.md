@@ -13,11 +13,51 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="04/27/2015"
 	ms.author="nitinme"/>
 
 
 #Microsoft HDInsight release notes
+
+## Notes for 04/27/2015 release of HDInsight ##
+
+The full version numbers for HDInsight clusters deployed with this release:
+
+* HDInsight 	2.1.10.537.1486660	(HDP 1.3.12.0-01795 - unchanged)
+* HDInsight 	3.0.6.537.1486660	(HDP 2.0.13.0-2117 - unchanged)
+* HDInsight 	3.1.3.537.1486660	(HDP 2.1.12.0-2329 - unchanged)
+* HDInsight		3.2.3.537.1486660	(HDP 2.2.2.2-4 - unchanged)
+* SDK			1.5.8
+
+This release contains the following updates.
+
+<table border="1">
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Impacted Area
+(for example, Service, component, or SDK)</p></th>
+<th>Cluster Type (for example, Hadoop, HBase, or Storm)</th>
+<th>JIRA (if applicable)</th>
+</tr>
+
+
+<tr>
+<td>Fix DLL dependency</td>
+<td>Removes HDInsight dependency on Unit Test Framework.</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td>Bug fix for race condition</td>
+<td>A cluster create request now waits on PUT request to be accepted before polling on the status</td>
+<td>SDK</td>
+<td>Hadoop</td>
+<td>N/A</td>
+</tr>
+</table>
 
 ## Notes for 04/14/2015 release of HDInsight ##
 
@@ -26,7 +66,7 @@ The full version numbers for HDInsight clusters deployed with this release:
 * HDInsight 	2.1.10.521.1453250	(HDP 1.3.12.0-01795 - unchanged)
 * HDInsight 	3.0.6.521.1453250	(HDP 2.0.13.0-2117 - unchanged)
 * HDInsight 	3.1.3.521.1453250	(HDP 2.1.12.0-2329 - unchanged)
-* HDInsight		3.2.3.525.1459730	(HDP 2.2.2.2-2)
+* HDInsight		3.2.3.525.1459730	(HDP 2.2.2.2-4)
 * SDK			1.5.6
 
 This release contains the following updates.
