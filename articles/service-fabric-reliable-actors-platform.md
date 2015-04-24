@@ -3,7 +3,7 @@
    description="This articles describes how Fabric Actors use the features of the Service Fabric platform. It covers Service Fabric platform concepts from the point of view of actor developers."
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhishekram"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
