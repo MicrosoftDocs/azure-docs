@@ -46,6 +46,6 @@ Occasions when using a diff package would be a good choice:
 
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)
 
-[Troubleshooting Application Upgrade](service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade](service-fabric-application-upgrade-troubleshooting.md)
 
 [Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
