@@ -35,7 +35,7 @@ In the event of a fault (when the Primary replica goes down), Service Fabric mak
 
 This concept of a replica being a Primary or a Active Secondary is known as the replica role.
 
-## Replica Roles
+### Replica Roles
 The Role of a replica is used to manage the lifecycle of the state being managed by that replica. A replica whose role is primary is servicing read requests. It is also servicing write requests by updating its state and replicating the changes to the Active Secondaries in its replica set. An Active Secondary is responsible for receiving state changes that the Primary replica has replicated and updating its view of the state.
 
 >[AZURE.NOTE] Higher level programming models such as the [Reliable Actors framework](service-fabric-fabact-introduction.md) abstract away the concept of replica role from the developer.
