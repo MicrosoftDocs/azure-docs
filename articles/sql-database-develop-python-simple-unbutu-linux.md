@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Connect to SQL Database by using Python with pymssql on Ubuntu" 
-	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Unbutu Linux client computer."
+	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -18,7 +18,7 @@
 	ms.author="genemi"/>
 
 
-# Connect to SQL Database by using Python on Unbutu Linux
+# Connect to SQL Database by using Python on Ubuntu Linux
 
 
 <!--
@@ -26,7 +26,7 @@ Original author of content is Meet Bhagdev. GeneMi edited and first published.
 -->
 
 
-This topic presents a Python code sample that run on an Unbutu Linux client computer, to connect to an Azure SQL Database database.
+This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
 
 
 ## Requirements
