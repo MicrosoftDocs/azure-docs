@@ -13,20 +13,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/09/2015" 
+	ms.date="04/18/2015" 
 	ms.author="eugenesh"/>
 
 #Connecting Azure SQL Database to Azure Search Using Indexers#
-
-<tags 
-ms.service="search" 
-ms.devlang="rest-api" 
-ms.workload="search" ms.topic="article"  
-ms.tgt_pltfrm="na" 
-ms.date="03/05/2015" 
-ms.author="eugenesh" />
-
-# Connecting Azure SQL Database to Azure Search Using Indexers #
 
 Azure Search service makes it easy to provide a great search experience, but before you can search, you need to populate an Azure Search index with your data. If the data lives in an Azure SQL database, the new **Azure Search indexer for Azure SQL Database** (or **Azure SQL indexer** for short) feature in Azure Search can automate the indexing process. This means you have less code to write and less infrastructure to maintain.
 
@@ -114,8 +104,8 @@ Then, create the target Azure Search index if you don’t have one already. You 
 </tr>
 <tr>
 <td>char, nchar, varchar, nvarchar</td>
-<td>Edm.String</td>
-<td></td>
+<td>Edm.String<br/>Collection(Edm.String)</td>
+<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](http://azure.microsoft.com/en-us/documentation/articles/search-api-indexers-2015-02-28-Preview/#create-indexer) for details</td>
 </tr>
 <tr>
 <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
@@ -128,12 +118,17 @@ Then, create the target Azure Search index if you don’t have one already. You 
 <td></td>
 </tr>
 <tr>
+<td>geography</td>
+<td>Edm.GeographyPoint</td>
+<td>Only geography instances of type POINT with SRID 4326 (which is the default) are supported</td>
+</tr>
+<tr>
 <td>rowversion</td>
 <td>N/A</td>
 <td>Row-version columns cannot be stored in the search index, but they can be used for change tracking</td>
 </tr>
 <tr>
-<td>time, timespan<br/>binary, varbinary, image<br/>xml<br/>geometry<br/> geography<br/>CLR types</td>
+<td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR types</td>
 <td>N/A</td>
 <td>Not supported</td>
 </tr>
