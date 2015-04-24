@@ -36,8 +36,11 @@ Installation will proceed automatically.
 
 ## Installing and starting a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
+
 1. Launch a new Powershell window as an Adminstator.
+
 2. Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
+
 3. Run ./DevClusterSetup.ps1
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
