@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	writer="" 
-	manager="carolz" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
