@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="04/23/2015" 
 	ms.author="raynew"/>
 
 # Set up protection between on-premises VMM sites with SAN
@@ -227,7 +227,7 @@ After the Provider is installed continue setup to register the server in the vau
 		- *.backup.windowsazure.com
 		- *.blob.core.windows.net 
 		- *.store.core.windows.net 
-	- If you need to allow outbound connections to an Azure domain controller, allow the IP addresses described in [Azure Datacenter IP Ranges](href="http://go.microsoft.com/fwlink/?LinkId=511094), and allow the HTTP (80) and HTTPS (443) protocols. 
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](href="http://go.microsoft.com/fwlink/?LinkId=511094), and allow the HTTP (80) and HTTPS (443) protocols. 
 	- If you choose to use a custom proxy a VMM RunAs account (DRAProxyAccount) will be created automatically using the specified proxy credentials. Configure the proxy server so that this account can authenticate successfully.
 	- The VMM RunAs account settings can be modified in the VMM console. To do this, open the Settings workspace, expand Security, click Run As Accounts, and then modify the password for DRAProxyAccount. You’ll need to restart the VMM service so that this setting takes effect.
 	- A test will run to verify the Internet connection. Any proxy errors are displayed in the VMM console.
