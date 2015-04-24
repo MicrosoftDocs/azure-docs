@@ -22,9 +22,9 @@ This article shows how use the Azure portal to perform API app management tasks 
 
 ## Understanding API app architecture
 
-In Azure App Service an API app is a [web app](app-service-web-overview.md) that has additional features for hosting web services. In the Azure portal, there is an **API app** blade for managing the API-specific features, and an **API App host** blade for managing the underlying web app. 
+In Azure App Service, an API app is a [web app](app-service-web-overview.md) that has additional features for hosting web services. In the Azure portal, there is an **API app** blade for managing the API-specific features, and an **API App host** blade for managing the underlying web app. 
 
-Every resource group that contains at least one API app also includes a  *gateway*. The gateway acts as a proxy, handling authentication and other administrative functions for all API apps in a resource group. Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a **Gateway** blade for gateway-specific functions, and a **Gateway host** blade for managing the underlying web app.
+Every resource group that contains at least one API app also includes a  *gateway*. The gateway acts as a proxy; handling authentication and other administrative functions for all API apps in a resource group. Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a **Gateway** blade for gateway-specific functions, and a **Gateway host** blade for managing the underlying web app.
 
 ### API app blade tasks 
 
