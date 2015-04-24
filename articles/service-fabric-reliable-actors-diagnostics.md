@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2014"
+   ms.date="04/22/2015"
    ms.author="abhisram"/>
 
-# Introduction
+# Diagnostics and Performance Monitoring for Fabric Actors
 Fabric Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx) that provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
@@ -30,17 +30,17 @@ Other examples of tools and technologies that help in collecting and/or viewing 
 All events that belong to the Fabric Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keywords bits are defined:
 
 |Bit|Description|
-|-|-|
+|---|---|
 |0x1|Set of important events that summarize the operation of the Fabric Actors runtime|
-|0x2|Set of events describing actor method calls|
-|0x4|Set of events related to saving actor state|
-|0x8|Set of events related to turn-based concurrency in the actor|
+|0x2|Set of events describing actor method calls. For more information, please see the [introductory topic on actors](service-fabric-fabact-introduction.md#actors).|
+|0x4|Set of events related to actor state. For more information, please see the topic on [stateful actors](service-fabric-fabact-introduction.md#stateful-actors).|
+|0x8|Set of events related to turn-based concurrency in the actor. For more information, please see the topic on [concurrency](service-fabric-fabact-introduction.md#concurrency).|
 
 ## Performance counters
 The Fabric Actors runtime defines the following performance counter categories.
 
 |Category|Description|
-|-|-|
+|---|---|
 |Service Fabric Actor|Counters specific to Service Fabric actors. e.g. time taken to save actor state.|
 |Service Fabric Actor Method|Counters specific to methods implemented by Service Fabric actors. e.g. how often an actor method is invoked.|
 
@@ -49,7 +49,7 @@ Each of the above categories has one or more counters.
 The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
-A cluster with a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instances names can help in identifying the specific entity that the performance counter instance is associated with.
+A cluster with a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instances names can help in identifying the specific partition and actor method (if applicable) that the performance counter instance is associated with. For more information on partitions, please see the relevant topics for [stateless](service-fabric-fabact-platform.md#service-fabric-partition-concepts-for-stateless-actors) and [stateful](service-fabric-fabact-platform.md#service-fabric-partition-concepts-for-stateful-actors) actors.
 
 #### `Service Fabric Actor` category
 For the category `Service Fabric Actor`, the counter instance names are in the following format:
@@ -84,3 +84,73 @@ The following is an example of a counter instance name for a counter belonging t
 `ivoicemailboxactor.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486`
 
 In the example above, `ivoicemailboxactor.leavemessageasync` is the method name, `2` is the 32-bit ID generated for the runtime's internal use, `89383d32-e57e-4a9b-a6ad-57c6792aa521` is the string representation of the Service Fabric partition ID and `635650083804480486` is the 64-bit ID generated for the runtime's internal use.
+
+## List of events and performance counters
+
+### Actor method events and performance counters
+The Fabric Actors runtime emits the following events related to [actor methods](service-fabric-fabact-introduction.md#actors).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ActorMethodStart|7|Verbose|0x2|Actors runtime is about to invoke an actor method|
+|ActorMethodStop|8|Verbose|0x2|An actor method has finished executing, i.e. the runtime's asynchronous call to the actor method has returned and the Task returned by the actor method has completed.|
+|ActorMethodThrewException|9|Warning|0x3|An exception was thrown during the execution of an actor method, either during the runtime's asynchronous call to the actor method or during the execution of the Task returned by the actor method. This event indicates some sort of failure in the actor code that needs investigation.|
+
+The Fabric Actors runtime publishes the following performance counters related to the execution of actor methods.
+
+|Category name|Counter name|Description|
+|---|---|---|
+|Service Fabric Actor Method|Invocations/Sec|Number of times the actor service method is invoked per second|
+|Service Fabric Actor Method|Average milliseconds per invocation|Time taken to execute the actor service method in milliseconds|
+|Service Fabric Actor Method|Exceptions thrown/Sec|Number of times the actor service method threw an exception per second|
+
+### Concurrency events and performance counters
+The Fabric Actors runtime emits the following events related to [concurrency](service-fabric-fabact-introduction.md#concurrency).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ActorMethodCallsWaitingForLock|12|Verbose|0x8|This event is written at the start of each new turn in an actor. It contains  the number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency.|
+
+The Fabric Actors runtime publishes the following performance counters related to concurrency.
+
+|Category name|Counter name|Description|
+|---|---|---|
+|Service Fabric Actor|# of actor calls waiting for actor lock|Number of pending actor calls waiting to acquire the per-actor lock that enforces turn-based concurrency.|
+
+### Actor state management events and performance counters
+The Fabric Actors runtime emits the following events related to [actor state management](service-fabric-fabact-introduction.md#actor-state-management).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ActorSaveStateStart|10|Verbose|0x4|Actors runtime is about to save actor state.|
+|ActorSaveStateStop|11|Verbose|0x4|Actors runtime has finished saving actor state.|
+
+The Fabric Actors runtime publishes the following performance counters related to actor state management.
+
+|Category name|Counter name|Description|
+|---|---|---|
+|Service Fabric Actor|Average milliseconds per save state operation|Time taken to save actor state in milliseconds|
+
+### Events related to stateless actor instances
+The Fabric Actors runtime emits the following events related to [stateless actor instances](service-fabric-fabact-platform.md#service-fabric-partition-concepts-for-stateless-actors).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ServiceInstanceOpen|3|Informational|0x1|Stateless actor instance opened. This implies that the actors for this partition can be created inside this instance (and possibly other instances too).|
+|ServiceInstanceClose|4|Informational|0x1|Stateless actor instance closed. This implies that the actors for this partition will no longer be created inside this instance. No new requests will be delivered to actors already created within this instance. The actors will be destroyed after any in-progress requests are completed.|
+
+### Events related to stateful actor replicas
+The Fabric Actors runtime emits the following events related to [stateful actor replicas](service-fabric-fabact-platform.md#service-fabric-partition-concepts-for-stateful-actors).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ReplicaChangeRoleToPrimary|1|Informational|0x1|Stateful actor replica changed role to Primary. This implies that the actors for this partition will be created inside this replica.|
+|ReplicaChangeRoleFromPrimary|2|Informational|0x1|Stateful actor replica changed role to non-Primary. This implies that the actors for this partition will no longer be created inside this replica. No new requests will be delivered to actors already created within this replica. The actors will be destroyed after any in-progress requests are completed.|
+
+### Actor activation and deactivation events
+The Fabric Actors runtime emits the following events related to [actor activation and deactivation](service-fabric-fabact-lifecycle.md).
+
+|Event name|Event Id|Level|Keywords|Description|
+|---|---|---|---|---|
+|ActorActivated|5|Informational|0x1|An actor has been activated.|
+|ActorDeactivated|6|Informational|0x1|An actor has been deactivated.|

@@ -32,6 +32,8 @@ What happens on Actor Deactivation?
 - When an actor is not used for some period of time, it is removed from the table of Active Actors.
 - `OnDeactivateAsync` method (which can be overridden in actor implementation) is called which clears all the timers for the actor.
 
+> [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-fabact-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
+
 ## Actor Garbage Collection
 The Actors runtime periodically scans for actors that have not been used for some period of time, and deactivates them. Once they are deactivated they can be garbage collected by CLR.
 
