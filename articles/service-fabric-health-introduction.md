@@ -33,8 +33,10 @@ The health entities are organized in a logical hierarchy that captures interacti
 
 The health entities and hierarchy allow for effective reporting, debugging and monitoring of the cluster and applications. The health model allows an accurate, **granular** representation of the health of the many moving pieces in the cluster.
 
-![Health Entities.][1] The health entities, organized in an hierarchy based on parent-children relationships.
-[1]: ./media/service-fabric-health\servicefabric-health-hierarchy.png
+![Health Entities.][1]
+The health entities, organized in an hierarchy based on parent-children relationships.
+
+[1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
 The health entities are:
 
@@ -87,8 +89,8 @@ The following is an excerpt from a cluster manifest:
 <FabricSettings>
   <Section Name="HealthManager/ClusterHealthPolicy">
     <Parameter Name="ConsiderWarningAsError" Value="False" />
-    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
     <Parameter Name="MaxPercentUnhealthyApplications" Value="0" />
+    <Parameter Name="MaxPercentUnhealthyNodes" Value="20" />
   </Section>
 </FabricSettings>
 ```
@@ -138,18 +140,27 @@ Users or automated services can evaluate health for any entity at any point in t
 One entity can have multiple health reports sent by different “reporters” (system components or watchdogs) on different properties. The aggregation uses the associated health policies, in particular the ConsisderWarningAsError member which specifies how to evaluate warnings.
 
 The aggregated health state is triggered by the “worst” health reports on the entity. If there is at least one Error health report, the aggregated health state is Error.
-![Health Report Aggregation with Error Report.][2] Error health report triggers the health entity to be in Error state.
-[2]: ./media/service-fabric-health\servicefabric-health-report-eval-error.png
 
-If there are no Error reports, and one or more Warning, the aggregated health state is either Warning or Error, depending on the  ConsiderWarningAsError policy flag.
-![Health Report Aggregation with Warning Report and ConsierWarningAsError false.][3] Health Report Aggregation with Warning Report and ConsierWarningAsError false (default).
-[3]: ./media/service-fabric-health\servicefabric-health-report-eval-warning.png
+![Health Report Aggregation with Error Report.][2]
+
+Error health report triggers the health entity to be in Error state.
+
+[2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
+
+If there are no Error reports, and one or more Warning, the aggregated health state is either Warning or Error, depending on the ConsiderWarningAsError policy flag.
+
+![Health Report Aggregation with Warning Report and ConsiderWarningAsError false.][3]
+
+Health Report Aggregation with Warning Report and ConsiderWarningAsError false (default).
+
+[3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
 ### Children entities health aggregation
 The aggregated health state of an entity reflects the children health states (when applicable). The algorithm for aggregating children health states uses the health policies applicable based on the entity type.
 
 ![Children entities health aggregation.][4] Children aggregation based on health policies.
-[4]: ./media/service-fabric-health\servicefabric-health-hierarchy-eval.png
+
+[4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
 After evaluating all children, the Health Store aggregates the health states based on the configured max percent unhealthy taken from the policy based on the entity and child type.
 

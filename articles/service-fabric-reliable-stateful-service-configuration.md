@@ -21,6 +21,8 @@ Reliable Stateful Service's default configuration can be modified by changing th
 
 Service-Fabric runtime looks for pre-defined section names in the "settings.xml" file and consumes the configuration values while creating the underlying runtime components.
 
+> [AZURE.NOTE] Do **NOT** delete/modify the section names of the following configurations in the "settings.xml" file that is generated in the Visual Studio Solution.
+
 ## Replicator Security Configuration
 Replicator Security Configurations are used to secure the communication channel that is used during replication.
 ### Section Name
