@@ -22,6 +22,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Choose a Programming Model](service-fabric-choose-framework.md)
 - [Introduction to the Service Fabric Actor Model](service-fabric-reliable-actors-introduction.md)
 - [Reliable Service Programming Model Introduction](service-fabric-reliable-services-introduction.md)
+- [Communicating with services](service-fabric-connect-and-communicate-with-services.md)
 
 ## Reliable Actor programming model
  Reliable Actors provide an asynchronous, single-threaded actor model. The actors represent the unit of state and computation that are distributed throughout the cluster to achieve high scalability. Reliable Actor model leverages the distributed store provided by underlying Service Fabric platform to provide highly available and consistent state management for the application developers.  To learn more, read:
@@ -38,6 +39,8 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Actor Events](service-fabric-reliable-actors-events.md)
 - [Actor Reentrancy](service-fabric-reliable-actors-reentrancy.md)
 - [Actor Timers](service-fabric-reliable-actors-timers-reminders.md)
+- [Actor Diagnostics](service-fabric-reliable-actors-diagnostics.md) 
+- [KVSActorStateProvider Configuration](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
 
 ## Reliable Service programming model
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
