@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/11/2014" 
+	ms.date="04/24/2015" 
 	ms.author="brettsam"/>
 
 # Recover your mobile service in the event of a disaster
