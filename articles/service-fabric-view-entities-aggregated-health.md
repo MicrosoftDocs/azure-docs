@@ -50,8 +50,11 @@ Service Fabric Explorer provides a visual view of the cluster. In the picture be
 
 The evaluation uses default policies from cluster manifest and application manifest, which are the strict policies (do not tolerate any failure).
 
-![View of the cluster with ServiceFabricExplorer.][1] View of the cluster with ServiceFabricExplorer.
-[1]: ./media/service-fabric-health\servicefabric-explorer-cluster-health.png
+![View of the cluster with ServiceFabricExplorer.][1]
+
+View of the cluster with ServiceFabricExplorer.
+
+[1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
 
 > [AZURE.NOTE] Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
@@ -130,15 +133,15 @@ UnhealthyEvaluations    :
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Warning'.
 
-                              Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
 
-                              Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Warning'.
+                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Warning'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                  Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Warning'.
+                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Warning'.
 
-                                      Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 NodeHealthStates        :
                           NodeName              : Node.4
@@ -186,15 +189,15 @@ UnhealthyEvaluations    :
 
                           Unhealthy application: ApplicationName='fabric:/WordCount', AggregatedHealthState='Error'.
 
-                              Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
+                          Unhealthy services: 100% (1/1), ServiceType='WordCount.Service', MaxPercentUnhealthyServices=0%.
 
-                              Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
+                          Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
 
-                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                          Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                  Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Error'.
+                          Unhealthy partition: PartitionId='889909a3-04d6-4a01-97c1-3e9851d77d6c', AggregatedHealthState='Error'.
 
-                                      Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
 
 
 NodeHealthStates        : None
@@ -336,12 +339,12 @@ UnhealthyEvaluations            :
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service',
                                   AggregatedHealthState='Warning'.
 
-                                      Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                      Unhealthy partition: PartitionId='325da69f-16d4-4418-9c30-1feaa40a072c',
+                                  Unhealthy partition: PartitionId='325da69f-16d4-4418-9c30-1feaa40a072c',
                                   AggregatedHealthState='Warning'.
 
-                                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning',
+                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning',
                                   ConsiderWarningAsError=false.
 
 ServiceHealthStates             :
@@ -399,11 +402,11 @@ UnhealthyEvaluations            :
 
                                   Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
 
-                                      Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                  Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                      Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Error'.
+                                  Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Error'.
 
-                                          Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
+                                  Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=true.
 
 ServiceHealthStates             :
                                   ServiceName           : fabric:/WordCount/WordCount.Service
@@ -457,7 +460,7 @@ UnhealthyEvaluations  :
 
                         Unhealthy partition: PartitionId='8f82daff-eb68-4fd9-b631-7a37629e08c0', AggregatedHealthState='Warning'.
 
-                            Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
 
 PartitionHealthStates :
                         PartitionId           : 8f82daff-eb68-4fd9-b631-7a37629e08c0
@@ -794,7 +797,7 @@ CurrentUpgradeDomainProgress  : UD1
                                 NodeName            : Node3
                                 UpgradePhase        : PreUpgradeSafetyCheck
                                 PendingSafetyChecks :
-                                    EnsurePartitionQuorum - PartitionId: 30db5be6-4e20-4698-8185-4bd7ca744020
+                                EnsurePartitionQuorum - PartitionId: 30db5be6-4e20-4698-8185-4bd7ca744020
 NextUpgradeDomain             : UD2
 UpgradeDomainsStatus          : { "UD1" = "Completed";
                                 "UD2" = "Pending";
@@ -805,15 +808,15 @@ UnhealthyEvaluations          :
 
                                 Unhealthy service: ServiceName='fabric:/WordCount/WordCount.Service', AggregatedHealthState='Error'.
 
-                                    Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
+                                Unhealthy partitions: 100% (1/1), MaxPercentUnhealthyPartitionsPerService=0%.
 
-                                    Unhealthy partition: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', AggregatedHealthState='Error'.
+                                Unhealthy partition: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', AggregatedHealthState='Error'.
 
-                                        Unhealthy replicas: 16% (1/6), MaxPercentUnhealthyReplicasPerPartition=0%.
+                                Unhealthy replicas: 16% (1/6), MaxPercentUnhealthyReplicasPerPartition=0%.
 
-                                        Unhealthy replica: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', ReplicaOrInstanceId='130741105362491906', AggregatedHealthState='Error'.
+                                Unhealthy replica: PartitionId='30db5be6-4e20-4698-8185-4bd7ca744020', ReplicaOrInstanceId='130741105362491906', AggregatedHealthState='Error'.
 
-                                            Error event: SourceId='DiskWatcher', Property='Disk'.
+                                Error event: SourceId='DiskWatcher', Property='Disk'.
 
 UpgradeKind                   : Rolling
 RollingUpgradeMode            : UnmonitoredAuto

@@ -135,6 +135,9 @@ In the sample, <i>hdiv2</i> is an HDInsight cluster name.
 
 This can also be done via the Azure portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
+##Scale clusters
+See [Scale Hadoop clusters in HDInsight](hdinsight-hadoop-cluster-scaling.md).
+
 ##Submit MapReduce jobs
 The HDInsight cluster distribution comes with some MapReduce samples. One of the samples is for counting word frequencies in source files.
 
@@ -150,8 +153,7 @@ The following Azure PowerShell script submits the word-count sample job:
 	# Run the job and show the standard error 
 	$wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 	
-For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-
-storage].
+For information about the **wasb** prefix, see [Use Azure Blob storage for HDInsight][hdinsight-storage].
 
 **To download the MapReduce job output**
 

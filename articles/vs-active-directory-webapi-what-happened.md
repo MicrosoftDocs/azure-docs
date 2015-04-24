@@ -34,7 +34,6 @@ References have been added.
 - `Microsoft.Owin.Security.ActiveDirectory`
 - `Microsoft.Owin.Security.Jwt`
 - `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt`
 
@@ -46,7 +45,6 @@ References have been added.
 - `Microsoft.Owin.Security.ActiveDirectory`
 - `Microsoft.Owin.Security.Jwt`
 - `Microsoft.Owin.Security.OAuth`
-- `Newtonsoft.Json`
 - `Owin`
 - `System.IdentityModel.Tokens.Jwt` 
 
@@ -56,7 +54,7 @@ An authentication startup class, **App_Start/Startup.Auth.cs** was added to your
 
 #####Startup code was added to your project 
 
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)` was added to that method. Otherwise, a Startup class was added to your project. 
+If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)`. Otherwise, a Startup class was added to your project. 
 
 
 #####Your app.config or web.config file has new configuration values.
