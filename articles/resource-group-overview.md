@@ -3,7 +3,7 @@
    description="Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure."
    services="na"
    documentationCenter="na"
-   authors="tfitzmac"
+   authors="tfitzmac"Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management
    manager="wpickett"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="ibiza"
    ms.workload="na"
-   ms.date="04/13/2015"
+   ms.date="04/23/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview 

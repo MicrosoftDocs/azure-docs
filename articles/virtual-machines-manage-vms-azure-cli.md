@@ -20,12 +20,12 @@
 
 Many tasks you do each day to manage your VMs can by automated by using the Azure CLI. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
->[AZURE.NOTE] If you haven't installed and configured the Azure CLI yet, you can get instructions [here](xplat-cli-install.md).
+>[AZURE.NOTE] If you haven't installed and configured the Azure CLI yet, you can get instructions [here](xplat-cli-install.md). If you want a quickstart for the same tasks in PowerShell, see [Manage your VMs using Azure PowerShell](virtual-machines-manage-vms-powershell.md).
 
 ## How to Use the Example Commands
 You'll need to replace some of the text in the commands with text that's appropriate for your environment. The < and > symbols indicate text you need to replace. When you replace the text, remove the symbols but leave the quote marks in place. 
 
-> [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)**, or language libraries good for the task. This topic contains small scripts using **jq**, which you can use on all platforms.
+> [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)**, or language libraries good for the task. 
 
 ## Show information about a VM
 
@@ -44,7 +44,7 @@ or you can pipe the stdout to a file.
 ## Log on to a Linux-based virtual machine
 
 Typically Linux machines are connected to through SSH. For more information, see [How to Use SSH with Linux on Azure](virtual-machines-linux-use-ssh-key.md).
-
+Azure Resource Manager Overview
 ## Stop a VM
 
 Run this command:
@@ -56,12 +56,10 @@ Run this command:
 ## Start a VM
 
 Run this command:
-
+Azure Resource Manager Overview
     azure vm start <group name> <virtual machine name>
 
 ## Attach a Data Disk
-
-This task requires a few steps. First, you use the ****Add-AzureDataDisk**** cmdlet to add the disk to the $vm object, then you use Update-AzureVM cmdlet to update the configuration of the VM.
 
 You'll also need to decide whether to attach a new disk or one that contains data. For a new disk, the command creates the .vhd file and attaches it in the same command.
 
@@ -75,11 +73,20 @@ To attach an existing data disk, run this command:
 
 ## Create a Linux VM
 
-To create a new Linux-based virtual machine in Azure, use the instructions in 
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md). This topic steps you through the creation of a PowerShell command set that creates a Windows virtual machine that can be pre-configured with:
+To create a new Linux-based VM, you're going to need to have several values on hand, including a resource group name, a location, an image name, a vm name, and a storage account to store the backing .vhd image. Once you have the information you want to use, the Azure CLI can create an interactive session to prompt you for those values by typing:
 
-- Active Directory domain membership
-- Additional disks
-- As a member of an existing load-balanced set
-- A static IP address
+    azure vm create
+    
+Of course, if you already have those values you can find the proper switches to pass them directly by typing `azure help vm create`. 
+
+## Next steps
+
+For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
+
+
+
+
+
+
+
 
