@@ -3,7 +3,7 @@
    description="Diagnostic Functionalitys for Stateful Reliable Services"
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="AlanWarwick"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/20/2015"
-   ms.author="alanwar"/>
+   ms.author="ryanwi"/>
 
 # Introduction
 The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events 
