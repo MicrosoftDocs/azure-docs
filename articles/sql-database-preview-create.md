@@ -39,7 +39,7 @@
 | 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](resource-group-overview.md)|![Specify Resource group][11]
 | 10. Click **Create**. A new database with SQL Database V12 features is created. |![Creates a new database][12]
 
-# Related Links  #
+## Related Links  #
 
 -  [What's new in Azure SQL Database](./sql-database-preview-whats-new/)
 - [Plan and Prepare to Upgrade to Azure SQL Database V12](sql-database-preview-plan-prepare-upgrade.md)
