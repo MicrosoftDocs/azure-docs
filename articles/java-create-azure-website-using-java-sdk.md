@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a web app in Azure App Service using the Azure SDK for Java" 
-	description="Learn how to create a web app on Azure App Service programmatically using the Azure SDK for Java." 
+	pageTitle="Create a Web App in Azure App Service using the Azure SDK for Java" 
+	description="Learn how to create a Web App on Azure App Service programmatically using the Azure SDK for Java." 
 	tags="azure-classic-portal"
 	services="app-service\web" 
 	documentationCenter="Java" 
@@ -24,9 +24,9 @@
 
 ## Overview
 
-This walkthrough shows you how to create an Azure SDK for Java application that creates a web app on [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), then deploy an application to it. It consists of two parts:
+This walkthrough shows you how to create an Azure SDK for Java application that creates a Web App in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714), then deploy an application to it. It consists of two parts:
 
-- Part 1 demonstrates how to build a Java application that creates an App Service web app.
+- Part 1 demonstrates how to build a Java application that creates a web app.
 - Part 2 demonstrates how to create a simple JSP "Hello World" application, then use an FTP client to deploy code to App Service.
 
 
@@ -129,7 +129,7 @@ In the Windows Command Prompt (running as admin), cd to the directory containing
 The two passwords do not have to be the same. You can enter no password, although this is not recommended.
 
 
-## Build a web app creation application -->
+## Build a Web App creation application
 
 ### Create the Eclipse Workspace and Maven Project
 
@@ -170,7 +170,7 @@ In this section you create a workspace and a Maven project for the web app creat
 Click **OK**. The Azure packages then appear in the **Dependencies** list.
 
 
-### Writing Java Code to Create a web app by Calling the Azure SDK
+### Writing Java Code to Create a Web App by Calling the Azure SDK
 
 Next, write the code that calls APIs in the Azure SDK for Java to create the App Service web app.
 
@@ -183,7 +183,7 @@ Next, write the code that calls APIs in the Azure SDK for Java to create the App
 3. Click **Finish**. The WebCreator.java file appears in Project Explorer.
 
 
-### Calling the Azure API to Create an App Service web app
+### Calling the Azure API to Create an App Service Web App
 
 
 #### Add necessary imports
@@ -215,7 +215,7 @@ In WebCreator.java, add the following imports; these imports provide access to c
 
 #### Define the main entry point class
 
-Because the purpose of the AzureWebDemo application is to create an App Service web app, name the main class for this application `WebAppCreator`. This class provides the main entry point code that calls the Azure Service Management API to create the web app.
+Because the purpose of the AzureWebDemo application is to create an App Service Web App, name the main class for this application `WebAppCreator`. This class provides the main entry point code that calls the Azure Service Management API to create the web app.
 
 Add the following parameter definitions for the web app and webspace. You will need to provide your own Azure subscription ID and certificate information.
 
