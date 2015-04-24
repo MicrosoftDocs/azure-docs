@@ -3,7 +3,7 @@
    description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -206,24 +206,24 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
+All it really does is leverage Reliable Actors' ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/distributedNetworks_arch1.png
-[2]: ./media/service-fabric-fabact/distributedNetworks_arch2.png
+[1]: ./media/service-fabric-reliable-actors/distributedNetworks_arch1.png
+[2]: ./media/service-fabric-reliable-actors/distributedNetworks_arch2.png

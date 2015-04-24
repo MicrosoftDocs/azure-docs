@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Azure Service Fabric Actors  introduction to patterns & anti-patterns"
+   pageTitle="Azure Service Fabric Actors introduction to patterns & anti-patterns"
    description="design patterns that work well with Service Fabric Actors"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -26,19 +26,19 @@ These patterns represent classes of problems that are applicable to a wide range
 While the scenarios are based on real cases we have stripped out most of the domain-specific concerns to make the patterns clearer for the reader. You may find that much of the sample code is simple or obvious. We are including that code for the sake of completeness and not because it’s anything particularly clever or impressive.
 The patterns presented in this paper are not intended to be comprehensive or canonical—some developers might solve the same problem or pattern a different way than we present.
 
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
 ### Learn more about Actors, a brief history
 The [paper](http://dl.acm.org/citation.cfm?id=1624804) by Hewitt et al. that is the origin of the actor model was published in 1973 yet it is only comparatively recently that the actor model has been gaining more attention as a means of dealing with concurrency and complexity in distributed systems.

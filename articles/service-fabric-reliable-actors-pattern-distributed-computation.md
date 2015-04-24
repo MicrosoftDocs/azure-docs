@@ -3,7 +3,7 @@
    description="Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -186,20 +186,20 @@ At this point, it should be clear how we could potentially enhance the Leaderboa
 We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing. There are some things it is just built to handle better than others. However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Internet of Things](service-fabric-fabact-pattern-internet-of-things.md)
+[Pattern: Internet of Things](service-fabric-reliable-actors-pattern-internet-of-things.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/distributed-computation-1.png
+[1]: ./media/service-fabric-reliable-actors/distributed-computation-1.png

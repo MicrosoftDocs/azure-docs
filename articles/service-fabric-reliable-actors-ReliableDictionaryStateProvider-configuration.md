@@ -3,7 +3,7 @@
    description="Learn about configuring Service Fabric Stateful actors of type 'ReliableDictionaryActorStateProvider'"
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="sumukhs"
+   authors="jessebenson"
    manager="vipulm"
    editor=""/>
 

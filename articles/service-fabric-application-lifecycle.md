@@ -34,7 +34,7 @@ The service model roles are:
 
 
 ## Develop
-1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-fabact-introduction.md) or [Reliable Services](service-fabric-reliable-services-introduction.md) programming model.
+1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-reliable-actors-introduction.md) or [Reliable Services](service-fabric-reliable-services-introduction.md) programming model.
 2. A *service developer* declaratively describes the developed service types in a service manifest file consisting of one or more code, configuration, and data packages.
 3. An *application developer* then builds an application using different service types.
 4. An *application developer* declaratively describes the application type in an application manifest by referencing the service manifests of the constituent services and appropriately overriding and parameterizing different configuration and deployment settings of the constituent services.
