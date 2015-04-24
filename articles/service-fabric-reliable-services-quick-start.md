@@ -12,7 +12,7 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="required"
+   ms.workload="na"
    ms.date="04/17/2015"
    ms.author="vturecek@microsoft.com"/>
 
