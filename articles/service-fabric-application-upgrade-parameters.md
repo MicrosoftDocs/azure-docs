@@ -21,14 +21,14 @@
 
 # Application Upgrade Parameters
 
-This article describes the various parameters that apply during the upgrade of a Service Fabric application.  The parameters include the name and version of the application, and are knobs that control the timeouts and health checks that are applied during the upgrade and specify the policies must be applied when an upgrade fails. 
+This article describes the various parameters that apply during the upgrade of a Service Fabric application.  The parameters include the name and version of the application, and are knobs that control the timeouts and health checks that are applied during the upgrade and specify the policies must be applied when an upgrade fails.
 
 
 <br>
 
 | Parameter | Description |
 | --- | --- |
-| ApplicationName | Name of the application that is being upgraded. Examples:fabric:/VisualObjectsfabric:/ClusterMonitor  |
+| ApplicationName | Name of the application that is being upgraded. Examples:fabric:/VisualObjects, fabric:/ClusterMonitor  |
 | TargetApplicationTypeVersion | The version of the application type that the upgrade targets. |
 | FailureAction | The FailureAction property describes the action to be taken by Service Fabric if the upgrade fails. The application may be rolled back to the last version prior to the update (Rollback), or stop the application upgrade at the current upgrade domain and change the upgrade mode to manual.  Allowed values are Rollback and Manual. |
 | HealthCheckWaitDurationSec | The time to wait (in seconds) after the upgrade has completed on the upgrade domain before Service Fabric evaluates the health of the application. This duration can also be considered as the time an application should be running before it can be considered healthy. If the health check passes, the upgrade process proceeds to the next upgrade domain.  If the health check fails, Service Fabric waits for an interval (the UpgradeHealthCheckInterval) before retrying the health check again until the HealthCheckRetryTimeout is reached. The default and recommended value is 0 seconds. |
