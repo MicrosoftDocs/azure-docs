@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jaymathe"/> 
 
 
@@ -83,7 +83,7 @@ There are multiple ways of consuming the service in an automated fashion (an exa
 
 >This web service was created using Azure Machine Learning. For a free trial, as well as introductory videos on creating experiments and [publishing web services](machine-learning-publish-a-machine-learning-web-service.md), please see [azure.com/ml](http://azure.com/ml). Below is a screenshot of the experiment that created the web service and example code for each of the modules within the experiment.
 
-From within Azure Machine Learning, a new blank experiment was created with two “Execute R Scripts”. In the first module the data schema is defined, while the second module uses the prop.test command within R to perform the hypothesis test for 2 proportions. 
+From within Azure Machine Learning, a new blank experiment was created with two [Execute R Script][execute-r-script] modules. In the first module the data schema is defined, while the second module uses the prop.test command within R to perform the hypothesis test for 2 proportions. 
 
 
 ###Experiment flow:
@@ -124,3 +124,7 @@ For frequently asked questions on consumption of the web service or publishing t
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
 [2]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img2.png
+
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
