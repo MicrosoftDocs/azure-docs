@@ -52,7 +52,7 @@ When using SQL Database as an output target, very high volumes of output data ma
 
 PowerBI does not support more than one table in a given dataset.
 
-## Get Help
+## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
