@@ -100,8 +100,6 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Upgrade Parameters](service-fabric-application-upgrade-parameters.md) **owner: subramar**
 
-- [Application Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md) **owner: subramar**
-
 - [Advanced Topics](service-fabric-application-upgrade-advanced.md) **owner: subramar**
 
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md) **owner: subramar**
