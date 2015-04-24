@@ -69,7 +69,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 In this tutorial, we will focus on the `RunAsync()` entry point method where you can immediately start running your code. 
 The project template includes an example implementation of `RunAsync()` that increments a rolling count.
 
- > [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-fabsrv-communication-webapi.md)
+ > [AZURE.NOTE] For details on working with a communication stack, check out [Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
 
 
 ### RunAsync
@@ -150,7 +150,7 @@ IReliableDictionary<string, long> myDictionary = await this.StateManager.GetOrAd
 
 ```
     
-**IReliableDictionary** represents a dictionary that lets you store state locally in the service reliably, part of Service Fabric's built-in [Reliable Collections](service-fabric-fabsrv-reliable-collections.md). Service Fabric makes your service and the state you store in Reliable Collections highly available.  With Service Fabric and Reliable Collections, you can now store data directly in your service reliably without the need for an external persistent store. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions. 
+**IReliableDictionary** represents a dictionary that lets you store state locally in the service reliably, part of Service Fabric's built-in [Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Service Fabric makes your service and the state you store in Reliable Collections highly available.  With Service Fabric and Reliable Collections, you can now store data directly in your service reliably without the need for an external persistent store. Service Fabric accomplishes this by creating and managing multiple *replicas* of your service for you while providing an API that abstracts away the complexities of managing those replicas and their state transitions. 
 
 Reliable Collections can store any .NET type - including your custom types - with a couple of caveats:
 
@@ -191,8 +191,8 @@ You can now build and deploy your services. Press **F5**, and your application w
 
 [Debugging your Service Fabric Application in Visual Studio](service-fabric-debugging-your-application.md)
 
-[Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-fabsrv-communication-webapi.md)
+[Getting Started with Microsoft Azure Service Fabric Web API Services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
 
-[Learn more about Reliable Collections](service-fabric-fabsrv-reliable-collections.md)
+[Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
 
-[Managing your services](service-fabric-fabsrv-managing-your-services.md)
+[Managing your services](service-fabric-reliable-services-managing-your-services.md)

@@ -22,7 +22,7 @@ Microservices and service-oriented architectural styles surface naturally in Ser
 
 Service-to-service communication is a critical integration point of an application as each service exposes a remote API to other services. Working with a set of API boundaries involving I/O generally requires some care with a good amount of testing and validation. 
 
-There are numerous considerations to maker when these service boundaries are wired together in a distributed system:
+There are numerous considerations to make when these service boundaries are wired together in a distributed system:
 
  - **Transport protocol**. Will it be HTTP for increased interoperability, or a custom binary protocol for maximum throughput?
  - **Error handling**. How are permanent and transient errors handled and what happens when a service moves to a different node?
@@ -34,12 +34,10 @@ Whether you're using one of the built-in service communication components provid
 
 Service instances may move around over time, especially when configured with load metrics for custom-tailored optimal resource balancing. Upgrades, failovers, scale-out, and other various situations that occur over the lifetime of a distributed system are where Service Fabric moves your service instances to maximize availability.
 
+As services move around in the cluster, there are two scenarios your clients and other services should be prepared to handle when talking to a service:
 
-
-As services move around in the cluster under normal operating circumstances, there are two scenarios your clients and other services should be prepared to handle when talking to a service:
-
- + The service instance or partition has moved since the last time you talked to it. This is a normal part of a service lifecycle and should be expected to happen during the lifetime of your application.
- + The service instance or partition is in the process of moving. Although failover of a service from one node to another occurs very quickly in Service Fabric, there may be a delay in availability if the communication component of your service is slow to start.
+ + The service instance or partition replica has moved since the last time you talked to it. This is a normal part of a service lifecycle and should be expected to happen during the lifetime of your application.
+ + The service instance or partition replica is in the process of moving. Although failover of a service from one node to another occurs very quickly in Service Fabric, there may be a delay in availability if the communication component of your service is slow to start.
 
 Handling these scenarios gracefully is important for a smooth-running system. To do so, we need to make a few considerations:
 
@@ -79,7 +77,7 @@ Using Service Fabric's Testability tools, we can author a test scenario to test 
 
 ### Service Availability
 
-Service Fabric is a platform that is designed to provide high-availability of your services. Underlying infrastructure problems can still cause unavailability however. Thus it is important to also test for such a scenario.
+Service Fabric is a platform that is designed to provide high-availability of your services. However, underlying infrastructure problems can still cause unavailability in extreme cases. Thus it is important to also test for such a scenario.
 
 Stateful services use a quorum-based system for replicating state for high-availability. This means a quorum of replicas need to be available in order to perform write operations. In rare cases, such as widespread hardware failure, a quorum of replicas may not be available. In this case, you will not be able to perform write operations, but you will still be able to perfom read operations.
 

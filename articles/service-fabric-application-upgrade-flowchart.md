@@ -20,6 +20,8 @@
 
 # Application Upgrade Flowchart
 
+The flowchart below aids with the understanding of the upgrade process of a Service Fabric application. In particular, the flow describes how the timeouts including *HealthCheckStableDuration*, *HealthCheckRetryTimeout* and *UpgradeHealthCheckInterval* help control when the upgrade in one upgrade domain is considered a success or a failure. 
+
 ![The Upgrade Process for a Service Fabric Application][image]
 
 ## Next steps
@@ -30,7 +32,7 @@
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 
 
 
