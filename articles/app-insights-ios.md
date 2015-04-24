@@ -41,7 +41,7 @@ The blade that opens is the place where you'll see performance and usage data ab
 
 1. Download Application Insights for Mac
 
-    [Download](http://go.microsoft.com/fwlink/?LinkID=533209)
+    [Download App](http://go.microsoft.com/fwlink/?LinkID=533209)
 
 2. Extract the zip file
 
