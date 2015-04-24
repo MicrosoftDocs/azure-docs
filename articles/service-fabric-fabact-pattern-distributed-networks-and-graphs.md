@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern" 
-   description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs" 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="clca" 
-   manager="timlt" 
+<properties
+   pageTitle="Azure Service Fabric Actors Distributed Networks and Graphs design pattern"
+   description="Design pattern on how Service Fabric Actors can be used to model application as distributed networks and graphs"
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="clca"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,7 +12,7 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="03/17/2015"
    ms.author="claudioc"/>
 
@@ -20,12 +20,12 @@
 Azure Fabric Service Actors is a natural fit for modeling complex solutions involving relations and modeling those relations as objects.  
 
 ![][1]
- 
+
 As the diagram illustrates it is straightforward to model a user as an actor instance (node in the network). For example, the “Friends Feed” (sometimes referred as the "follower" problem) allows users to view status updates from people they are connected to, similar to how Facebook and Twitter work.
 The Actor model provides flexibility to approach the materialization problem. We can populate the Friends Feed at event time, updating the Friends Feed of all my friends at the moment an update is posted, as illustrated below:
 
 ![][2]
- 
+
 
 ## Smart Cache code sample – Social Network Friends Feed (event time)
 
@@ -44,8 +44,8 @@ public interface ISocialPerson : IActor
 }
 
 [DataContract]
-Public class SocialPersonState {
-
+Public class SocialPersonState
+{
     [DataMember]
     public string _name; // my name
     [DataMember]
@@ -57,9 +57,9 @@ Public class SocialPersonState {
     [DataMember]
     public SocialStatus _lastStatus; // this is my last update
 }
+
 public class SocialPerson : Actor, ISocialPerson
 {
-
     public override Task ActivateAsync()
     {
         CreateOrRestoreState();
@@ -85,8 +85,12 @@ public class SocialPerson : Actor, ISocialPerson
 
     public Task UpdateStatus(string status)
     {
-        State._lastStatus = new SocialStatus() 
-    { Name = _name, Status = status, Timestamp = DateTime.UtcNow };
+        State._lastStatus = new SocialStatus()
+        {
+            Name = _name,
+            Status = status,
+            Timestamp = DateTime.UtcNow
+        };
         State._myFeed.Add(_lastStatus);
 
         var taskList = new List<Task>();
@@ -103,7 +107,7 @@ public class SocialPerson : Actor, ISocialPerson
     public Task UpdateFriendFeed(SocialStatus status)
     {
         State._friendsFeed.Add(status);
-    
+
         return TaskDone.Done;
     }
 
@@ -119,7 +123,7 @@ public class SocialPerson : Actor, ISocialPerson
 }
 ```
 
-Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materialising the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimise the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update. 
+Alternatively we can model our Actors to fan out and compile the Friends Feed at the query timer, in other words when the user asks for their friends feed. Another method we can use is materializing the Friends Feed on a timer, for example, every 5 minutes. Or, we can optimize the model and combine both event time and query time processing with a timer-based model depending on user habits, such as how often they login or post an update.
 When modelling an actor in a social network, one should also consider “super users,” users with millions of followers. Developers should model the state and behaviour of such users differently to meet the demand.
 Similarly, if we want to model an activity that connects many user actors to a single activity actor (hub and spoke) that can be done as well. Group chat or game hosting scenarios are two examples.
 Let’s take the group chat example; a set of participants create a group chat actor that can distribute messages from one participant to the group as in the example below:
@@ -136,8 +140,8 @@ public interface IGroupChat : IActor
 }
 
 [DataContract]
-public class GroupChatParticipantState {
-
+public class GroupChatParticipantState
+{
     [DataMember]
     Public long _groupChatId;
     [DataMember]
@@ -146,25 +150,23 @@ public class GroupChatParticipantState {
 
 public class GroupChatParticipant : Actor<GroupChatParticipantState>, IGroupParticipant
 {
-
     public Task SendMessageAsync(string message)
     {
-      if (State._groupChatId != -1)
-      {
-         var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
-         return groupChat.PublishMessageAsync(this.Id, message);
-      }
+        if (State._groupChatId != -1)
+        {
+            var groupChat = ActorProxy.Create<IGroupChat>(State._groupChatId);
+            return groupChat.PublishMessageAsync(this.Id, message);
+        }
 
-      return TaskDone.Done;
+        return TaskDone.Done;
     }
 
     ...
-
 }
 
 [DataContract]
-public class GroupChatState {
-
+public class GroupChatState
+{
     [DataMember]
     Public List<long> _participants;
     [DataMember]
@@ -204,10 +206,10 @@ public Task PublishMessageAsync(long participantId, string message)
 }
 ```
 
-All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialisation, or routing. 
+All it really does is leverage Fabric Service Actors ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
 
 ## Next Steps
-[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
 
 [Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
 
