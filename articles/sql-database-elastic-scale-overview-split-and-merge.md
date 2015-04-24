@@ -1,11 +1,11 @@
 <properties 
-	title="Splitting and Merging with Elastic Scale" 
-	pageTitle="Splitting and Merging with Elastic Scale" 
-	description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." 
-	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	title="Scaling using the elastic database split-merge tool" 
+	pageTitle="Scaling using the elastic database split-merge tool" 
+	description="Explains how to manipulate shards and move data via a self-hosted service using elastic database APIs." 
+	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases
 	services="sql-database" documentationCenter="" 
-	manager="stuarto" 
-	authors="torsteng@microsoft.com"/>
+	manager="jeffreyg" 
+	authors="sidneyh"/>
 
 <tags 
     ms.service="sql-database" 
@@ -13,30 +13,40 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/24/2015" 
-    ms.author="torsteng" />
+    ms.date="04/24/2015" 
+    ms.author="sidneyh" />
 
-# Splitting and merging with Elastic Scale
+# Scaling using the elastic database split-merge tool
 
-Applications built on Azure SQL Database face challenges when their data or processing needs no longer fit a single scale unit in Azure SQL Database. Examples include applications that go viral or where a particular set of tenants grow beyond the limits of a single Azure SQL DB database. The Elastic Scale **Split-merge Service** greatly eases this pain. 
+Azure SQL Database offers a variety of ways to scale an application's data tier as business demands change.   Example situations include handling applications that go viral or particular tenants pushing a database to its limits. Options for scaling include: 
 
-This discussion of the Split-Merge Service manages scale-in and scale-out by changing the number of Azure DB databases and balancing the distribution of **shardlets** among them. (For term definitions, see [Elastic Scale Glossary](sql-database-elastic-scale-glossary.md)). 
+* Elastic database pools allow databases within a pool to individually grow and shrink resources consumed based on demand, while maintaining a predictable total price for the pool as a whole.  Databases can also be added or removed from the pool to support new or departing tenants. For more information, see elastic database pools. 
 
-With the current choices between Azure SQL DB editions, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by Split-Merge – see Shard Elasticity instead [Elastic Scale Shard Elasticity](sql-database-elastic-scale-elasticity.md)). 
+* Explicitly increasing or decreasing a database's resources by changing editions or performance tiers, manually or based on policy (see Shard Elasticity) 
+
+* Changing the distribution of data among shards – often in conjunction with growing or shrinking the total number of databases for a shard set. This is known as split-merge, and is often needed when multiple end customers (tenants) are managed within the same shard.  
+
+This last scenario is addressed by the elastic database split-merge tool, and is important when the simpler alternatives of vertical scaling or simply adding a new database for a new tenant are insufficient.   The split-merge tool manages scale-in and scale-out – you can add or remove databases from your shard set and use the split-merge tool to rebalance the distribution of shardlets among them. (For term definitions, see Elastic Scale Glossary). 
+
+With the current choices between Azure SQL Database tiers, capacity can also be managed by scaling up or down the capacity of a single Azure SQL DB database. The scale-up/down dimension of elastic capacity management is not covered by Split-Merge – see Shard Elasticity instead.  
+
  
 ## What's new in Split-Merge
 
-The latest release of Split-Merge provides the following improvements:
-* List shard maps are now supported.
+The most recent releases of the split-merge tool provides the following improvements:  
+
+* .Net APIs are included to interface with split-merge – the web role is now optional 
+* Date and time types are now supported for sharding keys 
+* List shard maps are now supported.  
 * Range boundaries in requests can match more easily with ranges stored in the shard map.
-* Multiple worker role instances are now supported to improve availability.
-* Credentials stored as part of your Split-Merge operation are now encrypted at rest.
+* Multiple worker role instances are now supported to improve availability.  
+* Credentials stored as part of your split-merge operation are now encrypted at rest.
 
 ## How to upgrade
 
 To upgrade to the latest version of Split-Merge, follow these steps:
 
-1. Download the latest version of the Split-Merge package from NuGet as described in the Split-Merge Getting Started tutorial section “Download the Split-Merge packages”.
+1. Download the latest version of the Split-Merge package from NuGet as described in [Download the Split-Merge packages](sql-database-elastic-scale-configure-deploy-split-and-merge.md#download-the-Split-Merge-packages).
 2. Change your cloud service configuration file for your Split-Merge deployment to reflect the new configuration parameters. A new required parameter is the information about the certificate used for encryption. An easy way to do this is to compare the new configuration template file from the download against your existing configuration. Make sure you add the settings for “DataEncryptionPrimaryCertificateThumbprint” and “DataEncryptionPrimary” for both the web and the worker role.
 3. Before deploying the update to Azure, ensure that all currently running Split-Merge operations have finished. You can easily do this by querying the RequestStatus and PendingWorkflows tables in the Split-Merge metadata database for ongoing requests.
 4. Update your existing cloud service deployment for Split-Merge in your Azure subscription with the new package and your updated service configuration file.
@@ -171,19 +181,46 @@ The Split-Merge Service provides the **RequestStatus** table in the metadata sto
 * **Details**: An XML value that provides a more detailed progress report. The progress report is periodically updated as sets of rows are copied from source to target. In case of failures or exceptions, this column also includes more detailed information about the failure.
 
 
-### Azure Diagnostics 
+### Azure Diagnostics
 
-The service template for Split-Merge is pre-configured to use WAD (Microsoft Azure Diagnostic) storage for additional detailed logging and diagnostics storage. You control the configuration for WAD such as the storage account and credentials through your service configuration file for Split-Merge. The WAD configuration for the service follows the guidance from [Cloud Service Fundamentals](http://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and Split-Merge application event logs. You can easily access these logs from the Visual Studio Server Explorer in the Azure part of the Explorer tree:
+The Split-Merge service uses Azure Diagnostics based on Azure SDK 2.5 for monitoring and diagnostics. You control the diagnostics configuration as explained here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md). The download package includes two diagnostics configurations – one for the web role and one for the worker role. These diagnostics configurations for the service follow the guidance from [Cloud Service Fundamentals in Windows Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). It includes the definitions to log Performance Counters, IIS logs, Windows Event Logs, and Split-Merge application event logs.  
 
-![Azure Diagnostics][2]   
+## Deploying Diagnostics 
 
-The WADLogsTable highlighted in the figure above contains the detailed events from the Split-Merge service’s application log. Note that the default configuration of the downloaded package is geared towards a production deployment. Therefore the interval at which logs and counters are pulled from the service instances is large (5 minutes). For test and development, lower the interval by adjusting the diagnostics settings of the web or the worker role to your needs. Right-click on the role in the Visual Studio Server Explorer (see above) and then adjust the Transfer Period in the dialog for the Diagnostics configuration settings:
+To enable monitoring and diagnostics using the diagnostic configuration for the web and worker roles provided by the NuGet package, run the following commands using Azure PowerShell: 
+
+	$storage_name = "<YourAzureStorageAccount>" 
+	
+	$key = "<YourAzureStorageAccountKey" 
+	
+	$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+	
+	
+	$config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml" 
+	
+	$service_name = "<YourCloudServiceName>" 
+	
+	Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb" 
+	
+	
+	$config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml" 
+	
+	$service_name = "<YourCloudServiceName>" 
+	
+	Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
+
+You can find more information on how to configure and deploy diagnostics settings here: [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+
+## Retrieving diagnostics 
+
+You can easily access your diagnostics from the Visual Studio Server Explorer in the Azure part of the Server Explorer tree. Open a Visual Studio instance, and in the menu bar click View, and Server Explorer. Click the Azure icon to connect to your Azure subscription. Then navigate to Azure -> Storage -> <your storage account> -> Tables -> WADLogsTable. For more information, see [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx).  
+
+![WADLogsTable][2]
+
+The WADLogsTable highlighted in the figure above contains the detailed events from the Split-Merge service’s application log. Note that the default configuration of the downloaded package is geared towards a production deployment. Therefore the interval at which logs and counters are pulled from the service instances is large (5 minutes). For test and development, lower the interval by adjusting the diagnostics settings of the web or the worker role to your needs. Right-click on the role in the Visual Studio Server Explorer (see above) and then adjust the Transfer Period in the dialog for the Diagnostics configuration settings: 
 
 ![Configuration][3]
 
-
-The different tabs in the dialog control the different log types – each of them has their own Transfer period setting. 
-Visibility into the logs and the counters in WAD will typically be required for the Microsoft teams in case there are issues with your Split-Merge service deployment. You can use tools such as the [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/) to export WAD logs into easily sharable CSV files. 
 
 ## Performance
 
