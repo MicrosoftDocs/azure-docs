@@ -167,7 +167,7 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 - [ReliableDictionaryActorStateProvider Configuration](service-fabric-fabact-ReliableDictionaryStateProvider-configuration.md) **owner: sumukhs**
 
 #### Reliable Services
-- [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  **owners: masnider, richhas**
+- [Programming Model Overview](service-fabric-reliable-services-introduction.md)  **owners: masnider, richhas**
 
 - [Architecture](service-fabric-fabsrv-platform-architecture.md) **owner: alanwar**
 
