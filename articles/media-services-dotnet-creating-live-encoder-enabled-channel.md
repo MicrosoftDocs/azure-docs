@@ -76,8 +76,8 @@ The topic shows how to do the following:
 The following are required to complete the tutorial.
 
 - To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
-For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5").
-- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md)..
+For details, see [Azure Free Trial](azure.microsoft.com).
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - Visual Studio 2010 SP1 or higher.
 - A webcam and an encoder that can send a single bitrate live stream.
 
