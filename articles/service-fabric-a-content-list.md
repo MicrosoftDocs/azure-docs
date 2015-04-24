@@ -121,15 +121,15 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ### Health
-[Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
+[Introduction to Service Fabric Health Monitoring](service-fabric-health-introduction.md) **owner: oanapl**
 
-[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+[How to view Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 **owner: oanapl**
 
-[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 **owner: oanapl**
 
-[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+[Adding custom Service Fabric health reports](service-fabric-report-health.md)
 **owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas

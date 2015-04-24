@@ -1,6 +1,6 @@
 <properties
-   pageTitle="View Service Fabric entities aggregated health"
-   description="Describes how to query, view and evaluate the Azure Service Fabric health entities"
+   pageTitle="How to View Azure Service Fabric entities aggregated health"
+   description="Describes how to query, view and evaluate the Azure Service Fabric entities aggregated health, through health queries and general queries."
    services="service-fabric"
    documentationCenter=".net"
    authors="oanapl"
@@ -16,10 +16,10 @@
    ms.date="04/15/2015"
    ms.author="oanapl"/>
 
-# View Azure Service Fabric entities aggregated health
+# How to view Service Fabric health reports
 Service Fabric introduces a [Health Model](service-fabric-health-introduction.md) comprised of health entities on which System components and watchdogs can report local conditions they are monitoring. The [Health Store](service-fabric-health-introduction.md#health-store) aggregates all health data to determine whether entities are healthy.
 
-Out of the box, the cluster is populated with health reports sent by the System components. Read more at [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+Out of the box, the cluster is populated with health reports sent by the System components. Read more at [Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
 Service Fabric provides multiple ways to get the entities aggregated health:
 
@@ -830,9 +830,9 @@ Read more about [Service Fabric Application Upgrade](service-fabric-application-
 Whenever there is an issue in the cluster or an application, look at the cluster or the application health to pinpoint what is wrong. The unhealthy evaluations will show with details what triggered the current unhealthy state. If needed, drill down into unhealthy children entities to figure out issues.
 
 ## Next steps
-[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+[Adding custom Service Fabric health reports](service-fabric-report-health.md)
 
 [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
