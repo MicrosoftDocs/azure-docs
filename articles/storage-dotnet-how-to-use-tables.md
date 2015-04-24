@@ -452,7 +452,7 @@ period of time following the deletion.
 
 ## Retrieve entities in pages asynchronously
 
-If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities using a segmented query. This example shows how to return results in pages using the Async-Await pattern so that execution is not blocked while waiting to return a large set of results. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)] (https://msdn.microsoft.com/library/hh191443.aspx)
+If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities using a segmented query. This example shows how to return results in pages using the Async-Await pattern so that execution is not blocked while waiting to return a large set of results. For more details on using the Async-Await pattern in .NET see [Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Initialize a default TableQuery to retrieve all the entities in the table
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();

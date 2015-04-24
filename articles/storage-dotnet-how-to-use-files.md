@@ -71,8 +71,6 @@ File storage contains the following components:
     diagram above:  
     `http://samples.file.core.windows.net/logs/CustomLogs/Log1.txt`
 
-
-
 For details about how to name shares, directories, and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ## Create an Azure Storage account

@@ -3,7 +3,7 @@
 	description="An overview of Microsoft Azure Storage." 
 	services="storage" 
 	documentationCenter="" 
-	authors="jeffstokes72" 
+	authors="tamram" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
-	ms.author="jeffstok"/>
+	ms.date="04/16/2015" 
+	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
 
