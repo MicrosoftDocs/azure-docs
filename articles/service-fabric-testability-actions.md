@@ -30,7 +30,7 @@ Testability actions are classified into two major buckets:
 
 * Graceful faults: These faults simulate graceful actions like replica moves and drops triggered by load balancing. In such cases the service gets notification of close and can cleanup state before exiting.
 
-For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures i.e. the graceful failures test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the Cancellation token being set, correctly save its state and exit the RunAsync method. 
+For better quality validation, run the service and business workload while inducing various graceful and ungraceful faults. Ungraceful faults exercise scenarios where the service process abruptly exits in the middle of some workflow. This tests  the recovery path once the service replica is restored by Service Fabric. This will help test data consistency and whether the service state is maintained correctly after failures. The other set of failures i.e. the graceful failures test that the service correctly reacts to replicas being moved around by Service Fabric. This tests handling of cancellation in the RunAsync method. The service needs to check for the Cancellation token being set, correctly save its state and exit the RunAsync method.
 
 ## Testability actions list
 
@@ -74,6 +74,15 @@ Here the action **Restart-ServiceFabricNode** is being run on a node named "Node
 Restart-ServiceFabricNode -ReplicaKindPrimary  -PartitionKindNamed -PartitionKey Partition3 -CompletionMode Verify
 ```
 
+
+```powershell
+$connection = "localhost:19000"
+$nodeName = "Node1"
+
+Connect-ServiceFabricCluster $connection
+Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
+```
+
 **Restart-ServiceFabricNode** should be used to restart a Service Fabric node in a cluster. This will kill the Fabric.exe process which will restart all of the system service and user service replicas hosted on that node. Using this API to test your service helps uncover bugs along the failover recovery paths. It helps simulate node failures in the cluster.
 
 The following screenshot shows the **Restart-ServiceFabricNode** Testability command in action.
@@ -86,35 +95,14 @@ The output of the first *Get-ServiceFabricNode* (a cmdlet from the ServiceFabric
 
 Running a Testability action (with PowerShell) against an Azure Cluster is similar to running the action against a local cluster; only difference being: before you can run the action, instead of connecting to the local cluster, you need to connect to the Azure Cluster first.
 
-### Further examples of using an action in powershell
-Two examples will be viewed in this section, RestartReplica and InvokeQuorumLoss.
+## Running a Testability action with C#
 
-#### RestartReplica action
-
-```powershell
-Connect-ServiceFabricCluster -testMode
-
-Restart-ServiceFabricReplica -serviceName fabric:/app/svc -longPartitionKey 17 -selectPrimary
-```
-
-#### InvokeQuorumLoss action
-
-```powershell
-Connect-ServiceFabricCluster -testMode
-
-Invoke-ServiceFabricPartitionQuorumLoss -serviceName fabric:/app/svc -randomPartition
-```
-
-## Running a Testability action with C# 
-
-To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action.
-Let us look at the RestartServiceFabricNode action:
+To run a Testability action using C#, first you need to connect to the cluster using the FabricClient. Then obtain the parameters needed to run the action. Different parameters can be used to run the same action.
+Looking at the RestartServiceFabricNode action, one way to run it is by using the node information (Node Name and Node Instance ID) in the cluster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
 ```
-
-Here, RestartServiceFabricNode uses nodeName in order to be executed.
 
 Several parameter explanation:
 
@@ -126,37 +114,73 @@ Instead of directly specifying the node by its name, you can specify via a parti
 
 For further information see [Partition Selector and Replica Selector](#partition_replica_selector).
 
+
 ```csharp
+// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Fabric.Testability;
+using System.Fabric;
+using System.Threading;
+using System.Numerics;
 
-public void RestartNode(string[] gatewayAddress, Uri serviceName, string nodeName, BigInteger nodeInstanceId, TimeSpan operationTimeout, CompletionMode completeMode)
+class Test
 {
-    FabricClient fabricclient = new FabricClient(gatewayAddress);
+    public static int Main(string[] args)
+    {
+        string clusterConnection = "localhost:19000";
+        Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
+        string nodeName = "N0040";
+        BigInteger nodeInstanceId = 130743013389060139;
 
-    //RestartServiceFabricNode using NodeName
-    fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None).Wait();
+        Console.WriteLine("Starting RestartNode test");
+        try
+        {
+            //RestartNode using the replicaSelector
+            RestartNodeAsync(clusterConnection, serviceName).Wait();
 
-    //RestartNode using ReplicaSelector
-    PartitionSelector ps = PartitionSelector.RandomOf(serviceName);
-    ReplicaSelector rs = ReplicaSelector.PrimaryOf(ps);
-    fabricclient.ClusterManager.RestartNodeAsync(rs, completeMode);
-    fabclient.ClusterManager.RestartNodeAsync(rs, completeMode).Wait();
+            //Another way to Restart Node using Nodename and NodeInstanceID.
+            RestartNodeAsync(clusterConnection, nodeName, nodeInstanceId).Wait();
+        }
+        catch (AggregateException exAgg)
+        {
+            Console.WriteLine("RestartNode did not complete: ");
+            foreach (Exception ex in exAgg.InnerExceptions)
+            {
+                if (ex is FabricException)
+                {
+                    Console.WriteLine("HResult: {0} Message: {1}", ex.HResult, ex.Message);
+                }
+            }
+            return -1;
+        }
 
+        Console.WriteLine("RestartNode completed.");
+        return 0;
+    }
+
+    static async Task RestartNodeAsync(string clusterConnection, Uri serviceName)
+    {
+        PartitionSelector randomPartitionSelector = PartitionSelector.RandomOf(serviceName);
+        ReplicaSelector primaryofReplicaSelector = ReplicaSelector.PrimaryOf(randomPartitionSelector);
+
+        // Create FabricClient with connection & security information here.
+        FabricClient fabricclient = new FabricClient(clusterConnection);
+        fabricclient.ClusterManager.RestartNodeAsync(primaryofReplicaSelector, CompletionMode.Verify);
+
+    }
+
+    static async Task RestartNodeAsync(string clusterConnection, string nodeName, BigInteger nodeInstanceId)
+    {
+        // Create FabricClient with connection & security information here.
+        FabricClient fabricclient = new FabricClient(clusterConnection);
+        fabricclient.ClusterManager.RestartNodeAsync(nodeName, nodeInstanceId, CompletionMode.Verify);
+
+    }
 }
-```
-
-### Furthur examples of using an action in C# 
-
-#### RestartReplica action
-
-```csharp
-fabricclient.ClusterManager.RestartReplicaAsync(replicaSelector, completionMode).Wait();
-```
-
-#### InvokeQuorumLoss action
-
-```csharp
-fabricclient.ClusterManager.InvokeQuorumLossAsync(serviceName, partitionSelector).Wait();
 ```
 
 ## Partition Selector and Replica Selector
