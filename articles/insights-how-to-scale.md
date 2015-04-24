@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to scale a website" 
-	description="Learn how to scale your hosting plan in Azure." 
+	pageTitle="Scale instance count manually or automatically" 
+	description="Learn how to scale your services Azure." 
 	authors="stepsic-microsoft-com" 
 	manager="ronmart" 
 	editor="" 
@@ -13,54 +13,59 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2014" 
+	ms.date="04/25/2014" 
 	ms.author="stepsic"/>
 
-# How to Scale a Website
+# Scale instance count manually or automatically
 
-In the Azure Portal Preview, you can manually set the instance count of your Web Hosting Plan, or, you can set parameters to have it automatically scale. Before you configure scaling for your Web Hosting Plan, you should consider that scaling is affected by instance size. Larger sizes have more cores and memory, and so they will have better performance for the same number of instances.
+In the portal, you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.
 
-Scale affects an entire Web Hosting Plan. When you create a Website you have the option to create a new Web Hosting Plan or an existing Web Hosting Plan. Once you have a Web Hosting Plan, all of the sites will share the same instances, so they all scale together.
+Before scaling based on instance count, you should consider that scaling is affected by **Pricing tier** in addition to instance count. Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is *Scale up* or *Scale down*). This article specifically covers *Scale in* and *out*.
 
-## Scaling a Web Hosting Plan
+## Scaling manually
 
-1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Web Sites**, and then click the name of the Web Site to open the blade.
-2. The **Scale** part on **Operations** lens of the Web Site blade will tell you the status of the Web Hosting Plan: **Off** for when you are scaling manually, **Performance** for when you are scaling by one or more performance metrics, and **Schedule** for when you have enabled multiple autoscale profiles.  
-    ![Scale part](./media/insights-how-to-scale/Insights_ScalePartOff.png)
-3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions for your Web Hosting Plan.  
+1. In the [portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
 
+2. The **Scale** part on **Operations** lens will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
+    ![Scale part](./media/insights-how-to-scale/Insights_UsageLens.png)
+
+3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
-4. You can manually adjust the number of virtual machines that run your Web Hosting Plan with the **Instance** slider.
-5. If you want the number of instances to automatically adjust based on load, select **Performance** under **Autoscale Mode**. At this time you cannot select **Schedule** in the Azure Portal Preview.  
+    
+>[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
+
+4. You can manually adjust the number **Instances** with slider.
+5. Click the **Save** command and you'll be scaled to that number of instances almost immediately. 
+
+## Scaling based on a pre-set metric
+
+If you want the number of instances to automatically adjust based on a metric, select the metric you want in the **Scale by** dropdown. For example, for an **App Service plan** you can scale by **CPU Percentage**.
+
+1. When you select a metric you'll get a slider, and/or, text boxes to enter the number of instances you want to scale between:
+
     ![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png) 
-6. Once you select Performance, there are two changes:
-    - **Instance Range** now allows you to choose a maximum and minimum instance count. Autoscale will always keep you in this range, irrespective of load.
-    - You can define the performance metrics in the **Target Metrics** section
-7. The **CPU Percentage** section allows you to set a target for the average CPU across all of the instances in your Web Hosting Plan. A scale up will happen when the average CPU exceeds the maximum you define.
+    
+    Autoscale will never take your service below or above the boundaries that you set, no matter your load.
 
-With auto scale enabled, you'll see **Performance** in the part on the Website blade, and, you'll see your scale history in the chart:
+2. Second, you choose the target range for the metric. For example, if you chose **CPU percentage**, you can set a target for the average CPU across all of the instances in your service. A scale up will happen when the average CPU exceeds the maximum you define, likewise, a scale down will happen whenever the average CPU drops below the minimum.
 
-![Scale blade with CPU Percentage](./media/insights-how-to-scale/Insights_ScalePartBladeOn.png) 
+3. Click the **Save** command. Autoscale will check every few minutes to make sure that you are in the instance range and target for your metric. When your service receives additional traffic,  you will get more instances without doing anything.
 
-Note that in the Azure Portal Preview, you cannot change the number of instances of a Shared Web Hosting Plan.
+## Scale based on other metrics
 
-## Advanced scaling
-
-New in the Azure Portal Preview, you can scale based on metrics other than CPU Percentage, and can even have a complex set of scale up and scale down rules.
+You can scale based on metrics other than the presets that appear in the **Scale by** dropdown, and can even have a complex set of scale up and scale down rules.
 
 ### Scaling based on other performance metrics
-In addition to CPU, you can scale based on:
 
-- Average Memory - If the average percentage of Memory used on the instances goes above or below specified thresholds, instances are added or removed.
-- HTTP Queue Depth or Disk Queue Depth - If the number of messages in either queue the of HTTP requests or the Disk goes above or below a specified threshold, instances are added or removed.
+1. Choose the **schedule and performance rules** in the **Scale by** dropdown:
+![Performance rules](./media/insights-how-to-scale/Insights_PerformanceRules.png)
 
-There are two different ways to scale by another metric. If you want to only scale by a single metric, select the chevron next to the **CPU Percentage** slider. This will open the Metric Details blade:
+2. If you previously had autoscale, on you'll see a view of the exact rules that you had.
 
-![Entry point to scale metrics](./media/insights-how-to-scale/Insights_ScaleMetricChevron.png)
+3. To scale based on another metric click the **Add Rule** row. You can also click one of the existing rows to change from the metric you previously had to the metric you want to scale by.
+![Add rule](./media/insights-how-to-scale/Insights_AddRule.png)
 
-To scale by more than one metric at a time, you can click **Add Metric** in the command bar:
-
-![Add metrics](./media/insights-how-to-scale/Insights_AddMetric.png)
+4. Now you need to select which metric you want to scale by. 
 
 The Metric Detail blade contains all of the controls that you need to set up your optimal scale profile. At the top, choose the new metric that you want to scale by.
 
@@ -70,10 +75,10 @@ Below the graph of the metric are two sections: **Scale up rules** and **Scale d
 
 For each rule you choose:
 
-- Condition - either Greater than or Less than
+- Operator - either Greater than or Less than
 - Threshold - the number that this metric has to pass to trigger the action
-- Over Past - the number of minutes that this metric is averaged over
-- Scale up or down by - the size of the scale action
+- Duration - the number of minutes that this metric is averaged over
+- Value - the size of the scale action
 - Cool down - how long this rule should wait after the previous scale action to scale again
 
 ![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
@@ -84,48 +89,3 @@ With multiple scale rules, you can be more agressive about scaling up (or down) 
 2. Scale up by 3 instances if CPU percentage is above 85%
 
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
-<!--Link references-->
-
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[export]: app-insights-export-telemetry.md
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
-[start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
-
