@@ -2,7 +2,7 @@
    pageTitle="Deploying a template using the Azure CLI for Mac, Linux, and Windows"
    description="Describes the basic steps to deploy or update any template."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="squillace"
    manager="timlt"
    editor=""/>
