@@ -99,11 +99,10 @@ For more information about configuring the log see [Reliable Service Configurati
 ### Stateless Reliable Service
 
 Stateless service implementations derive from the StatelessService or StatelessServiceBase class where the StatelessServiceBase class allows more flexibility than the StatelessService.
-Both base classes manages the
-lifetime and role of the your service; the service implementation may override virtual methods of either base class if your service has work to do
-at those points in the service lifecycle and if your service wants to create a communicator listener object. Note that although your service  
-may implement its own communication listener object exposing ICommunicationListener, in the diagram above, the communication listener is
-implemented by Service Fabric as that service implementation uses a communication listener implemented by Service Fabric.
+Both base classes manages the lifetime and role of the your service; the service implementation may override virtual methods of either base class if your service has work to do
+at those points in the service lifecycle and if your service wants to create a communicator listener object. Note that although your service may implement its own communication 
+listener object exposing ICommunicationListener, in the diagram above, the communication listener is implemented by Service Fabric as that service implementation uses a 
+communication listener implemented by Service Fabric.
 
 See [Reliable Service Overview](service-fabric-reliable-services-introduction.md) and [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md) for more information on the specifics
 of writing services using StatelessService and StatelessServiceBase classes.
@@ -111,5 +110,5 @@ of writing services using StatelessService and StatelessServiceBase classes.
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 For more information: 
-[Reliable Service Overview](service-fabric-fabsrv-service-overview.md), [Quick Start](service-fabric-reliable-services-quick-start.md), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)  
+[Reliable Service Overview](service-fabric-reliable-services-introduction.md), [Quick Start](service-fabric-reliable-services-quick-start.md), [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md), [Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md), [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)  
 

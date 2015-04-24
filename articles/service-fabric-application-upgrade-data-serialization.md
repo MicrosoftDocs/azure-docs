@@ -19,12 +19,12 @@
 
 # Service Fabric Application Upgrade: Data Serialization
 
-In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, the new version of your code will have to read the old version of your data, and the old version of your code will have to read the new version of your data. If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost. This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.
+In a [rolling application upgrade](service-fabric-application-upgrade.md), the upgrade is applied to a subset of nodes, one upgrade domain at a time. During this process, some upgrade domains will be on the newer version of your application, and some upgrade domains will be on the lower version of your application. At this time, the new version of your application must be able to read the old version of your data, and the old version of your application must be able to read the new version of your data. If the data format is not forwards and backwards compatible, the upgrade may fail or data may be lost. This article discusses what constitutes your data format and best practices for ensuring your data is forwards and backwards compatible.
 
 
 ## What makes up your data format?
 
-In Service Fabric, the data that is persisted and replicated comes from your C# classes. In [Reliable Collections](service-fabric-fabsrv-reliable-collections.md), that is the objects in the reliable dictionaries and queues. In [Stateful Reliable Actors](service-fabric-fabact-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
+In Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications using [Reliable Collections](service-fabric-fabsrv-reliable-collections.md), that is the objects in the reliable dictionaries and queues. For applications using [Stateful Reliable Actors](service-fabric-fabact-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
 
 ### Data format changes
 
@@ -37,7 +37,7 @@ Since the data format is determined by C# classes, changes to the classes may ca
 
 ### Default serializer
 
-The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not. The data serializer plays an important role in enabling rolling upgrades.
+The serializer is generally responsible for reading the data and deserializing it into the current version, even if the data is in an older or *newer* version. The default serializer is the [Data Contract serializer](https://msdn.microsoft.com/library/ms733127.aspx), which has well-defined versioning rules. Reliable Collections allows the serializer to be overridden, but Reliable Actors currently does not. The data serializer plays an important role in enabling rolling upgrades. The Data Contract Serializer is the serializer recommended for Service Fabric applications.
 
 
 ## How the data format affects rolling upgrade
@@ -54,7 +54,7 @@ The two versions of code and data format must be both forward and backward compa
 
 ## Data Contract
 
-Data Contract is the suggested solution for ensuring your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
+Data Contract is the recommended solution for ensuring your data is compatible. It has well-defined versioning rules for adding, removing, and changing fields. It also has support for dealing with unknown fields, hooking into the serialization and deserialization process, and for class inheritance. For more information, see [Using Data Contract](https://msdn.microsoft.com/library/ms733127.aspx).
 
 
 ## Next steps
