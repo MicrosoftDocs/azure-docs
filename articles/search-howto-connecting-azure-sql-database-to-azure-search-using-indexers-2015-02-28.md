@@ -105,7 +105,7 @@ Then, create the target Azure Search index if you don’t have one already. You 
 <tr>
 <td>char, nchar, varchar, nvarchar</td>
 <td>Edm.String<br/>Collection(Edm.String)</td>
-<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](http://azure.microsoft.com/documentation/articles/search-api-indexers-2015-02-28-Preview/#create-indexer) for details</td>
+<td>Transforming a string column into Collection(Edm.String) requires using a preview API version 2015-02-28-Preview. See [this article](search-api-indexers-2015-02-28-Preview.md#create-indexer) for details</td>
 </tr>
 <tr>
 <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td>
