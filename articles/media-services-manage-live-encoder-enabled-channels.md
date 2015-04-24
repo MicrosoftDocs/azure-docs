@@ -16,7 +16,7 @@
 	ms.date="04/06/2015" 
 	ms.author="juliako"/>
 
-#Working with Channels that Perform Live Encoding to Adaptive Bitrate Stream with Azure Media Services
+#Working with Channels that Perform Live Encoding to Adaptive Bitrate Stream with Azure Media Services (Preview)
 
 ##Overview
 
@@ -355,6 +355,9 @@ The current state of a Channel. Possible values include:
 - Running. The Channel is capable of processing live streams.
 - Stopping. The Channel is being stopped. No updates or streaming is allowed during this state.
 - Deleting. The Channel is being deleted. No updates or streaming is allowed during this state.
+
+
+>[AZURE.NOTE] Channel start up can take up to 30 minutes. Channel reset can take up to 5 minutes.
 
 
 
