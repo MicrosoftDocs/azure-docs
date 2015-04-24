@@ -20,7 +20,6 @@
 
 # HDInsight HBase overview #
 
-## What is HBase? 
 HBase is an Apache, open-source, NoSQL database that is built on Hadoop. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data. It was modeled on Google's BigTable, and it is a column-family-oriented database. Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schema-less database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
 ## What is HDInsight HBase in Azure?

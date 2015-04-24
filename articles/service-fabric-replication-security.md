@@ -17,48 +17,78 @@
    ms.author="leikong"/>
 
 # What is Secured?
-When replication is enabled, Stateful services replicate states across replicas. This page is about how to protect such traffic.
+When replication is enabled, Stateful services replicate state across replicas. This page is about how to configure protection on such traffic.
 
-In general, SecurityCredentials has two categories of information:
-- Local credential to use
-- Identity of expected remote credentials
+There are 2 types of security settings that are supported.
+- X509: Uses X509 certificate to secure the communication channel. Users are expected to ACL certificate private keys to allow Actor/Service host processes to be able to use the certificate credentials.
+- Windows: Uses windows security(requires Active Directory) to secure the communication channel.
 
-TODO: Add details of X509 and Windows Credentials
+The following section shows how to configure the above 2 types of settings.
+The configuration "CredentialType" determines which type is being used.
 
-## Configuration Names
-TODO: Add Configuration Names
+## CredentialType=X509
+
+### Configuration Names
+
+|Name|Remarks|
+|----|-------|
+|StoreLocation|Store location to find the certificate: CurrentUser or LocalMachine|
+|StoreName|Store name to find the certificate|
+|FindType|Identifies the type of value provided by in the FindValue parameter: FindBySubjectName or FindByThumbPrint|
+|FindValue|Search target for finding the certificate|
+|AllowedCommonNames|A comma separated list of certificate common names/dns names used by replicators.|
+|IssuerThumbprints|A comma separated list of issuer certificate thumbprints. When specified, the incoming certificate is validated if it is issued by one of the entries in the list. Chain validation is always performed.|
+|RemoteCertThumbprints|A comma separated list of certificate thumbprints used by replicators.|
+|ProtectionLevel|Indicates how the data is protected: Sign or EncryptAndSign or None|
+
+## CredentialType=Windows
+
+### Configuration Names
+
+|Name|Remarks|
+|----|-------|
+|ServicePrincipalName|Service Principal name registered for the service. Can be empty if the service/actor host processes runs as a machine account (e.g: NetworkService, LocalSystem etc.)|
+|WindowsIdentities|A comma separated list of windows identities of all service/actor host processes.
+|ProtectionLevel|Indicates how the data is protected: Sign or EncryptAndSign or None|
 
 ## Samples
-The following is a sample configuration file for setting.
-```
-<?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
-   <Section Name="VoicemailBoxActorServiceReplicatorSecurityConfig">
-      <Parameter Name="CredentialType" Value="X509" />
-      <Parameter Name="FindType" Value="FindByThumbprint" />
-      <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
-      <Parameter Name="StoreLocation" Value="LocalMachine" />
-      <Parameter Name="StoreName" Value="My" />
-      <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
-      <Parameter Name="AllowedCommonNames" Value="WinFabric-Test-SAN1-Alice,WinFabric-Test-SAN1-Bob" />
-   </Section>
-</Settings>
-```
-In the example above, CredentailTye is set to "X509", which tells Service Fabric to create X509Credentials, another supported value is "Windows", for which WindowsCredentials will be created. The rest of section VoicemailBoxActorServiceReplicatorSecurityConfig maps to properties of X509Credentials, the following is the complete mapping.
 
-|X509Credentials property|Configuration parameter|
-|------------------------|-----------------------|
-|StoreLocation|StoreLocation|
-|StoreName|StoreName|
-|FindType|FindType|
-|FindValue|FindValue|
-|RemoteCommonNames|AllowedCommonNames|
-|IssuerThumbprints|IssuerThumbprints|
-|RemoteCertThumbprints|RemoteCertThumbprints|
-|ProtectionLevel|ProtectionLevel|
+### X509 Sample
 
-|WindowsCredentials property|Configuration parameter|
-|---------------------------|-----------------------|
-|RemoteSpn|ServicePrincipalName|
-|RemoteIdentities|WindowsIdentities|
-|ProtectionLevel|ProtectionLevel|
+```xml
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="X509" />
+  <Parameter Name="FindType" Value="FindByThumbprint" />
+  <Parameter Name="FindValue" Value="9d c9 06 b1 69 dc 4f af fd 16 97 ac 78 1e 80 67 90 74 9d 2f" />
+  <Parameter Name="StoreLocation" Value="LocalMachine" />
+  <Parameter Name="StoreName" Value="My" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+  <Parameter Name="AllowedCommonNames" Value="My-Test-SAN1-Alice,My-Test-SAN1-Bob" />
+</Section>
+```
+
+### Windows Sample 1 - Empty ServicePrincipalName
+This snippet shows a sample when all the service/actor host processes run as NetworkService or LocalSystem.
+
+```xml
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="Windows" />
+  <Parameter Name="ServicePrincipalName" Value="" />
+  <!--This machine group contains all machines in a cluster-->
+  <Parameter Name="WindowsIdentities" Value="redmond\ClusterMachineGroup" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+</Section>
+```
+
+### Windows Sample 2 - Valid ServicePrincipalName
+This snippet shows a sample when all the service/actor host processes run as a group managed serice account.
+
+```xml
+<Section Name="SecurityConfig">
+  <Parameter Name="CredentialType" Value="Windows" />
+  <Parameter Name="ServicePrincipalName" Value="servicefabric/cluster.microsoft.com" />
+  <--All actor/service host processes run as redmond\GroupManagedServiceAccount-->
+  <Parameter Name="WindowsIdentities" Value="redmond\GroupManagedServiceAccount" />
+  <Parameter Name="ProtectionLevel" Value="EncryptAndSign" />
+</Section>
+```

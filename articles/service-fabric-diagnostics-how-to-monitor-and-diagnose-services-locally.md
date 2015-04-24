@@ -27,6 +27,7 @@ Monitoring, detecting, diagnosing and troubleshooting allows for services to con
 - Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.
 - There is built-in support in Service Fabric Visual Studio tools to view ETW events.
 
+
 ## View Service Fabric system events in Visual Studio
 
 Service Fabric emits ETW events to help application developers understand what is happening in the platform. To view these events follow these steps:
@@ -64,8 +65,12 @@ After adding custom ETW tracing to your service code, you can build, deploy, and
 ##Coming soon
 The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running the same code on an Azure cluster. Details for this are coming soon.
 
-## Other documentation to check out
-1. <Health monitoring doc link>
-2. <Application Insights setup>
-3. <Description of Actor diagnostic events>
-4. <Description of FabServ diagnostic events>
+## Next steps
+
+- [Service Fabric Health Introduction](service-fabric-health-introduction.md)
+
+- [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
+
+- [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-fabact-diagnostics.md)
+
+- [Stateful Reliable Service Diagnostics](service-fabric-fabsrv-diagnostics.md)

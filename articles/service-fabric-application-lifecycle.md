@@ -6,7 +6,7 @@
    authors="rwike77"
    manager="timlt"
    editor=""/>
-   
+
 
 <tags
    ms.service="service-fabric"
@@ -34,7 +34,7 @@ The service model roles are:
 
 
 ## Develop
-1. A *service developer* develops different types of services using the [Actor](../service-fabric-fabact-introduction) or [Fabric Service](../service-fabric-fabsrv-service-overview) programming model.
+1. A *service developer* develops different types of services using the [Reliable Actors](service-fabric-fabact-introduction.md) or [Reliable Services](service-fabric-reliable-services-introduction.md) programming model.
 2. A *service developer* declaratively describes the developed service types in a service manifest file consisting of one or more code, configuration, and data packages.
 3. An *application developer* then builds an application using different service types.
 4. An *application developer* declaratively describes the application type in an application manifest by referencing the service manifests of the constituent services and appropriately overriding and parameterizing different configuration and deployment settings of the constituent services.
@@ -97,3 +97,13 @@ The service model roles are:
 3. Once the application and services have stopped, the *operator* can un-provision the application type using the ApplicationManagementClient.UnprovisionApplicationAsync method,  Remove-ServiceFabricApplication cmdlet, or Unprovision an Application  REST operation. Un-provisioning the application type does not remove the application package from the ImageStore, you must remove the application package manually.
 
 4. An *operator* removes the application package from the ImageStore using the ApplicationManagementClient.RemoveApplicationPackage method or Remove-ServiceFabricApplicationPackage cmdlet.
+
+## Next steps
+
+For more information on Service Fabric, see:
+
+- [Choosing a framework for your service](service-fabric-choose-framework.md)
+
+- [Develop a Service Fabric service](service-fabric-develop-your-service-index.md)
+
+- [Service Fabric application model](service-fabric-application-model.md)
