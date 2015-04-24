@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/20/2015" 
+	ms.author="wesmc;ricksal"/>
+
 # Troubleshoot the Mobile Services .NET Backend
 
 Developing with Mobile Services is usually easy and painless, but even then things can sometimes go wrong. This tutorial covers some techniques that let you troubleshoot common problems that can arise with the Mobile Services .NET backend. 
@@ -32,7 +33,7 @@ When developing apps with Mobile Services, you usually take advantage of the Mob
 
 You can use any HTTP debugger to send and inspect HTTP traffic. [Fiddler](http://www.telerik.com/fiddler) is a popular tool commonly used by developers for this purpose. To make developers' lives easier, Mobile Services bundles a web-based HTTP debugger (also referred to as the "test client) right with your mobile service, reducing the need for external tooling. When hosting your mobile service locally, it will be available at a URI similar to [http://localhost:59233](http://localhost:59233) and when hosting in the cloud, the URI will be of the form [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net). The following steps work the same way regardless of where the service is hosted:
 
-1. Start with a Mobile Services server project open in **Visual Studio 2013 Update 2** or later. If you don't have one handy, you can create one by selecting **File**, **New**, **Project**, then selecting the **Cloud** node and then the **Windows Azure Mobile Services** template.
+1. Start with a Mobile Services server project open in **Visual Studio 2013 Update 2** or later. If you don't have one handy, you can create one by selecting **File**, **New**, **Project**, then selecting the **Cloud** node and then the **Microsoft Azure Mobile Services** template.
 2. Hit **F5**, which will build and run the project. On the start page, select **try it out**. 
 
     >[AZURE.NOTE] 

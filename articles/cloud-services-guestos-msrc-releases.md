@@ -13,12 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="03/18/2015"
+   ms.date="04/17/2015"
    ms.author="adegeo"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## April Guest OS
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| [MS15-034]    | [3042553][3042553] | Vulnerability in HTTP.sys could allow remote code execution                            | 4.19, 3.26, 2.38 | Apr 17, 2015 |
 
 
 ## March Guest OS
@@ -83,7 +89,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 
 
+[MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
+[3042553]: https://support.microsoft.com/en-us/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
