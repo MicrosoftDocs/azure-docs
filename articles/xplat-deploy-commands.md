@@ -88,7 +88,7 @@ Some templates may have no correspdonding azuredeploy-parameters.json file.
 
 parameters to set, or they may be already a part of the template itself, depending on what templates you are using. In these cases, you may
 
-If your template contains its parameters directly, or you want to extract the parameters data yourself. For more information about the structure of templates, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/en-us/library/azure/dn835138.aspx). 
+If your template contains its parameters directly, or you want to extract the parameters data yourself. For more information about the structure of templates, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx). 
 
 
 https://github.com/azure/azurermtemplates/raw/master/linux-virtual-machine-with-customdata/azuredeploy.json (or just the azuredeploy-parameters.json file)
