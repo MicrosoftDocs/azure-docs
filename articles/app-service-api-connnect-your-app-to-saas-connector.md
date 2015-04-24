@@ -26,7 +26,7 @@ For example, if you want to use HTTP requests to read and write files in your Dr
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 
-* Install the Dropbox connector in a [resource group](azure-preview-portal-using-resource-groups.md) in your Azure subscription. 
+* Install the Dropbox connector in a [resource group](resource-group-overview.md) in your Azure subscription. 
 * Configure the Dropbox connector so that it can connect to the Dropbox service. (To complete this step you'll need a Dropbox account.)
 * Configure the resource group so that only authenticated users can access API apps that are included in the resource group.
 * Test to verify that both user authentication and Dropbox authentication work.
@@ -51,7 +51,7 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 
 4. Under **Resource Group**, click **Create New**, and then in the **Create New Resource Group** box enter DropboxRG.
 
-	For more information about resource groups, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
+	For more information about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).
 
 7. Select the Free **Pricing Tier**. (If you don't see it in the list, click **View All**. After you click **F1 Free**, click the **Select** button.)
 
