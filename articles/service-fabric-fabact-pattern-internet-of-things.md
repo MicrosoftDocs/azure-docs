@@ -1,11 +1,11 @@
 
-<properties 
-   pageTitle="Azure Service Fabric Actors for Internet of Things" 
-   description="Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="clca" 
-   manager="timlt" 
+<properties
+   pageTitle="Azure Service Fabric Actors for Internet of Things"
+   description="Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="clca"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -13,17 +13,17 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="04/01/2015"
    ms.author="claudioc"/>
 
 # Service Fabric Actors design pattern: Internet of Things
-Since IoT became the new trend alongside the technological advancement in both devices and cloud services, developers started looking at key building blocks to develop their systems on. 
+Since IoT became the new trend alongside the technological advancement in both devices and cloud services, developers started looking at key building blocks to develop their systems on.
 The following diagram illustrates the key scenarios achieved using Azure Service Fabric Actors:
 
 ![][1]
- 
-Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices. Because the actors can maintain state, modelling streams—especially stateful stream processing—and aggregation per device is straightforward. If the data must be persisted, then we can also easily flush on demand or on a timer while still easily maintaining the latest N bits of data in another variable for quick querying. 
+
+Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices. Because the actors can maintain state, modelling streams—especially stateful stream processing—and aggregation per device is straightforward. If the data must be persisted, then we can also easily flush on demand or on a timer while still easily maintaining the latest N bits of data in another variable for quick querying.
 Note that in our samples, we deliberately omitted the details of the event/messaging tier, which will allow actors to communicate with devices, to keep the focus on the actor model.
 There are essentially two scenarios usually composed together:
 
@@ -44,14 +44,14 @@ All the devices periodically send their telemetry information to the correspondi
 
 ```csharp
 public interface IThing : IActor
-    {
-        Task ActivateMe(string region, int version);
-        Task SendTelemetryAsync(ThingTelemetry telemetry);
-    }
+{
+    Task ActivateMe(string region, int version);
+    Task SendTelemetryAsync(ThingTelemetry telemetry);
+}
 
-    [DataContract]
-class ThingState {
-        
+[DataContract]
+class ThingState
+{
 	[DataMember]
 	public List<ThingTelemetry> _telemetry;
 	[DataMember]
@@ -84,11 +84,11 @@ public class Thing : Actor<ThingState>, IThing
     public Task ActivateMe(string region, int version)
     {
         State._deviceInfo = new ThingInfo()
-            {
-                DeviceId = this.GetPrimaryKeyLong(),
-                Region = region,
-                Version = version
-            };
+        {
+            DeviceId = this.GetPrimaryKeyLong(),
+            Region = region,
+            Version = version
+        };
 
         // based on the info, assign a group... for demonstration we are assigning a random group
         State._deviceGroupId = new Random().Next(10, 12);
@@ -99,7 +99,7 @@ public class Thing : Actor<ThingState>, IThing
 }
 ```
 
-At the group level, as per our sample, our goal is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to specific regions where there are a certain number of fault devices. Of course our customer would like to reduce costs by minimising engineering time spent on the road. For this reason, each group actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to replace/repair these devices.
+At the group level, as per our sample, our goal is to monitor the devices in the group and aggregate telemetry data to produce alerts for engineers. In this case, our customer would like to send engineers to specific regions where there are a certain number of fault devices. Of course our customer would like to reduce costs by minimizing engineering time spent on the road. For this reason, each group actor maintains an aggregated state of faulty devices per region. When this number hits a threshold, our customer dispatches an engineer to the region to replace/repair these devices.
 Let’s have a look how it is done:
 
 ## IoT code sample – grouping and aggregation
@@ -111,6 +111,7 @@ public interface IThingGroup : IActor
     Task UnregisterDevice(ThingInfo deviceInfo);
     Task SendTelemetryAsync(ThingTelemetry telemetry);
 }
+
 [DataContract]
 class ThingGroupState
 {
@@ -121,6 +122,7 @@ class ThingGroupState
     [DataMember]
     public List<ThingInfo> _faultyDevices;
 }
+
 public class ThingGroup : Actor<ThingGroupState>, IThingGroup
 {
 
@@ -173,13 +175,14 @@ public class ThingGroup : Actor<ThingGroupState>, IThingGroup
 
 As we can see it is pretty straight forward. After running simple tests, the output looks like this:
 
+```
 Sending an engineer to repair/replace devices in Richmond
-        Device = 33 Region = Richmond Version = 4
-        Device = 79 Region = Richmond Version = 5
-        Device = 89 Region = Richmond Version = 3
-        Device = 63 Region = Richmond Version = 2
-        Device = 85 Region = Richmond Version = 4
-
+    Device = 33 Region = Richmond Version = 4
+    Device = 79 Region = Richmond Version = 5
+    Device = 89 Region = Richmond Version = 3
+    Device = 63 Region = Richmond Version = 2
+    Device = 85 Region = Richmond Version = 4
+```
 
 By the way, you may think it would have been better if devices were grouped by region. Of course, it's entirely up to us in terms of how to group/partition devices—whether it is geo-location, device type, version, tenant, and so on.
 There is a point of caution here: Device State vs. Reporting/Analysis. This is why we made the pattern illustration explicit. We must avoid fan-out queries to actors to build reporting actors; unnecessary instantiations and performance are just to name two drawbacks. We recommend two approaches for reporting:
@@ -189,20 +192,20 @@ There is a point of caution here: Device State vs. Reporting/Analysis. This is w
 * Maintain an explicit store that is designed for reporting. An aggregator can buffer and periodically push data to a reporting store for further querying and analysis.
 
 ## Device operation
-So far so good, but how about operations on these devices? Like for devices, actors can expose operational interfaces so an administrator can carry out operations on devices. For example, an administrator wants to push a new configuration to a group of home solar energy devices (yep, another real life scenario) based on seasonal/regional changes. 
+So far so good, but how about operations on these devices? Like for devices, actors can expose operational interfaces so an administrator can carry out operations on devices. For example, an administrator wants to push a new configuration to a group of home solar energy devices (yep, another real life scenario) based on seasonal/regional changes.
 
-The key idea here is we have granular control over each device using “Thing” actors as well as group operations using “ThingGroup” actors —whether it is aggregating data coming in from devices such as telemetry or sending data such as configuration to large number of devices. The platform takes care of distribution of the device actors and messaging between them, which is totally transparent to the developer. 
+The key idea here is we have granular control over each device using “Thing” actors as well as group operations using “ThingGroup” actors —whether it is aggregating data coming in from devices such as telemetry or sending data such as configuration to large number of devices. The platform takes care of distribution of the device actors and messaging between them, which is totally transparent to the developer.
 
 When it comes to machine to machine (M2M) communications, both the Hub and Spoke pattern we discussed in the distributed networks and graphs section or direct actor-to-actor interaction works well. For M2M scenarios, we could model a “Directory/Index” actor for a group of devices allowing them to discover and send messages to each other as illustrated below:
 
-![][2] 
+![][2]
 
 Azure Service Fabric Actors also takes care of the lifetime of the Actors. Think of it this way, we will have always-on devices and we will have occasionally-connected devices. Why would we keep the actor that looks after the device that connects every 14 hours in memory? Azure Service Fabric allow save and restore of device state when we want it and where we want it.
 
 We conclude that more and more customers will look at Azure Service Fabric Actors as a key building block for their IoT implementations.
 
 ## Next Steps
-[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
 
