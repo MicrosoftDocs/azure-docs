@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using the Azure Cross-Platform Command-Line Interface"
-	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure."
+	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management"
+	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI asm mode."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="squillace"
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015" 
+	ms.date="04/23/2015" 
 	ms.author="rasquill"/>
 
-#Using the Azure Cross-Platform Command-Line Interface
+# Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
-This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and Windows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+
+> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
 
 For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
 

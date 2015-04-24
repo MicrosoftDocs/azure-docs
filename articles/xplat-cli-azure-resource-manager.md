@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
-	description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" 
+	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Resources" 
+	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Resources." 
 	editor="tysonn" 
 	manager="timlt" 
 	documentationCenter="" 
@@ -16,26 +16,19 @@
 	ms.date="03/10/2015" 
 	ms.author="rasquill"/>
 
-#Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
+# Using the Azure Cross-Platform Command-Line Interface with the Resource Manager
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-In this article, you will learn how to use the Azure Cross-Platform Command-Line Interface (xplat-cli) to work with the Resource Manager. 
+This topic describes how to create, manage, and delete Azure resources using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
 
->[AZURE.NOTE] The Resource Manager is currently in preview, and does not provide the same level of management capabilities as Azure Service Management. 
->
-> If you have not already installed and configured the xplat-cli, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup] for more steps on how to install, configure, and use the xplat-cli.
+>[AZURE.NOTE] To create and manage Azure resources on the command-line, you're going to need an Azure account ([free trial here](http://azure.microsoft.com/en-us/pricing/free-trial/)), you're going to need to [install the Azure CLI](xplat-cli-install.md), and you're going to need to [log on to use Azure resources associated with your account](xplat-connect.md). If you've done these things, you're ready to go.
 
-
-##Resource Manager
+## Azure Resources
 
 The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database as resources.
 
 To support a more declarative way of describing changes to resources within a resource group, Resource Manager uses *templates*, which are JSON documents. The template language also allows you to describe parameters that can be filled in either inline when running a command, or stored in a separate JSON file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the the region the Website will be located in, and other common parameters.
-
->[AZURE.NOTE] The specifics of the template language are not documented at this time. Once documentation is available, this topic will be updated to provide a link to the reference documentation.
->
-> However, you can use the `azure group template download` command to download and modify templates provided by Microsoft and partners from the template gallery.
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group.
 
@@ -44,6 +37,8 @@ When a template is used to modify or create a group, a _deployment_ is created, 
 Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
 For more information on authenticating using an organizational account, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+
+> [AZURE.NOTE] Because you use a work or school account -- which are managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
 ##Locating and Configuring a Resource Group Template
 
