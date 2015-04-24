@@ -3,7 +3,7 @@
    description="High-level overview of the reliable service architecture"
    services="service-fabric"
    documentationCenter=".net"
-   authors="AlanWarwick"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="alanwar"/>
+   ms.author="ryanwi"/>
 
 # Reliable Service Architecture
 
@@ -24,7 +24,7 @@ See [Reliable Service Overview](service-fabric-reliable-services-introduction.md
 ## Stateful Reliable Service
 
 ### Stateful Reliable Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateful-service-architecture.png)
+![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
 ### Stateful Reliable Service
 
@@ -41,7 +41,7 @@ implemented by Service Fabric as the service implementation uses a communication
 
 Your stateful reliable service uses the reliable state manager to take advantage of reliable collections. Reliable collections are local data structures that are highly available to your service,
 that is, are always available regardless of service failovers. Each type of reliable collection is implemented by a reliable state provider.
-For more information on reliable collections see [the Reliable Collections overview](service-fabric-fabsrv-reliable-collections.md)
+For more information on reliable collections see [the Reliable Collections overview](service-fabric-reliable-services-reliable-collections.md)
 
 ### Reliable State Manager And Providers
 
@@ -94,7 +94,7 @@ For more information about configuring the log see [Reliable Service Configurati
 ## Stateless Reliable Service
 
 ### Stateless Reliable Service Architecture Diagram
-![Architecture Diagram](./media/service-fabric-fabsrv-platform-architecture/reliable-stateless-service-architecture.png)
+![Architecture Diagram](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
 ### Stateless Reliable Service
 
@@ -116,7 +116,7 @@ For more information about Service Fabric, see:
 
 [Quick Start](service-fabric-reliable-services-quick-start.md)
 
-[Reliable Collections Overview](service-fabric-fabsrv-reliable-collections.md)
+[Reliable Collections Overview](service-fabric-reliable-services-reliable-collections.md)
 
 [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
 
