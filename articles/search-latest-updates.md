@@ -20,20 +20,24 @@
 
 Azure Search is now generally available, offering a 99.9% availability service-level agreement (SLA) for supported configurations of the [2015-02-28 version of the API](https://msdn.microsoft.com/library/azure/dn798935.aspx).
 
-Watch this video for a demo and discussion of the latest features:
+##How features are versioned and rolled out
 
-> [AZURE.VIDEO azure-search-general-availability-and-whats-new]
+Features are released separately or jointly through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or the service dashboard in the [Azure portal](https://portal.azure.com).
 
-##How features are versioned and rolled out##
+Both the .NET library and REST APIs have multiple versions. Older APIs remain operational as we roll out new features. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
 
-Features are released through the [REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx), [.NET SDK](http://go.microsoft.com/fwlink/?LinkId=528216), or both. This page lists and describes each release in terms of the functionality it provides.
 
-Currently, only the REST APIs have multiple versions. Older APIs remain operational as we roll out new features. The only other release is the .NET SDK, which is in its first pre-release iteration. You can visit [Search service versioning](https://msdn.microsoft.com/library/azure/dn864560.aspx) to learn more about our versioning policy.
+##.NET SDK 0.10.0-preview
 
-##.NET SDK 0.9.6-preview##
+This is the second iteration of the .NET client library, Microsoft.Azure.Search.dll. This version adds support for Indexers. You can now use .NET classes to create, manage, and use indexers. For Azure SQL Indexers, there is new support for indexing geography points.
+
+- [Indexers Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx)
+- [DataSource Class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.datasource.aspx)
+
+##.NET SDK 0.9.6-preview
 **Released: 2015 March 5**
 
-Includes a client library, Microsoft.Azure.Search.dll, with two namespaces:
+This is the first public release of the .NET SDK for Azure Search. It includes a client library, Microsoft.Azure.Search.dll, with two namespaces:
 
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
@@ -46,14 +50,20 @@ Excludes:
 
 Visit [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId=528088) for guidance on installation and usage of the SDK.
 
-##Api-version 2015-02-28-Preview##
+##Api-version 2015-02-28-Preview
+**Released: 2015 April 22**
+
+- Indexers now support fieldMapping constructs that provide field assignments when actual field names are different between the external database and the Azure Search index. See [Indexers](search-api-indexers-2015-02-28-Preview.md) for the `2015-02-28-preview` version of the indexers documentation..
+
+- Also in this preview update, indexers now support field type transformations so that you can map a string field in a SQL table to a string collection field in a search index, assuming the source field represents a JSON array.
+
 **Released: 2015 March 5**
 
 - [Microsoft natural language processors](search-api-2015-02-28-Preview.md) bring support for more languages and expansive stemming for all the languages supported by Office and Bing.
 
-- [moreLikeThis=](../search-api-2015-02-28-Preview/) is a search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
+- [moreLikeThis=](search-api-2015-02-28-Preview.md) is a search parameter, mutually exclusive of `search=`, that triggers an alternate query execution path. Instead of full-text search of `search=` based on a search term input, `moreLikeThis=` finds documents that are similar to a given document by comparing their searchable fields.
 
-##Api-version 2015-02-28##
+##Api-version 2015-02-28
 **Released: 2015 March 5**
 
 - [Indexers](http://go.microsoft.com/fwlink/p/?LinkID=528210) is a new feature that vastly simplifies indexing from data sources on Azure SQL Database, Azure DocumentDB, and SQL Server on Azure VMs.
@@ -64,14 +74,14 @@ Visit [How to use Azure Search in .NET](http://go.microsoft.com/fwlink/p/?LinkId
 
 Visit [Azure Search is now Generally Available](http://go.microsoft.com/fwlink/p/?LinkId=528211) for the service announcement on the Azure blog that discusses all of these features.
 
-##Api-version 2014-10-20-Preview##
+##Api-version 2014-10-20-Preview
 **Released: 2014 November, 2015 January**
 
 - [Lucene language analyzers](search-api-2014-10-20-preview.md) was added to provide multi-lingual support for the custom language analyzers distributed with Lucene. 
 
 - Tool support was introduced for building indexes, including scoring profiles, in the [Azure management portal](https://portal.azure.com).
 
-##Api-version 2014-07-31-Preview##
+##Api-version 2014-07-31-Preview
 **Released: 2014 August 21**
 
 This version was the public preview release for Azure Search, providing the following core features:
@@ -84,12 +94,12 @@ This version was the public preview release for Azure Search, providing the foll
 
 - Provisioning in the preview version of the [Azure management portal](https://portal.azure.com ). Azure Search was one of the few services that has only been available in the new portal.
 
-##Management api-version 2015-02-28##
+##Management api-version 2015-02-28
 **Released: 2015 March 5**
 
-[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) marks the first version of the management API belonging to the generally available release of Azure Search. 
+[Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) marks the first version of the management API belonging to the generally available release of Azure Search. There are no feature differences between the earlier preview and this one.
 
-##Management api-version 2014-07-31-Preview##
+##Management api-version 2014-07-31-Preview
 **Released: 2014 October**
 
 The preview release of [Management REST API](search-management-api-2014-07-31-preview.md) was added to support service administration programmatically. It is versioned independently of the service REST API.
