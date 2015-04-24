@@ -3,7 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="flanakin" 
+	authors="tfitzmac" 
 	writer="" 
 	manager="carolz" 
 	editor=""/>
@@ -22,7 +22,7 @@
 
 The Azure portal and the underlying Resource Manager are about organizing your resources and customizing your experience to be tailor-fit just for you. 
 
-In the Azure classic portal, subscriptions are the only way to categorize and group your resources. With the Azure portal, [we introduced resource groups](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), which enable you to group related entities. This became even more valuable when [we introduced role-based access](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
+In the Azure classic portal, subscriptions are the only way to categorize and group your resources. With the Azure portal, [we introduced resource groups](./resource-group-portal.md), which enable you to group related entities. This became even more valuable when [we introduced role-based access](./role-based-access-control-configure.md). Now, in that same spirit, you can tag your resources with key/value pairs to further categorize and view resources across resource groups and, within the portal, across subscriptions.
 
 Group resources by team, project, or even environment to focus on exactly what you want to see, when you need to see it. 
 
@@ -42,7 +42,7 @@ From here, you can click on each individual tag to view a list of all the resour
 
 ## Tagging with PowerShell
 
-First thing's first, grab the latest [Azure PowerShell module](install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](http://azure.microsoft.com/documentation/articles/install-configure-powershell) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
+First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
 
 Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
