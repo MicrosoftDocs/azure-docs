@@ -34,7 +34,7 @@ The Service Fabric platform in Azure is ideal for the following categories of ap
  
 - **Data analytics and workflows**: The fast read/writes of Service Fabric enables applications that must reliably process events or streams of data. Service Fabric also enables applications that describe a processing pipeline, where results must be reliable and then passed on without loss to the next processing stage, including transactional and financial systems, where data consistency and computation guarantees are essential. 
 
-# Designing applications composed of stateless and stateful microservices #
+## Designing applications composed of stateless and stateful microservices ##
 Building applications with Azure Cloud Service worker roles are an example of stateless services. By contrast stateful microservices maintain the authoritative state beyond the request and its response, but providing state replication through simple APIs. Stateful services are the democratization of high availability (HA) for all applications, not just databases and other data stores. This is the natural progression in design, as applications have moved from using purely relational databases for HA, to NoSQL databases and now to the applications themselves having state managed withing them for the "hot" data that must be kept close to compute.
 
 When building applications consisting of microservices you typically have a combination of stateless web apps (ASP.NET, node.js etc) calling onto stateless and stateful business middle-tier services all deployed into the same Service Fabric cluster using the Service Fabric deployment commands. The independence of scale, reliability, and resource usage for each of these microservices provides this agility in development and lifecycle management.
@@ -49,6 +49,7 @@ Stateful microservices simplify application designs as they remove the need for 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
+
 
 Get started building stateless and stateful services with the Service Fabric 
 [reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-fabact-get-started.md) programming models 
