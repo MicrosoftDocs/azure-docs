@@ -53,7 +53,7 @@ First go to the [Azure preview portal](https://ms.portal.azure.com/#).
 
 ## Next steps
 
-To understand the job creation, see [Creating and managing an elastic database job](https://ms.portal.azure.com/#.md).
+To understand the job creation, see [Creating and managing an elastic database job](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png

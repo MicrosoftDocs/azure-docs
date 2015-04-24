@@ -20,7 +20,7 @@
 # Service Fabric Application Upgrade
 
 
-A Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md/#describe-an-application)  with the previous version and determines which services in the application require updates. This is determined by comparing the version numbers in the service manifests to the previous version. If a service has not changed, that service is not upgraded. 
+A Service Fabric application is a collection of services. During an upgrade, Service Fabric compares the new [application manifest](service-fabric-application-model.md#describe-an-application)  with the previous version and determines which services in the application require updates. This is determined by comparing the version numbers in the service manifests to the previous version. If a service has not changed, that service is not upgraded. 
 
 ## Rolling upgrades overview
 In a rolling application upgrade, the upgrade is performed in stages. At each stage, the upgrade is applied to a subset of nodes in the cluster, called an upgrade domain. As a result, the application remains available throughout the upgrade. During the upgrade, the cluster may contain a mix of the old and new versions. For that reason, the two versions must be forward and backward compatible. If they are not compatible, the application administrator is responsible for staging a multiple-phase upgrade to maintain availability. This is done by doing an upgrade with an intermediate version of the application that is compatible with the previous version before upgrading to the final version.
@@ -52,6 +52,6 @@ UnmonitoredManual would need manual intervention after every upgrade on an upgra
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 
 [Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
