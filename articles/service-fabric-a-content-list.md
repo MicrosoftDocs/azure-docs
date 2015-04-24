@@ -104,6 +104,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Service Fabric Application Upgrade: Data Serialization](service-fabric-upgrade-data-serialization.md) **owner: jesseb**
 
+-[Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md) **owner:alexwun**
+
 
 ## Reference
 ### Managed Reference
@@ -169,13 +171,15 @@ Introduction to monitoring and diagnostics in Service Fabric- overview, crash du
 #### Reliable Services
 - [Programming Model Overview](service-fabric-reliable-services-introduction.md)  **owners: masnider, richhas**
 
-- [Architecture](service-fabric-fabsrv-platform-architecture.md) **owner: alanwar**
+- [Architecture](service-fabric-reliable-services-platform-architecture.md) **owner: alanwar**
 
-- [Reliable Collections](service-fabric-fabsrv-reliable-collections.md) **owners: mcoskun, tyadam**
+- [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) **owners: mcoskun, tyadam**
 
-- [API Discussion](service-fabric-fabsrv-service-api-description.md) **owners: tyadam, mcoskun**
+- [API Discussion](service-fabric-reliable-services-service-api-description.md) **owners: tyadam, mcoskun**
 
 - [Operations](service-fabric-manage-application-in-visual-studio.md) **owner: jesseb, alanwar**
+
+- [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md) **owner: **
 
 
 

@@ -24,7 +24,7 @@ In a [rolling application upgrade](service-fabric-application-upgrade.md), the u
 
 ## What makes up your data format?
 
-In Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications using [Reliable Collections](service-fabric-fabsrv-reliable-collections.md), that is the objects in the reliable dictionaries and queues. For applications using [Stateful Reliable Actors](service-fabric-fabact-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
+In Service Fabric, the data that is persisted and replicated comes from your C# classes. For applications using [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), that is the objects in the reliable dictionaries and queues. For applications using [Stateful Reliable Actors](service-fabric-fabact-introduction.md), that is the backing state for the actor. These C# classes must be serializable to be persisted and replicated. Therefore, the data format is defined by the fields and properties that are serialized, as well as how they are serialized. For example, in an `IReliableDictionary<int, MyClass>` the data is a serialized `int` and a serialized `MyClass`.
 
 ### Data format changes
 

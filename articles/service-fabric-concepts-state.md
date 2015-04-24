@@ -1,6 +1,6 @@
 <properties
    pageTitle="Defining and Managing State"
-   description="How to define and manage service state"
+   description="How to define and manage service state in Service Fabric"
    services="service-fabric"
    documentationCenter=".net"
    authors="appi101"
@@ -29,3 +29,13 @@ In Service Fabric, the first service is called a Stateless Service. The second s
 State can either be externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or store. In our calculator example, this could be a SQL database where the current result is stored in a table. Every request to compute the sum performs an update on this row.
 
 State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric are built using this model. Service Fabric provides the infrastructure to ensure this state is highly available and fault tolerant in the event of failures.
+
+## Next steps
+
+For information on Service Fabric concepts, see the following:
+
+- [Availability of Service Fabric Services](service-fabric-availability-services.md)
+
+- [Scalability of Service Fabric Services](service-fabric-concept-scalability.md)
+
+- [Partitioning Service Fabric Services](service-fabric-concept-partitioning.md)

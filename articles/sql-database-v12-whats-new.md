@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="What's new in SQL Database V12" 
-	description="Describes the latest features that have been added to Azure SQL Database." 
+	description="Describes the latest features that have been added to Azure SQL Database for V12, but only up to April 2015." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,27 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="04/29/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in SQL Database V12
-
-
-<!--
-GeneMi , 2015-April-23 Thursday 09:59am
-Removed '-preview' node from links, replaced with '-v12'. See also the other four '-preview' topics:
-  sql-database-preview-whats-new.md  (this topic)
-  sql-database-preview-plan-prepare-upgrade.md
-  sql-database-preview-sign-up.md
-.
-  sql-database-preview-create.md  ('-preview' being erased, but not replaced by '-v12')
-.
-  sql-database-preview-upgrade.md  (topic obsolete, being deleted from github and ACom)
-.
-This file name is 'sql-database-v12-whats-new.md'.  It is a slightly changed copy of the soon-to-be-deleted file 'sql-database-preview-whats-new.md'.
-Sadly, the public customer wiki at the bottom of the popular 'sql-database-preview-whats-new.md' will hereby be obsoleted and lost. :-( 
--->
 
 
 Azure SQL Database version V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)) now provides nearly complete compatibility with the Microsoft SQL Server engine. The recent enhancements help to streamline SQL Server application migrations to SQL Database, and they help your system robustly process heavier database workloads.
@@ -49,7 +33,8 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 ## Highlights
 
 
-- **Microsoft Azure portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the earlier [Microsoft Azure classic portal](http://manage.windowsazure.com/) is also supported.
+- **Microsoft Azure portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure portal you specify your SQL Database database, and then proceed to specify a SQL Database server to host it.
+ - As of April 2015, the [Microsoft Azure classic portal](http://manage.windowsazure.com/) is still supported also.
 
 
 - **Choose a version** of SQL Database server when you use the Azure portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
@@ -81,8 +66,15 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***April 2015:*** |
+| TDE | Transparent Data Encryption (preview) helps protect against malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest. TDE does not require changes to your application.<br/><br/>For details see:<br/>- [Transparent Data Encryption with Azure SQL Database](http://msdn.microsoft.com/library/dn948096.aspx) - step-by-step instructions.<br/>- [Transparent Data Encryption (TDE)](http://msdn.microsoft.com/library/bb934049.aspx) - general description. |
+| Transact-SQL certificates, keys, and cryptographic functions | Certificates, symmetric keys, and asymmetric keys can now be created in Azure SQL Database V12. Most cryptographic functions are now supported.<br/><br/>For more information, see:<br/>- [CREATE CERTIFICATE (Transact-SQL)](http://msdn.microsoft.com/library/ms187798.aspx)<br/>- [CREATE SYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms188357.aspx)<br/>- [CREATE ASYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms174430.aspx)<br/>- [Cryptographic Functions (Transact-SQL)](http://msdn.microsoft.com/library/ms173744.aspx) |
+| SQL Database elastic pool | Simple tasks become complicated when you scale to thousands of databases, and that's the downside of explosive growth. SaaS developers spend countless hours writing complex logic to handle schema changes and other administrative operations as the business grows.<br/><br/>With [elastic databases](sql-database-elastic-pool.md), life becomes easier. You take a script, submit it as a job, and Azure SQL Database does the rest. |
+| Pricing tier recommendations and the STA | When moving your database from Web or Business editions to one of the new Basic, Standard, or Premium service tiers, you can now get pricing tier recommendations directly from the Microsoft Azure portal.<br/><br/>The Azure SQL Database service analyzes the performance and feature requirements for existing databases. The [Service Tier Advisor (STA)](sql-database-service-tier-advisor.md) reads the performance data to recommend the optimal service tier for your database. |
+| DMV permissions | For several dynamic management views (DMVs), their execution previously required the VIEW SERVER STATE permission. Now in Azure SQL Database V12, in many cases the DMVs can be executed by the SQL Database administrator account in databases that are at the Basic or Standard service tier.<br/><br/>On the Premium tier, access to the DMVs can be granted to additional users by using the VIEW DATABASE STATE permission in the database.<br/><br/>For details see the Permissions section for a given individual [DMV](http://msdn.microsoft.com/library/ms188754.aspx). |
+| DBCC SQLPERF | The [DBCC SQLPERF](http://msdn.microsoft.com/library/ms189768.aspx) command is now available in Azure SQL Database V12. The *reset wait* and *latch statistics* options are not supported on SQL Database V12. |
 | . | ***December 2014:*** |
-| <a name="UsersInContainedDatabases" id="UsersInContainedDatabases"></a>Users in contained databases | You can now create users in your contained database without having a corresponding login in the master database. This makes it much simpler to move your database to another server. The connection code in your client applications is the same whether you use contained database users or not.<br/><br/>Use of this feature is an excellent way to benefit from higher guaranteed service level agreements.<br/><br/>We generally encourage you to consider using this feature. However, you might have specific scenarios that make the traditional *login+user* pair the better choice for you at this time.<br/><br/>For more information, see:<br/>- [Azure SQL Database Security Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394108.aspx)<br/>- [Managing Databases and Logins in Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx)<br/>- [Contained Databases](http://msdn.microsoft.com/library/azure/ff929071.aspx) |
+| <a name="UsersInContainedDatabases" id="UsersInContainedDatabases"></a>Users contained in databases | You can now create users in your database without having a corresponding login in the master database. These are called *contained users*. This makes it much simpler to move your database to another server. The connection code in your client applications is the same whether you use contained database users or not.<br/><br/>Use of this feature is an excellent way to benefit from higher guaranteed service level agreements.<br/><br/>We generally encourage you to consider using this feature. However, you might have specific scenarios that make the traditional *login+user* pair the better choice for you at this time.<br/><br/>For more information, see:<br/>- [Azure SQL Database Security Guidelines and Limitations](http://msdn.microsoft.com/library/azure/ff394108.aspx)<br/>- [Managing Databases and Logins in Azure SQL Database](http://msdn.microsoft.com/library/azure/ee336235.aspx)<br/>- [Contained Databases](http://msdn.microsoft.com/library/azure/ff929071.aspx) |
 | Table partitioning | Previous limitations on [table partitioning](http://msdn.microsoft.com/library/ms190787.aspx) are eliminated. |
 | Larger transactions | With V12 you are no longer limited to a maximum of 2 GB of data modifications in a single transaction. <br/><br/> One benefit is that rebuilding a large index is no longer limited by 2 GB transaction size limit. For general information, see [Azure SQL Database Resource Limits](http://msdn.microsoft.com/library/azure/dn338081.aspx). |
 | Online index build and rebuild | Before V12, Azure SQL Database generally supported the (ONLINE=ON) clause of the [ALTER INDEX](http://msdn.microsoft.com/library/ms188388.aspx) command, but this was not supported for indexes on a BLOB type column. Now V12 does support (ONLINE=ON) even for indexes on BLOB columns.<br/><br/> The ONLINE feature enables queries to benefit from an index even while the index is being rebuilt. |
@@ -98,6 +90,8 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 
 | Feature | Description |
 | :--- | :--- |
+| . | ***April 2015:*** |
+| Full-Text Search | [Full-Text Search](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/>- Search for any synonym of your search term.<br/>- Search for cell values that contain your two search terms in close physical proximity to each other.<br/><br/>Get to know Transact-SQL keywords such as CONTAINS, FREETEXT, FORMSOF, THESAURUS and others. |
 | . | ***February 2015:*** |
 | <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md). |
 | . | ***January 2015:*** |
@@ -204,22 +198,13 @@ There are important things to know about limitations during and after an upgrade
 ## Other sources of latest news
 
 
-This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated some time in 2015. Information about new features and other announcements is shifting to the announcements link that follows:
+This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated, probably after April 30th 2015. Information about new features and other announcements is shifting to the announcements link that follows:
 
 
+- [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
+ - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
 - Follow us on Twitter: @SQLSchedCentral.
 
 
-<!--
-- Announcements h ttp : / / a zure . m icrosoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
- - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
-- Dynamically generated list h ttp : / / a zure . m icrosoft.com/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
- - The list include topics that have only minor updates.
--->
-
-
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
-
-
-<!-- EndOfFile -->
 

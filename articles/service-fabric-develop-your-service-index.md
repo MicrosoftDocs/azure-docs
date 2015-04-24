@@ -43,10 +43,10 @@ This page has links to overview and conceptual articles and tutorial to help you
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
 
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
-- [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-fabsrv-communication-webapi)
+- [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi)
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
-- [Programming Model Overview](service-fabric-fabsrv-service-overview.md)  
-- [Architecture](service-fabric-fabsrv-platform-architecture.md)
-- [Reliable Collections](service-fabric-fabsrv-reliable-collections.md)
-- [API Discussion](service-fabric-fabsrv-service-api-description.md)
+- [Programming Model Overview](service-fabric-reliable-services-service-overview.md)  
+- [Architecture](service-fabric-reliable-services-platform-architecture.md)
+- [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+- [API Discussion](service-fabric-reliable-services-service-api-description.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md) 

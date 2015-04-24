@@ -77,6 +77,6 @@ The MaxPercentUnhealthyServices, MaxPercentUnhealthyPartitionsPerService and Max
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Troubleshooting Application Upgrade ](service-fabric-application-troubleshooting.md)
+[Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
 
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)
