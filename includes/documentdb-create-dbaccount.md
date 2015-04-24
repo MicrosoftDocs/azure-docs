@@ -1,11 +1,11 @@
-1.	Sign in to the [Azure Preview portal](https://portal.azure.com/).
+1.	Sign in to the [Microsoft Azure portal](https://portal.azure.com/).
 2.	In the Jumpbar, click **New**, then select **Data + storage**, and then click **DocumentDB**. 
 
-	![Screen shot of the Preview portal, highlighting the New button, Data + storage in the Create blade, and DocumentDB in the Data + storage blade][1]   
+	![Screen shot of the Azure portal, highlighting the New button, Data + storage in the Create blade, and DocumentDB in the Data + storage blade][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
-	<!-- ![Screen shot of the Preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]    -->
+	<!-- ![Screen shot of the Azure portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create button highlighted][2]    -->
    
 
 3. In the **New DocumentDB** blade, specify the desired configuration for the DocumentDB account. 
@@ -36,7 +36,7 @@
 
 5.	After the DocumentDB account has been created, it is ready for use with the default settings.
 
-	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Preview portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
+	> [AZURE.NOTE] The default consistency of the DocumentDB account will be set to Session.  You can adjust the default consistency setting via the [Azure portal](https://portal.azure.com/#gallery/Microsoft.DocumentDB).  
  
     ![Screen shot of the Resource Group blade][7]  
 
