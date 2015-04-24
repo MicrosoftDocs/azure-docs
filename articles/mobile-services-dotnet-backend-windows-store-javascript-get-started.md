@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="11/21/2014" 
+	ms.date="4/24/2015" 
 	ms.author="glenga"/>
 
 
