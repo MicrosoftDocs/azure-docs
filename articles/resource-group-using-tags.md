@@ -31,11 +31,11 @@ Group resources by team, project, or even environment to focus on exactly what y
 
 Tagging resources and resource groups in the portal is easy. Use the Browse hub to navigate to the resource or resource group you’d like to tag and click the Tags part in the Overview section at the top of the blade. 
 
-![Tags part on resource and resource group blades](./media/azure-preview-portal-using-tags/rgblade.png)
+![Tags part on resource and resource group blades](./media/resource-group-using-tags/rgblade.png)
 
 This will open a blade with the list of tags that have already been applied. If this is your first tag, the list will be empty. To add a tag, simply specify a name and value and press Enter. After you've added a few tags, you'll notice autocomplete options based on pre-existing tag names and values to better ensure a consistent taxonomy across your resources and to avoid common mistakes, like misspellings.
 
-![Tag resources with name/value pairs](./media/azure-preview-portal-using-tags/tag-resources.png)
+![Tag resources with name/value pairs](./media/resource-group-using-tags/tag-resources.png)
 
 From here, you can click on each individual tag to view a list of all the resources with the same tag. Of course, if this is your first tag, that list won't be very interesting. For now, let's jump over to PowerShell to tag all of our resources quickly.
 
@@ -50,17 +50,17 @@ Tagging is only available for resources and resource groups available from [Reso
 
 Tags exist directly on resources and resource groups, so to see what tags are already applied, we can simply get a resource or resource group with `Get-AzureResource` or `Get-AzureResourceGroup`, respectively. Let's start with a resource group.
 
-![Getting tags with Get-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureResourceGroup-in-PowerShell.png)
+![Getting tags with Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-in-PowerShell.png)
 
 This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any. To tag a resource group, we'll simply use `Set-AzureResourceGroup` and specify a tag name and value.
 
-![Setting tags with Set-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
+![Setting tags with Set-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Set-AzureResourceGroup-in-PowerShell.png)
 
 Remember that tags are updated as a whole, so if you are adding one tag to a resource that's already been tagged, you'll need to save use an array with all the tags you want to keep. To remove one, simply save the array without the one you want to remove. 
 
 The process is the same for resources, except you'll use the `Get-AzureResource` and `Set-AzureResource` cmdlets. To get resources or resource groups with a specific tag, use `Get-AzureResource` or `Get-AzureResourceGroup` cmdlet with the `-Tag` parameter.
 
-![Getting tagged resources and resource groups with Get-AzureResource and Get-AzureResourceGroup in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
+![Getting tagged resources and resource groups with Get-AzureResource and Get-AzureResourceGroup in PowerShell](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
 ## Tagging with Resource Manager
@@ -74,7 +74,7 @@ Earlier, we talked about how autocomplete helps you ensure consistency and avoid
 
 To get a list of all tags within a subscription using PowerShell, use the `Get-AzureTag` cmdlet.
 
-![Get-AzureTag in PowerShell](./media/azure-preview-portal-using-tags/Get-AzureTag-in-PowerShell.png)
+![Get-AzureTag in PowerShell](./media/resource-group-using-tags/Get-AzureTag-in-PowerShell.png)
 
 
 You may see tags that start with "hidden-" and "link:". These are internal tags, which you should ignore and avoid changing. 
@@ -83,9 +83,9 @@ Use the `New-AzureTag` cmdlet to add new tags to the taxonomy. These tags will b
 
 To view your taxonomy of tags in the portal, use the Browse hub to view Everything and then select Tags.
 
-![Find tags via the Browse hub](./media/azure-preview-portal-using-tags/browse-tags.png)
+![Find tags via the Browse hub](./media/resource-group-using-tags/browse-tags.png)
 
 Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
 
-![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
+![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
 
