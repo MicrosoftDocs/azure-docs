@@ -20,7 +20,7 @@
 Service Fabric services can be either stateful or stateless. This article gives an overview of how Service Fabric maintains availability of a service in the event of failures.
 
 ## Availability of Service Fabric stateless services
-A stateless service is an application service that does not have any [state]../service-fabric-concepts-state.
+A stateless service is an application service that does not have any [local persistent state](service-fabric-concepts-state.md).
 
 Creating a stateless service requires defining an instance count which is the number of instances of the stateless service that should be running in the cluster. These are the number of copies of the application logic that will be instantiated in the cluster. Increasing the number of instances is the recommended way of scaling out stateless services.
 
@@ -38,4 +38,14 @@ This concept of a replica being a Primary or a Active Secondary is known as the 
 ### Replica Roles
 The Role of a replica is used to manage the lifecycle of the state being managed by that replica. A replica whose role is primary is servicing read requests. It is also servicing write requests by updating its state and replicating the changes to the Active Secondaries in its replica set. An Active Secondary is responsible for receiving state changes that the Primary replica has replicated and updating its view of the state.
 
->[AZURE.NOTE] Higher level programming models such as the actor framework abstract away the concept of replica role from the developer.
+>[AZURE.NOTE] Higher level programming models such as the [Reliable Actors framework](service-fabric-fabact-introduction.md) abstract away the concept of replica role from the developer.
+
+## Next steps
+
+For information on Service Fabric concepts, see the following:
+
+- [Scalability of Service Fabric Services](service-fabric-concept-scalability.md)
+
+- [Partitioning Service Fabric Services](service-fabric-concept-partitioning.md)
+
+- [Defining and Managing State](service-fabric-concepts-state.md)

@@ -20,14 +20,14 @@
 
 Service Fabric components report out of the box on all entities in the cluster. The [Health Store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports, and organizes them in an hierarchy that captures entity interactions.
 
-> [AZURE.NOTE] Read more about the Service Fabric [Health Model](service-fabric-health-introduction.md) to understand health related concepts.
+> [AZURE.NOTE] Read more about the [Service Fabric Health Model](service-fabric-health-introduction.md) to understand health related concepts.
 
 The System health reports provide visibility into cluster and application functionality and flag issues through health. For application and services, the System health reports verify that entities are implemented and are behaving correctly from Service Fabric perspective. The reports do not provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
 
 > [AZURE.NOTE] Watchdogs health reports are only visible **after** the system components create an entity. When an entity is deleted, the Health Store automatically deletes all health reports associated with it. Same when a new instance of the entity is created (eg. a new service replica instance is created): all reports associated with the old instance are deleted and cleaned up from store.
 
 The System components reports are identified by the source, which starts with *"System."* prefix. Watchdogs can't use the same prefix for their sources, as reports will be rejected with invalid parameters.
-Next, we will look at some system reports and understand what triggers them and how to correct possible issues they represent.
+Let's look at some system reports and understand what triggers them and how to correct possible issues they represent.
 
 > [AZURE.NOTE] Service Fabric continues to add reports for conditions of interest that would improve visibility into what is happening in the cluster/application.
 
@@ -40,7 +40,7 @@ The report specifies Global Lease timeout as the TTL and the report is re-sent e
 
 - SourceId: System.Federation
 - Property: starts with "Neighborhood" and includes node information.
-- Next step: investigate why the neighborhood is lost. Eg. Check communication between cluster nodes.
+- Next steps: investigate why the neighborhood is lost. Eg. Check communication between cluster nodes.
 
 ## Node System health reports
 System.FM is the authority that manages information about cluster nodes. Any node should have one report from System.FM showing its state. The node entities are removed when the node is disabled.
@@ -58,11 +58,10 @@ When the expiration is at least two weeks away, the report type is OK; if the ex
 
 - SourceId: System.FabricNode
 - Property: starts with "Certificate" and contains more information about certificate type.
-- Next steps: Update the certificates.
+- Next steps: Update the certificates if they are close to expiration.
 
 ### Load capacity violation
-The Service Fabric load balancer
- reports Warning if it detects a node capacity violation.
+The Service Fabric load balancer reports Warning if it detects a node capacity violation.
 
  - SourceId: System.PLB
  - Property: starts with "Capacity".

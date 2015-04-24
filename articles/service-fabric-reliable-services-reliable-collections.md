@@ -3,7 +3,7 @@
    description="Reliable Collections enable you to write highly available, scalable, and low latency cloud applications."
    services="service-fabric"
    documentationCenter=".net"
-   authors="mcoskun"
+   authors="rwike77"
    manager="timlt"
    editor="masnider,jessebenson"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="required"
    ms.date="04/08/2015"
-   ms.author="mcoskun;jesseb"/>
+   ms.author="ryanwi"/>
 
 # Reliable Collections
 
@@ -32,7 +32,7 @@ This means that:
 1. All reads are local, which results in low latency and high throughput reads.
 2. All writes incur the minimum number of network IOs, which results in low latency and high throughput writes.
 
-![Image of Evolution of Collections.](media/service-fabric-fabsrv-reliable-collections/ReliableCollectionsEvolution.png)
+![Image of Evolution of Collections.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
 Reliable Collections can be thought of as the natural evolution of the `System.Collections`
 classes: a new set of collections that are designed for the cloud and multi-machine
@@ -154,5 +154,5 @@ Here are some things to keep in mind:
 
 ## Next Steps
 - [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
-- [Getting Started with Service Fabric Web API services](service-fabric-fabsrv-communication-webapi.md)
+- [Getting Started with Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md)
 - [Advanced usage of the Reliable Services programming model](service-fabric-reliable-services-advanced-usage.md)

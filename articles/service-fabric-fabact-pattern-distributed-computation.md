@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure Service Fabric Actors Distributed Computation pattern" 
-   description="Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="clca" 
-   manager="timlt" 
+<properties
+   pageTitle="Azure Service Fabric Actors Distributed Computation pattern"
+   description="Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="clca"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -12,19 +12,19 @@
    ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
+   ms.workload="NA"
    ms.date="04/01/2015"
    ms.author="claudioc"/>
 
 # Service Fabric Actors design pattern: distributed computation
-We owe this one in part to watching a real life customer whip out a financial calculation in Azure Service Fabric Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact. 
+We owe this one in part to watching a real life customer whip out a financial calculation in Azure Service Fabric Actors in an absurdly small amount of time—a Monte Carlo simulation for risk calculation to be exact.
 
-At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious. 
+At first, especially to those who do not have domain specific knowledge, Azure Service Fabric's handling of this kind of workload, as opposed to say more traditional approaches such as Map/Reduce or MPI, may not be obvious.
 
 But it turns out that Azure Service Fabric is a good fit with parallel asynchronous messaging, easily managed distributed state, and parallel computation as the following diagram depicts:
 
 ![][1]
- 
+
 In the following example, we simply calculate Pi using a Monte Carlo Simulation. We have the following actors:
 
 * Processor responsible for calculating Pi using PoolTask Actors.
@@ -88,7 +88,7 @@ public class PooledTask : Actor, IPooledTask
 }
 ```
 
-A common way of aggregating results in Azure Service Fabric is to use timers. We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops. 
+A common way of aggregating results in Azure Service Fabric is to use timers. We are using stateless actors for two main reasons: the runtime will decide how many aggregators are needed dynamically, therefore giving us scale on demand; and it will instantiate these actors “locally” – in other words in the same silo of the calling actor, reducing network hops.
 Here is how the Aggregator and Finaliser look:
 
 ## Distributed computation code sample – aggregator
@@ -98,9 +98,10 @@ public interface IAggregator : IActor
 {
     Task AggregateAsync(Pi pi);
 }
-     
+
 [DataContract]
-class AggregatorState {
+class AggregatorState
+{
     [DataMember]
     public Pi _pi;
     [DataMember]
@@ -109,7 +110,6 @@ class AggregatorState {
 
 public class Aggregator : Actor<AggregatorState>, IAggregator
 {
-
     public override Task OnActivateAsync()
     {
         State._pi = new Pi() { InCircle = 0, Tries = 0 };
@@ -135,7 +135,7 @@ public class Aggregator : Actor<AggregatorState>, IAggregator
         State._pi.InCircle = 0;
         State._pi.Tries = 0;
     }
-         
+
     public Task AggregateAsync(Pi pi)
     {
         State._pi.InCircle += pi.InCircle;
@@ -151,14 +151,14 @@ public interface IFinaliser : IActor
 }
 
 [DataContract]
-class FinalizerState {
+class FinalizerState
+{
     [DataMember]
     public Pi _pi;
 }
 
 public class Finaliser : Actor<FinalizerState>, IFinaliser
 {
-
     public override Task OnActivateAsync()
     {
         State._pi = new Pi()
@@ -166,9 +166,10 @@ public class Finaliser : Actor<FinalizerState>, IFinaliser
             InCircle = 0,
             Tries = 0
         };
-            
+
         return base.OnActivateAsync();
     }
+
     public Task FinaliseAsync(Pi pi)
     {
         State._pi.InCircle += pi.InCircle;
@@ -185,7 +186,7 @@ At this point, it should be clear how we could potentially enhance the Leaderboa
 We are by no means asserting that Azure Service Fabric is a drop-in replacement for other distributed computation of big data frameworks or high performance computing. There are some things it is just built to handle better than others. However one can model workflows and distributed parallel computation in Azure Service Fabric while still getting the simplicity benefits it provides.
 
 ## Next Steps
-[Pattern: Smart Cache](winfab-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
 
 [Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
 
