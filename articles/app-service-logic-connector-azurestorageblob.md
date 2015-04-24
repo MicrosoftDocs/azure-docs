@@ -3,7 +3,7 @@
    description="Get started with Azure Storage Blob Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
