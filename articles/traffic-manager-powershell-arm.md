@@ -1,13 +1,13 @@
 <properties 
-   pageTitle="Azure Resource Manager support for Azure Traffic Manager Preview"
-   description="Azure Resource Manager support for Azure Traffic Manager Preview"
+   pageTitle="Azure Resource Manager support for Traffic Manager "
+   description="Using powershell for Traffic Manager with Azure Resource Manager (ARM)"
    services="traffic-manager"
    documentationCenter="na"
    authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="load-balancer"
+   ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -23,19 +23,19 @@
 #Azure Resource Manager support for Azure Traffic Manager Preview
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Traffic Manager profiles can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](./azure-preview-portal-using-resource-groups.md).
 
->[AZURE.NOTE]ARM support for Traffic Manager is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
+>[AZURE.NOTE] ARM support for Traffic Manager is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
 
-##Overview
 
-###Resource model
+
+##Resource model
 
 Azure Traffic Manager is configured using a collection of settings called a Traffic Manager profile. This contains DNS settings, traffic routing settings, endpoint monitoring settings and the list of service endpoints to which traffic will be routed.
 
-In ARM, each Traffic Manager profile is represented by an ARM resource, of type ‘TrafficManagerProfiles’ and managed by the ‘Microsoft.Network’ resource provider.  At the REST API level, the URI for each profile is as follows:
+In ARM, each Traffic Manager profile is represented by an ARM resource, of type ‘TrafficManagerProfiles’, managed by the ‘Microsoft.Network’ resource provider.  At the REST API level, the URI for each profile is as follows:
 
 	https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/trafficManagerProfiles/{profile-name}?api-version={api-version}
 
-###Comparison with the Azure Traffic Manager Service Management API
+##Comparison with the Azure Traffic Manager Service Management API
 
 Using ARM to configure Traffic Manager profiles provides access to the same set of Traffic Manager features as the (non-ARM) service management API, with the exception of the Preview Limitations listed below.
 
@@ -50,7 +50,7 @@ However, whilst the features remain the same, some terminology has changed:
 ##Preview limitations [](#preview-limitations)
 As the Azure Resource Manager support for Traffic Manager is a Preview service, there are currently a small number of limitations:
 
-- Traffic Manager profiles created using the existing (non-ARM) service management API, tools and Portal are not available via ARM, and vice versa.
+- Traffic Manager profiles created using the existing (non-ARM) service management API, tools and Portal are not available via ARM, and vice versa. Migration of profiles from non-ARM to ARM APIs is not currently supported.
 
 - 	The REST API does not support PATCHing of Traffic Manager profiles.  To update a profile property, you must GET the profile, and PUT the modified profile.
 - 	Only ‘external’ endpoints are supported.  These can still be used to use Traffic Manager with Azure-based services, and when doing so those endpoints will be billed at the internal endpoint rate.  (The only impact of using external endpoints is that they will not be disabled or deleted automatically if the underlying Azure service is disabled or deleted, instead you will have to disable or delete the endpoint manually).
@@ -107,6 +107,7 @@ The parameters are as follows:
 -	ResourceGroupName: The name of the ARM resource group containing the profile resource.
 
 -	TrafficRoutingMethod: Specifies the traffic routing method, used to determine which endpoint is returned in response to incoming DNS queries. Possible values are ‘Performance’, ‘Weighted’ or ‘Priority’.
+
 -	RelativeDnsName: Specifies the relative DNS name provided by this Traffic Manager profile.  This value is combined with the DNS domain name used by Azure Traffic Manager to form the fully-qualified domain name (FQDN) of the profile.  For example, the value ‘contoso’ will give a Traffic Manager profile with the fully-qualified name ‘contoso.trafficmanager.net’.
 
 -	TTL: Specifies the DNS Time-to-Live (TTL), in seconds.  This informs the Local DNS resolvers and DNS clients how long to cache DNS responses provided by this Traffic Manager profile.
@@ -126,16 +127,6 @@ To retrieve an existing Traffic Manager profile object, use the Get-AzureTraffic
 	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 This cmdlet returns a Traffic Manager profile object.
-
-##List Traffic Manager Profiles
-To retrieve a list of all Traffic Manager profiles in a resource group, simply omit the –Name parameter when calling GetAzureTrafficManagerProfile:
-
-	PS C:\> $profiles = Get-AzureTrafficManagerProfile -ResourceGroupName MyAzureResourceGroup
-To retrieve a list of all Traffic Manager profiles in a subscription, additionally omit the –ResourceGroupName parameter:
-
-	PS C:\> $profiles = Get-AzureTrafficManagerProfile
-
-In both cases, an array of Traffic Manager profile objects is returned.
 
 ##Update a Traffic Manager Profile [](#update-traffic-manager-profile)
 
