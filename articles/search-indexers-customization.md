@@ -13,14 +13,14 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/20/2015" 
+	ms.date="04/25/2015" 
 	ms.author="eugenesh"/>
 
 #Azure Search Indexer Customization#
 
 In this article, you will learn how to use Azure Search indexers to implement these scenarios: 
 
-- Rename fields between datasource and target index 
+- Rename fields between a datasource and a target index 
 - Transform strings from a database table into string collections
 - Switch the change detection policy on a datasource 
 - URL-encode document keys that contain URL-unsafe characters 
@@ -30,11 +30,14 @@ If you’re not familiar with Azure Search indexers, you might want to take a lo
 
 - [Connecting Azure SQL Database to Azure Search using indexers](http://azure.microsoft.com/en-us/documentation/articles/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28/)
 - [Connecting DocumentDB with Azure Search using indexers](http://azure.microsoft.com/en-us/documentation/articles/documentdb-search-indexer/)
+- [.NET SDK with support for indexers](https://msdn.microsoft.com/library/dn951165.aspx) or 
 - [Indexers REST API reference](https://msdn.microsoft.com/en-us/library/azure/dn946891.aspx)
 
-##Rename fields between datasource and target index##
+##Rename fields between a datasource and a target index##
 
-Sometimes you need to rename a field from the datasource, because you cannot use the same field name in the index. For example, consider a source table with a field `_id`. Azure Search doesn't allow a field name starting with an underscore, so the field must be renamed. This can be done using the new **fieldMappings** feature when creating or updating the indexer:
+**Field mappings** are properties that reconcile differences between field definitions. The most common examples are found in field names that violate Azure Search naming rules. Consider a source table where one or more field names start with a leading underscore (such as `_id`). Azure Search doesn't allow field names to lead with an underscore, thus the field must be renamed. 
+
+The following example illustrates updating an indexer to include a field mapping that "renames" `_id` field of the datasource into `id` field in the target index:
 
 	PUT https://[service name].search.windows.net/indexers/myindexer?api-version=[api-version]
     Content-Type: application/json
@@ -64,9 +67,9 @@ One such function, `jsonArrayToStringCollection`, parses a field that contains a
 
 	"fieldMappings" : [ { "sourceFieldName" : "tags", "mappingFunction" : { "name" : "jsonArrayToStringCollection" } } ] 
 
-(Note that `targetFieldName` property is optional; if left out, the `sourceFieldName` value is used). 
+For example, if the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`.
 
-EXAMPLE: If the source field contains the string `["red", "white", "blue"]`, then the target field of type `Collection(Edm.String)` will be populated with the three values `"red"`, `"white"` and `"blue"`.
+Note that the `targetFieldName` property is optional; if left out, the `sourceFieldName` value is used.
 
 ##Switching the change detection policy on a datasource##
   
