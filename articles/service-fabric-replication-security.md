@@ -16,7 +16,9 @@
    ms.date="04/13/2015"
    ms.author="leikong"/>
 
-# What is Secured?
+# Secure Replication Traffic
+
+## Overview
 When replication is enabled, Stateful services replicate state across replicas. This page is about how to configure protection on such traffic.
 
 There are 2 types of security settings that are supported.
