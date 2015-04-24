@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create an availability set using Azure Resource Manager templates" 
-	description="[desc]" 
+	description="Describes how to use the availability set template and includes template syntax" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
