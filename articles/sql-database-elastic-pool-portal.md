@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create an Azure SQL Database elastic pool" 
+	pageTitle="Create an Azure SQL Database elastic pool (preview)" 
 	description="Create a single pool of resources to share across a group of Azure SQL Databases." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -17,28 +17,28 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Create an Azure SQL Database elastic pool
+# Create an Azure SQL Database elastic pool (preview)
 
 > [AZURE.SELECTOR]
 - [Create an elastic pool - PowerShell](sql-database-elastic-pool-powershell.md)
 
-An elastic pool is a collection of available resources that are shared by a group of databases. This ability to share resources accommodates unpredictable periods of increased activity for the databases in the pool that need it, while at the same time, provides a guaranteed amount of resources for all databases to reliably accommodate the average use for each database.
+This article shows you how to create an Azure SQL elastic pool using the Microsoft Azure portal.
 
-> [AZURE.NOTE] Elastic database pools are in preview and only available for databases in V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the Microsoft Azure Portal, REST APIs, and PowerShell.
+Elastic pools simplify the process of creating, maintaining, and managing both performance and cost for large numbers of databases. For a detailed overview, see [Azure SQL Database elastic pool (preview)](sql-database-elastic-pool.md).
+ 
+
+> [AZURE.NOTE] Elastic pools are currently in preview, and only available with V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only create and manage elastic pools using the [Microsoft Azure Portal](https://portal.azure.com), PowerShell, and REST APIs.
 
 ## Overview
 
-An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Databases can be added to, and removed from the pool at any time. The databases in the pool utilize only the resources they require from the pool.
+You can quickly create an elastic pool using the Azure portal. 
 
-For SaaS developers who have tens, hundreds, or even thousands of databases, a common application pattern is for each database to have different customers with varying and unpredictable usage patterns. Trying to predict the resource requirements for individual databases is difficult, if not impossible. Attempts to account for this unpredictable usage pattern results in either over-provisioning databases (at great expense), or under-provisioning resources and risking a poor performance experience for customers. 
 
-Elastic pools address this problem by providing performance adaptability for the entire group of databases, while also providing the ability to control price within a set budget. Instead of over-provisioning and paying for resources that may sit idle, you can allocate resources to the pool and pay for the aggregate resources consumed by the entire group.
+## Prerequisites
+To create an elastic pool you need an the following:
 
-For example, with SaaS applications that host a large number of databases, it is common to have only a subset of databases concurrently active at any given time. The actual databases that are simultaneously active change unpredictably over time. By sharing resources in an elastic pool, the databases with increased activity are accommodated while also maintaining a guaranteed level of resources for all other databases in the pool. 
-
-The resources that are guaranteed to the pool are set by the user and shared by all databases in the pool. The performance of all databases in the pool is guaranteed by setting a DTU guarantee (or DTU MIN) per database. This prevents individual databases from consuming all resources in the pool. 
-
-The pool also sets the service tier (pricing tier?) of all databases in the pool. So if a pool is set to Elastic Standard, then all databases in the pool have all features available to the Standard tier, for example, Point in Time Restore (any restore point within the last 14 days) and Geo-Restore.
+- An Azure account! If you don't have an azure account, you can [sign up for a FREE trial](http://azure.microsoft.com/en-us/pricing/free-trial/).
+- An Azure SQL Database version 12 server. If you don't have a V12 server, create one [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 
@@ -117,11 +117,6 @@ Databases in elastic pools are backed up and retained under the same point in ti
 ### Geo-Restore
 Geo-Restore considerations?
 
-## Limitations related to the preview
-- DTU guarantee for a pool is limited to the following values: 100, 200, 400, 800, 1200, and 1400.
-- The maximum DTUs per database is limited to 100 DTUs.
-- The maximum number of databases per pool is limited to 100.
-- You can only reconfigure the size of a pool once per day.
 
 
 ## Summary

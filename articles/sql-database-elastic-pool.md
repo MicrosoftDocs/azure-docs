@@ -19,9 +19,11 @@
 
 # Azure SQL Database elastic pool (preview)
 
+An elastic pool simplifies the process of creating, maintaining, and managing both performance and cost across a large numbers of databases. 
+
 An elastic pool is a collection of available resources that are shared by a group of databases. This ability to share resources accommodates unpredictable periods of increased activity for the databases in the pool that need it, while at the same time, provides a guaranteed amount of resources for all databases to reliably accommodate the average use for each database. Additionally, elastic pools simplify data application management by providing the ability to easily execute scripts across all databases in a pool with elastic jobs.
 
-> [AZURE.NOTE] Elastic pools are currently in preview, and only available with V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the Microsoft Azure Portal, PowerShell, and REST APIs.
+> [AZURE.NOTE] Elastic pools are currently in preview, and only available with V12 SQL Database Servers. For this preview, elastic pools can only be set to the elastic standard pricing tier, and you can only configure and manage elastic pools using the [Microsoft Azure Portal](https://portal.azure.com), PowerShell, and REST APIs.
 
 ## Overview
 
@@ -38,16 +40,15 @@ For example, with SaaS applications that host a large number of databases, it is
 Elastic pools make SaaS application development easier by providing tools that simplify building and managing your data-tier. Performing maintenance tasks and implementing changes across a large set of databases, a historically time-consuming and complex process, has been reduced to running scripts in elastic jobs. The ability to create and run an elastic job eliminates most all of the heavy lifting associated with administering hundreds or even thousands of databases.  
 
 
-Sidney...?
+expand this elastic jobs section...?
 
 
 
 
 ## Elastic pool (preview) settings and limitations
 
-The Performance of an elastic pool is controlled by setting the amount of DTUs and GB storage available to the entire pool, and setting the available (or elastic) DTU range (min and max) for the databases.
+The Performance of an elastic pool is controlled by setting the amount of DTUs and GB storage available to the entire pool, and setting the elastic DTU range (min and max) for the databases in the pool.
 
-*The current preview is constrained with the following limitations:*
 
 
 ### DTU and storage limits
