@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Resource Manager support for Traffic Manager | Microsoft Azure "
+   pageTitle="Azure Resource Manager support for Traffic Manager Preview | Microsoft Azure "
    description="Using powershell for Traffic Manager with Azure Resource Manager (ARM) in preview"
    services="traffic-manager"
    documentationCenter="na"
