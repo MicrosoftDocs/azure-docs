@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management" 
-	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management." 
-	editor="tysonn" 
-	manager="timlt" 
-	documentationCenter="" 
-	authors="squillace" 
+<properties
+	pageTitle="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management"
+	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management."
+	editor="tysonn"
+	manager="timlt"
+	documentationCenter=""
+	authors="squillace"
 	services=""/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="command-line-interface" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/23/2015"
 	ms.author="rasquill"/>
 
 # Using the Azure Cross-Platform Command-Line Interface with Azure Resource Management
@@ -32,7 +32,7 @@ Using the **arm** mode, you can manage your Azure resources in a _declarative_ w
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group.
 
-##Authentication
+## Authentication
 
 Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
 
@@ -40,7 +40,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 > [AZURE.NOTE] Because you use a work or school account -- which are managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
-##Locating and Configuring a Resource Group Template
+## Locating and Configuring a Resource Group Template
 
 1. Because the Resource Manager mode is not enabled by default, you must use the following command to enable xplat-cli resource manager commands.
 
@@ -48,7 +48,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 	>[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-2. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **Microsoft.WebSiteSQLDatabase.0.2.6-preview**.)	
+2. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **Microsoft.WebSiteSQLDatabase.0.2.6-preview**.)
 
 		azure group template list
 
@@ -66,7 +66,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 		azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
-	This will return descriptive information about the template. 
+	This will return descriptive information about the template.
 
 4. Once you have selected a template (**azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview**), you can download it with the following command.
 
@@ -76,8 +76,8 @@ For more information on authenticating using an organizational account, see [Ins
 
 	>[AZURE.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
-5. To configure the resource group template for your use, open the template file in a text editor. Note the **parameters** JSON collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**. 
-	
+5. To configure the resource group template for your use, open the template file in a text editor. Note the **parameters** JSON collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**.
+
 	When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format, and you must provide your own values for those keys that do not have default values.
 
 	For example, to create a file that contains parameters for the **Microsoft.WebSiteSQLDatabase.0.2.6-preview** template, use the following data to create a file named **params.json**. Replace the values below beginning with **_My_** such as **_MyWebSite_** with your own values. The **siteLocation** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**)
@@ -117,13 +117,13 @@ For more information on authenticating using an organizational account, see [Ins
 	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
 	> `azure group deployment show MyGroupName MyDeployment`
-	> 
+	>
 	> The **ProvisioningState** shows the status of the deployment.
-	> 
+	>
 	> If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
-	> 
+	>
 	> `azure group deployment stop MyGroupName MyDeployment`
-	> 
+	>
 	> If you do not provide a deployment name, one will be created automatically based on the name of the template file. It will be returned as part of the output of the `azure group create` command.
 
 3. To view the group, use the following command.
@@ -162,13 +162,13 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 		azure resource delete MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01"
 
-##Logging
+## Logging
 
 To view logged information on operations performed on a group, use the `azure group log show` command. By default, this will list last operation performed on the group. To view all operations, use the optional `--all` parameter. For the last deployment, use `--last-deployment`. For a specific deployment, use `--deployment` and specify the deployment name. The following example returns a log of all operations performed against the group 'MyGroup'.
 
 	azure group log show mygroup --all
 
-##Next steps
+## Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
 * For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
