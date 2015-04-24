@@ -79,23 +79,23 @@ Applications that you add yourself include:
     * Claims transformation rules
     * Attribute mappings (User provisioning)
 * For more detailed information on the service principal and application objects please refer to the Azure AD Graph REST API reference documentation.  *Hint*: The Azure AD Graph API documentation is the closest thing to a schema reference for Azure AD that's currently available.  
-    * [Application](https://msdn.microsoft.com/en-us/library/azure/dn151677.aspx)
-    * [Service Principal](https://msdn.microsoft.com/en-us/library/azure/dn194452.aspx)
+    * [Application](https://msdn.microsoft.com/library/azure/dn151677.aspx)
+    * [Service Principal](https://msdn.microsoft.com/library/azure/dn194452.aspx)
 
 
 ## How are apps added to my Azure AD instance?
 There are many ways an app can be added to Azure AD:
-* Add an app from the [Azure Active Directory App Gallery](http://azure.microsoft.com/en-us/updates/azure-active-directory-over-1000-apps/)
+* Add an app from the [Azure Active Directory App Gallery](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * During sign up/in users are asked to give permission to the app to access their profile and other permissions.  The first person to give consent causes a service principal representing the app to be added to the directory.
-* Sign up/into Microsoft online services like [Office 365](http://products.office.com/en-US/)
+* Sign up/into Microsoft online services like [Office 365](http://products.office.com/)
     * When you subscribe to Office 365 or begin a trial one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.
     * Some Office 365 services like SharePoint create service principals on an on-going basis to allow secure communication between components including workflows.
-* Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/en-us/library/azure/dn132599.aspx
+* Add an app you're developing in the Azure Management Portal see: https://msdn.microsoft.com/library/azure/dn132599.aspx
 * Add an app you're developing using Visual Studio see:
     * [ASP.Net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
     * [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
-* Add an app to use to use the [Azure AD] Application Proxy](https://msdn.microsoft.com/en-us/library/azure/dn768219.aspx)
+* Add an app to use to use the [Azure AD] Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 * Connect an app for single sign on using SAML or Password SSO
 * Many others including various developer experiences in Azure and/in API explorer experiences across developer centers
 
@@ -126,12 +126,12 @@ With all of that said it is possible to prevent users in your directory from add
 ## Next steps
 
 Learn more about how to add applications to Azure AD and how to configure services for apps.
-* Developers: [Learn how to integrate an application with AAD](https://msdn.microsoft.com/en-us/library/azure/dn151122.aspx)
+* Developers: [Learn how to integrate an application with AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
 * Developers: [Review sample code for apps integrated with Azure Active Directory on Github](https://github.com/AzureADSamples)
-* Developers and IT Pros: [Review the REST API documentation for the Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/hh974478.aspx)
-* IT Pros: [Learn how to use Azure Active Directory pre-integrated applications from the App Gallery](https://msdn.microsoft.com/en-us/library/azure/dn308590.aspx)
-* IT Pros: [Find tutorials for configuring specific pre-integrated apps](https://msdn.microsoft.com/en-us/library/azure/dn893637.aspx)
-* IT Pros: [Learn how to publish an app using the Azure Active Directory Application Proxy](https://msdn.microsoft.com/en-us/library/azure/dn768219.aspx)
+* Developers and IT Pros: [Review the REST API documentation for the Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974478.aspx)
+* IT Pros: [Learn how to use Azure Active Directory pre-integrated applications from the App Gallery](https://msdn.microsoft.com/library/azure/dn308590.aspx)
+* IT Pros: [Find tutorials for configuring specific pre-integrated apps](https://msdn.microsoft.com/library/azure/dn893637.aspx)
+* IT Pros: [Learn how to publish an app using the Azure Active Directory Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 
 <!--Image references-->
 [apps_service_principals_directory]:media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
