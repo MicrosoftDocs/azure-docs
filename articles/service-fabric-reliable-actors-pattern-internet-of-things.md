@@ -4,7 +4,7 @@
    description="Azure Service Fabric Actors is the key building block (as a middle-tier) in a system that combines a messaging system front end that supports multiple transports such as HTTPS, MQTT or AMQP then communicates with actors that represent individual devices."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -205,20 +205,20 @@ Azure Service Fabric Actors also takes care of the lifetime of the Actors. Think
 We conclude that more and more customers will look at Azure Service Fabric Actors as a key building block for their IoT implementations.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-fabact-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
 
-[Pattern: Distributed Networks and Graphs](service-fabric-fabact-pattern-distributed-networks-and-graphs.md)
+[Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 
-[Pattern: Resource Governance](service-fabric-fabact-pattern-resource-governance.md)
+[Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 
-[Pattern: Stateful Service Composition](service-fabric-fabact-pattern-stateful-service-composition.md)
+[Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
 
-[Pattern: Distributed Computation](service-fabric-fabact-pattern-distributed-computation.md)
+[Pattern: Distributed Computation](service-fabric-reliable-actors-pattern-distributed-computation.md)
 
-[Some Anti-patterns](service-fabric-fabact-anti-patterns.md)
+[Some Anti-patterns](service-fabric-reliable-actors-anti-patterns.md)
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact/internet-of-things-1.png
-[2]: ./media/service-fabric-fabact/internet-of-things-2.png
+[1]: ./media/service-fabric-reliable-actors/internet-of-things-1.png
+[2]: ./media/service-fabric-reliable-actors/internet-of-things-2.png

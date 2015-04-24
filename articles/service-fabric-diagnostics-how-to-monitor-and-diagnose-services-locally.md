@@ -68,6 +68,6 @@ After you have added a custom ETW trace in your service code you can build, depl
 
 - <Application Insights setup>
 
-- [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-fabact-diagnostics.md)
+- [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
 
 - [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)

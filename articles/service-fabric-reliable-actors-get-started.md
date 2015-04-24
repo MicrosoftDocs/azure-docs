@@ -3,7 +3,7 @@
    description="This tutorial walks you through the steps of creating a canonical HelloWorld service using Reliable Actors."
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="jessebenson"
    manager="timlt"
    editor=""/>
 
@@ -113,7 +113,7 @@ namespace HelloWorld
 ```
 
 In the Actor class implementation, by default Visual Studio code generation, includes
-some basic tracing. It is done by calling the ServiceEventSource class in the OnActivateAsync and OnDeactivateAsync to log information about when the Actor is activated and deactivated (more information about Actor lifecycle can be found in the [following article](service-fabric-fabact-lifecycle.md)).
+some basic tracing. It is done by calling the ServiceEventSource class in the OnActivateAsync and OnDeactivateAsync to log information about when the Actor is activated and deactivated (more information about Actor lifecycle can be found in the [following article](service-fabric-reliable-actors-lifecycle.md)).
 
 The Actor Service project contains the code to create a Service Fabric service, in the service definition, Actor type(s) are registered so they can be used to instantiate new actors.
 
@@ -169,12 +169,12 @@ From Visual Studio you can also package and deploy the application in the local 
 
 ## Next Steps
 
-[Introduction to Service Fabric Actors](service-fabric-fabact-introduction.md)
+[Introduction to Service Fabric Actors](service-fabric-reliable-actors-introduction.md)
 
 
 
 <!--Image references-->
-[1]: ./media/service-fabric-fabact-get-started/fabact-newproject.PNG
-[2]: ./media/service-fabric-fabact-get-started/fabact-projectstructure.PNG
-[3]: ./media/service-fabric-fabact-get-started/debugging-output.PNG
-[4]: ./media/service-fabric-fabact-get-started/vs-context-menu.png
+[1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
+[2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
+[3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
+[4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
