@@ -21,7 +21,10 @@
 
 ## Prerequisites
 
-The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC. To install Visual Studio 2015 RC, go [here](https://www.visualstudio.com/en-us/news/vs2015-vs.aspx).
+The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which you can find [here](http://go.microsoft.com/fwlink/?LinkId=517106).
+
+Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx) with Visual Studio pre-installed using an image from the VM Gallery. 
+
 
 ## Installing the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
