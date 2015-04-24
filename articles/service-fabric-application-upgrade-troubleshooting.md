@@ -69,6 +69,4 @@ The upgrade time for a upgrade domain is limited by *UpgradeDomainTimeout*.  If 
 
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
-[Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
-
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)

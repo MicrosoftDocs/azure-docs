@@ -68,7 +68,7 @@ Now, build the project by selecting the **VisualObjects** project and right clic
 
 ## Step 3:  Decide on health policies and upgrade parameters
 
-Please familiarize yourself with the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and the [upgrade process](service-fabric-application-upgrade-flowchart.md) to get a good understanding of the various upgrade parameters, timeouts and health criterion applied. For this walkthrough, we will leave the service health evaluation criterion to be the default (and recommended values) which mean that all services and instances should be _healthy_ after the upgrade.  Let's however increase the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds. Finally, let's also set the *UpgradeFailureAction* to rollback thereby requesting that Service Fabric rollback the application to the previous version if it encounters any issues during upgrade. Thus, the upgrade parameters we will specify when starting the upgrade (in Step 4) will be the following:
+Please familiarize yourself with the [application upgrade parameters](service-fabric-application-upgrade-parameters.md) and the [upgrade process](service-fabric-application-upgrade.md) to get a good understanding of the various upgrade parameters, timeouts and health criterion applied. For this walkthrough, we will leave the service health evaluation criterion to be the default (and recommended values) which mean that all services and instances should be _healthy_ after the upgrade.  Let's however increase the *HealthCheckStableDuration* to 60 seconds (so that the services will be healthy for at least 20 seconds before the upgrade proceeds to the next upgrade domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds. Finally, let's also set the *UpgradeFailureAction* to rollback thereby requesting that Service Fabric rollback the application to the previous version if it encounters any issues during upgrade. Thus, the upgrade parameters we will specify when starting the upgrade (in Step 4) will be the following:
 
 FailureAction = Rollback
 
@@ -117,9 +117,6 @@ You may want to try changing the versions and moving from version 2 to version 3
 
 ## Next steps
 
-
-[Upgrade Flowchart](service-fabric-application-upgrade-flowchart.md)
-
 [Upgrade Parameters](service-fabric-application-upgrade-parameters.md)
 
 [Data Serialization](service-fabric-application-upgrade-data-serialization.md)
@@ -127,4 +124,3 @@ You may want to try changing the versions and moving from version 2 to version 3
 [Advanced Topics](service-fabric-application-upgrade-advanced.md)
 
 [Troubleshooting Application Upgrade ](service-fabric-application-upgrade-troubleshooting.md)
-
