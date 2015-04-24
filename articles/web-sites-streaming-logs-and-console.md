@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Streaming logs and console" 
-	description="Streaming logs and console overview" 
+	description="Streaming logs and console overview"
+	tags="azure-portal" 
 	authors="adamabdelhamed" 
 	manager="wpickett" 
 	editor="" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/17/2014" 
+	ms.date="04/24/2015" 
 	ms.author="adamab"/>
 
 #Streaming Logs and the Console
