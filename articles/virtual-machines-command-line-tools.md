@@ -22,7 +22,7 @@ This topic describes how to use the Azure CLI in the **asm** mode to create, man
 
 > [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
 
-For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
