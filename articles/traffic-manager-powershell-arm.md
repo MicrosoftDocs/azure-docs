@@ -217,4 +217,4 @@ This sequence can also be piped:
 
 [Traffic Manager Overview](./traffic-manager-overview.md)
 
-[Getting started with Azure cmdlets](https://msdn.microsoft.com/en-us/library/jj554332.aspx)
+[Getting started with Azure cmdlets](https://msdn.microsoft.com/library/jj554332.aspx)
