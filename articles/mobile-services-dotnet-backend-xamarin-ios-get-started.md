@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/11/2014" 
+	ms.date="04/24/2015" 
 	ms.author="donnam"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
