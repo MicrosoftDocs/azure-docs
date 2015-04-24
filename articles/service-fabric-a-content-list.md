@@ -102,7 +102,7 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md) **owner: subramar**
 
-- [Service Fabric Application Upgrade: Data Serialization](service-fabric-upgrade-data-serialization.md) **owner: jesseb**
+- [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) **owner: jesseb**
 
 - [Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md) **owner:alexwun**
 

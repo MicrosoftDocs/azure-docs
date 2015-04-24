@@ -65,7 +65,7 @@ You can do this by inserting the following line of code into your app.
     }
 
 
-You can learn about the events emitted from the Fabric Actors runtime [here](service-fabric-reliable-actors-diagnostics.md) and Fabric Services runtime [here](service-fabric-fabsrv-diagnostics.md).
+You can learn about the events emitted from the Fabric Actors runtime [here](service-fabric-reliable-actors-diagnostics.md) and Fabric Services runtime [here](service-fabric-reliable-services-diagnostics.md).
 
 Note that in order to get Fabric Actor runtime method calls, EventLevel.Verbose must be used (as shown in examples above).
 
