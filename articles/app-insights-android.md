@@ -17,30 +17,23 @@
 
 # Application Insights for Android apps
 
-Visual Studio Application Insights lets you monitor your mobile application for usage and performance.
+Visual Studio Application Insights lets you monitor your mobile application for usage, events, and crashes.
 
 ## Requirements
 
 You'll need:
 
-* A subscription with [Microsoft Azure](http://azure.com).  You login with a Microsoft subscription, which you might have for XBox Live or other Microsoft cloud services.
+* A subscription with [Microsoft Azure](http://azure.com). You sign in with a Microsoft account, which you might have for Windows, XBox Live, or other Microsoft cloud services.
 * Android Studio
-* Android SDK Version 9 or above
+* Android SDK Version 9 or later.
 
 ## Create an Application Insights resource
 
-In the [Azure portal][portal], create a new Application Insights resource.  Pick the Android option.
+In the [Azure portal][portal], create a new Application Insights resource. Pick the Android option.
 
 ![Click New, Developer services, Application Insights](./media/app-insights-android/11-new.png)
 
 The blade that opens is the place where you'll see performance and usage data about your app. To get back to it next time you login to Azure, you should find a tile for it on the start screen. Alternatively click Browse to find it.
-
-
-### Copy the Instrumentation Key
-
-You'll need this shortly, to direct the data from the SDK in your app to the resource you just created.
-
-![Click Properties, select the key, and press ctrl+C](./media/app-insights-android/12-props.png)
 
 ## Install the Application Insights plugin into Android Studio
 
@@ -163,17 +156,9 @@ An example of initialization and manual telemetry collection follows.
     }
 ```
 
+## <a name="run"></a> Run your project
 
-
-## <a name="run"></a> Run your project and view data in the Azure portal
-
-Run your application (SHIFT+F10 in Windows, CTRL+R in OS X) to generate telemetry. 
-
-Return to your application blade in the Azure portal.
-
-## Run your app
-
-Run the app in debug mode, or publish it.
+Run your application (SHIFT+F10 in Windows, CTRL+R in OS X) to generate telemetry.
 
 ## View your data in Application Insights
 
