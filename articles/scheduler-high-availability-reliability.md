@@ -46,7 +46,7 @@ Azure Scheduler allows you to configure a retry policy. By default, if a job fai
 
 As an example of when this may help, you may create a job that runs once a week and invokes an HTTP endpoint. If the HTTP endpoint is down for a few hours when your job runs, you may not want to wait one more week for the job to run again since even the default retry policy will fail. In such cases, you may reconfigure the standard retry policy to retry every three hours (for example) instead of every 30 seconds.
 
-To learn how to configure a retry policy, [refer to the section on retryPolicy in this topic](https://msdn.microsoft.com/library/azure/dn528941.aspx).
+To learn how to configure a retry policy, refer to [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
 
 ### Alternate Endpoint Configurability via “errorAction”
 
@@ -58,7 +58,7 @@ As an example, in the diagram below, Azure Scheduler follows its retry policy to
 
 Note that the same retry policy applies to both the original action and the alternate error action. It’s also possible to have the alternate error action’s action type be different from the main action’s action type. For example, while the main action may be invoking an HTTP endpoint, the error action may instead be a storage queue action that does error-logging.
 
-To learn how to configure an alternate endpoint, [refer to the section on errorAction in this topic](https://msdn.microsoft.com/library/azure/dn528941.aspx).
+To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
 ## See Also
 
