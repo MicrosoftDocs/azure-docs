@@ -3,7 +3,7 @@
 	description="Managing role-based access control with Windows PowerShell" 
 	services="azure-portal" 
 	documentationCenter="na" 
-	authors="justinha" 
+	authors="Justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
@@ -32,7 +32,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](install-configure-powershell.md).
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](install-configure-powershell.md).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
