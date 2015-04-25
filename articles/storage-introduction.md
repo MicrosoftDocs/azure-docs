@@ -68,15 +68,15 @@ A standard storage account gives you access to Blob storage, Table storage, Queu
 - **Queue storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
 - **File storage (Preview)** offers shared storage for legacy applications using the standard SMB 2.1 protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premise applications can access file data in a share via the File service REST API. File storage is available by request via the [Azure Preview page](/services/preview/). 
 
-Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/azure/dn249410.aspx) for details about standard storage account capacity.
+Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about standard storage account capacity.
 
 The image below shows the relationships between the Azure storage resources in a standard storage account:
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-When you are ready to create a standard storage account, see [Create, manage, or delete a storage account](../storage-create-storage-account/) for more details.
+To learn how to create a standard storage account, see [Create, manage, or delete a storage account](storage-create-storage-account.md) for more details.
 
-### Premium Storage Accounts (Preview)
+### Premium Storage Accounts
 
 Azure Premium Storage currently supports Azure Virtual Machine disks only. Azure Premium Storage is available by request through the [Azure Preview page](/services/preview/). For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](http://go.microsoft.com/fwlink/?LinkId=521898).
 
@@ -95,7 +95,7 @@ Every blob is organized into a container. Containers also provide a useful way t
 
 Blob storage offers two types of blobs, block blobs and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. A block blob can be up to 200 GB in size. Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](../articles/storage-import-export-service/). You can also copy blob data within your storage account or across storage accounts. 
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center using the [Azure Import/Export Service](storage-import-export-service.md). You can also copy blob data within your storage account or across storage accounts. 
 
 ## Table Storage
 
@@ -127,7 +127,6 @@ Like the other Azure storage services, File storage exposes a REST API for acces
 
 Distributed applications can also use File storage to store and share useful application data and development and testing tools. For example, an application may store configuration files and diagnostic data such as logs, metrics, and crash dumps in a File storage share so that they are available to multiple virtual machines or roles. Developers and administrators can store utilities that they need to build or manage an application in a File storage share that is available to all components, rather than installing them on every virtual machine or role instance.
 
-
 ## Access to Blob, Table, Queue, and File Resources
 
 By default, only the storage account owner can access resources in the storage account. For the security of your data, every request made against resources in your account must be authenticated. Authentication relies on a Shared Key model. Blobs can also be configured to support anonymous authentication. 
@@ -137,6 +136,8 @@ Your storage account is assigned two private access keys on creation that are us
 If you do need to allow users controlled access to your storage resources, then you can create a [shared access signature](storage-dotnet-shared-access-signature-part-1.md). A shared access signature is a token that can be appended to a URL that enables delegated access to a container, blob, table, or queue. Anyone who possesses the token can access the resource it points to with the permissions it specifies, for the period of time that it is valid. Note that Azure File storage does not currently support shared access signatures.
 
 Finally, you can specify that a container and its blobs, or a specific blob, are available for public access. When you indicate that a container or blob is public, anyone can read it anonymously; no authentication is required.  Public containers and blobs are useful for exposing resources such as media and documents that are hosted on websites.  To decrease network latency for a global audience, you can cache blob data used by websites with the Azure CDN.
+
+See [Manage Access to Azure Storage Resources](storage-manage-access-to-resources.md) and [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx) for more information on secure access to your storage account.
 
 ## Replication for Durability and High Availability
 

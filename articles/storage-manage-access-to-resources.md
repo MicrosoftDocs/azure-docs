@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Manage Access to Azure Storage Resources" 
-	description="Learn about the different ways you can manage access to Azure Storage Resources." 
+	pageTitle="Manage Access to Azure Storage Resources | Microsoft Azure" 
+	description="Learn how to manage how users access your Azure Storage resources." 
 	services="storage" 
 	documentationCenter="" 
-	authors="micurd,tamram" 
+	authors="micurd" 
 	manager="jahogg" 
 	editor=""/>
 
@@ -14,13 +14,13 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/20/2015" 
-	ms.author="micurd"/>
+	ms.author="micurd;tamram"/>
 
 # Manage Access to Azure Storage Resources
 
 ## Overview
 
-By default, only the owner of the storage account may access blobs, tables, and queues within that account. If your service or application needs to make these resources available to other clients without sharing your access key, you have the following options for permitting access:
+By default, only the owner of the storage account may access storage resources within that account. If your service or application needs to make these resources available to other clients without sharing your access key, you have the following options for permitting access:
 
 - You can set a container's permissions to permit anonymous read access to the container and its blobs. This is not allowed for tables or queues.
 
@@ -34,11 +34,11 @@ By default, a container and any blobs within it may be accessed only by the owne
 
 Containers provide the following options for managing container access:
 
-- Full public read access: Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
+- **Full public read access:** Container and blob data can be read via anonymous request. Clients can enumerate blobs within the container via anonymous request, but cannot enumerate containers within the storage account.
 
-- Public read access for blobs only: Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
+- **Public read access for blobs only:** Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
 
-- No public read access: Container and blob data can be read by the account owner only.
+- **No public read access:** Container and blob data can be read by the account owner only.
 
 >[AZURE.NOTE]If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users. 
 

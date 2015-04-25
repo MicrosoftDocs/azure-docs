@@ -52,8 +52,6 @@ Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
 [AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../includes/storage-dotnet-retrieve-conn-string.md)]
 
-[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../includes/storage-dotnet-odatalib-dependencies.md)]
-
 ## Create a table
 
 A **CloudTableClient** object lets you get reference objects for tables
