@@ -93,7 +93,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Resource Groups</a> per subscription</p></td>
    <td valign="middle"><p>500</p></td>
    <td valign="middle"><p>500</p></td>
 </tr>

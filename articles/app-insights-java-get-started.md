@@ -18,6 +18,8 @@
 # Get started with Application Insights in a Java web project
 
 
+*Application Insights is in Preview.*
+
 [AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.

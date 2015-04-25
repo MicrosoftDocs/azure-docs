@@ -139,11 +139,11 @@ To view all available roles for your subscription run the **Get-AzureRoleDefinit
 To get the auditing log for a resource group, run the **Get-AzureResourceGroupLog** command.
 
       PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
-
+Cross-Platform Command-Line Interface
 
 ## How to use Azure CLI for Mac, Linux and Windows
 
-If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli.md)
+If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure CLI](xplat-cli.md)
 
 1. Login to your Azure account with your credentials. The command returns the result of your login.
 
