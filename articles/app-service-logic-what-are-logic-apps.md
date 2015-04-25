@@ -18,21 +18,21 @@
 
 #What are Logic Apps?
 
-Azure App Service is a fully managed Platform as a Service (PaaS) offering for professional developers that brings a rich set of capabilities to web, mobile and integration scenarios. Logic Apps are one part of the App Service suite and allow any technical user or developer to automate business process execution via an easy to use visual designer.
+Azure App Service is a fully managed PaaS (Platform as a Service) for developers that makes it easier to build web, mobile and integration apps. Logic Apps are a part of this suite and allow any technical user or developer to automate business process execution and workflow via an easy to use visual designer.
 
-Best of all, Logic Apps can be combined with API apps and Connectors from our Marketplace to help solve even tricky integration scenarios with ease.
+Best of all, Logic Apps can be combined with [Connectors][connectors] from our Marketplace to help solve even tricky integration scenarios with ease.
 
 ![Flow app designer](./media/app-service-learn-about-flows-preview/Designer.png)
 
-##The SaaS, PaaS and Hybrid Explosion
-
-The cloud era is bringing an explosion in the usage of SaaS and PaaS systems, putting increasing strain on developers everywhere. Meanwhile, IT's application backlogs are getting longer and these heterogeneous and distributed solutions present new integration challenges.  Furthermore, enterprises need to leverage their on-premises data and services in their solutions, and need to do so securely.
-
-Building solutions that span these systems poses non-trivial challenges that are time consuming and error prone for development teams.
+If you want to automatically replicate new records in you SQL DB and mail the front desk, or  automatically find negative tweets and send them to a slack channel 
 
 ##Why Logic Apps?
 
-Logic Apps allow developers to design workflows that articulate intent via a trigger and series of steps, each invoking an App Service API app whilst securely taking care of authentication and best practices like durable execution.
+Logic Apps allow developers to design workflows that start from a trigger and then execute a series of steps, each invoking an App Service API app whilst securely taking care of authentication and best practices like checkpointing and durable execution.
+
+If you want to automate any business process (e.g. find negative tweets and post to your internal slack channel or replicate new customer records from SQL, as they arrive, into your CRM system) Logic Apps makes integrating disparate data sources, from cloud to on-premises easy. Check out our [connectors][connectors] for more inspiration and [get started][create] now to see what you can do. 
+
+What's more, with our [BizTalk API][biztalk] apps you can scale to mature integration scenarios with the power of a [rules engine][rules], [trader partner management][tpm] and more.
 
 - **Easy to use design tools** - Logic Apps can be designed end-to-end in the browser. Start with a trigger - from a simple schedule to whenever a tweet appears about your company. Then orchestrate any number of actions  using the rich gallery of connectors.
 
@@ -49,7 +49,7 @@ Logic Apps allow developers to design workflows that articulate intent via a tri
 The following are some of the key pieces that comprise the Logic Apps experience. 
 
 - **Workflow** - Logic Apps provides a graphical way to model your business processes as a series of steps or a workflow.
-- **Connectors** - Your logic apps need access to data and services. A connector is a special type of API app. It is created specifically to aid you when you are connecting to and working with your data. Find our more in [what are Connectors][biztalk].
+- **[Connectors][connectors]** - Your logic apps need access to data and services. A connector is a special type of API app. It is created specifically to aid you when you are connecting to and working with your data. See the list of connectors available now in [using connectors][connectors].
 - **Triggers** - Some connectors can also act as a trigger. A trigger starts a new instance of a workflow based on a specific event, like the arrival of an e-mail or a change in your Azure Storage account.
 - **BizTalk** - for more advanced integration scenarios, Azure App Services includes capabilities from Biztalk. Biztalk is Microsoft's industry leading integration platform. The BizTalk API apps allow you to easily include validation, transformation, rules and more in to your Logic App workflows. Find out more in [what are BizTalk API apps][biztalk].
 
@@ -62,6 +62,7 @@ For more information on Azure App Service platform, see [Azure App Service][apps
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-
-
+[connectors]: app-service-logic-use-biztalk-connectors.md
+[tpm]: app-service-logic-create-a-trading-partner-agreement
+[rules]: app-service-logic-use-biztalk-rules
 
