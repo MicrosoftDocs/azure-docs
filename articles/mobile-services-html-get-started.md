@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="11/21/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
 
 
 # <a name="getting-started"> </a>Get started with Mobile Services
@@ -53,7 +53,7 @@ Completing this tutorial is a prerequisite for all other Mobile Services tutoria
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2>Create a new HTML app</h2>
+## Create a new HTML app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
