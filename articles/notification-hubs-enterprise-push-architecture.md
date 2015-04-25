@@ -10,10 +10,10 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
-	ms.devlang="" 
+	ms.tgt_pltfrm="windows" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="01/15/2015" 
+	ms.date="04/24/2015" 
 	ms.author="piyushjo"/>
 
 # Enterprise push architectural guidance
