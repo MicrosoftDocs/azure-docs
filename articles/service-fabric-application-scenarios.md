@@ -39,7 +39,7 @@ Building applications with Azure Cloud Service worker roles are an example of st
 
 When building applications consisting of microservices you typically have a combination of stateless web apps (ASP.NET, node.js etc) calling onto stateless and stateful business middle-tier services all deployed into the same Service Fabric cluster using the Service Fabric deployment commands. The independence of scale, reliability, and resource usage for each of these microservices provides this agility in development and lifecycle management.
   
-Stateful microservices simplify application designs as they remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means less moving parts to manage in your application as a whole. The diagrams below illustrate the differences between designing an application that is stateless verses one that is stateful. In the stateful case by taking advantage of the [reliable services](../service-fabric-reliable-services-introduction) and [reliable actors](../service-fabric-fabact-introduction) programming models, stateful services reduce application complexity, whilst achieving high throughput and low latency.
+Stateful microservices simplify application designs as they remove the need for additional queues and caches that have traditionally been required to address the availability and latency requirements of a purely stateless application. Since stateful service are naturally highly-available and low-latency this means less moving parts to manage in your application as a whole. The diagrams below illustrate the differences between designing an application that is stateless verses one that is stateful. In the stateful case by taking advantage of the [Reliable Services](service-fabric-reliable-services-introduction.md) and [Reliable Actors](service-fabric-reliable-actors-introduction.md) programming models, stateful services reduce application complexity, whilst achieving high throughput and low latency.
 
 ## An application built using stateless services##
 ![Application using Stateless Service][Image1]
@@ -52,15 +52,17 @@ Stateful microservices simplify application designs as they remove the need for 
 
 
 Get started building stateless and stateful services with the Service Fabric 
-[reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-fabact-get-started.md) programming models 
+[Reliable Services](service-fabric-reliable-services-quick-start.md) and [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 
-Also see the following topics
+Also see the following topics:
 
 [Defining and Managing Service State](service-fabric-concepts-state.md)
 
 [Availability of services](service-fabric-concepts-availability-services.md)
 
 [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
+
+[Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
