@@ -3,7 +3,7 @@
  description="" 
  services="cdn" 
  documentationCenter=".NET" 
- authors="zhangmanling" 
+ authors="Juliako" 
  manager="dwrede" 
  editor=""/>
 <tags 
@@ -13,7 +13,7 @@
  ms.devlang="dotnet" 
  ms.topic="article" 
  ms.date="04/25/2015" 
- ms.author="zhangmanling"/>
+ ms.author="mazha"/>
 
 #How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
 
