@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/23/2015" 
+	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
@@ -154,9 +154,8 @@ Note that this tutorial demonstrated how to create but one kind of chart for a d
 
 Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 

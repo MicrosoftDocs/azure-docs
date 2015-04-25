@@ -205,7 +205,7 @@ PS D:\temp> Get-ServiceFabricClusterManifest
 
     [...]
 
-PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType -ImageStoreConnectionString file:D:\WindowsFabric\Data\ImageStore
+PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType -ImageStoreConnectionString file:D:\ServiceFabric\Data\ImageStore
 Copy application package succeeded
 
 PS D:\temp>

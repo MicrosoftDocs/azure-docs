@@ -325,7 +325,7 @@ To make your application store data into the cloud you need to first create a st
 
 1. Login to the [Azure Portal][management-portal].
 
-2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](azure-preview-portal-using-resource-groups.md) for it.
+2. Click the **New** icon on the bottom left of the portal, then click **Data + Storage** > **Storage**. Give the storage account a unique name and create a new [resource group](resource-group-overview.md) for it.
 
 	![Create a new storage account][storage-quick-create]
 	
@@ -406,7 +406,7 @@ To publish changes to application, follow these steps:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 

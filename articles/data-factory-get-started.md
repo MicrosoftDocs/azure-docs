@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/23/2015" 
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Factory
@@ -116,7 +116,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 			![Create Resource Group][image-data-factory-create-resource-group]
 
-		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).  
+		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).  
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
 8. Click **Create** in the **New data factory** blade.
 
@@ -197,7 +197,7 @@ A table is a rectangular dataset and has a schema. In this step, you will create
         		{
             		"frequency": "hour",
             		"interval": 1,
-            		"waitonexternal": {}
+            		"waitOnExternal": {}
        		 	}
     		}
 		}
@@ -250,7 +250,7 @@ In this part of the step, you will create an output table named **EmpSQLTable** 
         		],
         		"location":
         		{
-            		"type": "AzureSQLTableLocation",
+            		"type": "AzureSqlTableLocation",
             		"tableName": "emp",
             		"linkedServiceName": "AzureSqlLinkedService"
         		},

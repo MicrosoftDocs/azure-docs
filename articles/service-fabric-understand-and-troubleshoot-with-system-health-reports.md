@@ -43,7 +43,7 @@ The report specifies Global Lease timeout as the TTL and the report is re-sent e
 - Next steps: investigate why the neighborhood is lost. Eg. Check communication between cluster nodes.
 
 ## Node System health reports
-System.FM is the authority that manages information about cluster nodes. Any node should have one report from System.FM showing its state. The node entities are removed when the node is disabled.
+System.FM, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Any node should have one report from System.FM showing its state. The node entities are removed when the node is disabled.
 
 ### Node up/down
 System.FM reports Ok when the node joins the ring (it's up and running) and Error when the node departs the ring (it's down, either for upgrading, or simply failed).  The health hierarchy built by the Health Store takes action on deployed entities in correlation with System.FM node reports. It considers node a virtual parent of all deployed entities. The deployed entities on that node are not exposed through queries if the node is down or not reported, or the node has a different instance than the instance associated with the entities. When FM reports the node down or restarted (new instance), the Health Store automatically cleans up the deployed entities that can only exist on the down node or the previous instance of the node.
@@ -51,6 +51,29 @@ System.FM reports Ok when the node joins the ring (it's up and running) and Erro
 - SourceId: System.FM
 - Property: State
 - Next steps: If the node is down for upgrade, it should come up once upgraded, in which case the health state should be switched back to Ok. If the node doesn't come back or it failed, it needs more investigation.
+
+The following shows the System.FM event with health state Ok for node up:
+
+```powershell
+
+PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
+NodeName              : Node.1
+AggregatedHealthState : Ok
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 2
+                        SentAt                : 4/24/2015 5:27:33 PM
+                        ReceivedAt            : 4/24/2015 5:28:50 PM
+                        TTL                   : Infinite
+                        Description           : Fabric node is up.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 5:28:50 PM
+
+```
+
 
 ### Certificate expiration
 System.FabricNode reports Warning when certificates used by the node are close to expiration. There are three certificates per node: Certificate_cluster, Certificate_server and Certificate_default_client.
@@ -68,19 +91,71 @@ The Service Fabric load balancer reports Warning if it detects a node capacity v
  - Next steps: Check provided metrics and view the current capacity on the node.
 
 ## Application System health reports
+System.CM, which represents the Cluster Manager service, is the authority that manages information about application. 
+
 ### State
-System.CM is the authority for applications. It reports Ok when the application is created or updated. It informs the Health Store when the application is deleted, so it can be removed from store.
+System.CM reports Ok when the application is created or updated. It informs the Health Store when the application is deleted, so it can be removed from store.
 
 - SourceId: System.CM
 - Property: State
 - Next steps: If the application is created, it should have the CM health report. Otherwise, check the state of the application by issuing a query (eg Powershell cmdlet Get-ServiceFabricApplication -ApplicationName <applicationName>).
 
+The following shows the State event on fabric:/WordCount application.
+
+```powershell
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) 
+
+ApplicationName                 : fabric:/WordCount
+AggregatedHealthState           : Ok
+ServiceHealthStates             : None
+DeployedApplicationHealthStates : None
+HealthEvents                    : 
+                                  SourceId              : System.CM
+                                  Property              : State
+                                  HealthState           : Ok
+                                  SequenceNumber        : 82
+                                  SentAt                : 4/24/2015 6:12:51 PM
+                                  ReceivedAt            : 4/24/2015 6:12:51 PM
+                                  TTL                   : Infinite
+                                  Description           : Application has been created.
+                                  RemoveWhenExpired     : False
+                                  IsExpired             : False
+                                  Transitions           : ->Ok = 4/24/2015 6:12:51 PM
+```
+
 ## Service System health reports
+System.FM, which represents the Failover Manager service, is the authority that manages information about services.
+
 ### State
-System.FM is the authority for service state. It reports Ok when the service is created. It deletes the entity from Health Store when the service is deleted.
+System.FM reports Ok when the service is created. It deletes the entity from Health Store when the service is deleted.
 
 - SourceId: System.FM
 - Property: State.
+
+The following shows the State event on the service fabric:/WordCount/WordCountService.
+
+```powershell
+PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
+
+ServiceName           : fabric:/WordCount/WordCountService
+AggregatedHealthState : Ok
+PartitionHealthStates : 
+                        PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+                        AggregatedHealthState : Ok
+                        
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 3
+                        SentAt                : 4/24/2015 6:12:51 PM
+                        ReceivedAt            : 4/24/2015 6:13:01 PM
+                        TTL                   : Infinite
+                        Description           : Service has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:13:01 PM
+```
 
 ### Unplaced replicas violation
 System.PLB reports Warning if it was unable to find a placement for one or more of the service replica. The report is removed when expired.
@@ -90,8 +165,10 @@ System.PLB reports Warning if it was unable to find a placement for one or more 
 - Next steps: Check the service constraints. Check the current state of the placement.
 
 ## Partition System health reports
+System.FM, which represents the Failover Manager service, is the authority that manages information about service partitions.
+
 ### State
-System.FM is the authority for partition state. It reports Ok when the partition is created and healthy. It deletes the entity from Health Store when the partition is deleted.
+System.FM reports Ok when the partition is created and healthy. It deletes the entity from Health Store when the partition is deleted.
 If the partition is below min replica count, it reports Error.
 If the partition is not below min replica count, but it is below target replica count, it reports Warning.
 If the partition is in quorum loss, FM reports error.
@@ -99,8 +176,72 @@ Other important events are: Warning when the reconfiguration takes longer than e
 
 - SourceId: System.FM
 - Property: State.
-- Next steps: if health state is not Ok, check why the replicas are not created/opened/promoted to primary or secondary correctly. In many instances, the root cause is a service bug in the open or change role implementation.
+- Next steps: if health state is not Ok, it's possible some replicas are not created/opened/promoted to primary or secondary correctly. In many instances, the root cause is a service bug in the open or change role implementation.
 
+The following shows a healthy partition.
+
+```powershell
+PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiService | Get-ServiceFabricPartitionHealth
+PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
+AggregatedHealthState : Ok
+ReplicaHealthStates   : None
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 38
+                        SentAt                : 4/24/2015 6:33:10 PM
+                        ReceivedAt            : 4/24/2015 6:33:31 PM
+                        TTL                   : Infinite
+                        Description           : Partition is healthy.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:33:31 PM
+```
+
+The following shows the health of a partition that is below target replica count. Next steps: get the partition description, which shows how it was configured: MinReplicaSetSize is 2, TargetReplicaSetSize is 7. Then get the number of nodes in the cluster: 5. So in this case, 2 replicas can't be placed.
+
+```powershell
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
+
+PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+ReplicaHealthStates   : None
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Warning
+                        SequenceNumber        : 37
+                        SentAt                : 4/24/2015 6:13:12 PM
+                        ReceivedAt            : 4/24/2015 6:13:31 PM
+                        TTL                   : Infinite
+                        Description           : Partition is below target replica or instance count.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
+                        
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
+
+PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+PartitionKind          : Int64Range
+PartitionLowKey        : 1
+PartitionHighKey       : 26
+PartitionStatus        : Ready
+LastQuorumLossDuration : 00:00:00
+MinReplicaSetSize      : 2
+TargetReplicaSetSize   : 7
+HealthState            : Warning
+DataLossNumber         : 130743727710830900
+ConfigurationNumber    : 8589934592
+
+
+PS C:\> @(Get-ServiceFabricNode).Count
+5
+```
+ 
 ### Replica constraint violation
 System.PLB reports Warning if it detects replica constraint violation and can't place replicas of the partition.
 
@@ -108,13 +249,34 @@ System.PLB reports Warning if it detects replica constraint violation and can't 
 - Property: starts with "ReplicaConstraintViolation".
 
 ## Replica System health reports
-System.RA is the authority for replica state.
+System.RA, which represents the Reconfiguration Agent component, is the authority for replica state.
 
 ### State
 System.RA reports Ok when the replica is created.
 
 - SourceId: System.RA
 - Property: State.
+
+The following shows a healthy replica:
+
+```powershell
+PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
+PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
+ReplicaId             : 130743727717237310
+AggregatedHealthState : Ok
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 130743727718018580
+                        SentAt                : 4/24/2015 6:12:51 PM
+                        ReceivedAt            : 4/24/2015 6:13:02 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:13:02 PM
+```
 
 ### Replica open status
 The description of this health report contains the start time (UTC) when the API call was invoked.
@@ -131,6 +293,109 @@ System.RAP and System.Replicator report Warning if a call into user service code
 - Property: the name of the slow API. The description gives more detail about the time the API has been pending.
 - Next steps: investigate why the call it takes longer than expected.
 
+The following example shows a partition in quorum loss and investigation steps done to figure out why. One of the replicas has Warning health state, so we get its health. It shows that service operation takes longer than expected, event reported by System.RAP. After this information, next step is to look at service code and investigate. For this case, the RunAsync implementation of the stateful service throws an unhandled exception. Note that replicas are recycling, so you may not see any replicas in Warning state. Retry getting the health and look whether there are any differences in replica id, this gives clues in certain cases.
+
+```powershell
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
+
+PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
+AggregatedHealthState : Error
+UnhealthyEvaluations  : 
+                        Error event: SourceId='System.FM', Property='State'.
+                        
+ReplicaHealthStates   : 
+                        ReplicaId             : 130743748372546446
+                        AggregatedHealthState : Ok
+                        
+                        ReplicaId             : 130743746168084332
+                        AggregatedHealthState : Ok
+                        
+                        ReplicaId             : 130743746195428808
+                        AggregatedHealthState : Warning
+                        
+                        ReplicaId             : 130743746195428807
+                        AggregatedHealthState : Ok
+                        
+HealthEvents          : 
+                        SourceId              : System.FM
+                        Property              : State
+                        HealthState           : Error
+                        SequenceNumber        : 182
+                        SentAt                : 4/24/2015 7:00:17 PM
+                        ReceivedAt            : 4/24/2015 7:00:31 PM
+                        TTL                   : Infinite
+                        Description           : Partition is in quorum loss.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
+                        
+PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
+
+PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
+PartitionKind          : Int64Range
+PartitionLowKey        : -9223372036854775808
+PartitionHighKey       : 9223372036854775807
+PartitionStatus        : InQuorumLoss
+LastQuorumLossDuration : 00:00:13
+MinReplicaSetSize      : 2
+TargetReplicaSetSize   : 3
+HealthState            : Error
+DataLossNumber         : 130743746152927699
+ConfigurationNumber    : 227633266688
+
+PS C:\> Get-ServiceFabricReplica 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+
+ReplicaId           : 130743746195428808
+ReplicaAddress      : PartitionId: 72a0fb3e-53ec-44f2-9983-2f272aca3e38, ReplicaId: 130743746195428808
+ReplicaRole         : Primary
+NodeName            : Node.3
+ReplicaStatus       : Ready
+LastInBuildDuration : 00:00:01
+HealthState         : Warning
+
+PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 130743746195428808
+
+PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
+ReplicaId             : 130743746195428808
+AggregatedHealthState : Warning
+UnhealthyEvaluations  : 
+                        Unhealthy event: SourceId='System.RAP', Property='ServiceOpenOperationDuration', HealthState='Warning', ConsiderWarningAsError=false.
+                        
+HealthEvents          : 
+                        SourceId              : System.RA
+                        Property              : State
+                        HealthState           : Ok
+                        SequenceNumber        : 130743756170185892
+                        SentAt                : 4/24/2015 7:00:17 PM
+                        ReceivedAt            : 4/24/2015 7:00:33 PM
+                        TTL                   : Infinite
+                        Description           : Replica has been created.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 7:00:33 PM
+                        
+                        SourceId              : System.RAP
+                        Property              : ServiceOpenOperationDuration
+                        HealthState           : Warning
+                        SequenceNumber        : 130743756399407044
+                        SentAt                : 4/24/2015 7:00:39 PM
+                        ReceivedAt            : 4/24/2015 7:00:59 PM
+                        TTL                   : Infinite
+                        Description           : Start Time (UTC): 2015-04-24 19:00:17.019
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Warning = 4/24/2015 7:00:59 PM
+```
+
+When starting the faulty application under debugger, the Diagnostic Events windows show the exception thrown from RunAsync:
+
+![Visual Studio 2015 Diagnostic Events: RunAsync failure in fabric:/HelloWorldStatefulApplication.][1]
+
+Visual Studio 2015 Diagnostic Events: RunAsync failure in fabric:/HelloWorldStatefulApplication.
+
+[1]: ./media/service-fabric-understand-and-troubleshoot-with-system-health-reports/servicefabric-health-vs-runasync-exception.png
+
+
 ### Replication queue full
 System.Replicator reports Warning if replication queue is full. On the primary, this usually happens because one or more replicas secondary replicas are slow to ack operations. On secondary, this usually happens when the service is slow to apply the operations. The Warning is cleared when the queue is no longer full.
 
@@ -145,7 +410,34 @@ System.Hosting reports Ok when an application is successfully activated on the n
 
 - SourceId: System.Hosting
 - Property: Activation. Includes the rollout version.
-- Next steps: Investigate why the activation failed.
+- Next steps: If unhealthy, investigate why the activation failed.
+
+The following shows successful activation:
+
+```powershell
+PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -ApplicationName fabric:/WordCount
+
+ApplicationName                    : fabric:/WordCount
+NodeName                           : Node.1
+AggregatedHealthState              : Ok
+DeployedServicePackageHealthStates : 
+                                     ServiceManifestName   : WordCountServicePkg
+                                     NodeName              : Node.1
+                                     AggregatedHealthState : Ok
+                                     
+HealthEvents                       : 
+                                     SourceId              : System.Hosting
+                                     Property              : Activation
+                                     HealthState           : Ok
+                                     SequenceNumber        : 130743727751144415
+                                     SentAt                : 4/24/2015 6:12:55 PM
+                                     ReceivedAt            : 4/24/2015 6:13:03 PM
+                                     TTL                   : Infinite
+                                     Description           : The application was activated successfully.
+                                     RemoveWhenExpired     : False
+                                     IsExpired             : False
+                                     Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+```
 
 ### Download
 System.Hosting reports Error is the application package download failed.
@@ -176,6 +468,54 @@ System.Hosting reports Ok if the service type was registered successfully. It re
 
 - SourceId: System.Hosting
 - Property: prefix ServiceTypeRegistration and contains the service type name. Eg. "ServiceTypeRegistration:FileStoreServiceType"
+
+The following shows a healthy deployed service package.
+
+```powershell
+PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName Node.1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
+
+
+ApplicationName       : fabric:/WordCount
+ServiceManifestName   : WordCountServicePkg
+NodeName              : Node.1
+AggregatedHealthState : Ok
+HealthEvents          : 
+                        SourceId              : System.Hosting
+                        Property              : Activation
+                        HealthState           : Ok
+                        SequenceNumber        : 130743727751456915
+                        SentAt                : 4/24/2015 6:12:55 PM
+                        ReceivedAt            : 4/24/2015 6:13:03 PM
+                        TTL                   : Infinite
+                        Description           : The ServicePackage was activated successfully.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+                        
+                        SourceId              : System.Hosting
+                        Property              : CodePackageActivation:Code:EntryPoint
+                        HealthState           : Ok
+                        SequenceNumber        : 130743727751613185
+                        SentAt                : 4/24/2015 6:12:55 PM
+                        ReceivedAt            : 4/24/2015 6:13:03 PM
+                        TTL                   : Infinite
+                        Description           : The CodePackage was activated successfully.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+                        
+                        SourceId              : System.Hosting
+                        Property              : ServiceTypeRegistration:WordCountServiceType
+                        HealthState           : Ok
+                        SequenceNumber        : 130743727753644473
+                        SentAt                : 4/24/2015 6:12:55 PM
+                        ReceivedAt            : 4/24/2015 6:13:03 PM
+                        TTL                   : Infinite
+                        Description           : The ServiceType was registered successfully.
+                        RemoveWhenExpired     : False
+                        IsExpired             : False
+                        Transitions           : ->Ok = 4/24/2015 6:13:03 PM
+```
 
 ### Download
 System.Hosting reports Error is the service package download failed.
