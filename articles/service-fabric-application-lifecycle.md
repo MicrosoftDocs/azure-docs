@@ -102,8 +102,6 @@ The service model roles are:
 
 For more information on Service Fabric, see:
 
-- [Choosing a framework for your service](service-fabric-choose-framework.md)
-
 - [Develop a Service Fabric service](service-fabric-develop-your-service-index.md)
-
-- [Service Fabric application model](service-fabric-application-model.md)
+- [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
+- [Test a Service Fabric service](service-fabric-test-your-service-index.md)
