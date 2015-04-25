@@ -217,7 +217,7 @@ PS D:\temp>
 
 [Service Fabric Health Introduction](service-fabric-health-introduction.md)
 
-[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-troubleshoot-your-service-index.md)
+[Diagnose and troubleshoot a Service Fabric service](service-fabric-diagnose-monitor-your-service-index.md)
 
 [Model an application in Service Fabric](service-fabric-application-model.md)
 
