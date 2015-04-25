@@ -52,15 +52,17 @@ Stateful microservices simplify application designs as they remove the need for 
 
 
 Get started building stateless and stateful services with the Service Fabric 
-[reliable services](service-fabric-reliable-services-quick-start.md) and [reliable actors](service-fabric-fabact-get-started.md) programming models 
+[Reliable Services](service-fabric-reliable-services-quick-start.md) and [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 
-Also see the following topics
+Also see the following topics:
 
 [Defining and Managing Service State](service-fabric-concepts-state.md)
 
 [Availability of services](service-fabric-concepts-availability-services.md)
 
 [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
+
+[Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
