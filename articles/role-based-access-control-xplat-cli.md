@@ -3,7 +3,7 @@
 	description="Managing role-based access control with cross-platform command-line interface" 
 	services="azure-portal" 
 	documentationCenter="na" 
-	authors="justinha" 
+	authors="Justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
