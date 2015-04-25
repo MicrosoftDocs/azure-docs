@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Role Based Access Control in Azure Preview Portal" 
+	pageTitle="Role Based Access Control in the Azure Portal" 
 	description="Describes how role based access control works and how to set it up" 
-	services="" 
-	documentationCenter="" 
+	services="azure-portal" 
+	documentationCenter="na" 
 	authors="Justinha" 
 	manager="terrylan" 
 	editor=""/>
 
 <tags 
 	ms.service="azure-portal" 
-	ms.devlang="dotnet" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="Ibiza" 
-	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="na" 
 	ms.date="02/20/2015" 
 	ms.author="justinha"/>
 
@@ -21,9 +21,9 @@
 <!--Properties section (above): this is required in all topics. Please fill it out!-->
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
-# Role-based access control in Azure Preview portal 
+# Role-based access control in the Azure Portal 
 
-<p> We’ve added support for role-based access control (RBAC) in the Azure Preview portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
+<p> We’ve added support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -48,9 +48,9 @@ Access is granted to Azure AD users and services by assigning the appropriate ro
 
 Roles can be assigned to the following types of Azure AD security principals:
 
-+ **Users**: roles can be assigned to organizational users that are in the Azure AD with which the Azure subscription is associated. Roles can also be assigned to external Microsoft account users (such as joe@outlook.com) by using the Invite action to assign the user to a role in the Azure Preview portal. Assigning a role to an external Microsoft account user causes a guest account to be created in the Azure AD for it. If this guest account is disabled in the directory, the external user won’t be allowed to access any Azure resource that the user has been granted access to.
++ **Users**: roles can be assigned to organizational users that are in the Azure AD with which the Azure subscription is associated. Roles can also be assigned to external Microsoft account users (such as joe@outlook.com) by using the Invite action to assign the user to a role in the Azure Portal. Assigning a role to an external Microsoft account user causes a guest account to be created in the Azure AD for it. If this guest account is disabled in the directory, the external user won’t be allowed to access any Azure resource that the user has been granted access to.
 + **Groups**: roles can be assigned to Azure AD security groups. A user is automatically granted access to a resource if the user becomes a member of a group that has access. The user also automatically loses access to the resource after getting removed from the group. Managing access via groups by assigning roles to groups and adding users to those groups is the best practice, instead of assigning roles directly to users. Azure RBAC does not allow assigning roles to distribution lists.
-	The ability to assign roles to groups lets an organization extend its existing access control model from its on-premises directory to the cloud, so security groups that are already established to control access on-premises can be re-used to control access to resources in the Azure Preview portal. For more information about different options for synchronizing users and groups from an on-premises directory, see [Directory integration](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium also offers a [delegated group management feature](http://msdn.microsoft.com/library/azure/dn641267.aspx) with which the ability to create and manage groups can be delegated to non-administrator users from Azure AD.
+	The ability to assign roles to groups lets an organization extend its existing access control model from its on-premises directory to the cloud, so security groups that are already established to control access on-premises can be re-used to control access to resources in the Azure Portal. For more information about different options for synchronizing users and groups from an on-premises directory, see [Directory integration](http://technet.microsoft.com/library/jj573653.aspx). Azure AD Premium also offers a [delegated group management feature](http://msdn.microsoft.com/library/azure/dn641267.aspx) with which the ability to create and manage groups can be delegated to non-administrator users from Azure AD.
 + **Service principals**: service identities are represented as service principals in the directory. They authenticate with Azure AD and securely communicate with one another. Services can be granted access to Azure resources by assigning roles via the Azure module for Windows PowerShell to the Azure AD service principal representing that service. 
 
 #### Resource scope
@@ -62,13 +62,13 @@ Access does not need to be granted to the entire subscription. Roles can also be
 ## Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
-However, the new RBAC model is supported only by the Azure Preview portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Preview portal does not make that user a co-administrator of the subscription in the full Azure portal.
+However, the new RBAC model is supported only by the Azure Portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure Management portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure Portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
-If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Preview portal, you should add them to the subscription co-administrators using the full Azure Management portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
+If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure Portal, you should add them to the subscription co-administrators using the full Azure Management portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
 ## Authorization for management versus data operations
 
-Role-based access control is supported only for management operations of the Azure resources in Azure Preview portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
+Role-based access control is supported only for management operations of the Azure resources in Azure Portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
 ## How to add and remove access
 

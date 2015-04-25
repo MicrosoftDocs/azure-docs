@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Managing Role-Based Access Control with Windows PowerShell" 
 	description="Managing role-based access control with Windows PowerShell" 
-	services="" 
-	documentationCenter="" 
+	services="azure-portal" 
+	documentationCenter="na" 
 	authors="guangyang" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
@@ -20,7 +20,7 @@
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
-Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based access control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use Windows PowerShell to manage RBAC. It walks you through the process of creating and checking role assignments.
 
