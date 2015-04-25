@@ -78,6 +78,8 @@ The `mobile create` command fails when the specified mobile service exists. In y
 
 ##How to list existing mobile services in a subscription
 
+> [AZURE.NOTE] Commands in the CLI related to "list" and "script" only work with the JavaScript backend. 
+
 The following command returns a list of all the mobile services in an Azure subscription:
 
 	azure mobile list
