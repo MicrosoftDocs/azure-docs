@@ -21,14 +21,14 @@
 
 ##Overview
 
-When working with Media Services, one of the common scenarios is:
+When delivering your content to customers (streaming live events or video-on-demand) your goal is: to deliver a high quality video to various devices under different network conditions. 
 
-1. Upload an input file (called a mezzanine file) into an asset. For example, H.264, MP4, or WMV.
-1. Encode the asset into a set of adaptive bitrate MP4s.
-1. Publish the asset. 
-2. Use [Dynamic Packaging](media-services-dynamic-packaging.md) to deliver the content to your clients in any of the following formats: MPEG DASH, Apple HLS, or Smooth Streaming. 
+To achieve this goal:
 
-This topic gives an overview of main [concepts](media-services-deliver-content-overview.md#concepts) and links to topics that show how to perform content delivery related [tasks](media-services-deliver-content-overview.md#tasks).
+- encode your stream to multi-bitrate (adaptive bitrate) video stream (this will take care of quality and network conditions) and 
+- use Media Services [Dynamic Packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols (this will take care of streaming on different devices). Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+
+This topic gives an overview of  [content delivery concepts](media-services-deliver-content-overview.md#concepts) and links to topics that show how to perform content delivery [tasks](media-services-deliver-content-overview.md#tasks).
 
 ##<a id="concepts"></a>Concepts
 
@@ -36,7 +36,7 @@ The following list describes useful terminology and concepts when delivering med
 
 ###Dynamic packaging
 
-It is recommended to use dynamic packaging to deliver your content. For more information see [Dynamic Packaging](media-services-dynamic-packaging.md).  
+It is recommended to use dynamic packaging to deliver your content. For more information see [Dynamic Packaging](media-services-dynamic-packaging-overview.md).  
 
 To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 

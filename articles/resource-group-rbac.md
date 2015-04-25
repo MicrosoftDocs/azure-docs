@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Managing and Auditing Access to Resouces"
+   pageTitle="Managing and Auditing Access to Resources"
    description="Use role-based access control (RBAC) to manage user permissions for resources deployed to Azure."
    services="na"
    documentationCenter="na"
@@ -11,9 +11,9 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="ibiza"
+   ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/22/2015"
+   ms.date="04/23/2015"
    ms.author="tomfitz"/>
 
 # Managing and Auditing Access to Resources
