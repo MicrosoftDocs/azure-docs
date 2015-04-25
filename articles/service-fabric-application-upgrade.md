@@ -37,7 +37,8 @@ Health policies and checks during upgrade by Service Fabric are Service and Appl
 The application health is an aggregation of the child entities of the application. In short, Service Fabric evaluates the health of the application through the health reported on the application as well as all the health of the services for the application. The health of the application services are further evaluated by aggregating the health of their children such as the service replica. Once the application health policy is satisfied, the upgrade can proceed or if the health policy is violated the application upgrade fails.
 
 ## Upgrade modes
-The common mode (and recommended) for upgrade is MonitoredAuto.  MonitoredAuto performs the upgrade on one upgrade domain, and if all health checks pass (per the policy specified), moves on to the next upgrade domain automatically, and so on.  If the health checks fail and/or timeouts reached, the upgrade is either rolled back for the upgrade domain, or the mode changed to UnmonitoredManual if that is the option selected at the time of upgrade.
+
+The common mode (and recommended) for upgrade is Monitored.  Monitored performs the upgrade on one upgrade domain, and if all health checks pass (per the policy specified), moves on to the next upgrade domain automatically, and so on.  If the health checks fail and/or timeouts reached, the upgrade is either rolled back for the upgrade domain, or the mode changed to UnmonitoredManual if that is the option selected at the time of upgrade.
 
 UnmonitoredManual would need manual intervention after every upgrade on an upgrade domain to kick off the upgrade on the next upgrade domain. There are no Service Fabric health checks that are performed, and is reliant on the intervener to perform the health or status checks before starting the upgrade in the next upgrade domain.
 

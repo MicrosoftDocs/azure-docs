@@ -26,7 +26,7 @@ This article is the reference documentation for `api-version=2015-02-28-Preview`
 A few additional features in `2015-02-28-Preview` are documented separately. These include:
 
 - [Scoring Profiles](../search-api-scoring-profiles-2015-02-28-preview/)
-- [Indexers](../search-api-indexers-2015-02-28-preview/)
+- [Indexers](../search-api-indexers-2015-02-28-Preview/)
 
 Azure Search service is available in multiple versions. Please refer to [Search Service Versioning](http://msdn.microsoft.com/library/azure/dn864560.aspx) for details.
 
