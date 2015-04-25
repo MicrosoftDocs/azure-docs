@@ -3,7 +3,7 @@
 	description="Learn how to use the SendGrid service to send email from your Azure Mobile Services app." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="ggailey777" 
+	authors="vibhork" 
 	manager="sendgrid" 
 	editor=""/>
 
