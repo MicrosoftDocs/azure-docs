@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="04/25/2015" 
 	ms.author="stepsic"/>
 
 # Receive alert notifications
@@ -23,6 +23,8 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 For an alert rule on a metric value, when the value of a specified metric crosses a threshold assigned, the alert rule becomes active and can send a notification. For an alert rule on events, a rule can send a notification on *every* event, or, only when a certain number of events happen.
 
 When you create an alert rule, you can select options to send an email notification to the service administrator and co-administrators or to another administrator that you can specify. A notification email is sent when the rule becomes active, and when an alert condition is resolved.
+
+You can use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn931945.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to configure and get information about alert rules programmatically.
 
 ## Create an alert rule
 
