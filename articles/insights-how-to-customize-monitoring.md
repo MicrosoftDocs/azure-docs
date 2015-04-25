@@ -1,14 +1,15 @@
 <properties 
-	pageTitle="Use Monitoring charts" 
+	pageTitle="Monitor service metrics" 
 	description="Learn how to customize monitoring charts in Azure." 
-	authors="stepsic_microsoft_com" 
+	authors="stepsic-microsoft-com" 
 	manager="ronmart" 
 	editor="" 
-	services="na" 
+	services="azure-portal"
+ 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -16,11 +17,13 @@
 	ms.date="04/24/2015" 
 	ms.author="stepsic"/>
 
-# Use Monitoring charts
+# Monitor service metrics
 
-## Changing existing charts 
+All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 
-Azure services have a rich variety of metrics for you to track, and you can chart them over any time period you choose.
+## Using monitoring charts 
+
+You can chart any of the metrics them over any time period you choose.
 
 1. In the [portal](https://portal.azure.com/), click **Browse**, and then a resource you're interested in monitoring.
 2. The **Monitoring** lens contains the most important metrics for each Azure resource. For example, a web app has **Requests and Errors**, where as a virtual machine would have **CPU percentage** and **Disk read and write**:

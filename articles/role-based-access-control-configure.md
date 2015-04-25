@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="Ibiza" 

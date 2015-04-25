@@ -4,16 +4,16 @@
 	authors="stepsic-microsoft-com" 
 	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
+	services="azure-portal" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="application-insights" 
+	ms.service="azure-portal" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2014" 
+	ms.date="04/24/2015" 
 	ms.author="stepsic"/>
 
 # Scale instance count manually or automatically
@@ -26,10 +26,10 @@ Before scaling based on instance count, you should consider that scaling is affe
 
 1. In the [portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
 
-2. The **Scale** part on **Operations** lens will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
-    ![Scale part](./media/insights-how-to-scale/Insights_UsageLens.png)
+2. The **Scale** tile on **Operations** lens will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
+    ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
 
-3. Clicking on the part will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
+3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
     ![Scale blade](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
     
 >[AZURE.NOTE] Only actions that are performed by autoscale will show up in this chart. If you manually adjust the instance count, the change will not be reflected in this chart.
@@ -47,15 +47,15 @@ If you want the number of instances to automatically adjust based on a metric, s
     
     Autoscale will never take your service below or above the boundaries that you set, no matter your load.
 
-2. Second, you choose the target range for the metric. For example, if you chose **CPU percentage**, you can set a target for the average CPU across all of the instances in your service. A scale up will happen when the average CPU exceeds the maximum you define, likewise, a scale down will happen whenever the average CPU drops below the minimum.
+2. Second, you choose the target range for the metric. For example, if you chose **CPU percentage**, you can set a target for the average CPU across all of the instances in your service. A scale out will happen when the average CPU exceeds the maximum you define, likewise, a scale in will happen whenever the average CPU drops below the minimum.
 
 3. Click the **Save** command. Autoscale will check every few minutes to make sure that you are in the instance range and target for your metric. When your service receives additional traffic,  you will get more instances without doing anything.
 
 ## Scale based on other metrics
 
-You can scale based on metrics other than the presets that appear in the **Scale by** dropdown, and can even have a complex set of scale up and scale down rules.
+You can scale based on metrics other than the presets that appear in the **Scale by** dropdown, and can even have a complex set of scale out and scale in rules.
 
-### Scaling based on other performance metrics
+### Adding or changing a rule
 
 1. Choose the **schedule and performance rules** in the **Scale by** dropdown:
 ![Performance rules](./media/insights-how-to-scale/Insights_PerformanceRules.png)
@@ -65,27 +65,62 @@ You can scale based on metrics other than the presets that appear in the **Scale
 3. To scale based on another metric click the **Add Rule** row. You can also click one of the existing rows to change from the metric you previously had to the metric you want to scale by.
 ![Add rule](./media/insights-how-to-scale/Insights_AddRule.png)
 
-4. Now you need to select which metric you want to scale by. 
+4. Now you need to select which metric you want to scale by. When choosing a metric there are a couple things to consider:
+    * The *resource* the metric comes from. Typically, this will be the same as the resource you are scaling. However, if you want to scale by the depth of a Storage queue, the resource is the queue that you want to scale by.
+    * The *metric name* itself. 
+    * The *time aggregation* of the metric. This is how the data is combine over the *duration*.
+    
+5. After choosing your metric you choose the threshold for the metric, and the operator. For example, you could say **Greater than** **80%**. 
 
-The Metric Detail blade contains all of the controls that you need to set up your optimal scale profile. At the top, choose the new metric that you want to scale by.
+6. Then choose the action that you want to take. There are a couple different type of actions:
+    * Increase or decrease by - this will add or remove the **Value** number of instances you define
+    * Increase or decrease percent - this will change the instance count by a percent. For example, you could put 25 in the **Value** field, and if you currently had 8 instances, 2 would be added.
+    * Increase or decrease to - this will set the instance count to the **Value** you define.
+
+7. Finally, you can choose cool down - how long this rule should wait after the previous scale action to scale again.
+    
+8. After configuring your rule hit **OK**. 
+
+9. Once you have configured all of the rules you want, be sure to hit the **Save** command.
 
 ### Scaling with multiple steps
 
-Below the graph of the metric are two sections: **Scale up rules** and **Scale down rules**. Your service will scale up if **any** of the scale up rules are met. Conversely, your service will scale down if **all** of the scale down rules are met.
+The examples above are pretty basic. However, if you want to be more agressive about scaling up (or down), you can even add multiple scale rules for the same metric. For example, you can define two scale rules on CPU percentage:
 
-For each rule you choose:
-
-- Operator - either Greater than or Less than
-- Threshold - the number that this metric has to pass to trigger the action
-- Duration - the number of minutes that this metric is averaged over
-- Value - the size of the scale action
-- Cool down - how long this rule should wait after the previous scale action to scale again
-
-![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
-
-With multiple scale rules, you can be more agressive about scaling up (or down) as performance changes. For example, you can define two scale rules:
-
-1. Scale up by 1 instance if CPU percentage is above 60%
-2. Scale up by 3 instances if CPU percentage is above 85%
+1. Scale out by 1 instance if CPU percentage is above 60%
+2. Scale out by 3 instances if CPU percentage is above 85%
 
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
+
+## Scale based on a schedule
+
+By default, when you create a scale rule it will  always apply. You can see that when you click on the profile header:
+
+
+However, you may want to have more agressive scaling during the day, or the week, than on the weekend. You could even shut down your service entirely off working hours.
+
+1. To do this, on the profile you have, select **recurrence** instead of **always,** and choose the times that you want the profile to apply.
+
+2. For example, to have a profile that applies during the week, in the **Days** dropdown uncheck **Saturday** and **Sunday**.
+
+3. To have a profile that applies during the daytime, set the **Start time** to the time of day that you want to start at.
+
+4. Click **OK**.
+
+5. Next, you will need to add the profile that you want to apply at other times. Click the **Add Profile** row. 
+
+6. Name your new, second, profile, for example you could call it **Weekend**. 
+
+7. Then select **recurrence** again, and choose the instance count range you want during this time.
+
+8. As with the Default profile, choose the **Days** you want this profile to apply to, and the **Start time** during the day.
+
+>[AZURE.NOTE] Autoscale will use the Daylight savings rules for whichever **Time zone** you select. However, during Daylight savings time the UTC offset will show the base Time zone offset, not the Daylight savings UTC offset. 
+
+9. Click **OK**.
+
+10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
+
+11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease). 
+
+12. Finally, click **Save**.

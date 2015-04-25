@@ -1,26 +1,27 @@
 <properties 
-	pageTitle="How to use diagnostics" 
+	pageTitle="Enable monitoring and diagnostics" 
 	description="Learn how to set up diagnostics for your resources in Azure." 
-	authors="alancameronwills" 
+	authors="stepsic-microsoft-com" 
 	manager="ronmart" 
 	editor="" 
-	services="application-insights" 
-	documentationCenter=""/>
+	services="azure-portal" 
+	documentationCenter="na"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.service="azure-portal" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/11/2014" 
+	ms.date="04/24/2015" 
 	ms.author="stepsic"/>
 
-# Setting up diagnostics
+# Enable monitoring and diagnostics
 
-In the Azure Portal Preview, you can now configure rich, frequent, monitoring and diagnostics data about your Windows virtual machines and your storage accounts.
+In the [portal](http://portal.azure.com), you can configure rich, frequent, monitoring and diagnostics data about your resources.
 
 ## Collecting rich data from Virtual machines
+
 1. In the [Azure Portal Preview](https://portal.azure.com/), click **Browse**, then **Virtual machines**. Select the virtual machine you're interested in monitoring.
 2. The **Monitoring** lens contains some default metrics, such as **CPU percentage**, **Disk read and write** and **Network in and out**. Clicking on any of these parts will show you the **Metric** blade.  
     ![Monitoring lens](./media/insights-how-to-use-diagnostics/Insights_VMMonitoringLens.png)
@@ -53,19 +54,6 @@ You have always been able to collect some data from storage accounts, but now in
     ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
 4. Click **OK**. It will take a few minutes for data to appear for the first time.
 
-## Visualizing diagnostics data 
-
-Once you have enabled diagnostics you can see the full list of metrics available by right clicking on any chart and going to **Edit query**:
-
-![Edit query](./media/insights-how-to-use-diagnostics/Insights_VMEditQuery.png)
-
-You can plot these metrics, and zoom in to the **Past hour**, out to the **Past week**, or even choose a **Custom** time range:
- 
-![Custom timerange](./media/insights-how-to-use-diagnostics/Insights_VMCustomTime.png)
-
-You will notice that these metrics are far more granular than the data that was previously available, and that there is minimal lag.
-
-At this time there is no way to plot metrics that have multiple instances, such as per-process or per-disk metrics. For more information about how to customize your monitoring charts see [How to customize monitoring](http://go.microsoft.com/fwlink/?LinkID=394523&clcid=0x409).
 
 ## Alerting on diagnostics data
 
@@ -80,48 +68,3 @@ Then you can select from any of the metrics that you have enabled for diagnostic
 The graph will show you a preview of your alert threshold compared the metric from the previous day. After you click **Save**, within a few minutes you will be informed whenever the metric you choose exceeds the threshold. 
 
 Note that metrics which only appear in the Preview Portal are not alertable in the Full Portal. As a result, certain alert rules from the Preview Portal are not visible in the Full portal.
-<!--Link references-->
-
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[export]: app-insights-export-telemetry.md
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
-[start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
-
