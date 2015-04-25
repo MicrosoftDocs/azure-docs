@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="javascript" 
 	ms.topic="hero-article" 
-	ms.date="4/24/2015" 
+	ms.date="04/24/2015" 
 	ms.author="glenga"/>
 
 
