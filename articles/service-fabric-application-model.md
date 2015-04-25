@@ -25,15 +25,15 @@ An application is a collection of constituent services that perform a certain fu
 ![][1]
 
 
-An application type is a categorization of an application, consisting of a bundle of service types. A service type is the categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
+An application type is a categorization of an application, consisting of a bundle of service types. A service type is a categorization of a service, which can have different settings and configurations but the core functionality remains the same. The instances of a service are the different service configuration variations of the same service type.  
 
-Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how applications are composed of service types, which in turn are composed of code, configuration, and packages.
+Classes (or "types") of applications and services are described using XML files (application manifests and service manifests) that are the templates against which applications can be instantiated. The code for different application instances will run as separate processes even when hosted by the same Service Fabric node. Furthermore, the lifecycle of each application instance can be managed (i.e. upgraded) independently. The following diagram shows how application types are composed of service types, which in turn are composed of code, configuration, and packages.
 
 ![Service Fabric ApplicationTypes and ServiceTypes][Image1]
 
 Two different manifest files are used to describe applications and services: the service manifest and application manifest, which are covered in detail in the ensuing sections.
 
-There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy allowing for the service to be avaialble even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster. More information on partitioning is available [here](service-fabric-concepts-partitioning.md).
+There can be one or more instances of a service type active in the cluster. For example, Stateful service instances, or replicas, achieve high reliability by replicating state between replicas located on different nodes in the cluster (essentially providing redundancy for the service to be available even if one node in a cluster fails). A [partitioned service](service-fabric-concepts-partitioning.md) further divides its state (and access patterns to that state) across nodes in the cluster. 
 
 The following diagram shows the relationship between applications and service instances, partitions, and replicas.
 
