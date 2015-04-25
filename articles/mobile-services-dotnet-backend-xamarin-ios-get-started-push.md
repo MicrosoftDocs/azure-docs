@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
-	ms.author="donnam"/>
+	ms.date="04/24/2015" 
+	ms.author="lindydonna"/>
 
 # Add push notifications to your Mobile Services app
 
