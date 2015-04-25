@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/05/2015" 
+	ms.date="04/24/2015" 
 	ms.author="heidist"/> 
       
 #Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)#
@@ -160,9 +160,8 @@ The body of the scoring profile is constructed from weighted fields and function
 
 <font>
 <table>
-<thead>
-<tr><td><b>Element</b></td><td><b>Description</b></td></tr></thead>
-<tbody 
+<thead><tr><td><b>Element</b></td><td><b>Description</b></td></tr></thead>
+<tbody>
 <tr>
 <td><b>Weights</b></td>
 <td>
@@ -171,25 +170,26 @@ Specify name-value pairs that assign a relative weight to a field. In the [Examp
 </tr>
 <tr>
 <td><b>Functions</b></td><td>Used when additional calculations are required for specific contexts. Valid values are `freshness`, `magnitude`, `distance` and `tag`. Each function has parameters that are unique to it.
-<br>
+<p>
 - `freshness` should be used when you want to boost by how new or old an item is. This function can only be used with datetime fields (Edm.DataTimeOffset). Note the `boostingDuration` attribute is used only with the freshness function.
-<br>
+</p><p>
 - `magnitude` should be used when you want to boost based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with double and integer fields.
-<br>
+</p><p>
+For the `magnitude` function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set `boostingRangeStart` at 100 and `boostingRangeEnd` at 1 to boost the lower-priced items.
+</p><p>
 - `distance` should be used when you want to boost by proximity or geographic location. This function can only be used with `Edm.GeographyPoint` fields.
-<br>
+</p><p>
 - `tag` should be used when you want to boost by tags in common between documents and search queries. This function can only be used with `Edm.String` and `(Collection(Edm.String) fields.
-<br>
-<b>Rules for using functions</b>
-<br>
-Function type (freshness, magnitude, distance, tag) must be lower case. 
-<br>
+</p>
+<p><b>Rules for using functions</b></p>
+Function type (freshness, magnitude, distance, tag) must be lower case.
+<br/> 
 Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
-<br>
+<br/> 
 Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28-preview.md#createindex) for more information about filterable fields.
-<br>
+<br/>
 Functions can only be applied to fields that are defined in the fields collection of an index.
-<td>
+</td>
 </tr>
 </tbody>
 </table>
