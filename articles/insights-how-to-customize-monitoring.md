@@ -69,3 +69,12 @@ You can also see usage quotas on the blade for resources that have quotas:
 ![Usage](./media/insights-how-to-customize-monitoring/Insights_UsageChart.png)
 
 Like with metrics, you can use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn931963.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of usage quotas programmatically.
+
+## Next steps
+
+* [Receive alert notifications](./insights-receive-alert-notifications) whenever a metric crosses a threshold.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
+* [Scale instance count automatically](./insights-how-to-scale) to make sure your service is available and responsive.
+* [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
+* Use [Application Insights for JavaScript apps and web pages](./app-insights-web-track-usage/) to get client analytics about the browsers that visit a web page.
+* [Monitor availability and responsiveness of any web page](./app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.

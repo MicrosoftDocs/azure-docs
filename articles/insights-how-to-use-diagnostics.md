@@ -52,14 +52,23 @@ If you have already created a resource and you want to change the diagnostics se
 ### Categories of data collection for virtual machines
 For virtual machines all metrics and logs will be recorded at one-minute intervals, so you can always have the most up-to-date information about your machine.
 
-    - **Basic metrics** : Health metrics about your virtual machine such as processor and memory 
-     - **Network and web metrics** : Metrics about your network connections and web services
-     - **.NET metrics** : Metrics about the .NET and ASP.NET applications running on your virtual machine
-     - **SQL metrics** : If you are running Microsoft SQL Service, its performance metrics
-    - **Windows event application logs** : Windows events that are sent to the application channel
-    - **Windows event system logs** : Windows events that are sent to the system channel. This also includes all events from [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
-    - **Windows event security logs** : Windows events that are sent to the security channel
-    - **Diagnostics infrastructure logs** : Logging about the diagnostics collection infrastructure
-    - **IIS logs** : Logs about your IIS server
+- **Basic metrics** : Health metrics about your virtual machine such as processor and memory 
+- **Network and web metrics** : Metrics about your network connections and web services
+- **.NET metrics** : Metrics about the .NET and ASP.NET applications running on your virtual machine
+- **SQL metrics** : If you are running Microsoft SQL Service, its performance metrics
+- **Windows event application logs** : Windows events that are sent to the application channel
+- **Windows event system logs** : Windows events that are sent to the system channel. This also includes all events from [Microsoft Antimalware](http://go.microsoft.com/fwlink/?LinkID=404171&clcid=0x409). 
+- **Windows event security logs** : Windows events that are sent to the security channel
+- **Diagnostics infrastructure logs** : Logging about the diagnostics collection infrastructure
+- **IIS logs** : Logs about your IIS server
 
 Note that at this time certain distributions of Linux are not supported, and, the Guest Agent must be installed on the virtual machine.
+
+## Next steps
+
+* [Receive alert notifications](./insights-receive-alert-notifications) whenever operational events happen or metrics cross a threshold.
+* [Monitor service metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
+* [Scale instance count automatically](./insights-how-to-scale) to make sure your service scale based on demand.
+* [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
+* [View events and audit logs](./insights-debugging-with-events) to learn everything that has happened in your service.
+* [Track service health](./insights-service-health) to find out when Azure has experienced performance degradation or service interruptions. 

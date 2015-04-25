@@ -132,3 +132,12 @@ However, you may want to have more agressive scaling during the day, or the week
 11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease). 
 
 12. Finally, click **Save**.
+
+## Next steps
+
+* [Monitor service metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
+* [Receive alert notifications](./insights-receive-alert-notifications) whenever operational events happen or metrics cross a threshold.
+* [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
+* [View events and audit logs](./insights-debugging-with-events) to learn everything that has happened in your service.
+* [Monitor availability and responsiveness of any web page](./app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.

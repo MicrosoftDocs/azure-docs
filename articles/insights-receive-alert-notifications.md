@@ -49,3 +49,16 @@ After you click **Save**, within a few minutes you will be informed whenever the
 
 Once you have created an alert rule, you can view  a preview of your alert threshold compared the metric from the previous day. 
 
+![Events](./media/insights-receive-alert-notifications/Insights_EditAlert.png)
+
+
+You can of course edit this alert rule, and **Disable** or **Enable** it if you want to temporarily stop receiving notifications about it. 
+
+## Next steps
+
+* [Monitor service metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
+* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
+* [Monitor availability and responsiveness of any web page](./app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.
+* [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
+* [View events and audit logs](./insights-debugging-with-events) to learn everything that has happened in your service.
+* [Track service health](./insights-service-health) to find out when Azure has experienced performance degradation or service interruptions.
