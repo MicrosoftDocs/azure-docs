@@ -18,11 +18,17 @@
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
-This topic describes how to use the Azure Command-Line Interface (Azure CLI) in the **arm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform the same tasks using the various libraries of the Azure SDKs, with PowerShell, and 
+This topic describes how to use the Azure Command-Line Interface (Azure CLI) in the **arm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. You can perform the same tasks using the various libraries of the Azure SDKs, with PowerShell, and using the Azure Portal. 
 
-> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
+Azure resource management enables you to create a group of resources -- virtual machines, websites, databases, and so on -- as a single deployable unit. You can then deploy, update, or delete all of the resources for your application in a single, coordinated operation. You describe your group resources in a JSON template for deployment and then can use that template for different environments such as testing, staging and production. 
 
-For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
+> [AZURE.NOTE] The only requirements to use the **arm** mode with the Azure CLI are an Azure account ([get a free trial here](http://azure.microsoft.com/pricing/free-trial/)), and that you [install](xplat-cli-install.md) and [configure](xplat-cli-connect.md) the Azure CLI itself. 
+
+## Imperative and declarative approaches 
+
+As with the [service management mode (**asm**)](virtual-machines-command-line-tools.md), the **arm** mode of the Azure CLI gives you commands that create resources imperatively on the command line. For example, if you type `azure group create <groupname> <location>` you are asking Azure to create a resource group, and with `azure group deployment create <resourcegroup> <deploymentname>` you are instructing Azure to create a deployment of any number of items and place them in a group. Because each type of resource has imperative commands, you can chain them together to create fairly complex deployments. 
+
+Templates that describe a resource group is a declarative approach that is far more powerful, allowing you to automate complex deployments of (almost) any number of resources for (almost) any purpose. When using templates, the only imperative command is to deploy one. For a general overview of templates, resources, and resource groups, see [Azure Resource Group Overview](resource-groups-overview). For similar topics about PowerShell, see 
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -31,99 +37,30 @@ In addition to command-specific optional parameters documented here, there are t
 ## azure account: Manage your account information and publish settings
 Your Azure subscription information is used by the tool to connect to your account. This information can be obtained from the Azure portal in a publish settings file as described here. You can import the publish settings file as a persistent local configuration setting that the tool will use for subsequent operations. You only need to import your publish settings once.
 
-**account download [options]**
 
-This command launches a browser to download your .publishsettings file from the Azure portal.
+List the imported subscriptions 
+		
+	account list [options]
 
-	~$ azure account download
-	info:   Executing command account download
-	info:   Launching browser to https://windows.azure.com/download/publishprofile.aspx
-	help:   Save the downloaded file, then execute the command
-	help:   account import <file>
-	info:   account download command OK
-
-**account import [options] &lt;file>**
-
-
-This command imports a publishsettings file or certificate so that it can be used by the tool going forward.
-
-	~$ azure account import publishsettings.publishsettings
-	info:   Importing publish settings file publishsettings.publishsettings
-	info:   Found subscription: 3-Month Free Trial
-	info:   Found subscription: Pay-As-You-Go
-	info:   Setting default subscription to: 3-Month Free Trial
-	warn:   The 'publishsettings.publishsettings' file contains sensitive information.
-	warn:   Remember to delete it now that it has been imported.
-	info:   Account publish settings imported successfully
-
-> [AZURE.NOTE] The publishsettings file can contain details (that is, subscription name and ID) about more than one subscription. When you import the publishsettings file, the first subscription is used as the default description. To use a different subscription, run the following command.
-<code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
-
-**account clear [options]**
-
-This command removes the stored publishsettings that have been imported. Use this command if you're finished using the tool on this machine and want to assure that the tool cannot be used with your account going forward.
-
-	~$ azure account clear
-	Clearing account info.
-	info:   OK
-
-**account list [options]**
-
-List the imported subscriptions
-
-	~$ azure account list
-	info:    Executing command account list
-	data:    Name                                    Id
-	       Current
-	data:    --------------------------------------  -------------------------------
-	-----  -------
-	data:    Forums Subscription                     8679c8be-3b05-49d9-b8fb  true
-	data:    Evangelism Team Subscription            9e672699-1055-41ae-9c36  false
-	data:    MSOpenTech-Prod                         c13e6a92-706e-4cf5-94b6  false
-
-**account set [options] &lt;subscription&gt;**
-
+Show details about a subscription  
+  
+	account show [options] [subscriptionNameOrId]
+    
 Set the current subscription
 
+	account set [options] <subscriptionNameOrId>
 
+Remove a subscription or environment, or clear all of the stored account and environment info  
+    
+	account clear [options]
 
-
-## Commands to manage your account environment
-
-**account env list [options]**
-
-List of the account environments
-
-	C:\windows\system32>azure account env list
-	info:    Executing command account env list
-	data:    Name
-	data:    ---------------
-	data:    AzureCloud
-	data:    AzureChinaCloud
-	info:    account env list command OK
-
-**account env show [options] [environment]**
-
-Show account environment details
-
-	~$ azure account env show
-	info:    Executing command account env show
-	Environment name: AzureCloud
-	data:    Environment publishingProfile  http://go.microsoft.com/fwlink/?LinkId=2544
-	data:    Environment portal  http://go.microsoft.com/fwlink/?LinkId=2544
-	info:    account env show command OK
-
-**account env add [options] [environment]**
-
-This command adds an environment to the account
-
-**account env set [options] [environment]**
-
-This command sets the account environment
-
-**account env delete [options] [environment]**
-
-This command deletes the specified environment from the account
+Commands to manage your account environment  
+   
+	account env list [options]
+	account env show [options] [environment]
+	account env add [options] [environment]
+	account env set [options] [environment]
+	account env delete [options] [environment]
 
 ## azure ad: Commands to display Active Directory objects
 
