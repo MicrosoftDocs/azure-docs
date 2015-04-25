@@ -3,7 +3,7 @@
 	description="Learn how to recover your mobile service in the event of a disaster." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="brettsam" 
+	authors="christopheranderson" 
 	manager="dwrede" 
 	editor=""/>
 
