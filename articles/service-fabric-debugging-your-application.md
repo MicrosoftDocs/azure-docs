@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/13/2015"
+   ms.date="04/24/2015"
    ms.author="jesseb"/>
 
 # Debugging your Service Fabric Application in Visual Studio using F5
 
 You can save time and money by deploying and debugging your Service Fabric application in a local computer development cluster. Visual Studio can deploy the application to the local cluster and automatically connect the debugger to all instances of your application.
 
-1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started.md)
+1. Start a local development cluster by following the steps in [setting up your Service Fabric development environment](service-fabric-get-started.md).
 
 2. Press **F5** or click **Debug** > **Start Debugging**
 
@@ -28,7 +28,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
 3. Set breakpoints in your code and step through the application by clicking on commands in the **Debug** menu.
 
-  > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or use Diagnostic Events.
+    > [AZURE.NOTE] Visual Studio attaches to all instances of your application. While stepping through code, breakpoints may get hit by multiple processes resulting in concurrent sessions. Try disabling the breakpoint(s) after being hit, making the breakpoint conditional on the thread ID, or use Diagnostic Events.
 
 4. The **Diagnostic Events** window will automatically open to view diagnostic events in real time.
 
@@ -40,7 +40,7 @@ You can save time and money by deploying and debugging your Service Fabric appli
 
 6. The diagnostic events can be seen in the automatically generated **ServiceEventSource.cs** and are called from application code.
 
-    ```
+    ```csharp
     ServiceEventSource.Current.ServiceTypeRegistered(Process.GetCurrentProcess().Id, Service.ServiceTypeName);
     ```
 
