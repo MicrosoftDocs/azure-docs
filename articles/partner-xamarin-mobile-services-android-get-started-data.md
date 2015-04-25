@@ -2,7 +2,7 @@
 	pageTitle="Add Mobile Services to an existing app (Xamarin.Android) - Azure Mobile Services" 
 	description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." 
 	documentationCenter="xamarin" 
-	authors="lindydonna" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	services="mobile-services" 
 	editor=""/>
