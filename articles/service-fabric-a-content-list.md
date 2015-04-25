@@ -88,8 +88,6 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 ### Package, Deploy and Remove an Application
 
-- [Service Model](service-fabric-service-model.md)
-
 - [Application Model](service-fabric-application-model.md)
 
 - [Package an Application](service-fabric-application-model.md) **owner: alexwun**
