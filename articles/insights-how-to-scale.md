@@ -18,15 +18,17 @@
 
 # Scale instance count manually or automatically
 
-In the [Azure Portal](http://portal.azure.com), you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.
+In the [Azure Portal](https://portal.azure.com/), you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.
 
 Before scaling based on instance count, you should consider that scaling is affected by **Pricing tier** in addition to instance count. Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is *Scale up* or *Scale down*). This article specifically covers *Scale in* and *out*.
 
+You can scale in the portal, and you can also use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn931953.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to adjust scale manually or automatically.
+
 ## Scaling manually
 
-1. In the [portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
+1. In the [Azure Portal](https://portal.azure.com/), click **Browse**, then navigate to the resource you want to scale, such as a **App Service plan**.
 
-2. The **Scale** tile on **Operations** lens will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
+2. The **Scale** tile in **Operations** will tell you the status of scaling: **Off** for when you are scaling manually, **On** for when you are scaling by one or more performance metrics.
     ![Scale tile](./media/insights-how-to-scale/Insights_UsageLens.png)
 
 3. Clicking on the tile will take you to the **Scale** blade. At the top of the scale blade you can see a history of autoscale actions the service.  
@@ -107,14 +109,12 @@ However, you may want to have more agressive scaling during the day, or the week
 2. For example, to have a profile that applies during the week, in the **Days** dropdown uncheck **Saturday** and **Sunday**.
 
 3. To have a profile that applies during the daytime, set the **Start time** to the time of day that you want to start at.
-
-![Default recurrence](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+    ![Default recurrence](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 
 4. Click **OK**.
 
 5. Next, you will need to add the profile that you want to apply at other times. Click the **Add Profile** row. 
-
-![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+    ![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 
 6. Name your new, second, profile, for example you could call it **Off work**. 
 
@@ -127,8 +127,7 @@ However, you may want to have more agressive scaling during the day, or the week
 9. Click **OK**.
 
 10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
-
-![Add rule to off work](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+    ![Add rule to off work](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease). 
 

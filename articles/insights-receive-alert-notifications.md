@@ -24,7 +24,7 @@ For an alert rule on a metric value, when the value of a specified metric crosse
 
 When you create an alert rule, you can select options to send an email notification to the service administrator and co-administrators or to another administrator that you can specify. A notification email is sent when the rule becomes active, and when an alert condition is resolved.
 
-## Create an alert rule on metrics
+## Create an alert rule
 
 1. In the [portal](https://portal.azure.com/), click **Browse**, and then a resource you're interested in monitoring.
 
@@ -43,6 +43,9 @@ When you create an alert rule, you can select options to send an email notificat
 
 7. Finally, you can choose to send email notification to responsible administrators.
 
+After you click **Save**, within a few minutes you will be informed whenever the metric you choose exceeds the threshold. 
+
 ## Managing your alert rules
 
-Once you have created an alert rule, you can view 
+Once you have created an alert rule, you can view  a preview of your alert threshold compared the metric from the previous day. 
+
