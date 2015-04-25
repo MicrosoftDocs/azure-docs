@@ -49,7 +49,7 @@ You will also need an on-premises machine that will connect to Azure using Hybri
 
 To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. 
 
-For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB). 
+For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB). 
 
 For the purposes of this tutorial, we will assume the database name is **OnPremisesDB**, it is running on port **1433** and the hostname of the machine is **onPremisesServer**.
 
@@ -172,7 +172,7 @@ Changes generated in your app have been pushed by your mobile service to your on
  
 + [Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 + [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs)
 
 <!-- IMAGES -->
  
