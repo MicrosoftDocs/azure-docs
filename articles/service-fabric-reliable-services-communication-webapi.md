@@ -18,7 +18,7 @@
 
 # Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)
 
-Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's *Reliable Services* API. We'll go in depth into the *Reliable Services* pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example. To see a complete example of a Web API communication listener, check out the [Service Fabric WebApplication sample on GitHub](http://github.com/azure/service-fabric).
+Service Fabric puts the power in your hands when deciding how you want your services to communicate with users and with each other. This tutorial focuses on implementing service communication using ASP.NET Web API with OWIN self-hosting in Service Fabric's *Reliable Services* API. We'll go in depth into the *Reliable Services* pluggable communication API and show you step-by-step how to set up a custom communication listener for you service with Web API used as an example. To see a complete example of a Web API communication listener, check out the [Service Fabric WebApplication sample on GitHub](https://github.com/Azure/servicefabric-samples/tree/master/samples/Services/VS2015/WebApplication).
 
 
 ## Intro to Web API in Service Fabric
@@ -340,7 +340,7 @@ Configure an HTTP endpoint in PackageRoot\ServiceManifest.xml:
 
 <Resources>
     <Endpoints>
-        <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="8081" />
+        <Endpoint Name="ServiceEndpoint" Type="Input" Protocol="http" Port="80" />
     </Endpoints>
 </Resources>
 
@@ -374,7 +374,7 @@ Note that "http://+" is used here. This is to make sure the web server is listen
 
 OpenAsync is called by the platform after Initialize. This is where you use the address that was created in Initialize to open the web server.
 
-Implementing OpenAsync is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener rather than just opening it directly from RunAsync() in the Service. The return value from OpenAsync is the address that the web server is listening on. When this address is returned to the system, it registers the address with the service. Service Fabric provides an API that allows clients or other services to then ask for this address by service name (see: [Service Resolution](service-fabric-?.md)). This is important because  the service address is not static as services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allows clients to resolve the listening address for a service.
+Implementing OpenAsync is one of the most important reasons why the web server (or any communication stack) is implemented as an ICommunicationListener rather than just opening it directly from RunAsync() in the Service. The return value from OpenAsync is the address that the web server is listening on. When this address is returned to the system, it registers the address with the service. Service Fabric provides an API that allows clients or other services to then ask for this address by service name. This is important because  the service address is not static as services are moved around in the cluster for resource balancing and availability purposes. This is the mechanism that allows clients to resolve the listening address for a service.
 
 With that in mind, OpenAsync starts the web server and return the address it's listening on. Note that it listens on "http://+", but before returning the address, the "+" is replaced with the IP or FQDN of the node it is currently on. The reason for this is that this address that is being returned by the method is what's registered with the system, and it's what clients and other service will see when they ask for the service's address. For clients to correctly connect to it, they need an actual IP or FQDN in the address.
 
@@ -565,11 +565,10 @@ With all the pieces in place, your project should now look like a typical Web AP
 
 ## Run and connect through a web browser
 
-If you haven't done so, launch a local cluster. Launch **Windows PowerShell** as **administrator** and execute the **DevClusterSetup.ps1** script under the _DropFolder_**\ClusterSetup\Local** folder.
+If you haven't done so, [set up your development environment](service-fabric-get-started.md).
 
-> [AZURE.NOTE] To check to see if a local cluster is already running, open the Service Fabric Explorer tool and check for a local cluster.
 
-You can now build and deploy your service. Press **F5** in Visual Studio to build and deploy the application. In the Diagnostics Events window, you should see a message indicating the web server opened on **http://localhost:8081/api**
+You can now build and deploy your service. Press **F5** in Visual Studio to build and deploy the application. In the Diagnostics Events window, you should see a message indicating the web server opened on **http://localhost:80/api**
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -580,11 +579,10 @@ You can now build and deploy your service. Press **F5** in Visual Studio to buil
 Once the service is running, open a browser and navigate to [http://localhost/api](http://localhost/api) to test it out.
 
 
+## ASP.NET 5
+
+In ASP.NET 5, the concept and programming model of separating the *application* from the *host* in web applications remains the same. It can also be applied to other forms of communication. In addition, although the *host* may differ in ASP.NET 5, the Web API *application* layer remains the same, which is where the bulk of application logic actually lives.
+
 ## Next Steps
-In this tutorial, you created a self-hosted OWIN Web API service with a Service Fabric stateless service and learned how to implement the ICommunicationListener interface to listen to user requests. In ASP.NET 5, the concept and programming model of separating the *application* from the *host* in web applications remains the same. It can also be applied to other forms of communication. In addition, although the *host* may differ in ASP.NET 5, the Web API *application* layer remains the same, which is where the bulk of application logic actually lives.
 
-Key take-aways:
-
- + How to implement a communication listener in Service Fabric.
- + How Web API integrates with Service Fabric.
- + Separation of *host* and *application*
+[Debugging your Service Fabric Application in Visual Studio](service-fabric-debugging-your-application.md)
