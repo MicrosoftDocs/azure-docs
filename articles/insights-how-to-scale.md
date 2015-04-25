@@ -5,20 +5,20 @@
 	manager="ronmart" 
 	editor="" 
 	services="azure-portal" 
-	documentationCenter=""/>
+	documentationCenter="na"/>
 
 <tags 
 	ms.service="azure-portal" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="04/25/2015" 
 	ms.author="stepsic"/>
 
 # Scale instance count manually or automatically
 
-In the portal, you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.
+In the [Azure Portal](http://portal.azure.com), you can manually set the instance count of your service, or, you can set parameters to have it automatically scale based on demand. This is typically referred to as *Scale out* or *Scale in*.
 
 Before scaling based on instance count, you should consider that scaling is affected by **Pricing tier** in addition to instance count. Different pricing tiers can have different numbers cores and memory, and so they will have better performance for the same number of instances (which is *Scale up* or *Scale down*). This article specifically covers *Scale in* and *out*.
 
@@ -90,12 +90,15 @@ The examples above are pretty basic. However, if you want to be more agressive a
 1. Scale out by 1 instance if CPU percentage is above 60%
 2. Scale out by 3 instances if CPU percentage is above 85%
 
+![Multiple scale rules](./media/insights-how-to-scale/Insights_MultipleScaleRules.png)
+
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
 
 ## Scale based on a schedule
 
 By default, when you create a scale rule it will  always apply. You can see that when you click on the profile header:
 
+![Profile](./media/insights-how-to-scale/Insights_Profile.png)
 
 However, you may want to have more agressive scaling during the day, or the week, than on the weekend. You could even shut down your service entirely off working hours.
 
@@ -105,11 +108,15 @@ However, you may want to have more agressive scaling during the day, or the week
 
 3. To have a profile that applies during the daytime, set the **Start time** to the time of day that you want to start at.
 
+![Default recurrence](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
+
 4. Click **OK**.
 
 5. Next, you will need to add the profile that you want to apply at other times. Click the **Add Profile** row. 
 
-6. Name your new, second, profile, for example you could call it **Weekend**. 
+![Off Work](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
+
+6. Name your new, second, profile, for example you could call it **Off work**. 
 
 7. Then select **recurrence** again, and choose the instance count range you want during this time.
 
@@ -120,6 +127,8 @@ However, you may want to have more agressive scaling during the day, or the week
 9. Click **OK**.
 
 10. Now, you will need to add whatever rules you want to apply during your second profile. Click **Add Rule**, and then you could construct the same rule you have during the Default profile.
+
+![Add rule to off work](./media/insights-how-to-scale/Insights_RuleOffWork.png)
 
 11. Be sure to create both a rule for scale out and scale in, or else during the profile the instance count will only grow (or decrease). 
 
