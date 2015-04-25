@@ -13,7 +13,7 @@
  ms.devlang="dotnet" 
  ms.topic="article" 
  ms.date="04/25/2015" 
- ms.author="mazha"/>
+ ms.author="zhangmanling"/>
 
 
 #How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)  
@@ -92,7 +92,7 @@ Test that your blob is available via the CDN-specific URL. For the blob shown ab
 
 If desired, you can use a tool like **wget** or Fiddler to examine the details of the request and response.
 
-#See Also
+##See Also
 
 [How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)](./cdn-manage-expiration-of-cloud-service-content.md
 )
