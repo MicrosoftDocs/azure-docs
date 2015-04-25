@@ -15,5 +15,6 @@
 	ms.date="04/25/2015" 
 	ms.author="awills"/>
 
+# Monitor availability and responsiveness of any web site
 
 > [AZURE.NOTE] This article has moved. Please see: [Monitor availability and responsiveness of any web site](./app-insights-monitor-web-app-availability/)

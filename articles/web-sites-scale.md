@@ -16,4 +16,6 @@
 	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
+# Scale a web app in Azure App Service
+
 > [AZURE.NOTE] This article has moved. Please see: [Scale pricing tier in Azure App Service](./app-service-scale/)

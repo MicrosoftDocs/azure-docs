@@ -3,7 +3,7 @@
 	description="Managing role-based access control with cross-platform command-line interface" 
 	services="azure-portal" 
 	documentationCenter="na" 
-	authors="guangyang" 
+	authors="justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/03/2014" 
-	ms.author="guayan"/>
+	ms.author="justinha"/>
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 
@@ -139,10 +139,10 @@ Then when you try to run other cmdlets like `azure group create`, you will get a
 
 To learn more about managing role-based access control with xplat-cli and related topics:
 
-- [Role based access control in Windows Azure](role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md)
 - [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)

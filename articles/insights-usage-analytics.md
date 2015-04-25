@@ -15,6 +15,7 @@
 	ms.date="04/25/2015" 
 	ms.author="awills"/>
 
+# Application Insights for JavaScript apps and web pages
 
 > [AZURE.NOTE] This article has moved. Please see: [Application Insights for JavaScript apps and web pages](./app-insights-web-track-usage/)
 

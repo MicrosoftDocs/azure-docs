@@ -24,7 +24,7 @@ For an alert rule on a metric value, when the value of a specified metric crosse
 
 When you create an alert rule, you can select options to send an email notification to the service administrator and co-administrators or to another administrator that you can specify. A notification email is sent when the rule becomes active, and when an alert condition is resolved.
 
-You can use the [REST API](https://msdn.microsoft.com/en-us/library/azure/dn931945.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to configure and get information about alert rules programmatically.
+You can use the [REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to configure and get information about alert rules programmatically.
 
 ## Create an alert rule
 

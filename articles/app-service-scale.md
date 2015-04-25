@@ -3,7 +3,7 @@
 	description="Learn how to scale web, mobile, api and logic apps in Azure App Service, including autoscaling." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="stepsic-microsoft-com" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/25/2015" 
-	ms.author="cephalin"/>
+	ms.author="stepsic"/>
 
 # Scale pricing tier in Azure App Service
 

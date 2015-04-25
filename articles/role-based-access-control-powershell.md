@@ -3,7 +3,7 @@
 	description="Managing role-based access control with Windows PowerShell" 
 	services="azure-portal" 
 	documentationCenter="na" 
-	authors="guangyang" 
+	authors="justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/03/2014" 
-	ms.author="guayan"/>
+	ms.author="justinha"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
@@ -153,9 +153,9 @@ Then when you try to run other cmdlet like `New-AzureResourceGroup`, you will ge
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
  
-- [Role based access control in Windows Azure](role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
