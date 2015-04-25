@@ -30,7 +30,7 @@ In this tutorial, you will create both a new mobile service and a simple _To do 
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<h2>Create a new iOS app</h2>
+## Create a new iOS app
 
 You can follow an easy Quick Start in the Management Portal to create a new app connected to your mobile service:
 
