@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Partition Service Fabric Services"
+   pageTitle="Partitioning Service Fabric Services"
    description="Describes how to partition Service Fabric services"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,10 +16,10 @@
    ms.date="04/13/2015"
    ms.author="aprameyr"/>
 
-# Partition Service Fabric services
+# Partitioning Service Fabric services
 Service Fabric makes it easy to build scalable stateful services by supporting partitioning of the service state and having each partition operate on a subset of the total state. Each partition becomes a unit that is made [highly available](service-fabric-availability-services.md). The replicas of partitions are distributed across the nodes in the cluster and are balanced.
 
->[AZURE.NOTE] While Stateless Services can also be partitioned this scenario is rare and unnecessary for most Service Fabric services.  
+> [AZURE.NOTE] While Stateless Services can also be partitioned this scenario is rare and unnecessary for most Service Fabric services.  
 
 There are three different partitioning schemes available.
 
@@ -43,7 +43,7 @@ An important part of hashing is selecting your hash algorithm. An important cons
 
 A good resource for general hash code algorithm choices is [the Wikipedia page on Hash Functions](http://en.wikipedia.org/wiki/Hash_function).
 
->[AZURE.NOTE] It is not possible to change the number of partitions or the type of partitioning scheme used for a service after it has been created.
+> [AZURE.NOTE] It is not possible to change the number of partitions or the type of partitioning scheme used for a service after it has been created.
 
 ## Next steps
 
