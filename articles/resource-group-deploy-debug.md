@@ -212,7 +212,7 @@ There can be one or more of several issues preventing successful deployment invo
 
 But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, as well as examining the deployment logs for your resource group. You may find that while you possess permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).)
 
-You may also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, as well as other scopes. Confirm to your satisfaction that you have the resources available to deploy properly.
+You may also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, as well as other scopes. Confirm to your satisfaction that you have the resources available to deploy properly. For complete quota information, see [Azure Subscription and Service Limits, Quotas, and Constraints](azure-subscription-service-limits.md).
 
 
 ## Azure CLI and PowerShell mode issues
@@ -273,13 +273,13 @@ To see whether the provider is registered for use using the Azure CLI, use the `
         
 If a provider requires registration, use the `azure provider register <namespace>` command, where the *namespace* value comes from the preceding list.
 
-## Understanding When a Deployment Succeeds
+## Understanding When a Deployment Succeeds for custom templates
 
-The Azure resource management system reports success on a deployment when all providers return from deployment successfully. This means that all of your template items were deployed for your usage. 
+If you are using templates that you created, it's important to understand that the Azure resource management system reports success on a deployment when all providers return from deployment successfully. This means that all of your template items were deployed for your usage. 
 
 However, this does not necessarily mean that your resource group is **active and ready for your users**. For example, most deployments request the deployment to download upgrades, wait on other, non-template resources, or to install complex scripts or some other executable activity that Azure does not know about because it is not an activity that a provider is tracking. In these cases, it can be some time before your resources are ready for real-world use. As a result, you should expect that the deployment status succeeds some time before your deployment can be used. 
 
-You can prevent Azure from reporting deployment success, however, by creating a custom script -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx). 
+You can prevent Azure from reporting deployment success, however, by creating a custom script for your custom template -- using the [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) for example -- that knows how to monitor the entire deployment for system-wide readiness and returns successfully only when users can interact with the entire deployment. If you want to ensure that your extension is the last to run, use the **dependsOn** property in your template. An example can be seen [here](https://msdn.microsoft.com/library/azure/dn790564.aspx). 
 
 ## Next steps
 
