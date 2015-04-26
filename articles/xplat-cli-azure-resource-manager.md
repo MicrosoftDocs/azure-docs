@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="rasquill"/>
+	ms.date="04/24/2015"
+	ms.author="rasquill;dkshir"/>
 
 # Using the Azure Cross-Platform Command-Line Interface with Azure Resource Management
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
-This topic describes how to create, manage, and delete Azure resources using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
+This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
 
 >[AZURE.NOTE] To create and manage Azure resources on the command-line, you're going to need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)), you're going to need to [install the Azure CLI](xplat-cli-install.md), and you're going to need to [log on to use Azure resources associated with your account](xplat-connect.md). If you've done these things, you're ready to go.
 
@@ -30,25 +30,117 @@ The Resource Manager allows you to manage a group of _resources_ (user-managed e
 
 Using the **arm** mode, you can manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template language also describes parameters that can be filled in either inline when running a command or stored in a separate JSON **azuredeploy-parameters.json** file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the region the Website will be located in, and other common parameters.
 
-When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group.
+When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
 ## Authentication
 
-Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a Microsoft Account or a certificate installed through a .publishsettings file will not work.
+Currently, working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
 
-For more information on authenticating using an organizational account, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
+For more information on authenticating using a work or school account, see [Install Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
 
 > [AZURE.NOTE] Because you use a work or school account -- which are managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
-## Locating and Configuring a Resource Group Template
+## Setting the **arm** mode
 
-1. Because the Resource Manager mode is not enabled by default, you must use the following command to enable xplat-cli resource manager commands.
+Because the Resource Manager mode is not enabled by default, you must use the following command to enable Azure CLI resource manager commands.
 
-		azure config mode arm
+	azure config mode arm
 
-	>[AZURE.NOTE] The Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
+>[AZURE.NOTE] The Azure Resource Manager mode and Azure Service Management mode are mutually exclusive. That is, resources created in one mode cannot be managed from the other mode.
 
-2. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **Microsoft.WebSiteSQLDatabase.0.2.6-preview**.)
+## Finding the locations
+
+Most of the **arm** commands need a valid location to create or find a resource from. You can find all available locations for by using the command
+
+	azure location list
+
+It will list locations specific to regions such as "West US", "East US", and so on.
+
+## Creating Resource Group
+
+A Resource Group is a logical grouping of network, storage and other resources. Almost all commands in **arm** mode need a resource group. You can create a resource group by using the command
+
+	azure group create -n "MyRG" -l "West US"
+
+You can start adding resources to this group after this, and use it to configure a new virtual machine.
+
+## Creating virtual machines
+
+There are three ways to create virtual machines in the **arm** mode:
+
+1. Using individual Azure CLI commands
+2. Using **vm quick-create** shortcut
+3. Using Resource Group Templates
+
+Each one of these require creating a resource group to start with.
+
+### Using individual Azure CLI commands
+
+This is the basic approach to configure and create a virtual machine as per your needs. In **arm** mode, you will need to configure some mandatory resources like the storage account and networking before you can use the **vm create** command.
+
+####
+
+### Using **vm quick-create** shortcut
+
+The **vm quick-create** gives an easier approach to creating a virtual machine in the **arm** mode. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking and storage configurations. This command uses default information for most of these parameters. You however need to find out some basic information prior to running this command.
+
+#### Registering to a Resource Group provider
+
+You can find out available Resource Group Providers by running
+
+ 	azure provider list
+
+You need to then register your subscription with a Resource Group provider from this list by using the command
+
+	azure provider register Microsoft.Backup
+
+The Microsoft.Backup could be replaced by any provider from the list.
+
+#### Finding out the Operating System image URN
+
+Next important setup information is the OS image you want to boot the virtual machine from. The first step for this is finding the publisher of the image:
+
+	azure vm image list-publishers "westus"
+
+Then you can run the command on the Azure CLI to find a list of images by a provider, for example:
+
+	azure vm image list "westus" "Canonical"
+
+It will give out a list similar to the following.
+
+	info:    Executing command **vm image list**
+	warn:    The parameters --offer and --sku if specified will be ignored
+	+ Getting virtual machine image offers (Publisher: "Canonical" Location: "westus")
+	data:    Publisher  Offer        Sku          Version          Location  Urn
+
+	data:    ---------  -----------  -----------  ---------------  --------- ----------------------------------------
+	data:    Canonical  Ubuntu15.04  15.04        15.04.201504220  westus    Canonical:Ubuntu15.04:15.04:15.04.201504220
+	data:    Canonical  UbuntuServer 12.04-DAILY  12.04.201504201  westus    Canonical:UbuntuServer:12.04-DAILY:12.04.2015 04201
+
+Note the URN of the image you want to run from this list.
+
+#### Using **vm quick-create**
+
+You can now use the **vm quick-create** interactively to easily create a virtual machine. The Resource Manager will create this virtual machine using default available resources.
+
+	azure-cli@0.8.0:/# azure vm quick-create
+	info:  Executing command vm quick-create
+	Resource group name: CLIRG
+	Virtual machine name: myqvm
+	Location name: westus
+	Operating system Type [Windows, Linux]: Linux
+	ImageURN (format: "publisherName:offer:skus:version"): Canonical:Ubuntu15.04:15.04:15.04.201504220
+	User name: azureuser
+	Password: ********
+	Confirm password: ********
+
+The Azure CLI will create a virtual machine with default VM size. It will also create a storage account, an NIC, a virtual network and subnet, and a public IP. You can SSH into the virtual machine using the public IP after it boots.
+
+### Using Resource Group Templates
+
+#### Locating and Configuring a Resource Group Template
+
+1. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **Microsoft.WebSiteSQLDatabase.0.2.6-preview**.)
 
 		azure group template list
 
@@ -62,13 +154,13 @@ For more information on authenticating using an organizational account, see [Ins
 		data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
 		data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
 
-3. To view the details of a template that will create an Azure Website, use the following command.
+2. To view the details of a template that will create an Azure Website, use the following command.
 
 		azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
 	This will return descriptive information about the template.
 
-4. Once you have selected a template (**azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview**), you can download it with the following command.
+3. Once you have selected a template (**azure group template show Microsoft.WebSiteSQLDatabase.0.2.6-preview**), you can download it with the following command.
 
 		azure group template download Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
@@ -76,7 +168,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 	>[AZURE.NOTE] If you do modify the template, use the `azure group template validate` command to validate the template before using it to create or modify an existing resource group.
 
-5. To configure the resource group template for your use, open the template file in a text editor. Note the **parameters** JSON collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**.
+4. To configure the resource group template for your use, open the template file in a text editor. Note the **parameters** JSON collection near the top. This contains a list of the parameters that this template expects in order to create the resources described by the template. Some parameters, such as **sku** have default values, while others simply specify the type of the value, such as **siteName**.
 
 	When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. Either way, the parameters must be in JSON format, and you must provide your own values for those keys that do not have default values.
 
@@ -132,7 +224,7 @@ For more information on authenticating using an organizational account, see [Ins
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
-##Working with resources
+#### Working with resources
 
 While templates allow you to declare group-wide changes in configuration, sometimes you need to work with just a specific resource. You can do this using the `azure resource` commands.
 
