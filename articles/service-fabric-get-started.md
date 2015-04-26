@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Setting up your Service Fabric development environment"
+   pageTitle="Set up your Service Fabric development environment"
    description="Install the Service Fabric runtime, SDK, and tools and create a local development cluster."
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="04/24/2015"
    ms.author="seanmck"/>
 
-# Setting up your Service Fabric development environment
+# Set up your Service Fabric development environment
  This article covers everything you need to start building Service Fabric apps, including installing the runtime, SDK, and tools and setting up a local cluster.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which yo
 Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx) with Visual Studio pre-installed using an image from the VM Gallery.
 
 
-## Installing the runtime, SDK, and tools
+## Install the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
 
 1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
@@ -37,10 +37,17 @@ Installation of the Service Fabric components is handled by the Web Platform Ins
 
 Installation will proceed automatically.
 
-## Installing and starting a local cluster
+## Enable PowerShell script execution
+
+Service Fabric uses Windows PowerShell scripts for creating a local development cluster and deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
+
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+
+
+## Install and start a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
 
-1. Launch a new Powershell window as an Adminstator.
+1. Launch a new PowerShell window as an adminstator.
 
 2. Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
 
