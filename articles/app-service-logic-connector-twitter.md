@@ -30,7 +30,7 @@ Twitter Connector lets you post tweets and get tweets from your timeline, friend
 To use the Twitter connector, you need to first create an instance of the Twitter connector API app. This can be done as follows:
 
 1. Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-1. Browse to “Web and Mobile > API apps” and search for “Twitter connector”.
+1. Browse to “API Apps” and search for “Twitter connector”.
 1. Configure the Twitter connector as follows:
 
 	![][1]
