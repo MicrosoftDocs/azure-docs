@@ -108,14 +108,6 @@ After creating an elastic pool, you can monitor and manage the pool by adjusting
 ![Monitor Elastic Pool][4]
 
 
-## Business continuity features for pooled databases
-Elastic Standard supports all business continuity features that are available to Standard tier databases except for Geo-Replication.
-
-### Backing up and restoring databases (Point in Time Restore)
-Databases in elastic pools are backed up and retained under the same point in time restore policy as Standard tier databases. You can restore any database in an Elastic Standard pool from any point in time over the last 14 days.
-
-### Geo-Restore
-Geo-Restore considerations?
 
 
 
