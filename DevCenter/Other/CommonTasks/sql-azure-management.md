@@ -1,2 +1,0 @@
-<properties linkid="dev-other-common-tasks-sql-azure-management" urlDisplayName="SQL Database Management" headerExpose="" pageTitle="SQL Database Management with SSMS - Other - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to use SQL Server Management Studio to manage SQL Database servers and instances." umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/sql-azure-management.md" />

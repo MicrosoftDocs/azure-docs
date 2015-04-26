@@ -1,2 +1,0 @@
-<properties linkid="dev-java-best-practices-performance" urlDisplayName="Performance" headerExpose="" pageTitle="Windows Azure Java Best Practices - Performance" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/performance.md" />

@@ -1,0 +1,1 @@
+Features of training examples in the RCV1-V2 Reuters news dataset. The dataset has 23K news articles along with their IDs (first column of the dataset). Each article is tokenized, stopworded, and stemmed. The dataset was made available by David. D. Lewis.

@@ -1,2 +1,0 @@
-<properties linkid="manage-windows-best-practices-security" urlDisplayName="Security" headerExpose="" pageTitle="Windows Azure Best Practices - Security" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/SecurityRX.md" />

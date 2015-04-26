@@ -1,2 +1,0 @@
-<properties umbracoNaviHide="0" pageTitle="Windows Azure Execution Models" metaKeywords="" metaDescription="" linkid="manage-fundamentals-compute" urlDisplayName="Intro to Windows Azure" headerExpose="" footerExpose="" disqusComments="1" />
-<div chunk="../../../devcenter/Shared/Chunks/windows-azure-execution-models.md" />

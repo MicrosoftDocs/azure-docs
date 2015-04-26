@@ -1,2 +1,0 @@
-<properties linkid="dev-net-commons-tasks-staging-deployment" urlDisplayName="Staging Deployment" headerExpose="" pageTitle="Enable Staging Deployment - Java - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/staging-deployment.md" />

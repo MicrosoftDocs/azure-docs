@@ -1,2 +1,0 @@
-<properties linkid="dev-other-commons-tasks-staging-deployment" urlDisplayName="Staging Deployment" headerExpose="" pageTitle="Enable Staging Deployment - Other - Develop" metaKeywords="" footerExpose="" metaDescription="Deploy your Windows Azure application to a staging environment with an obfuscated URL, then use Virtual IP (VIP) swap to move to production." umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/staging-deployment.md" />

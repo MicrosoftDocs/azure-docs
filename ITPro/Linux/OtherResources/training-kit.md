@@ -1,2 +1,0 @@
-<properties linkid="manage-windows-other-resources-training-kit" urlDisplayName="Training KIt" headerExpose="" pageTitle="Windows Azure Training Kit" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../devcenter/shared/chunks/training-kit.md" />

@@ -1,2 +1,0 @@
-<properties linkid="dev-python-best-practices-troubleshooting" urlDisplayName="Troubleshooting" headerExpose="" pageTitle="Troubleshooting Best Practices - Python - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/tshootguide.md" />

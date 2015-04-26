@@ -1,2 +1,0 @@
-<properties linkid="dev-java-best-practices-troubleshooting" urlDisplayName="Troubleshooting" headerExpose="" pageTitle="Troubleshooting Best Practices - Java - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/tshootguide.md" />

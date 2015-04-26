@@ -1,2 +1,0 @@
-<properties linkid="dev-net-common-tasks-sql-azure-management" urlDisplayName="SQL Database Management" headerExpose="" pageTitle="SQL Database Management with SSMS - Java - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to use SQL Server Management Studio to manage SQL Database servers and databases." umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/sql-azure-management.md" />

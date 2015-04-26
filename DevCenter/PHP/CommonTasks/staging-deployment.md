@@ -1,2 +1,0 @@
-<properties linkid="dev-php-commons-tasks-staging-deployment" urlDisplayName="Staging Deployment" headerExpose="" pageTitle="Enable Staging Deployment - PHP - Develop" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/staging-deployment.md" />

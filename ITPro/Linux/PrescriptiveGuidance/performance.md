@@ -1,2 +1,0 @@
-<properties linkid="manage-windows-best-practices-performance" urlDisplayName="Performance" headerExpose="" pageTitle="Windows Azure Best Practices - Performance" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/performance.md" />

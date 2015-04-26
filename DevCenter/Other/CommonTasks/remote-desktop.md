@@ -1,2 +1,0 @@
-<properties linkid="dev-other-commons-tasks-remote-desktop" urlDisplayName="Remote Desktop" headerExpose="" pageTitle="Enable Remote Desktop - Other - Develop" metaKeywords="" footerExpose="" metaDescription="Learn how to enable remote-desktop access for the virtual machines hosting your Windows Azure application. " umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../Shared/Chunks/remote-desktop.md" />

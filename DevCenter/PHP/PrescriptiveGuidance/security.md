@@ -1,2 +1,0 @@
-<properties linkid="dev-php-best-practices-security" urlDisplayName="Security" headerExpose="" pageTitle="Windows Azure PHP Best Practices - Security" metaKeywords="" footerExpose="" metaDescription="" umbracoNaviHide="0" disqusComments="1" />
-<div chunk="../../../Shared/Chunks/SecurityRX.md" />
