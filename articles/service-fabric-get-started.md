@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/24/2015"
+   ms.date="04/25/2015"
    ms.author="seanmck"/>
 
 # Set up your Service Fabric development environment
@@ -65,7 +65,7 @@ You can check that your cluster was created successfully using the Service Fabri
 
 2. Expand the Onebox/Local Cluster node in the top left corner.
 
-3. Ensure that all child elements are green.
+3. Ensure that the Application and Node views are green.
 
 If any element is not green or you see an error, wait a few moments and click the refresh button. If you still have issues, check out the [setup troubleshooting steps](service-fabric-troubleshoot-local-cluster-setup.md).
 
