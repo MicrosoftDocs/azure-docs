@@ -308,6 +308,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 	network traffic-manager profile is-dns-available [options] <resource-group> <relative-dns-name> 
 
 **Commands to manage traffic manager endpoints**
+
 	network traffic-manager profile endpoint create [options] <resource-group> <profile-name> <name> <endpoint-location>
 	network traffic-manager profile endpoint set [options] <resource-group> <profile-name> <name>
 	network traffic-manager profile endpoint delete [options] <resource-group> <profile-name> <name>
