@@ -17,7 +17,7 @@
    ms.author="aprameyr"/>
 
 # Partition Service Fabric services
-Service Fabric makes it easy to build scalable stateful services by supporting partitioning of the service state and having each partition operate on a subset of the total state. Each partition becomes a unit that is made [highly available](service-fabric-concepts-availability-services.md). The replicas of partitions are distributed across the nodes in the cluster and are balanced.
+Service Fabric makes it easy to build scalable stateful services by supporting partitioning of the service state and having each partition operate on a subset of the total state. Each partition becomes a unit that is made [highly available](service-fabric-availability-services.md). The replicas of partitions are distributed across the nodes in the cluster and are balanced.
 
 >[AZURE.NOTE] While Stateless Services can also be partitioned this scenario is rare and unnecessary for most Service Fabric services.  
 
