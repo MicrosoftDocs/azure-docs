@@ -21,7 +21,7 @@
 It is far easier to prevent deployment errors by checking a few things in advance, but deployments sometimes fail for any number of reasons. This document describes tools and operations to prevent simple mistakes, download template files, and examine deployment logs. It also discusses the main areas to think about when examining deployment logs for failures. 
 
 ## Useful tools to interact with Azure
-
+The AzureResourceManager module includes cmdlets that 
 When working with your Azure resources from the command-line, you will collect tools that help you do your work. Azure resource group templates are JSON documents, and the Azure resource management API accepts and returns JSON, so JSON parsing tools are some of the first things you will use to help you navigate information about your resources as well as design or interact with templates and template parameter files.
 
 ### Mac, Linux, and Windows tools
@@ -38,8 +38,7 @@ Windows PowerShell has several basic commands to perform the same procedures.
 
 ## Preventing errors in the Azure CLI for Mac, Linux, and Windows
 
-The AzureResourceManager module includes cmdlets that help you to prevent errors.
-
+The Azure CLI has several commands to help prevent errors and detect what went wrong when they do.
 
 - **azure location list**. This command gets the locations that support each type of resource, such as the provider for Virtual Machines. Before you enter a location for a resource, use this command to verify that the location supports the resource type. 
 
@@ -68,7 +67,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 ## Getting information to fix deployment issues with the Azure CLI
 
-- **azure group log show <resource group>**: This cmdlet gets the entries in the log for each  deployment of the resource group. If something goes wrong, begin by examining the deployment logs. 
+- **azure group log show <resource group>**: This command gets the entries in the log for each deployment of the resource group. If something goes wrong, begin by examining the deployment logs. 
 
         info:    Executing command group log show
         info:    Getting group logs
@@ -110,7 +109,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
                                        resourceGroups/
                                        templates/providers/Microsoft.Network/
                                        publicIPAddresses/
-                                       myPublicIP"},"subnet":{"id":"/subscriptions/
+                                       myPublicIP"},"subnet":{"idThe AzureResourceManager module includes cmdlets that ":"/subscriptions/
                                        <guid>/resourceGroups/templates/
                                        providers/
                                        Microsoft.Network/virtualNetworks/myVNET/subnets/
@@ -185,9 +184,9 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
         }
         
 
-- **Verbose and Debug**:  The cmdlets in the AzureResourceManager module call REST APIs that do the actual work. To see the messages that the APIs return, set the $DebugPreference variable to "Continue" and use the Verbose common parameter in your commands. The messages often provide vital clues about the cause of any failures.
+- **--verbose and -vv options**:  Use the **--verbose** option to set the mode to verbose, to display the steps the operations go through on `stdout`. For complete request history include the steps that **--verbose** enables, use the **-vv** option. The messages often provide vital clues about the cause of any failures.
 
-- **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Windows PowerShell session, use the Add-AzureAccount cmdlet. The credentials in a publish settings file are not sufficient for the cmdlets in the AzureResourceManager module.
+- **Your Azure credentials have not been set up or have expired**:  To refresh the credentials in your Azure CLI session, just type `azure login`. For help with authentication errors, make sure that you have [configured the Azure CLI correctly](xplat-cli-connect.md).
 
 ## Preventing errors in Windows PowerShell
 
@@ -209,7 +208,11 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 
 ## Authentication, Subscription, Role, and Quota Issues
 
+There can be one or more of several issues preventing successful deployment involving authentication and authorization and Azure Active Directory. Regardless how you manage your Azure resource groups, the identity you use to log in to your account must be either Azure Active Directory objects or Service Principals, what are also called work or school accounts, or organizational ids. 
 
+But Azure Active Directory enables you or your administrator to control which identities can access what resources with a great degree of precision. If your deployments are failing, examine the requests themselves for signs of authentication or authorization issues, as well as examining the deployment logs for your resource group. You may find that while you possess permissions for some resources, you do not have permissions for others. Using the Azure CLI, you can examine Azure Active Directory tenants and users using the `azure ad` commands. (For a complete list of Azure CLI commands, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).)
+
+You may also have issues when a deployment hits a default quota, which could be per resource group, subscriptions, accounts, as well as other scopes. Confirm to your satisfaction that you have the resources available to deploy properly.
 
 
 ## Azure CLI and PowerShell mode issues
