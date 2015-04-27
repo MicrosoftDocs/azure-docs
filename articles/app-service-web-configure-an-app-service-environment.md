@@ -16,7 +16,9 @@
 	ms.date="04/27/2015" 
 	ms.author="ccompy"/>
 
-## Configuring an App Service Environment ##
+# Configuring an App Service Environment #
+
+## Overview ##
 
 App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment][WhatisASE]. For information on how to create an ASE read the document here [How to Create an App Service Environment][HowtoCreateASE]. 
 

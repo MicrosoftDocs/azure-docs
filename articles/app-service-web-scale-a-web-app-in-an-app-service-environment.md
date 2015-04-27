@@ -16,7 +16,7 @@
 	ms.date="04/27/2015" 
 	ms.author="ccompy"/>
 
-## Scaling web apps in an App Service Environment ##
+# Scaling web apps in an App Service Environment #
 
 At a high level, App Service Environments are essentially personal deployments of the Azure App Service into your VNET and only manageable by your subscription. They offer new networking capabilities because they are in your VNET and can also be scaled beyond what is normally available in the Azure App Service environments.  If you need more information around what an App Service Environment(ASE) is then see [What is an App Service Environment][WhatisASE].  For details around creating an App Service Environment or creating a web app in an App Service Environment see [How to Create an App Service Environment][HowtoCreateASE] and [How to create a web app in an App Service Environment][CreateWebappinASE]
 
