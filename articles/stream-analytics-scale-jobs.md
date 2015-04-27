@@ -222,8 +222,8 @@ Below are the results with increasing number of Streaming units and correspondin
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 
 ## Next steps
