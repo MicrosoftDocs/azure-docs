@@ -34,7 +34,7 @@ If you want to be able to connect to your VM or role instance by an IP address a
 - **Passive FTP** - By having an ILIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
 - **Outbound IP** - Outbound traffic originating from the VM goes out with the ILIP as the source and this uniquely identifies the VM to external entities.
 
-[AZURE.NOTE]The use of reserved ILIPs may incur an extra cost to your Azure subscription. For more information on ILIP pricing, see [IP Address pricing](http://azure.microsoft.com/en-us/pricing/details/ip-addresses/).
+[AZURE.NOTE]The use of reserved ILIPs may incur an extra cost to your Azure subscription. For more information on ILIP pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to request an ILIP during VM creation
 The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILIP, and adds the VM to the new service:
