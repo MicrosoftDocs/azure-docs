@@ -27,6 +27,16 @@ The application manifest, service manifest and Settings.xml configuration file a
 
 ![][1]
 
+The application type and version of the application that the actor is packaged into can be found by looking at the application manifest that is included in the project for the actor service. The following snippet from an application manifest is an example of this.
+
+~~~
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     ApplicationTypeName="VoiceMailBoxApplication"
+                     ApplicationTypeVersion="1.0.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric">
+~~~
+
 The service type that the actor type maps to can be found by looking at the service manifest that is included in the project for the actor service. The following snippet from a service manifest is an example of this.
 
 ~~~
