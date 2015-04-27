@@ -36,8 +36,7 @@ Although Azure originally allowed access only by Microsoft account users, it now
 For example, here a user with a Microsoft account signs in to the Azure Management Portal.
 
 > [AZURE.NOTE]
-
-To sign in to the Azure Management Portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
+> To sign in to the Azure Management Portal, msmith@hotmail.com must have a subscription to Azure. The account must be either a Service administrator or a co-administrator of the subscription.
 
 ![][1]
 
@@ -108,8 +107,7 @@ If you signed up for Office 365 using a work or school account and then signed u
 To manage both of the directories in the Management Portal, complete these steps.
 
 > [AZURE.NOTE]
-
-These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school). 
+> These steps can only be completed while a user is signed in with a Microsoft account. If the user is signed in with a work or school account, the option **Use existing directory** is not available because a work or school account can be authenticated only by its home directory (that is, the directory where the work or school account is stored, and which is owned by the work or school). 
 
 1. Sign in to the Management Portal using you Microsoft account.
 2. Click **New** > **App services** > **Active Directory** > **Directory** > **Custom Create**.

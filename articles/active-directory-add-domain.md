@@ -108,7 +108,7 @@ You can add multiple domains to your directory. However, you can’t add the sam
 
 If you plan to use single sign-on with the cloud service, we recommend that you help prepare your Active Directory environment by running the Microsoft Deployment Readiness Tool. This tool inspects your Active Directory environment and provides a report that includes information about whether you are ready to set up single sign-on. If not, it lists the changes you need to make to prepare for single sign-on. For example, it inspects whether your users have UPNs and if those UPNs are in the correct format. To download the tool, see [Microsoft Deployment Readiness Tool](http://go.microsoft.com/fwlink/?linkid=235650).
 
-> [AZURE.Note]
+> [AZURE.NOTE]
 > Using Office 365? Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name. You can also use your domain name for a public-facing website hosted on SharePoint Online.
 
 - Add and verify a domain using the Azure classic portal 
@@ -132,7 +132,7 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
         1. Make sure to check the **I plan to configure this domain for single sign-on with my local Active Directory** checkbox and then click the **Add** button.
         2. After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page and then follow the directions on that page to configure the domain you added for single sign-on.
 
-> [AZURE.Note]
+> [AZURE.NOTE]
 > After you add your domain name to Azure AD, you can change the default domain name for new email addresses. For more information, see How can I change the primary domain  name for my users? You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain. 
 
 ### Specify the services you’ll use with your domain
@@ -141,7 +141,7 @@ When you add your domain name to Azure AD, you might need to specify the service
 
 In a couple of scenarios, you have to specify which domain services you intend to use with a domain name. Why do you have to tell us which services you’ll use? This lets us make sure that you can see and update the DNS records in the cloud service for the services you want.
 
-> [AZURE.Note]
+> [AZURE.NOTE]
 > Using Office 365? You have to specify which domain services you intend to use when you do either of the following:
 
 - You add your custom domain name to Azure AD by using the wizard and want to use your domain name for a public website on SharePoint Online.
@@ -157,7 +157,7 @@ To edit your domain services list later:
 
 ### Edit DNS records for your cloud services
 
-> [AZURE.Note]
+> [AZURE.NOTE]
 > Using Microsoft Intune? You do not need to edit DNS records for the Windows Intune cloud service.
 
 After you add and verify your custom domain name, the next step is to edit the DNS records at your domain registrar or DNS hosting provider that point traffic to your cloud service. Azure AD provides the DNS information that you need.
