@@ -11,7 +11,7 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/27/2015"
    ms.author="tomfitz"/>
