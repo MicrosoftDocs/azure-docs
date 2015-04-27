@@ -29,7 +29,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Process events from Azure Event Hubs with Storm on HDInsight][844d1d81]                                | Event Hubs                                           | C# and Java                |
 | [Use Power Bi (preview) to visualize data from a Storm topology][94d15238]                              | Power BI                                             | C#                         |
 | [Analyzing sensor data with Storm and HBase in HDInsight][ab894747]                                     | Event Hubs, HBase, Socket.IO, Web dashboard          | C#, Java, JavaScript, HTML |
-| [Process vehicle sensor data from Event Hubs using Storm on HDInsight]][246ee964]                       | Event Hubs, DocumentDb, Azure Storage Blob (WASB)    | C#, Java                   |
+| [Process vehicle sensor data from Event Hubs using Storm on HDInsight][246ee964]                        | Event Hubs, DocumentDb, Azure Storage Blob (WASB)    | C#, Java                   |
 | [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase, using Storm on HDInsight][b4b68194] | Event Hubs, HBase                                    | C#                         |
 | [Template C# Storm topology project for working with Azure services from Storm on HDInsight][ce0c02a2]  | Event Hubs, DocumentDb, SQL Database, HBase, SignalR | C#, Java                   |
 | [Scalability benchmarks for reading from Azure Event Hubs using Storm on HDInsight][d6c540e3]           | Message throughput, Event Hubs, SQL Database         | C#, Java                   |
