@@ -18,6 +18,13 @@
 
 #Release notes
 
+##2.1.0 (04/24/2015)
+
+-   Add Swift compatibility.
+-   When clicking on a notification, the action URL is now executed right after the application is opened.
+-   Added missing header file in SDK package.
+-   Fixed an issue when the Mobile Engagement crash reporter was disabled.
+
 ##2.0.0 (02/17/2015)
 
 -   Initial Release of Azure Mobile Engagement

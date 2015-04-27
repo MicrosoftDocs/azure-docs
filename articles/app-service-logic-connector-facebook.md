@@ -3,7 +3,7 @@
    description="How to use the FacebookConnector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="adgoda" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -71,8 +71,9 @@ Once your API app is created, you can now use the Facebook connector as a trigge
  
 	![][11]
 
+**TIP** - To get Facebook Page ID or Yammer Group id look for the numeric code in the url.
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-facebook/img1.png
 [2]: ./media/app-service-logic-connector-facebook/img2.png
 [3]: ./media/app-service-logic-connector-facebook/img3.png

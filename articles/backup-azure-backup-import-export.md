@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Backup - Offline Backup using Azure Import/Export Service"
-   description="Learn how Azure Backup enables you to send data off-the-network using Azure Import/Export service. This articles explains the offline seeding of the initial backup data by using the Azure Import Export service"
+   pageTitle="Azure Backup - Offline Backup or Initial Seeding using Azure Import/Export Service"
+   description="Learn how Azure Backup enables you to send data off the network using Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service"
    services="backup"
    documentationCenter=""
    authors="prvijay"
