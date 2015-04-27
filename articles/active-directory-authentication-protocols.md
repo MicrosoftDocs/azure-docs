@@ -3,6 +3,7 @@
    description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
+   services="active-directory" 
    manager="mbaldwin"
    editor=""/>
 
