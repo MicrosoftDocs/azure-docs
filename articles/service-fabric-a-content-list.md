@@ -86,8 +86,6 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 ### Package, Deploy and Remove an Application
 
-- [Service Model](service-fabric-service-model.md)
-
 - [Application Model](service-fabric-application-model.md)
 
 - [Package an Application](service-fabric-application-model.md) **owner: alexwun**
@@ -178,6 +176,8 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) **owners: mcoskun, tyadam**
 
 - [API Discussion](service-fabric-reliable-services-service-api-description.md) **owners: tyadam, mcoskun**
+
+- [Service Communication Model](service-fabric-reliable-services-communication.md) **owner: bharatn**
 
 - [Operations](service-fabric-manage-application-in-visual-studio.md) **owner: jesseb, alanwar**
 
