@@ -89,20 +89,6 @@ namespace HelloWorld
 {
     public class HelloWorld : Actor, IHelloWorld
     {
-        public override async Task OnActivateAsync()
-        {
-            ServiceEventSource.Current.ActorActivatedStart(this);
-            await base.OnActivateAsync();
-            ServiceEventSource.Current.ActorActivatedStop(this);
-        }
-
-        public override async Task OnDeactivateAsync()
-        {
-            ServiceEventSource.Current.ActorDeactivatedStart(this);
-            await base.OnDeactivateAsync();
-            ServiceEventSource.Current.ActorDeactivatedStop(this);
-        }
-
         public Task<string> SayHello(string greeting)
         {
             return Task.FromResult("You said: '" + greeting + "', I say: Hello Actors!");
@@ -111,9 +97,6 @@ namespace HelloWorld
 }
 
 ```
-
-In the Actor class implementation, by default Visual Studio code generation, includes
-some basic tracing. It is done by calling the ServiceEventSource class in the OnActivateAsync and OnDeactivateAsync to log information about when the Actor is activated and deactivated (more information about Actor lifecycle can be found in the [following article](service-fabric-reliable-actors-lifecycle.md)).
 
 The Actor Service project contains the code to create a Service Fabric service, in the service definition, Actor type(s) are registered so they can be used to instantiate new actors.
 
