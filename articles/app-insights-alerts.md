@@ -73,7 +73,7 @@ Popular alerts include:
 <!--Link references-->
 
 [availability]: app-insights-monitor-web-app-availability.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md

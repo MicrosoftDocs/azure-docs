@@ -293,9 +293,8 @@ And of course, when the feature is live, make sure you look at the analytics and
 
 <!--Link references-->
 
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [portal]: http://portal.azure.com/
-[start]: app-insights-get-started.md
 [windows]: app-insights-windows-get-started.md
 

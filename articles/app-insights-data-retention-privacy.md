@@ -74,7 +74,7 @@ The data is stored in Microsoft Azure servers. For accounts in the Azure Preview
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
-Data in aggregate across all our customers’ applications (such as data rates and average size of traces) is used to improve Application Insights.
+Data in aggregate across all our customersâ€™ applications (such as data rates and average size of traces) is used to improve Application Insights.
 
 #### Could someone else's telemetry interfere with my Application Insights data?
 
@@ -104,7 +104,7 @@ As general guidance:
 
 * Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
 * Exception reports might include PII in parameter data.
-* Custom telemetry – that is, calls such as TrackEvent that you write in code using the API or log traces – can contain any data you choose.
+* Custom telemetry â€“ that is, calls such as TrackEvent that you write in code using the API or log traces â€“ can contain any data you choose.
 
 
 The table at the end of this document contains more detailed descriptions of the data collected.
@@ -119,11 +119,11 @@ You should inform your customers appropriately about the data your application c
 
 #### Can my users turn off Application Insights?
 
-Not directly. We don’t provide a switch that your users can operate to turn off Application Insights.
+Not directly. We donâ€™t provide a switch that your users can operate to turn off Application Insights.
 
 However, you can implement such a feature in your application. All the SDKs include an API setting that turns off telemetry collection. 
 
-#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn’t retained?
+#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isnâ€™t retained?
 
 Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
@@ -189,7 +189,7 @@ Inferred |geo location from IP address, timestamp, OS, browser
 [api]: app-insights-custom-events-metrics-api.md
 [apiproperties]: app-insights-custom-events-metrics-api.md#properties
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
