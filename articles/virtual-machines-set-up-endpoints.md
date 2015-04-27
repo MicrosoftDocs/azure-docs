@@ -90,7 +90,7 @@ For PowerShell configuration of ACLs, see [Managing Access Control Lists (ACLs) 
 
 ##Additional Resources
 
-[Load Balancing Virtual Machines](http://www.windowsazure.com/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+[Load Balancing for Azure Infrastructure Services](virtual-machines-load-balance.md)
 
 [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)
 

@@ -125,7 +125,7 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 6. Next, create a container for your uploaded VHDs. Click the storage account name and then click **Containers**.
 
-	![Storage account detail](./mediavirtual-machines-create-upload-vhd-windows-server-classic-portal/storageaccount_detail.png)
+	![Storage account detail](./media/virtual-machines-create-upload-vhd-windows-server-classic-portal/storageaccount_detail.png)
 
 7. Click **Create a Container**.
 
