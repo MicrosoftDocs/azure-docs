@@ -9,10 +9,10 @@
 
 <tags 
 	ms.service="site-recovery" 
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
 	ms.date="04/23/2015" 
 	ms.author="raynew"/>
 
@@ -20,8 +20,6 @@
 
 
 <a id="overview" name="overview" href="#overview"></a>
-## Overview
-
 
 ## About this article
 
@@ -84,9 +82,6 @@ If you have any questions after reading this article post them on the [Azure Rec
 - **Supported operating system**: Site Recovery can protect virtual machines running an operating system that's supported by Azure. This includes most versions of Windows and Linux. 
 - **Azure requirements**: Make sure any virtual machines you want to protect conform with [Azure prerequisites](https://msdn.microsoft.com/library/azure/dn469078.aspx#BKMK_E2A). Note that Azure now supports generation 2 virtual machines.
 - **VHDX support**: Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises the virtual machines continue to use the VHDX format.
-
-
-- 
 
 ## Setting up storage
 
