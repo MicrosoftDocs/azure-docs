@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Queue storage from PHP | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." 
-	documentationCenter="php" 
-	services="storage" 
-	authors="tfitzmac,tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="How to use Queue storage from PHP | Microsoft Azure"
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP."
+	documentationCenter="php"
+	services="storage"
+	authors="tfitzmac" 
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="tomfitz"/>
 
 # How to use Queue storage from PHP
@@ -94,22 +94,22 @@ A **QueueRestProxy** object lets you create a queue with the **createQueue** met
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Queue\Models\CreateQueueOptions;
-	
+
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// OPTIONAL: Set queue metadata.
 	$createQueueOptions = new CreateQueueOptions();
 	$createQueueOptions->addMetaData("key1", "value1");
 	$createQueueOptions->addMetaData("key2", "value2");
-	
+
 	try	{
 		// Create queue.
 		$queueRestProxy->createQueue("myqueue", $createQueueOptions);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -131,7 +131,7 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Create message.
 		$builder = new ServicesBuilder();
@@ -139,7 +139,7 @@ To add a message to a queue, use **QueueRestProxy->createMessage**. The method t
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -158,23 +158,23 @@ You can peek at a message (or messages) at the front of a queue without removing
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// OPTIONAL: Set peek message options.
 	$message_options = new PeekMessagesOptions();
 	$message_options->setNumberOfMessages(1); // Default value is 1.
-	
+
 	try	{
 		$peekMessagesResult = $queueRestProxy->peekMessages("myqueue", $message_options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	$messages = $peekMessagesResult->getQueueMessages();
 
 	// View messages.
@@ -202,27 +202,27 @@ Your code removes a message from a queue in two steps. First, you call **QueueRe
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
 	$messages = $listMessagesResult->getQueueMessages();
 	$message = $messages[0];
-	
+
 	/* ---------------------
 		Process message.
 	   --------------------- */
-	
+
 	// Get message Id and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
-	
+
 	try	{
 		// Delete message.
 		$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -236,35 +236,35 @@ You can change the contents of a message in-place in the queue by calling **Queu
 	require_once 'vendor\autoload.php';
 
 	use WindowsAzure\Common\ServicesBuilder;
-	use WindowsAzure\Common\ServiceException;	
+	use WindowsAzure\Common\ServiceException;
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	// Get message.
 	$listMessagesResult = $queueRestProxy->listMessages("myqueue");
 	$messages = $listMessagesResult->getQueueMessages();
 	$message = $messages[0];
-	
+
 	// Define new message properties.
 	$new_message_text = "New message text.";
-	$new_visibility_timeout = 5; // Measured in seconds. 
-	
+	$new_visibility_timeout = 5; // Measured in seconds.
+
 	// Get message Id and pop receipt.
 	$messageId = $message->getMessageId();
 	$popReceipt = $message->getPopReceipt();
-	
+
 	try	{
 		// Update message.
-		$queueRestProxy->updateMessage("myqueue", 
-									$messageId, 
-									$popReceipt, 
-									$new_message_text, 
+		$queueRestProxy->updateMessage("myqueue",
+									$messageId,
+									$popReceipt,
+									$new_message_text,
 									$new_visibility_timeout);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -283,35 +283,35 @@ There are two ways you can customize message retrieval from a queue. First, you 
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
-	// Set list message options. 
+
+	// Set list message options.
 	$message_options = new ListMessagesOptions();
-	$message_options->setVisibilityTimeoutInSeconds(300); 
+	$message_options->setVisibilityTimeoutInSeconds(300);
 	$message_options->setNumberOfMessages(16);
-	
+
 	// Get messages.
 	try{
-		$listMessagesResult = $queueRestProxy->listMessages("myqueue", 
-														 $message_options); 
-		$messages = $listMessagesResult->getQueueMessages(); 
+		$listMessagesResult = $queueRestProxy->listMessages("myqueue",
+														 $message_options);
+		$messages = $listMessagesResult->getQueueMessages();
 
 		foreach($messages as $message){
-			
+
 			/* ---------------------
 				Process message.
 			--------------------- */
-		
+
 			// Get message Id and pop receipt.
 			$messageId = $message->getMessageId();
 			$popReceipt = $message->getPopReceipt();
-			
+
 			// Delete message.
-			$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);   
+			$queueRestProxy->deleteMessage("myqueue", $messageId, $popReceipt);
 		}
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -329,7 +329,7 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Get queue metadata.
 		$queue_metadata = $queueRestProxy->getQueueMetadata("myqueue");
@@ -337,13 +337,13 @@ You can get an estimate of the number of messages in a queue. The **QueueRestPro
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	echo $approx_msg_count;
 
 ## How to: Delete a queue
@@ -357,14 +357,14 @@ To delete a queue and all the messages contained in it, call the **QueueRestProx
 
 	// Create queue REST proxy.
 	$queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
-	
+
 	try	{
 		// Delete queue.
 		$queueRestProxy->deleteQueue("myqueue");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179446.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();

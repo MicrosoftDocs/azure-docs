@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="How to use Blob storage from Python | Microsoft Azure" 
-	description="Learn how to use the Azure Blob service from Python to upload, list, download, and delete blobs." 
-	services="storage" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="How to use Blob storage from Python | Microsoft Azure"
+	description="Learn how to use the Azure Blob service from Python to upload, list, download, and delete blobs."
+	services="storage"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="huvalo"/>
 
 # How to use Blob storage from Python
@@ -51,7 +51,7 @@ All storage blobs reside in a container. You can use a **BlobService** object to
 
 By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container. If you want to make the files within the container available to everyone, you can create the container and pass the public access level using the following code:
 
-	blob_service.create_container('mycontainer', x_ms_blob_public_access='container') 
+	blob_service.create_container('mycontainer', x_ms_blob_public_access='container')
 
 Alternatively, you can modify a container after you have created it using the following code:
 
@@ -99,7 +99,7 @@ The following example demonstrates using **get\_blob\_to\_path** to download the
 
 Finally, to delete a blob, call **delete_blob**.
 
-	blob_service.delete_blob('mycontainer', 'myblob') 
+	blob_service.delete_blob('mycontainer', 'myblob')
 
 ## Next Steps
 

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="How to use Blob storage from Ruby | Microsoft Azure" 
-	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
-	manager="wpickett" 
+<properties
+	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
+	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -33,7 +33,7 @@ The scenarios covered include **uploading, listing, downloading,** and **deletin
 
 ## Create a Ruby Application
 
-Create a Ruby application. For instructions, 
+Create a Ruby application. For instructions,
 see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure Your Application to Access Storage
@@ -54,7 +54,7 @@ Using your favorite text editor, add the following to the top of the Ruby file w
 
 ## Setup an Azure Storage Connection
 
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** 
+The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
 for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::BlobService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -81,11 +81,11 @@ The following example creates a container or print out the error if there is any
 	  puts $!
 	end
 
-If you want to make the files in the container public, you can set the container's permissions. 
+If you want to make the files in the container public, you can set the container's permissions.
 
 You can just modify the <strong>create\_container()</strong> call to pass the **:public\_access\_level** option:
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -96,14 +96,14 @@ Valid values for the **:public\_access\_level** option are:
 * **container:** Specifies public read access for blobs. Blob data within this container can be read via anonymous request, but container data is not available. Clients cannot enumerate blobs within the container via anonymous request.
 
 Alternatively, you can modify the public access level of a container by using **set\_container\_acl()** method to specify the public access level.
- 
+
 The following example changes the public access level to **container**:
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
 ## How To: Upload a Blob into a Container
 
-To upload content to a blob, use the **create\_block\_blob()** method to create the blob, use a file or string as the content of the blob. 
+To upload content to a blob, use the **create\_block\_blob()** method to create the blob, use a file or string as the content of the blob.
 
 The following code will upload the file **test.png** as a new blob named "image-blob" in the container.
 
@@ -114,8 +114,8 @@ The following code will upload the file **test.png** as a new blob named "image-
 
 ## How To: List the Blobs in a Container
 
-To list the containers, use **list_containers()** method. 
-To list the blobs within a container, use **list\_blobs()** method. 
+To list the containers, use **list_containers()** method.
+To list the blobs within a container, use **list\_blobs()** method.
 
 This outputs the urls of all the blobs in all the containers for the account.
 
@@ -129,7 +129,7 @@ This outputs the urls of all the blobs in all the containers for the account.
 
 ## How To: Download Blobs
 
-To download blobs, use the **get\_blob()** method to retrieve the contents. 
+To download blobs, use the **get\_blob()** method to retrieve the contents.
 
 The following example demonstrates using **get\_blob()** to download the contents of "image-blob" and write it to a local file.
 
