@@ -3,7 +3,7 @@
  description="" 
  services="cdn" 
  documentationCenter=".NET" 
- authors="zhangmanling" 
+ authors="Juliako" 
  manager="dwrede" 
  editor=""/>
 <tags 
@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="08/01/2014" 
+ ms.date="04/25/2015" 
  ms.author="mazha"/>
 
 #How to Manage Expiration of Cloud Service Content in the Azure Content Delivery Network (CDN)
@@ -46,7 +46,7 @@ For example, to cache content for one hour, add the following:
             Response.Cache.SetCacheability(HttpCacheability.Public);
             Response.Cache.SetLastModified(DateTime.Now);
 
-#See Also
+##See Also
 
 [How to Manage Expiration of Blob Content in the Azure Content Delivery Network (CDN)](./cdn-manage-expiration-of-blob-content.md
 )

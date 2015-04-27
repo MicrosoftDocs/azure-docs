@@ -58,7 +58,7 @@ Traditional connection string format: <*server name*>.database.windows.net
 
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
 
-**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, JDBC 4.0 and below, and ODBC 10.0 and below.
+**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, please use JDBC 4.1 and above due to a bug in JDBC 4.0.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
