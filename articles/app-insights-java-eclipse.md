@@ -121,7 +121,7 @@ You'll get charts of response times, plus email notifications if your site goes 
 
 ## Diagnostic logs
 
-If you’re using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
+If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
 [Learn more about diagnostic logs][javalogs]
 

@@ -412,7 +412,7 @@ Add the attribute to the service implementations:
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md

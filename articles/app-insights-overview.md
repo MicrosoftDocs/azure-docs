@@ -96,7 +96,7 @@ If your app is a web site or service, there are some optional additions and vari
 
 [android]:app-insights-android.md
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [detect]: app-insights-detect-triage-diagnose.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [ios]: app-insights-ios.md

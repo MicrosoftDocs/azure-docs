@@ -27,7 +27,7 @@ Visual Studio Application Insights monitors your live application to help you [d
 
 ![Example performance monitoring charts](./media/app-insights-asp-net/10-perf.png)
 
-For many application types, [Visual Studio add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
+For many application types, [Visual Studio can add Application Insights to your app](#ide) almost without you noticing. But since you're reading this to get a better understanding of what's going on, we'll take you through the steps manually.
 
 #### Before you start
 
@@ -172,8 +172,8 @@ Now that you're sending data from the server side of your app, here are some ste
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
-[apikey]: app-insights-custom-events-metrics-api.md#ikey
+[api]: app-insights-api-custom-events-metrics.md
+[apikey]: app-insights-api-custom-events-metrics.md#ikey
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md

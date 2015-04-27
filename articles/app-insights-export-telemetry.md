@@ -35,7 +35,7 @@ Choose the event types you'd like to export:
 ![Click Choose event types](./media/app-insights-export-telemetry/03-types.png)
 
 
-Once you’ve created your export, it starts going. (You only get data that arrives after you create the export.)
+Once you've created your export, it starts going. (You only get data that arrives after you create the export.)
 
 
 If you want to change the event types later, just edit the export:
@@ -44,7 +44,7 @@ If you want to change the event types later, just edit the export:
 
 To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
-To stop the stream permanently, delete the export. Doing so doesn’t delete your data from storage.
+To stop the stream permanently, delete the export. Doing so doesn't delete your data from storage.
 #### Can't add or change an export?
 
 * To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
@@ -53,18 +53,18 @@ To stop the stream permanently, delete the export. Doing so doesn’t delete you
 
 The exported data is the raw telemetry we receive from your application, except: 
 
-* Web test results aren’t currently included. 
+* Web test results aren't currently included. 
 * We add location data which we calculate from the client IP address.  
 
-Calculated metrics are not included. For example, we don’t export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
+Calculated metrics are not included. For example, we don't export average CPU utilisation, but we do export the raw telemetry from which the average is computed.
 
 ## <a name="get"></a> How do you get them?
 
-When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you’ll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
+When you open your blob store with a tool such as [Server Explorer](http://msdn.microsoft.com/library/azure/ff683677.aspx), you'll see a container with a set of blob files. The URI of each file is application-id/telemetry-type/date/time. 
 
 ![Inspect the blob store with a suitable tool](./media/app-insights-export-telemetry/04-data.png)
 
-The date and time are UTC and are when the telemetry was deposited in the store – not the time it was generated. So if you write code to download the data, it can move linearly through the data.
+The date and time are UTC and are when the telemetry was deposited in the store - not the time it was generated. So if you write code to download the data, it can move linearly through the data.
 
 To download this data programmatically, use the [blob store REST API](storage-dotnet-how-to-use-blobs.md#configure-access) or the [Azure PowerShell cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx).
 
@@ -138,7 +138,7 @@ The continuous export will restart.
 
 * *But all I want is a one-time download of a chart.*  
  
-    We’re working on that one separately. 
+    We're working on that one separately. 
 
 * *I set up an export, but there's no data in my store.*
 
@@ -156,7 +156,7 @@ The continuous export will restart.
 
 * *Is there any limit to the amount of data you put in my store?* 
 
-    No. We’ll keep pushing data in until you delete the export. We’ll stop if we hit the outer limits for blob storage, but that’s pretty huge. It’s up to you to control how much storage you use.  
+    No. We'll keep pushing data in until you delete the export. We'll stop if we hit the outer limits for blob storage, but that's pretty huge. It's up to you to control how much storage you use.  
 
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 

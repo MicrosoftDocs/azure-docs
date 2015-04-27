@@ -17,7 +17,7 @@
  
 # Track HTTP requests in a Java web application
 
-If you’re running a Java web application, you can view information about the HTTP requests sent to your application, such as the requested resources, failed requests and response times, all in the Application Insights portal.
+If you're running a Java web application, you can view information about the HTTP requests sent to your application, such as the requested resources, failed requests and response times, all in the Application Insights portal.
 
 Install [Application Insights SDK for Java][java], if you haven't already done that.
 

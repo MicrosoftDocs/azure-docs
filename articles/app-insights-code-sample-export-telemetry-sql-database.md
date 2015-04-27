@@ -76,7 +76,7 @@ To get started:
 
 Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer][metrics] and individual events in [diagnostic search][diagnostic]. 
 
-And also, the data will export to your storage, where you can inspect the content. For example, there’s a storage browser in Visual Studio:
+And also, the data will export to your storage, where you can inspect the content. For example, there's a storage browser in Visual Studio:
 
 
 ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
@@ -128,7 +128,7 @@ In Solution Explorer, right-click your Worker Role project and choose Manage NuG
 Search for and install these packages: 
 
  * EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
- * JsonFx -	We’ll use this for flattening the JSON to C# class properties.
+ * JsonFx -	We'll use this for flattening the JSON to C# class properties.
 
 Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 

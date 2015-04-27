@@ -113,7 +113,7 @@ If you build in release configuration, events are stored in the device and sent 
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md

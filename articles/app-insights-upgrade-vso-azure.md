@@ -34,8 +34,8 @@ Or look at your project in Visual Studio Solution Explorer, and under References
 3. Remove the Application Insights NuGet packages from the project. 
 To do this, right-click the project in Solution Explorer and choose Manage NuGet Packages.
 4. SDK: Right-click the project and [choose Add Application Insights][greenbrown]. This adds the SDK to your project, and also creates a new Application Insights resource in Azure.
-5. Logging: If your code includes calls to the old API such as LogEvent(), you’ll discover them when you try to build the solution. Update them to [use the new API][track].
-6. Web pages: If your project includes web pages, replace the scripts in the <head> sections. Typically there’s just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from the Quick Start blade in your Application Insights resource in Azure][usage]. 
+5. Logging: If your code includes calls to the old API such as LogEvent(), you'll discover them when you try to build the solution. Update them to [use the new API][track].
+6. Web pages: If your project includes web pages, replace the scripts in the <head> sections. Typically there's just one copy in a master page such as Views\Shared\_Layout.cshtml. [Get the new script from the Quick Start blade in your Application Insights resource in Azure][usage]. 
 If your web pages include telemetry calls in the body such as logEvent or logPage, [update them to use the new API][track].
 7. Server monitor: If your app is a service running on IIS, uninstall Microsoft Monitoring Agent from the server, and then [install Application Insights Status Monitor][redfield].
 8. Web tests: If you were using web availability tests, [recreate them on the new portal][availability], with their alerts.

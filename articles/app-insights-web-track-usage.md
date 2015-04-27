@@ -19,7 +19,7 @@
 
 Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve. 
 
-Visual Studio Application Insights can provide a clear view of your application’s usage, helping you to improve your users’ experience, and meet your business goals. 
+Visual Studio Application Insights can provide a clear view of your application's usage, helping you to improve your users' experience, and meet your business goals. 
 
 You can plan usage analysis into your devOps lifecycle, so that whenever you design a new user story, you also plan what telemetry you will need to assess its success.
 
@@ -99,15 +99,15 @@ Click through the page views chart to get a more zoomed-in version together with
  
 The example above is from a games website. From it we can instantly see:
 
-* Usage hasn’t improved in the past week. Maybe we should think about search engine optimization?
-* Many fewer people see the games pages than the Home page. Why doesn’t our Home page attract people to play games?
+* Usage hasn't improved in the past week. Maybe we should think about search engine optimization?
+* Many fewer people see the games pages than the Home page. Why doesn't our Home page attract people to play games?
 * 'Crossword' is the most popular game. We should give priority to new ideas and improvements there.
 
 ## Custom tracking
 
-Let’s suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page. This allows the user to switch quickly between one game and another, or even have several games on one page. 
+Let's suppose that instead of implementing each game in a separate web page, you decide to refactor them all into the same single-page app, with most of the functionality coded as Javascript in the web page. This allows the user to switch quickly between one game and another, or even have several games on one page. 
 
-But you’d still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That’s easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new ‘page’ has opened:
+But you'd still like Application Insights to log the number of times each game is opened, in exactly the same way as when they were on separate web pages. That's easy: just insert a call to the telemetry module into your JavaScript where you want to record that a new 'page' has opened:
 
 	telemetryClient.trackPageView(game.Name);
 
@@ -144,7 +144,7 @@ The particularly useful feature of timelines is that you can correlate changes w
 
 To get a better understanding of how a typical session goes, you might want to focus on a specific user session that contains a particular type of event. 
 
-In this example, we coded a custom event “NoGame” that is called if the user logs out without actually starting a game. Why would a user do that? Maybe if we drill into some specific occurrences, we’ll get a clue. 
+In this example, we coded a custom event "NoGame" that is called if the user logs out without actually starting a game. Why would a user do that? Maybe if we drill into some specific occurrences, we'll get a clue. 
 
 The custom events received from the app are listed by name on the overview blade:
 
@@ -156,12 +156,12 @@ Click through the event of interest, and select a recent specific occurrence:
 
 ![In the list under the summary chart, click an event](./media/app-insights-overview-usage/08-searchEvents.png)
  
-Let’s look at all the telemetry for the session in which that particular NoGame event occurred. 
+Let's look at all the telemetry for the session in which that particular NoGame event occurred. 
 
 
 ![Click 'all telemetry for session'](./media/app-insights-overview-usage/09-relatedTelemetry.png)
  
-There were no exceptions, so the user wasn’t prevented from playing by some failure.
+There were no exceptions, so the user wasn't prevented from playing by some failure.
  
 We can filter out all types of telemetry except page views for this session:
 
@@ -229,11 +229,11 @@ Use the Search field to see event occurrences with a particular property value.
 
 ## A | B Testing
 
-If you don’t know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.
+If you don't know which variant of a feature will be more successful, release both of them, making each accessible to different users. Measure the success of each, and then move to a unified version.
 
-For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends – not just your custom messages, but the standard telemetry as well. 
+For this technique, you attach distinct tags to all the telemetry that is sent by each version of your app. You can do that by defining properties in the active TelemetryContext. These default properties are added to every telemetry message that the application sends - not just your custom messages, but the standard telemetry as well. 
 
-In the Application Insights portal, you’ll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
+In the Application Insights portal, you'll then be able to filter and group (segment) your data on the tags, so as to compare the different versions.
 
 C# at server
 
@@ -276,14 +276,14 @@ In the app initializer such as Global.asax.cs:
     }
 
 
-## Build – Measure – Learn
+## Build - Measure - Learn
 
-When you use analytics, it becomes an integrated part of your development cycle – not just something you think about to help solve problems. Here are some tips:
+When you use analytics, it becomes an integrated part of your development cycle - not just something you think about to help solve problems. Here are some tips:
 
 * Determine the key metric of your application. Do you want as many users as possible, or would you prefer a small set of very happy users? Do you want to maximize visits or sales?
-* Plan to measure each story. When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change. Before coding starts, ask “What effect will this have on our metrics, if it works? Should we track any new events?”
+* Plan to measure each story. When you sketch a new user story or feature, or plan to update an existing one, always think about how you will measure the success of the change. Before coding starts, ask "What effect will this have on our metrics, if it works? Should we track any new events?"
 And of course, when the feature is live, make sure you look at the analytics and act on the results. 
-* Relate other metrics to the key metric. For example, if you add a ‘favorites’ feature, you’d like to know how often users add favorites. But it’s perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
+* Relate other metrics to the key metric. For example, if you add a Ã¢â‚¬ËœfavoritesÃ¢â‚¬â„¢ feature, youÃ¢â‚¬â„¢d like to know how often users add favorites. But itÃ¢â‚¬â„¢s perhaps more interesting to know how often they come back to their favorites. And, most importantly, do customers who use favorites ultimately buy more of your product?
 * Canary testing. Set up a feature switch that allows you to make a new feature visible only to some users. Use Application Insights to see whether the new feature is being used in the way you envisaged. Make adjustments, then release it to a wider audience.
 * Talk to your users! Analytics is not enough on its own, but complementary to maintaining a good customer relationship.
 

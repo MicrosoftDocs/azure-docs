@@ -17,7 +17,7 @@
 
 # Performance analytics for Azure Web Apps and VMs
 
-After enabling the Azure web app extension (detailed steps below) you’ll be able to see statistics and details on the application dependencies of your [Azure App Service Web App](websites-learning-map.md) or web apps in your [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/).  These application dependencies are automatically discovered. 
+After enabling the Azure web app extension (detailed steps below) you'll be able to see statistics and details on the application dependencies of your [Azure App Service Web App](websites-learning-map.md) or web apps in your [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/).  These application dependencies are automatically discovered. 
 
 Here's an example that shows the amount of time spent in a SQL dependency including the number of SQL calls and related statistics such as the average duration and standard deviation. 
 
