@@ -40,9 +40,9 @@ The following is a list of additional resources for using Azure AD Connect and i
 
 ## Videos
 
-[AZURE.VIDEO 04] [AZURE.VIDEO windows-azure-multi-factor-authentication]
+[AZURE.VIDEO edge-show115-azure-ad-connect-preview-configuring-hybrid-identity-with-azure-ad-] [AZURE.VIDEO 04] 
 
-[AZURE.VIDEO windows-azure-multi-factor-authentication] [AZURE.VIDEO windows-azure-multi-factor-authentication]
+[AZURE.VIDEO 10] [AZURE.VIDEO teched-new-zealand-2014-microsoft-office-365-directory-synchronization-and-federation-options]
 
 
 **Additional Resources**
