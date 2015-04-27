@@ -112,7 +112,7 @@ Now that you're sending data from the server side of your app, here are some ste
 [api]: app-insights-custom-events-metrics-api.md
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
 [knowUsers]: app-insights-overview-usage.md

@@ -186,7 +186,7 @@ To get a new key, [create a new resource in the Application Insights portal][new
 
 [api]: app-insights-custom-events-metrics-api.md
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-web-failures-exceptions.md
 [netlogs]: app-insights-asp-net-trace-logs.md

@@ -119,11 +119,11 @@ You should inform your customers appropriately about the data your application c
 
 #### Can my users turn off Application Insights?
 
-Not directly. We don’t provide a switch that your users can operate to turn off Application Insights.
+Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
 
 However, you can implement such a feature in your application. All the SDKs include an API setting that turns off telemetry collection. 
 
-#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn’t retained?
+#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn't retained?
 
 Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
@@ -189,7 +189,7 @@ Inferred |geo location from IP address, timestamp, OS, browser
 [api]: app-insights-custom-events-metrics-api.md
 [apiproperties]: app-insights-custom-events-metrics-api.md#properties
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md

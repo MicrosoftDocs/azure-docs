@@ -572,7 +572,7 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 
 <!--Link references-->
 
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md

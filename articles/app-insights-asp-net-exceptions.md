@@ -414,7 +414,7 @@ Add the attribute to the service implementations:
 
 [api]: app-insights-custom-events-metrics-api.md
 [azure]: insights-perf-analytics.md
-[client]: app-insights-web-track-usage.md
+[client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
 [netlogs]: app-insights-asp-net-trace-logs.md

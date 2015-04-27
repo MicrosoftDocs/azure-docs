@@ -55,7 +55,7 @@ The blade that opens is the place where you'll see performance and usage data ab
 
 1. Click on Integrate to start the SDK integration
 
-2. Select your Xcode project from the list or click on Open Otherâ€¦ to find your projectm, then click on Integrate
+2. Select your Xcode project from the list or click on Open Other to find your project, then click Integrate
 
 3. Choose the folder for the Application Insights SDK, then click on Install
 
