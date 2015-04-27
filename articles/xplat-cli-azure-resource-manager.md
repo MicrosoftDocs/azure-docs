@@ -18,7 +18,10 @@
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
+> [AZURE.SELECTOR]
+- [Azure CLI](../articles/xplat-cli-azure-resource-manager)
+- [Windows PowerShell](../articles/powershell-azure-resource-manager)
+
 
 This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
 
