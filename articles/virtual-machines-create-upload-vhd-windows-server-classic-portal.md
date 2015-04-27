@@ -27,7 +27,7 @@ This article shows you how to upload a virtual hard disk (VHD) with an operating
 ##Prerequisites##
 This article assumes you have the following:
 
-1. **An Azure subscription** - If you don't have one, you can create a free trial account in just a couple of minutes. For details, see [Create an Azure account](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).  
+1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.   
 
 2. **Microsoft Azure PowerShell** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. To download the module, see [Microsoft Azure Downloads](http://www.windowsazure.com/downloads/). A tutorial to install and configure the module is available [here](install-configure-powershell.md).You'll use the [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet to upload the VHD.
 
@@ -73,7 +73,7 @@ This task includes the following steps:
 - [Step 3: Prepare the connection to Azure] []
 - [Step 4: Upload the .vhd file] []
 
-## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
+## Step 1: Prepare the image to be uploaded ##
 
 Before the image can be uploaded to Azure, it must be generalized by using the Sysprep command. For more information about using Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
 
@@ -96,7 +96,7 @@ From the virtual machine that the operating system was installed to, complete th
 6.  Click **OK**. 
 
 
-## <a id="createstorage"> </a>Step 2: Create a storage account in Azure ##
+## Step 2: Create a storage account in Azure ##
 
 You need a storage account in Azure to upload a .vhd file so it can be used in Azure to create a virtual machine. You can use the Azure classic portal to create a storage account.
 
@@ -137,11 +137,11 @@ You need a storage account in Azure to upload a .vhd file so it can be used in A
 
 	> [AZURE.NOTE] By default, the container is private and can be accessed only by the account owner. To allow public read access to the blobs in the container, but not the container properties and metadata, use the "Public Blob" option. To allow full public read access for the container and blobs, use the "Public Container" option.
 
-## <a id="PrepAzure"> </a>Step 3: Prepare the connection to Microsoft Azure ##
+## Step 3: Prepare the connection to Microsoft Azure ##
 
 Before you can upload a .vhd file, you need to establish a secure connection between your computer and your subscription in Azure. You can use the Microsoft Azure Active Directory method or the certificate method to do this.
 
-<h3>Use the Microsoft Azure AD method</h3>
+### Use the Microsoft Azure AD method
 
 1. Open the Azure PowerShell console, as instructed in [How to: Install Microsoft Azure PowerShell](#Install).
 
@@ -154,7 +154,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 3. Azure authenticates and saves the credential information, and then closes the window.
 
-<h3>Use the certificate method</h3> 
+### Use the certificate method 
 
 1. Open the Azure PowerShell console. 
 
@@ -174,12 +174,12 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
 
-	For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) 
+	For more information, see [Get Started with Microsoft Azure Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx). 
 	
-	For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md) 
+	For more information on installing and configuring PowerShell, see [How to install and configure Microsoft Azure PowerShell](install-configure-powershell.md). 
 
 
-## <a id="upload"> </a>Step 4: Upload the .vhd file ##
+## Step 4: Upload the .vhd file ##
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the classic portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 
@@ -192,7 +192,7 @@ When you upload the .vhd file, you can place the .vhd file anywhere within your 
 
 	For more information about this cmdlet, see [Add-AzureVhd](http://msdn.microsoft.com/library/dn495173.aspx).
 
-##Step 5: Add the Image to Your List of Custom Images ##
+## Step 5: Add the Image to Your List of Custom Images ##
 After you upload the .vhd, you add it as an image to the list of custom images associated with your subscription.
 
 1. From the classic portal, under **All Items**, click **Virtual Machines**.
