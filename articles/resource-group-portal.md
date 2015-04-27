@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using Resource groups to manage your Azure resources" 
+	pageTitle="Using the Azure Portal to manage your Azure resources" 
 	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
 	services="multiple" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 	ms.author="tomfitz"/>
 
 
-# Using resource groups to manage your Azure resources
+# Using the Azure Portal to manage your Azure resources
 
 ## Introduction
 
