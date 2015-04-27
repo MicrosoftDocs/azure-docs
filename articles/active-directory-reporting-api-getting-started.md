@@ -139,7 +139,7 @@ curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>
 - Finally, replace ```YOUR-ACCESS-TOKEN``` with your access token in the curl request below.
 
 ```
-curl -v https://service.activedirectory.windowsazure.com:444/api/reports/audit \
+curl -v https://graph.windows.net//reports/?api-version=1.5/audit \
   -H "x-ms-version: 2013-08-01" \
   -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
 ```
@@ -149,7 +149,7 @@ curl -v https://service.activedirectory.windowsazure.com:444/api/reports/audit \
 
 ```
 {
-  "@odata.context":"https://service.activedirectory.windowsazure.com:444/api/reports/$metadata#audit",
+  "@odata.context":"https://graph.windows.net//reports/?api-version=1.5/reports/$metadata#audit",
   "value":[
     {
       "id":"SN2GR1RDS104.GRN001.msoprd.msft.net_4515449","timeStampOffset":"2015-04-13T21:27:55.1777659Z","actor":"thekenhoff_outlook.com#EXT#@kenhoffdemo.onmicrosoft.com","action":"Add service principal","target":"04670e0d84264acb86dac2
