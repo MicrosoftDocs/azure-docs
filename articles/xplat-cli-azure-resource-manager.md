@@ -16,7 +16,7 @@
 	ms.date="04/27/2015"
 	ms.author="rasquill;dkshir"/>
 
-# Using the Azure Cross-Platform Command-Line Interface with Azure Resource Management
+# Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
@@ -75,13 +75,16 @@ Make sure at least one resource group is created before you start with any of th
 
 ### Using individual Azure CLI commands
 
-This is the basic approach to configure and create a virtual machine as per your needs. In **arm** mode, you will need to configure some mandatory resources like the storage account and networking before you can use the **vm create** command.
+This is the basic approach to configure and create a virtual machine as per your needs. In **arm** mode, you will need to configure some mandatory resources like the networking before you can use the **vm create** command.
 
->[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register to certain Resource Providers.
+>[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register for certain Resource Providers.
 > If that happens, it is easy to register the said provider and try the failed command again. For example,
-	azure provider register Microsoft.Storage
+>
+>	azure provider register Microsoft.Storage
+>
 > You can find out the list of providers registerd for your subscription by running,
-	azure provider list
+>
+>	azure provider list
 
 #### Creating a public IP resource
 
@@ -103,7 +106,7 @@ You should be able to create an NIC using these resources.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
-	>[AZURE.NOTE] Although optional, it is very important to pass the public IP name as a parameter to the **network nic create** command as this binds the NIC to this IP, which will be later used to SSH into the virtual machine created using this NIC.
+>[AZURE.NOTE] Although optional, it is very important to pass the public IP name as a parameter to the **network nic create** command as this binds the NIC to this IP, which will be later used to SSH into the virtual machine created using this NIC.
 
 For more imformation on the **network** commands, see command line help or [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
 
@@ -132,7 +135,7 @@ Note down the URN of the image you want to load on your virtual machine.
 
 #### Creating a virtual machine
 
-You are now ready to create a virtual machine by running **vm create** command and passing the required information. Don't forget to pass the public IP you created, so you can easily SSH into the virtual machine.
+You are now ready to create a virtual machine by running **vm create** command and passing the required information. It's optional to pass the public IP at this stage, since the NIC already has this information.
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create
@@ -187,11 +190,11 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 		data:    SUSE                    SUSE.SUSELinuxEnterpriseServer12.2.0.36-preview
 		data:    SUSE                    SUSE.SUSELinuxEnterpriseServer11SP3PremiumImage0.2.54-preview
 
-2. To view the details of a template that will create an Azure Website, use the following command.
+2. To view the details of the template, use the following command.
 
 		azure group template show CoreOS.CoreOSStable.0.2.40-preview
 
-	This will return descriptive information about the template.
+	This will return descriptive information about the template. The template we are using will create a Linux virtual machine.
 
 3. Once you have selected a template (**azure group template show CoreOS.CoreOSStable.0.2.40-preview**), you can download it with the following command.
 
@@ -218,7 +221,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 			"value": "testVNet"
 		  },
 		  "vnetAddressSpace": {
-			"value": "testAddressSpace"
+			"value": "10.0.0.0/11"
 		  },
 		  "hostName": {
 			"value": "testHost"
@@ -237,9 +240,9 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 		  }
 	    }
 
-5. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step. Replace the **MyGroupName** with the group name you wish to use, and **MyDataCenter** with the **siteLocation** value specified in your **params.json** template parameter file.
+5. After saving the **params.json** file, use the following command to create a new resource group based on the template. The `-e` parameter specifies the **params.json** file created in the previous step. Replace the **testRG** with the group name you wish to use, and **testDeploy** with your deployment name. The location should be same as the one specified in your **params.json** template parameter file.
 
-		azure group create MyGroupName "West US" -f Microsoft.WebSiteSQLDatabase.0.2.6-preview.json -d MyDeployment -e params.json
+		azure group create "testRG" "West US" -f CoreOS.CoreOSStable.0.2.40-preview.json -d "testDeploy" -e params.json
 
 	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
 	>
@@ -248,11 +251,12 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 	> The **ProvisioningState** shows the status of the deployment.
 	>
 	> If your deployment was successful, you will see an output similar to below:
-	> azure-cli@0.8.0:/# azure group deployment show CoreOSRG CoreOSdeploy
+	>
+	> azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
 	> info:    Executing command group deployment show
 	> + Getting deployments
-	> data:    DeploymentName     : CoreOSdeploy
-	> data:    ResourceGroupName  : CoreOSRG
+	> data:    DeploymentName     : testDeploy
+	> data:    ResourceGroupName  : testRG
 	> data:    ProvisioningState  : Running
 	> data:    Timestamp          : 2015-04-27T07:49:18.5237635Z
 	> data:    Mode               : Incremental
@@ -261,7 +265,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 	> data:    newStorageAccountName  String        testStorage
 	> data:    newDomainName          String        testDomain
 	> data:    newVirtualNetworkName  String        testVNet
-	> data:    vnetAddressSpace       String        testAddressSpace
+	> data:    vnetAddressSpace       String        10.0.0.0/11
 	> data:    hostName               String        testHost
 	> data:    userName               String        azureUser
 	> data:    password               SecureString  undefined
@@ -271,13 +275,13 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 	>
 	> If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
 	>
-	> `azure group deployment stop MyGroupName MyDeployment`
+	> `azure group deployment stop "testRG" "testDeploy"
 	>
 	> If you do not provide a deployment name, one will be created automatically based on the name of the template file. It will be returned as part of the output of the `azure group create` command.
 
 6. To view the group, use the following command.
 
-		azure group show MyGroupName
+		azure group show "testRG"
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
@@ -291,7 +295,7 @@ While templates allow you to declare group-wide changes in configuration, someti
 
 		azure resource list "testRG"
 
-2. To view individual resources, such as the Website, within the group, use the following command.
+2. To view individual resources, within the group, use the following command.
 
 		azure resource show "testRG" "testHost" Microsoft.ClassicCompute/virtualMachines -o "2014-06-01"
 
