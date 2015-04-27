@@ -160,7 +160,7 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md

@@ -109,7 +109,7 @@ Now that you're sending data from the server side of your app, here are some ste
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md

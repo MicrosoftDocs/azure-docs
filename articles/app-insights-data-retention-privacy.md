@@ -74,7 +74,7 @@ The data is stored in Microsoft Azure servers. For accounts in the Azure Preview
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
-Data in aggregate across all our customers’ applications (such as data rates and average size of traces) is used to improve Application Insights.
+Data in aggregate across all our customers' applications (such as data rates and average size of traces) is used to improve Application Insights.
 
 #### Could someone else's telemetry interfere with my Application Insights data?
 
@@ -104,7 +104,7 @@ As general guidance:
 
 * Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
 * Exception reports might include PII in parameter data.
-* Custom telemetry – that is, calls such as TrackEvent that you write in code using the API or log traces – can contain any data you choose.
+* Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.
 
 
 The table at the end of this document contains more detailed descriptions of the data collected.
@@ -186,8 +186,8 @@ Inferred |geo location from IP address, timestamp, OS, browser
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [azure]: insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md

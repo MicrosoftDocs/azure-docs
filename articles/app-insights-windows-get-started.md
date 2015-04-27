@@ -145,7 +145,7 @@ Add Application Insights from Solution Explorer.
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [azure]: insights-perf-analytics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [portal]: http://portal.azure.com/

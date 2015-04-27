@@ -191,7 +191,7 @@ Click on any chart to get more detail. For example, crashes:
 
 <!--Link references-->
 
-[api]: app-insights-custom-events-metrics-api.md
+[api]: app-insights-api-custom-events-metrics.md
 [diagnostic]: app-insights-diagnostic-search.md
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/

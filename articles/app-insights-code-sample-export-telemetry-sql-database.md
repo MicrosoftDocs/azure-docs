@@ -41,6 +41,7 @@ To get started:
 3. Open Quick Start to find how to set up the SDK for your app type.
 
     ![Choose Quick Start and follow instructions](./media/app-insights-code-sample-export-telemetry-sql-database/020-quick.png)
+
     If your app type isn't listed, take a look at the [Getting Started][start] page.
 
 4. In this example, we're monitoring a web app, so we can use the Azure tools in Visual Studio to install the SDK. We tell it the name of our Application Insights resource:
@@ -51,18 +52,22 @@ To get started:
 ## Create storage in Azure
 
 1. Create a storage account in your subscription in the [Azure portal][portal].
+
     ![In Azure portal, choose New, Data, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. Create a container
+
     ![In the new storage, select Containers and then Add](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Start continuous export to Azure storage
 
 1. In the Azure portal, browse to the Application Insights resource you created for your application.
+
     ![Choose Browse, Application Insights, your application](./media/app-insights-code-sample-export-telemetry-sql-database/060-browse.png)
 
 2. Create a continuous export.
+
     ![Choose Settings, Continuous Export, Add](./media/app-insights-code-sample-export-telemetry-sql-database/070-export.png)
 
 
@@ -76,7 +81,7 @@ To get started:
 
 Now sit back and let people use your application for a while. Telemetry will come in and you'll see statistical charts in [metric explorer][metrics] and individual events in [diagnostic search][diagnostic]. 
 
-And also, the data will export to your storage, where you can inspect the content. For example, there’s a storage browser in Visual Studio:
+And also, the data will export to your storage, where you can inspect the content. For example, there's a storage browser in Visual Studio:
 
 
 ![In Visual Studio, open Server Browser, Azure, Storage](./media/app-insights-code-sample-export-telemetry-sql-database/087-explorer.png)
@@ -128,7 +133,7 @@ In Solution Explorer, right-click your Worker Role project and choose Manage NuG
 Search for and install these packages: 
 
  * EntityFramework 6.1.2 or later - We'll use this to generate the DB table schema on the fly, based on the content of the JSON in the blob.
- * JsonFx -	We’ll use this for flattening the JSON to C# class properties.
+ * JsonFx -	We'll use this for flattening the JSON to C# class properties.
 
 Use this tool to generate C# Class out of our single JSON document. It requires some minor changes like flattening JSON arrays into single C# property in turn single column in DB table (ex. urlData_port) 
 
