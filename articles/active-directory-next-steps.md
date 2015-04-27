@@ -18,10 +18,12 @@
 
 # What are the next steps I can take using Azure AD?
 
-[What is Azure AD?](active-directory-whatis.md)<br>
-[How does it work?](active-directory-works.md)<br>
-[Get started](active-directory-get-started.md)<br>
-[Learn more](active-directory-learn-map.md)
+> [AZURE.SELECTOR]
+- [What is Azure AD?](active-directory-whatis.md)
+- [How does it work?](active-directory-works.md)
+- [Get started](active-directory-get-started.md)
+- [Next steps](active-directory-next-steps.md)
+- [Learn more](active-directory-learn-map.md)
 
 ## Manage users in Azure AD
 Managing user accounts is more than just creating or deleting users and assigning permissions. You can generate reports on access and usage, set password policies, enable password self-service rest, set up multifactor authentication and more. [Learn more about managing users](https://msdn.microsoft.com/library/azure/hh967609.aspx).

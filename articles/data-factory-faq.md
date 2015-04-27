@@ -88,14 +88,12 @@ The **availability** configuration setting in the output data table determines w
 ## Copy Activity - FAQ
 ### Q: What regions are supported by the Copy Activity ?
 
-The Copy Activity supports copying data into the following regions: East US, East US 2, West US,  Central US, North Europe, West Europe, and South East Asia.
+The Copy Activity supports copying data into the following regions: East US, East US 2, West US, Central US, North Central US, South Central US, North Europe, West Europe, and South East Asia.
 
 Copying data into other regions is also supported, by using one of the regions above for routing the data.  Copy operation is metered based on the region where data is routed through.
 
 Region of copy destination | Region used for routing
 -------------------------- | -----------------------
-North Central US | East US 2
-South Central US | West US
 East Asia | South East Asia
 Japan East | West US
 Japan West | West US

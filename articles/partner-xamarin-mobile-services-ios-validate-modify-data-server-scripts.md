@@ -3,18 +3,18 @@
 	description="Learn how to validate and modify data sent using server scripts from your Xamarin iOS app."
 	services="mobile-services"
 	documentationCenter="xamarin"
-	authors="lindydonna"
+	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/26/2014"
-	ms.author="donnam"/>
+	ms.date="04/24/2015"
+	ms.author="ggailey777"/>
 
 # Validate and modify data in Mobile Services by using server scripts
 
