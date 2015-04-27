@@ -18,6 +18,14 @@
 
 # Managing Azure AD Connect 
 
+
+<center><div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It?" class="current">What is It?</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-get-manage/" title="Manage">Manage</a></div></center> 
+
+
 The topics are advanced operational topics that allow you to customize Azure Active Directory Connect to meet your organizations needs and requirements.  
 
 ## Changing the default configuration
