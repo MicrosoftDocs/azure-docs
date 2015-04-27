@@ -31,6 +31,17 @@ If you do not already have a VNET you wish to use to host your App Service Envir
 
 Each ASE deployment is a Hosted Service that Azure manages and maintains.  The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes.  
 
+## App Service Environment creation ##
+
+There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
+
+### Quick create ###
+After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to select the location where you want the system to be located and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
+
+The name that is specified for the ASE will be used for the web apps created in the ASE.  If name of the ASE is appsvcenvdemo then the domain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created a web app named mytestapp then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  
+
+
+![][1]
 
 ### Compute Resource Pools ###
 
@@ -57,17 +68,7 @@ In addition to being able to manage the quantity of compute resources that you c
 
 Pricing for App Service Environments is against the compute resources assigned.  You pay for the compute resources allocated to your App Service Environment regardless if they are hosting workloads or not. 
 
-## App Service Environment creation ##
 
-There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
-
-### Quick create ###
-After entering the creation UI you can quickly create an ASE by simply entering a name for the deployment.  This will in turn create a VNET with 512 addresses, a subnet with 256 addresses in that VNET and an ASE environment with 2 Front Ends and 2 Workers in Worker Pool 1.  Be sure to select the location where you want the system to be located and the subscription that you want it to be in.  The only accounts that can use the ASE to host content must be in the subscription used to create it.
-
-The name that is specified for the ASE will be used for the web apps created in the ASE.  If name of the ASE is appsvcenvdemo then the domain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created a web app named mytestapp then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  
-
-
-![][1]
 
 ### VNET Creation ###
 While there is a quick create capability that will automatically create a new VNET, the feature also supports  selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET if it is large enough to support an App Service Environment deployment.  The VNET must have 512 addresses or more.  If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 256 addresses or more.  
