@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="4/15/2015"
+	ms.date="04/15/2015"
 	ms.author="v-ahsab"
 	ms.prod="azure"/>
 

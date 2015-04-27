@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Getting started with SQL Databases Data Sync" 
-	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Getting started with SQL Databases Data Sync"
+	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
+	services="sql-database"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="3/2/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/2/2015" 
 	ms.author="spelluru"/>
 
 
 #Getting Started with Azure SQL Data Sync (Preview)
-In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal. 
+In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
@@ -44,7 +44,7 @@ This step is required only if you are going to have an on-premises SQL Server da
 <h3><a id="InstallRequiredSoftware"></a>Step 2a: Install the required software</h3>
 Be sure that you have the following installed on the computer you install the Client Agent.
 
-- **.NET Framework 4.0** 
+- **.NET Framework 4.0**
 
  You can install .NET Framework 4.0 from [here](http://go.microsoft.com/fwlink/?linkid=205836).
 
@@ -59,10 +59,10 @@ Be sure that you have the following installed on the computer you install the Cl
 
 <h3><a id="InstallClient"></a>Step 2b: Install a new Client Agent</h3>
 
-Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/library/jj823137.aspx) to install the agent. 
+Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/library/jj823137.aspx) to install the agent.
 
 
-<h3><a id="RegisterSSDb"></a>Step 2c: Finish the New SQL Data Sync Agent wizard</h3> 
+<h3><a id="RegisterSSDb"></a>Step 2c: Finish the New SQL Data Sync Agent wizard</h3>
 
 1. 	Return to the New SQL Data Sync Agent wizard.
 2.	Give the agent a meaningful name.
@@ -89,13 +89,13 @@ To register a database with the agent, follow the instructions at [Register a SQ
 	![Image2](./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png)
 
 
-<h3><a id=""></a>Step 4b: Enter the basic settings</h3>	
+<h3><a id=""></a>Step 4b: Enter the basic settings</h3>
 1.	Enter a meaningful name for the sync group.
 2.	From the dropdown, select the **REGION** (Data Center) to host this sync group.
 3. Click the right-arrow.
 
 	![Image3](./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG)
- 
+
 <h3><a id="DefineHubDB"></a>Step 4c: Define the sync hub</h3>
 1. From the dropdown, select the SQL Database instance to serve as the sync group hub.
 2. Enter the credentials for this SQL Database instance - **HUB USERNAME** and **HUB PASSWORD**.
@@ -146,9 +146,9 @@ Azure SQL Data Sync allows you to select tables and columns to synchronize. If y
 6.	Select the database you want to provide the sync group schema.
 7.	Click the right-arrow.
 8.	Click **REFRESH SCHEMA**.
-9.	For each table in the database, select the columns to include in the synchronizations. 
-	- Columns with unsupported data types cannot be selected. 
-	- If no columns in a table are selected, the table is not included in the sync group. 
+9.	For each table in the database, select the columns to include in the synchronizations.
+	- Columns with unsupported data types cannot be selected.
+	- If no columns in a table are selected, the table is not included in the sync group.
 	- To select/unselect all the tables, click SELECT at the bottom of the screen.
 10.	Click **SAVE**, then wait for the sync group to finish provisioning.
 11.	To return to the Data Sync landing page, click the back-arrow in the upper left of the screen (above the sync group's name).
@@ -183,12 +183,3 @@ For additional information on SQL Database and SQL Data Sync see:
 * [SQL Data Sync (WA Portal)](http://msdn.microsoft.com/library/windowsazure/jj856263.aspx)
 * [Getting Started with Azure SQL Database](getting-started-w-sql-databases.md)
 * [SQL Server Database Lifecycle ](http://go.microsoft.com/fwlink/?LinkId=275193)
-
-
-
-
-
-
-
-
-

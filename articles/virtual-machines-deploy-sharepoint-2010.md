@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines" 
-	description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="SharePoint 2010 Deployment on Azure Virtual Machines"
+	description="Understand the supported scenarios for using SharePoint 2010 on Azure virtual machines."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="1/16/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/16/2015" 
 	ms.author="josephd"/>
 
 
@@ -535,4 +535,3 @@ Successful deployment of SharePoint Server on Azure Virtual Machines requires so
 <p><a href="/manage/windows/">https://www.windowsazure.com/manage/windows/</a></p>
 </li>
 </ul>
-
