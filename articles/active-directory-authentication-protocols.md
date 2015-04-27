@@ -1,4 +1,4 @@
-<properties
+<properties 
    pageTitle="Azure Active Directory Authentication Protocols"
    description="An overview of the authentication protocols supported by Azure Active Directory (AD)"
    documentationCenter="dev-center-name"
@@ -39,10 +39,10 @@ This section includes the following topics.
 - [SAML Protocol Reference](https://msdn.microsoft.com/library/azure/dn195591.aspx) - Learn about the Single Sign-On and Single Sign-out SAML profiles of Azure AD.
 
 
-- [WS-Federation 1.2](https://msdn.microsoft.com/en-us/library/azure/dn903702.aspx) - Learn about WS-Federation 1.2 in Azure AD.
+- [WS-Federation 1.2](https://msdn.microsoft.com/library/azure/dn903702.aspx) - Learn about WS-Federation 1.2 in Azure AD.
 
 
-- [Troubleshooting Authentication Protocols](https://msdn.microsoft.com/en-us/library/azure/dn195584.aspx) - Learn how to prevent problems and interpret and resolve errors when using Azure AD.
+- [Troubleshooting Authentication Protocols](https://msdn.microsoft.com/library/azure/dn195584.aspx) - Learn how to prevent problems and interpret and resolve errors when using Azure AD.
 
 
 
@@ -50,5 +50,5 @@ This section includes the following topics.
 
 
 ### Concepts
-[Authorization with Azure Active Directory](https://msdn.microsoft.com/library/azure/dn195601.aspx)
-[active-directory-code-samples.md] 
+[Using Azure AD for Authentication](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[Active Directory Code Samples](active-directory-code-samples.md)

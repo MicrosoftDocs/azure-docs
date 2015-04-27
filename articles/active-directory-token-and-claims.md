@@ -1,4 +1,4 @@
-<properties
+<properties 
    pageTitle="Supported Token and Claim Types"
    description="A guide for understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens issued by Azure Active Directory (AAD)"
    documentationCenter="dev-center-name"
@@ -206,7 +206,7 @@ The Scope of the token indicates the impersonation permissions granted to the cl
 
 In a JWT token, the scope of the token is specified in a scp claim.
 
-      "scp": "user_impersonation"
+    "scp": "user_impersonation"
 
 ### Subject
 
