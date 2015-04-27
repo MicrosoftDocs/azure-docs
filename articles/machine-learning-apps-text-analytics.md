@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/27/2015"
+	ms.date="04/21/2015"
 	ms.author="luisca"/>
 
 
@@ -35,7 +35,7 @@ The API returns a list of strings denoting the key talking points in the input t
 
 **URL**	
 
-https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetSentiment
 
 **Example request**
 
@@ -65,7 +65,7 @@ You get your account key [here]( https://datamarket.azure.com/account/keys).
 
 **URL**
 
-https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
+	https://api.datamarket.azure.com/data.ashx/amla/text-analytics/v1/GetKeyPhrases
 
 **Example request**
 

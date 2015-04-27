@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Process events from Event Hub with Storm on HDInsight | Azure"
-   description="Learn how to process Event Hub data with a C# Storm topology created in Visual Studio using the HDInsight Tools for Visual Studio."
+   pageTitle="Process events from Event Hubs with Storm on HDInsight | Azure"
+   description="Learn how to process Event Hubs data with a C# Storm topology created in Visual Studio using the HDInsight Tools for Visual Studio."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,18 +13,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/06/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
-# Process events from Azure Event Hub with Storm on HDInsight (C#)
+# Process events from Azure Event Hubs with Storm on HDInsight (C#)
 
-Azure Event Hub allows you to process massive amounts of data from websites, apps, and devices. The Event Hub spout makes it easy to use Apache Storm on HDInsight to analyze this data in real time. You can also write data to Event Hub from Storm by using the Event Hub bolt. 
+Azure Event Hubs allows you to process massive amounts of data from websites, apps, and devices. The Event Hubs spout makes it easy to use Apache Storm on HDInsight to analyze this data in real time. You can also write data to Event Hubs from Storm by using the Event Hubs bolt.
 
-In this tutorial, you will learn how to use the HDInsight Tools for Visual Studio and the Event Hub spout and bolt to create two hybrid C#/Java topologies:
+In this tutorial, you will learn how to use the HDInsight Tools for Visual Studio and the Event Hubs spout and bolt to create two hybrid C#/Java topologies:
 
-* **EventHubWriter**: Randomly generates data and writes it to Event Hub
+* **EventHubWriter**: Randomly generates data and writes it to Event Hubs
 
-* **EventHubReader**: Reads data from Event Hub and stores it in Azure Table storage
+* **EventHubReader**: Reads data from Event Hubs and stores it in Azure Table storage
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ You can download a complete version of the project created in this tutorial from
 
 > [AZURE.NOTE] When you use the completed project, you must use the **NuGet Package Manager** to restore the packages that are required by this solution.
 
-## Event Hub spout and bolt
+## Event Hubs spout and bolt
 
-The Event Hub spout and bolt are Java components that allow you to easily work with Event Hub from Apache Storm. Although these components are written in Java, the HDInsight Tools for Visual Studio allow you to create hybrid topologies that mix C# and Java components.
+The Event Hubs spout and bolt are Java components that allow you to easily work with Event Hubs from Apache Storm. Although these components are written in Java, the HDInsight Tools for Visual Studio allow you to create hybrid topologies that mix C# and Java components.
 
 The spout and bolt are distributed as a single Java archive (.jar) file named **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**.
 
@@ -66,7 +66,7 @@ The most recent version of the **eventhubs-storm-spout-0.9-jar-with-dependencies
 
 ## Configure Event Hub
 
-Event Hub is the data source for this example. Use the following steps to create a new Event Hub.
+Event Hubs is the data source for this example. Use the following steps to create a new Event Hub.
 
 1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Service Bus** > **Event Hub** > **Custom Create**.
 
@@ -98,7 +98,7 @@ Event Hub is the data source for this example. Use the following steps to create
 
 ## Configure Table storage
 
-Table storage will be used to hold the values that are read from Event Hub because you can easily view Table storage from inside Visual Studio through **Server Explorer**. Use the following steps to create new Table storage:
+Table storage will be used to hold the values that are read from Event Hubs because you can easily view Table storage from inside Visual Studio through **Server Explorer**. Use the following steps to create new Table storage:
 
 1. From the [Azure portal](https://manage.windowsazure.com), select **NEW** > **Data Services** > **Storage** > **Quick Create**.
 
@@ -106,7 +106,7 @@ Table storage will be used to hold the values that are read from Event Hub becau
 
 2. Enter a **Name** for the storage account, select a **Location**, and then click the **check mark** to create the storage account.
 
-	> [AZURE.NOTE] You should select the same **Location** as your Event Hub and Storm on HDInsight server to reduce latency and costs.
+	> [AZURE.NOTE] You should select the same **Location** as your Event Hubs and Storm on HDInsight server to reduce latency and costs.
 
 3. When the new storage account is provisioned, select the account and then use the **Manage Access Keys** link at the bottom of the page to retrieve the **Storage Account Name** and **Primary Access Key**. Save this information because it will be used later.
 
@@ -114,7 +114,7 @@ Table storage will be used to hold the values that are read from Event Hub becau
 
 ## Create EventHubWriter
 
-In this section, you will create a topology that writes data to Event Hub by using the Event Hub bolt.
+In this section, you will create a topology that writes data to Event Hubs by using the Event Hubs bolt.
 
 1. If you have not already installed the latest version of the HDInsight Tools for Visual Studio, see <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Get started using HDInsight Tools for Visual Studio</a>.
 
@@ -130,7 +130,7 @@ In this section, you will create a topology that writes data to Event Hub by usi
 
 	* **Spout.cs**: An example spout.
 
-	* **Bolt.cs**: An example bolt. This will be deleted because you will use the Event Hub bolt to write to Event Hub.
+	* **Bolt.cs**: An example bolt. This will be deleted because you will use the Event Hubs bolt to write to Event Hub.
 
 ### Configuration
 
@@ -153,7 +153,7 @@ In this section, you will create a topology that writes data to Event Hub by usi
 
 ### Define the topology
 
-1. In **Solution Explorer**, right-click **Bolt.cs**, and select **Delete**. You are using the Java Event Hub bolt, so you do not need this file.
+1. In **Solution Explorer**, right-click **Bolt.cs**, and select **Delete**. You are using the Java Event Hubs bolt, so you do not need this file.
 
 2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubWriter");` line.
 
@@ -186,7 +186,7 @@ In this section, you will create a topology that writes data to Event Hub by usi
             partitionCount).
             DeclareCustomizedJavaDeserializer(javaDeserializerInfo);
 
-	This creates a spout and uses the Event Hub partition count as the parallelism hint for this component. This should create an instance of the spout for each partition.
+	This creates a spout and uses the Event Hubs partition count as the parallelism hint for this component. This should create an instance of the spout for each partition.
 
 	This also associates the deserializer created previously with the output stream from this component. This allows the downstream EventHubSpout component to consume the data produced from the C# spout.
 
@@ -203,9 +203,9 @@ In this section, you will create a topology that writes data to Event Hub by usi
             Properties.Settings.Default.EventHubName,
 			"true"));
 
-	This creates a new constructor for the Java bolt, which is used at run time to configure a new instance of the bolt. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hub configuration information you added previously. More specifically, this code is used by HDInsight at run time to do the following:
+	This creates a new constructor for the Java bolt, which is used at run time to configure a new instance of the bolt. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hubs configuration information you added previously. More specifically, this code is used by HDInsight at run time to do the following:
 
-	* Create a new instance of **com.microsoft.eventhubs.bolt.EventHubBoltConfig** using the Event Hub information you provide.
+	* Create a new instance of **com.microsoft.eventhubs.bolt.EventHubBoltConfig** using the Event Hubs information you provide.
 	* Create a new instance of **com.microsoft.eventhubs.bolt.EventHubBolt**, passing in the **EventHubBoltConfig** instance.
 
 6. Find the following code:
@@ -226,7 +226,7 @@ In this section, you will create a topology that writes data to Event Hub by usi
 
 	This instructs the topology to use the **JavaComponentConstructor** from the previous step as the bolt. The component can be referred to in this topology by the friendly name of "EventHubBolt." The parallelism hint is set to the number of partitions for the Event Hub, and it subscribes to data produced by the spout ("Spout").
 
-At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hub bolt can use.
+At this point, you are done with the **Program.cs**. The topology has been defined, but now you must modify **Spout.cs** so that it produces data in a format that the Event Hubs bolt can use.
 
 > [AZURE.NOTE] This topology will default to creating one worker process, which is sufficient for example purposes. If you are adapting this for a production cluster, you should add the following and adjust to the number of workers you wish to create.
 >
@@ -237,9 +237,9 @@ At this point, you are done with the **Program.cs**. The topology has been defin
 
 ### Modify the spout
 
-The Event Hub bolt expects a single string value, which it will route to Event Hub. In the following example, you will modify the default **Spout.cs** file to produce a JSON string.
+The Event Hubs bolt expects a single string value, which it will route to Event Hub. In the following example, you will modify the default **Spout.cs** file to produce a JSON string.
 
-1. In **Solution Explorer**, right-click the **EventHubWriter** project and select **Manage Nuget Packages**. Search for the **Json.NET** package, then add that to the solution. This allows you to easily create JSON data that will be sent to Event Hub by using the bolt.
+1. In **Solution Explorer**, right-click the **EventHubWriter** project and select **Manage Nuget Packages**. Search for the **Json.NET** package, then add that to the solution. This allows you to easily create JSON data that will be sent to Event Hubs by using the bolt.
 
 1. Open **Spout.cs** and add the following at the top of the file:
 
@@ -277,11 +277,11 @@ The Event Hub bolt expects a single string value, which it will route to Event H
 
 3. Save the **Spout.cs** file.
 
-At this point, you have a basic topology that will generate random data and store it in Event Hub by using the Event Hub bolt. Next, you will create the reader.
+At this point, you have a basic topology that will generate random data and store it in Event Hubs by using the Event Hubs bolt. Next, you will create the reader.
 
 ## Create EventHubReader
 
-In this section, you will create a topology that reads data from Event Hub by using the Event Hub spout.
+In this section, you will create a topology that reads data from Event Hubs by using the Event Hubs spout.
 
 2. Open Visual Studio, select **File** > **New** > **Project**.
 
@@ -310,13 +310,13 @@ In this section, you will create a topology that reads data from Event Hub by us
 
   For **StorageConnection**, enter a value of `DefaultEndpointsProtocol=https;AccountName=myAccount;AccountKey=myKey;`. Replace **myAccount** and **myKey** with the storage account name and key obtained earlier.
 
-	These values will be used by the topology to communicate with Event Hub and Table Storage.
+	These values will be used by the topology to communicate with Event Hubs and Table Storage.
 
 4. Save and close the **Properties** page.
 
 ### Define the topology
 
-1. In **Solution Explorer**, right-click **Spout.cs** and select **Delete**. You are using the Java Event Hub spout, so you do not need this file.
+1. In **Solution Explorer**, right-click **Spout.cs** and select **Delete**. You are using the Java Event Hubs spout, so you do not need this file.
 
 2. Open the **Program.cs** file and add the following code immediately after the `TopologyBuilder topologyBuilder = new TopologyBuilder("EventHubReader");` line:
 
@@ -333,9 +333,9 @@ In this section, you will create a topology that reads data from Event Hub by us
 
 	The partition count is read and assigned to a local variable. It will be used multiple times.
 
-	The `JavaComponentConstructor` defines how the Java spout will be constructed at run time. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hub configuration information you added previously. More specifically, this code is used by HDInsight at run time to do the following:
+	The `JavaComponentConstructor` defines how the Java spout will be constructed at run time. In this case, you are using the <a href="http://storm.apache.org/documentation/Clojure-DSL.html" target="_blank">Apache Storm Clojure DSL</a> to configure the spout with the Event Hubs configuration information you added previously. More specifically, this code is used by HDInsight at run time to do the following:
 
-	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpoutConfig** using the Event Hub information you provide.
+	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpoutConfig** using the Event Hubs information you provide.
 
 	* Create a new instance of **com.microsoft.eventhubs.spout.EventHubSpout**, passing in the **EventHubSpoutConfig** instance.
 
@@ -509,7 +509,7 @@ At this point, you have a complete topology that will read data from Event Hub, 
 
 	![Image of submission dialog](./media/hdinsight-storm-develop-csharp-event-hub-topology/submit.png)
 
-3. When the topology has been submitted, the **Storm Topologies Viewer** will appear. Select the **EventHubReader** topology in the left pane to view statistics for the topology. Currently, nothing should be happening because no events have been written to Event Hub yet.
+3. When the topology has been submitted, the **Storm Topologies Viewer** will appear. Select the **EventHubReader** topology in the left pane to view statistics for the topology. Currently, nothing should be happening because no events have been written to Event Hubs yet.
 
 	![example storage view](./media/hdinsight-storm-develop-csharp-event-hub-topology/topologyviewer.png)
 
@@ -523,7 +523,7 @@ At this point, you have a complete topology that will read data from Event Hub, 
 
 	* The events are being generated by the **EventHubWriter** topology, which writes them to Event Hub.
 
-	* The **EventHubReader** then reads the events from Event Hub and stores them in Table storage in the **events** table.
+	* The **EventHubReader** then reads the events from Event Hubs and stores them in Table storage in the **events** table.
 
 ## Stop the topologies
 
@@ -599,7 +599,7 @@ Export an import allows you to persist checkpoint data when you need to delete t
 
 ## Summary
 
-In this document, you have learned how to use the Java Event Hub Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
+In this document, you have learned how to use the Java Event Hubs Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 

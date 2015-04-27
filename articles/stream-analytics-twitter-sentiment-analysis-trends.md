@@ -3,7 +3,7 @@
    description="Learn how to use Stream Analytics to analyze sentiment and trends on Twitter in real-time. This tutorial includes steps from event generation to data on a live dashboard."
    services="stream-analytics"
    documentationCenter=""
-   authors="Blackmist"
+   authors="jeffstokes72"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/16/2015"
-   ms.author="cgronlun"/>
+   ms.date="04/21/2015"
+   ms.author="jeffstok"/>
 
 
 # Social media analytics: Real-time Twitter sentiment analysis
@@ -218,3 +218,15 @@ Since a job input, query and output have all been specified, we are ready to sta
 Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view your job output in real time. From here, you could extend your application to include a customized dashboard over your output, like the one pictured below using [Power BI](https://powerbi.com/).
 
 ![Stream Analytics output in a Power BI dashboard.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
+
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

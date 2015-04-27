@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/16/2015"
+	ms.date="04/27/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs
@@ -24,7 +24,7 @@ An Azure Stream Analytics job definition includes inputs, a query, and output. I
 
 A job requires at least one data stream input source. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md), [Get started using Azure Stream Analytics](stream-analytics-get-started.md), and [Azure Stream Analytics developer guide](stream-analytics-developer-guide.md).
 
-The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 12 streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription can have up to 12 streaming units for all the jobs in a specific region. To increase streaming units for your subscription (up to 100 units), contact [Microsoft Support](http://support.microsoft.com).
+The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 50 streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription can have up to 50 streaming units for all the jobs in a specific region. To increase streaming units for your subscription (up to 100 units), contact [Microsoft Support](http://support.microsoft.com).
 
 The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. This article will show you how to calculate and tune the query to increase throughput.
 
@@ -38,12 +38,12 @@ A query can have one or many steps. Each step is a sub-query defined by using th
 	WITH Step1 (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
-		GROUP BY TumblingWindow(minute, 3), TollBoothId
+		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 	)
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId
+	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
 
 The previous query has two steps.
 
@@ -110,13 +110,13 @@ The following query calculates the number of cars going through a toll station w
 
 	SELECT COUNT(*) AS Count, TollBoothId
 	FROM Input1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
 To use more streaming units for the query, both the data stream input and the query must be partitioned. Given that the data stream partition is set to 3, the following modified query can be scaled up to 18 streaming units:
 
 	SELECT COUNT(*) AS Count, TollBoothId
 	FROM Input1 Partition By PartitionId
-	GROUP BY TumblingWindow(minute, 3), TollBoothId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 
 When a query is partitioned, the input events are processed and aggregated in separate partition groups. Output events are also generated for each of the groups. Partitioning can cause some unexpected results when the **Group-by** field is not the Partition Key in the data stream input. For example, the TollBoothId field in the previous sample query is not the Partition Key of Input1. The data from the TollBooth #1 can be spread in multiple partitions.
 
@@ -125,12 +125,12 @@ Each of the Input1 partitions will be processed separately by Stream Analytics, 
 	WITH Step1 (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
-		GROUP BY TumblingWindow(minute, 3), TollBoothId
+		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 	)
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
 
 This query can be scaled to 24 streaming units.
 
@@ -198,7 +198,7 @@ Below are the results with increasing number of Streaming units and correspondin
 <tr><td>48</td>
 <td>48</td>
 <td>48</td>
-<td>32.32 MB/s</td>
+<td>38.32 MB/s</td>
 </tr>
 
 <tr><td>192</td>
@@ -207,19 +207,33 @@ Below are the results with increasing number of Streaming units and correspondin
 <td>172.67 MB/s</td>
 </tr>
 
+<tr><td>480</td>
+<td>480</td>
+<td>480</td>
+<td>454.27 MB/s</td>
+</tr>
+
+<tr><td>720</td>
+<td>720</td>
+<td>720</td>
+<td>609.69 MB/s</td>
+</tr>
 </table>
 
-![img.stream.analytics.perfgraph]
+![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
+
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+
 
 ## Next steps
-In this article, you have learned how to calculate streaming units and how to scale a Stream Analytics job. To read more about Stream Analytics, see:
 
-- [Introduction to Azure Stream Analytics](stream.analytics.introduction)
-- [Get started using Azure Stream Analytics](stream.analytics.get.started)
-- [Azure Stream Analytics developer guide](stream.analytics.developer.guide)
-- [Azure Stream Analytics limitations and known issues](stream.analytics.limitations)
-- [Azure Stream Analytics Query Language Reference](stream.analytics.query.language.reference)
-- [Azure Stream Analytics Management REST API Reference](stream.analytics.rest.api.reference)
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 
 <!--Image references-->
 

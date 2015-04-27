@@ -159,7 +159,7 @@ In the old portal, the **Configure** tab for the application you created in the 
 
 	![Gateway URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	The [providername] value is "facebook" for Facebook, "twitter" for Twitter, "aad" for Azure Active directory, etc.
+	The [providername] value is "microsoftaccount", "facebook", "twitter", "google", or "aad".
 
 	Here is a sample login URL for Azure Active Directory:
 

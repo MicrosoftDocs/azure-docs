@@ -32,3 +32,6 @@
     ![Resource groups](./media/insights-debugging-with-events/Insights_EventDetails.png)  
     A new blade will open that includes a lot of details about the event. For **Failed** events, this page usually includes a **Substatus** and a **Properties** section that include useful details for debugging purposes.
 
+<!--Link references-->
+
+

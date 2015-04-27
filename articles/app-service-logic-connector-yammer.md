@@ -34,7 +34,7 @@ To use the Yammer connector, you need to first create an instance of the Yammer 
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
-	- **Web hosting plan** - select or create a web hosting plan
+	- **App Service plan** - select or create a web hosting plan
 	- **Pricing tier** - choose a pricing tier for the connector
 	- **Name** - give a name for your Yammer Connector 
 
@@ -65,10 +65,8 @@ Once your API app is created, you can now use the Yammer connector as a trigger/
 		https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
  
 	![][8]
+
 	![][9]
-
-	
-
 6.	In the similar way you can use the Yammer action in the flow to post a message by selecting "Post Message" action. Configure the input properties for "Post Message" action  as follows:
 	- **Message Text** - Text content of the message to be posted
 	- **Group ID** - Specify the ID of the group to which new message should be posted. If Group ID is not provided the message will be posted to All Company Feed. Group ID can be retrieved from the Group URL in Yammer. 

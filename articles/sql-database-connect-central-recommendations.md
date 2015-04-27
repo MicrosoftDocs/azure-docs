@@ -10,30 +10,31 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2015" 
+	ms.date="04/21/2015" 
 	ms.author="genemi"/>
 
 
-#Connecting to SQL Database: Links, Best Practices and Design Guidelines
+# Connecting to SQL Database: Links, Best Practices and Design Guidelines
 
 
 <!--
-GeneMi , 2015-April-01 Wednesday 20:44pm
+GeneMi , 2015-April-21 Tuesday 12:44pm
 sql-database-connect-central-recommendations.md
 sql-database-connect-*.md
 
-Fix broken link to Troubleshooting topic. Remove link to retired blog post 4235 about throttling. Change title as suggested by PMs PehTeh and LFSantos (but not changing HTTP URL). Remove second definitions for 'persistent' versus 'transient'. Tweak subheading over Elastic Scale links.
+Add link to sql-database-develop-quick-start-client-code-samples.md.
+Add a paragraph about why transient errors legitimately occur sometimes.
 -->
 
 
 This topic is a good place to get started with client connectivity to Azure SQL Database. It provides links to code samples for various technologies that you can use to connect to and interact with SQL Database. The technologies include Enterprise Library, JDBC, PHP, and several more. Recommendations are given that apply generally regardless of the specific connection technology or programming language.
 
 
-##Technology-independent recommendations
+## Technology-independent recommendations
 
 
 The information in this section applies regardless of which specific technology you use to connect to SQL Database.
@@ -55,10 +56,10 @@ Regardless of which connection technology you use, certain firewall settings for
 - [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-###Quick recommendations
+### Quick recommendations
 
 
-####Connection
+#### Connection
 
 
 - In your client connection logic, override the default timeout to be 30 seconds.
@@ -76,7 +77,7 @@ Regardless of which connection technology you use, certain firewall settings for
  - You can configure the [firewall](http://msdn.microsoft.com/library/azure/ee621782.aspx) settings on an SQL Database server or to an individual database.
 
 
-####Authentication
+#### Authentication
 
 
 - Use SQL Database authentication, not Windows authentication.
@@ -88,28 +89,44 @@ Regardless of which connection technology you use, certain firewall settings for
  - You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database.
 
 
-###Transient errors
+### Transient errors
 
 
-The [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) thrown by the call to SQL Database contains a numeric error code in its **Number** property. If the error code is one that is listed as a transient error, your program should retry the call.
+Cloud services such as Azure and its SQL Database service have the endless challenge of balancing workloads and managing resources. If two databases that are being served from the same computer are involved in exceptionally heavy processing at overlapping times, the management system might detect the necessary of shifting the workload of one database to another resource which has excess capacity.
 
 
-- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - its **Connection-Loss Errors** section is a list of the transient errors that warrant a retry.
+During the shift, the database might be temporarily unavailable. This might block new connections, or it might cause your client program to lose its connection. But the resource shift is transient, and it might resolve itself in a couple of minutes or in several seconds. After the shift is completed, your client program can reestablish its connection and resume its work. The pause in processing is better than an avoidable failure of your client program.
+
+
+When any error occurs with SQL Database, an [SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) is thrown. The SqlException contains a numeric error code in its **Number** property. If the error code identifies a transient error, your program should retry the call.
+
+
+- [Error Messages (Azure SQL Database)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - its **Connection-Loss Errors** section is a list of the transient errors that warrant an automatic retry.
  - For example, retry if the error number 40613 occurs, which says something similar to<br/>*Database 'mydatabase' on server 'theserver' is not currently available.*
 
 
-For further assistance when you encounter a connection error, either persistent or transient, see:
+Transient *errors* are sometimes called transient *faults*. This topic considers these two terms to be synonyms.
+
+
+For further assistance when you encounter a connection error, whether transient or not, see:
 
 
 - [Troubleshoot connection problems to Azure SQL Database](http://support.microsoft.com/kb/2980233/)
 
 
-##Technologies
+## Technologies
 
 
-The following topic contains links to code samples for several connection technologies:
+The following topics contains links to code samples for several languages and driver technologies that you can use to connect to Azure SQL Database from your client program.
 
 
+Various code samples are given for clients that run on both Windows and Linux.
+
+
+Some code samples include demonstrations of *retry* logic for transient errors, which is essential for production clients that connect to a database that is in the cloud:
+
+
+- [Client development and quick start code samples to SQL Database](sql-database-develop-quick-start-client-code-samples.md)
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 
 
@@ -125,5 +142,9 @@ For information about connectivity to Elastic Scale databases, see:
 - [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 - [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 
-<!-- -->
+
+## See Also
+
+
+- [Create your first Azure SQL Database](sql-database-get-started.md)
 

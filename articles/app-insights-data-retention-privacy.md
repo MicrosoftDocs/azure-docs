@@ -51,7 +51,7 @@ The data is visible to you and, if you have an organization account, your team m
 
 It can be exported by you and your team members and could be copied to other locations and passed on to other people.
 
-#### What does Microsoft do with the information your app sends to Application Insights?
+#### What does Microsoft do with the information my app sends to Application Insights?
 
 Microsoft uses the data only in order to provide the service to you.
 
@@ -74,7 +74,13 @@ The data is stored in Microsoft Azure servers. For accounts in the Azure Preview
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 
-Data in aggregate across all our customers’ applications (such as data rates and average size of traces) is used to improve Application Insights.
+Data in aggregate across all our customers' applications (such as data rates and average size of traces) is used to improve Application Insights.
+
+#### Could someone else's telemetry interfere with my Application Insights data?
+
+They could send additional telemetry to your account by using the instrumentation key, which can be found in the code of your web pages. With enough additional data, your metrics would not correctly represent your app's performance and usage.
+
+If you share code with other projects, remember to remove your instrumentation key.
 
 ## Encryption
 
@@ -98,7 +104,7 @@ As general guidance:
 
 * Most standard telemetry (that is, telemetry sent without you writing any code) does not include explicit PII. However, it might be possible to identify individuals by inference from a collection of events.
 * Exception reports might include PII in parameter data.
-* Custom telemetry – that is, calls such as TrackEvent that you write in code using the API or log traces – can contain any data you choose.
+* Custom telemetry - that is, calls such as TrackEvent that you write in code using the API or log traces - can contain any data you choose.
 
 
 The table at the end of this document contains more detailed descriptions of the data collected.
@@ -113,11 +119,11 @@ You should inform your customers appropriately about the data your application c
 
 #### Can my users turn off Application Insights?
 
-Not directly. We don’t provide a switch that your users can operate to turn off Application Insights.
+Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
 
 However, you can implement such a feature in your application. All the SDKs include an API setting that turns off telemetry collection. 
 
-#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn’t retained?
+#### My application is unintentionally collecting sensitive information. Can Application Insights scrub this data so it isn't retained?
 
 Application Insights does not filter or delete your data. You should manage the data appropriately and avoid sending such data to Application Insights.
 
@@ -178,6 +184,16 @@ Inferred |geo location from IP address, timestamp, OS, browser
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiproperties]: app-insights-api-custom-events-metrics.md#properties
+[azure]: insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[platforms]: app-insights-platforms.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[windows]: app-insights-windows-get-started.md
 

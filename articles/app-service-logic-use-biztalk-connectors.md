@@ -69,6 +69,7 @@ The following articles provide examples of how some of the out of box connectors
 * [Using SQL connector]
 * [Using OneDrive connector]
 * [Using File connector]
+* [Using Slack connector]
 
 For additional details, please refer to the Connector API Reference [http://aka.ms/appservicesconnectorreference](http://aka.ms/appservicesconnectorreference).
 
@@ -100,4 +101,5 @@ For additional details, please refer to the Connector API Reference [http://aka.
 [Using SQL connector]: app-service-logic-connector-sql.md
 [Using OneDrive connector]: app-service-logic-connector-onedrive.md
 [Using File connector]: app-service-logic-connector-file.md
+[Using Slack connector]: app-service-logic-connector-slack.md
 

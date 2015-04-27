@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Operational Insights dashboards" 
-	description="Informational article on basic dashboard usage for Operatioanl Insights" 
+	description="Informational article on basic dashboard usage for Operational Insights" 
 	services="operational-insights" 
 	documentationCenter="" 
 	authors="bandersmsft" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="operational-insights" 
-	ms.workload="operation" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2014" 
+	ms.date="04/21/2015" 
 	ms.author="banders"/>
 
 #Operational Insights dashboards#
@@ -76,5 +76,5 @@ To organize your dashboard, navigate to the My Dashboard view and click on the '
 ![Organize your Dashboard](./media/operational-insights-use-dashboards/organize.png)
 
 ##Remove a tile##
-To remove a tile, navigate to the My Dashboard view and click on the **customize** gear at the bottom of the page to enter customize mode. Select the tile you want to remove, then on the right panel select **Remove Til**e.
+To remove a tile, navigate to the My Dashboard view and click on the **customize** gear at the bottom of the page to enter customize mode. Select the tile you want to remove, then on the right panel select **Remove Tile**.
 ![Remove a Tile](./media/operational-insights-use-dashboards/remove-tile.png)

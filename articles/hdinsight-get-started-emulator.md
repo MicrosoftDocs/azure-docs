@@ -20,7 +20,7 @@
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md).
 
->[AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase.
+>[AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster.
 
 The HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
 
@@ -88,7 +88,6 @@ The installation should have also installed several local services. The followin
 The services related to the HDInsight Emulator are not started by default. To start the services, from the Hadoop command line, run **start\_local\_hdp_services.cmd** under <system drive\>\hdp. To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
 
 For known issues with installing and running the HDInsight Emulator, see the [HDInsight Emulator Release Notes](hdinsight-emulator-release-notes.md). The installation log is located at **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
-
 
 ##<a name="runwordcount"></a>Run a word-count MapReduce job
 

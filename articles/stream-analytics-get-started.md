@@ -3,7 +3,7 @@
 	description="Learn how to use Stream Analytics to build a real-time fraud detection solution over generated telecommunication data."
 	services="stream-analytics"
 	documentationCenter=""
-	authors="cjgronlund"
+	authors="jeffstokes72"
 	manager="paulettm"
 	editor="cgronlun" />
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/16/2015"
-	ms.author="cgronlun" />
+	ms.date="04/22/2015"
+	ms.author="jeffstok" />
 
 
 
@@ -237,3 +237,15 @@ Since a job input, query and output have all been specified, we are ready to sta
 Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction) to view fraudulent events as they are written to your output in real time.  
 
 ![Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
+
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx) 

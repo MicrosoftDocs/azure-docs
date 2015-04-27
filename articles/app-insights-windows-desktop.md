@@ -19,9 +19,12 @@
 
 *Application Insights is in preview.*
 
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
 Application Insights lets you monitor your deployed application for usage and performance.
 
 *Although the Application Insights SDK can be made to work in a desktop app, it isn't a scenario we currently support. But if you'd like to try it experimentally, here are some tips for doing so.*
+
 
 
 
@@ -141,6 +144,11 @@ If you used TrackMetric or the measurements parameter of TrackEvent, open [Metri
 
 
 
-[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
+<!--Link references-->
 
+[diagnostic]: app-insights-diagnostic-search.md
+[metrics]: app-insights-metrics-explorer.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[track]: app-insights-custom-events-metrics-api.md
 

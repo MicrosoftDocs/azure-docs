@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/01/2015" 
+	ms.date="04/21/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -31,9 +31,17 @@ Learn how to manage Azure Stream Analytics resources by using Azure PowerShell.
 
 		Add-AzureAccount
 
-	To select the Azure subscription you want to use:
+	To select your Azure subscription with the Azure Stream Analytics service enabled:
 
 		Select-AzureSubscription
+
+	>[AZURE.NOTE] The following error message indicates that Azure Stream Analytics is not enabled on the subscription:
+	>
+		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
+	
+	>To resolve this issue, please enable the Stream Analytics preview on the subscription and then run the following cmdlets to switch the subscription:
+	>
+		Select-AzureSubscription –SubscriptionId xxxxxxxx
 
 2.	Configure the Azure mode.
 
@@ -259,14 +267,17 @@ Tests the ability of Stream Analytics to connect to a specified output.
 This command tests the connection status of the output Output in StreamingJob.  
 
 
-## See also
+## Get support
+For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
 
-- [Introduction to Azure Stream Analytics][stream.analytics.introduction]
-- [Get started with Stream Analytics][stream.analytics.get.started]
-- [Limits in the Stream Analytics preview release][stream.analytics.limitations]
-- [Developer guide for Stream Analytics][stream.analytics.developer.guide]
-- [Query language reference for Stream Analytics][stream.analytics.query.language.reference]
-- [REST API reference for Stream Analytics][stream.analytics.rest.api.reference]
+
+## Next steps
+
+- [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+- [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
+- [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
 

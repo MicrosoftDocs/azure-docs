@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="04/24/2015" 
 	ms.author="piyushjo" />
 
 #Azure Notification Hubs - Frequently Asked Questions (FAQs)

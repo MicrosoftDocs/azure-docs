@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="04/21/2015" 
 	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
@@ -71,18 +71,21 @@ Data can be loaded into Machine Learning Studio in one of two ways: by uploading
 
 ####<a id="ModuleLimit"></a>How large can the data set be for my modules?
 
-Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the **Partition and Sample**, **Split**, or **Join** modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
+Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the [Partition and Sample][partition-and-sample], [Split][split], or [Join][join] modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
 
 ####<a id="UploadLimit"></a>What are the limits for data upload?
 For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 **Can I read data from Amazon S3?**
 
-If you have a small amount of data and want to expose it via an http URL, then you can use the reader module. For any larger amounts of data to transfer it to Azure Storage first and then use the Reader module to bring it into your experiment. <SEE CLOUD DS PROCESS> 
+If you have a small amount of data and want to expose it via an http URL, then you can use the [Reader][reader] module. For any larger amounts of data to transfer it to Azure Storage first and then use the [Reader][reader] module to bring it into your experiment. 
+<!--
+<SEE CLOUD DS PROCESS>
+--> 
 
 **Is there a built-in image input capability?** 
 
-You can learn about image input capability in the [Image Reader Module documentation](https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84).
+You can learn about image input capability in the [Image Reader][image-reader] reference.
 
 ###Modules 
 
@@ -107,7 +110,7 @@ Since the data is being transmitted to the browser and may be large, the data si
 ###Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
 
-Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the [complete list of machine learning algorithms](https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc).
+Machine Learning Studio provides state of the art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages like Vowpal Wabbit are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules][machine-learning-modules].
 
 **Do you automatically suggest the right Machine Learning algorithm to use for my data?** 
 
@@ -143,7 +146,7 @@ Machine Learning Studio supports 400+ R packages today, and this list is constan
 
 **Is it possible to build a custom R module?** 
 
-Yes, documentation to be published soon. 
+Yes, see [Author custom R modules in Azure Machine Learning](machine-learning-custom-r-modules.md) for more information.
 
 **Is there a REPL environment for R?** 
 
@@ -248,14 +251,21 @@ See the [FAQ for publishing and using apps in the Machine Learning Marketplace](
 
 [Azure Machine Learning Documentation Center](/services/machine-learning/) hosts video tutorials as well as how-to guides. These step-by-step guides provide an introduction to the services and walk through the data science life cycle of importing data, cleaning data, building predictive models and deploying them in production with Azure ML. 
 
-We will be adding new material to Machine Learning Center on an ongoing basis. You can submit request for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning). 
+We will be adding new material to Machine Learning Center on an ongoing basis. You can submit requests for additional learning material on Machine Learning Center at [user feedback forum](https://windowsazure.uservoice.com/forums/257792-machine-learning). 
 
 You can also find training at [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning)
 
 **How do I get support for Azure Machine Learning?** 
 
- To get technical support for Azure Machine Learning,  go to [Azure Support](/support/options/) select **Machine Learning**.
+To get technical support for Azure Machine Learning,  go to [Azure Support](/support/options/) select **Machine Learning**.
 
 Azure Machine Learning also has a community forum on MSDN, where you can ask Azure ML related questions. The forum is monitored by the Azure ML team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning). 
 
 
+<!-- Module References -->
+[image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/
+[join]: https://msdn.microsoft.com/library/azure/124865f7-e901-4656-adac-f4cb08248099/
+[machine-learning-modules]: https://msdn.microsoft.com/library/azure/6d9e2516-1343-4859-a3dc-9673ccec9edc/
+[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

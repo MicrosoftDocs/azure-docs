@@ -81,6 +81,9 @@ You can, for example:
 
 
 ## Next steps
+
+[Diagnose failures and exceptions in ASP.NET][exceptions]
+
 [Learn more about Diagnostic Search][diagnostic].
 
 
@@ -110,8 +113,12 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[start]: app-insights-get-started.md
 

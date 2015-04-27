@@ -49,6 +49,6 @@ In this sample, you'll use Hive to process historical data produced by heating, 
 
 	When prompted, authenticate by using the administrator user name and password you used when provisioning this cluster.
 
-2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the **Website Log Analysis** sample.
+2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Solutions with Sample Data** category, click the **Sensor Data Analysis** sample.
 
 3. Follow the instructions provided on the web page to finish the sample.

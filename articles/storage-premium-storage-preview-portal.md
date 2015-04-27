@@ -294,15 +294,10 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
 </tr>
 <tr>
-	<td rowspan="2"><strong>CoreOS</strong></td>
-	<td>Alpha-607.0.0</td>
-	<td>3.18.6</td>
-	<td>CoreOS-Alpha-607.0.0</td>
-</tr>
-<tr>
-	<td>Beta-584.0.0</td>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
 	<td>3.18.4</td>
-	<td>CoreOS-Beta-584.0.0</td>
+	<td>CoreOS 584.0.0</td>
 </tr>
 <tr>
 	<td rowspan="2"><strong>CentOS</strong></td>

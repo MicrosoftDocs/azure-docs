@@ -100,7 +100,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  In [Azure Management Portal], click on **MARKETPLACE**, then click on the MongoLab service you created earlier.
 
-1.  Click on **CONNECTION INFO**. You can use the copy button to put the value of **MONGOLAB_URI** on the clipboard.
+1.  Click on **CONNECTION INFO**. You can use the copy button to put the value of **MONGOLAB\_URI** on the clipboard.
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -130,17 +130,17 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 You can use an application such as [RoboMongo] to query and make edits to a MongoDB database. In this section we'll use RoboMongo to view the contents of the polls application database.
 
-1.  Create a new connection. You'll need the **MONGOLAB_URI** we retrieved in the previous section.
+1.  Create a new connection. You'll need the **MONGOLAB\_URI** we retrieved in the previous section.
 
     Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     The name matches the name you entered when you created the service with Azure. It is used for both the database name and the user name.
 
-1.  In the connection page, set the **Name** to any name you would like for the connection. Also set the **Address** and **Port** fields to the *address* and *port* from **MONGOLAB_URI**.
+1.  In the connection page, set the **Name** to any name you would like for the connection. Also set the **Address** and **Port** fields to the *address* and *port* from **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  In the authentication page, set the **Database** and **User name** to the *name* from **MONGOLAB_URI**. Also set the **Password** to the *password* from **MONGOLAB_URI**.
+1.  In the authentication page, set the **Database** and **User name** to the *name* from **MONGOLAB\_URI**. Also set the **Password** to the *password* from **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -185,7 +185,7 @@ In this section, we'll configure environment variables for the Web Apps instance
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png) -->
 
-1.  Scroll down to the **app settings** section and set the values for **REPOSITORY_NAME**, **MONGODB_HOST** and **MONGODB_DATABASE** as described in the section above.
+1.  Scroll down to the **app settings** section and set the values for **REPOSITORY\_NAME**, **MONGODB\_HOST** and **MONGODB\_DATABASE** as described in the section above.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png) -->
 

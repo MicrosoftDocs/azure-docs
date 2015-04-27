@@ -23,45 +23,45 @@ Designing your application for business continuity requires you to answer the fo
 1. Which business continuity feature is appropriate for protecting my application from outages?
 2. What level of redundancy and replication topology do I use?
 
-##When to use Geo-restore
+##When to use Geo-Restore
 
-SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). No special configuration or additional resource allocation necessary if you choose this method. It allows you to recover your database in any region using the geo-restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application. 
+SQL Database provides a built-in basic protection of every database by default. It is done by storing the database backups in the geo-redundant Azure storage (GRS). If you choose this method, no special configuration or additional resource allocation is necessary. With these backups, you can recover your database in any region using the Geo-Restore command. Use [Recover from an outage](sql-database-disaster-recovery.md) section for the details of using geo-restore to recover your application. 
 
 You should use the built-in protection if your application meets the following criteria:
 
-1. It is not considered mission critical. It doesn't have a binding SLA therefore the downtime of 24 hrs or longer will not result in financial liability.
-2. The rate of data change is low (transactions per hour). The RPO of 1 hr will not result in a massive data loss.
-3. The application is cost sensitive and cannot justify the additional cost of geo-replication 
+1. It is not considered mission critical. It doesn't have a binding SLA therefore the downtime of 24 hours or longer will not result in financial liability.
+2. The rate of data change is low (e.g. transactions per hour). The RPO of 1 hour will not result in a massive data loss.
+3. The application is cost sensitive and cannot justify the additional cost of Geo-Replication 
 
-> [AZURE.NOTE] Geo-restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage. The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority. Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time. 
+> [AZURE.NOTE] Geo-Restore does not pre-allocate the compute capacity in any particular region to restore active databases from the backup during the outage. The service will manage the workload associated with the geo-restore requests in a manner that minimizes the impact on the existing databases in that region and their capacity demands will have priority. Therefore, the recovery time of your database will depend on how many other databases will be recovering in the same region at the same time. 
 
-##When to use Geo-replication
+##When to use Geo-Replication
 
-Geo-replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
+Geo-Replication creates a replica database (secondary) in a different region from your primary. It guarantees that your database will have the necessary data and compute resources to support the application's workload after the recovery. Refer to [Recover from an outage](sql-database-disaster-recovery.md) section for using failover to recover your application.
 
-You should use the geo-replication if your application meets the following criteria:
+You should use the Geo-Replication if your application meets the following criteria:
 
 1. It is mission critical. It has a binding SLA with aggressive RPO and RTO. Loss of data and availability will result in financial liability. 
-2. The rate of data change is high (transactions per minute or seconds). The RPO of 1 hr associated with the default protection will result in unacceptable data loss.
-3. The cost associated with using geo-replication is significantly lower than the potential financial liability and associated loss of business.
+2. The rate of data change is high (e.g. transactions per minute or seconds). The RPO of 1 hr associated with the default protection will likely result in unacceptable data loss.
+3. The cost associated with using Geo-Replication is significantly lower than the potential financial liability and associated loss of business.
 
-> [AZURE.NOTE] if your application uses Basic tier database(s) geo-repliation is not supported
+> [AZURE.NOTE] If your application uses Basic tier database(s) Geo-Repliation is not supported
 
-##When to choose standard vs. active geo-replication
+##When to choose Standard vs. Active Geo-Replication
 
-Standard tier databases do not have the option of using active geo-replication so if your application uses standard databases and meets the above criteria it should enable standard geo-replication. Premium databases on the other hand can choose either option. Standard geo-replication has been designed as a simpler and less expensive DR solution, particularly suited to applications that use it only to protect from unplanned events such as outages. With standard geo-replication you can only use the DR paired region for the recovery and do have the ability to create more than one secondary. This latter feature is critical for the application upgrade scenario. So if it is critical for you application you should enable active geo-replication instead. Please refer to [Upgrade application without downtime](sql-database-business-continuity-application-upgrade.md) for additional details. 
+Standard tier databases do not have the option of using Active Geo-Replication so if your application uses standard databases and meets the above criteria it should enable Standard Geo-Replication. Premium databases on the other hand can choose either option. Standard Geo-Replication has been designed as a simpler and less expensive disaster recovery solution, particularly suited to applications that use it only to protect from unplanned events such as outages. With Standard Geo-Replication you can only use the DR paired region for the recovery and do have the ability to create more than one secondary. This latter feature is critical for the application upgrade scenario. So if this scenario is critical for your application you should enable Active Geo-Replication instead. Please refer to [Upgrade application without downtime](sql-database-business-continuity-application-upgrade.md) for additional details. 
 
-> [AZURE.NOTE] Active geo-replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
+> [AZURE.NOTE] Active Geo-Replication also supports read-only access to the secondary database thus providing additional capacity for the read-only workloads. 
 
-##How to enable geo-replication
+##How to enable Geo-Replication
 
-You can enable geo-replicatiom using Azure Portal or by calling REST API or PowerShell command.
+You can enable Geo-Replicatiom using Azure Portal or by calling REST API or PowerShell command.
 
 ###Azure Portal
 
 1. Log in to the [Azure Portal](https://portal.Azure.com)
 2. On the left side of the screen select **BROWSE** and then select **SQL Databases**
-3. Navigate to your database blade, select the **Geo Replication map** and click **Configure geo-replication**.
+3. Navigate to your database blade, select the **Geo Replication map** and click **Configure Geo-Replication**.
 4. Navigate to Geo-Replication blade. Select the target region. 
 5. Navigate to the Create Secondary blade. Select an existing server in the target region or create a new one.
 6. Select the secondary type (*Readable* or *Non-readable*)
@@ -71,12 +71,12 @@ You can enable geo-replicatiom using Azure Portal or by calling REST API or Powe
  
 ###PowerShell
 
-Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell cmdlet to automate geo-replication configuration.
+Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) PowerShell cmdlet to automate Geo-Replication configuration.
 
-To create geo-replication with a non-readable secondary for a Premium or Standard database:
+To create Geo-Replication with a non-readable secondary for a Premium or Standard database:
 		
 		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -OfflineSecondary
-To create geo-replication with a readable secondary for a Premium database:
+To create Geo-Replication with a readable secondary for a Premium database:
 
 		$myDbCopy | Start-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName" -ContinuousCopy
 		 
@@ -87,13 +87,13 @@ This command is asynchronous. After it returns use the [Get-AzureSqlDatabaseCopy
 
 ###REST API 
 
-Use [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx) API to programmatically create a geo-replication configuration.
+Use [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx) API to programmatically create a Geo-Replication configuration.
 
 This API is asynchronous. After it returns use the [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) API check the status of this operation. The ReplicationState field of the response body will have the value CATCH_UP when the operation is completed.
 
 
 ##How to choose the failover configuration 
 
-When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741328.aspx) for guidance which options bets fit your application pattern. 
+When designing your application for business continuity you should consider several configuration options. The choice will depend on the application deployment topology and what parts of your applications are most vulnerable to an outage. Please refer to [Designing Cloud Solutions for Disaster Recovery Using Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741328.aspx) for guidance.
 
 

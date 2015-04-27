@@ -32,7 +32,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 ###### **April 17 2015**
 Guest OS versions 4.19, 3.26, 2.38 were released today.
 
-This release contains [MS15-034](https://technet.microsoft.com/library/security/MS15-034), a critical patch for IIS servers.
+This release contains [MS15-034](https://technet.microsoft.com/library/security/MS15-034), a **critical** patch for Windows HTTP Servers.
 
 Guest OS versions 4.17, 3.24, 2.36 will be disabled on May 17 2015.
 
