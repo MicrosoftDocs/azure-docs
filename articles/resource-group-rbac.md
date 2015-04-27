@@ -143,7 +143,7 @@ Cross-Platform Command-Line Interface
 
 ## How to use Azure CLI for Mac, Linux and Windows
 
-If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure CLI](xplat-cli.md)
+If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure CLI](xplat-cli-install.md)
 
 1. Login to your Azure account with your credentials. The command returns the result of your login.
 
