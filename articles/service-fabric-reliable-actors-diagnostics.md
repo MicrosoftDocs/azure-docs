@@ -49,7 +49,7 @@ Each of the above categories has one or more counters.
 The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
-A cluster with a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instances names can help in identifying the specific partition and actor method (if applicable) that the performance counter instance is associated with. For more information on partitions, please see the relevant topics for [stateless](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateless-actors) and [stateful](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-stateful-actors) actors.
+A cluster with a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instances names can help in identifying the specific [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) and actor method (if applicable) that the performance counter instance is associated with.
 
 #### `Service Fabric Actor` category
 For the category `Service Fabric Actor`, the counter instance names are in the following format:
