@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/16/2015" 
-	ms.author="wesmc"/>
+	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
