@@ -19,6 +19,8 @@
 # Default communication stack provided by Reliable Services Framework
 For service authors who are not tied to a particular implementation of communication stack(WebAPI, WCF etc), the framework provides Client and Service side communication pieces that can be used to setup communication between the Service and Client.
 
+> [AZURE.NOTE] Please update to the latest nuget packges to get the features mentioned below.
+
 ## Service Communication Listener
 The default communication listener for the service is implemented in the `ServiceCommunicationListener` class
 
