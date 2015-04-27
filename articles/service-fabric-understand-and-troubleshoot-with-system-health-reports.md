@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Understand and troubleshoot with System health reports"
+   pageTitle="Using System health reports for troubleshooting"
    description="Describes the System Health reports and how to use them for troubleshooting cluster or application issues"
    services="service-fabric"
    documentationCenter=".net"
@@ -16,7 +16,7 @@
    ms.date="03/17/2015"
    ms.author="oanapl"/>
 
-# Understand and troubleshoot with System health reports
+# Using System health reports for troubleshooting
 
 Service Fabric components report out of the box on all entities in the cluster. The [Health Store](service-fabric-health-introduction.md#health-store) creates and deletes entities based on the system reports, and organizes them in an hierarchy that captures entity interactions.
 
@@ -59,7 +59,7 @@ The following shows the System.FM event with health state Ok for node up:
 PS C:\> Get-ServiceFabricNodeHealth -NodeName Node.1
 NodeName              : Node.1
 AggregatedHealthState : Ok
-HealthEvents          : 
+HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
@@ -91,7 +91,7 @@ The Service Fabric load balancer reports Warning if it detects a node capacity v
  - Next steps: Check provided metrics and view the current capacity on the node.
 
 ## Application System health reports
-System.CM, which represents the Cluster Manager service, is the authority that manages information about application. 
+System.CM, which represents the Cluster Manager service, is the authority that manages information about application.
 
 ### State
 System.CM reports Ok when the application is created or updated. It informs the Health Store when the application is deleted, so it can be removed from store.
@@ -103,13 +103,13 @@ System.CM reports Ok when the application is created or updated. It informs the 
 The following shows the State event on fabric:/WordCount application.
 
 ```powershell
-PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) 
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None) -DeployedApplicationsHealthStateFilter ([System.Fabric.Health.HealthStateFilter]::None)
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Ok
 ServiceHealthStates             : None
 DeployedApplicationHealthStates : None
-HealthEvents                    : 
+HealthEvents                    :
                                   SourceId              : System.CM
                                   Property              : State
                                   HealthState           : Ok
@@ -139,11 +139,11 @@ PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountService
 
 ServiceName           : fabric:/WordCount/WordCountService
 AggregatedHealthState : Ok
-PartitionHealthStates : 
+PartitionHealthStates :
                         PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
                         AggregatedHealthState : Ok
-                        
-HealthEvents          : 
+
+HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
@@ -185,7 +185,7 @@ PS C:\> Get-ServiceFabricPartition fabric:/StatelessPiApplication/StatelessPiSer
 PartitionId           : 29da484c-2c08-40c5-b5d9-03774af9a9bf
 AggregatedHealthState : Ok
 ReplicaHealthStates   : None
-HealthEvents          : 
+HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Ok
@@ -206,11 +206,11 @@ PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-Serv
 
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 AggregatedHealthState : Warning
-UnhealthyEvaluations  : 
+UnhealthyEvaluations  :
                         Unhealthy event: SourceId='System.FM', Property='State', HealthState='Warning', ConsiderWarningAsError=false.
-                        
+
 ReplicaHealthStates   : None
-HealthEvents          : 
+HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Warning
@@ -222,7 +222,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Ok->Warning = 4/24/2015 6:13:31 PM
-                        
+
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService
 
 PartitionId            : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
@@ -241,7 +241,7 @@ ConfigurationNumber    : 8589934592
 PS C:\> @(Get-ServiceFabricNode).Count
 5
 ```
- 
+
 ### Replica constraint violation
 System.PLB reports Warning if it detects replica constraint violation and can't place replicas of the partition.
 
@@ -264,7 +264,7 @@ PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-Serv
 PartitionId           : 875a1caa-d79f-43bd-ac9d-43ee89a9891c
 ReplicaId             : 130743727717237310
 AggregatedHealthState : Ok
-HealthEvents          : 
+HealthEvents          :
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
@@ -300,23 +300,23 @@ PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWo
 
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 AggregatedHealthState : Error
-UnhealthyEvaluations  : 
+UnhealthyEvaluations  :
                         Error event: SourceId='System.FM', Property='State'.
-                        
-ReplicaHealthStates   : 
+
+ReplicaHealthStates   :
                         ReplicaId             : 130743748372546446
                         AggregatedHealthState : Ok
-                        
+
                         ReplicaId             : 130743746168084332
                         AggregatedHealthState : Ok
-                        
+
                         ReplicaId             : 130743746195428808
                         AggregatedHealthState : Warning
-                        
+
                         ReplicaId             : 130743746195428807
                         AggregatedHealthState : Ok
-                        
-HealthEvents          : 
+
+HealthEvents          :
                         SourceId              : System.FM
                         Property              : State
                         HealthState           : Error
@@ -328,7 +328,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Warning->Error = 4/24/2015 6:51:31 PM
-                        
+
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful
 
 PartitionId            : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
@@ -358,10 +358,10 @@ PS C:\> Get-ServiceFabricReplicaHealth 72a0fb3e-53ec-44f2-9983-2f272aca3e38 1307
 PartitionId           : 72a0fb3e-53ec-44f2-9983-2f272aca3e38
 ReplicaId             : 130743746195428808
 AggregatedHealthState : Warning
-UnhealthyEvaluations  : 
+UnhealthyEvaluations  :
                         Unhealthy event: SourceId='System.RAP', Property='ServiceOpenOperationDuration', HealthState='Warning', ConsiderWarningAsError=false.
-                        
-HealthEvents          : 
+
+HealthEvents          :
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
@@ -373,7 +373,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : ->Ok = 4/24/2015 7:00:33 PM
-                        
+
                         SourceId              : System.RAP
                         Property              : ServiceOpenOperationDuration
                         HealthState           : Warning
@@ -420,12 +420,12 @@ PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName Node.1 -Application
 ApplicationName                    : fabric:/WordCount
 NodeName                           : Node.1
 AggregatedHealthState              : Ok
-DeployedServicePackageHealthStates : 
+DeployedServicePackageHealthStates :
                                      ServiceManifestName   : WordCountServicePkg
                                      NodeName              : Node.1
                                      AggregatedHealthState : Ok
-                                     
-HealthEvents                       : 
+
+HealthEvents                       :
                                      SourceId              : System.Hosting
                                      Property              : Activation
                                      HealthState           : Ok
@@ -479,7 +479,7 @@ ApplicationName       : fabric:/WordCount
 ServiceManifestName   : WordCountServicePkg
 NodeName              : Node.1
 AggregatedHealthState : Ok
-HealthEvents          : 
+HealthEvents          :
                         SourceId              : System.Hosting
                         Property              : Activation
                         HealthState           : Ok
@@ -491,7 +491,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : ->Ok = 4/24/2015 6:13:03 PM
-                        
+
                         SourceId              : System.Hosting
                         Property              : CodePackageActivation:Code:EntryPoint
                         HealthState           : Ok
@@ -503,7 +503,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : ->Ok = 4/24/2015 6:13:03 PM
-                        
+
                         SourceId              : System.Hosting
                         Property              : ServiceTypeRegistration:WordCountServiceType
                         HealthState           : Ok
@@ -532,7 +532,7 @@ System.Hosting reports Error if validation during upgrade fails or if upgrade fa
 - Description: points to the error encountered.
 
 ## Next steps
-[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+[How to view Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 
 [How to Monitor and Diagnose Services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

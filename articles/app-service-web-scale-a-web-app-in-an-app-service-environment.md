@@ -20,7 +20,7 @@
 
 At a high level, App Service Environments are essentially personal deployments of the Azure App Service into your VNET and only manageable by your subscription. They offer new networking capabilities because they are in your VNET and can also be scaled beyond what is normally available in the Azure App Service environments.  If you need more information around what an App Service Environment(ASE) is then see [What is an App Service Environment][WhatisASE].  For details around creating an App Service Environment or creating a web app in an App Service Environment see [How to Create an App Service Environment][HowtoCreateASE] and [How to create a web app in an App Service Environment][CreateWebappinASE]
 
-As a quick reminder, when you normally change a scale attribute for a web app, you are changing that at an App Service Plan level.  App Service Plans are the containers that hold your web apps.  For details around scaling App Service Plans or just for details on App Service Plans outside of the App Service Environments see [Scale a web app in Azure App Service][ScaleWebapp] and [App Service Plans in depth overview][Appserviceplans].
+As a quick reminder, when you normally change a scale attribute for a web app, you are changing that at an App Service Plan level.  For details around scaling App Service Plans or just for details on App Service Plans outside of the App Service Environments see [Scale a web app in Azure App Service][ScaleWebapp] and [App Service Plans in depth overview][Appserviceplans].
 
 Scaling a web app in an App Service Environment is very similar to scaling web apps normally.  In the Azure App Service there are normally three things you can scale:
 
