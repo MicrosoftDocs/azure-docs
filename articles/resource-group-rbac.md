@@ -265,4 +265,7 @@ Create the role assignment.
 
 ## Next steps
 
+- [Role-based access control in the Microsoft Azure portal](./role-based-access-control-configure.md)
+- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)
+- [Authenticating a Service Principal through Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 
