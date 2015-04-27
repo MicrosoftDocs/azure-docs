@@ -46,7 +46,7 @@ For additional documentation click on one of the icons below.
 
    
 
-<center>[![How Azure AD Connect Works](./media/active-directory-aadconnect/AADConnect_HowItWorks2.png)](active-directory-aadconnect-howitworks.md) [![Getting Started with Azure AD Connect](./media/active-directory-aadconnect/AADConnect_GetStarted2.png)](active-directory-aadconnect-getstarted.md) [![Managing Azure AD Connect](./media/active-directory-aadconnect/AADConnect_Manage2.png)](active-directory-aadconnect-manage.md)</center>
+<center>[![How Azure AD Connect Works](./media/active-directory-aadconnect/AADConnect_HowItWorks2.png)](active-directory-aadconnect-how-it-works.md) [![Getting Started with Azure AD Connect](./media/active-directory-aadconnect/AADConnect_GetStarted2.png)](active-directory-aadconnect-get-started.md) [![Managing Azure AD Connect](./media/active-directory-aadconnect/AADConnect_Manage2.png)](active-directory-aadconnect-whats-next.md)</center>
 
 
 ## Why use Azure AD Connect 
