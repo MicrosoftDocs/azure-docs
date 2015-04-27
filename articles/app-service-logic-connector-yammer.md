@@ -88,11 +88,6 @@ You can now use Yammer connector in the flow.
 	Example: Group ID in the below URL is "5453203"
 	https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 	- 	**Tag Users** - Array of user network names who needs to be tagged in the message. 
-	- 	**Attachments** - Attachments to be post along with the post. It contains the following fields:
-		- File Name
-		- Content
-		- Content transfer Encoding
-		- Content Type
 
 	![][10]
  
