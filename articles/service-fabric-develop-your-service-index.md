@@ -27,9 +27,10 @@ This page has links to overview and conceptual articles and tutorial to help you
 ## Reliable Actor programming model
  Reliable Actors provide an asynchronous, single-threaded actor model. The actors represent the unit of state and computation that are distributed throughout the cluster to achieve high scalability. Reliable Actor model leverages the distributed store provided by underlying Service Fabric platform to provide highly available and consistent state management for the application developers.  To learn more, read:
 
+- [Get started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
 - [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
 - [Actor Model Design Patterns](service-fabric-reliable-actors-patterns-introduction.md)  
-- [Pattern: Smart Cache](winfab-reliable-actors-pattern-smartcache.md)
+- [Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 - [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
 - [Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 - [Pattern: Stateful Service Composition](service-fabric-reliable-actors-pattern-stateful-service-composition.md)
@@ -45,11 +46,10 @@ This page has links to overview and conceptual articles and tutorial to help you
 ## Reliable Service programming model
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
 
-- [Reliable Services Quick Start](service-fabric-reliable-services-quick-start.md)
-- [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi)
+- [Get started with Relaible Services](service-fabric-reliable-services-quick-start.md)
+- [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host (VS 2015 RC)](service-fabric-reliable-services-communication-webapi.md)
 - [Reliable Services Programming Model Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
 - [Programming Model Overview](service-fabric-reliable-services-service-overview.md)  
 - [Architecture](service-fabric-reliable-services-platform-architecture.md)
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-- [API Discussion](service-fabric-reliable-services-service-api-description.md)
-- [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
+

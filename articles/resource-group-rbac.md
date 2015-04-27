@@ -11,9 +11,9 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="ibiza"
+   ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/22/2015"
+   ms.date="04/23/2015"
    ms.author="tomfitz"/>
 
 # Managing and Auditing Access to Resources

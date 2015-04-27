@@ -1,6 +1,6 @@
 <properties
    pageTitle="Stateful Reliable Service Diagnostics"
-   description="Diagnostic Functionalitys for Stateful Reliable Services"
+   description="Diagnostic Functionality for Stateful Reliable Services"
    services="Service-Fabric"
    documentationCenter=".net"
    authors="rwike77"
@@ -16,7 +16,7 @@
    ms.date="04/20/2015"
    ms.author="ryanwi"/>
 
-# Introduction
+# Diagnostic Functionality for Stateful Reliable Services
 The Stateful Reliable Services StatefulServiceBase class emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events 
 that can be used for debugging the service, provide insights into how the runtime is operating and help with troubleshooting. 
 

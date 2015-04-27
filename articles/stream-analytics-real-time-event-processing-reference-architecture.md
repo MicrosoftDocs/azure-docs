@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 
 # Reference Architecture: Real-Time Event Processing with Microsoft Azure Stream Analytics
@@ -49,9 +49,8 @@ Microsoft Azure provides an extensive catalog of analytics technologies that are
 **Download:** [Real-Time Event Processing with Microsoft Azure Stream Analytics](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 

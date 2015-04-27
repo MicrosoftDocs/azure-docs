@@ -89,7 +89,7 @@ is preallocated and the log component can write directly to the file with the hi
 Aside from a minimal user mode interface to the log, the log is written as a kernel mode driver. By running as a kernel mode driver the log can provide the highest performance to all services that
 use it.
 
-For more information about configuring the log see [Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md).
+For more information about configuring the log see [configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md).
 
 ## Stateless Reliable Service
 
@@ -120,4 +120,4 @@ For more information about Service Fabric, see:
 
 [Reliable Service Advanced Usage](service-fabric-reliable-services-advanced-usage.md)
 
-[Reliable Service Configuration](service-fabric-reliable-stateful-service-configuration.md)  
+[Reliable Service Configuration](service-fabric-reliable-services-configuration.md)  
