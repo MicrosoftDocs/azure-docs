@@ -3,9 +3,9 @@
 	description="Managing role-based access control with Azure CLI." 
 	services="" 
 	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="terrylan" 
-	editor="guayan"/>
+	authors="squillace" 
+	manager="timlt" 
+	editor="tomfitz"/>
 
 <tags 
 	ms.service="multiple" 
