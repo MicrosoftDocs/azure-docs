@@ -3,9 +3,9 @@
    description="Use role-based access control (RBAC) to manage user permissions for resources deployed to Azure."
    services="na"
    documentationCenter="na"
-   authors="squillace, tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   authors="squillace"
+   manager="timlt"
+   editor="tomfitz"/>
 
 <tags
    ms.service="na"
