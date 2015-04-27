@@ -399,7 +399,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 To learn more about using Windows PowerShell with Resource Manager:
  
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using Resource groups to manage your Azure resources](resource-group-overview.md): Learn how to create and manage resource groups in the Azure portal.
 - [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md): Learn how to create and manage resource groups with command-line tools that work on many operating system platforms. 
 - [Azure blog](http://azure.microsoft.com/blog/): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.

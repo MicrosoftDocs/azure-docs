@@ -91,7 +91,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Feature | Description |
 | :--- | :--- |
 | . | ***April 2015:*** |
-| Full-Text Search | [Full-Text Search](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/>- Search for any synonym of your search term.<br/>- Search for cell values that contain your two search terms in close physical proximity to each other.<br/><br/>Get to know Transact-SQL keywords such as CONTAINS, FREETEXT, FORMSOF, THESAURUS and others. |
+| Full-Text Search preview | [Full-Text Search (FTS)](http://msdn.microsoft.com/library/ms142571.aspx) enables you to query character-based columns in ways that are more powerful than the LIKE operator. For example:<br/><br/>- FREETEXT: Searches for phrases that match the *meaning* of your search phrase, even when the exact wording does not match.<br/>- CONTAINS: Searches for cell values that contain your two search terms in close *physical proximity* to each other.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use. The range of FTS preview functionality is a subset of the FTS range in Microsoft SQL Server. |
 | . | ***February 2015:*** |
 | <a name="DynamicDataMasking" id="DynamicDataMasking"></a> Dynamic data masking preview | When a rowset is generated from a query, an established data masking policy can replace parts of the data with 'X' characters to overlay and protect sensitive information. After the masking operation completes, the modified rowset is sent to the client.<br/><br/>One example use might be to mask all but the last few digits of a credit card number.<br/><br/>**NOTE:** This feature is at the preview status, and has not yet been announced for general availability for production use.<br/><br/>For detailed information, see [Get started with Azure SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md). |
 | . | ***January 2015:*** |
@@ -167,6 +167,9 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 
 
 For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
+
+
+For any region that is in preview and is not yet at GA, you must [activate the option to use V12 databases](sql-database-v12-sign-up.md).
 
 
 At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](sql-database-upgrade-new-service-tiers.md).

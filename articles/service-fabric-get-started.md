@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/21/2015"
+   ms.date="04/24/2015"
    ms.author="seanmck"/>
 
 # Setting up your Service Fabric development environment
@@ -21,25 +21,29 @@
 
 ## Prerequisites
 
-The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC. To install Visual Studio 2015 RC, go [here](https://www.visualstudio.com/en-us/news/vs2015-vs.aspx).
+The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which you can find [here](http://go.microsoft.com/fwlink/?LinkId=517106).
+
+Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx) with Visual Studio pre-installed using an image from the VM Gallery.
+
 
 ## Installing the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
 
-1. Launch the Web Platform Installer by clicking [here](http://replacewiththeresultwebpiuri.com).
+1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
 
-2. Click Add to include Service Fabric in the cart.
+2. Click Install to begin the install process.
 
-3. Click Install to begin the install process.
-
-4. Review and accept the EULA.
+3. Review and accept the EULA.
 
 Installation will proceed automatically.
 
 ## Installing and starting a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
+
 1. Launch a new Powershell window as an Adminstator.
+
 2. Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
+
 3. Run ./DevClusterSetup.ps1
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
@@ -63,5 +67,5 @@ Now that your development environment is set up, you can start building and runn
 
 - [Learn about the high-level frameworks: reliable actors and reliable services](service-fabric-choose-framework.md)
 - [Get started with reliable services](service-fabric-reliable-services-quick-start.md)
-- [Get started with reliable actors](service-fabric-fabact-get-started.md)
+- [Get started with reliable actors](service-fabric-reliable-actors-get-started.md)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

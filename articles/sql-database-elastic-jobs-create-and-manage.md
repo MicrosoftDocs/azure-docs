@@ -46,6 +46,34 @@ When you run a script against a set of databases, you must be sure that the scri
 	CREATE INDEX IX_ProductVendor_VendorID 
     ON Purchasing.ProductVendor (VendorID);
 
+Alternatively, use an "IF NOT EXISTS" clause before creating a new instance:
+
+	IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'TestTable') 
+	BEGIN 
+	 CREATE TABLE TestTable( 
+	  TestTableId INT PRIMARY KEY IDENTITY, 
+	  InsertionTime DATETIME2 
+	 ); 
+	END 
+	GO 
+	
+	INSERT INTO TestTable(InsertionTime) VALUES (sysutcdatetime()); 
+	GO 
+
+This script then updates the table created previously.
+
+	IF NOT EXISTS (SELECT columns.name FROM sys.columns INNER JOIN sys.tables on columns.object_id = tables.object_id WHERE tables.name = 'TestTable' AND columns.name = 'AdditionalInformation') 
+	BEGIN 
+	
+	ALTER TABLE TestTable 
+	
+	ADD AdditionalInformation NVARCHAR(400); 
+	END 
+	GO 
+	
+	INSERT INTO TestTable(InsertionTime, AdditionalInformation) VALUES (sysutcdatetime(), 'test'); 
+	GO 
+
 
 ## Checking job status
 

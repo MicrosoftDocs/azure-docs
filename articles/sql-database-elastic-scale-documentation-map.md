@@ -18,9 +18,9 @@
 
 # Azure SQL Database elastic database topics
 
-Manage large deployments of databases using the elastic database pool and job features (both in preview). If you have an app where every user is provided an Azure SQL database—a common scenario for a Software as a Service (SaaS) developer—the elastic pool provides immediate advantages. The pool enables predictable pricing with guaranteed performance characteristics for any number of databases. The job feature gives you an easy and reliable tool for upgrading and managing every database in the pool with T-SQL scripts.  
+The elastic database features of Azure SQL DB are designed to simplify data tier development and management especially for Software as a Service (SaaS) developers—where large numbers of databases are used to support a dynamic end-customer base.  
 
-Elastic database tools include a client library and the split-merge tool. These help you build and manage applications that use sharding to scale-out across Azure SQL databases. The elastic database client library enables: shard management, data-dependent routing, and cross-shard query capabilities for ADO.Net. The split-merge tool lets you easily move data from one shard to another by splitting rows from one shard, and joining them to another. Elastic database tools tackle the infrastructure details of sharding while you focus on your app's business logic.  
+**Elastic database pools** enable predictable pricing with guaranteed performance characteristics for any number of databases. The job feature gives you an easy and reliable tool for upgrading and managing every database in the pool with T-SQL scripts. And **elastic database tools** help you build and manage applications that utilize sharding patterns to scale-out across many databases. Included are the elastic database client library supporting shard management, data-dependent routing, and cross-shard query capabilities for ADO.Net. Also included is the split-merge tool that simplifies shard management by letting you move data (splitting) from one shard to another (merging). 
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%">
 </object>

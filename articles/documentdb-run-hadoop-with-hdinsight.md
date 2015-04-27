@@ -36,10 +36,27 @@ Then, return to this article, where you'll receive the full details on how you c
 
 Don't have time to complete the tutorial and just want to get the full sample PowerShell scripts for Hive, Pig, and MapReduce? Not a problem, get them [here][documentdb-hdinsight-samples]. The download also contains the hql, pig, and java files for these samples.
 
+## <a name="NewestVersion"></a>Newest Version
+
+<table border='1'>
+	<tr><th>Hadoop Connector Version</th>
+		<td>1.0.0</td></tr>
+	<tr><th>Script Uri</th>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</td></tr>
+	<tr><th>Date Modified</th>
+		<td>04/08/2015</td></tr>
+	<tr><th>Supported HDInsight Versions</th>
+		<td>3.1, 3.2</td></tr>
+	<tr><th>Change Log</th>
+		<td>Added ability to change output collection offer type (S3 offer by default)</br>
+			Minor bug fixes</br>
+		</td></tr>
+</table>
+
 ## <a name="Prerequisites"></a>Prerequisites
 Before following the instructions in this tutorial, ensure that you have the following:
 
-- A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started].
+- A DocumentDB account, a database, and a collection with documents inside. For more information, see [Getting Started with DocumentDB][getting-started]. Import sample data into your DocumentDB account with the [DocumentDB import tool][documentdb-import-data].
 - Throughput. Reads and writes from HDInsight will be counted towards your allotted request units for your collections. For more information, see [Provisioned throughput, request units, and database operations][documentdb-manage-throughput].
 - Capacity for an additional stored procedure within each output collection. The stored procedures are used for transferring resulting documents. For more information, see [Collections and provisioned throughput][documentdb-manage-document-storage].
 - Capacity for the resulting documents from the Hive, Pig, or MapReduce jobs. For more information, see [Manage DocumentDB capacity and performance][documentdb-manage-collections].
@@ -449,6 +466,7 @@ To learn more, see the following articles:
 [documentdb-manage-collections]: documentdb-manage.md#Collections
 [documentdb-manage-document-storage]: documentdb-manage.md#IndexOverhead
 [documentdb-manage-throughput]: documentdb-manage.md#ProvThroughput
+[documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: hdinsight-provision-clusters.md#powershell
 [hdinsight-develop-deploy-java-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md

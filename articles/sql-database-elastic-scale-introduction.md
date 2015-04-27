@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure SQL Database - Elastic Database Tools" 
+    pageTitle="Azure SQL Database - elastic database tools" 
     description="Easily scale database resources in the cloud using elastic database tools." 
     services="sql-database" 
     documentationCenter="" 
@@ -13,17 +13,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/17/2015" 
+    ms.date="04/24/2015" 
     ms.author="sidneyh"/>
 
-# Azure SQL Database - Elastic Database Tools
+# Azure SQL Database - elastic database tools
 
 ## Promises and challenges
 
 Azure SQL Database delivers virtually unbounded database resources as well as elasticity for transactional workloads. Enabling this functionality is facilitated by features such as the **elastic database client library** and **split-merge tool**, known together as **elastic database tools**. These components are designed to simplify development and management of sharded database solutions – discussed in this article.
 
 While achieving elasticity and scale for cloud applications has been straightforward for compute and blob storage, it has remained a challenge for stateful data processing in relational databases. We have seen these challenges emerge most prominently in the two following scenarios:
-
 
 * Growing and shrinking capacity for the relational database part of your workload.
 * Managing hotspots that may arise affecting a specific subset of data – such as a particularly busy end-customer (tenant).

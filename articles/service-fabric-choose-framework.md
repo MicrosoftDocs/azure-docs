@@ -18,11 +18,11 @@
 
 # Choosing a framework for your service
 
-Service Fabric offers two high-level frameworks for building services: the reliable actor APIs and the reliable services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
+Service Fabric offers two high-level frameworks for building services: the Reliable Actors APIs and the Reliable Services APIs. While both are built on the same Service Fabric core, they make different tradeoffs between simplicity and flexibility in terms of concurrency, partitioning, and communication. It is useful to understand both models so that you can choose the appropriate framework for a particular service within your application.
 
-## Comparing the reliable actor APIs and the reliable services APIs
+## Comparing the Reliable Actors APIs and the Reliable Services APIs
 
-|**Reliable Actor APIs**|**Reliable Services APIs**|
+|**Reliable Actors APIs**|**Reliable Services APIs**|
 |-----------------------|--------------------------|
 |Your problem space involves many small independent units of state and logic|You need to maintain logic across multiple components|
 |You want to work with single-threaded objects while still being able to scale and maintain consistency|You want to use reliable collections (like .NET Dictionary and Queue) to store and manage your state|
@@ -33,5 +33,5 @@ Keep in mind that it is perfectly reasonable to use different frameworks for dif
 
 ## Next steps
 
-- [Learn more about the reliable actor APIs](service-fabric-fabact-introduction.md)
-- [Learn more about the reliable services APIs](service-fabric-reliable-services-introduction.md)
+- [Learn more about the Reliable Actors APIs](service-fabric-reliable-actors-introduction.md)
+- [Learn more about the Reliable Services APIs](service-fabric-reliable-services-introduction.md)

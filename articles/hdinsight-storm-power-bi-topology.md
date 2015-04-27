@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/22/2015"
+ ms.date="04/24/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from a Storm Topology
@@ -47,6 +47,10 @@ The following files in this project implement the Power BI specific functionalit
 * **PowerBiBolt.cs**: Implements the Storm bolt, which sends data to Power BI
 
 * **Data.cs**: Describes the data object/row that will be sent to Power BI
+
+> [AZURE.WARNING] Power BI seems to allow the creation of multiple datasets with the same name. This can occur if the dataset does not exist, and your topology creates multiple instances of the Power BI Bolt. To avoid this, either set the parallelism hint of the bolt to 1 (as this example does,) or create the dataset before deploying the topology.
+>
+> The **CreateDataset** console application included in this solution is provided as an example of how to create the dataset outside of the topology.
 
 ## Register a Power BI application
 
