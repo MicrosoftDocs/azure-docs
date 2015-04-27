@@ -11,7 +11,7 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="AzureClassicPortal"
+   ms.tgt_pltfrm=""
    ms.workload="na"
    ms.date="04/27/2015"
    ms.author="tomfitz"/>
@@ -28,7 +28,7 @@ This topic shows you how to create a new service principal using the Azure class
 ## Concepts
 1. Azure Active Directory (AAD) - an identity and access management service build for the cloud. For more details see: [What is Azure active Directory](./active-directory-whatis/)
 2. Service Principal - an instance of an application in a directory.
-3. AD Application - a directory record in AAD that identifies an application to AAD. For more details see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/en-us/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
+3. AD Application - a directory record in AAD that identifies an application to AAD. For more details see [Basics of Authentication in Azure AD](https://msdn.microsoft.com/library/azure/874839d9-6de6-43aa-9a5c-613b0c93247e#BKMK_Auth).
 
 
 ## Create Active Directory application
