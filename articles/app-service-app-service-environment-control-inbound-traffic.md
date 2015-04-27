@@ -105,6 +105,8 @@ During the initial preview of App Service Environments it is not possible to det
 
 To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
 
+For details around apps securely connecting to backend resource from an App Service Environment, see [Securely connecting to Backend resources from an App Service Environment][SecurelyConnecttoBackend]
+
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 <!-- LINKS -->
@@ -112,7 +114,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
-[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
- 
+[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
+[SecurelyConnecttoBackend]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/ 
 
 <!-- IMAGES -->

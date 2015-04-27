@@ -56,6 +56,6 @@ For information on Service Fabric concepts, see the following:
 
 - [Availability of Service Fabric Services](service-fabric-availability-services.md)
 
-- [Partitioning Service Fabric Services](service-fabric-concept-partitioning.md)
+- [Partitioning Service Fabric Services](service-fabric-concepts-partitioning.md)
 
 - [Defining and Managing State](service-fabric-concepts-state.md)

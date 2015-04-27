@@ -18,6 +18,8 @@
 
 # Model an application in Service Fabric
 
+This article provides an overview the Service Fabric application model and describes how to define an application and service via manifest files and get the application packaged and ready for deployment.
+
 ## Understand the application model
 
 An application is a collection of constituent services that perform a certain function(s). A service performs a complete and standalone function (they can start and run independent of other services) and is composed of code, configuration, and data. For each service, code consists of the executable binaries, configuration consists of service settings that can be loaded at runtime, and data consists of arbitrary static data to be consumed by the service. Each component in this hierarchical application model can be versioned and upgraded independently.

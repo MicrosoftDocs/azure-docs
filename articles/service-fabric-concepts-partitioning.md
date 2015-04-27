@@ -43,7 +43,7 @@ An important part of hashing is selecting your hash algorithm. An important cons
 
 A good resource for general hash code algorithm choices is [the Wikipedia page on Hash Functions](http://en.wikipedia.org/wiki/Hash_function).
 
->[AZURE.NOTE] It is not possible to change the number of partitions or the type of partitioning scheme used for a service after it has been created.
+> [AZURE.NOTE] It is not possible to change the number of partitions or the type of partitioning scheme used for a service after it has been created.
 
 ## Next steps
 
@@ -51,6 +51,4 @@ For information on Service Fabric concepts, see the following:
 
 - [Availability of Service Fabric Services](service-fabric-availability-services.md)
 
-- [Scalability of Service Fabric Services](service-fabric-concept-scalability.md)
-
-- [Defining and Managing State](service-fabric-concepts-state.md)
+- [Scalability of Service Fabric Services](service-fabric-concepts-scalability.md)
