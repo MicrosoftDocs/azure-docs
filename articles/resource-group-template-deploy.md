@@ -243,8 +243,10 @@ If you use a parameter file to pass the parameter values to your template during
     }
 
 ## Next steps
-- [Template Deployment REST API reference documentation](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
+- 
 
 
 
