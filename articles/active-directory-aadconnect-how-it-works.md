@@ -19,17 +19,18 @@
 # How Azure AD Connect works
 
 
-<center><div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It?" class="current">What is It?</a>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It" class="current">What is It</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-get-manage/" title="Manage">Manage</a></div></center> 
-
+<a href="/en-us/documentation/articles/active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+</div>
 
 Azure Active Directory Connect is made up of three primary parts that make up Azure Active Directory Connect.  They are the synchronization services, the optional Active Directory Federation Services piece, and the monitoring piece which is done using Azure AD Connect Health.
 
 
-<center>![Azure AD Connect Stack](./media/active-directory-aadconnect-howitworks/AADConnectStack.png)
+<center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack.png)
 </center>
 
 - Synchronization - This part is made up of the the components and functionality previously released as Dirsync and AAD Sync.  This is the part that is responsible for creating users and groups.  It is also responsible for making sure that the information on users and groups in your on-premises environment, matches in the cloud.
@@ -44,6 +45,7 @@ Azure Active Directory Connect is made up of three primary parts that make up Az
 **Additional Resources**
 
 * [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-getstarted.md)
-* [Manage Azure AD Connect](active-directory-aadconnect-manage.md)
+* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
+* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
+* [Learn More](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)

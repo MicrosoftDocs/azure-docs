@@ -18,11 +18,13 @@
 
 # Use your on-premises identity infrastructure in the cloud
 
-<center><div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It?" class="current">What is It?</a>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It" class="current">What is It</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-get-manage/" title="Manage">Manage</a></div></center> 
+<a href="/en-us/documentation/articles/active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+</div>
 
 Today, users want to be able to access applications both on-premises and in the cloud.  They want to be able to do this from any device, be it a laptop, smart phone, or tablet.  In order for this to occur, you and your organization need to be able to provide a way for users access these apps.  
 
@@ -92,9 +94,10 @@ We've heard consistent feedback that integrating your on premises identities wit
 **Additional Resources**
 
 
-* [How Azure AD Connect works](active-directory-aadconnect-howitworks.md)
-* [Getting started with Azure AD Connect](active-directory-aadconnect-getstarted.md)
-* [Manage Azure AD Connect](active-directory-aadconnect-manage.md)
+* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
+* [Getting started with Azure AD Connect](active-directory-aadconnect-get-started.md)
+* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
+* [Learn More](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
 
 

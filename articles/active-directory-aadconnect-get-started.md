@@ -19,12 +19,14 @@
 # Getting started with Azure AD Connect
 
 
-<center><div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It?" class="current">What is It?</a>
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/active-directory-aadconnect/" title="What is It" class="current">What is It</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-how-it-works/" title="How it Works">How it Works</a>
 <a href="/en-us/documentation/articles/active-directory-aadconnect-get-started/" title="Getting Started">Getting Started</a>
-<a href="/en-us/documentation/articles/active-directory-aadconnect-get-manage/" title="Manage">Manage</a></div></center> 
- 
+<a href="/en-us/documentation/articles/active-directory-aadconnect-whats-next/" title="Whats Next">Whats Next</a>
+<a href="/en-us/documentation/articles/active-directory-aadconnect-learn-more/" title="Learn More">Learn More</a>
+</div>
+
 The following documentation will help you get started with Azure Active Directory Connect.
 
 ## Download Azure AD Connect
@@ -62,7 +64,7 @@ Once you have downloaded Azure AD Connect, use the following to install Azure AD
 3. Step through the wizard using either the Express or Custom settings
 4. Optional:  Use your test user account to sign-in to a cloud service such as Office 365 to test.
 
-<center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-getstarted/aadConnect_Welcome.png)</center>
+<center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/aadConnect_Welcome.png)</center>
 
 ## Sync services optional configurations
 When you install the synchronization services, you can leave the optional configuration section unchecked and Azure AD Connect will set everything up automatically.  This includes setting up a SQL Server 2012 Express instance and creating the appropriate groups and assigning them permissions.  If you wish to change the defaults you can use the table below to understand the optional configuration options that are available.
@@ -79,7 +81,7 @@ Import settings  |Use this option if you are importing configuration information
 ## Express installation
 Selecting the Express Settings is the default option and is one of the most common scenarios.  When doing this, Azure AD Connect deploys sync with the password hash sync option. This is for a single forest only and allows your users to use their on-premises password to sign-in to the cloud.  Using the Express install will automatically kick of a synchronization once the installation is complete.  With this option there are only six short clicks to extending your on-premises directory to the cloud.
 
-<center>![Express Installation](./media/active-directory-aadconnect-getstarted/express.png)</center>
+<center>![Express Installation](./media/active-directory-aadconnect-get-started/express.png)</center>
 
 ## Custom installation
 
@@ -94,7 +96,7 @@ On-Premises Identities|Here you can specify that users either exist only once in
 Azure Identities|On this page you specify the source anchor that you want to use for identity federation.
 Option Features|Use the table below for a brief description of the optional features that you can select from.
 
-<center>![Express Installation](./media/active-directory-aadconnect-getstarted/of.png)</center>
+<center>![Express Installation](./media/active-directory-aadconnect-get-started/of.png)</center>
 
 
 Optional Features      | Description
@@ -106,7 +108,7 @@ User writeback|By enabling user writeback, users created in Azure AD will be wri
 Device Sync|By enabling device sync, device configuration can be written to in Azure AD.
 Directory extension attribute sync|By enabling directory extensions attribute sync, attributes specified will be synced to Azure AD.  This opens an additional configuration page in the wizard.  
 
-For additional configuration options such as changing the default configuration, using the Synchronization Rules Editor and Declarative Provisioning see [Manage Azure AD Connect](active-directory-aadconnect-manage.md)
+For additional configuration options such as changing the default configuration, using the Synchronization Rules Editor and Declarative Provisioning see [Manage Azure AD Connect](active-directory-aadconnect-whats-next.md)
 
 ## Azure AD Connect supporting components
 
@@ -124,6 +126,7 @@ The following is a list of per-requisites and supporting components that Azure A
 **Additional Resources**
 
 * [Use your on-premises identity infrastructure in the cloud](active-directory-aadconnect.md)
-* [How Azure AD Connect works](active-directory-aadconnect-howitworks.md)
-* [Manage Azure AD Connect](active-directory-aadconnect-manage.md)
+* [How Azure AD Connect works](active-directory-aadconnect-how-it-works.md)
+* [Whats Next with Azure AD Connect](active-directory-aadconnect-whats-next.md)
+* [Learn More](active-directory-aadconnect-learn-more.md)
 * [Azure AD Connect on MSDN](https://msdn.microsoft.com/library/azure/dn832695.aspx)
