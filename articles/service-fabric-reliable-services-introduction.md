@@ -122,12 +122,5 @@ If any of the following characterize your application service needs, then the Re
 
 ## Next Steps
 + [Reliable Services Quick Start](./service-fabric-reliable-services-quick-start.md)
-+ Check out the basic samples
-  + Stateless
-  + Stateful
-+ Tutorials on Writing Services
-  + Stateless
-  + Stateful
 + [Check out Reliable Services advanced usage](service-fabric-reliable-services-advanced-usage.md)
 + [Read the Reliable Actors programming model](service-fabric-reliable-actors-introduction.md)
-+ API Documentation

@@ -52,7 +52,7 @@ There are a couple of different options if your service was written using Reliab
 All ServiceFabric communication APIs are currently only available in C# so if have a service that is written in some other programming language such as Java or Node.JS then you will have to write your own communication mechanism.
 
 ## Next Steps
-* [Default communication stack provided by Reliable Services Framework ](service-fabric-reliable-service-communication-default.md)
-* [Reliable Services communication model](service-fabric-reliable-service-communication.md)
+* [Default communication stack provided by Reliable Services Framework ](service-fabric-reliable-services-communication-default.md)
+* [Reliable Services communication model](service-fabric-reliable-services-communication.md)
 * [Getting Started with Microsoft Azure Service Fabric Web API services with OWIN self-host](service-fabric-reliable-services-communication-webapi.md)
-* [WCF based communication stack for Reliable Services](service-fabric-reliable-service-communication-wcf.md)
+* [WCF based communication stack for Reliable Services](service-fabric-reliable-services-communication-wcf.md)

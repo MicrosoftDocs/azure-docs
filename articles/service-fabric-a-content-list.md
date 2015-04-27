@@ -53,17 +53,15 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 
 ### Tutorials
 
-- [Microsoft Azure Service Fabric Application Basic Management](service-fabric-get-started-basic-management.md)  **owner: bmerrill**
+- [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)  **owner: bmerrill**
 
-- [Implement a Communication Listener using Web API](service-fabric-get-started-communication-listener-with-web-api.md) **owner: bmerrill**
+- [Service Communication Model Overview](service-fabric-reliable-services-communication.md) **owner: bharatn**
 
-- [Getting Started with Microsoft Azure Service Fabric Stateless Services](service-fabric-get-started-hello-world-stateless) **owner: vturecek**
+- [Getting Started with Microsoft Azure Service Fabric Web API services](service-fabric-reliable-services-communication-webapi.md) **owner: vturecek**
 
-- [Hello World with Actors](service-fabric-get-started-hello-world-with-actors.md) **owner: bmerrill**
+- [Getting Started with Microsoft Azure Service Fabric Reliable Services](service-fabric-reliable-services-quick-start.md) **owner: vturecek**
 
-- [Echo Service using Web API](service-fabric-get-started-echo-service-using-web-api.md) **owner: bmerrill**
-
-- [Todo Service using Web API](service-fabric-get-started-todo-service-with-web-api.md) **owner: bmerrill**
+- [Getting Started with Microsoft Azure Service Fabric Reliable Actors](service-fabric-reliable-actors-get-started.md) **owner: claudioc**
 
 
 
@@ -125,15 +123,15 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 
 ### Health
-[Azure Service Fabric Health](service-fabric-health-introduction.md) **owner: oanapl**
+[Introduction to Service Fabric Health Monitoring](service-fabric-health-introduction.md) **owner: oanapl**
 
-[View Azure Service Fabric Entities Aggregated Health](service-fabric-view-entities-aggregated-health.md)
+[How to view Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
 **owner: oanapl**
 
-[Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 **owner: oanapl**
 
-[Report Health on Azure Service Fabric entities](service-fabric-report-health.md)
+[Adding custom Service Fabric health reports](service-fabric-report-health.md)
 **owner: oanapl**
 
 ### Programming Models Owners: masnider, claudioc, vipulm, richhas
@@ -180,6 +178,7 @@ We will not be publishing this topic.  The ACOM landing page, learning map, and 
 - [API Discussion](service-fabric-reliable-services-service-api-description.md) **owners: tyadam, mcoskun**
 
 - [Service Communication Model](service-fabric-reliable-services-communication.md) **owner: bharatn**
+
 - [Operations](service-fabric-manage-application-in-visual-studio.md) **owner: jesseb, alanwar**
 
 - [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md) **owner: **
