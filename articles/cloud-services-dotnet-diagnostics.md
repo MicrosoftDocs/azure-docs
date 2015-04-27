@@ -182,7 +182,7 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 
 
 ### Step 3: Deploy your Worker Role
-1.	Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project then **Publish** from the **Build** menu.
+1.	Deploy your worker role to Azure from within Visual Studio by selecting the **WadExample** project in the Solution Explorer then **Publish** from the **Build** menu.
 2.	Choose your subscription.
 3.	In the **Microsoft Azure Publish Settings** dialog select **Create New…**.
 4.	In the **Create Cloud Service and Storage Account** dialog enter a **Name** (for example, "WadExample") and select a region or affinity group.
