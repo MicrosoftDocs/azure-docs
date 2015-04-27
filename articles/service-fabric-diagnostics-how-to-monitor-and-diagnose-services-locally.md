@@ -22,10 +22,11 @@ Monitoring, detecting, diagnosing and troubleshooting allows for services to con
 
 ## Tracing and logging
 [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is the recommended technology for tracing messages in Service Fabric. Reasons for this are:
-- ETW is fast. It was built as a tracing technology that has a minimal impact on your code execution times.
-- ETW tracing works seamlessly across local development environments and also real world cluster setups. This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
-- Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.
-- There is built-in support in Service Fabric Visual Studio tools to view ETW events.
+
+* ETW is fast. It was built as a tracing technology that has a minimal impact on your code execution times.
+* ETW tracing works seamlessly across local development environments and also real world cluster setups. This  means you don't have to rewrite your tracing code when you are ready to deploy your code to a real cluster.
+* Service Fabric system code also uses ETW for internal tracing. This allows you to view your application traces interleaved with Service Fabric system traces, making it easier to understand the and sequences and interrelationships between your application code and events in the underlying system.
+* There is built-in support in Service Fabric Visual Studio tools to view ETW events.
 
 
 ## View Service Fabric system events in Visual Studio
@@ -33,8 +34,8 @@ Monitoring, detecting, diagnosing and troubleshooting allows for services to con
 Service Fabric emits ETW events to help application developers understand what is happening in the platform. To view these events follow these steps:
 
 1. You must have the following pre-requisties installed.
-   - Visual Studio 2015
-   - Service Fabric SDK
+   * Visual Studio 2015
+   * Service Fabric SDK
 2. Launch Visual Studio as an administrator.
 3. Create (or open an existing) project for a stateful or stateless Actor or Service.
 ![Create a Service Fabric Project](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
@@ -67,10 +68,7 @@ The same tracing code that you added to your application above for local diagnos
 
 ## Next steps
 
-- [Service Fabric Health Introduction](service-fabric-health-introduction.md)
-
-- [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
-
-- [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
-
-- [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)
+* [Service Fabric Health Introduction](service-fabric-health-introduction.md)
+* [Application Insights setup](service-fabric-diagnostics-application-insights-setup.md)
+* [Azure Service Fabric Actors Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
+* [Stateful Reliable Service Diagnostics](service-fabric-reliable-services-diagnostics.md)

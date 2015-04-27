@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/17/2015"
+   ms.date="04/26/2015"
    ms.author="oanapl"/>
 
 # Introduction to Service Fabric Health Monitoring
@@ -249,7 +249,7 @@ The added metadata contains:
 The state transition fields can be used for smarter alerting or "historical" health event information. They enable scenarios like:
 
 - Alert when a property has been at Warning/Error for more than X minutes. This avoids alerting on temporary conditions. Eg: alert if the health state has been Warning for more than 5 minutes can be translated into (HealthState == Warning and Now - LastWarningTransitionTime
-- > 5 minutes).
+> 5 minutes).
 
 - Alert only on conditions that changed in the last X minutes. If a report is at Error since before that, it can be ignored (because it was already signaled previously).
 

@@ -59,7 +59,7 @@ To switch to the AzureResoureManager module, type:
 To switch back to the Azure module, type:
 
     PS C:\> Switch-AzureMode -Name AzureServiceManagement
-
+powershell-azure-resource-manager.md
 By default, Switch-AzureMode affects only the current session. To make the switch effective in all Windows PowerShell sessions, use the **Global** parameter of Switch-AzureMode.
 
 For help with the Switch-AzureMode cmdlet, type: `Get-Help Switch-AzureMode` or see [Switch-AzureMode](http://go.microsoft.com/fwlink/?LinkID=394398).
@@ -75,7 +75,7 @@ The output will look similar to the following excerpt:
 	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
 	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
 	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
+	Add-AzureKeyVaultKey                   Creates a key in a vault or impopowershell-azure-resource-manager.mdrts a key into a vault.
         ...
 
 To get full help for a cmdlet, type a command with the format:
@@ -92,7 +92,7 @@ For the full set of Azure Resource Manager commands, see [Azure Resource Manager
 
 This section of the tutorial guides you through the process of creating and deploying a resource group for a website with a SQL database. 
 
-You don't need to be an expert in Azure, SQL, websites, or resource management to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
+You don't need to be an expert in Azure, SQL, websites, or resource managempowershell-azure-resource-manager.mdent to do this task. The templates provide a model of the resource group with all of the resources that you're likely to need. And because we're using Windows PowerShell to automate the tasks, you can use these process as a model for scripting large-scale tasks.
 
 ### Step 1: Switch to Azure Resource Manager 
 1. Start Windows PowerShell. You can use any host program that you like, such as the Windows PowerShell console or Windows PowerShell ISE.
@@ -108,7 +108,7 @@ You don't need to be an expert in Azure, SQL, websites, or resource management t
 The cmdlet prompts you for the login credentials for your Azure account. After logging in, it downloads your account settings so they are available to Windows PowerShell. 
 
 The account settings expire, so you need to refresh them occasionally. To refresh the account settings, run **Add-AzureAccount** again. 
-
+powershell-azure-resource-manager.md
 >[AZURE.NOTE] The AzureResourceManager module requires Add-AzureAccount. A Publish Settings file is not sufficient.     
 
 
@@ -123,7 +123,7 @@ To see all of the templates in the Azure resource group template gallery, use th
 
 At the Windows Powershell prompt, type:
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
+    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoftpowershell-azure-resource-manager.md
 
 The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
 

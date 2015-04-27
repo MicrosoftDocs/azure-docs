@@ -19,7 +19,7 @@
 # Manage a Service Fabric service
 This page has links to overview and conceptual articles and tutorial to help you learn to manage a Service Fabric service.
 
-- [Application Lifecycle](../service-fabric-application-lifecycle)
+- [Application Lifecycle](service-fabric-application-lifecycle.md)
 - [Visualizing your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 - [Secure replication traffic of stateful services](service-fabric-replication-security.md)
 
