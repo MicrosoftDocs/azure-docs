@@ -23,7 +23,7 @@ Job collections are the billable entity in Azure Scheduler. Job collections cont
 
 |**Job Collection Plan**|**Max # of Jobs per Job Collection**|**Max Recurrence**|**Max Job Collections per Subscription**|**Limits**|
 |:---|:---|:---|:---|:---|
-|**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](https://msdn.microsoft.com/library/azure/dn864828.aspx)|
+|**Free**|5 jobs per job collection|Once per hour. Cannot execute jobs more often than once an hour|A subscription is allowed up to 1 free job collection|Cannot use [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 |**Standard**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|A subscription is allowed up to 100 standard job collections|Access to full feature set of Scheduler|
 |**Premium**|50 jobs per job collection|Once per minute. Cannot execute jobs more often than once a minute|No limit on number of premium job collections in a subscription|Access to full feature set of Scheduler|
 
@@ -34,7 +34,7 @@ You may upgrade or downgrade a job collection plan anytime among the Free, Stand
 - A free job collection already exists in the subscription
 - A job in the job collection has a higher recurrence than allowed for jobs in free job collections. The maximum recurrence allowed in a free job collection is once per hour
 - There are more than 5 jobs in the job collection
-- A job in the job collection has an HTTP or HTTPS action that uses an [HTTP outbound authorization object](https://msdn.microsoft.com/library/azure/dn864828.aspx)
+- A job in the job collection has an HTTP or HTTPS action that uses an [HTTP outbound authorization object](scheduler-outbound-authentication.md)
 
 ## Billing and Azure Plans
 

@@ -14,27 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="04/24/2015" 
 	ms.author="genemi"/>
 
 
 # What's new in SQL Database V12
-
-
-<!--
-GeneMi , 2015-April-23 Thursday 09:59am
-Removed '-preview' node from links, replaced with '-v12'. See also the other four '-preview' topics:
-  sql-database-preview-whats-new.md  (this topic)
-  sql-database-preview-plan-prepare-upgrade.md
-  sql-database-preview-sign-up.md
-.
-  sql-database-preview-create.md  ('-preview' being erased, but not replaced by '-v12')
-.
-  sql-database-preview-upgrade.md  (topic obsolete, being deleted from github and ACom)
-.
-This file name is 'sql-database-v12-whats-new.md'.  It is a slightly changed copy of the soon-to-be-deleted file 'sql-database-preview-whats-new.md'.
-Sadly, the public customer wiki at the bottom of the popular 'sql-database-preview-whats-new.md' will hereby be obsoleted and lost. :-( 
--->
 
 
 Azure SQL Database version V12 ([at preview in some regions](sql-database-v12-whats-new.md#V12AzureSqlDbPreviewGaTable)) now provides nearly complete compatibility with the Microsoft SQL Server engine. The recent enhancements help to streamline SQL Server application migrations to SQL Database, and they help your system robustly process heavier database workloads.
@@ -175,6 +159,9 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 For any region that has reached GA, all new subscriptions and their subsequent databases use the V12 service architecture and therefore have access to the latest features. The present article lists the new features brought by V12.
 
 
+For any region that is in preview and is not yet at GA, you must [activate the option to use V12 databases](sql-database-v12-sign-up.md).
+
+
 At GA, if you have pre-V12 servers and databases, you can elect to upgrade (or move) your databases to the V12 service architecture. Then you can use the new features for production. V12 databases must be at the basic, standard, or premium [pricing tier](sql-database-upgrade-new-service-tiers.md).
 
 
@@ -207,19 +194,11 @@ There are important things to know about limitations during and after an upgrade
 This *what's new* topic for Azure SQL Database V12 will be finalized and no longer updated some time in 2015. Information about new features and other announcements is shifting to the announcements link that follows:
 
 
+- [Announcements](http://azure.microsoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
+ - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
 - Follow us on Twitter: @SQLSchedCentral.
 
 
-<!--
-- Announcements h ttp : / / a zure . m icrosoft.com/updates/?service=sql-database) for Azure SQL Database on our **Service Updates** webpage.
- - You might want to click the **RSS** icon on the webpage, when the Services control is set to *SQL Database*.
-- Dynamically generated list h ttp : / / a zure . m icrosoft.com/documentation/articles/?service=sql-database) of the new and updated Help topics for Azure SQL Database here.
- - The list include topics that have only minor updates.
--->
-
 
 [V12 general availability (GA) status per region]:#V12AzureSqlDbPreviewGaTable
-
-
-<!-- EndOfFile -->
 
