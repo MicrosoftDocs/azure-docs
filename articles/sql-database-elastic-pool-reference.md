@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/23/2015" 
+	ms.date="04/27/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -21,7 +21,7 @@
 
 For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
 
-This reference provides links and details to elastic database pool articles and programmability information
+This reference provides links and details to elastic database articles and programmability information.
 
 ## Overview
 
@@ -32,16 +32,20 @@ An elastic database pool is a collection of database throughput units (DTUs), an
 ## Prerequisites for creating and managing elastic database pools
 
 
-- Elastic pools are only available in SQL Database V12 servers.   
-- PowerShell and REST APIs for elastic pools are supported on Azure Resource Manager (ARM) only; service management commands (RDFE) is not supported. 
-- The portal for elastic pools is [Microsoft Azure portal](https:portal.azure.com) only; The Azure classic portal is not supported. 
-  
+- Elastic pools are only available in Azure SQL Database V12 servers.   
+- PowerShell and REST APIs for elastic pools are supported on Azure Resource Manager (ARM) only; service management commands (RDFE) are not supported. 
+- Creatin and managing elastic pools is supported in the [Microsoft Azure portal](https:portal.azure.com) only; the Azure classic portal is not supported. 
+
+
 ## Restrictions for the current preview
 
-- The pricing tier available for an elastic pool is Standard.    
+- The pricing tier for an elastic pool in the current preview is Standard.    
 - Standard Geo-Replication is not currently supported. 
 
-## Articles
+
+## List of articles
+
+The following articles will help you get started using elastic databases and elastic jobs:
 
 | Article | Description |
 | :-- | :-- |
@@ -55,14 +59,12 @@ An elastic database pool is a collection of database throughput units (DTUs), an
 | [How to uninstall the elastic database job components](sql-database-elastic-jobs-uninstall.md) | Recover from failures when attempting to install the elastic database job service |
 
 
-## API Details
 
-
-### Namespace
+## Namespace details
 An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database namespace:
 Microsoft.Sql/ElasticPool
 
-### Elastic database pool properties
+## Elastic database pool properties
 
 | Property | Description |
 | :-- | :-- |
@@ -78,7 +80,7 @@ Microsoft.Sql/ElasticPool
 | storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.  The storage limit of the pool is determined by the amount of DTUs of the pool; each DTU = 1 GB storage.  For example, a 200 DTU pool has a storage limit of 200 GB. |
 
 
-### DTU and storage limits
+## DTU and storage limits for elastic pools and elastic databases
 
 
 | property | default value | valid values |
@@ -90,7 +92,7 @@ Microsoft.Sql/ElasticPool
 
 *units in API are MB, not GB
 
-### Worker and session limits
+## Worker and session limits
 
 The maximum number of concurrent workers and concurrent sessions supported for all databases in an elastic pool depends on the DTU setting for the pool: 
 
@@ -102,7 +104,7 @@ The maximum number of concurrent workers and concurrent sessions supported for a
 | 1,200 | 2,400 | 28,800 |
 
 
-### Azure Resource Manager limitations
+## Azure Resource Manager limitations
 
 An elastic pool requires an Azure SQL Database server (V12). Servers are located within a resource group.
 
@@ -111,37 +113,39 @@ An elastic pool requires an Azure SQL Database server (V12). Servers are located
 - Each elastic pool can have a maximum 100 databases.
 
 
-### Latency of elastic pool operations
+## Latency of elastic pool operations
+
 - Changing the guaranteed DTUs per database (databaseDtuMin) or maximum DTUs per database (databaseDtuMax) typically completes in 5 minutes or less. 
 - Changing the DTU / storage limit (storageMB) of the pool depends on the total amount of space used by all databases in the pool.  Changes average 90 minutes or less per 100 GB. For example, if the total space used by all databases in the pool is 200 GB, then the expected latency for changing the pool DTU / storage limit is 3 hours or less. 
 
 
 
 ## Elastic database pool PowerShell cmdlets and REST API commands (Azure Resource Manager only)
+
 The following PowerShell cmdlets and REST API commands are available for creating and managing elastic pools:
 
-| PowerShell cmdlet | REST API command | Description |
-| :-- | :-- | :-- |
-| [Get-AzureSqlDatabase]() | [Get Azure SQL database]() | Desc |
-| [Get-AzureSqLElasticPool]() | [Get Azure SQL Database elastic database pool]() | Desc |
-| [Get-AzureSqlElasticPoolActivity]() | [Get Azure SQL Database elastic database pool operations]() | Desc |
-| [Get-AzureSqlElasticPoolDatabase]() | [Get Azure SQL Database elastic database]() | Desc |
-| [Get-AzureSqlElasticPoolDatabaseActivity]() | [Get Azure SQL Database elastic database operations]() | Desc |
-| [Get-AzureSqlServer]() | [Get Azure SQL Database server]() | Desc |
-| [Get-AzureSqlServerFirewallRule]() | [Get Azure SQL Database server firewall rule]() | Desc |
-| [Get-AzureSqlServerServiceObjective]() | [Get Azure SQL Database server service objective]() | Desc |
-| [New-AzureSqlDatabase]() | [Create Azure SQL database]() | Desc |
-| [New-AzureSqlElasticPool]() | [Create Azure SQL Database elastic database pool]() | Desc |
-| [New-AzureSqlServer]() | [Create Azure SQL Database server]() | Desc |
-| [New-AzureSqlServerFirewallRule]() | [Create Azure SQL Database server firewall rule]() | Desc |
-| [Remove-AzureSqlDatabase]() | [Remove Azure SQL database]() | Desc |
-| [Remove-AzureSqlElasticPool]() | [Remove Azure SQL Database elastic database pool]() | Desc |
-| [Remove-AzureSqlServer]() | [Remove Azure SQL Database server]() | Desc |
-| [Set-AzureSqlDatabase]() | [Set Azure SQL database]() | Desc |
-| [Set-AzureSqlElasticPool]() | [Set Azure SQL Database elastic database pool]() | Desc |
-| [Set-AzureSqlServer]() | [Set Azure SQL Database server]() | Desc |
-| [Set-AzureSqlServerFirewallRule]() | [Set Azure SQL Database server firewall rule]() | Desc |
-| [Get-Metrics]() | Get Metrics | Desc |
+| PowerShell cmdlet | REST API command |
+| :-- | :-- |
+| [Get-AzureSqlDatabase]() | [Get Azure SQL database]() |
+| [Get-AzureSqLElasticPool]() | [Get Azure SQL Database elastic database pool]() |
+| [Get-AzureSqlElasticPoolActivity]() | [Get Azure SQL Database elastic database pool operations]() |
+| [Get-AzureSqlElasticPoolDatabase]() | [Get Azure SQL Database elastic database]() |
+| [Get-AzureSqlElasticPoolDatabaseActivity]() | [Get Azure SQL Database elastic database operations]() |
+| [Get-AzureSqlServer]() | [Get Azure SQL Database server]() |
+| [Get-AzureSqlServerFirewallRule]() | [Get Azure SQL Database server firewall rule]() |
+| [Get-AzureSqlServerServiceObjective]() | [Get Azure SQL Database server service objective]() |
+| [New-AzureSqlDatabase]() | [Create Azure SQL database]() |
+| [New-AzureSqlElasticPool]() | [Create Azure SQL Database elastic database pool]() |
+| [New-AzureSqlServer]() | [Create Azure SQL Database server]() |
+| [New-AzureSqlServerFirewallRule]() | [Create Azure SQL Database server firewall rule]() |
+| [Remove-AzureSqlDatabase]() | [Remove Azure SQL database]() |
+| [Remove-AzureSqlElasticPool]() | [Remove Azure SQL Database elastic database pool]() |
+| [Remove-AzureSqlServer]() | [Remove Azure SQL Database server]() |
+| [Set-AzureSqlDatabase]() | [Set Azure SQL database]() |
+| [Set-AzureSqlElasticPool]() | [Set Azure SQL Database elastic database pool]() |
+| [Set-AzureSqlServer]() | [Set Azure SQL Database server]() |
+| [Set-AzureSqlServerFirewallRule]() | [Set Azure SQL Database server firewall rule]() |
+| [Get-Metrics]() | [Get Metrics]() |
 
 
 ## Billing Information
