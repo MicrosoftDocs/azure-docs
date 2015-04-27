@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -130,6 +130,6 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
+[What are Notification Hubs?]: notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-windows-store-javascript-send-localized-breaking-news.md

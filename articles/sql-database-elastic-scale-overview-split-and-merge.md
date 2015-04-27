@@ -1,11 +1,11 @@
 <properties 
-title="Splitting and Merging with Elastic Scale" 
-pageTitle="Splitting and Merging with Elastic Scale" 
-description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." 
-metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
-services="sql-database" documentationCenter="" 
-manager="jhubbard" 
-authors="torsteng"/>
+	title="Splitting and Merging with Elastic Scale" 
+	pageTitle="Splitting and Merging with Elastic Scale" 
+	description="Explains how to manipulate shards and move data via a self-hosted service using Elastic Scale APIs." 
+	metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" 
+	services="sql-database" documentationCenter="" 
+	manager="stuarto" 
+	authors="torsteng@microsoft.com"/>
 
 <tags 
     ms.service="sql-database" 
@@ -13,7 +13,7 @@ authors="torsteng"/>
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="03/20/2015" 
+    ms.date="03/24/2015" 
     ms.author="torsteng" />
 
 # Splitting and merging with Elastic Scale
@@ -65,7 +65,7 @@ Figure 1: Conceptual Overview of Split-Merge
 
 ## Concepts & Key Features
 
-**Customer-Hosted Services**: The Split-Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Elastic Scale Security Considerations](sql-database-elastic-scale-split-merge-security-configuration.md).
+**Customer-Hosted Services**: The Split-Merge is delivered as a customer-hosted service. You must deploy and host the service in your Microsoft Azure subscription. The package you download from NuGet contains a configuration template to complete with the information for your specific deployment. See the  [Split-Merge tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md) for details. Since the service runs in your Azure subscription, you can control and configure most security aspects of the service. The default template includes the options to configure SSL, certificate-based client authentication, encryption for stored credentials, DoS guarding and IP restrictions. You can find more information on the security aspects in the following document [Split-Merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 The default deployed service runs with one worker and one web role. Each uses the A1 VM size in Azure Cloud Services. While you cannot modify these settings when deploying the package, you could change them after a successful deployment in the running cloud service, (through the Azure portal). Note that the worker role must not be configured for more than a single instance for technical reasons. 
 

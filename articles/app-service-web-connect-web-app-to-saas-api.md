@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a business-to-employee multi-channel app" 
+   pageTitle="Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service" 
    description="This tutorial shows you how to consume a SaaS API App from an ASP.NET hosted in Azure App Service Web Apps." 
    services="app-service\web" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="03/24/2015"
    ms.author="cfowler"/>
 
-# Create a business-to-employee multi-channel app
+# Connect mobile and web apps to SaaS APIs (O365/SharePoint/Salesforce) in Azure App Service
 
 This tutorial shows you how to consume an API App from an ASP.NET hosted in [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
@@ -30,10 +30,10 @@ You will learn:
 
 This tutorial builds upon the series from the API App tutorials:
 
-1. [Create an Azure API App](app-service-dotnet-create-api-app)
-2. [Publish an Azure API App](app-service-dotnet-publish-api-app)
-3. [Deploy an Azure API App](app-service-dotnet-deploy-api-app)
-4. [Debug an Azure API App](app-service-dotnet-remotely-debug-api-app)
+1. [Create an Azure API App](../app-service-dotnet-create-api-app)
+2. [Publish an Azure API App](../app-service-dotnet-publish-api-app)
+3. [Deploy an Azure API App](../app-service-dotnet-deploy-api-app)
+4. [Debug an Azure API App](../app-service-dotnet-remotely-debug-api-app)
 
 ## Make the API app publicly accessible
 

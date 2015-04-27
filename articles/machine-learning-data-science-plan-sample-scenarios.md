@@ -1,31 +1,31 @@
-<properties 
+<properties
 	pageTitle="Cloud Data Science Process Walkthroughs | Azure" 
 	description="Cloud Data Science Process Walkthroughs" 
 	metaKeywords="" 
-	services="machine-learning" 
+	services="data-science-process" 
 	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
-	editor="cgronlun" />
+	editor="" />
 
 <tags 
-	ms.service="machine-learning" 
+	ms.service="data-science-process" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="04/21/2015" 
 	ms.author="msolhab" /> 
 
-Cloud Data Science Process in Azure Machine Learning
-========================================
+
+# Cloud Data Science Process in Azure Machine Learning
 
 This article walks through the Cloud Data Science Process map and some sample data source and target scenarios. It illustrates some of the option choices and processing sequences based on data characteristics, source location, and target repositories in Azure. The Cloud Data Science Process flow for the sample scenarios is summarized in the last section.
 
 #### For all scenarios, you need:
 
-   [Create a storage account](storage-create-storage-account.md)
+   [Create a storage account](storage-whatis-account.md)
 
   [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
@@ -33,10 +33,11 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 - [Scenario \#1: Small to medium tabular dataset in a local files](#smalllocal)
 - [Scenario \#2: Small to medium dataset in a local files, requiring processing](#smalllocalprocess)
-- [Scenario \#3: Large dataset in a local files, target Azure blobs](#largelocal)
+- [Scenario \#3: Large dataset in local files, target Azure blobs](#largelocal)
 - [Scenario \#4: Small to medium dataset in a local files, target SQL Server in Azure VM](#smalllocaltodb)
-- [Scenario \#5: Large dataset in a local files, target SQL Server in Azure VM](#largelocaltodb)
+- [Scenario \#5: Large dataset in local files, target SQL Server in Azure VM](#largelocaltodb)
 - [Scenario \#6: Large dataset in a SQL Server database on-prem, target SQL Server in Azure VM](#largedbtodb)
+- [Scenario \#7: Big data in local files, target Hive database in Azure HDInsight Hadoop clusters](#largedbtohive)
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
 
@@ -69,7 +70,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 6.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Read the data from Azure blobs using the Reader module.
+7.  Read the data from Azure blobs using the [Reader][reader] module.
 
 8. Build an Azure Machine Learning experiment flow starting with ingested dataset(s).
 
@@ -95,7 +96,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data from Azure blobs using the Reader module.
+9. Read the data from Azure blobs using the [Reader][reader] module.
 
 10. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -138,7 +139,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 9. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+10. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 11. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -184,7 +185,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset
 
@@ -228,7 +229,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -240,11 +241,62 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 To replicate the entire SQL Server database in your SQL Server VM, you should copy a database from one location/server to another, assuming that the database can be taken temporarily offline. You do this in the SQL Server Management Studio Object Explorer GUI, or using the equivalent Transact-SQL commands.
 
-1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491.aspx).
+1. Detach the database at the source location. For more information, see [Detach a database](https://technet.microsoft.com/library/ms191491(v=sql.110).aspx).
 2. In Windows Explorer or Windows Command Prompt window, copy the detached database file or files and log file or files to the target location on the SQL Server VM in Azure.
-3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209.aspx). 
+3. Attach the copied files to the target SQL Server instance. For more information, see [Attach a Database](https://technet.microsoft.com/library/ms190209(v=sql.110).aspx). 
 
-[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/library/ms187858.aspx)
+[Move a Database Using Detach and Attach (Transact-SQL)](https://technet.microsoft.com/library/ms187858(v=sql.110).aspx)
+
+## <a name="largedbtohive"></a>Scenario \#7: Big data in local files, target Hive database in Azure HDInsight Hadoop clusters
+
+![Big data in local target Hive][9]
+
+#### Additional Azure resources: Azure HDInsight Hadoop Cluster and Azure Virtual Machine (IPython Notebook server)
+
+1.  Create an Azure Virtual Machine running IPython Notebook server.
+
+2.  Create an Azure HDInsight Hadoop cluster.
+
+3.  (Optional) Pre-process and clean data.
+
+    a.  Pre-process and clean data in IPython Notebook, accessing data from Azure
+        blobs.
+
+    b.  Transform data to cleaned, tabular form, if needed.
+
+    c.  Save data to VM-local files (IPython Notebook is running on VM, local drives refer to VM drives).
+
+4.  Upload data to the default container of the Hadoop cluster selected in the step 2.
+
+5.  Load data to Hive database in Azure HDInsight Hadoop cluster.
+
+    a.  Log in to the head node of the Hadoop cluster
+
+    b.  Open the Hadoop Command Line.
+
+    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
+
+    d.  Run the Hive queries to create database and tables, and load data from blob storage to Hive tables.
+
+ 	> [AZURE.NOTE] If the data is big, users can create the Hive table with partitions. Then, users can use a `for` loop in the Hadoop Command Line on the head node to load data into the Hive table partitioned by partition.
+
+6.  Explore data and create features as needed in Hadoop Command Line. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
+
+	a.  Log in to the head node of the Hadoop cluster
+
+    b.  Open the Hadoop Command Line.
+
+    c.  Enter the Hive root directory by command `cd %hive_home%\bin` in Hadoop Command Line.
+
+	d.  Run the Hive queries in Hadoop Command Line on the head node of the Hadoop cluster to explore the data and create features as needed.
+
+7.  If needed and/or desired, sample the data to fit in Azure Machine Learning Studio. 
+
+8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
+
+9. Read the data directly from the `Hive Queries` using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+
+10. Simple Azure ML experiment flow starting with uploaded dataset.
 
 Sample Scenarios Summary
 ------------------------
@@ -266,3 +318,8 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 [6]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-db-to-db.png
 [7]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-attach-db.png
 [8]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-sample-scenarios.png
+[9]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

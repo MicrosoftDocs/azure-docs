@@ -4,7 +4,7 @@
 	services="sql-database" 
 	documentationCenter="" 
 	authors="sidneyh" 
-	manager="jhubbard" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/19/2014" 
+	ms.date="04/21/2015" 
 	ms.author="sidneyh"/>
 
-# How to Create and Configure an Azure SQL Database
+# How to create and configure an Azure SQL database
 
 In this topic, you'll create and configure a new Azure SQL database using the Azure Management Portal's **QUICK CREATE** option. This process shows you how to create a SQL database using an existing server, and also shows how to create a new server if needed.
 
 > [AZURE.NOTE] Creating a SQL Database with **QUICK CREATE** provisions a Standard (S0) database. To create a SQL Database at a service tier and performance level other than Standard (S0) use **CUSTOM CREATE**. For details on creating an Azure SQL Database using **CUSTOM CREATE**, see [Getting Started with Microsoft Azure SQL Database](sql-database-get-started.md).
 
-## How to: Create an Azure SQL Database
+## How to: create an Azure SQL database
 
 1. Sign in to the [Management Portal](https://portal.azure.com/).
 
@@ -54,7 +54,7 @@ In this topic, you'll create and configure a new Azure SQL database using the Az
 
 9. Click the **CREATE SQL DATABASE** checkmark at the bottom of the page when you are finished.
 
-### Server Name Auto-generated
+### Server name auto-generated
 
 Notice that if you created a new server you did not specify a server name. SQL Database auto-generates the server name to ensure there are no duplicate DNS entries. The server name is a ten-character alphanumeric string. You cannot change the name of your SQL Database server.
 
@@ -62,7 +62,7 @@ In the next step, you will configure the firewall so that connections from appli
 
 <a id="configFWLogical"></a>
 
-## How to: Configure the firewall for the logical server
+## How to: configure the firewall for the logical server
 
 1. In the [Management Portal](http://manage.windowsazure.com), click **SQL Databases**, then click **Servers**
 

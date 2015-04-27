@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Using the Box Connector in your logic app" 
    description="Using the Box Connector in your logic app" 
-   services="app-service-logic" 
+   services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="dwrede" 

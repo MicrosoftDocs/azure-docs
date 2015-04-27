@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Remotely debug an Azure App Service API App" 
-	description="Using Visual Studio to remotely debug an Azure App Service API App." 
+	pageTitle="Debug an API App in Azure App Service" 
+	description="Learn how to debug an API App while it runs in Azure App Service, using Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="bradygaster" 
+	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -16,23 +16,19 @@
 	ms.date="02/19/2015" 
 	ms.author="bradyg;tarcher"/>
 
-# Remotely debug an Azure App Service API App 
+# Debug an API App in Azure App Service 
 
 ## Overview
 
-Visual Studio's remote debugging capabilities have been extended to include support for API apps in Azure App Service. That means you can use familiar debugging tools to see your code running live in Azure. This topic demonstrates how to use Visual Studio's **API App Client** to generate client code that calls the deployed API app. Then you'll debug the client app and the API app simultaneously, with the API app running live in the cloud.
+In this tutorial, you debug ASP.NET Web API code while it runs in an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). The tutorial works with the API app that you [create](app-service-dotnet-create-api-app.md) and [deploy](app-service-dotnet-deploy-api-app.md) in the previous tutorials in this series.
 
-This tutorial is the last in a series of three:
-
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API app project. 
-* In [Deploy an API App](../app-service-dotnet-deploy-api-app/) you deployed the API appto your Azure subscription.
-* In this tutorial, you will use Visual Studio to remotely debug the code while it runs in Azure.
+You begin by using Visual Studio's **API App Client** feature to generate client code that calls the deployed API app. Then you debug the client app and the API app simultaneously, with the API app running live in the cloud.
 
 ## Generate an API app client 
 
 The API App tools in Visual Studio make it easy to generate C# code that calls to your Azure API Apps from desktop, store, and mobile apps. 
 
-In Visual Studio, open the solution that contains the API app from the [first](../app-service-dotnet-create-api-app/) tutorial. Right-click the solution and select the **Add** > **New Project**.
+In Visual Studio, open the solution that contains the API app from the [first](app-service-dotnet-create-api-app.md) tutorial. Right-click the solution and select the **Add** > **New Project**.
 
 ![Add a new project](./media/app-service-dotnet-remotely-debug-api-app/01-add-new-project-v3.png)
 
@@ -52,7 +48,7 @@ The wizard will download the API metadata file and generate a typed interface fo
 
 ![Generation Happening](./media/app-service-dotnet-remotely-debug-api-app/05-metadata-downloading-v3.png)
 
-Once code generation is complete, you'll see a new folder in Solution Explorer, with the name of the API app. This folder contains the code that implements that client and data models. 
+Once code generation is complete, you'll see a new folder in Solution Explorer, with the name of the API app. This folder contains the code that implements the client and data models. 
 
 ![Generation Complete](./media/app-service-dotnet-remotely-debug-api-app/06-code-gen-output-v3.png)
 
@@ -82,7 +78,7 @@ Open the **Program.cs** file from the project root and replace the **Main** meth
         Console.ReadLine();
     }
 
-From the **View** menu, select **Server Explorer**. In the Server Explorer window, expand the **App Service** node. Find the resource group that you created when you deployed your API app. Right-click the **API App** node and select **Attach Debugger**. 
+From the **View** menu, select **Server Explorer**. In the Server Explorer window, expand the *Azure > App Service** node. Find the resource group that you created when you deployed your API app. Right-click the node for your API app and select **Attach Debugger**. 
 
 ![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
@@ -100,7 +96,8 @@ The following screen shot shows the debugger when it hits the breakpoint for the
 
 ![Debugging the local client to hit the API](./media/app-service-dotnet-remotely-debug-api-app/12-debugging-live-v3.png)
 
-## Summary
+## Next steps
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API Apps.
+Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API apps.
 
+The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).

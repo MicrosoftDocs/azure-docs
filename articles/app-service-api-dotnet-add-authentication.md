@@ -20,7 +20,7 @@
 
 ## Overview
 
-In the [Deploy an API app](/app-service-dotnet-deploy-api-app/) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can access it.
+In the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial, you deployed an API app with **Available to anyone** access level. This tutorial shows how to protect an API app so that only authenticated users can access it.
 
 You'll perform the following steps:
 
@@ -32,13 +32,13 @@ You'll perform the following steps:
 
 ## Prerequisites
 
-This tutorial works with the API app that you created in [Create an API app](/app-service-dotnet-create-api-app/) and deployed in [Deploy an API app](/app-service-dotnet-deploy-api-app/).
+This tutorial works with the API app that you created in [Create an API app](app-service-dotnet-create-api-app.md) and deployed in [Deploy an API app](app-service-dotnet-deploy-api-app.md).
 
 ## Use the browser to call the API app 
 
 The simplest way to verify that your API app is publicly accessible is to call it from a browser.
 
-1. In your browser, go to the [preview portal].
+1. In your browser, go to the [Azure portal].
 
 3. From the home page click **Browse > API Apps** and then click the name of the API app you want to protect.
 
@@ -73,13 +73,15 @@ When you deployed your API app, you deployed it to a resource group. You can add
 
 - **Public (anonymous)** - Anyone can call the API app from outside the resource group without being logged in.
 - **Public (authenticated)** - Only authenticated users are allowed to call the API app from outside the resource group.
-- **Internal** - Only other API apps or web apps in the same resource group are allowed to call the API app.
+- **Internal** - Only other API apps in the same resource group are allowed to call the API app. (Calls from web apps are considered external even if the web apps are in the same resource group.)
 
 When Visual Studio created the resource group for you, it also created a *gateway*.  A gateway is a special web app that handles all requests destined for API apps in the resource group.
 
-When you go to the resource group's blade in the [preview portal](https://portal.azure.com/), you can see your API app and the gateway in the diagram.
+When you go to the resource group's blade in the [Azure portal], you can see your API app and the gateway in the diagram.
 
 ![Resource group diagram](./media/app-service-api-dotnet-add-authentication/rgdiagram.png)
+
+### Configure the API app to require authentication
 
 To configure your API app to accept only authenticated requests, you'll set its accessibility to **Public (authenticated)** and you'll configure the gateway to require authentication from a provider such as Azure Active Directory, Google, or Facebook.
 
@@ -97,6 +99,8 @@ To configure your API app to accept only authenticated requests, you'll set its 
 
 	You have now protected the API app from unauthenticated access. Next you have to configure the gateway to specify which authentication provider to use.
 
+### <a id="gateway"></a>Configure the gateway to use an authentication provider
+
 4. Scroll left back to the **API App** blade, and then click the link to the gateway.
 
 	![Click gateway](./media/app-service-api-dotnet-add-authentication/gateway.png)
@@ -111,55 +115,61 @@ To configure your API app to accept only authenticated requests, you'll set its 
 
 	![Identity blade](./media/app-service-api-dotnet-add-authentication/identityblade.png)
   
-3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use both the [management portal] and the [preview portal]. 
+3. Choose the identity provider you want to use, and follow the steps in the corresponding article to configure your API app with that provider. These articles were written for mobile apps, but the procedures are the same for API apps. Some of the procedures require you to use the [old portal]. 
 
- - [Microsoft Account](../app-service-mobile-how-to-configure-microsoft-authentication-preview/)
- - [Facebook login](../app-service-mobile-how-to-configure-facebook-authentication-preview/)
- - [Twitter login](../app-service-mobile-how-to-configure-twitter-authentication-preview/)
- - [Google login](../app-service-mobile-how-to-configure-google-authentication-preview/)
- - [Azure Active Directory](../app-service-mobile-how-to-configure-active-directory-authentication-preview/)
+ - [Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
+ - [Facebook login](app-service-mobile-how-to-configure-facebook-authentication-preview.md)
+ - [Twitter login](app-service-mobile-how-to-configure-twitter-authentication-preview.md)
+ - [Google login](app-service-mobile-how-to-configure-google-authentication-preview.md)
+ - [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
 
-As an example, the following screen shots show what you should see in the [management portal] pages and [preview portal] blades after you have set up Azure Active Directory authentication.
+As an example, the following screen shots show what you should see in the [old portal] pages and [Azure portal] blades after you have set up Azure Active Directory authentication.
 
-In the [preview portal], The **Azure Active Directory** blade has a **Client ID** from the application you created in the Azure Active Directory tab of the [management portal], and **Allowed Tenants** has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").
+In the Azure portal, The **Azure Active Directory** blade has a **Client ID** from the application you created in the Azure Active Directory tab of the old portal, and **Allowed Tenants** has your Azure Active Directory tenant (for example, "contoso.onmicrosoft.com").
 
 ![Azure Active Directory blade](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
 
-In the [management portal], the **Configure** tab for the application you created in the **Azure Active Directory** tab has the **Sign-on URL**, **App ID URI**, and **Reply URL** from the **Azure Active Directory** blade in the [preview portal].
+In the old portal, the **Configure** tab for the application you created in the **Azure Active Directory** tab has the **Sign-on URL**, **App ID URI**, and **Reply URL** from the **Azure Active Directory** blade in the Azure portal.
 
-![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
+![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
 
-![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
+![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
 
-![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
+![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
 
-![Management portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
+![Old portal AAD](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
 
 (The Reply URL in the image shows the same URL twice, once with `http:` and once with `https:`.)
 
-## Verify that authentication works 
+## Verify that authentication works
 
+**Note:** If you have a problem logging in when you do the following steps, try opening a private or incognito window.
+ 
 1. Open a browser window, and in the address bar enter the URL that calls your API app's `Get` method, as you did earlier.
 
 	This time the attempt to access the API app results in an error message.
 
 	![Chrome Get response fail](./media/app-service-api-dotnet-add-authentication/chromegetfail.png)
 
-2. In the browser, go to the login URL: 
+2. In the browser, go to the login URL. The URL follows this pattern: 
 
-    	http://[resourcegroupname]gateway.azurewebsites.net/login/[providername]
+    	http://[gatewayurl]/login/[providername]
 
-	For example, if you named your resource group myfirstrg and you configured the gateway for Azure Active Directory authentication, the URL would be the following:
+	You can get the gateway URL from the **Gateway** blade in the [Azure portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
 
-    	http://myfirstrggateway.azurewebsites.net/login/aad
+	![Gateway URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
+
+	The [providername] value is "microsoftaccount", "facebook", "twitter", "google", or "aad".
+
+	Here is a sample login URL for Azure Active Directory:
+
+		https://dropboxrgaeb4ae60b7cb4f3d966dfa43.azurewebsites.net/login/aad/
 
 	Notice that unlike the earlier URL, this one does not include your API app name:  the gateway is authenticating you, not the API app.  The gateway handles authentication for all API apps in the resource group.
 
-	(If you have a problem signing in, try opening a private or incognito window.)
-
 3. Enter your credentials when the browser displays a login page. 
  
-	If you configured Azure Active Directory login, use one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [management portal], such as admin@contoso.onmicrosoft.com.
+	If you configured Azure Active Directory login, use one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [old portal], such as admin@contoso.onmicrosoft.com.
 
 	![AAD users](./media/app-service-api-dotnet-add-authentication/aadusers.png)
 
@@ -172,13 +182,12 @@ In the [management portal], the **Configure** tab for the application you create
 	![Login completed](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get response](./media/app-service-api-dotnet-add-authentication/chromeget.png)
-	<!--todo:replace with image showing fictional names-->
 
 ## Use Postman to send a Post request
 
 When you log in to the gateway, the gateway sends back an authentication token.  This token must be included with all requests from external sources that go through the gateway. When you access an API with a browser, the browser typically stores the token in a cookie and sends it along with all subsequent calls to the API.
 
-So you can see what is happening in the background, in this section you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header.
+So you can see what is happening in the background, in this section of the tutorial you use a browser tool to create and submit a Post request, and you get the authorization token from the cookie and include it in an HTTP header. This section is optional: in the previous section you already verified that the API app accepts only authenticated access.
 
 These instructions show how to use the Postman tool in the Chrome browser, but you could do the same thing with any REST client tool and browser developer tools.
 
@@ -224,8 +233,8 @@ These instructions show how to use the Postman tool in the Chrome browser, but y
 
 ## Next steps
 
-You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](../app-service-api-apps-why-best-platform/). 
+You've seen how to protect an Azure API app by requiring Azure Active Directory or social provider authentication. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md). 
 
-[management portal]: https://manage.windowsazure.com/
-[preview portal]: https://portal.azure.com/
+[old portal]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/
 

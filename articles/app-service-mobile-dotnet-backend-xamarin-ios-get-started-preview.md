@@ -23,7 +23,12 @@
 
 This tutorial shows you how to add a cloud-based backend service to a Xamarin iOS app with Azure Mobile App. In this tutorial, you will create both a new .NET service and a simple _To do list_ app that stores app data in the .NET backend.
 
+To complete this tutorial, you need the following:
 
+* An active Azure account. If you don't have an account, you can sign up for an Azure trial and get up to 10 free mobile apps that you can keep using even after your trial ends. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+* <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>.
+
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile), where you can immediately create a short-lived starter mobile app in App Service. No credit cards required; no commitments.
 
 ## Create a new mobile app backend
 
@@ -96,15 +101,15 @@ The final stage of this tutorial is to build and run your new app.
 [10]: ./media/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with offline data sync]: /en-us/documentation/articles/app-service-mobile-xamarin-ios-get-started-offline-data-preview
-[Get started with authentication]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users
-[Get started with push notifications]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push
+[Get started with offline data sync]: app-service-mobile-xamarin-ios-get-started-offline-data-preview.md
+[Get started with authentication]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-users.md
+[Get started with push notifications]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview-push.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/
-[JavaScript backend version]: /en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started
-[Get started with data in app services using Visual Studio 2012]: /en-us/documentation/articles/app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview
-[Troubleshoot a mobile app .NET backend]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-how-to-troubleshoot-preview
+[JavaScript backend version]: partner-xamarin-mobile-services-ios-get-started.md
+[Get started with data in app services using Visual Studio 2012]: app-service-mobile-windows-store-dotnet-get-started-data-vs2012-preview.md
+[Troubleshoot a mobile app .NET backend]: app-service-mobile-dotnet-backend-how-to-troubleshoot-preview.md
 
 
 [Xamarin Studio]: http://xamarin.com/download

@@ -20,7 +20,7 @@ In this section, you will create a new web app using a sample Web Application so
 
     > [AZURE.NOTE] Before completing these steps, ensure that you've initialized your mobile app backend database by connecting a client to it. Otherwise, the web app will not be able to connect to the same database.
 
-1. In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
+1. In the [Azure Portal](https://portal.azure.com/), create a new web app, using the same Resource Group and Hosting Plan as your mobile app.
 
 2. Download the sample solution [MultiChannelToDo] and open in Visual Studio. The solution contains both a Web API project and a Web Application Project for the web client UI.
 
@@ -40,17 +40,21 @@ In this section, you will create a new web app using a sample Web Application so
 
 6. In the **Databases** section, paste the mobile app connection string as the value for **MultiChannelToDoContext**. Select only the checkbox **Use this connection string at runtime**.
 
-7. Once your Web API has been successfully published to Azure, you will see a confirmation page.
+7. Once your Web API has been successfully published to Azure, you will see a confirmation page. Copy the URL for your published service.
 
 ## Publish a TodoList web client UI from Visual Studio
 
 In this section, you will use a sample web client application implemented with AngularJS. You will then use Visual Studio to publish the project to a new hosted App Service web app in Azure. 
 
-1. In Visual Studio, right click the project **MultiChannelToDo.Web** and select **Publish**.
+1. In Visual Studio, open the project **MultiChannelToDo.Web**. Edit the file `js/service/ToDoService.js`, adding the URL to the Web API you just published:
 
-2. In the **Publish Web** wizard, select **Azure Web App** as the publish target and create a new web app without a database. 
+        var apiPath = "https://your-web-api-site-name.azurewebsites.net";
 
-3. Once your project has been sucessfully published, you will see the web UI in your browser.
+2. Right click the project **MultiChannelToDo.Web** and select **Publish**.
+
+3. In the **Publish Web** wizard, select **Azure Web App** as the publish target and create a new web app without a database. 
+
+4. Once your project has been sucessfully published, you will see the web UI in your browser.
 
 ## Test the mobile and web apps 
 

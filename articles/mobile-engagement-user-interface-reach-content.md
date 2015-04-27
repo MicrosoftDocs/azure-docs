@@ -1,22 +1,20 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Reach Content" 
-   description="User Interface Overview for the Reach section of Azure Mobile Engagement" 
+   description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
-
-# How to manage the unique content of the different types of push notification campaigns
 
 <div class="dev-center-tutorial-selector sublanding">
 <a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
@@ -35,41 +33,37 @@
 <a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
 </div>
 
-# Reach - Push Content (for each campaign type)
+# How to manage the unique content of the different types of push notification campaigns
  
 You can use the Content section of a new reach campaign to modify the content of your Announcements, Polls, Data Pushes, and Tiles (Windows Phone only). The content setting of Push campaigns is specific to the type of campaign. 
  
-## Content types
+### Content types:
 - Announcements
 - Polls
 - Data pushes
 - Tiles (Windows Phone Only)
  
 ## Content of Announcements
- 
  ![Reach-Content1][30] 
 
-## Choose the type of your announcement:
+### Choose the type of your announcement:
 -    Notification only: It is a simple standard notification. Meaning that if a user clicks on it, no additional view will appear, but only the action associated to it will occur.
 -    Text announcement: It is a notification that engages the user to have a look at a text view.
 -    Web announcement: It is a notification that engages the user to have a look at a web view.
 
-**See also:**
-
+### See also
 - [Reach - How Tos - Announcements][Link 3] 
 
-**About Web View Announcements:**
-
+### About Web View Announcements:
 Occurrences of the pattern "{deviceid}" in the HTML code or JavaScript code you provide here will be automatically replaced by the identifier of the device displaying the announcement. This is an easy way to retrieve Azure Mobile Engagement device identifiers in an external web service hosted on your back office.
 If you want to create a full screen web view (without the default Action and Exit buttons we provide) you can use the following functions from your web view announcement's JavaScript code: 
 
 -    perform the announcement action: ReachContent.actionContent()
 -    exit from the announcement: ReachContent.exitContent()
  
-## Choose your Action:
+### Choose your Action:
 
-**About Action URLs:**
-
+### About Action URLs:
 Any URL that can be interpreted by a targeted device's operating system can be used as an action URL.
 Any dedicated URL that your application might support (e.g. to make users jump to a particular screen) can also be used as an action URL.
 Each occurrence of the {deviceid} pattern is automatically replaced by the identifier of the device performing the action. This can be used to easily retrieve Azure Mobile Engagement device identifiers via an external web service hosted on your back office.
@@ -124,55 +118,49 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
     - [folder][data].[extension] 
     - Example:myfolderdata.txt
  
-## Build a Tracking URL:
+### Build a Tracking URL:
 -    See the “Settings” section of the <UI Documentation> for instruction on building a tracking URL that will allow users to download one of your other applications.
  
-## Define the texts of your announcement
+### Define the texts of your announcement
 Fill in the title, content, and button texts of your announcement. 
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on the feedback of whether this campaign was just pushed, replied, actioned, or exited.
 
-**See also:**
+### See also
 - [UI Documentation - Reach - New Push Criterion][Link 28]
 
 ## Content of Polls
- 
 ![Reach-Content2][31] 
 Fill in the title, description, and button texts of your announcement. 
 Then, add questions and choices for the answers to your questions.
 You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited. Audience targeting can also be based on Poll answer feedback, where the question and answer choice are used as criteria.
 
-**See also:**
-
+### See also
 - [UI Documentation - Reach - New Push Criterion][Link 28]
  
 ## Content of Data Pushes
- 
 ![Reach-Content3][32] 
 
-## Choose the type of your data
+### Choose the type of your data:
 - Text
 - Binary data
 - Base64 data
 
-## Define the content of your data
+### Define the content of your data
 - If you selected to push text data, copy and paste the text into the "content" box.
 - If you selected to push either binary or base64 data, use the "upload your file" button to upload your file.
 - You can target an audience of a future campaign based on the reach feedback of how users responded to this campaign. Audience targeting can be based on whether this campaign was just pushed, replied, actioned, or exited.
 
-**See also:**
-
+### See also
 - [UI Documentation - Reach - New Push Criterion][Link 28]
 
 ## Content of Tiles (Windows Phone only)
-
 ![Reach-Content4][33]
 
-## Define the content of your tile
+### Define the content of your tile
 The tile payload is the text to be displayed in the tile of your app on Windows Phone devices.
 A tile push is the Microsoft Push Notification Service (MPNS) version of a native push for Windows Phone. The tile push type is the only push type that does not have a response and so the audience of future campaigns can't be built on the results of a tile push campaign. 
 
-**See also:**
-
+### See also
 - [API Documentation - Reach API - Native Push][Link 4]
 
 <!--Image references-->
@@ -236,9 +224,9 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: ../mobile-engagement-user-interface/
-[Link 2]: ../mobile-engagement-troubleshooting-guide/
-[Link 3]: ../mobile-engagement-how-tos/
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
 [Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
 [Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
 [Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
@@ -247,21 +235,21 @@ A tile push is the Microsoft Push Notification Service (MPNS) version of a nativ
 [Link 9]: http://azure.microsoft.com/services/mobile-engagement/
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: ../mobile-engagement-user-interface-navigation/
-[Link 13]: ../mobile-engagement-user-interface-home/
-[Link 14]: ../mobile-engagement-user-interface-my-account/
-[Link 15]: ../mobile-engagement-user-interface-analytics/
-[Link 16]: ../mobile-engagement-user-interface-monitor/
-[Link 17]: ../mobile-engagement-user-interface-reach/
-[Link 18]: ../mobile-engagement-user-interface-segments/
-[Link 19]: ../mobile-engagement-user-interface-dashboard/
-[Link 20]: ../mobile-engagement-user-interface-settings/
-[Link 21]: ../mobile-engagement-troubleshooting-guide-analytics/
-[Link 22]: ../mobile-engagement-troubleshooting-guide-apis/
-[Link 23]: ../mobile-engagement-troubleshooting-guide-push-reach/
-[Link 24]: ../mobile-engagement-troubleshooting-guide-service/
-[Link 25]: ../mobile-engagement-troubleshooting-guide-sdk/
-[Link 26]: ../mobile-engagement-troubleshooting-guide-sr-info/
-[Link 27]: ../mobile-engagement-user-interface-reach-campaign/
-[Link 28]: ../mobile-engagement-user-interface-reach-criterion/
-[Link 29]: ../mobile-engagement-user-interface-reach-content/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md

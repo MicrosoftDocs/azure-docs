@@ -20,7 +20,7 @@
 
 ## Overview
 
-To design scalable and performant tables you must consider a number of factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations will be familiar to you, but while there are some similarities between the Azure Table service storage model and relational models, there are also many important differences. These differences typically lead to very different designs that may look counter-intuitive or wrong to someone familiar with relational databases, but which do make good sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences will reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (rows in relation database terminology) of data or for datasets that must support very high transaction volumes: therefore, you need to think differently about how you store your data and understand how the Table service works. A well designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
+To design scalable and performant tables you must consider a number of factors such as performance, scalability, and cost. If you have previously designed schemas for relational databases, these considerations will be familiar to you, but while there are some similarities between the Azure Table service storage model and relational models, there are also many important differences. These differences typically lead to very different designs that may look counter-intuitive or wrong to someone familiar with relational databases, but which do make good sense if you are designing for a NoSQL key/value store such as the Azure Table service. Many of your design differences will reflect the fact that the Table service is designed to support cloud-scale applications that can contain billions of entities (rows in relational database terminology) of data or for datasets that must support very high transaction volumes: therefore, you need to think differently about how you store your data and understand how the Table service works. A well designed NoSQL data store can enable your solution to scale much further (and at a lower cost) than a solution that uses a relational database. This guide helps you with these topics.  
 
 ## About the Azure Table service
 
@@ -1349,7 +1349,7 @@ If you are using the Storage Client Library, you have three options for working 
 
 If you know the type of the entity stored with a specific **RowKey** and **PartitionKey** values, then you can specify the entity type when you retrieve the entity as shown in the previous two examples that retrieve entities of type **EmployeeEntity**: [Retrieving a single entity using the Storage Client Library](#retrieving-a-single-entity-using-the-storage-client-library) and [Retrieving multiple entities using LINQ](#retrieving-multiple-entities-using-linq).  
 
-The second option is to use the **DynamicTableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **DynamicTableEntity** instances. It then uses the **EventType** property to determine the type of each entity:  
+The second option is to use the **DynamicTableEntity** type (a property bag) instead of a concrete POCO entity type (this option may also improve performance because there is no need to serialize and deserialize the entity to .NET types). The following C# code potentially retrieves multiple entities of different types from the table, but returns all entities as **DynamicTableEntity** instances. It then uses the **EntityType** property to determine the type of each entity:  
 
 	string filter = 	TableQuery.CombineFilters(
     	TableQuery.GenerateFilterCondition("PartitionKey",
@@ -1370,19 +1370,19 @@ The second option is to use the **DynamicTableEntity** type (a property bag) ins
 	IEnumerable<DynamicTableEntity> entities = employeeTable.ExecuteQuery(entityQuery);
 	foreach (var e in entities)
 	{
-    EntityProperty eventTypeProperty;
-    if (e.Properties.TryGetValue("EntityType", out eventTypeProperty))
+    EntityProperty entityTypeProperty;
+    if (e.Properties.TryGetValue("EntityType", out entityTypeProperty))
     {
-        if (eventTypeProperty.StringValue == "Employee")
+        if (entityTypeProperty.StringValue == "Employee")
         {
-            // Use eventTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
+            // Use entityTypeProperty, RowKey, PartitionKey, Etag, and Timestamp
       	  }
    	 }
 	}  
 
 Note that to retrieve other properties you must use the **TryGetValue** method on the **Properties** property of the **DynamicTableEntity** class.  
 
-A third option is to combine using the **DynamicTableEntity** type and an **EntityResolver** instance. This enables you to resolve to multiple POCO types in the same query. In this example, the **EntityResolver** delegate is using the **EventType** property to distinguish between the two types of entity that the query returns. The **Resolve** method uses the **resolver** delegate to resolve **DynamicTableEntity** instances to **TableEntity** instances.  
+A third option is to combine using the **DynamicTableEntity** type and an **EntityResolver** instance. This enables you to resolve to multiple POCO types in the same query. In this example, the **EntityResolver** delegate is using the **EntityType** property to distinguish between the two types of entity that the query returns. The **Resolve** method uses the **resolver** delegate to resolve **DynamicTableEntity** instances to **TableEntity** instances.  
 
 	EntityResolver<TableEntity> resolver = (pk, rk, ts, props, etag) =>
 	{

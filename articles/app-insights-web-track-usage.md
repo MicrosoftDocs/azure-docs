@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Track usage in web applications" 
-	description="Log user activities." 
+	pageTitle="Application Insights for JavaScript apps and web pages" 
+	description="Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript apps and web pages." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,54 +12,69 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="04/20/2015" 
 	ms.author="awills"/>
  
-# Track usage of web applications
+# Application Insights for JavaScript apps and web pages
 
-Find out how your web application is being used. Set up usage analytics and you'll find out how many users experience your service, how many of them come back,  how often they visit your site, and which pages they look at most. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your app to success with your users.
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
-Here you'll learn about collecting telemetry from the page running in the browser, but if you also set up server telemetry, the two streams will be integrated in  the Application Insights portal. 
+Find out about the performance and usage of your web page. Add Visual Studio Application Insights to your page, and you'll find out how many users you have, how often they come back, and which pages they use most. You'll also get reports of load times and any exceptions. Add a few [custom events and metrics][track], and you can analyse in detail the most popular features, the most common mistakes, and tune your page to success with your users.
 
+If you already set up server telemetry for your [ASP.NET][greenbrown] or [Java][java] web app, you'll get the picture from both client and server angles. The two streams will be integrated in the Application Insights portal.
 
-## <a name="webclient"></a> Setting up web client analytics
+## Create an Application Insights resource
 
-If you chose to add Application Insights when you were creating your web app, you can skip this step. A script will already have been inserted in your web client code. [Skip to the next step](#usage).
+The Application Insights resource is where data about your page's performance and usage is displayed. (If you already created a resource, maybe to collect data from your web server, skip this step.)
 
-#### Get an Application Insights resource in Microsoft Azure
+In the [Azure portal](http://portal.azure.com), create a new Application Insights resource:
 
-If you haven't already configured your project for Application Insights, either: 
+![Choose New, Developer Services, Application Insights.](./media/app-insights-web-track-usage/01-create.png)    
 
-* [Add Application Insights to your Visual Studio project][start], and then in Solution Explorer, right-click your project and choose **Open Application Insights**.
-
-or get one directly:
-
-* Sign up to [Microsoft Azure](http://azure.com), go to the [Preview portal](https://portal.azure.com), and add an Application Insights resource.
-
-![](./media/appinsights/appinsights-11newApp.png)
+*Questions already?* [More about creating a resource][new].
 
 
-#### Add our script to your web pages
+## Add the SDK script to your app or web pages
 
-In Quick Start, get the script for web pages.
+In Quick Start, get the script for web pages:
 
-![](./media/appinsights/appinsights-06webcode.png)
+![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-web-track-usage/02-monitor-web-page.png)
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example, in an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
 
-(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)
+The script contains the instrumentation key that directs the data to your Application Insights resource.
 
-#### <a name="usage"></a>Usage analytics
+*(If you're using a well-known web page framework, look around for Application Insights adaptors. For example, there's [an AngularJS module](http://ngmodules.org/modules/angular-appinsights).)*
 
-Run your web app, use it a bit to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or deploy it to your server.
+#### If your app isn't a web page...
 
-## Client performance overview
+If your JavaScript app isn't a web page - for example, if it's a [Cordova](http://cordova.apache.org/) app or a [Windows Runtime app using JavaScript](https://msdn.microsoft.com/library/windows/apps/br211385.aspx) - insert an extra line after the instrumentation key:
 
-In the application overview blade, the top chart on the Overview lens shows average load time at the browser, segmented into the time taken to request the page and the time taken to complete it:
+    ...{
+        instrumentationKey:"00000000-662d-4479-0000-40c89770e67c",
+        endpointUrl:"https://dc.services.visualstudio.com/v2/track"
+    } ...
 
-![](./media/app-insights-web-track-usage/07-client-perf.png)
+ 
+## <a name="run"></a>Run your app
+
+Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it with F5 on your development machine, or publish it and let users play with it.
+
+If you want to check the telemetry that a web app is sending to Application Insights, use your browser's debugging tools (F12 on many browsers). Data is sent to dc.services.visualstudio.com.
+
+## Explore your data
+
+In the application overview blade, there's a chart near the top that shows average time to load pages into the browser:
+
+
+![](./media/app-insights-web-track-usage/05-browser-page-load.png)
+
 
 *No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting][qna].*
+
+Click on that chart, and you get a more detailed version:
+
+![](./media/app-insights-web-track-usage/07-client-perf.png)
 
 This is a stacked chart which breaks the total page load time into the [standard timings defined by W3C](http://www.w3.org/TR/navigation-timing/#processing-model). 
 
@@ -68,9 +83,9 @@ This is a stacked chart which breaks the total page load time into the [standard
 Note that the *network connect* time is usually lower than you might expect, because it's an average over all requests from the browser to the server. Many individual requests have a connect time of 0 because there is already an active connection to the server.
 
 
-### Click through to client performance by page
+### Performance by page
 
-Click the client performance chart to see a more detailed blade, which includes a grid segmented by page URL:
+Further down in the details blade, there's a grid segmented by page URL:
 
 
 ![](./media/app-insights-web-track-usage/09-page-perf.png)
@@ -81,7 +96,7 @@ If you'd like to see the performance of the pages over time, double-click the gr
 
 ## Client usage overview
 
-Scroll down to see the Usage analytics lens:
+Back on the overview blade (pan left), scroll down to see the Usage analytics lens:
 
 ![](./media/appinsights/appinsights-47usage-2.png)
 
@@ -139,7 +154,9 @@ Want to find out what your users do with your app? By inserting calls in your cl
 
 If you haven't done this yet, you can get insights from your server and display the data along with your client-side data, enabling you to assess performance at the server and diagnose any issues.
 
-[Learn about adding Application Insights to your server][start].
+* [Add Application Insights to an ASP.NET app][greenbrown]
+* [Add Application Insights to a Java web app][java]
+
 
 ## <a name="video"></a> Video: Tracking Usage
 
@@ -152,8 +169,48 @@ If you haven't done this yet, you can get insights from your server and display 
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

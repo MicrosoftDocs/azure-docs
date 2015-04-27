@@ -1,46 +1,44 @@
 <properties 
    pageTitle="Azure Mobile Engagement User Interface - Home" 
-   description="User Interface Overview for the Home section of Azure Mobile Engagement" 
+   description="Learn how to manage your existing application and projects using Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
+   documentationCenter="" 
    authors="v-micada" 
-   manager="mattgre" 
+   manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
-   ms.workload="required" 
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
    ms.date="02/17/2015"
    ms.author="v-micada"/>
 
-# Azure Mobile Engagement - User Interface
+> [AZURE.SELECTOR]
+- [Introduction](mobile-engagement-user-interface.md)
+- [Navigation](mobile-engagement-user-interface-navigation.md)
+- [Home](mobile-engagement-user-interface-home.md)
+- [My Account](mobile-engagement-user-interface-my-account.md)
+- [Analytics](mobile-engagement-user-interface-analytics.md)
+- [Monitor](mobile-engagement-user-interface-monitor.md)
+- [Reach](mobile-engagement-user-interface-reach.md)
+- [Reach - Campaign](mobile-engagement-user-interface-reach-campaign.md)
+- [Reach - Criterion](mobile-engagement-user-interface-reach-criterion.md)
+- [Reach - Content](mobile-engagement-user-interface-reach-content.md)
+- [Reach - How To](mobile-engagement-how-tos.md)
+- [Segments](mobile-engagement-user-interface-segments.md)
+- [Dashboard](mobile-engagement-user-interface-dashboard.md)
+- [Settings](mobile-engagement-user-interface-settings.md)
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" class="current" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
-# Home
- 
+# How to manage your existing application and projects
 The Home section of the UI contains the list of all of your applications in My Applications, as well as the ability to grant others permissions to your applications. Anyone can access the home page of the UI by creating an account, but you need to grant other users permission in order for them to have access to your custom applications in My Projects.
 
-**See also:** 
+### See also
+-  [Troubleshooting Guide - Service][Link 24]
 
--  [Troubleshooting Guide - Service][Link 2]
- 
-## My applications:
- 
+## My applications
 ![Home1][2]
 
 This quick overview of your applications allows you to select which application you would like to open to view the detailed ribbon options. You can click the name of your application to return to the most recently visited ribbon location in your application, or click the gear icon to go directly to the "Settings" page of your application. You can search, filter, or sort the information displayed on the applications tables. You can also drag and drop the column headers to change the order. 
@@ -59,21 +57,18 @@ You can also see a chart comparing your applications.
  
 ![Home2][3]
 
-## My projects:
- 
+## My projects
 ![Home5][6]
 
 You can use projects to group your applications and give permissions to your applications. The New projects button allows you to create a new project by only entering a "name" and a "description" of your new project. Once a project is created, you can click on the project name to edit the name and description of your product and to select all the applications you want to see in this project. You can also delete this project, which will not destroy the applications it references. Nevertheless, you will lose access to all applications you do not own and that are not accessible from another project. So, be careful! 
 You can also invite a user to your project based on their e-mail address.
 
-**Roles include:** 
-
+### Roles include:
 - Viewer: A Viewer is a User who can only view the applications associated to a Project. A Viewer can access analytics and monitor data and look at Reach results. A Viewer cannot change any information, nor manage Applications or Users. A Viewer cannot create or change Reach campaign status.
 - Developer: A Developer is a User who can do everything a Viewer can do, as well as manage Applications. A Developer can enable and disable applications, change applications' information (like package and signature), and create Reach campaigns. A Developer cannot manage Users. 
 - Administrator: An Administrator is a User who can do everything a Developer can do, as well as manage Users. An Administrator can invite users to join a project, can change user roles, and can change project's information. Application level permissions can also be set in “settings”.
  
-**See also:** 
-
+### See also
 -  [UI Documentation - Settings][Link 20]
 
 <!--Image references-->
@@ -96,20 +91,20 @@ You can also invite a user to your project based on their e-mail address.
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -149,7 +144,7 @@ You can also invite a user to your project based on their e-mail address.
 [Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
 [Link 15]: mobile-engagement-user-interface-analytics.md
 [Link 16]: mobile-engagement-user-interface-monitor.md

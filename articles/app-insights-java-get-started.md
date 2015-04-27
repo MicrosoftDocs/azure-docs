@@ -17,6 +17,9 @@
  
 # Get started with Application Insights in a Java web project
 
+
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
 By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.
 
 In addition, you can set up web tests to monitor your application's availability, and insert code into your web pages to understand usage patterns.
@@ -71,6 +74,9 @@ Then refresh the project dependencies, to get the binaries downloaded.
       </dependency>
     </dependencies>
 
+
+* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.2<\version>`
+
 #### If you're using Gradle...
 
 If your project is already set up to use Gradle for build, merge the following snippet of code to your build.gradle file.
@@ -85,6 +91,8 @@ Then refresh the project dependencies, to get the binaries downloaded.
       compile group: 'com.microsoft.azure', name: 'applicationinsights-web', version: '0.9.+'
       // or applicationinsights-core for bare API
     }
+
+* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.2'`
 
 #### Otherwise ...
 
@@ -134,10 +142,15 @@ Substitute the instrumentation key that you got from the Azure portal.
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
+      <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
         <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+
       </TelemetryInitializers>
     </ApplicationInsights>
 
@@ -165,6 +178,30 @@ To get the most accurate results, the filter should be mapped before all other f
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+#### If you're using MVC 3.1 or later
+
+Edit these elements to include the Application Insights package:
+
+    <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.microsoft.applicationinsights.web.spring.RequestNameHandlerInterceptorAdapter" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+#### If you're using Struts 2
+
+Add this item to the Struts configuration file (usually named struts.xml or struts-default.xml):
+
+     <interceptors>
+       <interceptor name="ApplicationInsightsRequestNameInterceptor" class="com.microsoft.applicationinsights.web.struts.RequestNameInterceptor" />
+     </interceptors>
+     <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
+
+(If you have interceptors defined in a default stack, the interceptor can simply be added to that stack.)
+
 ## 5. View your telemetry in Application Insights
 
 Run your application.
@@ -189,9 +226,20 @@ And when viewing the properties of a request, you can see the telemetry events a
 
 [Learn more about metrics.][metrics]
 
+#### Smart address name calculation
+
+Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`
+
+
+For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` will be grouped into `GET Home/Product`.
+
+This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
+
+
+
 ## 5. Capture log traces
 
-You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalog].
+You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
 
 ## 6. Send your own telemetry
 
@@ -207,10 +255,53 @@ In addition, you can bring more features of Application Insights to bear on your
 * [Set up web tests][availability] to make sure your application stays live and responsive.
 
 
+## Questions? Problems?
+
+[Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

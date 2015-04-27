@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity" 
-   ms.date="02/20/2015"
+   ms.date="04/06/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory Code Samples 
@@ -57,6 +57,7 @@ These code samples show how to build native client applications that call web AP
  
 | Language/Platform | Sample | Description
 | ----------------- | ------ | -----------
+| Javascript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | Use the ADAL plugin for Apache Cordova to build an Apache Cordova app that calls a web API and uses Azure AD for authentication.
 | C#/.NET | [NativeClient-DotNet](http://github.com/AzureADSamples/NativeClient-DotNet) | A .NET WPF application that calls a web API that is secured by using Azure AD.
 | C#/.NET | [NativeClient-WindowsStore](http://github.com/AzureADSamples/NativeClient-WindowsStore) | A Windows Store application that calls a web API that is secured with Azure AD.
 | C#/.NET | [NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore) | A Windows Store application calling a multi-tenant web API that is secured with Azure AD.
@@ -124,7 +125,7 @@ These walkthroughs use slightly older technology, but still might be of interest
 
 | Language/Platform | Sample | Description
 | ----------------- | ------ | -----------
-| C#/.NET | [Role-Based and ACL-Based Authorization in a Windows Azure AD Application](http://go.microsoft.com/fwlink/?LinkId=331694) | Perform role-based authorization (RBAC) and ACL-based authorization in an application that is integrated with Azure AD.
+| C#/.NET | [Role-Based and ACL-Based Authorization in a Microsoft Azure AD Application](http://go.microsoft.com/fwlink/?LinkId=331694) | Perform role-based authorization (RBAC) and ACL-based authorization in an application that is integrated with Azure AD.
 | C#/.NET |  [AAL - Windows Store app to REST service - Authentication](http://go.microsoft.com/fwlink/?LinkId=330605) |  Use [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) (formerly AAL) for Windows Store Beta to add user authentication capabilities to a Windows Store app.
 | C#/.NET | [ADAL - Native App to REST service - Authentication with AAD via Browser Dialog](http://go.microsoft.com/fwlink/?LinkId=259814) |  Use [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) to add user authentication capabilities to a WPF client.
 | C#/.NET | [ADAL - Native App to REST service - Authentication with ACS via Browser Dialog](http://code.msdn.microsoft.com/AAL-Native-App-to-REST-de57f2cc) |  Use [Azure AD Authentication Library (ADAL)](http://go.microsoft.com/fwlink/?LinkID=258232) and [Access Control Service 2.0 (ACS)](http://msdn.microsoft.com/library/azure/hh147631.aspx) to add user authentication capabilities to a WPF client.

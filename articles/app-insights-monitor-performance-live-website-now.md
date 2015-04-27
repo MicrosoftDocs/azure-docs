@@ -2,8 +2,9 @@
 	pageTitle="Diagnose performance issues on a running website" 
 	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK" 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-23" 
+	ms.date="03/30/2015" 
 	ms.author="awills"/>
  
 
@@ -19,15 +20,18 @@
 
 *Application Insights is in preview.*
 
-Got a web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
-Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download latest Application Insights SDK and apply it to your application. 
+Got an ASP.NET web application that's misbehaving? Diagnose exceptions and performance issues quickly without rebuilding or redeploying it. Install the Application Insights Status Monitor in the server, and you'll be able to find performance issues and get stack traces for any exceptions.
 
-Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts by turning on code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so windows performance counters can be collected by Application Insights SDK.
+Status Monitor can be used either on its own, or as well as [adding Application Insights SDK][greenbrown] to your code. When used on its own Status Monitor will download the latest Application Insights SDK and apply it to your application. 
 
-Beside enabling of monitoring Status Monitor helps troubleshoot issues with Application Insights SDK and shows you status of monitoring of all web applications running on computer. 
+Status Monitor works for ASP.NET applications hosted on an IIS server. It enables your application to monitor calls to external dependencies such as SQL databases, other HTTP endpoints and Azure storage accounts, by turning on the code instrumentation feature for all web applications running on computer. It also ensures sufficient permissions of your application identity so that windows performance counters can be collected by the Application Insights SDK.
 
-You need admin access to the server, and a Microsoft Azure account. 
+Beside enabling monitoring, Status Monitor helps troubleshoot issues with Application Insights SDK and shows you the status of monitoring of all web applications running on the computer. 
+
+
+*Are you using an [Azure VM](http://azure.microsoft.com/documentation/services/virtual-machines/) or [Azure App Service Web Apps](websites-learning-map.md)? Just [add the monitor from the control panel](insights-perf-analytics.md).*
 
 
 ## Install Application Insights Status Monitor on your web server
@@ -66,7 +70,7 @@ After you complete the wizard, you can re-configure the agent whenever you want.
 
 ## View performance telemetry
 
-Open your account in Azure, browse Application Insights and open the resource that you created.
+Open [the Azure Preview portal](http://portal.azure.com), browse Application Insights and open the resource that you created.
 
 ![](./media/appinsights/appinsights-08openApp.png)
 
@@ -137,7 +141,48 @@ IIS support is: IIS 7, 7.5, 8, 8.5
 
 [AZURE.VIDEO app-insights-performance-monitoring]
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

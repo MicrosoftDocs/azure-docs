@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/22/2015" 
 	ms.author="josephd"/>
 
 # Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines
+
+> [AZURE.SELECTOR]
+- [Azure Portal](virtual-machines-windows-tutorial.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial-azure-preview.md)
+- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 These steps show you how to customize a set of Azure PowerShell commands that create and pre-configure a Windows-based Azure virtual machine by using a building block approach. You can use this process to quickly create a command set for a new Windows-based virtual machine and expand an existing deployment or to create multiple command sets that quickly build out a custom dev/test or IT pro environment.
 
@@ -30,7 +35,7 @@ If you haven't done so already, use the instructions in [How to install and conf
 
 ## Step 2: Set your subscription and storage account
 
-Set your Azure subscription and storage account by running theses commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription and storage account by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	$subscr="<subscription name>"
 	$staccount="<storage account name>"
@@ -144,17 +149,13 @@ Optionally, add the virtual machine to an existing load-balanced set for externa
 
 Finally, start the virtual machine creation process by choosing one of these command blocks (required).
 
-Option 1: Create the virtual machine in a new cloud service. 
-
-	New-AzureVM –Location "<An Azure location, such as US West>" -VMs $vm1
-
-Option 2: Create the virtual machine in an existing cloud service. 
+Option 1: Create the virtual machine in an existing cloud service. 
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
 The short name of the cloud service is the name that appears in the list of Cloud Services in the Azure Management Portal or in the list of Resource Groups in the Azure Preview Portal. 
 
-Option 3: Create the virtual machine in an existing cloud service and virtual network.
+Option 2: Create the virtual machine in an existing cloud service and virtual network.
 
 	$svcname="<short name of the cloud service>"
 	$vnetname="<name of the virtual network>"

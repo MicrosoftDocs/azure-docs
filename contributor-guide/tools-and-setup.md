@@ -84,7 +84,7 @@ You need to install the tools if you want to make any of the following sorts of 
 
 Anybody with a GitHub account can contribute to Azure technical content through our public repository at [https://github.com/Azure/azure-content](https://github.com/Azure/azure-content). No special permissions are required.
 
-If you are an employee working on content for an unreleased technology, you need to work in our private content repository. See the [internal wiki for information](http://go.microsoft.com/fwlink/?LinkId=524850).
+If you are a Microsoft employee working on Azure content, you need to work in our private content repository, azure-content-pr. Visit [http://aka.ms/azuregithub](http://aka.ms/azuregithub) to obtain permissions. 
 
 ## Install Git for Windows
 
@@ -127,7 +127,7 @@ We author content using simple "markdown" notation in the files, rather than com
 
 ## Fork the repository and copy it to your computer
 
-1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.
+1. Create a fork of the repository in GitHub - go to the top-right of the page and click the Fork button. If prompted, select your account as the location where the fork should be created. This creates a copy of the repository within your Git Hub account. Generally speaking, technical writers and program managers need to fork azure-content-pr, the private repo. Community contributors need to fork azure-content, the public repo. You only need to fork one time; after your first setup, if you want to copy your fork to another computer, you only have to run the commands that follow in this section to copy the repo to your computer.  If you choose to create forks of both repositories, you will need to create a fork for each repository.
 
 2. Next, copy the repository to your computer. To do this, open GitBash. At the command prompt, enter the following command. This command creates a azure-content(-pr) directory on your computer. If you’re using the default location, it will be at c:\users\<your Windows user name>\azure-content(-pr).
 

@@ -47,12 +47,18 @@ For further detail about the activities and events logged, see the <a href="http
 
 You also choose the storage account where audit logs will be saved.
 
-###Security-enabled connection string
-When you set up auditing, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you need to update existing client applications to use the new string format.
+###Security-enabled access
+There are two methods to get auditing for your connection:
+
+1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**.
+
+2. For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
 
 Traditional connection string format: <*server name*>.database.windows.net
 
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
+
+**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, JDBC 4.0 and below, and ODBC 10.0 and below.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database

@@ -24,7 +24,7 @@ Scaling up on Azure Web apps involves two related actions: changing your App Ser
 
 Changing modes and configuring them is easily done in the Scale tab of the management portal. You can scale up or down as required. These changes take only seconds to apply and affect all web apps in your service plan. They do not require your code to be changed or your applications to be redeployed.
 
-For information about App Service plans (formerly Web Hosting Plans), see [What is an App Service Hosting Plan?](../web-sites-web-hosting-plan-overview/) and [Azure App Service Hosting Plans In-Depth Overview](../azure-web-sites-web-hosting-plans-in-depth-overview/). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](http://http://azure.microsoft.com/pricing/details/web-sites/).  
+For information about App Service plans (formerly Web Hosting Plans), see [What is an App Service Hosting Plan?](web-sites-web-hosting-plan-overview.md) and [Azure App Service Hosting Plans In-Depth Overview](azure-web-sites-web-hosting-plans-in-depth-overview.md). For information the pricing and features of individual App Service plans, see [App Service Pricing Details](http://http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Before switching a web app from the **Free** mode to **Basic** or **Standard** mode, you must first remove the spending caps in place for your Azure App Service subscription. To view or change options for your Microsoft Azure App Service subscription, see [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -138,7 +138,7 @@ Depending on the web app's Service plan mode, the following developer-oriented f
 
 ### Web Endpoint Monitoring ###
 
-- Web endpoint monitoring is available in the Basic and Standard App Service plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](../web-sites-monitor/).
+- Web endpoint monitoring is available in the Basic and Standard App Service plan modes. For more information about web endpoint monitoring, see [How to Monitor Web Apps](web-sites-monitor.md).
 
 - For detailed information about all of the remaining features in the App Service plans, including pricing and features of interest to all users (including developers), see [App Service Pricing Details](http://azure.microsoft.com/pricing/details/web-sites/).
 

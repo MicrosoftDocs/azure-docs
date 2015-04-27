@@ -3,7 +3,7 @@
    description="This article will help you understand what Traffic Manager is, and how it works"
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="04/02/2015"
+   ms.author="joaoma" />
 
 # Traffic Manager Overview
 

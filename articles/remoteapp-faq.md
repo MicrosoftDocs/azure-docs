@@ -63,10 +63,10 @@ We've heard the following questions about Azure RemoteApp. Have others? Visit th
 - **Who can I talk to learn more about Azure RemoteApp?** In addition to our [discussion forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=AzureRemoteApp), which is a great place to post questions, you can join the weekly [Ask the Experts webinar](https://azureinfo.microsoft.com/US-Azure-WBNR-FY15-11Nov-AzureRemoteAppAskTheExperts-Registration-Page.html), where we talk about all things RemoteApp.
 - **What about RemoteApp documentation?** We're so glad you asked. In addition to the help content in the portal help drawer (just click the **?** on any page in the portal), the following articles are available to teach you all about RemoteApp:
 	- **Get started:**
-		- [What is RemoteApp?](../remoteapp-whatis/)
-		- [What is in the RemoteApp template images?](../remoteapp-images/)
-		- [How does licensing work?](../remoteapp-licensing/)
-		- [How do RemoteApp and Office work together?](../remoteapp-o365/)
+		- [What is RemoteApp?](remoteapp-whatis.md)
+		- [What is in the RemoteApp template images?](remoteapp-images.md)
+		- [How does licensing work?](remoteapp-licensing.md)
+		- [How do RemoteApp and Office work together?](remoteapp-o365.md)
 		- [How does redirection work in RemoteApp](remoteapp-redirection.md)?
 	- **Deploy:**
 		- [Create a custom template image](remoteapp-create-custom-image.md)

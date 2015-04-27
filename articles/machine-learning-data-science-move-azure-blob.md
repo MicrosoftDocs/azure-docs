@@ -3,7 +3,7 @@
 	description="Move Data to and from  Azure Blob Storage" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="sunliangms,sachouks" 
+	authors="msolhab" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="sunliangms,sachouks" />
+	ms.date="04/07/2015" 
+	ms.author="sunliangms;sachouks;mohabib" />
 
 # Move Data to and from Azure Blob Storage
 
-The [Cloud data science sample scenarios](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-plan-sample-scenarios) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
+The [Cloud data science sample scenarios](machine-learning-data-science-plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows. If you need to move data to and from Azure Blob storage based on you scenario, use one of the following methods:
 
 - [Using Azure Storage Explorer](#explorer)
 - [Using AzCopy Command line utility](#AzCopy)

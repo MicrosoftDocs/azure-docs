@@ -140,7 +140,7 @@ Normally, a browser will not allow JavaScript in a page hosted by a website on o
 Both of these technologies can help you avoid unnecessary load (and bottlenecks) on your web application.  
 
 ####Useful Resources
-For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](http://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).  
+For more information about SAS, see [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/).  
 
 For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -375,7 +375,7 @@ For up to date cost information, see [Storage Pricing Details](http://azure.micr
 ###<a name=subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
 
-For more information, see the article [How to: Change the contents of a queued message](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/#change-contents).  
+For more information, see the article [How to: Change the contents of a queued message](../storage-dotnet-how-to-use-queues/#change-contents).  
 
 ###<a name=subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Add Application Insights SDK to your web project" 
+	pageTitle="Add Application Insights SDK to monitor your ASP.NET app" 
 	description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/09/2015" 
+	ms.date="03/31/2015" 
 	ms.author="awills"/>
 
-# Add Application Insights SDK to your web project
+# Add Application Insights SDK to monitor your ASP.NET app
+
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 *Application Insights is in preview.*
 
-Add the Application Insights SDK to monitor your application for:
+Add the Application Insights SDK to monitor your ASP.NET application for:
 
 * **Performance**  - Detect and diagnose perf issues and exceptions.
 * **Usage** - Find out what users are doing with your app.
@@ -92,12 +94,15 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 
 ## Next steps
 
+
 #### Detect and diagnose issues
 
+* Add dependency tracking:
+ * [IIS Server][redfield] - Install Status Monitor on your IIS server 
+ * [Azure VM or Web App][azure] - Add the Application Insights extension
 * [Set up web tests][availability] to make sure your application stays live and responsive.
-* [Install Status Monitor in your server][redfield] to get additional performance data and monitor your application's calls to external services.
-* [Search events and logs][diagnostic] to help diagnose problems.
-* [Add web client telemetry][usage] to see exceptions in web page code and to let you insert trace calls.
+* [Capture log traces][netlogs] from your favorite logging framework
+* [Add web client telemetry][client] to see exceptions in web page code
 
 #### Track usage
 
@@ -110,6 +115,48 @@ Please see [this Troubleshooting item](app-insights-troubleshoot-faq.md#NuGetBui
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
+[alerts]: app-insightss-alerts.md
+[android]: https://github.com/Microsoft/AppInsights-Android
+[api]: app-insights-custom-events-metrics-api.md
+[apiproperties]: app-insights-custom-events-metrics-api.md#properties
+[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
+[availability]: app-insights-monitor-web-app-availability.md
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+[azure-usage]: insights-usage-analytics.md
+[azurediagnostic]: insights-how-to-use-diagnostics.md
+[client]: app-insights-web-track-usage.md
+[config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
+[desktop]: app-insights-windows-desktop.md
+[detect]: app-insights-detect-triage-diagnose.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[export]: app-insights-export-telemetry.md
+[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[javalogs]: app-insights-java-trace-logs.md
+[javareqs]: app-insights-java-track-http-requests.md
+[knowUsers]: app-insights-overview-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
+[perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
+[portal]: http://portal.azure.com/
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[roles]: app-insights-role-based-access-control.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
+[windowsCrash]: app-insights-windows-crashes.md
+[windowsUsage]: app-insights-windows-usage.md
 

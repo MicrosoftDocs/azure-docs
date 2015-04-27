@@ -3,7 +3,7 @@
 	description="Learn how to use Azure App Service to send push notifications to your Windows Universal app." 
 	services="app-service\mobile" 
 	documentationCenter="windows" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -105,6 +105,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
+        using Microsoft.Azure.Mobile.Server.Config;
 
 4. Add the following snippet to the `PostTodoItem` method after the **InsertAsync** call:  
 
@@ -113,24 +114,17 @@ Now that push notifications are enabled in the app, you must update your app bac
         string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
         // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName)
+        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
         // windows payload
         var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
 
-        try
-        {
-            await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
-        }
-        catch (System.Exception ex)
-        {
-            throw ex;
-        }
+        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
     This code tells the Notification Hub associated with this mobile app to send a push notification after a todo item insertion.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile backend to Azure</h2>
+## <a name="publish-the-service"></a>Publish the mobile backend to Azure
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
@@ -157,7 +151,7 @@ Now that push notifications are enabled in the app, you must update your app bac
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
             
-            var result = MobileService.GetPush().RegisterAsync(channel.Uri);
+            await MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     This code retrieves the ChannelURI for the app from WNS, and then registers that ChannelURI with your App Service Mobile App.
@@ -168,9 +162,7 @@ Now that push notifications are enabled in the app, you must update your app bac
 
     This guarantees that the short-lived ChannelURI is registered each time the application is launched.
 
-6. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**:
-
-    ![][18]
+6. In Solution Explorer double-click **Package.appxmanifest** of the Windows Store app, in **Notifications**, set **Toast capable** to **Yes**.
 
     From the **File** menu, click **Save All**.
 
@@ -199,15 +191,3 @@ Your app is now ready to receive toast notifications.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users
-[Get started with Mobile Services]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview
-
-[Send push notifications to authenticated users]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
-
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
-
-[How to use a .NET client for Azure Mobile Services]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

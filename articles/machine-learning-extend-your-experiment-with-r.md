@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/09/2015"
+	ms.date="04/21/2015"
 	ms.author="garye" />
 
 
 #Extend your experiment with R 
 
-You can extend the functionality of ML Studio through the R language by using the **Execute R Script** module. 
+You can extend the functionality of ML Studio through the R language by using the [Execute R Script][execute-r-script] module. 
 
-This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the **Execute R Script** module. 
+This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module. 
 
 You access each input port of the module by using code similar to the following: 
 
@@ -29,16 +29,16 @@ You access each input port of the module by using code similar to the following:
 
 ##Listing all currently-installed packages
 
-The list of installed packages can change. To get the complete list, include the following lines in the **Execute R Script** module to send the list to the output dataset:
+The list of installed packages can change. To get the complete list, include the following lines in the [Execute R Script][execute-r-script] module to send the list to the output dataset:
 
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-To view the output log, run the experiment, select the **Execute R Script** module, and click the **View output log** link near the bottom of the module properties pane. 
+To view the output log, run the experiment, select the [Execute R Script][execute-r-script] module, and click the **View output log** link near the bottom of the module properties pane. 
 
 ##Importing packages
 
-You also can import packages that are not already installed from a staged ML Studio repository by using the following commands in the **Execute R Script** module and zipped package archive: 
+You also can import packages that are not already installed from a staged ML Studio repository by using the following commands in the [Execute R Script][execute-r-script] module and zipped package archive: 
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -494,3 +494,7 @@ To get the complete list of packages that are currently available, see the secti
 | zic | Bayesian Inference for Zero-Inflated Count Models |
 | zipfR | Statistical models for word frequency distributions |
 | zoo | S3 Infrastructure for Regular and Irregular Time Series (Z's ordered observations) |
+
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/

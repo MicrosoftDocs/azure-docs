@@ -1,5 +1,5 @@
 ## Send messages to Event Hubs
-In this section, you will write a Windows console app to send events to your Event Hub.
+In this section, you'll write a Windows console app that sends events to your Event Hub.
 
 1. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Sender**.
 
@@ -19,7 +19,7 @@ In this section, you will write a Windows console app to send events to your Eve
 
 		using Microsoft.ServiceBus.Messaging;
 
-5. Add the following `static` fields to the **Program** class, substituting the values with the name of the Event Hub you created in the previous section, and the connection string with **send** rights:
+5. Add the following fields to the **Program** class, substituting the placeholder values with the name of the Event Hub you created in the previous section, and the connection string with **Send** rights:
 
 		static string eventHubName = "{event hub name}";
         static string connectionString = "{send connection string}";
@@ -48,7 +48,7 @@ In this section, you will write a Windows console app to send events to your Eve
             }
         }
 
-	This method will continuously send events to your Event Hub with a 200ms delay.
+	This method continuously sends events to your Event Hub with a 200ms delay.
 
 7. Finally, add the following lines to the **Main** method:
 

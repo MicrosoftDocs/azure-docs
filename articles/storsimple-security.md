@@ -46,7 +46,7 @@ Because the StorSimple Manager service is hosted in Azure, it is protected by th
 
 The StorSimple device is an on-premises hybrid storage device that contains solid state drives (SSDs) and hard disk drives (HDDs), together with redundant controllers and automatic failover capabilities. The controllers manage storage tiering, placing currently used (or hot) data on local storage (in the StorSimple device or on-premises servers), while moving less frequently used data to the cloud.
 
-## Protect your StorSimple solution via device registration
+## Control access to StorSimple via device registration
 
 Only authorized StorSimple devices are allowed to join the StorSimple Manager service that you created in your Azure subscription. 
 
@@ -58,7 +58,7 @@ To authorize a device, you must register it with the StorSimple Manager service 
 > * After a device is registered, it uses tokens to communicate with Microsoft Azure. The service registration key is not used after device registration.
 
 
-### Protect your StorSimple solution via passwords
+## Protect your StorSimple solution via passwords
 
 Passwords are an important aspect of computer security and are used extensively in the Microsoft Azure StorSimple solution to help ensure that your data is accessible to authorized users only. StorSimple allows you to configure the following passwords:
 
@@ -223,7 +223,7 @@ The following are some questions and answers about security and Microsoft Azure 
 - [Configure Snapshot Manager](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 - [Authenticate a device](https://msdn.microsoft.com/library/azure/dn790537.aspx)
 
-**Q: ** The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device. How do I update my remote access clients?
+**Q:** The certificate for remote access to the Windows PowerShell for StorSimple has been changed on the device. How do I update my remote access clients?
 
 **A:** You can download the new certificate from the StorSimple Manager service, and then provide it to be installed in the certificate store of your remote access clients. For instructions, go to:
 

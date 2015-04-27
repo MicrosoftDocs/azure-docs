@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="04/20/2015" 
 	ms.author="kempb"/>
 
 # Getting Started with Azure Storage (ASP.NET 5 Projects)
@@ -42,7 +42,7 @@ To programmatically access blobs in ASP.NET 5 projects, you need to add the foll
 
 2. Use the following code to get the configuration setting.
 
-		 Configuration = new Configuration()
+		 IConfigurationSourceRoot config = new Configuration()
                 .AddJsonFile("config.json")
                 .AddEnvironmentVariables();
 

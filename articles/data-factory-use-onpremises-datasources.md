@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="04/17/2015" 
 	ms.author="spelluru"/>
 
 # Enable your pipelines to work with on-premises data
@@ -35,7 +35,7 @@ To be able to add an on-premises data source as a linked service to a data facto
 
 Data Management Gateway has a full range of on-premises data connection capabilities that include the following:
 
-- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure.
+- **Non-intrusive to corporate firewall** – Data Management Gateway just works after installation, without having to open up a firewall connection or requiring intrusive changes to your corporate network infrastructure. 
 - **Encrypt credentials with your certificate** – Credentials used to connect to data sources are encrypted with a certificate fully owned by a user. Without the certificate, no one can decrypt the credentials into plain text, including Microsoft.
 
 ### Considerations for using Data Management Gateway
@@ -43,8 +43,18 @@ Data Management Gateway has a full range of on-premises data connection capabili
 2.	You can have **only one instance of Data Management Gateway** installed on your machine. Suppose, you have two data factories that need to access on-premises data sources, you need to install gateways on two on-premises computers where each gateway tied to a separate data factory.
 3.	The **gateway does not need to be on the same machine as the data source**, but staying closer to the data source reduces the time for the gateway to connect to the data source. We recommend that you install the gateway on a machine that is different from the one that hosts on-premises data source so that the gateway does not compete for resources with data source.
 4.	You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories. 
-5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine. 
+5.	If you already have a gateway installed on your computer serving a **Power BI** scenario, please install a **separate gateway for Azure Data Factory** on another machine.
 
+### Ports and security considerations 
+- The Data Management Gateway installation program opens **8050** and **8051** ports on the gateway machine. These ports are used by the **Credentials Manager** (ClickOnce application), which allows you to set credentials for an on-premises linked service and to test connection to the data source. These ports cannot be reached from internet and you do not need have these opened in the corporate firewall.
+- When copying data from/to an on-premises SQL Server database to/from an Azure SQL database, ensure the following:
+ 
+	- Firewall on the gateway machine allows outgoing TCP communication on **TCP** port **1433**
+	- Configure [Azure SQL firewall settings](https://msdn.microsoft.com/library/azure/jj553530.aspx) to add the **IP address of the gateway machine** to the **allowed IP addresses**.
+
+- When copying data to/from on-premises SQL Server to any destination and the gateway and SQL Server machines are different, do the following: [configure Windows Firewall](https://msdn.microsoft.com/library/ms175043.aspx) on the SQL Server machine so that the gateway can access the database via ports that the SQL Server instance listens on. For the default instance, it is port 1433.  
+
+- You must launch the **Credentials Manager** application on a computer that is able to connect to the Data Management Gateway to be able to set credentials for the data source and to test connection to the data source.
 
 ### Gateway installation - prerequisites 
 
@@ -183,7 +193,7 @@ In this step, you will create two linked services: **StorageLinkedService** and 
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
 	
   
-
+> [AZURE.NOTE] You can also create a SQL Server linked service by clicking **New data store** toolbar button on the **Linked Services** blade. If you go this route, you set credentials for the data source by using the Credentials Manager ClickOnce application that runs on the computer accessing the portal. If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it will not allow you to set credentials for the data source and to test connection to the data source.
 
 #### Add a linked service for an Azure storage account
  
@@ -423,6 +433,18 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 	![EmpOnPremSQLTable slices][image-data-factory-onprem-sqltable-slices]
 
 6. Notice that the data slices up to the current time have already been produced and they are **Ready**. It is because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom.
+
+
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+    
+
+	-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	Click on the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
+	
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
+
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
 	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
@@ -430,6 +452,9 @@ In this step, you will use the Azure Portal to monitor what’s going on in an A
 9. Click on any data slice from the list and you should see the **DATA SLICE** blade.
 
 	![Data Slice Blade][image-data-factory-dataslice-blade]
+
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
+
 10. Click on the **activity run** from the list at the bottom to see **activity run details**.
 
 	![Activity Run Details blade][image-data-factory-activity-run-details]
@@ -493,20 +518,6 @@ This section describes how to create and register a gateway using Azure PowerShe
 		Get-AzureDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
 
 You can remove a gateway using the **Remove-AzureDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzureDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
-
-
-
-
-## See Also
-
-Article | Description
------- | ---------------
-[Get started with Azure Data Factory][adf-getstarted] | This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issues.  
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
 
 

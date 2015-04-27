@@ -38,39 +38,20 @@ use the Azure Storage Client Library for .NET. The scenarios covered include
 
 ## Programmatically access Blob storage
 
-### Obtaining the assembly
-We recommend that you use NuGet to obtain the `Microsoft.WindowsAzure.Storage.dll` assembly. Right-click your project in **Solution Explorer** and choose **Manage NuGet Packages**.  Search online for "WindowsAzure.Storage" and click **Install** to install the Azure Storage package and dependencies.
-
-`Microsoft.WindowsAzure.Storage.dll` is also included in the Azure SDK for .NET, which can be downloaded from the <a href="http://azure.microsoft.com/develop/net/#">.NET Developer Center</a>. The assembly is installed to the `%Program Files%\Microsoft SDKs\Azure\.NET SDK\<sdk-version>\ref\` directory.
+[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../includes/storage-dotnet-obtain-assembly.md)]
 
 ### Namespace declarations
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
+    using Microsoft.WindowsAzure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
-	using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage.Blob;
 
 Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
 
-### Retrieving your connection string
-You can use the **CloudStorageAccount** type to represent 
-your Storage Account information. If you are using an 
-Azure project template and/or have a reference to 
-Microsoft.WindowsAzure.CloudConfigurationManager, you 
-can you use the **CloudConfigurationManager** type
-to retrieve your storage connection string and storage account
-information from the Azure service configuration:
-
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-If you are creating an application with no reference to Microsoft.WindowsAzure.CloudConfigurationManager, and your connection string is located in the `web.config` or `app.config` as show above, then you can use **ConfigurationManager** to retrieve the connection string.  You will need to add a reference to System.Configuration.dll to your project, and add another namespace declaration for it:
-
-	using System.Configuration;
-	...
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-		ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString);
+[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../includes/storage-dotnet-retrieve-conn-string.md)]
 
 A **CloudBlobClient** type allows you to retrieve objects that represent
 containers and blobs stored within the Blob Storage Service. The
@@ -79,8 +60,7 @@ account object we retrieved above:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-### ODataLib dependencies
-ODataLib dependencies in the Storage Client Library for .NET are resolved through the ODataLib (version 5.0.2) packages available through NuGet and not WCF Data Services.  The ODataLib libraries can be downloaded directly or referenced by your code project through NuGet.  The specific ODataLib packages are [OData], [Edm], and [Spatial].
+[AZURE.INCLUDE [storage-dotnet-odatalib-dependencies](../includes/storage-dotnet-odatalib-dependencies.md)]
 
 ## Create a container
 
@@ -309,46 +289,22 @@ This example shows a flat blob listing, but you can also perform a hierarchical 
 
 Because the sample method calls an asynchronous method, it must be prefaced with the `async` keyword, and it must return a **Task** object. The await keyword specified for the **ListBlobsSegmentedAsync** method suspends execution of the sample method until the listing task completes.
 
-    async public static Task ListBlobsSegmentedInFlatListing()
+    async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        // Retrieve storage account from connection string.
-        CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-            CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-        // Create the blob client.
-        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
-        // Retrieve reference to a previously created container.
-        CloudBlobContainer container = blobClient.GetContainerReference("myblobs");
-
-        //List blobs in pages.
+        //List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
-        //List blobs with a paging size of 10, for the purposes of the example. 
-		//The first call does not include the continuation token.
-        BlobResultSegment resultSegment = await container.ListBlobsSegmentedAsync(
-                "", true, BlobListingDetails.All, 10, null, null, null);
-
-        //Enumerate the result segment returned.
         int i = 0;
-        if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
-        foreach (var blobItem in resultSegment.Results)
-        {
-            Console.WriteLine("\t{0}", blobItem.StorageUri.PrimaryUri);
-        }
-        Console.WriteLine();
+        BlobContinuationToken continuationToken = null;
+        BlobResultSegment resultSegment = null;
 
-        //Get the continuation token, if there are additional pages of results.
-        BlobContinuationToken continuationToken = resultSegment.ContinuationToken;
-
-        //Check whether there are more results and list them in pages of 10 while a continuation token is returned.
-        while (continuationToken != null)
+        //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+        //When the continuation token is null, the last page has been returned and execution can exit the loop.
+        do
         {
-            //This overload allows control of the page size. 
-			//You can return all remaining results by passing null for the maxResults parameter, 
+            //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter, 
             //or by calling a different overload.
-            resultSegment = await container.ListBlobsSegmentedAsync(
-					"", true, BlobListingDetails.All, 10, continuationToken, null, null);
+            resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
             foreach (var blobItem in resultSegment.Results)
             {
@@ -356,9 +312,10 @@ Because the sample method calls an asynchronous method, it must be prefaced with
             }
             Console.WriteLine();
 
-            //Get the next continuation token.
+            //Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
         }
+        while (continuationToken != null);
     }
 
 ## Next steps
