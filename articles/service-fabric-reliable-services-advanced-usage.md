@@ -62,7 +62,7 @@ For more advanced topics related to Service Fabric, see the following articles.
 
 - [Service Fabric Health Introduction](service-fabric-health-introduction.md)
 
-- [Understand and troubleshoot with System health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+- [Using System health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 - [Placement Constraints Overview](service-fabric-placement-constraint.md)
 
