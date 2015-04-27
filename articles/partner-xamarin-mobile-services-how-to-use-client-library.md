@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/24/2015" 
-	ms.author="donnam"/>
+	ms.author="lindydonna"/>
 
 # How to use the Xamarin Component client for Azure Mobile Services
 [AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
@@ -412,7 +412,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 * Get started with authentication ([Xamarin.iOS][Get started with authentication iOS]/[Xamarin.Android][Get started with authentication Android])
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* Validate and modify data with scripts ([Xamarin.iOS][Validate and modify data with scripts iOS]/[Xamarin.Android][Validate and modify data with scripts Android])
+* Validate and modify data with scripts ([Xamarin.iOS][Validate and modify data with scripts ios]/[Xamarin.Android][Validate and modify data with scripts android])
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
 * Refine queries with paging ([Xamarin.iOS][Refine queries with paging iOS]/[Xamarin.Android][Refine queries with paging Android])
