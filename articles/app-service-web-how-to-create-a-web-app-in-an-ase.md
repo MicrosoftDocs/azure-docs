@@ -35,15 +35,15 @@ instead of
 
 [*sitename*].azurewebsites.net   
 
-For now, your web app name needs to be unique across all of Azure App Services.  This means you if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in Azure App Services.  
+For now, your web app name needs to be unique across the entire Azure App Service.  This means you if you want to create a web app named "thisismywebapp" then there currently cannot be any other web app named "thisismywebapp" in the Azure App Service.  
 
 ### App Service Plans ###
 
-If the term is unfamiliar, App Service Plans used to be called Web Hosting Plans. Simply put, App Service Plans are containers that hold a set of your web apps.  When you select pricing, that is applied against the App Service Plan.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth][Appserviceplans] 
+If the term is unfamiliar, App Service Plans used to be called Web Hosting Plans. Simply put, App Service Plans are containers that hold a set of your web apps.  When you select pricing, the price charged is applied to the App Service Plan.  To scale up the number of instances of a web app you scale up the instances of your ASP and it affects all of the web apps in that plan.  Some features such as site slots or VNET Integration also have quantity restrictions within the plan.  You can learn more about App Service Plans from the document here: [Azure App Service plans in-depth][Appserviceplans] 
 
 If you are making a new App Service Plan, there are some differences to creating an ASP in an App Service Environment.  Among other things, your worker choices are different as there are no shared workers in an App Service Environment.  The workers you have to use are the ones that have been allocated to the App Service Environment by the admin.  This means that to create a new ASP, you need to have more workers allocated to your App Service Environment than the total number of instances across all of your ASPs in your App Service Environment.  If you don't have enough workers in your App Service Environment to create your ASP, you need to work with your App Service Environment admin to get them added.    
 
-Another difference with App Service Environment hosted ASPs is the lack of pricing selection.  When you have an App Service Environment you are paying VMs used by the system and do not have added charges for the ASPs in that environment.  Normally when you create an ASP you select a pricing plan which determines your billing.  An App Service Environment is essentially a private location where you can create content.  
+Another difference with App Service Environment hosted ASPs is the lack of pricing selection.  When you have an App Service Environment you are paying compute resources used by the system and do not have added charges for the ASPs in that environment.  Normally when you create an ASP you select a pricing plan which determines your billing.  An App Service Environment is essentially a private location where you can create content.  You pay for the environment and not to host your content.
 
 ### Selecting your App Service Environment ###
 
@@ -57,9 +57,9 @@ After selection the UI will update and replace the pricing plan picker with a wo
 
 ### Selecting your worker pool ###
 
-In the normal multi-tenant regions there are 3 sizes that are available with selection of a dedicated price plan.  In a similar fashion, customers that own an ASE can define up to 3 pools of workers and specify the size of the VM that is used for that worker pool.  Instead of selecting a pricing plan for your ASP, you select a Worker Pool.  
+Normally in the Azure App Service and outside of an App Service Environment, there are 3 sizes that are available with the selection of a dedicated price plan.  In a similar fashion, customers that own an ASE can define up to 3 pools of workers and specify the size of the VM that is used for that worker pool.  Instead of selecting a pricing plan for your ASP, you select what is called a Worker Pool.  
 
-The worker pool selection UI shows the size of the VMs used for that worker pool below the name.  The quantity available refers to how many VMs are available for use in that pool.  The total pool may actually have more VMs than this number but this value refers to simply how many are not in use.  
+The worker pool selection UI shows the size of the VMs used for that worker pool below the name.  The quantity available refers to how many VMs are available for use in that pool.  The total pool may actually have more VMs than this number but this value refers to simply how many are not in use.  If you need to adjust your App Service Environment to add more compute resources see the doc here [Configuring your App Service Environment][HowtoConfigureASE].
 
 ![][4]
 
@@ -84,3 +84,4 @@ After creating your web app and ASP it is a good idea to scale it up.  In an ASE
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment
+[HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
