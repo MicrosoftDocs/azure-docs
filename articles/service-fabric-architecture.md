@@ -18,9 +18,19 @@
 
 # Service Fabric Architecture
 
+Service Fabric, like any complex patform is built through many complex sub-systems. These systems layered together allow application developers to write service fabric applications that are 
+
+* higly available, 
+* scalable, 
+* easily manageable and 
+* easy to test.
+
 The following document shows the architecture and major subsystems of Service Fabric.
 
 ![](media/service-fabric-architecture/service-fabric-architecture.png)
+
+At the bottom of the stack is our transport. In a distributed system the ability to securely communicate between different individual nodes is critical. Our transportation stack provides the ability to securely communicate between the different nodes. On top of the communication layer, is our federation layer. The federation layer clusters the different nodes into a single unit so that the system can do failure detection, leader election and consistent routing. Above the federation layer is the reliability layer. This layer provides reliability of Service Fabric services through replication, resource management and failover management.
+
 
 The following is a list of the major Service Fabric subsystems and their functionality.
 
