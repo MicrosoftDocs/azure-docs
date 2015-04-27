@@ -21,17 +21,17 @@
 ## Overview ##
 Since an App Service Environment is always created in a subnet of a regional [virtual network][virtualnetwork], outbound connections from an App Service Environment to other backend resources can flow exclusively over the virtual network.  
 
-For example, there may be a Sql Server running on a cluster of virtual machines with port 1433 locked down.  The endpoint may be ACLd to only allow access from other resources on the same virtual network.  
+For example, there may be a SQL Server running on a cluster of virtual machines with port 1433 locked down.  The endpoint may be ACLd to only allow access from other resources on the same virtual network.  
 
 As another example, sensitive endpoints may run on-premises and be connected to Azure via either [Site-to-Site][SiteToSite] or [Azure ExpressRoute][ExpressRoute] connections.  As a result, only resources in virtual networks connected to the Site-to-Site or ExpressRoute tunnels will be able to access on-premises endpoints.
 
 For all of these scenarios, apps running on an App Service Environment will be able to securely connect to the various servers and resources.  Outbound traffic from apps running in an App Service Environment to private endpoints in the same virtual network (or connected to the same virtual network), will only flow over the virtual network.  Outbound traffic to private endpoints will not flow over the public Internet.
 
 
-## Connecting to a Sql Server
-A common Sql Server configuration has an endpoint listening on port 1433:
+## Connecting to a SQL Server
+A common SQL Server configuration has an endpoint listening on port 1433:
 
-![Sql Server Endpoint][SqlServerEndpoint]
+![SQL Server Endpoint][SqlServerEndpoint]
 
 There are two approaches for restricting traffic to this endpoint:
 
@@ -47,9 +47,9 @@ Port 1433 can be secured using a network access control list.  The example below
 
 ![Network Access Control List Example][NetworkAccessControlListExample]
 
-Any applications running in App Service Environment in the same virtual network as the Sql Server will be able to connect to the Sql Server instance using the **VNet internal** IP address for the Sql Server virtual machine.  
+Any applications running in App Service Environment in the same virtual network as the SQL Server will be able to connect to the SQL Server instance using the **VNet internal** IP address for the SQL Server virtual machine.  
 
-The example connection string below references the Sql Server using its private IP address.
+The example connection string below references the SQL Server using its private IP address.
 
     Server=tcp:10.0.1.6;Database=MyDatabase;User ID=MyUser;Password=PasswordHere;provider=System.Data.SqlClient
 
@@ -64,7 +64,7 @@ First a network security group needs to be created:
 
 Restricting access to only VNet internal traffic is very simple with a network security group.  The default rules in a network security group only allow access from other network clients in the same virtual network.
 
-As a result locking down access to Sql Server is as simple as applying a network security group with its default rules to either the virtual machines running Sql Server, or the subnet containing the virtual machines.
+As a result locking down access to SQL Server is as simple as applying a network security group with its default rules to either the virtual machines running SQL Server, or the subnet containing the virtual machines.
 
 The sample below applies a network security group to the containing subnet:
 
@@ -79,6 +79,8 @@ The end result is a set of security rules that block external access, while allo
 
 To get started with App Service Environments, see [Introduction to App Service Environment][IntroToAppServiceEnvironment]
 
+For details around controlling inbound traffic to your App Service Environment, see [Controlling inbound traffic to an App Service Environment][ControlInboundASE]
+
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
 <!-- LINKS -->
@@ -89,8 +91,8 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [NetworkAccessControlLists]: https://msdn.microsoft.com/library/azure/dn376541.aspx
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
-[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
- 
+[AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
+[ControlInboundASE]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/ 
 
 <!-- IMAGES -->
 [SqlServerEndpoint]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/SqlServerEndpoint01.png
