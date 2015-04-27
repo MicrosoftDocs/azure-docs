@@ -50,13 +50,6 @@ In this video, Scott Hanselman shows how easy it is to sign-up for a free trial 
 
 Your first step is to create a web application project. Visual Studio will automatically create the Azure web app that you'll deploy your project to later. 
 
-<!-- todo: reinstate the digram after changing website to web app in captions
-The following diagram illustrates what's happening in these two steps.
->>>>>>> 67f4fc9fc261d3288cdba263d3236b9617b6a7df
-
-![Diagram showing project creation and deployment steps](./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png)
--->
-
 1. Open Visual Studio 2013 or Visual Studio 2013 Express for Web.
 
 2. From the **File** menu, click **New Project**.
