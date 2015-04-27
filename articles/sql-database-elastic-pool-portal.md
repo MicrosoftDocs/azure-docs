@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/23/2015" 
+	ms.date="04/27/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -22,7 +22,7 @@
 > [AZURE.SELECTOR]
 - [Create an elastic pool - PowerShell](sql-database-elastic-pool-powershell.md)
 
-This article shows you how to create an Azure SQL elastic pool using the Microsoft Azure portal.
+This article shows you how to create an Azure SQL elastic pool using the [Microsoft Azure portal](https://portal.azure.com).
 
 Elastic pools simplify the process of creating, maintaining, and managing both performance and cost for large numbers of databases. For a detailed overview, see [Azure SQL Database elastic pool (preview)](sql-database-elastic-pool.md).
  
@@ -38,7 +38,7 @@ You can quickly create an elastic pool using the Azure portal.
 To create an elastic pool you need an the following:
 
 - An Azure account! If you don't have an azure account, you can [sign up for a FREE trial](http://azure.microsoft.com/pricing/free-trial/).
-- An Azure SQL Database version 12 server. If you don't have a V12 server, create one [Create your first Azure SQL Database](sql-database-get-started.md).
+- An Azure SQL Database version 12 server. If you don't have a V12 server, create one following the steps: [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 
