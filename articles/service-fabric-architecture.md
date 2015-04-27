@@ -18,9 +18,9 @@
 
 # Service Fabric Architecture
 
-Service Fabric, like any complex patform is built through many complex sub-systems. These systems layered together allow application developers to write service fabric applications that are 
+Service Fabric, like any complex platform is built through many complex sub-systems. These systems layered together allow application developers to write service fabric applications that are 
 
-* higly available, 
+* highly available, 
 * scalable, 
 * easily manageable and 
 * easy to test.
@@ -29,7 +29,7 @@ The following document shows the architecture and major subsystems of Service Fa
 
 ![](media/service-fabric-architecture/service-fabric-architecture.png)
 
-At the bottom of the stack is our transport. In a distributed system the ability to securely communicate between different individual nodes is critical. Our transportation stack provides the ability to securely communicate between the different nodes. On top of the communication layer, is our federation layer. The federation layer clusters the different nodes into a single unit so that the system can do failure detection, leader election and consistent routing. Above the federation layer is the reliability layer. This layer provides reliability of Service Fabric services through replication, resource management and failover management.
+At the bottom of the stack is our transport. In a distributed system the ability to securely communicate between different individual nodes is critical. Our transportation stack provides the ability to securely communicate between the different nodes. On top of the communication layer, is our federation layer. The federation layer clusters the different nodes into a single unit so that the system can do failure detection, leader election and consistent routing. Above the federation layer is the reliability layer. This layer provides reliability of Service Fabric services through replication, resource management and failover management. The federation layer also hosts the Hosting subsystem, which manages the lifecycle of an application on a single node. On the side are the cluster management and testability subsystems. The cluster management subsystem, manages the multi-machine lifecycle of the applications and services. The testability sub system allows the application developer to battle harden their services through simulated faults before marching them out to production environments. Service also provides the ability to resolve service locations through its communication subsystem. On top of these lower level details sits the application programming model which the application developer has to write to. 
 
 
 The following is a list of the major Service Fabric subsystems and their functionality.
