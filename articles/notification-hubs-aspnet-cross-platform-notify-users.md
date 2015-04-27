@@ -3,10 +3,10 @@
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/24/2015" 
 	ms.author="glenga"/>
 # Send cross-platform notifications to users with Notification Hubs
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/01/2015"
+	ms.date="04/27/2015"
 	ms.author="raynew"/>
 
 
@@ -107,7 +107,7 @@ The process server uses disk based cache. Ensure that there's enough free space 
 - Process server:
 	- You can deploy the process server on physical or virtual machine running Windows Server 2012 R2 with the latest updates. Install on C:/.
 	- We recommend you place the server on the same network and subnet as the machines you want to protect.
-	- Install VMware vSphere CLI 5.1 on the server so it can perform automatic discover of VMware vCenter servers.
+	- Install VMware vSphere CLI 5.5 on the server so it can perform automatic discover of VMware vCenter servers.
 - The installation path for the configuration server, master target server, process server, and failback servers should be in English characters only. For example the path should be **/usr/local/ASR** for a master target server running Linux.
 
 ### VMware prerequisites
@@ -312,7 +312,7 @@ You can configure a VPN connection to the server as follows:
 
 	![Register configuration server](./media/site-recovery-vmware-to-azure/ASRVMWare_CSRegister.png)
 
-8. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.1 on the server to be able to discover vCenter Servers. If you install VMware vSphere CLI 5.1 after the process server installation is complete, remember to reboot the process server.
+10. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.5 on the server to be able to discover vCenter Servers. If you install VMware vSphere CLI 5.5 after the process server installation is complete, remember to reboot the process server. 
 
 	![Register process server](./media/site-recovery-vmware-to-azure/ASRVMWare_PSRegister2.png)
 
@@ -342,7 +342,7 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 
 	![Select vCenter server](./media/site-recovery-vmware-to-azure/ASRVMWare_AddVCenter.png)
 
-2. Specify details for the vCenter server and select the process server that will be used to discover it.  The process server must be on the same network as the vCenter server and should have VMware vSphere CLI 5.1 installed.
+2. Specify details for the vCenter server and select the process server that will be used to discover it.  The process server must be on the same network as the vCenter server and should have VMware vSphere CLI 5.5 installed.
 3. After discovery completes the vCenter server will be listed under the configuration server details.
 
 	![vCenter server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_AddVCenter2.png)
