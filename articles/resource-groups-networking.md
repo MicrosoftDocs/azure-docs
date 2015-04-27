@@ -11,7 +11,7 @@
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="vm-windows; vm-linux"
+   ms.tgt_pltfrm="multiple"
    ms.workload="infrastructure"
    ms.date="04/29/2015"
    ms.author="rasquill"/>
