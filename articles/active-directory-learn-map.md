@@ -27,15 +27,13 @@
 
 I already have an Azure subscription. How is Azure AD related to that? [Learn more](https://msdn.microsoft.com/library/azure/dn629581.aspx)
 
-[Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+For Azure AD administrative tasks such as user management, domain management, or configuring single sign-on, use the Azure Active Directory Module for Windows PowerShell cmdlets. [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
-[Azure AD Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx) 
+Use the Azure Active Directory Graph API for programmatic access to Azure AD through REST API endpoints. [Azure AD Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx) 
 
-[Internet domain management](https://msdn.microsoft.com/library/azure/hh969248.aspx)
+You can add your own custom domain name to Azure Active Directory to use it with Microsoft online services. [Internet domain management](https://msdn.microsoft.com/library/azure/hh969248.aspx)
 
-[Azure AD service limits and restrictions](https://msdn.microsoft.com/library/azure/dn764971.aspx)
-
-[Azure AD terminology](https://msdn.microsoft.com/library/azure/jj944946.aspx)
+To understand usage constraints and other service limits for the Azure Active Directory service, see [Azure AD service limits and restrictions](https://msdn.microsoft.com/library/azure/dn764971.aspx)
 
 
 ## Additional Resources
