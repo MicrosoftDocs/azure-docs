@@ -18,7 +18,7 @@
 	ms.author="xibingaomsft,msolhab" />
 
 
-#Preprocess and Clean Data
+# Preprocess and Clean Data
 
 Raw data is often noisy, unreliable and may be missing values. Using such data for modeling can produce misleading results. Preprocessing and cleaning data is an important step that must be conducted before using a dataset for machine learning. This article introduces various data preprocessing steps that can be taken before ingesting data into Azure Machine Learning.
 
