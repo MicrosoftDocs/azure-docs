@@ -19,7 +19,6 @@
 
 Want to do some customised analysis on your telemetry? Or maybe you'd like an email alert on events with specific properties? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
-To use Continuous Export, you have to use a paying pricing tier for Application Insights.
 
 ## <a name="setup"></a> Set up continuous export
 
@@ -46,12 +45,9 @@ If you want to change the event types later, just edit the export:
 To stop the stream, click Disable. When you click Enable again, the stream will restart with new data. You won't get the data that arrived in the portal while export was disabled.
 
 To stop the stream permanently, delete the export. Doing so doesn’t delete your data from storage.
-
 #### Can't add or change an export?
 
 * To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
-* If you're using the free pricing tier for Application Insights, you need to upgrade to a paying tier in order to use Continuous Export.
-
 
 ## <a name="analyze"></a> What events do you get?
 
@@ -152,7 +148,7 @@ The continuous export will restart.
 
     If the account is owned by your organization, you have to be a member of the owners or contributors groups.
 
-    If you are using the free price tier for Application Insights, or you were on a free trial that has expired, upgrade to a paying tier in order to use continuous export.
+    <!-- Your account has to be either a paid-for account, or in the free trial period. -->
 
 * *Can I export straight to my own on-premises store?* 
 
@@ -173,46 +169,6 @@ The continuous export will restart.
 
 <!--Link references-->
 
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[export]: app-insights-export-telemetry.md
 [exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
 [roles]: app-insights-resources-roles-access-control.md
-[start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
 
