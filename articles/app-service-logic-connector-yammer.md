@@ -35,7 +35,7 @@ To use the Yammer connector, you need to first create an instance of the Yammer 
 	- **Location** - choose the geographic location where you would like the connector to be deployed
 	- **Subscription** - choose a subscription you want this connector to be created in
 	- **Resource group** - select or create a resource group where the connector should reside
-	- **Web hosting plan** - select or create a web hosting plan
+	- **App Service plan** - select or create a web hosting plan
 	- **Pricing tier** - choose a pricing tier for the connector
 	- **Name** - give a name for your Yammer Connector 
 
@@ -75,7 +75,6 @@ You can now use Yammer connector in the flow.
 		Example: Group ID in the below URL is "5453203"
 		https://www.yammer.com/microsoft.com/#/threads/inGroup?type=in_group&feedId=5453203
 
-
 	![][8]
  
 	![][9]
@@ -83,6 +82,7 @@ You can now use Yammer connector in the flow.
 ## Use the Yammer connector to post a message
 
 6.	You can also use the Yammer connector as an action in your logic apps. First, specify a trigger for your logic app or check 'run this logic manually' (as shown below). Add the yammer connector, authorize as appropriate and choose the "Post Message" action. Configure the input properties for "Post Message" action  as follows:
+
 	- **Message Text** - Text content of the message to be posted
 	- **Group ID** - Specify the ID of the group to which new message should be posted. If Group ID is not provided the message will be posted to All Company Feed. Group ID can be retrieved from the Group URL in Yammer. 
 	Example: Group ID in the below URL is "5453203"

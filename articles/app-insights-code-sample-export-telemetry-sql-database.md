@@ -148,7 +148,7 @@ You can put this code in `WorkerRole.cs`.
 
     private static string GetConnectionString()
     {
-      return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnection-String");
+      return Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
     }
 
 #### Run the worker at regular intervals
@@ -382,7 +382,7 @@ Replace the existing run method, and choose the interval you prefer. It should b
 
         public string internal_data_documentVersion { get; set; }
 
-        public DateTime context_data_eventTime { get; set; }
+        public DateTime? context_data_eventTime { get; set; }
 
         public string context_device_id { get; set; }
 
@@ -468,7 +468,7 @@ This is the schema for the table that will be generated for PageView.
 	[User] [nvarchar](max) NULL,
 	[internal_data_id] [nvarchar](max) NULL,
 	[internal_data_documentVersion] [nvarchar](max) NULL,
-	[context_data_eventTime] [datetime] NOT NULL,
+	[context_data_eventTime] [datetime] NULL,
 	[context_device_id] [nvarchar](max) NULL,
 	[context_device_type] [nvarchar](max) NULL,
 	[context_device_os] [nvarchar](max) NULL,
@@ -504,51 +504,14 @@ This is the schema for the table that will be generated for PageView.
     GO
 
 
-[Download](https://sesitai.codeplex.com/) the complete working code.
+[Download](https://sesitai.codeplex.com/) the complete working code, change the `app.config` settings & publish the worker role to Azure to see it in action.
 
 
 <!--Link references-->
 
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
 [export]: app-insights-export-telemetry.md
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
 [metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
 [start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
 
