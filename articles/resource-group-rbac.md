@@ -3,9 +3,9 @@
    description="Use role-based access control (RBAC) to manage user permissions for resources deployed to Azure."
    services="na"
    documentationCenter="na"
-   authors="squillace"
-   manager="timlt"
-   editor="tomfitz"/>
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="na"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="04/27/2015"
    ms.author="tomfitz"/>
 
-# Managing and Auditing Access to Resourchttps://acom-milestone-build.azurewebsites.net/en-us/documentation/articles/resource-group-rbac/es
+# Managing and Auditing Access to Resources
 
 With Azure Resource Manager, you can make sure the users in your organization have the appropriate permissions to manage or access resources. Resource Manager takes advantage of role-based access control (RBAC) so you can easily apply security policies to individual resources or resource groups. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but not other resources.
 
