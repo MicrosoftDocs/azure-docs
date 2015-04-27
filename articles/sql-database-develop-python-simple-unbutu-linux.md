@@ -49,7 +49,7 @@ Open your terminal and navigate to a directory where you plan on creating your p
 ### Create a database and retrieve your connection string
 
 
-See the [getting started page](./sql-database-get-started.md) to learn how to create a sample database and get your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database and get your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
 
 
 ## Connect to your SQL Database
