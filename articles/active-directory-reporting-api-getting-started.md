@@ -24,7 +24,7 @@ Azure AD includes a Reporting API that allows you to access your security, activ
 This article will walk you through the necessary steps in order to make your first authenticated HTTP request to the Azure AD Reporting API. 
 
 You will need:
-- An [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/)
+- An [Azure Active Directory](active-directory-whatis)
 - A way to make HTTP GET and POST requests; either:
 	- a bash shell with [curl](http://curl.haxx.se/)
 	- [Postman](https://www.getpostman.com/)
@@ -165,5 +165,5 @@ c0-a84f-57faf131dc2b"
 
 ## Learn more:
 - Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](https://msdn.microsoft.com/library/azure/dn283934.aspx)
-- [Azure AD Audit Report Events](http://azure.microsoft.com/documentation/articles/active-directory-reporting-audit-events/)
+- [Azure AD Audit Report Events](active-directory-reporting-audit-events)
 - For more information on the OAuth flow with Azure AD using curl: [Microsoft Azure REST API + OAuth 2.0](https://ahmetalpbalkan.com/blog/azure-rest-api-with-oauth2/)(external link)
