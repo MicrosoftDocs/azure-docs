@@ -53,9 +53,9 @@ The management subsystem provides end-to-end service and application lifecycle m
 
 The hosting layer on each node is indicated to by the cluster manager which services it needs to manage. The hosting layer sitting on each node, then manages the lifecycle of the application on that node. It interacts with the reliability and health components to ensure that the replicas are properly placed and are healthy.
 
-# Communication Subsystem
+# Communication subsystem
 This subsystem provides reliable messaging within the cluster and service discovery. This is done through the Naming service. The Naming service resolves service names to a location in the cluster and allows users to manage service names and properties. Using the Naming service, clients can securely communicate with any node in the cluster to resolve a service name and retrieve service metadata. Using a simple Naming Client API, users of Service Fabric can develop services and clients capable of resolving the current network location despite node dynamism or size of the cluster.
 
-# Testability Subsystem
+# Testability subsystem
 Testability is a suite of tools specifically designed for testing services built on  Service Fabric. The tools allow the developer to easily induce meaningful faults and run test scenarios to exercise and validate the numerous different states and transitions a service will experience throughout its lifetime, all in a controlled and safe manner. Testability also provides a mechanism to run long running tests that can iterate through various possible failures without losing availability providing users with a Test In Production environment.
 
