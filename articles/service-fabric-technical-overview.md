@@ -26,7 +26,7 @@ Service Fabric is a distributed systems platform that makes it easy to build sca
 
 **Node** - An addressable unit in a cluster. Nodes have characteristics such as placement properties and unique IDs. Nodes can join a cluster and correlate to an operating system instance with Fabric.exe running.
 
-**Application / Application Type** - A collection of (micro)services. Think of an application type as a container for one or more service types.  Please refer to the [Service Model](service-fabric-service-model.md) article to understand how a cluster (which itself consists of multiple nodes) may consist of multiple ApplicationTypes.
+**Application / Application Type** - A collection of (micro)services. Think of an application type as a container for one or more service types.  Please refer to the [Application Model](service-fabric-application-model.md) article to understand how a cluster (which itself consists of multiple nodes) may consist of multiple ApplicationTypes.
 
 **Service / Service Type** - Code and configuration that performs a standalone function (it can start and run independently), for example, a queue service or database service. An ApplicationType may consist of one ore more ServiceTypes. There are two kinds of services types:
 
@@ -51,5 +51,4 @@ Service Fabric is a distributed systems platform that makes it easy to build sca
 To learn more about Service Fabric, see:
 
 - [Application Model](service-fabric-application-model.md)
-- [Service Model](service-fabric-service-model.md)
 - [Application Scenarios](service-fabric-application-scenarios.md)

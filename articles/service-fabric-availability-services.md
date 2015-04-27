@@ -27,7 +27,7 @@ Creating a stateless service requires defining an instance count which is the nu
 When a fault is detected on any instance of the stateless service a new instance is created on some other eligible node in the cluster.
 
 ## Availability of Service Fabric stateful services
-A Stateful Service has some state that is associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is an instance of the code of the service that has a view of the state. Read and Write operations are performed at one replica (called the Primary). Changes to state due to write operations are *replicated* to multiple other replicas (called the Active Secondaries). This combination of Primary and Active Secondary replicas is the replica set of the service.
+A Stateful Service has some state that is associated with it. In Service Fabric, a stateful service is modeled as a set of replicas. Each replica is an instance of the code of the service that has a copy of the state. Read and Write operations are performed at one replica (called the Primary). Changes to state due to write operations are *replicated* to multiple other replicas (called the Active Secondaries). This combination of Primary and Active Secondary replicas is the replica set of the service.
 
 There can be only one Primary that is servicing read and write requests. There can be multiple Active Secondary replicas. The number of Active Secondary replicas is configurable and a higher number of replicas allows for tolerating a greater number of concurrent software and hardware failures.
 
@@ -44,8 +44,8 @@ The Role of a replica is used to manage the lifecycle of the state being managed
 
 For information on Service Fabric concepts, see the following:
 
-- [Scalability of Service Fabric Services](service-fabric-concept-scalability.md)
+- [Scalability of Service Fabric Services](service-fabric-concepts-scalability.md)
 
-- [Partitioning Service Fabric Services](service-fabric-concept-partitioning.md)
+- [Partitioning Service Fabric Services](service-fabric-concepts-partitioning.md)
 
 - [Defining and Managing State](service-fabric-concepts-state.md)
