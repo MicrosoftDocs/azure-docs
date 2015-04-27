@@ -11,7 +11,7 @@
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="04/27/2015" 
 	ms.author="wesmc"/>
