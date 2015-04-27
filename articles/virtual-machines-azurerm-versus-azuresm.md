@@ -47,9 +47,9 @@ In addition to the advantages mentioned above, there are some significant advanc
 
 In this section, we will walk through some of the most important conceptual differences between the XML based APIs and JSON based APIs for Compute, Network and Storage.  
 
- | Azure Service Management	| Compute, Network & Storage Providers 
- --- | --- | --- 
- | Cloud Service for Virtual Machines |	Cloud Service was a container for holding the virtual machines that required Availability from the platform & Load Balancing.	| Cloud Service is not required for creating a Virtual Machine using the new model. |
+ Item | Azure Service Management	| Compute, Network & Storage Providers 
+ ---|---|--- 
+| Cloud Service for Virtual Machines |	Cloud Service was a container for holding the virtual machines that required Availability from the platform & Load Balancing.	| Cloud Service is not required for creating a Virtual Machine using the new model.| 
 | Availability Sets	| Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. | Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that needs to belong to the same Availability Set needs to be created referencing the same availability set. |
 | Affinity Groups |	Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore |	Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
 | Load Balancing	| Creation of a Cloud Service provides an implicit load balancer | Load Balancer is a resource exposed by Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. You can read more about it here.
