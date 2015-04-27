@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Cloud Data Science Process | Azure" 
 	description="Use this guide to understand the steps for using Azure for data science and machine learning in the cloud." 
-	services="machine-learning" 
+	services="machine-learning,hdinsight" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sidneyh;sachouks" 
+	authors="sidneyh" 
 	videoId="" 
 	scriptId="" 
 	manager="jhubbard" />
@@ -16,7 +16,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="required" 
 	ms.date="02/18/2015" 
-	ms.author="sidneyh" />
+	ms.author="sidneyh;sachouks" />
 
 # Cloud data science process
 

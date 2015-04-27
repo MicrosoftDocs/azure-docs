@@ -38,7 +38,7 @@ Questions or problems with [Visual Studio Application Insights in Windows][windo
 
 ## How do I add Application Insights to a Universal App?
 
-Add the NuGet packages manually to each device project in your solution. See [Getting Started - Universal apps][windows#universal].
+Add the NuGet packages manually to each device project in your solution. See [Getting Started - Universal apps][universal].
 
 ## Disabling telemetry
 
@@ -105,8 +105,14 @@ See [Data retention and privacy][data].
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-[AZURE.INCLUDE [app-insights-windows-learn-more](../includes/app-insights-windows-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[data]: app-insights-data-retention-privacy.md
+[javalogs]: app-insights-java-trace-logs.md
+[platforms]: app-insights-platforms.md
+[track]: app-insights-custom-events-metrics-api.md
+[universal]: app-insights-windows-get-started.md#universal
+[usage]: app-insights-web-track-usage.md
+[windows]: app-insights-windows-get-started.md
 

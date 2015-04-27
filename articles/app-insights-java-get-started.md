@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,14 +12,21 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="04/26/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
 
+*Application Insights is in Preview.*
+
+[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
+
 By adding Visual Studio Application Insights to your project, you can detect and diagnose performance issues and exceptions.
 
-In addition, you can set up web tests to monitor your application's availability, and insert code into your web pages to understand usage patterns.
+
+![sample data](./media/app-insights-java-track-http-requests/5-results.png)
+
+In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][track] to understand usage patterns.
 
 You'll need:
 
@@ -207,7 +214,7 @@ Return to your Application Insights resource in Microsoft Azure.
 
 HTTP requests data will appear on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![](./media/app-insights-java-track-http-requests/5-results.png)
+![sample data](./media/app-insights-java-track-http-requests/5-results.png)
  
 
 Click through any chart to see more detailed metrics. 
@@ -257,8 +264,14 @@ In addition, you can bring more features of Application Insights to bear on your
 [Troubleshooting Java](app-insights-java-troubleshoot.md)
 
 
-[AZURE.INCLUDE [app-insights-java-learn-more](../includes/app-insights-java-learn-more.md)]
 
+<!--Link references-->
 
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
+[javalogs]: app-insights-java-trace-logs.md
+[metrics]: app-insights-metrics-explorer.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

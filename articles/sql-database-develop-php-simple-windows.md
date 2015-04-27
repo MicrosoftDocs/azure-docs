@@ -35,7 +35,7 @@ This topic illustrates how you can connect to Azure SQL Database from a client a
 To run the PHP code sample given in this topic, your client computer must have the following software items installed:
 
 
-- [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098)
+- [Microsoft Drivers for PHP for Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) (SQLSRV32.EXE contains the latest bits)
 - [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
 - Particular installations to be accomplished by using the [Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). See the next section for details.
 

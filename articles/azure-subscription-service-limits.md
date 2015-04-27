@@ -97,7 +97,16 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
    <td valign="middle"><p>500</p></td>
    <td valign="middle"><p>500</p></td>
 </tr>
-
+<tr>
+   <td valign="middle"><p>Resource Manager API Reads</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Resource Manager API Writes</p></td>
+   <td valign="middle"><p>1200 per hour</p></td>
+   <td valign="middle"><p>1200 per hour</p></td>
+</tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
@@ -164,6 +173,38 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 <sup>1</sup>When you create a virtual machine, a cloud service is automatically created to contain the machine. You can then add multiple virtual machines in that same Cloud Service.
 
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
+
+## Resource Group Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Maximum Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p>Resources per resource group (per resource type)</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Deployments per resource group</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Resources per deployment</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Management Locks (per unique scope)</p></td>
+   <td valign="middle"><p>20</p></td>
+   <td valign="middle"><p>20</p></td>
+</tr>
+
+
+</table>
 
 ## Websites Limits
 

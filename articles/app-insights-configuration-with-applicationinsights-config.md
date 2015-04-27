@@ -154,9 +154,9 @@ This determines the Application Insights resource in which your data appears. Ty
 
 If you want to set the key dynamically - for example if you want to send results from your application to different resources - you can omit the key from the configuration file, and set it in code instead.
 
-Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
+To set the key for all instances of TelemetryClient, including standard telemetry modules, set the key in TelemetryConfiguration.Active. Do this in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
-*C#*
+```C#
 
     protected void Application_Start()
     {
@@ -164,12 +164,33 @@ Set the key in an initialization method, such as global.aspx.cs in an ASP.NET se
         TelemetryConfiguration.Active.InstrumentationKey = 
           // - for example -
           WebConfigurationManager.Settings["ikey"];
-      ...
+      //...
+```
+
+If you just want to send a specific set of events to a different resource, you can set the key for a specific TelemetryClient:
+
+```C#
+
+    var tc = new TelemetryClient();
+    tc.Context.InstrumentationKey = "----- my key ----";
+    tc.TrackEvent("myEvent");
+    // ...
+
+```
+
+[Learn more about the API][api].
 
 To get a new key, [create a new resource in the Application Insights portal][new].
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[api]: app-insights-api-custom-events-metrics.md
+[azure]: insights-perf-analytics.md
+[client]: app-insights-javascript.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[new]: app-insights-create-new-resource.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
 

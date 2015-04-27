@@ -21,15 +21,13 @@
 
 Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. 
 
-SMTP Connector lets you connect to a SMTP server and perform an action to send email with attachments.
-
-- SMTP connector "Send Email" action lets you send email to the specified email address(es). 
+SMTP Connector lets you connect to a SMTP server and perform an action to send email with attachments. SMTP connector "Send Email" action lets you send email to the specified email address(es). 
 
 ## Creating an SMTP connector for your Logic App ##
 To use the SMTP connector, you need to first create an instance of the SMTP connector API app. This can be done as follows:
 
 1.	Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-2.	Browse to “Web and Mobile > API Apps” and search for “SMTP connector”.
+2.	Browse to “Web and Mobile > Azure Marketplace” and search for “SMTP connector”.
 3.	Configure the SMTP connector as follows:
  
 	![][1]

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2015"
+	ms.date="04/21/2015"
 	ms.author="garye" />
 
 
@@ -24,7 +24,7 @@ There are a number of sample datasets available in ML Studio that you can use fo
 (see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)). But you can also import your own data into ML Studio for use in your experiments.
 
 To use your own data in ML Studio, you can upload a data file ahead of time from your local hard drive to create a dataset module in your workspace. 
-Or you can access data from one of several online sources while your experiment is running using the **Reader** module:
+Or you can access data from one of several online sources while your experiment is running using the [Reader][reader] module:
 
 - Azure BLOB storage, table, or SQL database
 - Hadoop using HiveQL
@@ -60,7 +60,7 @@ You can import a number of data types into your experiment, depending on what me
 
 If you import data in a format such as ARFF that includes metadata, ML Studio uses this metadata to define the heading and data type of each column.
 If you import data such as TSV or CSV format that doesn't include this metadata, ML Studio infers the data type for each column by sampling the data. If the data also doesn't have column headings, ML Studio provides default names.
-You can explicitly specify or change the headings and data types for columns using the **Metadata Editor**.
+You can explicitly specify or change the headings and data types for columns using the [Metadata Editor][metadata-editor].
  
 The following data types are recognized by ML Studio:
 
@@ -71,7 +71,7 @@ The following data types are recognized by ML Studio:
 - DateTime
 - TimeSpan
 
-ML Studio uses an internal data type called *Data Table* to pass data between modules. You can explicitly convert your data into Data Table format using the **Convert to Dataset** module.
+ML Studio uses an internal data type called *Data Table* to pass data between modules. You can explicitly convert your data into Data Table format using the [Convert to Dataset][convert-to-dataset] module.
 Any module that accepts formats other than Data Table will convert the data to Data Table silently before passing it to the next module.
 If necessary, you can convert Data Table format back into CSV, TSV, ARFF, or SVMLight format using other conversion modules.
 Look in the **Data Format Conversions** section of the module palette for modules that perform these functions.
@@ -96,14 +96,14 @@ You can find the dataset, along with all the pre-loaded sample datasets, in the 
 
 ## Accessing online data with the Reader module
 
-Using the **Reader** module in your experiment, you can access data from several online sources while your experiment is running.
+Using the [Reader][reader] module in your experiment, you can access data from several online sources while your experiment is running.
 Because this data is accessed while your experiment is running, it's only available in one experiment (as opposed to dataset modules which are available to any experiment in your workspace).
 
-After adding the **Reader** module to your experiment, you select the **Data source** and then provide access information using module parameters. 
+After adding the [Reader][reader] module to your experiment, you select the **Data source** and then provide access information using module parameters. 
 For example, if you select **Web URL via HTTP**, you provide the source URL and data format.
 If you're accessing your data from Azure storage or HDInsight (using a Hive query), you provide the appropriate account information and the location of the data.
 
-> [AZURE.NOTE] This article provides general information about the **Reader** module. For more detailed information about the types of data you can access, formats, parameters, and answers to common questions, see the module reference topic for the [**Reader**](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004) module.
+> [AZURE.NOTE] This article provides general information about the [Reader][reader] module. For more detailed information about the types of data you can access, formats, parameters, and answers to common questions, see the module reference topic for the [Reader][reader] module.
 
 
 ### Getting data from Azure
@@ -111,14 +111,14 @@ If you're accessing your data from Azure storage or HDInsight (using a Hive quer
 You can import data from three Azure sources:
 
 - **Azure BLOB Storage** - If you use the ARFF format for storage, columns are mapped by using the header metadata. If you use TSV or CSV formats, mappings are inferred by sampling column data. 
-- **Azure Table Storage** - The **Reader** module scans your data to identify column data types. If your data is fairly homogenous and predictable you can limit the number of rows that are scanned.
-- **Azure SQL Database** - The **Reader** module leverages the SQL Azure Transact client API to import data using a database query that you provide.
+- **Azure Table Storage** - The [Reader][reader] module scans your data to identify column data types. If your data is fairly homogenous and predictable you can limit the number of rows that are scanned.
+- **Azure SQL Database** - The [Reader][reader] module leverages the SQL Azure Transact client API to import data using a database query that you provide.
 
 For BLOB and table storage you supply a Shared Access Signature URI (SAS URI) or Azure storage account information to provide access to the data. For an Azure SQL database you supply your database and account information, plus a database query that identifies the data you want to import.
 
 ### Getting data from the Web
 
-You can use the **Reader** module to read data from a web or FTP site. You need to provide:
+You can use the [Reader][reader] module to read data from a web or FTP site. You need to provide:
 
 - A complete HTTP URL address of a file
 - The data format of the file (CSV, TSV, ARFF, or SvmLight)
@@ -126,7 +126,7 @@ You can use the **Reader** module to read data from a web or FTP site. You need 
 
 ### Getting data from Hadoop
 
-You can use the **Reader** module to read data from distributed storage using the HiveQL query language.
+You can use the [Reader][reader] module to read data from distributed storage using the HiveQL query language.
 You'll need to specify the Hive database query and provide user access information on the HCatalog server.
 You also need to specify whether the data is stored in a Hadoop distributed file system (HDFS) or in Azure, and, if in Azure, the Azure account information  
 
@@ -150,3 +150,8 @@ There will be times when you'll want to take an intermediate result from an expe
 
 When the save finishes, the dataset will be available for use within any experiment in your workspace. You can find it in the **Saved Datasets** list in the module palette.
 
+
+<!-- Module References -->
+[convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
+[metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

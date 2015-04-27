@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Getting Started with Media Services Live Streaming using Azure Management Portal" 
-	description="This tutorial walks you through the steps of implementing a Live Streaming application with Azure Media Services using Azure Management Portal." 
+	pageTitle="Use Management Portal to Create Channels that Receive Multi-bitrate Live Stream from On-premises Encoders" 
+	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a Channel receives a multi-bitrate live stream from an on-premises live encoder." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-#Getting Started with Media Services Live Streaming using Azure Management Portal
+#Use Management Portal to Create Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
 
 [AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
 
@@ -28,7 +28,7 @@ For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_
 >
 You also need a webcam and a live encoder. This tutorial uses <a href="http://www.telestream.net/wirecast/overview.htm">Telestream Wirecast</a> live encoder.
 
-This tutorial walks you through the steps of implementing a basic Media Services Live Streaming application. 
+This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a **Channel** receives a multi-bitrate live stream from an on-premises live encoder. 
 
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Program** enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel. 
 
@@ -36,7 +36,7 @@ When working with Live Streaming, one of the components that is involved in the 
 
 A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
-For a more detailed overview of working with channels and related components, see [Using on-premises encoders to send multi-bitrate live stream to a channel](media-services-channels-overview.md).   
+For a more detailed overview of working with channels and related components, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-channels-overview.md).   
 
 In this tutorial, the Azure Management Portal is used to accomplish the following tasks: 
 

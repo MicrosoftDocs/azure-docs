@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to use end user analytics" 
+	pageTitle="Usage analytics for Azure Web Apps" 
 	description="End user analytics for Microsoft Azure websites." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -15,7 +15,7 @@
 	ms.date="03/26/2015" 
 	ms.author="awills"/>
 
-# Usage analytics for Web Apps
+# Usage analytics for Azure Web Apps
 
 Wonder how many users have used your [Azure App Service Web App](websites-learning-map.md)?  Wonder what the average page load time is or what browsers are being used?  By inserting a few lines of script in your web pages, you can collect data about how your website is used by your customers. 
 
@@ -47,8 +47,12 @@ The Analytics part shows:
 ## Get more Application Insights
 
 * [Use the API](app-insights-web-track-usage-custom-events-metrics.md) for usage tracking and diagnostic logging
-* [Monitor performance][azure-perf] to diagnose issues with your code's dependencies
+* [Monitor performance][azure] to diagnose issues with your code's dependencies
 * [Create web tests][azure-availability] to make sure your site is available and responsive
 
 
-[AZURE.INCLUDE [app-insights-azure-learn-more](../includes/app-insights-azure-learn-more.md)]
+<!--Link references-->
+
+[azure]: insights-perf-analytics.md
+[azure-availability]: insights-create-web-tests.md
+

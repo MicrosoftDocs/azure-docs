@@ -1,9 +1,9 @@
-﻿<properties 
+<properties 
     pageTitle="What's Machine Learning?" 
     description="Overview of the Azure Machine Learning service." 
     services="machine-learning" 
     documentationCenter="" 
-    authors="tedway,olgali" 
+    authors="tedway" 
     manager="neerajkh" 
     editor="cgronlun"/>
 
@@ -13,8 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/20/2015" 
-    ms.author="tedway"/>
+    ms.date="04/22/2015" 
+    ms.author="tedway;olgali"/>
+
+
 # What is machine learning?
 Machine learning is at work all around you.  When you shop online, machine learning helps recommend other products based on what you've purchased.  When your credit card is swiped, machine learning helps the bank do fraud detection and notify you if the transaction seems suspicious. Machine learn is the process of creating models to learn from existing data and do predictive analytics on future data. 
 
@@ -26,7 +28,7 @@ You can use the browser-based tool [Machine Learning Studio](machine-learning-wh
 
 You can easily discover and create [web services](machine-learning-publish-a-machine-learning-web-service.md), [train and retrain your models through APIs](machine-learning-retrain-models-programmatically.md), [manage endpoints](machine-learning-create-endpoint.md) and [scale web services](machine-learning-scaling-endpoints.md) on a per customer basis, and configure diagnostics for service monitoring and debugging.  The newest features include:
 
-- The ability to create a configurable custom R module, incorporate your own train/predict R-scripts, and add Python scripts using a large ecosystem of libraries such as numpy, scipy, pandas, or scikit-learn. You can now train on terabytes of data using **Learning with Counts**, use PCA or one-class SVM for anomaly detection, and easily modify, filter, and clean data using familiar SQLite. 
+- The ability to create a configurable custom R module, incorporate your own train/predict R-scripts, and add Python scripts using a large ecosystem of libraries such as numpy, scipy, pandas, or scikit-learn. You can now train on terabytes of data using [Learning with Counts][learning-with-counts], use PCA or one-class SVM for anomaly detection, and easily modify, filter, and clean data using familiar SQLite. 
 - [Machine Learning Community Gallery](machine-learning-gallery-how-to-use-contribute-publish.md) lets you discover and use interesting experiments authored by others. You can ask questions or post comments about experiments in the [Gallery](http://gallery.azureml.net) or publish your own. You can share links to interesting experiments via social channels such as LinkedIn and Twitter. The gallery is a great way for users to get started with Azure Machine Learning and learn from others in the community.
 ![Try predictive experiment samples or contribute your own in Azure Machine Learning Gallery](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
 - You can purchase [Marketplace apps](https://datamarket.azure.com/browse?query=machine+learning) through an Azure subscription and consume finished web services for Recommendations, Text Analytics, and Anomaly Detection directly from the Azure Marketplace. 
@@ -34,3 +36,7 @@ You can easily discover and create [web services](machine-learning-publish-a-mac
 
 ## Get started now
 You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](machine-learning-create-experiment.md) and by [building on samples](machine-learning-sample-experiments.md).  No Azure subscription or credit card is required to get started using Machine Learning when you try experiments in Studio.
+
+
+<!-- Module References -->
+[learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/

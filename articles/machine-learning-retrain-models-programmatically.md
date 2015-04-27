@@ -9,13 +9,12 @@
 
 <tags
 	ms.service="machine-learning"
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm=""
-	ms.workload="big-data" 
-	ms.date="02/20/2015"
+	ms.date="04/22/2015"
 	ms.author="raymondl;garye"/>
-
 
 
 #Retrain Machine Learning models programmatically  
@@ -54,7 +53,7 @@ Diagram 1: Retraining process overview
 
 	After experiment run is completed, clicking on “Publish Web Service” will publish the Scoring Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.  
 3. *Publish the Training Experiment as a Web Service* 	
-	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the "Train Model" module, to be able to produce new trained models.
+	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the [Train Model][train-model] module, to be able to produce new trained models.
 Click on the Experiments icon in the left pane, then click on the experiment called Census Model to go back to the training experiment.  
 
 	We then add one Web Service Input and two Web Service Output modules to the workflow. The Web Service output for Train Model will give us the new trained model. The output attached to Evaluate Model will return that module’s Evaluate Model output.   
@@ -109,3 +108,7 @@ Using the Retraining APIs, we can update the trained model of a predictive Web S
 [5]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
 [7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
+
+
+<!-- Module References -->
+[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/

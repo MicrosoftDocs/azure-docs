@@ -1,9 +1,25 @@
-<properties title="Cloud Data Science Process Walkthroughs" pageTitle="Cloud Data Science Process Walkthroughs | Azure" description="Cloud Data Science Process Walkthroughs" metaKeywords="" services="data-science-process" solutions="" documentationCenter="" authors="msolhab" manager="paulettm" editor="" videoId="" scriptId="" />
+<properties
+	pageTitle="Cloud Data Science Process Walkthroughs | Azure" 
+	description="Cloud Data Science Process Walkthroughs" 
+	metaKeywords="" 
+	services="data-science-process" 
+	solutions="" 
+	documentationCenter="" 
+	authors="msolhab" 
+	manager="paulettm" 
+	editor="" />
 
-<tags ms.service="data-science-process" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="02/19/2015" ms.author="msolhab" /> 
+<tags 
+	ms.service="data-science-process" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/21/2015" 
+	ms.author="msolhab" /> 
 
-Cloud Data Science Process in Azure Machine Learning
-========================================
+
+# Cloud Data Science Process in Azure Machine Learning
 
 This article walks through the Cloud Data Science Process map and some sample data source and target scenarios. It illustrates some of the option choices and processing sequences based on data characteristics, source location, and target repositories in Azure. The Cloud Data Science Process flow for the sample scenarios is summarized in the last section.
 
@@ -54,7 +70,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 6.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Read the data from Azure blobs using the Reader module.
+7.  Read the data from Azure blobs using the [Reader][reader] module.
 
 8. Build an Azure Machine Learning experiment flow starting with ingested dataset(s).
 
@@ -80,7 +96,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data from Azure blobs using the Reader module.
+9. Read the data from Azure blobs using the [Reader][reader] module.
 
 10. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -123,7 +139,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 9. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+10. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 11. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -169,7 +185,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset
 
@@ -213,7 +229,7 @@ This article walks through the Cloud Data Science Process map and some sample da
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -278,7 +294,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data directly from the `Hive Queries` using the Reader module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the Reader query.
+9. Read the data directly from the `Hive Queries` using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
 
 10. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -303,3 +319,7 @@ For an end-to-end walkthrough example of the Azure Data Science Process using a 
 [7]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-attach-db.png
 [8]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-sample-scenarios.png
 [9]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-local-to-hive.png
+
+
+<!-- Module References -->
+[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

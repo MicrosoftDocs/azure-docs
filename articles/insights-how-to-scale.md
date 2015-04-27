@@ -2,7 +2,7 @@
 	pageTitle="How to scale a website" 
 	description="Learn how to scale your hosting plan in Azure." 
 	authors="stepsic-microsoft-com" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
 	services="application-insights" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/11/2014" 
 	ms.author="stepsic"/>
 
 # How to Scale a Website
@@ -84,3 +84,6 @@ With multiple scale rules, you can be more agressive about scaling up (or down) 
 2. Scale up by 3 instances if CPU percentage is above 85%
 
 With this additional rule, if your load exceeds 85% before a scale action, you will get two additional instances instead of one. 
+<!--Link references-->
+
+

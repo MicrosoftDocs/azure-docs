@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -22,11 +22,11 @@
 
 
 <!--
-GeneMi (MightyPen), 2015-April-18 16:05pm.
+GeneMi (MightyPen), 2015-April-21 12:30pm.
 sql-database-develop-quick-start-client-code-samples.md
 .
-New topic, HackaDoc2, to organize links for customers to get to each client development configuration.
-?? also add link to get started by caseyk
+Add link to sql-database-connect-central-recommendations.md.
+Add link to sql-database-get-started.md (rewritten by casey Karst at HackaDoc2).
 -->
 
 
@@ -73,6 +73,8 @@ This section provides links to code sample topics for client programs that run o
 
 
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+- [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
+- [Create your first Azure SQL Database](sql-database-get-started.md)
 
 
 <!-- eof -->

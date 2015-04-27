@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="How to customize monitoring" 
+	pageTitle="Customize monitoring of an Azure web app" 
 	description="Learn how to customize monitoring charts in Azure." 
 	authors="alancameronwills" 
-	manager="kamrani" 
+	manager="ronmart" 
 	editor="" 
 	services="application-insights" 
 	documentationCenter=""/>
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-11-04" 
+	ms.date="04/11/2014" 
 	ms.author="awills"/>
 
-# Customizing monitoring
+# Customize monitoring of an Azure web app
 
 Your Azure application has a variety of metrics you can monitor, and you can chart them over a time period you choose.
 
@@ -66,4 +66,7 @@ With the powerful user customization in the Azure Portal Preview you can create 
     ![Two metrics Side by Side](./media/insights-how-to-customize-monitoring/Insights_SideBySide.png)
 
 Note, that the chart time range and chosen metrics will reset when you leave the portal.
+
+<!--Link references-->
+
 
