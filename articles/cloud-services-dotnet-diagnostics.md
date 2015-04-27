@@ -226,7 +226,7 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 ### Step 5: Install Diagnostics on your Worker Role
 The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set-AzureServiceDiagnosticsExtension, Get-AzureServiceDiagnosticsExtension, and Remove-AzureServiceDiagnosticsExtension.
 
-1.	Open Windows Azure PowerShell.
+1.	Open Azure PowerShell.
 2.	Execute the script to install Diagnostics on your worker role (replace *StorageAccountKey* with the storage account key for your wadexample storage account):
 
 		$storage_name = "wadexample"
@@ -237,7 +237,7 @@ The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set
 		Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 
 
-<h3>Step 6: Look at your telemetry data</h3>
+### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the cloud service has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 	![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -373,7 +373,7 @@ This walk through assumes you have an Azure subscription and are using Visual St
 ### Step 5: Remotely install Diagnostics on your Azure Virtual Machine
 The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnosticsExtension, Get-AzureVMDiagnosticsExtension, and Remove-AzureVMDiagnosticsExtension.
 
-1.	On your developer computer, open Windows Azure PowerShell.
+1.	On your developer computer, open Azure PowerShell.
 2.	Execute the script to remotely install Diagnostics on your VM (Replace *StorageAccountKey* with the storage account key for your wadexamplevm storage account):
 
 		$storage_name = "wadexamplevm"
@@ -387,7 +387,7 @@ The PowerShell cmdlets for managing Diagnostics on a VM are: Set-AzureVMDiagnost
 		$VM3 = Update-AzureVM -ServiceName $service_name -Name $vm_name -VM $VM2.VM
 
 
-<h3>Step 6: Look at your telemetry data</h3>
+### Step 6: Look at your telemetry data
 In the Visual Studio **Server Explorer** navigate to the wadexample storage account. After the VM has been running about 5 minutes you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click on one of the tables to view the telemetry that has been collected.
 	![CloudServices_diag_wadexamplevm_tables](./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png)
 
@@ -397,7 +397,7 @@ The Diagnostics configuration file defines values that are used to initialize di
 
 ## Troubleshooting
 
-<h3>Azure Diagnostics is not Starting</h3>
+### Azure Diagnostics is not Starting
 Diagnostics is comprised of two components: A guest agent plugin and the monitoring agent. Log files for the guest agent plugin are located in the file: 
 
 *%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<DiagnosticsVersion>*\CommandExecution.log
@@ -530,7 +530,7 @@ The Monitoring Agent logs any errors it experiences in the file MaEventTable.tsf
 The tool generates a file named maeventtable.csv that you may open and inspect the logs for failures.
 
 
-<h2><a name="faq"></a>Frequently Asked Questions</h2>
+## Frequently Asked Questions
 The following are some frequently asked questions and their answers:
 
 **Q.** How do I upgrade my Visual Studio solution from Azure Diagnostics 1.0 to Azure Diagnostics 1.1?
