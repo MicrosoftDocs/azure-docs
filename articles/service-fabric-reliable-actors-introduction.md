@@ -69,7 +69,7 @@ As shown in the above example, there were two pieces of information that were us
 
 The actors are virtual actors meaning that they always exist. You do not need to explicitly create them nor destroy them. The Actors runtime automatically activates an actor the first time it receives a request for that actor. If an actor is not used for certain time the Actors runtime will garbage collect it and will activate it at later time if required. More details on this are in the section on [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md).
 
-The Actors client API also provides the location transparency and failover. The `ActorProxy` class on the client side performs the necessary resolution and locates the actor service [partition](service-fabric-reliable-actors-platform.md) where the actor with the specified ID is hosted and opens a communication channel with it. The `ActorProxy` retries on the communication failures and in case of failovers.  This means that it is possible for an Actor implementation to get duplicate messages from the same client.
+The Actors client API also provides the location transparency and failover. The `ActorProxy` class on the client side performs the necessary resolution and locates the actor service [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) where the actor with the specified ID is hosted and opens a communication channel with it. The `ActorProxy` retries on the communication failures and in case of failovers.  This means that it is possible for an Actor implementation to get duplicate messages from the same client.
 
 ## Concurrency
 The Actors runtime provides a simple turn-based concurrency for actor methods. This means that no more than one thread can be active inside the actor code at any time.
@@ -115,6 +115,8 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
+
+> [Note] please refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for mode details on how interfaces and Actor State types should be defined.  
 
 #### Actor state providers
 The storage and retrieval of the state is provided by an actor state provider. State provider can be configured per actor or for all actors within an assembly by the state provider specific attribute. There are some default actor state providers that are included in the Actors runtime. The durability and reliability of the state is determined by the guarantees offered by the state provider. When an actor is activated its state is loaded in memory. When an actor method completes, the modified state is automatically saved by the Actors runtime by calling a method on the state provider. If failure occurs during the save state, the Actors runtime recycles that actor instance. A new actor instance is created and loaded with the last consistent state from the state provider.

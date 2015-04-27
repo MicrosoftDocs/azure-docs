@@ -3,7 +3,7 @@
    description="Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure."
    services="na"
    documentationCenter="na"
-   authors="tfitzmac"Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management
+   authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
@@ -11,7 +11,7 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="ibiza"
+   ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
    ms.date="04/23/2015"
    ms.author="tomfitz"/>
@@ -100,6 +100,22 @@ For information about cross-platform commands, see [Using the Azure Cross-Platfo
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+## Next Steps
+Getting Started
+- [Using Windows PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](./xplat-cli-azure-resource-manager.md)
+- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
 
+Creating and Deploying Applications
+- [Authoring Templates](./resource-group-authoring-templates.md)
+- [Deploying Templates](./resource-group-template-deploy.md)
+
+Organizing Resources
+- [Using tags to organize your Azure resources](./resource-group-using-tags.md)
+
+Managing and Auditing Access
+- [Managing and Auditing Access to Resources](./resource=group.rbac.md)
+- Authenticating a service provider
+- Create a service provider
 
 
