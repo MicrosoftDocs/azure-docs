@@ -29,7 +29,7 @@
 
 3. In the **Additional Settings** dialog box, add a new access control record (ACR):
    1. Supply a **Name** for your ACR.
-   2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, follow these steps to [get-the-iqn](#storsimple-get-iqn.md).
+   2. Under **iSCSI Initiator Name**, provide the iSCSI Qualified Name (IQN) of your Windows host. If you don't have the IQN, follow these steps to [get the IQN](#storsimple-get-iqn.md).
    3. Under **Default backup for this volume?**, select the **Enable** check box. The default backup will create a policy that executes at 22:30 each day (device time) and creates a cloud snapshot of this volume.
 
      > [AZURE.NOTE] After the backup is enabled here, it cannot be reverted. You will need to edit the volume to modify this setting.
