@@ -164,6 +164,6 @@ c0-a84f-57faf131dc2b"
 
 
 ## Learn more:
-- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](https://msdn.microsoft.com/en-us/library/azure/dn283934.aspx)
+- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](https://msdn.microsoft.com/library/azure/dn283934.aspx)
 - [Azure AD Audit Report Events](http://azure.microsoft.com/en-us/documentation/articles/active-directory-reporting-audit-events/)
 - For more information on the OAuth flow with Azure AD using curl: [Microsoft Azure REST API + OAuth 2.0](https://ahmetalpbalkan.com/blog/azure-rest-api-with-oauth2/)(external link)
