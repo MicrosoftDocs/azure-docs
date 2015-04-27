@@ -208,7 +208,7 @@ After the virtual machine has been created, connect to it using SSH and use the 
 > 
 > The **~/.rbenv/bin/rbenv install 2.0.0-p451** command can take several minutes to complete.
 
-The **rbenv-install.sh** script performs the following actions:
+The above commands performs the following actions:
 	
 * Updates and upgrades currently installed packages
 * Installs build tools
