@@ -65,3 +65,12 @@ Note: It is not advisable to put team project in the same resource group as othe
 
 Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. 
 
+## Next Steps
+
+- [Azure Resource Manager Overview](./resource-group-overview.md)
+- [Authoring Templates](./resource-group-authoring-templates.md)
+- [Deploying Templates](./resource-group-template-deploy.md)
+- [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+- [Using tags to organize your Azure resources](./resource-group-using-tags.md)
+
+
