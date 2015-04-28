@@ -94,23 +94,31 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 	        Console.ReadLine();
 	    }
 
-7. Press <Ctrl>F5 to run the app.
+## Test the API app 
 
-8. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
+Once the API app has been coded, it's time to test the code in the browser.
 
-9. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
+1. Press <Ctrl>F5 to run the app in your default browser.
 
-10. Click **Get** to view the schema and **Try it out** button.
+2. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
 
-11. Click **Try it out**. The Contact records will be displayed in the Web page's **Response Body** section.
+3. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
 
-12. From the **View** menu, select **Server Explorer**. 
+4. Click **Get** to view the schema and **Try it out** button.
 
-13. In the **Server Explorer**, expand the **Azure > App Service** node. 
+5. Click **Try it out**. The Contact records will be displayed in the Web page's **Response Body** section.
 
-14. Locate the resource group that you created when you deployed your API app. 
+## Debug the API app 
 
-15. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+Now that the API app and its client are coded and tested, let's see how to debug it.
+
+1. From the Visual Studio **View** menu, select **Server Explorer**. 
+
+2. In the **Server Explorer**, expand the **Azure > App Service** node. 
+
+3. Locate the resource group that you created when you deployed your API app. 
+
+4. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
