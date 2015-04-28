@@ -103,3 +103,5 @@ Console.WriteLine("Greeting is {0}", message.Content);
 
 
 ```
+
+>[AZURE.NOTE] The communication framework takes care of propagating exceptions thrown at the service to the client. So exception handling logic at the client using ServiceProxy can directly handle for execeptions that the service can potentially throw.
