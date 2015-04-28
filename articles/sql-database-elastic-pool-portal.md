@@ -44,38 +44,42 @@ To create an elastic pool you need an the following:
 
 ## Create an elastic database pool
 
-Create an elastic pool by adding a new elastic pool to a SQL Database Server. You can add multiple elastic pools to a server, but only 1 server can be associated with each elastic pool. Additionally, all or some of the databases on a server can be in an elastic pool.
+Create an elastic pool by adding a new  pool to a V12 server. You can add multiple elastic pools to a server, but only 1 server can be associated with each elastic pool. Additionally, all or some of the databases on a server can be added to a pool.
 
 
-1.	Select a SQL Database Server that contains the databases you want to add to the elastic pool.
-2.	Create an Elastic Pool by selecting **add new elastic pool** at the top of the **SQL Server** blade.
+1.	Select a SQL Database V12 server that contains the databases you want to add to the elastic pool.
+2.	Create an Elastic Pool by selecting **add pool** at the top of the **SQL Server** blade.
 
    ![Create Elastic Pool][1]
 
 ## Configure an elastic pool
 
-Configure an elastic pool by setting the pricing tier, adding databases, and setting the performance characteristics of the pool.
+Configure an elastic pool by setting the pricing tier, adding databases, and configuring the performance characteristics of the pool.
 
-   ![Configure Elastic Pool][2]
+*When you select the **Add pool** command you must accept the terms of the preview by selecting **PREVIEW TERMS** and completing the **Preview Terms** blade. You only need to accept the terms once for each subscription.*
+
+   ![Configure elastic pool][2]
 
 
 ### Pricing tier
 
-An Elastic Pool's pricing tier is somewhat analogous to a SQL Database's service tier. The pricing tier determines the features available to each database in the pool, and the maximum number of DTUs (DTU MAX) available to each database. 
+An Elastic Pool's pricing tier is somewhat analogous to a SQL database's service tier. The pricing tier determines the features available to each database in the pool, and the maximum number of DTUs (DTU MAX), and storage (GBs) available to each database. 
 
-> [AZURE.NOTE] This preview is limited to the **Elastic Standard** pricing tier. Geo-Replication is not supported in the current preview.
+> [AZURE.NOTE] This preview is limited to the **Standard** pricing tier. 
 
-| Pricing Tier | DTU MAX per Database | Supported Features |
-| :--- | :--- | :--- |
-| Elastic Standard | 100 MAX DTUs per database | Point in Time Restore (any point last 14 days) <br> Geo-Restore |
+| Pricing Tier | DTU MAX per Database |
+| :--- | :--- |
+| Elastic Standard | 100 MAX DTUs per database |
 
 ### Add databases
 
 At any time, you can select the specific databases you want to be included in the pool.  When you create a new elastic pool, Azure recommends the databases that will benefit from being in a pool and marks them for inclusion. You can add all the databases available on the server or you can select or clear databases from the initial list as desired.
 
+   ![Add databases][5]
+
 When you select a database to be added to a pool, the following conditions must be met:
 
-- The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available DTUs to cover the DTU guarantee per database (for example, if the DTU guarantee for the group is 200, and the DTU guarantee for each database is 20, then the maximum number of databases that are allowed in the pool is 10 (10 DBs x 20 DTUs guaranteed per DB = 200 DTUs).
+- The pool must have room for the database (cannot already contain the maximum number of databases). More specifically, the pool must have enough available DTUs to cover the DTU guarantee per database (for example, if the DTU guarantee for the group is 400, and the DTU guarantee for each database is 10, then the maximum number of databases that are allowed in the pool is 40 (400 DTUs/10 DTUs guaranteed per DB = 40 Max databases).
 - The current features used by the database must be available in the pool. In other words, if a database is currently set up with Standard Geo-Replication, then the pool must be a pricing tier that offers Standard Geo-Replication.
 
 The Max Databases and Pool Storage values are dynamic values that change depending on the pool's specific performance configuration.  
@@ -83,7 +87,7 @@ The Max Databases and Pool Storage values are dynamic values that change dependi
 
 ### Configure performance
 
-You configure the performance of an **Elastic Pool** by setting the performance parameters for both the pool, and the databases that are in the pool. Keep in mind, that the **per database** settings apply globally to all databases in the pool.
+You configure the performance of an **Elastic Pool** by setting the performance parameters for both the pool, and the databases that are in the pool. Keep in mind, that the **per database** settings apply to all databases in the pool.
 
    ![Configure Elastic Pool][3]
 
@@ -98,15 +102,38 @@ There are three parameters you can set that define the performance for the pool;
 
 ## Adding databases into an elastic pool
 
-You can create new databases, add or copy existing databases, and restore deleted databases into elastic pools.
+After the pool is created, you can add or remove databases in and out of the pool
 
 
-## Monitor an elastic pool
+## Monitor and manage an elastic pool
 
-After creating an elastic pool, you can monitor and manage the pool by adjusting the available performance parameters.
+After creating an elastic pool, you can monitor and manage the pool in the portal by browsing to the list of existing pools and selecting the desired pool.
 
-![Monitor Elastic Pool][4]
+After creating an elastic pool, you can:
 
+- Select **Configure pool** to change the pool DTU and DTU per database settings.
+- Select **Create job** and manage the databases in the pool by creating elastic jobs. Elastic jobs facilitate running T-SQL scripts against any number of databases in the pool. For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+- Select **Manage jobs** to administer existing elastic jobs.
+
+
+
+![Monitor elastic pool][8]
+
+
+
+
+![Monitor elastic pool][4]
+
+When you select an existing pool you can see resource utilization of the pool.
+Click the **Resource Utilization** chart to open the **Metric** blade where you can customize the chart and setup alerts.
+
+
+![resource utilization][6]
+
+Click **Edit chart** to add parameters so you can easily view telemetry data for the pool.
+
+
+![edit chart][7]
 
 
 
@@ -122,14 +149,20 @@ After creating an elastic pool, you can manage the databases in the pool by crea
 For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
 
+
 ## Related
-[Create an Azure SQL Database elastic pool using Azure PowerShell](sql-database-elastic-pool-powershell.md)
+
+- [Elastic database pool (preview) overview](sql-database-elastic-database-pool.md)
+- [Create an Azure SQL Database elastic pool using Azure PowerShell](sql-database-elastic-pool-powershell.md)
+- [Azure SQL Database elastic database pool (preview) reference](sql-database-elastic-pool-reference.md)
 
 
 <!--Image references-->
-[1]: ./media/sql-database-elastic-pool/new-elastic-pool.png
-[2]: ./media/sql-database-elastic-pool/configure-elastic-pool.png
-[3]: ./media/sql-database-elastic-pool/configure-performance-blade.png
-[4]: ./media/sql-database-elastic-pool/monitor-elastic-pool.png
-
-
+[1]: ./media/sql-database-elastic-pool-portal/new-elastic-pool.png
+[2]: ./media/sql-database-elastic-pool-portal/configure-elastic-pool.png
+[3]: ./media/sql-database-elastic-pool-portal/configure-performance.png
+[4]: ./media/sql-database-elastic-pool-portal/monitor-elastic-pool.png
+[5]: ./media/sql-database-elastic-pool-portal/add-databases.png
+[6]: ./media/sql-database-elastic-pool-portal/metric.png
+[7]: ./media/sql-database-elastic-pool-portal/edit-chart.png
+[8]: ./media/sql-database-elastic-pool-portal/configure-pool.png
