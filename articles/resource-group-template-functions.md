@@ -56,7 +56,7 @@ The following example shows how to combine multiple values to return a value.
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
-Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](/#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
