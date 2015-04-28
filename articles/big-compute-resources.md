@@ -92,7 +92,7 @@ Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn19789
 
 ## Samples and demos
 
-* [Azure Batch code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch[)
+* [Azure Batch code samples](https://code.msdn.microsoft.com/site/search?f[0].Type=Topic&f[0].Value=Azure%20Batch&f[0].Text=Azure%20Batch)
 
 * [Batch Apps Blender sample](https://github.com/Azure/azure-batch-apps-blender) and [blog post](http://azure.microsoft.com/blog/2015/01/26/blender-on-azure-batch/)
 
