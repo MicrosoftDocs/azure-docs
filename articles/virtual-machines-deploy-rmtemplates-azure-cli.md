@@ -23,11 +23,6 @@ This article provides guidance on how to automate common tasks for deploying and
 - Deploy a VM in Azure - DONE
 - Create a custom VM image - DONE 
 - Deploy a multi-VM application that uses a virtual network and an external load balancer - DONE
-<<<<<<< Updated upstream
-- Deploy a Multi-VM App using Chef
-- Deploy a Multi-VM App using Puppet
-=======
->>>>>>> Stashed changes
 - Updating an already deployed VM
 - Adding an additional VM to an already deployed resource group
 - Remove a resource group - DONE
@@ -87,9 +82,6 @@ to switch to resource group mode.
 
 ## Understanding Azure Resource Templates and Resource Groups
 
-<<<<<<< Updated upstream
-Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or *CDN*). The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
-=======
 Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or *CDN*). The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (azure group create myResourceGroup westus
 info:    Executing command group create
 + Getting resource group myResourceGroup                                       
@@ -103,7 +95,6 @@ data:    Tags:
 data:    
 info:    group create command OK
 or find other tools that do so), and not as a single logical unit of deployment.
->>>>>>> Stashed changes
 
 *Azure Resource Manager Templates* make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group. 
 
@@ -114,265 +105,14 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 - Audit operations. 
 - Tag resources with additional meta-data for better tracking. 
 
-<<<<<<< Updated upstream
-You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md).
-=======
 You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md). 
->>>>>>> Stashed changes
 
 ## Common Task: Deploy a VM in Azure
 
 Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet.
 
-![](./media/virtual-machines-deploy-rmtemplates-powershell/new-vm.png)
+![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
  
-<<<<<<< Updated upstream
-### Step 1: Examine the JSON file for the template.
-
-Here are the contents of the JSON file for the template. (The template is also located here)
-
-	{
-	    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-	    "contentVersion": "1.0.0.0",
-	    "parameters": {
-	        "newStorageAccountName": {
-	            "type": "string",
-	            "metadata": {
-	                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
-	            }
-	        },
-	        "adminUsername": {
-	            "type": "string",
-	            "metadata": {
-	               "Description": "User name for the Virtual Machine."
-	            }
-	        },
-	        "adminPassword": {
-	            "type": "securestring",
-	            "metadata": {
-	                "Description": "Password for the Virtual Machine."
-	            }
-	        },
-	        "dnsNameForPublicIP": {
-	            "type": "string",
-	            "metadata": {
-	                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-	            }
-	        },
-	        "ubuntuOSVersion": {
-	            "type": "string",
-	            "defaultValue": "14.04.2-LTS",
-	            "allowedValues": [
-	                "12.04.2-LTS",
-	                "12.04.3-LTS",
-	                "12.04.4-LTS",
-	                "12.04.5-LTS",
-	                "14.04.2-LTS",
-	                "15.04",
-	                "12.04-DAILY",           
-	                "14.04-DAILY",
-	                "14.10-DAILY",
-	                "15.04-DAILY"
-	            ],
-	            "metadata": {
-	                "Description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.2-LTS, 12.04.3-LTS, 12.04.4-LTS, 12.04.5-LTS, 14.04.2-LTS, 15.04, 12.04-DAILY, 12.04.5-LTS, 14.04.2-LTS, 14.04-DAILY, 14.10-DAILY, 15.04-DAILY."
-	            }
-	        }
-	    },
-	    "variables": {
-	        "location": "West US",
-	        "imagePublisher": "Canonical", 
-	        "imageOffer": "UbuntuServer", 
-	        "OSDiskName": "osdiskforlinuxsimple",
-	        "nicName": "myVMNic",
-	        "addressPrefix": "10.0.0.0/16", 
-	        "subnetName": "Subnet",
-	        "subnetPrefix": "10.0.0.0/24",
-	        "storageAccountType": "Standard_LRS",
-	        "publicIPAddressName": "myPublicIP",
-	        "publicIPAddressType": "Dynamic",
-	        "vmStorageAccountContainerName": "vhds",
-	        "vmName": "MyUbuntuVM",
-	        "vmSize": "Standard_D1",
-	        "virtualNetworkName": "MyVNET",        
-	        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-	        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-	    },    
-	    "resources": [
-	        {
-	            "type": "Microsoft.Storage/storageAccounts",
-	            "name": "[parameters('newStorageAccountName')]",
-	            "apiVersion": "2015-05-01-preview",
-	            "location": "[variables('location')]",
-	            "properties": {
-	                "accountType": "[variables('storageAccountType')]"
-	            }
-	        },
-	        {
-	            "apiVersion": "2015-05-01-preview",
-	            "type": "Microsoft.Network/publicIPAddresses",
-	            "name": "[variables('publicIPAddressName')]",
-	            "location": "[variables('location')]",
-	            "properties": {
-	                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-	                "dnsSettings": {
-	                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-	                }
-	            }
-	        },
-	        {
-	            "apiVersion": "2015-05-01-preview",
-	            "type": "Microsoft.Network/virtualNetworks",
-	            "name": "[variables('virtualNetworkName')]",
-	            "location": "[variables('location')]",
-	            "properties": {
-	                "addressSpace": {
-	                    "addressPrefixes": [
-	                        "[variables('addressPrefix')]"
-	                    ]
-	                },
-	                "subnets": [
-	                    {
-	                        "name": "[variables('subnetName')]",
-	                        "properties": {
-	                            "addressPrefix": "[variables('subnetPrefix')]"
-	                        }
-	                    }
-	                ]
-	            }
-	        },
-	        {
-	            "apiVersion": "2015-05-01-preview",
-	            "type": "Microsoft.Network/networkInterfaces",
-	            "name": "[variables('nicName')]",
-	            "location": "[variables('location')]",
-	            "dependsOn": [
-	                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-	                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-	            ],
-	            "properties": {
-	                "ipConfigurations": [
-	                    {
-	                        "name": "ipconfig1",
-	                        "properties": {
-	                            "privateIPAllocationMethod": "Dynamic",
-	                            "publicIPAddress": {
-	                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-	                            },
-	                            "subnet": {
-	                                "id": "[variables('subnetRef')]"
-	                            }
-	                        }
-	                    }
-	                ]
-	            }
-	        },
-	        {
-	            "apiVersion": "2015-05-01-preview",
-	            "type": "Microsoft.Compute/virtualMachines",
-	            "name": "[variables('vmName')]",
-	            "location": "[variables('location')]",
-	            "dependsOn": [
-	                "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-	                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-	            ],
-	            "properties": {
-	                "hardwareProfile": {
-	                    "vmSize": "[variables('vmSize')]"
-	                },
-	                "osProfile": {
-	                    "computername": "[variables('vmName')]",
-	                    "adminUsername": "[parameters('adminUsername')]",
-	                    "adminPassword": "[parameters('adminPassword')]"
-	                },
-	                "storageProfile": {
-	                    "imageReference": {
-	                        "publisher": "[variables('imagePublisher')]",
-	                        "offer": "[variables('imageOffer')]",
-	                        "sku" : "[parameters('ubuntuOSVersion')]",
-	                        "version":"latest"
-	                    },
-	                   "osDisk" : {
-	                        "name": "osdisk",
-	                        "vhd": {
-	                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-	                        },
-	                        "caching": "ReadWrite",
-	                        "createOption": "FromImage"
-	                    }
-	                },
-	                "networkProfile": {
-	                    "networkInterfaces": [
-	                        {
-	                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-	                        }
-	                    ]
-	                }
-	            }
-	        }
-	    ]
-	} 
-
-
-We are also building a repository of templates in GitHub that customers can use and contribute to.  
-
-### Step 2: Select the image information for the image you want to use.
-
-The template used in this topic lists the values for the version of Ubuntu Server that you can select:
-
-    "ubuntuOSVersion": {
-        "type": "string",
-        "defaultValue": "14.04.2-LTS",
-        "allowedValues": [
-            "12.04.2-LTS",
-            "12.04.3-LTS",
-            "12.04.4-LTS",
-            "12.04.5-LTS",
-            "14.04.2-LTS",
-            "15.04",
-            "12.04-DAILY",           
-            "14.04-DAILY",
-            "14.10-DAILY",
-            "15.04-DAILY"
-        ],
-
-When you examine other templates, you'll see that either certain values are listed or a default specified in the `parameters` section of the template, or specific values are located in the `variables` section. (they may also be directly used in the `resources` sections, but this depends upon the template you are using or creating. For more on the template language, see ).
-
-### Step 3: Create the virtual machine with the template.
-
-To create the virtual machine, replace the elements within the “< >” with your specific information and run these commands:
-
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-You will be prompted to supply the values of parameters in the **"parameters"** section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the resource group and the virtual machine. 
-
-Here is an example:
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-You will receive the following type of information:
-
-	cmdlet New-AzureResourceGroup at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	newStorageAccountName: saTest
-	dnsNameForPublicIP: 131.107.89.211
-	adminUserName: WebAdmin1
-	adminPassword: *******
-	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
-	...
-
-=======
 ### Step 1: Examine the JSON file for the template parameters
 
 Here are the contents of the JSON file for the template. (The template is also located in GitHub [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json).)
@@ -647,7 +387,6 @@ You will receive the following type of information:
     data:    ubuntuOSVersion        String        14.10        
     info:    group deployment create command OK
     
->>>>>>> Stashed changes
 ## Common Task: Create a custom VM image
 
 Use the instructions in these sections to create a custom VM image in Azure with a Resource Manager template using Azure PowerShell. This template creates a single virtual machine from a specified virtual hard disk (VHD).
