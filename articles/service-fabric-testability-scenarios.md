@@ -46,7 +46,6 @@ Chaos test runs multiple iterations of faults and cluster validations for the sp
 C# Sample
 
 ```csharp
-
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
@@ -120,12 +119,11 @@ class Test
         }
     }
 }
-
 ```
 
 Powershell
-```powershell
 
+```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
@@ -135,8 +133,6 @@ $waitTimeBetweenIterationsSec = 60
 Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterStabilizationTimeoutSec $maxStabilizationTimeSecs -MaxConcurrentFaults $concurrentFaults -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
-
-
 ```
 
 
@@ -164,7 +160,6 @@ Failover test works induces a chosen fault  and then runs validation on the serv
 C# Sample
 
 ```csharp
-
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
@@ -237,13 +232,12 @@ class Test
         }
     }
 }
-
 ```
 
 
 Powershell
-```powershell
 
+```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
 $maxStabilizationTimeSecs = 180
@@ -253,7 +247,5 @@ $serviceName = "fabric:/SampleApp/SampleService"
 Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
-
-
 ```
 
