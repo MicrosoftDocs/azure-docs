@@ -69,6 +69,6 @@ The code example shows that balancing thresholds for metrics are configured per 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Resource Balancer Architecture](../service-fabric-resource-balancer-architecture)
+For more information: [Resource Balancer Architecture](service-fabric-resource-balancer-architecture.md)
 
 [Image1]: media/service-fabric-resource-balancer-proactive-metric-packing/PMP.png
