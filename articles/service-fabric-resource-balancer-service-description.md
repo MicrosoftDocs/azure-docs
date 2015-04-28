@@ -223,7 +223,7 @@ Because the default load values are not updated unless services specifically opt
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Resource Balancer Architecture](../service-fabric-resource-balancer-architecture), [Placement Constraints](../service-fabric-placement-constraint)
+For more information: [Resource Balancer Architecture](service-fabric-resource-balancer-architecture.md), [Placement Constraints](service-fabric-placement-constraint.md)
 
 [Image1]: media/service-fabric-resource-balancer-service-description/PC.png
 [Image2]: media/service-fabric-resource-balancer-service-description/DM.png
