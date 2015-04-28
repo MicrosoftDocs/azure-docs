@@ -143,7 +143,7 @@ If you don't want to use SSL, either set `ssl=false` or just pass in the endpoin
 
 >[AZURE.NOTE] For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
 
-The cache endpoint and keys can be obtained from the Azure management preview portal blade for your cache instance.
+The cache endpoint and keys can be obtained from the **Redis Cache** blade for your cache instance.
 
 ![Cache properties][CacheProperties]
 
