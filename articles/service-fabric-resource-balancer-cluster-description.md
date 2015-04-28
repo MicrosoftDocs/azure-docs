@@ -1,7 +1,7 @@
 <properties
    pageTitle="Resource Balancer Cluster Description"
    description="Specifying a cluster description for the Resource Balancer"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
