@@ -552,7 +552,7 @@ For a Linux-based virtual machine, see [Create and upload a Linux VHD in Azure](
 
 ### Step 3: Create the virtual machine with the template
 
-Now you're ready to create a new virtual machine based on the VHD. Create a group to deploy into, using `azure group create <location>`:
+Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, using `azure group create <location>`:
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
@@ -576,7 +576,7 @@ Then create the deployment, using the `--template-uri` option to call in the tem
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
     adminUserName: ops
-    adminPassword: lkjWER#%@123
+    adminPassword: password
     osType: linux
     subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         
@@ -617,8 +617,6 @@ Output looks something like the following:
     
 
 ## Deploy a multi-VM application that uses a virtual network and an external load balancer
-
-Use the instructions in these sections to deploy a multi-VM application that uses a virtual network and a load balancer with a Resource Manager template using Azure PowerShell. This template creates two virtual machines in a new virtual network with a single subnet in a new cloud service, and adds them to an external load-balanced set for incoming traffic to TCP port 80.
 
 This template allows you to create 2 Virtual Machines under a Load balancer and configure a load balancing rule on Port 80. This template also deploys a Storage Account, Virtual Network, Public IP address, Availability Set and Network Interfaces.
 
@@ -1028,7 +1026,7 @@ Now use the `azure group deployment create` command and the `--template-uri` opt
     data:    vmSize                 String        Standard_A1           
     info:    group deployment create command OK
     
-Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too. 
+Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too. Want to create a Docker Cluster across multiple regions? [You can do it](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/). 
 
 ## Remove a resource group
 
