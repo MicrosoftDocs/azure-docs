@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Queue Storage service. The samples are written using the Ruby Azure API.
 The scenarios covered include **inserting**, **peeking**, **getting**,
 and **deleting** queue messages, as well as **creating and deleting
