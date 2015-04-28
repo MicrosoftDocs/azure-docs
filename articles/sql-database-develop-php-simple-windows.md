@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="04/17/2015"
+	ms.date="04/27/2015"
 	ms.author="genemi"/>
 
 
 # Connect to SQL Database by using PHP on Windows
 
 
-<!--
-Original content written by Luiz Fernando Santos, then edited by GeneMi, HackaDoc2, 2015-04-14.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 This topic illustrates how you can connect to Azure SQL Database from a client application written in PHP that runs on Windows.
@@ -272,12 +270,3 @@ This **OpenConnection** function is called near the top in all of the functions 
 
 For more information regarding PHP installation and usage, see [Accessing SQL Server Databases with PHP](http://technet.microsoft.com/library/cc793139.aspx).
 
-
-<!--
-FWLink 533699 points to TechNet...
-https://technet.microsoft.com/en-us/library/cc793139(v=sql.90).aspx,
- which instead should be...
-http://technet.microsoft.com/library/cc793139.aspx
-.
-Regardless, we should use direct URL, not indirect, in this type of one-time case. It might be different if this link were being placed into 25 different topics.
--->

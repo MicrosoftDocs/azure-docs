@@ -16,7 +16,7 @@
 	ms.date="02/12/2015" 
 	ms.author="kapiteir" />
 
-#iOS SDK for Azure Mobile Engagement v2.0.0
+#iOS SDK for Azure Mobile Engagement v2.1.0
 
 Start here to get all the details on how to integrate Azure Mobile Engagement in an iOS App. If you'd like to give it a try first, make sure you do our [15 minutes tutorial](mobile-engagement-ios-get-started.md).
 
@@ -32,14 +32,12 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###2.0.0 (02/17/2015)
+###2.1.0 (04/24/2015)
 
--   Initial Release of Azure Mobile Engagement
--   appId/sdkKey configuration is replaced by a connection string configuration.
--   Removed API to send and receive arbitrary XMPP messages from arbitrary XMPP entities.
--   Removed API to send and receive messages between devices.
--   Security improvements.
--   SmartAd tracking removed.
+-   Add Swift compatibility.
+-   When clicking on a notification, the action URL is now executed right after the application is opened.
+-   Added missing header file in SDK package.
+-   Fixed an issue when the Mobile Engagement crash reporter was disabled.
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 

@@ -16,7 +16,7 @@
    ms.date="04/13/2015"
    ms.author="elfish"/>
 
-# Overview
+# Business Continuity Overview
 
 Business continuity is about designing, deploying and running your application in a way that it is resilient to planned or unplanned disruptive events that result in permanent or temporary loss of the application’s ability to conduct its business function. The unplanned events range from human errors to permanent or temporary outages to regional disasters that could cause wide scale loss of facility in a particular Azure region. The planned events include application redeployment to a different region, application upgrades etc. The goal of business continuity is for your application to continue to function during these events with minimal impact on the business function. 
 

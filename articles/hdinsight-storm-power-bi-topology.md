@@ -9,11 +9,11 @@
 
 <tags
  ms.service="hdinsight"
- ms.devlang="na"
+ ms.devlang="dotnet"
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/22/2015"
+ ms.date="04/28/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from a Storm Topology
@@ -47,6 +47,10 @@ The following files in this project implement the Power BI specific functionalit
 * **PowerBiBolt.cs**: Implements the Storm bolt, which sends data to Power BI
 
 * **Data.cs**: Describes the data object/row that will be sent to Power BI
+
+> [AZURE.WARNING] Power BI seems to allow the creation of multiple datasets with the same name. This can occur if the dataset does not exist, and your topology creates multiple instances of the Power BI Bolt. To avoid this, either set the parallelism hint of the bolt to 1 (as this example does,) or create the dataset before deploying the topology.
+>
+> The **CreateDataset** console application included in this solution is provided as an example of how to create the dataset outside of the topology.
 
 ## Register a Power BI application
 
@@ -132,6 +136,4 @@ The topology will continue to run until you stop it or delete the Storm on HDIns
 
 In this document, you learned how to send data from a Storm topology to Power BI using REST. For information on how to work with other Azure technologies, see the following:
 
-* [Process events from Azure Event Hubs](hdinsight-storm-develop-csharp-event-hub-topology.md)
-
-* [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples/): This project includes both C# and Java examples of working with Azure services from Storm topologies
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/22/2015" 
+	ms.date="04/24/2015" 
 	ms.author="jeffstok"/>
 	
 #Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
 
-One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  [Microsoft Power BI] (https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario] (https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. Note- Azure Stream Analytics is Generally Available however at this point, Power BI output is a preview feature of Azure Stream Analytics. 
+One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  [Microsoft Power BI](https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. Note- Azure Stream Analytics is Generally Available however at this point, Power BI output is a preview feature of Azure Stream Analytics. 
 
 ##Prerequisites
 
@@ -92,30 +92,27 @@ Provide values as below:
 
 >	[AZURE.NOTE] Note - You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your ASA job and the job starts pumping output into Power BI. If your ASA job query doesn’t return any results, the dataset and table will not be created.
 
+*	Click **OK**, **Test Connection** and now you output configuraiton is complete.
 
 >	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this ASA job, the existing data will be overwritten.
 
 
-*	Click **OK**, **Test Connection** and now you output configuraiton is complete.
-
 ##Write Query
 
-Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following query:
+Go to the **Query** tab of your job. Write your query, the output of which you want in your Power BI. For example, it could be something such as the following SQL query:
 
-    SQL   
-    	SELECT 
-    		MAX(hmdt) AS hmdt,
-    		MAX(temp) AS temp,
-    		time 
+    SELECT
+    	MAX(hmdt) AS hmdt,
+    	MAX(temp) AS temp,
+    	System.TimeStamp AS time,
+    	dspl
+    INTO
+        OutPBI
     FROM
-        Input
-    	INTO
-    		OutPBI
-    	WHERE 
-    		dspl = 'mysensor' 
-    	GROUP BY 
-    		TUMBLINGWINDOW(ss,1),
-        time
+    	Input TIMESTAMP BY time
+    GROUP BY
+    	TUMBLINGWINDOW(ss,1),
+    	dspl
 
     
     
@@ -157,9 +154,8 @@ Note that this tutorial demonstrated how to create but one kind of chart for a d
 
 Another helpful resource to learn more about creating Dashboards with Power BI is [Dashboards in Power BI Preview](http://support.powerbi.com/knowledgebase/articles/424868-dashboards-in-power-bi-preview).
 
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 

@@ -154,7 +154,10 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.String</td>
     </tr>
     <tr>
-        <td>Arrays of primitive types, e.g. [ "a", "b", "c" ]</td>
+        <td>
+            Arrays of primitive types<br/>
+            e.g. [ "a", "b", "c" ]
+        </td>
         <td>Collection(Edm.String)</td>
     </tr>
     <tr>
@@ -162,7 +165,14 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.DateTimeOffset, Edm.String</td>
     </tr>
     <tr>
-        <td>JSON objects</td>
+        <td>
+            GeoJSON objects<br/>
+            e.g. { "type": "Point", "coordinates": [ long, lat ] }
+        </td>
+        <td>Edm.GeographyPoint</td>
+    </tr>
+    <tr>
+        <td>Other JSON objects</td>
         <td>N/A</td>
     </tr>
 </table>
@@ -214,7 +224,7 @@ The body of the request contains the indexer definition, which should include th
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
+- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
 - **startTime**: Required. An UTC datetime that specifies when the indexer should start running. 
 

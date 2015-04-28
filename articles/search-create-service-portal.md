@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="mblythe" 
-	editor=""/>
+	editor=""
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -13,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+	ms.date="04/27/2015" 
 	ms.author="heidist"/>
 
 # Create an Azure Search service in the portal
@@ -24,7 +25,7 @@ Microsoft Azure Search is a new service that allows you to embed search function
 
 As an administrator, you can add Search to an existing subscription at no cost when choosing the shared service, or at the standard rate when opting in for dedicated resources. 
 
-1. Sign in to [Azure Preview portal](https://portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 2. In the Jumpbar, click **New** | **Data + storage** | **Search**.
  
