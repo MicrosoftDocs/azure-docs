@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/01/2015"
+   ms.date="04/27/2015"
    ms.author="sstein"/>
 
 # Pricing tier recommendations (preview) for SQL Database 
