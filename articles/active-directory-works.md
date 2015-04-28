@@ -20,12 +20,11 @@
 
 # How does Azure Active Directory work?
 
-> [AZURE.SELECTOR]
-- [What is Azure AD?](active-directory-whatis.md)
-- [How does it work?](active-directory-works.md)
-- [Get started](active-directory-get-started.md)
-- [Next steps](active-directory-next-steps.md)
-- [Learn more](active-directory-learn-map.md)
+
+[What is Azure AD?](active-directory-whatis.md)<br>
+[Get started](active-directory-get-started.md)<br>
+[Next steps](active-directory-next-steps.md)<br>
+[Learn more](active-directory-learn-map.md)
 
 
 Azure AD creates an identity landscape that is yours in the cloud. It can be connected to your on-premises identity system or used independently. 

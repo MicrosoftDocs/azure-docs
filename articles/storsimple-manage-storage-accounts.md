@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/24/2015"
+   ms.date="04/27/2015"
    ms.author="v-sharos" />
 
 # Manage your StorSimple storage account
@@ -25,7 +25,7 @@ The **Configure** page presents all the global service parameters that can be cr
 - Bandwidth templates 
 - Access control records 
 
-This tutorial explains how you can use the **Configure** page to add, edit, delete, or rotate the security keys for a storage account.
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
  ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
 
@@ -48,7 +48,7 @@ The most common tasks related to storage accounts that can be performed on the *
 
 There are three types of storage accounts that can be used with your StorSimple device.
 
-- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see [Step 1: Create a new service](storsimple-deployment-walkthrough.md#step-1:-create-a-new-storage-account). 
+- **Auto-generated storage accounts** – As the name suggests, this type of storage account is automatically generated when the service is first created. To learn more about how this storage account is created, see Step 1: Create a new service, in [Deploy your StorSimple device](storsimple-deployment-walkthrough.md). 
 - **Storage accounts in the service subscription** – These are the Azure storage accounts that are associated with the same subscription as that of the service. To learn more about how these storage accounts are created, see [About Azure Storage Accounts](storage-create-storage-account.md). 
 - **Storage accounts outside of the service subscription** – These are the Azure storage accounts that are not associated with your service and likely existed before the service was created.
 

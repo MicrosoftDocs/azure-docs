@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="mimig"/>
 
 #Manage DocumentDB capacity needs
 DocumentDB is a fully managed, scalable document oriented NoSQL database service.  With DocumentDB, you don’t have to rent virtual machines, deploy software, monitor databases or worry about disaster recovery. DocumentDB is operated and continuously monitored by Microsoft engineers to deliver world class availability, performance, and data protection.  
 
-You can get started with DocumentDB by creating a database account through the [Azure Preview portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection includes 10GB of database storage with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
+You can get started with DocumentDB by creating a database account through the [Azure portal](https://portal.azure.com/). DocumentDB is offered in units of solid-state drive (SSD) backed storage and throughput. These units are provisioned by creating database collections within your database account. Each collection includes 10GB of database storage with reserved throughput. If the throughput requirements of your application change, you dynamically change this by setting the [performance level](documentdb-performance-levels.md) for each collection.  
 
 When your application exceeds performance levels for one or multiple collections, requests will be throttled on a per collection basis. This means that some application requests may succeed while others may be throttled.
 
@@ -34,7 +34,7 @@ With DocumentDB, as you need to scale your applications, you can create more col
 ##<a name="DBCollections"></a>Database collections
 Each DocumentDB database can contain one or more collections. Collections act as highly available data partitions for document storage and processing. Each collection can store documents with heterogeneous schema. DocumentDB's automatic indexing and query capabilities allow you to easily filter and retrieve documents. A collection provides the scope for document storage and query execution. A collection is also a transaction domain for all the documents contained within it. Collections are allocated throughput based on their specified performance level.  This can be adjusted dynamically through the Azure portal or one of the SDKs. 
 
-You can create any number of collections to meet the storage and throughput scale requirements of your applications. Collections can be created through the Preview portal or through any one of the DocumentDB SDKs.   
+You can create any number of collections to meet the storage and throughput scale requirements of your applications. Collections can be created through the Azure portal or through any one of the DocumentDB SDKs.   
 
 >[AZURE.NOTE] Each collection supports storage for up to 10GB of document data. 
  
@@ -64,7 +64,7 @@ Queries, stored procedures and triggers will consume request units based on the 
 ##<a name="Consistency"></a>Choice of consistency level and throughput
 The choice of default consistency level has an impact on the throughput and latency. You can set the default consistency level both programmatically and through the Azure portal. You can also override the consistency level on a per request basis. By default, the consistency level is that of session which provides monotonic read/writes and read your write guarantees. Session consistency is great for user-centric applications and provides an ideal balance of consistency and performance trade-offs.    
 
-For instructions on changing your consistency level on the Preview portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md).
+For instructions on changing your consistency level on the Azure portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md).
 
 ##<a name="IndexOverhead"></a>Provisioned document storage and index overhead
 With each collection created you are provisioned with 10GB of SSD backed document storage. The 10GB of document storage includes the documents plus storage for the index. By default, a DocumentDB collection is configured to automatically index all of the documents without explicitly requiring any secondary indices or schema. Based on applications using DocumentDB, the typical index overhead is between 2-20%. The indexing technology used by DocumentDB ensures that regardless of the values of the properties, the index overhead does not exceed more than 80% of the size of the documents with default settings. 
@@ -72,8 +72,8 @@ With each collection created you are provisioned with 10GB of SSD backed documen
 By default all documents are indexed by DocumentDB automatically. However, in case you want to fine tune the index overhead, you can chose to remove certain documents from being indexed at the time of inserting or replacing a document. You can configure a DocumentDB collection to exclude all documents within the collection from being indexed. You can also configure a DocumentDB collection to selectively index only a certain properties or paths with wildcards of your JSON documents.  Excluding properties or documents also improves the write throughput – which means you will consume fewer request units.   
  
 ##<a name="NextSteps"></a>Next steps
-For instructions on managing your DocumentDB account in the Preview portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md/#consistency).
+For instructions on managing your DocumentDB account in the Azure portal, see How to: Manage DocumentDB Consistency Settings in [How to Manage a DocumentDB Account](documentdb-manage-account.md/#consistency).
 
-For instructions on monitoring performance levels on the Azure Preview portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
+For instructions on monitoring performance levels on the Azure portal, see [Monitor a DocumentDB account](documentdb-monitor-accounts.md).
 
 For more information on choosing performance levels for collections, see [Performance Levels in DocumentDB](documentdb-performance-levels).
