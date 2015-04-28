@@ -35,7 +35,7 @@ Elastic pools address this problem by providing performance adaptability for the
 
 For example, with SaaS applications that host a large number of databases, it is common to have only a subset of databases concurrently active at any given time. The actual databases that are simultaneously active change unpredictably over time. By sharing resources in a pool, the databases with increased activity are accommodated while also maintaining a guaranteed level of resources for all other databases in the pool. 
 
-## Easily Manage large numbers of databases
+## Easily manage large numbers of databases
 
 Elastic pools make SaaS application development easier by providing tools that simplify building and managing your data-tier. Performing maintenance tasks and implementing changes across a large set of databases, a historically time-consuming and complex process, has been reduced to running scripts in elastic jobs. The ability to create and run an elastic job eliminates most all of the heavy lifting associated with administering hundreds or even thousands of databases.  
 
@@ -71,15 +71,11 @@ Elastic pools provide a collection of resources to share across a group of datab
 
 ## Elastic database pool reference
 
-For more information about elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
+For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).
 
 
 
 
-
-
-<!--Image references-->
-[1]: ./media/sql-database-elastic-pool/new-elastic-pool.png
 
 
 
