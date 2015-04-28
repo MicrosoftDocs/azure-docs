@@ -58,7 +58,7 @@ StatefulServiceBase also provides the same four lifecycle events as StatelessSer
 ## Next steps
 For more advanced topics related to Service Fabric, see the following articles.
 
-- [Configuring stateful Reliable Services](service-fabric-reliable-services-configuration.md)
+- [Configuring Stateful Reliable Services](service-fabric-reliable-services-configuration.md)
 
 - [Service Fabric Health Introduction](service-fabric-health-introduction.md)
 
