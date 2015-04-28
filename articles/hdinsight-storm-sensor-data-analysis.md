@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/17/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 # Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
@@ -407,9 +407,7 @@ You have now learned how to use Storm to read data from Event Hub and display in
 
 * For more examples of Storm topologies with HDinsight, see:
 
-	* [Storm on HDInsight Examples](https://github.com/hdinsight/hdinsight-storm-examples)
-
-	* [Twitter Trending Hashtags](hdinsight-storm-twitter-trending.md)
+    * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 * For more information about Apache Storm, see the  [Apache Storm](https://storm.incubator.apache.org/) site.
 

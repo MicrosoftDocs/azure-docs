@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 
@@ -204,19 +204,9 @@ In this tutorial, you learned how to create a Storm on HDInsight cluster and use
 
 	To access these samples, you must enable Remote Desktop for the Storm on HDInsight cluster, and then copy the files from **%STORM_HOME%\contrib**.
 
-* The following are other examples that can be used with Storm on HDInsight:
+* The following document contains a list of other examples that can be used with Storm on HDInsight:
 
-	* [Analyzing sensor data with Storm on HDInsight](hdinsight-storm-sensor-data-analysis.md)
-
-	* [Trending hashtags on Twitter with Storm on HDInsight](hdinsight-storm-twitter-trending.md)
-
-* To learn more about developing Storm topologies, see the following:
-
-	* [Develop Java topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-
-	* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-
-  * [Use Power BI to visualize data from Apache Storm on HDInsight](hdinsight-storm-power-bi-topology.md)
+	* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

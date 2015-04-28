@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/21/2015" 
+	ms.date="04/28/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -268,7 +268,7 @@ This command tests the connection status of the output Output in StreamingJob.
 
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
 
 ## Next steps

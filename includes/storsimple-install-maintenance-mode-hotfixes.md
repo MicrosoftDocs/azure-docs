@@ -23,7 +23,7 @@
 
 2. To apply the hotfix, type:
 
-    'Start-HcsHotfix' 
+     **Start-HcsHotfix** 
 
 3. When prompted, supply the path to the network shared folder that contains the hotfix files.
 

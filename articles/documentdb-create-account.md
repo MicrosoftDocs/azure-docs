@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Create a database account | Azure" 
-	description="Learn how to create a DocumentDB NoSQL document database account and choose account settings in the Azure Preview portal." 
+	description="Learn how to create a DocumentDB NoSQL document database account and choose account settings in the Azure portal." 
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="documentdb" 
@@ -13,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="mimig"/>
 
 #Create a database account
-To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Azure Preview portal.  
+To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Microsoft Azure portal.  
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 

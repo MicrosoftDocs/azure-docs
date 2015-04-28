@@ -22,7 +22,7 @@
 
 3. At the command prompt, type:
 
-    'Start-HcsHotfix'
+     **Start-HcsHotfix**
 
    > [AZURE.IMPORTANT]
    >

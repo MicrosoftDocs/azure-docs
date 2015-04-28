@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
 #<a name="_Toc395809351"></a>Build a web application with ASP.NET MVC using DocumentDB
@@ -75,7 +75,7 @@ Now that you have an account, let's create our new ASP.NET project.
 
 8. If you chose to host this in the cloud you will see at least one additional screen asking you to login to your Azure account and provide some values for your new website. Supply all the additional values and continue. 
 
-  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Azure Preview portal.
+  	I haven't chosen a "Database server" here because we're not using an Azure SQL Database Server here, we're going to be creating a new Azure DocumentDB account later on in the Microsoft Azure portal.
 
 	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -396,8 +396,8 @@ The first thing to do here is add a class that contains all the logic to connect
 
 3. We're reading some values from configuration, so open the **Web.config** file of your application and add the following lines under the `<AppSettings>` section.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure preview portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
@@ -632,17 +632,17 @@ If you're looking to save time and just want to build the complete todo solution
 
 3. To restore the references to the DocumentDB .NET SDK in Visual Studio 2013, right-click the todo solution in **Solution Explorer**, and then click **Enable NuGet Package Restore**, which will restore the references. 
 
-4. Retrieve the **URI** and **PRIMARY KEY** or **SECONDARY KEY** values from the **Keys** blade of your DocumentDB account in the [Azure Preview portal](https://portal.azure.com/). 
+4. Retrieve the **URI** and **PRIMARY KEY** or **SECONDARY KEY** values from the **Keys** blade of your DocumentDB account in the [Azure portal](https://portal.azure.com/). 
 
 	
 	If you don't have an account, see [Create a database account](documentdb-create-account.md) to set one up.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
+	![Screen shot of the Azure portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. In the Web.config file, update the default values for the **endpoint** and **authKey** keys.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Management Portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Management Portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure classic portal~" /> 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure classic portal~" /> 
 
 	- Copy the **URI** value from the Keys blade and paste it into the **endpoint** property value. 
 	- Copy the **PRIMARY KEY** or **SECONDARY KEY** value from the **Keys** blade and paste it into the **authKey** property value.

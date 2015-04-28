@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2015"
+   ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### To install updates manually
+### To install regular updates via the Management Portal
 
 1. On the **Devices** page, select the device on which you want to install updates.
 

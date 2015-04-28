@@ -25,7 +25,7 @@ This section includes the following topics.
 - [Important Information About Signing Key Rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) – Learn about Azure AD’s signing key rollover cadence, changes you can make to update the key automatically, and discussion for how to update the most common application scenarios.
 
 
-- [Supported Token and Claim Types](active-directory-tokens-and-claims.md) - Learn about the claims in the tokens that Azure AD issue.
+- [Supported Token and Claim Types](active-directory-token-and-claims.md) - Learn about the claims in the tokens that Azure AD issue.
 
 
 - [Federation Metadata](https://msdn.microsoft.com/library/azure/dn195592.aspx) - Learn how to find and interpret the metadata documents that Azure AD generates.
