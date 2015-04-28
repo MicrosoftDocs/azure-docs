@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a Windows virtual machine with PowerShell (ASM version)" 
+	pageTitle="Create a Windows virtual machine with PowerShell and Azure Service Manager" 
 	description="Use Azure PowerShell to quickly create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with PowerShell and Service Manager
+# Create a Windows virtual machine with PowerShell and Azure Service Manager
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -127,6 +127,10 @@ Here is an example of what running the command set looks like.
 	
 
 ## Additional Resources
+
+[Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-rm.md)
+
+[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-rm-template-simple.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
