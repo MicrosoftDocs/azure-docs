@@ -35,7 +35,7 @@ It takes about 30 minutes to do these steps.
 
 To use Azure AD to authenticate requests to Azure Resource Manager, an application must be added to the Default Directory. Do the following to add an application:
 
-1. Open an Azure PowerShell command prompt, and then run this command:
+1. Open an Azure PowerShell prompt, and then run this command:
 
         Switch-AzureMode –Name AzureResourceManager
 
@@ -47,7 +47,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-4. Record the value that is returned for ApplicationId in the response from the previous step. You will need it later in this tutorial:
+4. Record the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
 
 	![Create an AD application](./media/virtual-machines-arm-deployment/azureapplicationid.png)
 
@@ -73,19 +73,19 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 4. Type *Active Directory* in the search box, click **Install** for the Active Directory Authentication Library package, and then follow the instructions to install the package.
 
-5. At the top of the page, select **Include Prerelease**. Type *Compute Resource Provider* in the search box, click **Install** for the Compute Resource Provider Libraries, and then follow the instructions to install the package.
+5. At the top of the page, select **Include Prerelease**. Type *Azure Compute* in the search box, click **Install** for the Compute .NET Libraries, and then follow the instructions to install the package.
 
-6. Type *Network Resource Provider* in the search box, click **Install** for the Network Resource Provider Libraries, and then follow the instructions to install the package.
+6. Type *Azure Network* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
 
-7. Type *Storage Resource Provider* in the search box, click **Install** for the Network Resource Provider Libraries, and then follow the instructions to install the package.
+7. Type *Azure Storage* in the search box, click **Install** for the Network .NET Libraries, and then follow the instructions to install the package.
 
-8. Type *Azure Resource Management* in the search box, click **Install** for the Microsoft Azure Resource Management Libraries.
+8. Type *Azure Resource Management* in the search box, click **Install** for the Resource Management Libraries.
 
 You are now ready to start using the libraries to create your application.
 
 ##Step 3: Create the credentials that are used to authenticate requests
 
-Now that the Azure Active Directory application is created and the authentication library has been installed, you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager. Do the following:
+Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager. Do the following:
 
 1.	Open the Program.cs file for the project that you created, and then add the following using statements to the top of the file:
 
@@ -134,7 +134,7 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 ###Create a resource group
 
-Resources are always deployed from a template to a resource group. You use the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes to create the resource group that the resources are deployed to.
+Resources are always deployed to a resource group. You use the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes to create the resource group that the resources are deployed to.
 
 1.	Add the following method to the Program class to create the resource group:
 
@@ -373,10 +373,12 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 ##Step 6: Run the console application
 
-1.	To run the console application, click Start in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+1.	To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Management Portal before you delete them.
+2.	Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
 
-2. Browse to the Audit Logs in the Management Portal and see the status of the resources:
+	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
+
+3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
 
 	![Create an AD application](./media/virtual-machines-arm-deployment/crpportal.png)
