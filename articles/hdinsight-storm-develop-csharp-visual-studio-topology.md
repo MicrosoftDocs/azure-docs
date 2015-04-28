@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Visual Studio
@@ -545,13 +545,7 @@ For more ways to work with HDInsight and more Storm on HDinsight samples, see th
 
 * [Deploy and monitor topologies with Apache Storm on HDInsight](hdinsight-storm-deploy-monitor-topology.md)
 
-* [Process events from Azure Event Hub with Storm on HDInsight](hdinsight-storm-develop-csharp-event-hub-topology.md)
-
-* [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-
-* [Trending hashtags for Twitter with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md)
-
-* [Storm on HDInsight examples](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 

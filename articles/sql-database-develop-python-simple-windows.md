@@ -14,17 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using Python on Windows
 
 
-<!--
-2015-04-18
-Original content written by Meet Bhagdev, then edited by GeneMi.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pyodbc** driver.
@@ -60,11 +57,6 @@ The [pyodbc.connect function](https://code.google.com/p/pyodbc/wiki/Module#conne
 	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourservername.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
 	cursor = cnxn.cursor())
-
-
-<!--
-TODO: Again, Does Python allow you to somehow split a very long line of code into multiple lines, for better display?
--->
 
 
 ## Execute an SQL SELECT
@@ -112,14 +104,4 @@ The [cnxn.rollback](https://code.google.com/p/pyodbc/wiki/Connection#rollback) a
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("DELETE FROM test WHERE value = 1;")
 	cnxn.rollback()
-
-
-<!--
-TODO: Hmm, could we just as easily issue another cursor.execute('ROLLBACK TRNASACTION;')?
-If so, perhaps we should at least include a sentence explaining that the option is viable?
--->
-
-
-
-
 
