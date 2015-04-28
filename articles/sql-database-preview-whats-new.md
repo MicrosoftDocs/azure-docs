@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="04/28/2015" 
 	ms.author="genemi"/>
 
 
@@ -38,7 +38,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 ## Highlights
 
 
-- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the [earlier portal](http://manage.windowsazure.com/) is also supported.
+- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure preview portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the [earlier Azure portal](http://manage.windowsazure.com/) is also supported.
 
 
 - **Choose a version** of SQL Database server when you use the Azure preview portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
