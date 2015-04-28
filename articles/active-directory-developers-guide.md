@@ -89,7 +89,6 @@ These articles describe how to perform specific tasks using Azure Active Directo
 * [Use Direct Name/Password Sign-In]()
 
 
--->
 
 <a name='scenarios'></a>
 ## Scenarios
@@ -112,7 +111,6 @@ These are the five primary application scenarios supported by Azure AD:
 
 - [Daemon or Server Application to Web API][]: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.
 
-<!--
 
 * [Integrate Azure AD with an Existing SaaS Application]()
 
@@ -151,7 +149,7 @@ COMMENT -->
 These articles provide foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.  
 
 ###  Support
-- **[Where to get support](http://stackoverflow.com/questions/tagged/azure-active-directory)**: Find Azure AD solutions on Stack Overflow.
+- **[Where to get support](http://stackoverflow.com/questions/tagged/azure-active-directory)**: Find Azure AD solutions on Stack Overflow by searching for the tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) and [adal](http://stackoverflow.com/questions/tagged/adal).
 
 ### Code
 
