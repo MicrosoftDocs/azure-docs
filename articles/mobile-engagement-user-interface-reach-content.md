@@ -3,7 +3,7 @@
    description="Learn how to manage the unique content of the different types of push notification campaigns in Azure Mobile Engagement" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
 # How to manage the unique content of the different types of push notification campaigns
  
@@ -53,23 +53,23 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
 
 - **Android + iOS actions**
     - Open a web page
-    - http://[web-site-domain] 
+    - http://\[web-site-domain\] 
     - Example:http://www.azure.com
     - Send an e-mail
-    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
+    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
     - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Send a SMS
-    - sms:[phone-number] 
+    - sms:\[phone-number\] 
     - Example:sms:2125551212
     - Dial a phone number
-    - tel:[phone-number] 
+    - tel:\[phone-number\] 
     - Example:tel:2125551212
 - **Android only actions**
     - Download an application on the Play Store
-    - market://details?id=[app package] 
+    - market://details?id=\[app package\] 
     - Example:market://details?id=com.microsoft.office.word
     - Start a geo-localized search
-    - geo:0,0?q=[search query] 
+    - geo:0,0?q=\[search query\] 
     - Example:geo:0,0?q=starbucks,paris
 - **iOS only actions**
     - Download an application on the App Store
@@ -77,28 +77,28 @@ Each occurrence of the {deviceid} pattern is automatically replaced by the ident
     - Example:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows Actions
     - Open a web page
-    - http://[web-site-domain] 
+    - http://\[web-site-domain\] 
     - Example:http://www.azure.com
     - Send an e-mail
-    - mailto:[e-mail-recipient]?subject=[subject]&body=[message] 
+    - mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
     - Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
     - Send a SMS (Skype Store App required)
-    - sms:[phone-number] 
+    - sms:\[phone-number\] 
     - Example:sms:2125551212
     - Dial a phone number (Skype Store App required)
-    - tel:[phone-number] 
+    - tel:\[phone-number\] 
     - Example:tel:2125551212
     - Download an application on the Play Store
-    - ms-windows-store:PDP?PFN=[app package ID] 
+    - ms-windows-store:PDP?PFN=\[app package ID\] 
     - Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
     - Start a bingmaps search
-    - bingmaps:?q=[search query] 
+    - bingmaps:?q=\[search query\] 
     - Example:bingmaps:?q=starbucks,paris
     - Use a custom scheme
-    - [custom scheme]://[custom scheme params] 
+    - \[custom scheme\]://\[custom scheme params\] 
     - Example:myCustomProtocol://myCustomParams
     - Use a package data (Store App for extension read required)
-    - [folder][data].[extension] 
+    - \[folder\]\[data\].\[extension\] 
     - Example:myfolderdata.txt
  
 ### Build a Tracking URL:
