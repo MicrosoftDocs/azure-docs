@@ -19,10 +19,13 @@
 
 # What is Azure Active Directory?
 
-[How does it work?](active-directory-works.md)<br>
-[Get started](active-directory-get-started.md)<br>
-[Next steps](active-directory-next-steps.md)<br>
-[Learn more](active-directory-learn-map.md)
+> [AZURE.SELECTOR]
+- [What is Azure AD?](active-directory-whatis.md)
+- [How does it work?](active-directory-works.md)
+- [Get started](active-directory-get-started.md)
+- [Next steps](active-directory-next-steps.md)
+- [Learn more](active-directory-learn-map.md)
+
 
 We're all facing the new world of cloud-era problems: problems that we haven't faced before, like new security threats to our systems, and personal devices that are unmanaged. These are cloud-era problems, problems that have arisen because the consumer cloud is here. In addition, we now use the cloud to support customers by providing them with custom portals and personalization. We can also collaborate in the cloud with business partners, suppliers, and business customers that we can invite into SharePoint sites (or participate in their SharePoint sites). 
 
