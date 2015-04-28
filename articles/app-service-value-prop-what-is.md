@@ -4,7 +4,7 @@
 	services="app-service"
 	documentationCenter=""
 	authors="omarkmsft"
-	manager="bills" 
+	manager="dwrede" 
 	editor="jimbe"/>
 
 <tags
