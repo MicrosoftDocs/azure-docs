@@ -16,7 +16,7 @@
 	ms.date="04/20/2015" 
 	ms.author="sidneyh" />
 
-# How to add a users to an elastic database pool
+# How to add users to an elastic database pool
 
 The elastic database job allows you to run the same script against every database in an [elastic database pool](sql-database-elastic-pool.md). To run the script, a user with the appropriate permissions must be added to every database in the pool. This is done with a combination of PowerShell and TSQL. First, a SQL Server login is created on the "master" database known as the control database. The login is needed to create a user on each database. Then a PowerShell script logs into each database in the pool and runs the CREATE USER statement. For more information, see [Managing Databases and Logins in Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) or [Adding Users to Your SQL Azure Database](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)
 

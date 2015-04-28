@@ -18,45 +18,47 @@
 
 # Installing the elastic database job components
 
-The Elastic database pool service provides a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing these databases can most easily accomplished using the elastic database job service. The service allows you to run scripts against each database elastic database pool. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. Here's how to install the service.
+The [elastic database pool (preview)](sql-database-elastic-pool-portal.md) provides a predictable model for deploying large numbers of databases. Once you have installed an elastic pool, you can use the **elastic database job** to manage it. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. Here's how to install the service.
 
 **Estimated time to complete:** 10 minutes.
 
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
-* An elastic database pool. See [About Elastic database pools](sql-database-elastic-pool.md)
-
+* An elastic database pool. See [Create an Azure SQL Database elastic pool (preview)](sql-database-elastic-pool-portal.md).
 
 ## Install the service components
 First go to the [Azure preview portal](https://ms.portal.azure.com/#).
 
 
-1. From the dashboard view of the elastic database pool, click either **Create job**.
-2. If you are creating a job for the first time you must install the service components by clicking on the text, **Click here to install the services**.
-3. The **Install services** view appears.
-	
+1. From the dashboard view of the elastic database pool, click **Create job**.
+2. If you are creating a job for the first time you must install the service components by clicking **PREVIEW TERMS**. 
+3. Accept the terms by clicking the checkbox.
+4.  In the "Install services" view, click **JOB CREDENTIALS**.
+
 	![Installing the services][1]
 
-4. Click **Preview terms** to review your actions.  
-5. The terms stipulate that an instance of an Azure Cloud Service, SQL Database, Service Bus, and Storage will be installed. The costs for each are calculated separately using the standard pricing for each service. 
-6. Check the box to acknowledge the terms, and click **OK**.
-	![Preview terms][2]
+5. Type a user name and password for a database admin. As part of the installation, a new Azure SQL Database server is created. That database is used to contain the metadata for the elastic database pool. The user name and password created here are used for two purposes: (1) to log in to the "master" database, and (2) as the identity used to log in to each database in the elastic pool whenever a you execute a job.
+ 
+	![Create username and password][2]
+6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](resource-group-portal.md). The new group is pinned to the start board, as shown below. Once created, the job services (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
 
-7. On the Install services view, click **Job credentials**.
-8. Type a login name for the administrator. The name is used to log in to the **master** database of the SQL Server Database instance. It is also used to manage the other services.
-9. Type a password for the administrator (twice), then click **OK**.
-	![Create credentials for the services][3]
+	![resource group in start board][3]
 
-10. On the Install services view, click **Create** to start the deployment. If the deployment fails, see "troubleshooting the elastic database job installation."
 
-	![Click create to begin the deployment][4]
+7. If you attempt to return to the **Credentials** view while the deployment is incomplete, you will see this. 
+
+	![Deployment still in progress][4]
+
+8. If the installation fails for some reason, delete the resource group. See [How to uninstall the elastic database job components](sql-database-elastic-jobs-uninstall.md).
+
 
 ## Next steps
 
+In order to log in to each database, a log in must be created on each DB. See [How to add users to an elastic database pool](sql-database-elastic-jobs-add-logins-to-dbs.md). 
 To understand the job creation, see [Creating and managing an elastic database job](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png
-[2]: ./media/sql-database-elastic-jobs-service-installation/screen-2.png
-[3]: ./media/sql-database-elastic-jobs-service-installation/screen-3.png
-[4]: ./media/sql-database-elastic-jobs-service-installation/screen-4.png
+[2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
+[3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
+[4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
