@@ -1,7 +1,7 @@
 <properties
    pageTitle="Proactive Metric Packing"
    description="An overview of using Proactive Metric Packing in the Resource Balancer"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
