@@ -53,7 +53,7 @@ The **Elastic DB with Azure SQL— Getting Started** sample application illustra
 3. Then click **Visual C#** under **Samples**.
 
     ![Click Visual C#][3]
-4. In the search box, type **Elastic DB** to search for the sample.The title **Elastic DB with Azure SQL - Getting Started** appears.
+4. In the search box, type **elastic db** to search for the sample.The title **Elastic DB Tools for Azure SQL - Getting Started** appears.
 
     ![Search Box][1]
  
