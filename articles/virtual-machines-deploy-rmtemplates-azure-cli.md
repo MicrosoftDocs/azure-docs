@@ -320,10 +320,10 @@ Here is an example:
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json myResourceGroup firstDeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    newStorageAccountName: slidkjfsldkjf
+    newStorageAccountName: storageaccount
     adminUsername: ops
-    adminPassword: lksLKJ*(&^&h
-    dnsNameForPublicIP: slkdjfslkd
+    adminPassword: password
+    dnsNameForPublicIP: newdomainname
     
 You will receive the following type of information:
 
@@ -344,7 +344,7 @@ You will receive the following type of information:
     data:    ContentVersion     : 1.0.0.0
     data:    Name                   Type          Value        
     data:    ---------------------  ------------  -------------
-    data:    newStorageAccountName  String        newstorageaccountname
+    data:    newStorageAccountName  String        storageaccount
     data:    adminUsername          String        ops          
     data:    adminPassword          SecureString  undefined    
     data:    dnsNameForPublicIP     String        newdomainname   
