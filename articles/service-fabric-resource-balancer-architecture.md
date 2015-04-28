@@ -1,7 +1,7 @@
 <properties
    pageTitle="Resource Balancer Architecture"
    description="An architectural overview of Service Fabric's Resource Balancer"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
