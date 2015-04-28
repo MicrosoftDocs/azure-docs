@@ -85,7 +85,7 @@ This is the basic approach to configure and create a virtual machine as per your
 >
 > `azure provider register Microsoft.Storage`
 >
-> You can find out the list of providers registerd for your subscription by running,
+> You can find out the list of providers registered for your subscription by running,
 >
 > `azure provider list`
 
@@ -162,6 +162,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 	azure network public-ip show "testrg" "testip"
 
 ### **vm quick-create** shortcut
+
 The new **vm quick-create** shortcut cuts out most of the steps of the imperative method of VM creation. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking configurations. It's an interactive command, and you need to find out only the OS image URN before running it.
 
 	azure-cli@0.8.0:/# azure vm quick-create
@@ -290,7 +291,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
-7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, 101-simple-vm-from-image. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template json file. Open it in _raw_, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
+7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, _101-simple-vm-from-image_. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template json file. Open it in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
 
 		azure vm group deployment create "testDeploy" -g "testResourceGroup" --template-url https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
