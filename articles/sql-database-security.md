@@ -85,7 +85,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 
 For other ways to encrypt your data secrets, consider:
 
-* [Cell-level encryption](https://msdn.microsoft.com/en-us/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
+* [Cell-level encryption](https://msdn.microsoft.com/library/ms179331.aspx) to encrypt specific columns or even cells of data with different encryption keys.
 * If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 
 
