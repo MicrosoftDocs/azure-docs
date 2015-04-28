@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a Windows virtual machine with PowerShell (RM version)" 
+	pageTitle="Create a Windows virtual machine with Resource Manager and PowerShell" 
 	description="Use the Resource Management mode of Azure PowerShell to easily create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with PowerShell (RM version)
+# Create a Windows virtual machine with Resource Manager and PowerShell
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.9.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -30,7 +30,7 @@ First, you must logon to Azure with this command.
 
 Specify the email address of your Azure account and its password in the Microsoft Azure sign-in dialog.
 
-Next, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
+Next, if you have multiple Azure subscriptions, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
@@ -53,7 +53,7 @@ Next, you need to create a storage account. You must pick a unique name that con
 
 If this command returns "False", your proposed name is unique.
 
-Now, copy the following block of PowerShell commands to a text editor. Fill in the name of your chosen storage account and location, replacing everything within the quotes, including the < and > characters.
+Now, copy the following block of PowerShell commands to a text editor. Fill in your chosen storage account and location, replacing everything within the quotes, including the < and > characters.
 
 	$stName="<chosen storage account name>"	
 	$locName=<chosen Azure location name>"
@@ -64,22 +64,16 @@ Now, copy the following block of PowerShell commands to a text editor. Fill in t
 	$vnet=New-AzurevirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 	$pip = New-AzurePublicIpAddress -Name TestNIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-	$version=Get-AzureVMImage -Location $locName -Publisher "MicrosoftWindowsServer" -Offer "WindowsServer" -Sku "2012-R2-Datacenter"  | sort Version -Descending | select -ExpandProperty Version -First 1
-    $imgRef=Get-AzureVMImageDetail -Location $locName -Publisher "MicrosoftWindowsServer" -Offer "WindowsServer" -Sku "2012-R2-Datacenter" -Version $version
-    $cred = Get-Credential -Message "Type the name and password of the local administrator account."
-    $vm = New-AzureVMConfig -VMName WindowsVM -VMSize "Standard_A1"
-    $vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    $vm = Set-AzureVMSourceImage -VM $vm -ImageReference $imgRef
-    $vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-    $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
-    $vm = Set-AzureVMOSDisk -VM $vm -Name "vhds/WindowsVMosDisk.vhd" -VhdUri $osDiskUri -CreateOption fromImage
-    New-AzureVM -ResourceGroupName $rgName -Location $location -VM $vm 
+	$cred = Get-Credential -Message "Type the name and password of the local administrator account."
+	$vm = New-AzureVMConfig -VMName WindowsVM -VMSize "Standard_A1"
+	$vm = Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+	$vm = Set-AzureVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
+	$vm = Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
+	$osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/WindowsVMosDisk.vhd"
+	$vm = Set-AzureVMOSDisk -VM $vm -Name "vhds/WindowsVMosDisk.vhd" -VhdUri $osDiskUri -CreateOption fromImage
+	New-AzureVM -ResourceGroupName $rgName -Location $location -VM $vm 
 
 Finally, copy the above command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands, prompt you for the name and password of the local administrator account, and create your Azure virtual machine.
-Here is an example of what running the command set looks like.
-
-[[add an example when its working]]
-
 
 ## Additional Resources
 

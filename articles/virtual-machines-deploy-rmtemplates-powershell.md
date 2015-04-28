@@ -20,18 +20,14 @@
 
 All of the tasks you perform to deploy Azure Virtual Machines can be fully automated. This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and Azure PowerShell as well as links to more documentation on automation for Virtual Machines. These tasks include:
 
-- Deploy a VM in Azure - DONE
-- Create a custom VM image - DONE 
-- Deploy a multi-VM application that uses a virtual network and an external load balancer - DONE
-- Deploy a Multi-VM App using Chef
-- Deploy a Multi-VM App using Puppet
-- Updating an already deployed VM
-- Adding an additional VM to an already deployed resource group
-- Remove a resource group - DONE
-- Start a virtual machine - DONE
-- Stop a virtual machine - DONE
-- Restart a virtual machine - DONE
-- Remove a virtual machine - DONE
+- Deploy a VM in Azure
+- Create a custom VM image 
+- Deploy a multi-VM application that uses a virtual network and an external load balancer
+- Remove a resource group
+- Start a virtual machine
+- Stop a virtual machine
+- Restart a virtual machine
+- Remove a virtual machine
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 
@@ -273,7 +269,82 @@ To create the virtual machine, replace the elements within the “< >” with yo
 
 You will be prompted to supply the values of parameters in the **"parameters"** section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the resource group and the virtual machine. This table lists values for the imagePublisher, imageOffer, and imageSKU parameters.
 
-[[add table from Corey]] 
+imagePublisher | imageOffer | imageSKU
+--- | --- | ---
+OpenLogic | CentOS | 6.5
+OpenLogic | CentOS | 6.6
+OpenLogic | CentOS | 7
+OpenLogic | CentOS | 7.1
+CoreOS | CoreOS | Beta
+CoreOS | CoreOS | Stable
+MicrosoftDynamicsNAV | DynamicsNAV | 2015
+msopentech | JDK | 8
+MicrosoftSharePoint | MicrosoftSharePointServer | 2013
+msopentech | Oracle-Database-11g-R2 | Enterprise
+msopentech | Oracle-WebLogic-Server-12c | Enterprise
+msopentech | Oracle-Database-11g-R2 | Standard
+msopentech | Oracle-Database-11g-R2-WebLogic-Server-11g | Enterprise
+msopentech | Oracle-Database-11g-R2-WebLogic-Server-11g | Standard
+msopentech | Oracle-Database-12c | Standard
+msopentech | Oracle-Database-12c | Enterprise
+msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard
+msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise
+msopentech | Oracle-WebLogic-Server-11g | Enterprise
+msopentech | Oracle-WebLogic-Server-11g | Standard
+msopentech | Oracle-WebLogic-Server-12c | Enterprise
+msopentech | Oracle-WebLogic-Server-12c | Enterprise
+msopentech	Oracle-WebLogic-Server-12c | Standard
+MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Enterprise
+MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Standard
+MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Web
+MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise
+MicrosoftSQLServer | SQL2012SP2-WS2012 | Standard
+MicrosoftSQLServer | SQL2012SP2-WS2012 | Web
+MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise-Optimized-for-DW
+MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise-Optimized-for-OLTP
+MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise
+MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Standard
+MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Web
+MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise-Optimized-for-DW
+MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise-Optimized-for-OLTP
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
+MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
+MicrosoftSQLServer | SQL2014-WS2012R2 | Web
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
+MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
+MicrosoftSQLServer | SQL2014-WS2012R2 | Web
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
+MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
+MicrosoftSQLServer | SQL2014-WS2012R2 | Web
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
+MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
+MicrosoftSQLServer | SQL2014-WS2012R2 | Web
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW
+MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP
+Canonical | UbuntuServer | 12.04.2-LTS
+Canonical | UbuntuServer | 12.04.3-LTS
+Canonical | UbuntuServer | 12.04.4-LTS
+Canonical | UbuntuServer | 12.04.5-LTS
+Canonical | UbuntuServer | 14.04.0-LTS
+Canonical | UbuntuServer | 14.04.1-LTS
+Canonical | UbuntuServer | 14.04.2-LTS
+Canonical | UbuntuServer | 14.10-beta
+Canonical | UbuntuServer | 14.1
+Canonical | UbuntuServer | 15.04
+Canonical | UbuntuServer | 12.04-DAILY
+Canonical | UbuntuServer | 12.04.5-LTS
+Canonical | UbuntuServer | 14.04.2-LTS
+Canonical | UbuntuServer | 14.04-DAILY
+Canonical | UbuntuServer | 14.10-DAILY
+Canonical | UbuntuServer | 15.04-DAILY
+MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1
+MicrosoftWindowsServer | WindowsServer | 2012-Datacenter
+MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter
+MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview
+MicrosoftWindowsServerEssentials | WindowsServerEssentials	WindowsServerEssentials
+MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2
+MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | TechnicalPreview
 
 Here is an example:
 
@@ -382,8 +453,6 @@ Here are the contents of the JSON file for the template.
 	    }]
 	}
 
-[[get the latest JSON code]]
-
 ### Step 2: Obtain the VHD.
 
 For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
@@ -418,7 +487,7 @@ You will receive the following type of information:
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	osDiskVhdUri: [[need to add here]]
+	osDiskVhdUri: WindowsServer.vhd
 	osType: windows
 	location: West US
 	vmSize: Standard_A3
@@ -747,7 +816,6 @@ Here are the contents of the JSON file for the template.
     ]
 	}
 
-[[get the latest JSON code]]
 
 ### Step 2: Create the deployment with the template.
 
@@ -786,66 +854,48 @@ You would see something like this.
 
 You can remove any resource group you have created with the **Remove-AzureResourceGroup** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	Remove-AzureResourceGroup  -Name “<resource group name>”
+	Remove-AzureResourceGroup  -Name "<resource group name>"
 
 ## Display information about a virtual machine
 
-You can see information about a VM using the **Get-AzureVM** command. This command returns a VM object that can be manipulated using various other cmdlets to update the state of the VM. Replace everything within the quotes, including the < and > characters, with the correct name.
+You can see information about a VM using the **Get-AzureVM** command. This command returns a VM object that can be manipulated using various other cmdlets to update the state of the VM. Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	Get-AzureVM –ResourceGroupName “<resource group name>” –Name “<VM name>”
+	Get-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 You will see information about your virtual machine like this:
 
 	ResourceGroupName                  :  resourcegroupname
-	Name                                              :  vmname
-	VMSize                                            :  Standard_A2
-	Tags                                                 :  {}
-	AvailabilitySetId                            :
-	ProvisioningState                          :  succeeded
-	OSConfiguration                            :  Windows
+	Name                               :  vmname
+	VMSize                             :  Standard_A2
+	Tags                               :  {}
+	AvailabilitySetId                  :
+	ProvisioningState                  :  succeeded
+	OSConfiguration                    :  Windows
 	...
 
 ## Start a virtual machine
 
-You can start a VM using the **Start-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
+You can start a VM using the **Start-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	Start-AzureVM –ResourceGroupName “<resource group name>” –Name “<VM name>”
-
-You will see information about your virtual machine like this:
-
-[[add]]
+	Start-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 ## Stop a virtual machine
 
-You can stop a VM using the **Stop-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct name.
+You can stop a VM using the **Stop-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct names.
 
-	Stop-AzureVM –ResourceGroupName “<resource group name>” –Name “<VM name>”
-
-You will see information about your virtual machine like this:
-
-[[add]]
+	Stop-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 ##Restart a Virtual Machine
 
 You can restart a VM using the **Restart-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	Restart-AzureVM –ResourceGroupName “<resource group name>” –Name “<VM name>”
-
-You will see information about your virtual machine like this:
-
-
-[[add]
+	Restart-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 ## Delete a virtual machine
 
-You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  Use the –Force parameter to skip the confirmation prompt.
+You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  Use the **–Force** parameter to skip the confirmation prompt.
 
-	Remove-AzureVM –ResourceGroupName “<resource group name>” –Name “<VM name>”
-
-You will see information about your virtual machine like this:
-
-[[add]]
-
+	Remove-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
 ## Additional Resources
 
@@ -856,5 +906,3 @@ You will see information about your virtual machine like this:
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](install-configure-powershell.md)
-
-
