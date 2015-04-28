@@ -25,7 +25,7 @@ The **Configure** page presents all the global service parameters that can be cr
 - Bandwidth templates 
 - Access control records 
 
-This tutorial explains how you can use the **Configure** page to add, edit, delete, or rotate the security keys for a storage account.
+This tutorial explains how you can use the **Configure** page to add, edit, or delete storage accounts, or rotate the security keys for a storage account.
 
  ![Configure page](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)  
 
