@@ -18,10 +18,12 @@
 
 # How to get started using Azure AD
 
-[What is Azure AD?](active-directory-whatis.md)<br>
-[How does it work?](active-directory-works.md)<br>
-[Next steps](active-directory-next-steps.md)<br>
-[Learn more](active-directory-learn-map.md)
+> [AZURE.SELECTOR]
+- [What is Azure AD?](active-directory-whatis.md)
+- [How does it work?](active-directory-works.md)
+- [Get started](active-directory-get-started.md)
+- [Next steps](active-directory-next-steps.md)
+- [Learn more](active-directory-learn-map.md)
 
 
 Ready to get started? Azure AD is available to everyone for free. Sign up now for an Azure trial subscription and your directory will be waiting for you. The directory is yours whether you buy anything or not. [Try Azure AD now](http://azure.microsoft.com/trial/get-started-active-directory/) 

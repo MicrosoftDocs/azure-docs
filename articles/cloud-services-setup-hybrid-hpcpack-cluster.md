@@ -6,7 +6,7 @@
 	authors="dlepow"
 	manager="timlt"
 	editor=""
-	tags="AZURE CLASSIC PORTAL"/>
+	tags="azure-classic-portal"/>
 
 <tags
 	ms.service="cloud-services"

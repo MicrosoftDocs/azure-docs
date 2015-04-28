@@ -24,13 +24,13 @@ Logic apps can trigger based on a variety of data sources and offer connectors t
 Twitter Connector lets you post tweets and get tweets from your timeline, friends, and followers from your Twitter account.
 
 - Twitter connector trigger will retrieve new tweets associated with the given keyword. When a new tweet is retrieved, it triggers a new instance of the flow and passes the data received in the request to the flow for processing. 
-- Twitter connector actions lets you “Tweet”, “Search Tweets”, “Retweet”, “Get User Timeline” and so on. These actions gets back a response and makes it available for the actions in the flow to consume.
+- Twitter connector actions lets you “Tweet”, “Search Tweets”, “Retweet”, “Get User Timeline” and so on. These actions get back a response and makes it available for the actions in the flow to consume.
 
 ## Creating an Twitter connector for your Logic App ##
 To use the Twitter connector, you need to first create an instance of the Twitter connector API app. This can be done as follows:
 
 1. Open the Azure Marketplace using the + NEW option at the bottom left of the Azure Portal.
-1. Browse to “Web and Mobile > API apps” and search for “Twitter connector”.
+1. Browse to “API Apps” and search for “Twitter connector”.
 1. Configure the Twitter connector as follows:
 
 	![][1]

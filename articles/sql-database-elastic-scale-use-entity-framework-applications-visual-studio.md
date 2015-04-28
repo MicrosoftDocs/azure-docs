@@ -26,11 +26,11 @@ To download the code for this article:
 * Visual Studio 2012 or later is required. 
 * Start Visual Studio. 
 * In Visual Studio, select File -> New Project. 
-* In the ‘New Project’ dialog, navigate to the **Online Samples** for **Visual C#** and type "elastic scale" into the search box in the upper right.
+* In the ‘New Project’ dialog, navigate to the **Online Samples** for **Visual C#** and type "elastic db" into the search box in the upper right.
     
     ![Entity Framework and elastic database sample app][1] 
 
-    Select the sample called **Elastic Scale with Azure SQL Database – Integrating with Entity Framework**. After accepting the license, the sample loads. 
+    Select the sample called **Elastic DB Tools for Azure SQL – Entity Framework Integration**. After accepting the license, the sample loads. 
 
 To run the sample, you need to create three empty databases in Azure SQL Database:
 

@@ -20,7 +20,8 @@
 
 When replication is enabled, Stateful services replicate state across replicas. This page is about how to configure protection on such traffic.
 
-There are 2 types of security settings that are supported.
+There are 2 types of security settings that are supported:
+
 - X509: Uses X509 certificate to secure the communication channel. Users are expected to ACL certificate private keys to allow Actor/Service host processes to be able to use the certificate credentials.
 - Windows: Uses windows security(requires Active Directory) to secure the communication channel.
 
@@ -54,7 +55,7 @@ The configuration "CredentialType" determines which type is being used.
 
 ## Samples
 
-### X509 Sample
+### Sample 1: CredentialType=X509
 
 ```xml
 <Section Name="SecurityConfig">
@@ -68,8 +69,8 @@ The configuration "CredentialType" determines which type is being used.
 </Section>
 ```
 
-### Windows Sample 1 - Empty ServicePrincipalName
-This snippet shows a sample when all the service/actor host processes run as NetworkService or LocalSystem.
+### Sample 2: CredentialType=Windows
+This snippet shows a sample when all the service/actor host processes run as NetworkService or LocalSystem. The ServicePrincipalName is empty.
 
 ```xml
 <Section Name="SecurityConfig">
@@ -81,8 +82,8 @@ This snippet shows a sample when all the service/actor host processes run as Net
 </Section>
 ```
 
-### Windows Sample 2 - Valid ServicePrincipalName
-This snippet shows a sample when all the service/actor host processes run as a group managed serice account.
+### Sample 3: CredentialType=Windows
+This snippet shows a sample when all the service/actor host processes run as a group managed serice account with a valid ServicePrincipalName.
 
 ```xml
 <Section Name="SecurityConfig">
