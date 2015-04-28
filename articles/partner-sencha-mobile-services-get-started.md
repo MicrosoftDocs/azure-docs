@@ -14,7 +14,7 @@
 	ms.devlang="multiple" 
 	ms.topic="hero-article" 
 	ms.date="04/24/2015" 
-	ms.author="ggailey777"/>
+	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
