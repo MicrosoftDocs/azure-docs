@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/27/2015"
+	ms.date="04/28/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs
@@ -96,7 +96,7 @@ All non-partitioned steps together can scale up to six streaming units for a Str
 <tr><td>
 <ul>
 <li>The data stream input is partitioned by 3.</li>
-<li>The query contains two steps.</li>
+<li>The query contains two steps. The input step is partitioned and the second step is not.</li>
 <li>The SELECT statement reads from the partitioned input.</li>
 </ul>
 </td>

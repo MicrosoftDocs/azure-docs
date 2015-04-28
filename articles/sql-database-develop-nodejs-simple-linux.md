@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to SQL Database by using NodeJS with Tedious on Ubuntu Linux" 
-	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample uses the Tedious driver to connect."
+	pageTitle="Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux" 
+	description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample uses the Tedious driver to connect."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="meet-bhagdev" 
@@ -12,23 +12,19 @@
 	ms.service="sql-database" 
 	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="NodeJS" 
+	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="mebha"/>
 
 
-# Connect to SQL Database by using NodeJS with Tedious on Ubuntu Linux
+# Connect to SQL Database by using Node.js with Tedious on Ubuntu Linux
 
 
-<!--
-2015-04-18
-sql-database-develop-nodejs-simple-linux.md
-meet-bhagdev , mebha: is the original author. GeneMi is merely editing and publishing for first publish.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-This topic presents a NodeJS code sample that runs on Unbutu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
+This topic presents a Node.js code sample that runs on Ubuntu Linux. The sample connects to Azure SQL Database by using the Tedious driver.
 
 
 ## Required software items
@@ -41,16 +37,11 @@ Open your terminal and install **node** and **npm**, unless they are already ins
 	sudo apt-get install npm
 
 
-After your machine is configured with **node** and **npm**, navigate to a directory where you plan to create your nodejs project, and enter the following commands.
+After your machine is configured with **node** and **npm**, navigate to a directory where you plan to create your Node.js project, and enter the following commands.
 
 
 	sudo npm init
 	sudp npm install tedious
-
-
-<!--
-TODO, ERROR MUST BE FIXED: Must fix the following paragraph near the words "press until".  Press what?
--->
 
 
 **npm init** creates a node project. To retain the defaults during your project creation, press enter until the project is created. Now you see a **package.json** file in your project directory.
@@ -80,17 +71,7 @@ The code sample in this topic expects an **AdventureWorks** test database. If yo
 	});
 
 
-<!--
-TODO: Seems unfortunate that these same 13 lines of Connection code are repeated and repeated in every subsequent section.  Are these repetitions avoidable without much drawback?
--->
-
-
 ## Execute an SQL SELECT
-
-
-<!--
-TODO: Can the NodeJS language somehow split the very long SELECT string into a few shorter lines of code, to prevent the end of the string from being beyond the right edge of the display monitor?
--->
 
 
 	var Connection = require('tedious').Connection;
@@ -183,15 +164,6 @@ The code sample in this section applies parameters to an SQL INSERT statement. T
 
 
 ## Transactions
-
-
-<!--
-TODO, ERRORS FOR MEET BHAGDEV TO FIX:
-.
-I do not see any Transaction related code in this section? Must fix!
-.
-Same problem in the next section about Stored procedures. Perhaps you can call sys.sp_helptext?
--->
 
 
 	var Connection = require('tedious').Connection;

@@ -384,10 +384,10 @@ That takes care of all the initial setup and configuration, now let’s get down
 
 4. Save and close the **tasklist.js** file.
  
-### Add config.json
+### Add config.js
 
 1. In your project directory create a new file named **config.js**.
-2. Add the following to **config.json**. This defines configuration settings and values needed for our application.
+2. Add the following to **config.js**. This defines configuration settings and values needed for our application.
 
 		var config = {}
 		
