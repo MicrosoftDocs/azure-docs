@@ -1,7 +1,7 @@
 <properties
    pageTitle="Service Fabric Cluster Orchestration Placement Constraints"
    description="A conceptual overview of placement constraints in Service Fabric"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="GaugeField"
    manager="timlt"
