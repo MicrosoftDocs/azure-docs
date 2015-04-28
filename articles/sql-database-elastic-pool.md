@@ -19,7 +19,12 @@
 
 # Azure SQL Database elastic database pool (preview)
 
-For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
+For SaaS developers who have tens, hundreds, or even thousands of databases, new features of **Azure SQL Database** reduce the problems of managing those databases. These new features are:
+
+* [**Elastic database tools**](sql-database-elastic-scale-documentation-map.md)
+* **The elastic database pool (preview)** (introduced in this topic)
+
+An elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases.
 
 An elastic pool is a collection of available resources that are shared by a group of databases. This ability to share resources accommodates unpredictable periods of increased activity for the databases in the pool that need it, while at the same time, provides a guaranteed amount of resources for all databases to reliably accommodate each database's average workload. Additionally, elastic pools simplify data application management by providing the ability to easily execute scripts across all databases in a pool with elastic jobs.
 
@@ -35,9 +40,11 @@ Elastic pools address this problem by providing performance adaptability for the
 
 For example, with SaaS applications that host a large number of databases, it is common to have only a subset of databases concurrently active at any given time. The actual databases that are simultaneously active change unpredictably over time. By sharing resources in a pool, the databases with increased activity are accommodated while also maintaining a guaranteed level of resources for all other databases in the pool. 
 
-## Easily manage large numbers of databases
+## Easily manage large numbers of databases with elastic tools
 
-Elastic pools make SaaS application development easier by providing tools that simplify building and managing your data-tier. Performing maintenance tasks and implementing changes across a large set of databases, a historically time-consuming and complex process, has been reduced to running scripts in elastic jobs. The ability to create and run an elastic job eliminates most all of the heavy lifting associated with administering hundreds or even thousands of databases.  
+Elastic pools make SaaS application development easier by providing tools that simplify building and managing your data-tier. As an added benefit, a new feature called **elastic jobs** enable you to perform maintenance tasks and implement changes across a pool by simply running T-SQL scripts. The elastic job will track the progress of the operation, and use retry logic when needed. The ability to create and run an elastic job eliminates most all of the heavy lifting associated with administering hundreds or even thousands of databases.
+
+For sharded databases, other tools such as the split-merge tool gives you the ability to split data from one shard and merge it into another. This greatly reduces the work of managing large-scale sharded databases. For more information, see the [Elastic database tools topics map](sql-database-elastic-scale-documentation-map.md).
 
 ## Business continuity features for elastic databases
 

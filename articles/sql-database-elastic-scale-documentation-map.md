@@ -16,7 +16,7 @@
 	ms.date="04/24/2015" 
 	ms.author="sidneyh"/>
 
-# Azure SQL Database elastic database topics
+# Azure SQL Database elastic database tools topics
 
 The elastic database features of Azure SQL DB are designed to simplify data tier development and management especially for Software as a Service (SaaS) developers—where large numbers of databases are used to support a dynamic end-customer base.  
 
