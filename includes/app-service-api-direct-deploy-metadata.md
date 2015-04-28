@@ -16,7 +16,7 @@ Set the `namespace` property to the domain of your Azure Active Directory tenant
 
 ### Dynamic Swagger API definition
 
-To provide a URL endpoint for a dynamic Swagger API definition, store the endpoint in the `endpoints.apiDefinition` property. For example:  
+To provide a URL endpoint for a dynamic [Swagger](http://swagger.io/) API definition, store in the `endpoints.apiDefinition` property the relative URL of an API exposed by the API app which returns a Swagger 2.0 API definition on a GET request. For example:  
 
 		"endpoints": {
 		    "apiDefinition": "/swagger/docs/v1",
@@ -27,7 +27,7 @@ To provide a URL endpoint for a dynamic Swagger API definition, store the endpoi
 
 ### Static Swagger API definition
 
-To provide a static Swagger API definition file, store the file in the *Metadata* folder and name the file *apiDefinition.swagger.json*
+To provide a static [Swagger](http://swagger.io/) 2.0 API definition file, store the file in the *Metadata* folder and name the file *apiDefinition.swagger.json*
 
 ![](./media/app-service-api-direct-deploy-metadata/apidefinmetadata.png)
 
