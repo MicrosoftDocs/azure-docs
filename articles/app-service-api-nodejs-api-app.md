@@ -222,7 +222,7 @@ The browser displays the home page that you saw earlier when you ran the sample 
 
 ## API app metadata
 
-[AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-direct-deploy-metadata.md)]
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Next steps
 

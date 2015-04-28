@@ -54,4 +54,4 @@ Visual Studio creates a Web API project configured for deployment as an API app.
 
 [AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
 
-[AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-direct-deploy-metadata.md)]
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
