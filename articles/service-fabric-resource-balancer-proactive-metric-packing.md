@@ -43,7 +43,7 @@ All configured metrics should be specified in this list (just like in the Activi
 ```
 
 ### BalacingThreshholds
-<<<<<<< HEAD
+
 Balancing thresholds govern how fragmented the cluster can become with regard to a particular metric before the Resource Balancer runs balancing phase (which will do metric packing logic). If the metric is considered as defragmentation metric, balancing threshold is the minimum ratio between the maximally used and minimally used nodes per upgrade or fault domain that the Resource Balancer allows to exist, before it does defragmentation in the cluster. If any upgrade or fault domain has this ration smaller than threshold, defragmentation phase will kick in.
 
 The following figure shows two examples, where the balancing threshold for the given metric is 10.
