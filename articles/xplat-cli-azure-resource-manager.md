@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Windows PowerShell](powershell-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
 
 
 This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
@@ -334,7 +334,7 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
+* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Azure PowerShell with Resource Manager][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
