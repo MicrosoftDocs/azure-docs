@@ -809,7 +809,6 @@ Here are the contents of the JSON file for the template. If you want the most re
                                     "id": "[variables('subnetRef')]"
                                 }
                             },
-    
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/backendAddressPools/LBBE')]"
