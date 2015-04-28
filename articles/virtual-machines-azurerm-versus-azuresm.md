@@ -58,7 +58,7 @@ In this section, we will walk through some of the most important conceptual diff
 |Virtual IP Address	| Cloud Services will get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer.	| Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
 |Reserved IP Address|	You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky.	| Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
 |Public IP Address (PIP) per VM	| Public IP Addresses can also associated to a VM directly. | Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |
-|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules <!-- link to networking doc --> can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
+|Endpoints| Input Endpoints needed to be configured on a Virtual Machine to be open up connectivity for certain ports. One of the common modes of connecting to virtual machines done by setting up input endpoints. | Inbound NAT Rules <!--- link to networking doc --> can be configured on Load Balancers to achieve the same capability of enabling endpoints on specific ports for connecting to the VMs. |
 |DNS Name| A cloud service would get an implicit globally unique DNS Name. For example: `mycoffeeshop.cloudapp.net`. | DNS Names are optional parameters that can be specified on a Public IP Address resource. The FQDN will be in the following format - ``<domainlabel>.<region>.cloudapp.azure.com`. |
 |Network Interfaces	| Primary and Secondary Network Interface and its properties were defined as network configuration of a Virtual machine. | Network Interface is a resource exposed by Microsoft.Network Provider. The lifecycle of the Network Interface is not tied to a Virtual Machine. |
 
@@ -68,9 +68,9 @@ You can get started on the Azure Templates by leveraging the various tools that 
 
 ### Azure Portal
 
-Azure Portal will continue have the option to deploy Virtual Machines and Virtual Machines (Preview) simultaneously. <!--You can see screenshots of the experiences below.-->
+Azure Portal will continue have the option to deploy Virtual Machines and Virtual Machines (Preview) simultaneously. <!---You can see screenshots of the experiences below.-->
 
-<!-- add Portal screenshot and un-comment the previous line -->
+<!--- add Portal screenshot and un-comment the previous line -->
 
 In addition to the above, Azure Portal also allows the deployment Custom Template deployments.
 
@@ -88,7 +88,7 @@ With the latest Azure SDK release for Visual Studio, you can author and deploy V
 
 ### REST APIs
 
-You can find the detailed REST API documentation for Compute, Network and Storage Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx). <!-- update with new link once live -->
+You can find the detailed REST API documentation for Compute, Network and Storage Providers [here](https://msdn.microsoft.com/library/azure/dn790568.aspx). <!--- update with new link once live -->
 
 ## Frequently Asked Questions
 
@@ -106,7 +106,7 @@ The Quotas for the Virtual Machines, Virtual Networks created through the using 
 
 **Can I continue to use my automated scripts for provisioning of Virtual Machines, Virtual Networks etc., using the new Azure Resource Manager APIs?**
 
-All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the using the new Azure Resource Manager APIs. Read more about how to change your [Azure CLI scripts](xplat-cli-azure-manage-vm-asm-arm.md)<!-- and your [PowerShell scripts](Georgem is working on this file)-->.
+All the automation and scripts that you’ve built will continue to work for the existing Virtual Machines, Virtual Networks created under the Azure Service Management mode. However, the scripts have to be updated to use the new schema for creating the same resources through the using the new Azure Resource Manager APIs. Read more about how to change your [Azure CLI scripts](xplat-cli-azure-manage-vm-asm-arm.md)<!--- and your [PowerShell scripts](Georgem is working on this file)-->.
 
 **Can the Virtual Networks created using the new Azure Resource Manager APIs be connected to my Express Route circuit?**
 
