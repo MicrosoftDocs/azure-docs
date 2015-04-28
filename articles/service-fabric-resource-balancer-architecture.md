@@ -29,10 +29,10 @@ The local agent is responsible for collecting and buffering load reports from th
 
 Resource Balancing Features:
 
-- [Describe the Cluster](../service-fabric-resource-balancer-cluster-description)
-- [Describe Services](../service-fabric-resource-balancer-service-description)
-- [Report Dynamic Load](../service-fabric-resource-balancer-dynamic-load-reporting)
-- [Proactive Metric Packing](../service-fabric-resource-balancer-proactive-metric-packing)
-- [Node Buffer Percentage](../service-fabric-resource-balancer-node-buffer-percentage)
+- [Describe the Cluster](service-fabric-resource-balancer-cluster-description.md)
+- [Describe Services](service-fabric-resource-balancer-service-description.md)
+- [Report Dynamic Load](service-fabric-resource-balancer-dynamic-load-reporting.md)
+- [Proactive Metric Packing](service-fabric-resource-balancer-proactive-metric-packing.md)
+- [Node Buffer Percentage](service-fabric-resource-balancer-node-buffer-percentage.md)
 
 [Image1]: media/service-fabric-resource-balancer-architecture/Service-Fabric-Resource-Balancer-Architecture.png
