@@ -101,6 +101,6 @@ Hashing is relatively more complicated for adding and removing partitions. Simpl
 
 A relatively easy way to add new partitions without requiring data movement is to  "spill over" your data to a fresh collection, and then fan-out requests across both the old and new collections. This approach, however, should be used only in rare situations (e.g. spill over in peak time workloads and to hold data temporarily until it can be moved).
 
-### Next Steps
+## Next Steps
 In this article, we've introduced some common techniques on how you can partition data with DocumentDB, and when to use which technique or combination of techniques. Get started with one of the [supported SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx), and contact us through the [MSDN support forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) if you have questions.
 

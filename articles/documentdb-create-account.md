@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="mimig1" 
 	manager="jhubbard" 
-	editor="monicar"/>
+	editor="monicar"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="documentdb" 
