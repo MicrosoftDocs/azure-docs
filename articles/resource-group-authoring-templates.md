@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/23/2015"
-   ms.author="tomfitz"/>
+   ms.date="04/27/2015"
+   ms.author="tomfitz;ilygre"/>
 
 # Authoring Azure Resource Manager Templates
 
@@ -52,11 +52,11 @@ Typically, you use expressions with functions to perform operations for configur
 
 The following list shows common functions.
 
-- **parameters**
+- **parameters(parameterName)**
 
     Returns a parameter value that is provided when the deployment is executed.
 
-- **variables**
+- **variables(variableName)**
 
     Returns a variable that is defined in the template.
 
@@ -64,15 +64,15 @@ The following list shows common functions.
 
     Combines multiple string values. This function can take any number of arguments.
 
-- **base64**
+- **base64(inputString)**
 
     Returns the base64 representation of the input string.
 
-- **resourceGroup**
+- **resourceGroup()**
 
     Returns a structured object (with id, name, and location properties) that represents the current resource group.
 
-- **resourceId**
+- **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
     Returns the unique identifier of a resource.
 
@@ -84,7 +84,8 @@ The following example shows how to use several of the functions when constructin
        "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
     }
 
-We will look at all of the functions in greater detail later in this topic. For now, you know enough about expressions and functions to understand the sections of the template.
+For now, you know enough about expressions and functions to understand the sections of the template. For more detailed information about all of the template functions, including parameters and the format of returned values, 
+see [Azure Resouce Manager template functions](./resource-group-template-functions.md). 
 
 
 ## Parameters
@@ -227,46 +228,63 @@ You define resources with the following structure:
 
 If the resouce name is not unique, you can use the **resourceId** helper function (described below) to get the unique identifier for any resource.
 
-The following shows 'Microsoft.Web/sites' and 'Microsoft.Web/sites/extensions' resources example:
+The following example shows a **Microsoft.Web/serverfarms** resource and a **Microsoft.Web/sites** resource with a nested **Extensions** resource:
 
-    {
-       "apiVersion": "2014-06-01",
-       "type": "Microsoft.Web/sites",
-       "name": "[parameters('siteName')]",
-       "location": "[resourceGroup().location]",
-       "tags": {
-         "environment": "test",
-         "team": "ARM"
-       },
-       "properties": {
-         "name": "[parameters('siteName')]",
-         "serverFarm": "[parameters('hostingPlanName')]"
-       },
-       "resources": [
-         {
-           "apiVersion": "2014-06-01",
-           "type": "Extensions",
-           "name": "MSDeploy",
-           "dependsOn": [
-             "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
-           ],
-           "properties": {
-             "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
-             "dbType": "None",
-             "connectionString": "",
-             "setParameters": {
-               "Application Path": "[parameters('siteName')]"
-             }
-           }
-         }
-       ]
-    }
+    "resources": [
+        {
+          "apiVersion": "2014-06-01",
+          "type": "Microsoft.Web/serverfarms",
+          "name": "[parameters('hostingPlanName')]",
+          "location": "[resourceGroup().location]",
+          "properties": {
+              "name": "[parameters('hostingPlanName')]",
+              "sku": "[parameters('hostingPlanSku')]",
+              "workerSize": "0",
+              "numberOfWorkers": 1
+          }
+        },
+        {
+          "apiVersion": "2014-06-01",
+          "type": "Microsoft.Web/sites",
+          "name": "[parameters('siteName')]",
+          "location": "[resourceGroup().location]",
+          "tags": {
+              "environment": "test",
+              "team": "ARM"
+          },
+          "dependsOn": [
+              "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+          ],
+          "properties": {
+              "name": "[parameters('siteName')]",
+              "serverFarm": "[parameters('hostingPlanName')]"
+          },
+          "resources": [
+              {
+                  "apiVersion": "2014-06-01",
+                  "type": "Extensions",
+                  "name": "MSDeploy",
+                  "dependsOn": [
+                    "[resourceId('Microsoft.Web/sites', parameters('siteName'))]"
+                  ],
+                  "properties": {
+                    "packageUri": "https://auxmktplceprod.blob.core.windows.net/packages/StarterSite-modified.zip",
+                    "dbType": "None",
+                    "connectionString": "",
+                    "setParameters": {
+                      "Application Path": "[parameters('siteName')]"
+                    }
+                  }
+              }
+          ]
+        }
+    ]
 
 >[AZURE.NOTE] Dependency between a parent resource and nested resources is not implied by the current template schema. Therefore, you must use the **dependsOn** element to note a dependency.
 
 ## Outputs
 
-In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a resource deployed using the template.
+In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
 The following example shows the structure of an output definition:
 
@@ -293,243 +311,6 @@ The following example shows a value that is returned in the Outputs section.
        }
     }
 
-## Template language functions and operations:
-
-#### base64 (inputString)
-
-Returns the base64 representation of the input string.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string value to return as a base64 representation.
-
-The following example show how to use the base64 function.
-
-    "variables": {
-      "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
-      "authorizationHeader": "[concat('Basic ', base64(variables('usernameAndPassword')))]"
-    }
-
-#### concat (arg1, arg2, arg3, ...)
-
-Combines multiple string values and returns the resulting string value. This function can take any number of arguments.
-
-The following example shows how to combine multiple values to return a value.
-
-    "outputs": {
-        "siteUri": {
-          "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-        }
-    }
-
-#### copy
-
-Enables you to use iterate through an array and use each element when deploying a resource.
-   
-The following example deploys three web sites named examplecopy-Contoso, examplecopy-Fabrikam, examplecopy-Coho.
-
-    "parameters": { 
-      "org": { 
-         "type": "array", 
-             "defaultValue": [ 
-             "Contoso", 
-             "Fabrikam", 
-             "Coho" 
-          ] 
-      },
-      "count": { 
-         "type": "int", 
-         "defaultValue": 3 
-      } 
-    }, 
-    "resources": [ 
-      { 
-          "name": "[concat('examplecopy-', parameters('org')[copyIndex()])]", 
-          "type": "Microsoft.Web/sites", 
-          "location": "East US", 
-          "apiVersion": "2014-06-01",
-          "copy": { 
-             "name": "websitescopy", 
-             "count": "[parameters('count')]" 
-          }, 
-          "properties": {} 
-      } 
-    ]
-
-#### listKeys (resourceName or resourceIdentifier, [apiVersion])
-
-Returns the keys of a storage account. This function takes the resourceId and the API version as parameters. The resourceId can be specified by using the resourceId function described above or by using the format 'providerNamespace/resourceType/resourceName'). You can use the function to get the primaryKey and secondaryKey.
-  
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Unique identifier of a storage account.
-| apiVersion                         |   Yes    | API version of resource runtime state.
-
-The following example shows how to return the keys from a storage account in the outputs section.
-
-    "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
-        "type" : "object" 
-      } 
-    } 
-
-#### nested template
-
-You can include one template inside of another template by providing the URI of the nested template, as shown below.
-
-    "variables": {"templatelink":"https://www.contoso.com/ArmTemplates/newStorageAccount.json"}, 
-    "resources": [ 
-      { 
-         "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
-         "type": "Microsoft.Resources/deployments", 
-         "properties": { 
-           "mode": "incremental", 
-           "templateLink": {"uri":"[variables('templatelink')]","contentVersion":"1.0.0.0"}, 
-           "parameters": { 
-              "StorageAccountName":{"value":"[parameters('StorageAccountName')]"} 
-           } 
-         } 
-      } 
-    ] 
-
-#### parameters (parameterName)
-
-Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| parameterName                      |   Yes    | The name of the parameter to return.
-
-The following example shows a simplified use of the parameters function.
-
-    "parameters": { 
-      "siteName": {
-          "type": "string"
-      }
-    },
-    "resources": [
-       {
-          "apiVersion": "2014-06-01",
-          "name": "[parameters('siteName')]",
-          "type": "Microsoft.Web/Sites",
-          ...
-       }
-    ]
-
-#### provider (providerNamespace, [resourceType])
-
-Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| providerNamespace                  |   Yes    | Namespace of the provider
-| resourceType                       |   No     | The type of resource within the specified namespace.
-
-Each supported type is returned in the following format:
-
-    {
-        "resourceType": "",
-        "locations": [ ],
-        "apiVersions": [ ]
-    }
-
-The following example shows how to use the provider function:
-
-    "outputs": {
-	    "exampleOutput": {
-		    "value": "[providers('Microsoft.Storage', 'storageAccounts')]",
-		    "type" : "object"
-	    }
-    }
-
-#### reference (resourceName or resourceIdentifier, [apiVersion])
-
-Enables an expression to derive its value from another resource's runtime state.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| resourceName or resourceIdentifier |   Yes    | Name or the unique identifier of a resource.
-| apiVersion                         |   No     | API version of resource runtime state. Parameter should be used if resource is not provisioned within same template.
-
-The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
-
-By using the reference expression, you declare that one resource depends on another resource if the referenced resource is provisioned within same template.
-
-    "outputs": {
-      "siteUri": {
-          "type": "string",
-          "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
-      }
-    }
-
-#### resourceGroup
-
-Returns a structured object (with id, name, and location properties) that represents the current resource group. The object will be in the following format:
-
-    {
-      "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-      "name": "{resourceGroupName}",
-      "location": "{resourceGroupLocation}",
-    }
-
-The following example uses the resource group location to assign the location for a web site.
-
-    "resources": [
-       {
-          "apiVersion": "2014-06-01",
-          "type": "Microsoft.Web/sites",
-          "name": "[parameters('siteName')]",
-          "location": "[resourceGroup().location]",
-          ...
-       }
-    ]
-
-#### resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)
-
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within same template. The identifier is returned in the following format:
-
-    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
-      
-| Parameter         | Required | Description
-| :---------------: | :------: | :----------
-| resourceGroupName |   No     | Optional resource group name. Default value is current resource group.
-| resourceType      |   Yes    | Type of resource including resource provider namespace.
-| resourceName1     |   Yes    | Name of resource.
-| resourceName2     |   No     | Next resource name segment if resource is nested.
-
-The following examples show how to retrieve the resource id for a web site and a database:
-
-    [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
-
-#### subscription()
-
-Returns details about the subscription in the following format.
-
-    {
-        "id": "/subscriptions/#####"
-        "subscriptionId": "#####"
-    }
-
-The following example shows the subscription function called in the outputs section. 
-
-    "outputs": { 
-      "exampleOutput": { 
-          "value": "[subscription()]", 
-          "type" : "object" 
-      } 
-    } 
-
-#### variables (variableName)
-
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
-
-| Parameter                          | Required | Description
-| :--------------------------------: | :------: | :----------
-| variable Name                      |   Yes    | The name of the variable to return.
 
 
 ## Complete template
@@ -614,4 +395,9 @@ The following template deploys a web app and provisions it with code from a .zip
        }
     }
 
+## Next Steps
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
+- [Deploying Templates](./resouce-group-template-deploy.md)
+- [Advanced Template Operations](./resource-group-advanced-template.md)
+- [Azure Resource Manager Overview](./resource-group-overview.md)
 

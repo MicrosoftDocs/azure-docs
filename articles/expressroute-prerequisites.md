@@ -16,7 +16,7 @@
    ms.author="cherylmc"/>
 
 
-# ExpressRoute Prerequisites  
+# ExpressRoute Prerequesites  
 To connect to Azure by using ExpressRoute, you’ll need to verify that the following prerequisites have been met:
 
 - Microsoft Azure Account

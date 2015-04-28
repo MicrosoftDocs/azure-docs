@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/16/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 #Storm on HDInsight overview
@@ -199,13 +199,7 @@ For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/
 
 * [Getting Started with Storm on HDInsight][gettingstarted]
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
-
-* [Develop Java-based topologies for Apache Storm on HDInsight](hdinsight-storm-develop-java-topology.md)
-
-* [Analyzing sensor data with Storm and HBase on HDInsight](hdinsight-storm-sensor-data-analysis.md)
-
-* [Analyzing Twitter trending topics with Apache Storm on HDInsight](hdinsight-storm-twitter-trending.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining

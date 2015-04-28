@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="TerryLan" 
-	editor="LisaToft"/>
+	editor="LisaToft"
+	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -13,19 +14,25 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="03/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="Justinha"/>
 
 
-#Install a new Active Directory forest on an Azure virtual network
+# Install a new Active Directory forest on an Azure virtual network
 
 This topic shows how to create a new Windows Server Active Directory environment on an Azure virtual network on a virtual machine (VM) on an [Azure virtual network](https://msdn.microsoft.com/library/azure/jj156007.aspx). In this case, the Azure virtual network is not connected to an on-premises network. 
 
 You might also be interested in these related topics:
 
-- You can optionally [configure a site-to-site VPN using the Management Portal Wizard](https://msdn.microsoft.com/library/azure/dn133795.aspx) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](virtual-networks-install-replica-active-directory-domain-controller.md).
+- For a video that shows these steps, see [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
+- You can optionally [configure a site-to-site VPN](https://msdn.microsoft.com/library/azure/dn133795.aspx) and then either install a new forest or extend an on-premises forest to an Azure virtual network. For those steps, see [Install a Replica Active Directory Domain Controller in an Azure Virtual Network](virtual-networks-install-replica-active-directory-domain-controller.md).
 -  For conceptual guidance about installing Active Directory Domain Services (AD DS) on an Azure virtual network, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
+## Scenario Diagram
+
+In this scenario, external users need to access applications that run on domain-joined servers. The VMs that run the application servers and the VMs that run domain controllers are installed installed in their own cloud service in an Azure virtual network. They are also included within an availability set for improved fault tolerance.
+
+![][1]
 
 ## How does this differ from on-premises?
 
@@ -41,7 +48,7 @@ To configure...  | On-premises  | Azure virtual network
 
 ## Create an Azure virtual network
 
-1. Sign in to the Azure Management Portal.
+1. Sign in to the Azure classic portal.
 2. Create a virtual network. Click **Networks** > **Create a virtual network**. Use the values in the following table to complete the wizard. 
 
 	On this wizard page…  | Specify these values
@@ -58,7 +65,7 @@ Repeat the following steps to create VMs to host the DC role as needed. You shou
 
 To create the VMs by using Windows PowerShell instead of the UI, see [Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
-1. In the Azure Management portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
+1. In the classic portal, click **New** > **Compute** > **Virtual Machine** > **From Gallery**. Use the following values to complete the wizard. Accept the default value for a setting unless another value is suggested or required.
 
     On this wizard page…  | Specify these values
 	------------- | -------------
@@ -111,33 +118,22 @@ For more information about using Windows PowerShell, see [Get Started with Azure
 
 ## See Also
 
+-  [How to install a new Active Directory forest on an Azure virtual network](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
--  [Configure a Cloud-Only Virtual Network in the Management Portal](https://msdn.microsoft.com/library/dn631643.aspx)
-
--  [Configure a Site-to-Site VPN in the Management Portal](https://msdn.microsoft.com/library/dn133795.aspx)
-
+-  [Configure a Cloud-Only Virtual Network](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [Configure a Site-to-Site VPN](https://msdn.microsoft.com/library/dn133795.aspx)
 -  [Install a Replica Active Directory Domain Controller in an Azure virtual network](virtual-networks-install-replica-active-directory-domain-controller.md)
-
 -  [Microsoft Azure IT Pro IaaS: (01) Virtual Machine Fundamentals](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
-
 -  [Microsoft Azure IT Pro IaaS: (05) Creating Virtual Networks and Cross-Premises Connectivity](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
-
 -  [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
-
 -  [How to install and configure Azure PowerShell](powershell-install-configure.md)
-
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
-
 -  [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/jj554330.aspx)
-
 -  [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
-
 -  [How to assign Static IP to Azure VM](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
-
 -  [Install a New Active Directory Forest](https://technet.microsoft.com/library/jj574166.aspx)
-
 -  [Introduction to Active Directory Domain Services (AD DS) Virtualization (Level 100)](https://technet.microsoft.com/library/hh831734.aspx)
 
--  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684)
+<!--Image references-->
+[1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
 
