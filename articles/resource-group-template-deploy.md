@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz;ryjones"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -246,7 +246,7 @@ If you use a parameter file to pass the parameter values to your template during
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 - [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- 
-
+- [Advanced Template Operations](./resource-group-advanced-template.md)  
+- [Deploy Azure Resources Using .NET Libraries and a Template](./arm-template-deployment.md)
 
 
