@@ -187,7 +187,7 @@ A common scenario for using Web service parameters is the use of Azure SQL Reade
 For the list of supported readers and writers, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
 
 #### Azure SQL Reader
-In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input. The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request. 
+In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input. The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.   
 
 To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following: 
 
@@ -195,11 +195,9 @@ To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following:
 - Create a Data Factory **table** that uses **AzureSqlTableLocation**.
 - Set that Data Factory **table** as the **input** for the **AzureMLBatchScoringActivity** in the pipeline JSON. 
 
-At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters. 
+At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters. Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.  
 
-You can add any additional Web service parameters to the **webServiceParameters** section of the activity JSON.  
-
-> [AZURE.IMPORTANT] if the database connection properties (server name, data base, user, and password) are exposed directly by the Web service, you can pass values for the parameters directly in the **webServiceParameters** section of activity JSON and if you do so, these values override the values passed via Data Factory table.    
+If you use different names for the Web service parameters or have any additional Web service parameters, use the **webServiceParameters** section of the activity JSON.  
 
 #### Azure SQL Writer
 As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following list describes when the input linked service is used vs. output linked service.   
