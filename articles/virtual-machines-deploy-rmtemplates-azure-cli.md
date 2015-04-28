@@ -82,19 +82,7 @@ to switch to resource group mode.
 
 ## Understanding Azure Resource Templates and Resource Groups
 
-Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or *CDN*). The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (azure group create myResourceGroup westus
-info:    Executing command group create
-+ Getting resource group myResourceGroup                                       
-+ Creating resource group myResourceGroup                                      
-info:    Created resource group myResourceGroup
-data:    Id:                  /subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: 
-data:    
-info:    group create command OK
-or find other tools that do so), and not as a single logical unit of deployment.
+Most applications are built out of a combination of different resource types (such as one or more VMs and Storage accounts, a SQL database, a Virtual Network, or a content delivery network, or *CDN*). The default Azure service management API and the Azure classic portal represented these items using a service-by-service approach, which requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
 *Azure Resource Manager Templates* make it possible for you to deploy and manage these different resources as one logical deployment unit in a declarative fashion. Instead of imperatively telling Azure what to deploy one command after another, you describe your entire deployment in a JSON file -- all of the resources and associated configuration and deployment parameters -- and tell Azure to deploy those resources as one group. 
 
@@ -287,19 +275,7 @@ Once you decide on these values, you're ready to create a group for and deploy t
                         "offer": "[variables('imageOffer')]",
                         "sku" : "[parameters('ubuntuOSVersion')]",
                         "version":"latest"
-                    },azure group create myResourceGroup westus
-info:    Executing command group create
-+ Getting resource group myResourceGroup                                       
-+ Creating resource group myResourceGroup                                      
-info:    Created resource group myResourceGroup
-data:    Id:                  /subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westus
-data:    Provisioning State:  Succeeded
-data:    Tags: 
-data:    
-info:    group create command OK
-
+                    },
                    "osDisk" : {
                         "name": "osdisk",
                         "vhd": {
@@ -358,7 +334,7 @@ Here is an example:
     info:    Supply values for the following parameters
     newStorageAccountName: slidkjfsldkjf
     adminUsername: ops
-    adminPassword: Pa$$W0rd1
+    adminPassword: lksLKJ*(&^&h
     dnsNameForPublicIP: slkdjfslkd
     
 You will receive the following type of information:
@@ -389,129 +365,268 @@ You will receive the following type of information:
     
 ## Common Task: Create a custom VM image
 
-Use the instructions in these sections to create a custom VM image in Azure with a Resource Manager template using Azure PowerShell. This template creates a single virtual machine from a specified virtual hard disk (VHD).
+You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM image in Azure with a template using the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD). 
 
 ### Step 1: Examine the JSON file for the template.
 
-Here are the contents of the JSON file for the template.
+Here are the contents of the JSON file for the template that this section uses as an example, but you can always find the template itself [here](https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json).
 
-	{
-	    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-	    "contentVersion": "1.0.0.0",
-	    "parameters": {
-	        "osDiskVhdUri": {
-	            "type": "string",
-	            "metadata": {
-	                "Description": "Uri of the existing VHD"
-	            }
-	        },
-	        "osType": {
-	            "type": "string",
-	            "allowedValues": [
-	                "windows",
-	                "linux"
-	            ],
-	            "metadata": {
-	                "Description": "Type of OS on the existing vhd"
-	            }
-	        },
-	        "location": {
-	            "type": "String",
-	            "defaultValue": "West US",
-	            "metadata": {
-	                "Description": "Location to create the VM in"
-	            }
-	        },
-	        "vmSize": {
-	            "type": "string",
-	            "defaultValue": "Standard_A2",
-	            "metadata": {
-	                "Description": "Size of the VM"
-	            }
-	        },
-	        "vmName": {
-	            "type": "string",
-	            "defaultValue": "myVM",
-	            "metadata": {
-	                "Description": "Name of the VM"
-	            }
-	        },
-	        "nicName": {
-	            "type": "string",
-	            "defaultValue": "myNIC",
-	            "metadata": {
-	                "Description": "NIC to attach the new VM to"
-	            }
-	        }
-	    },
-	    "resources": [{
-	        "apiVersion": "2014-12-01-preview",
-	        "type": "Microsoft.Compute/virtualMachines",
-	        "name": "[parameters('vmName')]",
-	        "location": "[parameters('location')]",
-	        "properties": {
-	            "hardwareProfile": {
-	                "vmSize": "[parameters('vmSize')]"
-	            },
-	            "storageProfile": {
-	                "osDisk": {
-	                    "name": "[concat(parameters('vmName'),'-osDisk')]",
-	                    "osType": "[parameters('osType')]",
-	                    "caching": "ReadWrite",
-	                    "vhd": {
-	                        "uri": "[parameters('osDiskVhdUri')]"
-	                    }
-	                }
-	            },
-	            "networkProfile": {
-	                "networkInterfaces": [{
-	                    "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-	                }]
-	            }
-	        }
-	    }]
-	}
+Again, you will need to find the values you want to enter for the parameters that do not have default values. When you run the `azure group deployment create` command, the Azure CLI will prompt you to enter those values.
 
-### Step 2: Obtain the VHD.
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+        "contentVersion": "1.0.0.0",
+        "parameters" : {
+            "userImageStorageAccountName": {
+                "type": "string",
+                "defaultValue" : "userImageStorageAccountName"
+            },
+            "userImageStorageContainerName" : {
+                "type" : "string",
+                "defaultValue" : "userImageStorageContainerName"
+            },
+            "userImageVhdName" : {
+                "type" : "string",
+                "defaultValue" : "userImageVhdName"
+            },
+            "dnsNameForPublicIP" : {
+                "type" : "string",
+                "defaultValue": "uniqueDnsNameForPublicIP"
+            },
+            "adminUserName": {
+                "type": "string"
+            },
+            "adminPassword": {
+                "type": "securestring"
+            },
+            "osType" : {
+                "type" : "string",
+                "allowedValues" : [
+                    "windows",
+                    "linux"
+                ]
+            },
+            "subscriptionId":{
+                "type" : "string"
+            },
+            "location": {
+                "type": "String",
+                "defaultValue" : "West US"
+            },
+            "vmSize": {
+                "type": "string",
+                "defaultValue": "Standard_A2"
+            },
+            "publicIPAddressName": {
+                "type": "string",
+                "defaultValue" : "myPublicIP"
+            },
+            "vmName": {
+                "type": "string",
+                "defaultValue" : "myVM"
+            },
+            "virtualNetworkName":{
+                "type" : "string",
+                "defaultValue" : "myVNET"
+            },
+            "nicName":{
+                "type" : "string",
+                "defaultValue":"myNIC"
+            }
+        },
+        "variables": {
+            "addressPrefix":"10.0.0.0/16",
+            "subnet1Name": "Subnet-1",
+            "subnet2Name": "Subnet-2",
+            "subnet1Prefix" : "10.0.0.0/24",
+            "subnet2Prefix" : "10.0.1.0/24",
+            "publicIPAddressType" : "Dynamic",
+            "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+            "subnet1Ref" : "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+            "userImageName" : "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/',parameters('userImageStorageContainerName'),'/',parameters('userImageVhdName'))]",
+            "osDiskVhdName" : "[concat('http://',parameters('userImageStorageAccountName'),'.blob.core.windows.net/',parameters('userImageStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+        },
+        "resources": [
+        {
+            "apiVersion": "2014-12-01-preview",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[parameters('publicIPAddressName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+                }
+            }
+        },
+        {
+          "apiVersion": "2014-12-01-preview",
+          "type": "Microsoft.Network/virtualNetworks",
+          "name": "[parameters('virtualNetworkName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+            "addressSpace": {
+              "addressPrefixes": [
+                "[variables('addressPrefix')]"
+              ]
+            },
+            "subnets": [
+              {
+                "name": "[variables('subnet1Name')]",
+                "properties" : {
+                    "addressPrefix": "[variables('subnet1Prefix')]"
+                }
+              },
+              {
+                "name": "[variables('subnet2Name')]",
+                "properties" : {
+                    "addressPrefix": "[variables('subnet2Prefix')]"
+                }
+              }
+            ]
+          }
+        },
+        {
+            "apiVersion": "2014-12-01-preview",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('nicName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                {
+                    "name": "ipconfig1",
+                    "properties": {
+                        "privateIPAllocationMethod": "Dynamic",
+                        "publicIPAddress": {
+                            "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                        },
+                        "subnet": {
+                            "id": "[variables('subnet1Ref')]"
+                        }
+                    }
+                }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2014-12-01-preview",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('vmName')]",
+            "location": "[parameters('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[parameters('vmSize')]"
+                },
+                "osProfile": {
+                    "computername": "[parameters('vmName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "osDisk" : {
+                        "name" : "[concat(parameters('vmName'),'-osDisk')]",
+                        "osType" : "[parameters('osType')]",
+                        "caching" : "ReadWrite",
+                        "image" : {
+                            "uri" : "[variables('userImageName')]"
+                        },
+                        "vhd" : {
+                            "uri" : "[variables('osDiskVhdName')]"
+                        }
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces" : [
+                    {
+                        "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                    }
+                    ]
+                }
+            }
+        }
+        ]
+    }
+
+### Step 2: Obtain the VHD
+
+Obviously, you'll need a .vhd for this. You can either use one you already have in Azure, or you can upload one. 
 
 For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](virtual-machines-create-upload-vhd-windows-server.md).
 
 For a Linux-based virtual machine, see [Create and upload a Linux VHD in Azure](virtual-machines-linux-create-upload-vhd.md).
 
-### Step 3: Create the virtual machine with the template.
+### Step 3: Create the virtual machine with the template
 
-To create an new virtual machine based on the VHD, replace the elements within the “< >” with your specific information and run these commands:
+Now you're ready to create a new virtual machine based on the VHD. Create a group to deploy into, using `azure group create <location>`:
 
-	$deployName="<deployment name>"
-	$RGName="<resource group name>"
-	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+    azure group create myResourceGroupUser eastus
+    info:    Executing command group create
+    + Getting resource group myResourceGroupUser                                            
+    + Creating resource group myResourceGroupUser                                           
+    info:    Created resource group myResourceGroupUser
+    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupUser
+    data:    Name:                myResourceGroupUser
+    data:    Location:            eastus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: 
+    data:    
+    info:    group create command OK
+    
+Then create the deployment, using the `--template-uri` option to call in the template directly (or you can use the `--template-file` option to use a file that you have saved locally). Note that because the template has defaults specified, you are only prompted for a few things. If you deploy the template in different places, you may find some naming collisions occur with the default values (particularly the DNS name you create).
 
-You will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the resource group and the virtual machine.
+    azure group deployment create \
+    > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
+    > myResourceGroup \
+    > customVhdDeployment
+    info:    Executing command group deployment create
+    info:    Supply values for the following parameters
+    adminUserName: ops
+    adminPassword: lkjWER#%@123
+    osType: linux
+    subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        
+Output looks something like the following:
 
-Here is an example:
-
-	$deployName="TestDeployment"
-	$RGName="TestRG"
-	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-vm-from-specialized-vhd/azuredeploy.json"
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
-
-
-You will receive the following type of information:
-
-	cmdlet New-AzureResourceGroup at command pipeline position 1
-	Supply values for the following parameters:
-	(Type !? for Help.)
-	osDiskVhdUri: [[need to add here]]
-	osType: windows
-	location: West US
-	vmSize: Standard_A3
-	...
-
+    + Initializing template configurations and parameters                          
+    + Creating a deployment                                                        
+    info:    Created template deployment "customVhdDeployment"
+    + Registering providers                                                        
+    info:    Registering provider microsoft.network
+    info:    Registering provider microsoft.compute
+    + Waiting for deployment to complete                                           
+    error:   Deployment provisioning state was not successful
+    data:    DeploymentName     : customVhdDeployment
+    data:    ResourceGroupName  : myResourceGroupUser
+    data:    ProvisioningState  : Succeeded
+    data:    Timestamp          : 2015-04-28T14:55:48.0963829Z
+    data:    Mode               : Incremental
+    data:    TemplateLink       : https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json
+    data:    ContentVersion     : 1.0.0.0
+    data:    Name                           Type          Value                               
+    data:    -----------------------------  ------------  ------------------------------------
+    data:    userImageStorageAccountName    String        userImageStorageAccountName         
+    data:    userImageStorageContainerName  String        userImageStorageContainerName       
+    data:    userImageVhdName               String        userImageVhdName                    
+    data:    dnsNameForPublicIP             String        uniqueDnsNameForPublicIP            
+    data:    adminUserName                  String        ops                                 
+    data:    adminPassword                  SecureString  undefined                           
+    data:    osType                         String        linux                               
+    data:    subscriptionId                 String        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    data:    location                       String        West US                             
+    data:    vmSize                         String        Standard_A2                         
+    data:    publicIPAddressName            String        myPublicIP                          
+    data:    vmName                         String        myVM                                
+    data:    virtualNetworkName             String        myVNET                              
+    data:    nicName                        String        myNIC                               
+    info:    group deployment create command OK
+    
 
 ## Deploy a multi-VM application that uses a virtual network and an external load balancer
 
