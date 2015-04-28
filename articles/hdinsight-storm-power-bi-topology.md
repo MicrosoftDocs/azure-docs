@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/24/2015"
+ ms.date="04/28/2015"
  ms.author="larryfr"/>
 
 # Use Power BI (preview) to visualize data from a Storm Topology
@@ -136,6 +136,4 @@ The topology will continue to run until you stop it or delete the Storm on HDIns
 
 In this document, you learned how to send data from a Storm topology to Power BI using REST. For information on how to work with other Azure technologies, see the following:
 
-* [Process events from Azure Event Hubs](hdinsight-storm-develop-csharp-event-hub-topology.md)
-
-* [HDInsight Storm examples](https://github.com/hdinsight/hdinsight-storm-examples/): This project includes both C# and Java examples of working with Azure services from Storm topologies
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
