@@ -63,7 +63,7 @@ However, we recommend that you write explanatory text instead of relying on butt
 > *If you already use Office 365 or other business service from Microsoft, you can simply grant <your_app_name> access to your organization’s data. This will allow your users to access <your_app_name> with their existing work accounts.*
 
 
-### Visual guidance for sign-in
+## Visual guidance for sign-in
 Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
 
 ### Pictogram and “work or school account” 
