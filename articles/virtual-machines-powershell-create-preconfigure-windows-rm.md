@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell" 
-	description="Use the Resource Manager mode of PowerShell to quicly create a new Windows virtual machine preconfigured with extra disks and other options." 
+	description="Use the Resource Manager mode of PowerShell to create and preconfigure a new Windows virtual machine preconfigured with extra disks and other options." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -94,6 +94,8 @@ Optionally, create a NIC inside a subnet in the virtual network and associate th
 
 Next, create a local VM object and optionally add it to an availability set. Copy one of the two following options to your command set.
 
+
+
 Option 1: Specify a virtual machine name and size.
 
 	$vmName="<VM name>"
@@ -133,31 +135,30 @@ Next, copy these commands to your command set.
 	$destContainer = "http://" + $contName + ".blob.core.windows.net/" + $vmName + "/"
 	Set-AzureVMSourceImage -VM $vm -Name $imageName -DestinationVhdsContainer $destContainer 
 
-If you already know the image name, such as "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd", replace <image name> in your command set. Otherwise, to obtain the image name for the virtual machine that you want to create, use these commands at the Azure PowerShell command prompt to see a list of image family names.
+Next, you need to determine the image for the virtual machine.
 
-	Switch-AzureMode AzureServiceManagement
-	Get-AzureVMImage | select ImageFamily –Unique
+[[add]]
 
-Here are some examples of ImageFamily values for Windows-based computers:
+List the publishers
 
-- Windows Server 2012 R2 Datacenter 
-- Windows Server 2008 R2 SP1 
-- Windows Server Technical Preview 
-- SQL Server 2012 SP1 Enterprise on Windows Server 2012 
+	Get-AzureVMImagePublisher -Location "westus" | Select PublisherName
 
-Replace your chosen <ImageFamily value> in these commands and run them.
+Copy the publisher name and run this.
 
-	$family="<ImageFamily value>"
-	$imagename=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	Write-Host $imagename
+	Get-AzureVMImageOffer -Location "westus" -Publisher "MicrosoftWindowsServer"
 
-Copy the display of the **Write-Host** command to the clipboard. 
+Copy the Offer name and run this.
 
-Next, switch Azure PowerShell back to the Resource Manager module. 
+	Get-AzureVMImageSku -Location "westus" -Publisher "MicrosoftWindowsServer" -Offer "WindowsServer"
 
-	Switch-AzureMode AzureResourceManager
+Copy the Sku name and run this.
 
-Copy the contents of the clipboard to replace **<image name>** in your command set.
+	Get-AzureVMImage  -Location "westus" -Publisher "MicrosoftWindowsServer" -Offer "WindowsServer" -Sku "2012-R2-Datacenter"
+
+Copy the version and run this to create a variable.
+
+	$imageRef=Get-AzureVMImageDetail  -Location "westus" -Publisher "MicrosoftWindowsServer" -Offer "WindowsServer" -Sku "2012-R2-Datacenter" -Version "4.0.201502"
+
 
 If you would like to set the username and password through a script, use this as an example.
 
