@@ -65,6 +65,8 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 In the next section, we'll cover what files were added to your project.
 
+
 [AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
+
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
