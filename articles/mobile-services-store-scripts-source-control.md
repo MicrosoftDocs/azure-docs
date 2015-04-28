@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
+
+# Store project code in source control
 
 <div class="dev-center-tutorial-subselector">
 	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">.NET backend</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">JavaScript backend</a>
 </div>
-
-# Store project code in source control
 
 This topic shows you how to use the source control provided by Azure Mobile Services to store your server scripts. Scripts and other JavaScript backend code files can be promoted from your local Git repository to your production mobile service. It also shows how to define shared code that can be required by multiple scripts and how to use the package.json file to add Node.js modules to your mobile service. 
 
@@ -133,7 +133,7 @@ The recommended way to add Node.js modules to your mobile service is by adding r
 		    var uuid = require('node-uuid');
 		    item.uuid = uuid.v1();
 		    request.execute();
-		    console.log(JSON.stringify(item, null, 4));
+		    console.log(item);
 		}
 
 	This code adds a uuid column to the table, populating it with unique GUID identifiers.
