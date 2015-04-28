@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/27/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz;ilygre"/>
 
 # Advanced Template Operations
@@ -56,7 +56,7 @@ The following example deploys three web sites named examplecopy-Contoso, example
 
 ## Nested template
 
-You can include one template inside of another template by providing the URI of the nested template, as shown below.
+At times, you may need to merge two templates together, or you may need to launch a child template from a parent. You can accomplish this through the use of a deployment resource within the master template to deploy a child template. You provide the URI of the nested template, as shown below.
 
     "variables": {"templatelink":"https://www.contoso.com/ArmTemplates/newStorageAccount.json"}, 
     "resources": [ 
@@ -75,7 +75,7 @@ You can include one template inside of another template by providing the URI of 
     ] 
 
 ## Next Steps
-- [Authoring Templates](./resource-group-authoring-templates.md)
-- [Template Functions](./resource-group-template-functions.md)
-- [Deploying Templates](./resouce-group-template-deploy.md)
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
+- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
