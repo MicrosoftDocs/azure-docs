@@ -48,7 +48,7 @@ To get dependency monitoring, you must:
 
 You can do the above steps to an already-deployed web app. To get standard dependency monitoring, you don't have to add Application Insights to your source project. 
 
-## Diagnosing dependency performancee issues
+## Diagnosing dependency performance issues
 
 To assess the performance of requests at your server:
 

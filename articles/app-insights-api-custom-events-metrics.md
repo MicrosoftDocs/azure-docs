@@ -46,16 +46,16 @@ If you haven't done these yet:
 * Add the Application Insights SDK to your project:
  * [ASP.NET project][greenbrown]
  * [Windows project][windows]
- * [Java project][java] 
+ * [Java project][java]    
  * [JavaScript in each web page][client]   
 
 * In your device or web server code, include:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+  *C#:* `using Microsoft.ApplicationInsights;`
 
-    *VB:* `Imports Microsoft.ApplicationInsights`
+  *VB:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+  *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
 * Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
@@ -71,7 +71,7 @@ If you haven't done these yet:
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-We recommend you use one instance of TelemetryClient for each request in a web app, or for each session in other apps. You can set properties such as TelemetryClient.Context.User.Id = 
+We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. 
 
 
 ## Track Event
