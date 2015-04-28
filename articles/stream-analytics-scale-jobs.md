@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/27/2015"
+	ms.date="04/28/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs
@@ -59,8 +59,6 @@ Partitioning a step requires the following conditions:
 
 When a query is partitioned, the input events will be processed and aggregated in separate partition groups, and outputs events are generated for each of the groups. If a combined aggregate is desirable, you must create a second non-partitioned step to aggregate.
 
-**Note**: The preview release of Azure Stream Analytics doesn't support partitioning by column names. You can only partition by the **PartitionId** field, which is a built-in field in your query. The **ParitionId** field indicates from which partition of the source data stream the event is from. For details, see [Azure Stream Analytics limitations and known issues](stream-analytics-limitations.md).
-
 ### Calculate the max streaming units for a job
 
 All non-partitioned steps together can scale up to six streaming units for a Stream Analytics job. To add additional streaming units, a step must be partitioned. Each partition can have six streaming units.
@@ -98,7 +96,7 @@ All non-partitioned steps together can scale up to six streaming units for a Str
 <tr><td>
 <ul>
 <li>The data stream input is partitioned by 3.</li>
-<li>The query contains two steps.</li>
+<li>The query contains two steps. The input step is partitioned and the second step is not.</li>
 <li>The SELECT statement reads from the partitioned input.</li>
 </ul>
 </td>

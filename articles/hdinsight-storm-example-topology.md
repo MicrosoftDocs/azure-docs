@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/23/2015"
+ ms.date="04/28/2015"
  ms.author="larryfr"/>
 
 # Example Storm toplogies for Apache Storm on HDInsight
