@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2014" 
+	ms.date="04/29/2015" 
 	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Tutorial: Create a Cloud-Only Virtual Network in Azure</h1>
@@ -27,7 +27,7 @@ For example, the FrontEndSubnet could be used for web servers and the BackEndSub
 This tutorial assumes you have no prior experience using Azure. It is meant to help you become familiar with the steps required to create your own virtual network by stepping you through an example configuration. If you want to create a cloud-only virtual network that works for your specific configuration, see [Configure a Cloud-Only Virtual Network in the Management Portal](http://msdn.microsoft.com/library/azure/dn631643.aspx). If you are looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 
-> [AZURE.NOTE] This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity](/manage/services/networking/cross-premises-connectivity/).
+> [AZURE.NOTE] This tutorial does not walk you through creating a cross-premises configuration, in which the virtual network is connected to your organization network. For a tutorial that walks you through creating a virtual network with cross-premises connectivity and a site-to-site VPN connection (i.e., connecting to Active Directory or SharePoint located at your company), see [Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity](virtual-networks-create-site-to-site-cross-premises-connectivity.md).
 
 
 ##  Objectives
@@ -92,18 +92,18 @@ When you are ready to create a cloud-only virtual network that works for your sp
 
 If you are looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). 
 
-For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?linkid=296652&clcid=0x409).
+For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409).
 
 
 ## See Also
 
--  [Azure Virtual Network FAQ](http://go.microsoft.com/fwlink/?LinkId=296650)
+-  [Azure Virtual Network FAQ](http://go.microsoft.com/fwlink/p/?LinkId=296650)
 
--  [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652)
+-  [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/p/?LinkId=296652)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
+-  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 
--  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [Name Resoultion for VMs and Role Instances](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
 [Image1]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
