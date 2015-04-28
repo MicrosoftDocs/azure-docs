@@ -11,9 +11,9 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="ibiza"
+   ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/13/2015"
+   ms.date="04/23/2015"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager Overview 
@@ -21,6 +21,8 @@
 Applications are typically made up of many components – maybe a web app, database, database server, storage, and 3rd party services. You do not see these components as separate entities, instead you see them as related and interdependent parts of a single entity. You want to deploy, manage, and monitor them as a group. Azure Resource Manager enables you to work with the resources in your application as a group. You can deploy, update or delete all of the resources for your application in a single, coordinated operation. You use a template for deployment and that template can work for different environments such as testing, staging and production. You can clarify billing for your organization by viewing the rolled-up costs for the entire group.  
 
 Azure Resource Manager natively integrates access control into the management platform so you can specify which actions a user in your organization can take for a resource group.  
+
+> [AZURE.NOTE] This topic describes resources, groups, and templates using the portal to demonstrate the concepts. However, you can also create, manage, and delete Azure resources using the [Azure CLI for Mac, Linux, and Windows](xplat-cli-azure-resource-manager.md) as well as [PowerShell](powershell-azure-resource-manager.md).
 
 ## Resource Groups
 
@@ -64,7 +66,9 @@ When you create a solution from the Marketplace, the solution automatically incl
 
 Finally, the template becomes part of the source code for your app. You can check it in to your source code repository and update it as your app evolves. You can edit the template through Visual Studio.
 
-For more information about defining the template, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+For more information about defining the template, see [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md).
+
+For information about using a template for deployment, see [Deploy an application with Azure Resource Manager template](./resource-group-template-deploy.md).
 
 ## Tags
 
@@ -75,6 +79,8 @@ In the portal, you can start working with tags by clicking on the tag icon.
 ![tags](./media/resource-group-overview/tags.png)
 
 Resources do not need to reside in the same resource group to share a tag. You can create your own tag taxonomy to ensure that all users in your organization use common tags rather than users inadvertently applying slightly different tags (such as "dept" instead of "department"). 
+
+For more information about tags, see [Using tags to organize your Azure resources](./resource-group-using-tags.md).
 
 ## Access Control
 
@@ -88,16 +94,41 @@ Azure Resource Manager automatically logs user actions for auditing.
 
 You can also explicitly lock critical resources to prevent users from deleting or modifying them. 
 
+For more information about role-based access control, see [Role-based access control in the Microsoft Azure portal](./role-based-access-control-configure.md).
+
+For examples of setting access policies, see [Managing and Auditing Access to Resources](./resource-group-rbac.md).
+
 ## Consistent Management Layer
 
-Azure Resource Manager provides completely compatible operations through PowerShell, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
+Azure Resource Manager provides completely compatible operations through Azure PowerShell, Azure CLI for Mac, Linux, and Windows, the Azure portal, or REST API. You can use the interface that works best for you, and move quickly between the interfaces without confusion. The portal even displays notification for actions taken outside of the portal.
 
 For information about PowerShell, see [Using Windows PowerShell with Resource Manager](./powershell-azure-resource-manager.md) and [Azure Resource Manager Cmdlets](https://msdn.microsoft.com/library/dn654592.aspx).
 
-For information about cross-platform commands, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](./xplat-cli-azure-resource-manager.md).
+For information about Azure CLI, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
 For information about the REST API, see [Azure Resource Manager REST API Reference](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
+## Next Steps
+Getting Started
 
+- [Using Windows PowerShell with Resource Manager](./powershell-azure-resource-manager.md)
+- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](./xplat-cli-azure-resource-manager.md)
+- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
+
+Creating and Deploying Applications
+
+- [Authoring Templates](./resource-group-authoring-templates.md)
+- [Deploying Templates](./resource-group-template-deploy.md)
+- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)
+
+Organizing Resources
+
+- [Using tags to organize your Azure resources](./resource-group-using-tags.md)
+
+Managing and Auditing Access
+
+- [Managing and Auditing Access to Resources](./resource-group-rbac.md)
+- [Authenticating a service principal](./resource-group-authenticate-service-principal.md)
+- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)
 
 

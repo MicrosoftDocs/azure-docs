@@ -23,15 +23,15 @@
 
 3. At the command prompt, type:
 
-    'Get-HcsUpdateAvailability' 
+   **Get-HcsUpdateAvailability** 
     
     You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
 
-4. To apply disruptive updates, you need to put the device into Maintenance mode. See [Change device modes](#change-device-modes) for instructions on how to enter Maintenance mode.
+4. To apply disruptive updates, you need to put the device into Maintenance mode. See [To enter Maintenance Mode](#to-enter-maintenance-mode) for instructions.
 
 5. When your device is in Maintenance mode, at the command prompt, type:
 
-    'Start-HcsUpdate' 
+    **Start-HcsUpdate** 
 
 6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
 

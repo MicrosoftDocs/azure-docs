@@ -21,33 +21,33 @@
 
 Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open source libraries for different platforms to help you start coding quickly. This document will help you understand the various scenarios Azure AD supports and will show you how to get started. It’s divided into the following sections:
 
-- [Basics of Authentication in Azure AD][]
+- [Basics of Authentication in Azure AD](#basics-of-authentication-in-azure-ad)
 
 
-- [Claims in Azure AD Security Tokens][]
+- [Claims in Azure AD Security Tokens](#claims-in-azure-ad-security-tokens)
 
 
-- [Basics of Registering an Application in Azure AD][]
+- [Basics of Registering an Application in Azure AD](#basics-of-registering-an-application-in-azure-ad)
 
-- [Application Types and Scenarios][]
+- [Application Types and Scenarios](#application-types-and-scenarios)
 
-  - [Web Browser to Web Application][]
+  - [Web Browser to Web Application](#web-browser-to-web-application)
 
-  - [Single Page Application (SPA)][]
+  - [Single Page Application (SPA)](#single-page-application-spa)
 
-  - [Native Application to Web API][]
+  - [Native Application to Web API](#native-application-to-web-api)
 
-  - [Web Application to Web API][]
+  - [Web Application to Web API](#web-application-to-web-api)
 
-  - [Daemon or Server Application to Web API][]
+  - [Daemon or Server Application to Web API](#daemon-or-server-application-to-web-api)
 
 
 
 ## Basics of Authentication in Azure AD
 
-If you are unfamiliar with basic concepts of authentication in Azure AD, read this section. Otherwise, you may want to skip down to [Application Types and Scenarios][].
+If you are unfamiliar with basic concepts of authentication in Azure AD, read this section. Otherwise, you may want to skip down to [Application Types and Scenarios](#application-types-and-scenarios).
 
-Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application. This scenario is described in greater detail in the [Web Browser to Web Application][] section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works. Consider the following diagram for this scenario:
+Let’s consider the most basic scenario where identity is required: a user in a web browser needs to authenticate to a web application. This scenario is described in greater detail in the [Web Browser to Web Application](#web-browser-to-web-application) section, but it’s a useful starting point to illustrate the capabilities of Azure AD and conceptualize how the scenario works. Consider the following diagram for this scenario:
 Overview of sign-on to web application
 
 With the diagram above in mind, here’s what you need to know about its various components:
@@ -69,7 +69,7 @@ With the diagram above in mind, here’s what you need to know about its various
 
 • The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) topic and in the sections below.
 
-> [AZURE.NOTE] Azure AD supports the OAuth 2.0 and OpenID Connect standards that make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your application transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5}(http://tools.ietf.org/html/rfc6750).
+> [AZURE.NOTE] Azure AD supports the OAuth 2.0 and OpenID Connect standards that make extensive use of bearer tokens, including bearer tokens represented as JWTs. A bearer token is a lightweight security token that grants the “bearer” access to a protected resource. In this sense, the “bearer” is any party that can present the token. Though a party must first authenticate with Azure AD to receive the bearer token, if the required steps are not taken to secure the token in transmission and storage, it can be intercepted and used by an unintended party. While some security tokens have a built-in mechanism for preventing unauthorized parties from using them, bearer tokens do not have this mechanism and must be transported in a secure channel such as transport layer security (HTTPS). If a bearer token is transmitted in the clear, a man-in the middle attack can be used by a malicious party to acquire the token and use it for an unauthorized access to a protected resource. The same security principles apply when storing or caching bearer tokens for later use. Always ensure that your application transmits and stores bearer tokens in a secure manner. For more security considerations on bearer tokens, see [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
 
 
 Now that you have an overview of the basics, read the sections below to understand how provisioning works in Azure AD and the common scenarios Azure AD supports.
@@ -81,7 +81,8 @@ Security tokens issued by Azure AD contain claims, or assertions of information 
 
 
 | Claim | Description |
-| Application ID | Identifies the application that is using the token. |
+|-------|-------------|
+| Application ID | Identifies the application that is using the token.
 | Audience | Identifies the recipient resource the token is intended for. |
 | Application Authentication Context Class Reference | Indicates how the client was authenticated (public client vs. confidential client). |
 | Authentication Instant | Records the date and time when the authentication occurred. |
@@ -144,15 +145,15 @@ Each of the scenarios described in this document can be developed using various 
 
 These are the five primary application scenarios supported by Azure AD:
 
-- [Web Browser to Web Application][]: A user needs to sign in to a web application that is secured by Azure AD.
+- [Web Browser to Web Application](#web-browser-to-web-application): A user needs to sign in to a web application that is secured by Azure AD.
 
-- [Single Page Application (SPA)][]: A user needs to sign in to a single page application that is secured by Azure AD.
+- [Single Page Application (SPA)](#single-page-application-spa): A user needs to sign in to a single page application that is secured by Azure AD.
 
-- [Native Application to Web API][]: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.
+- [Native Application to Web API](#native-application-to-web-api): A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.
 
-- [Web Application to Web API][]: A web application needs to get resources from a web API secured by Azure AD.
+- [Web Application to Web API](#web-application-to-web-api): A web application needs to get resources from a web API secured by Azure AD.
 
-- [Daemon or Server Application to Web API][]: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.
+- [Daemon or Server Application to Web API](#daemon-or-server-application-to-web-api): A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.
 
 ### Web Browser to Web Application
 
@@ -351,7 +352,7 @@ Both the application identity and delegated user identity types are discussed in
 
 ##### Delegated User Identity with OpenID Connect
 
-1. A user is signed in to a web application using Azure AD (see the [Web Browser to Web Application section][] above). If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions. When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.
+1. A user is signed in to a web application using Azure AD (see the [Web Browser to Web Application](#web-browser-to-web-application) above). If the user of the web application has not yet consented to allowing the web application to call the web API on its behalf, the user will need to consent. The application will display the permissions it requires, and if any of these are administrator-level permissions, a normal user in the directory will not be able to consent. This consent process only applies to multi-tenant applications, not single tenant applications, as the application will already have the necessary permissions. When the user signed in, the web application received an ID token with information about the user, as well as an authorization code.
 
 
 2. Using the authorization code issued by Azure AD, the web application sends a request to Azure AD’s token endpoint that includes the authorization code, details about the client application (client ID and redirect URI), and the desired resource (application ID URI for the web API).

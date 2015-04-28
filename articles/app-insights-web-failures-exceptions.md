@@ -218,6 +218,8 @@ You can also open Diagnostic Search directly, filter on exceptions, and choose t
 
 Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
+> [AZURE.NOTE] In a web browser; if you include script files from CDNs or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"``` and the server sends CORS headers to get a stack trace and detail for unhandled javascript execptions from these resources.
+
 However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
 
 ### Correlating with a build
