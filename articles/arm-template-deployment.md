@@ -47,7 +47,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    New-AzureADApplication -DisplayName "My AD Application 1" -HomePage "https://myapp1.com" -IdentifierUris "https://myapp1.com"  -Password "{password}"
 
-4. Record the value that is returned for ApplicationId in the response from the previous step. You will need it later in this tutorial:
+4. Record the value the ApplicationId value in the response from the previous step. You will need it later in this tutorial:
 
 	![Create an AD application](./media/arm-template-deployment/azureapplicationid.png)
 
@@ -420,7 +420,7 @@ Resources are always deployed from a template to a resource group. You use the [
 
 ##Step 6: Add the code to delete the resources
 
-You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
+Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
 
 1.	Add the following method to the Program class to delete the resource group:
 
@@ -440,6 +440,12 @@ You don’t need to delete each resource separately from a resource group. You c
 
 ##Step 7: Run the console application
 
-To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
+1.	To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Management Portal before you delete them.
+2.	Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
+
+	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
+
+3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
+
+	![Create an AD application](./media/arm-template-deployment/crpportal.png)
