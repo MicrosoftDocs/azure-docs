@@ -94,13 +94,23 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 	        Console.ReadLine();
 	    }
 
-7. From the **View** menu, select **Server Explorer**. 
+7. Press <Ctrl>F5 to run the app.
 
-8. In the **Server Explorer**, expand the **Azure > App Service** node. 
+8. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
 
-9. Locate the resource group that you created when you deployed your API app. 
+9. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
 
-10. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+10. Click **Get** to view the schema and **Try it out** button.
+
+11. Click **Try it out**. The Contact records will be displayed in the Web page's **Response Body** section.
+
+12. From the **View** menu, select **Server Explorer**. 
+
+13. In the **Server Explorer**, expand the **Azure > App Service** node. 
+
+14. Locate the resource group that you created when you deployed your API app. 
+
+15. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
@@ -108,11 +118,11 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/09-attaching-v3.png)
 
-11. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
+16. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
 
 	![Applying breakpoints to controller](./media/app-service-dotnet-remotely-debug-api-app/10-breakpoints-v3.png)
 
-12. To debug, right-click the console app in **Solution Explorer** and select **Debug** > **Start new instance**. Now, you can debug the API app remotely and the client app locally, and see the entire flow of the data. 
+17. To debug, right-click the console app in **Solution Explorer** and select **Debug** > **Start new instance**. Now, you can debug the API app remotely and the client app locally, and see the entire flow of the data. 
 
 	The following screen shot shows the debugger when it hits the breakpoint for the `Post` method. You can see that the contact data from the client was deserialized into a strongly-typed `Contact` object. 
 
