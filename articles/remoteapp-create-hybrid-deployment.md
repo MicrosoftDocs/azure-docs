@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="04/28/2015" 
 	ms.author="elizapo"/>
 
 # How to create a hybrid collection for RemoteApp
@@ -59,9 +59,10 @@ See [About Virtual Network Settings in the Management Portal](https://msdn.micro
 
 ### Make sure your virtual network is ready for RemoteApp
 Before you create your RemoteApp collection, let's make sure that your new virtual network is ready. You can validate this by doing the following:
+
 1. Create an Azure virtual machine inside the subnet of the virtual network you just created for RemoteApp.
 2. Use Remote Desktop to connect to the virtual machine. (Click **Connect**.)
-3. Join [it] to the same Active Directory deployment that you want to use for RemoteApp.
+3. Join it to the same Active Directory deployment that you want to use for RemoteApp.
 
 Did that work? Your virtual network and subnet are ready for RemoteApp!
 
