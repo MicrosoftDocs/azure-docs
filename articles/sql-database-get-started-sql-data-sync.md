@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2015" 
+	ms.date="03/02/2015"
 	ms.author="spelluru"/>
 
 
-#Getting Started with Azure SQL Data Sync (Preview)
+# Getting Started with Azure SQL Data Sync (Preview)
 In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
