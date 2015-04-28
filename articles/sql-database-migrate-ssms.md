@@ -3,7 +3,7 @@
    description="Microsoft Azure SQL Database, migrate sql database, migrate using ssms"
    services="sql-database"
    documentationCenter=""
-   authors="kaivalyah2015"
+   authors="pehteh"
    manager="jeffreyg"
    editor="monicar"/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
    ms.date="04/14/2015"
-   ms.author="kaivalyh"/>
+   ms.author="pehteh"/>
 
 #Migrating a compatible database using SSMS 
 
