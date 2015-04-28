@@ -16,7 +16,7 @@
    ms.date="04/27/2015"
    ms.author="tomfitz;ilygre"/>
 
-# Advance Template Operations
+# Advanced Template Operations
 
 This topic describes the copy operation and nested templates which you can use to perform more advanced tasks when deploying resources to Azure.
 
