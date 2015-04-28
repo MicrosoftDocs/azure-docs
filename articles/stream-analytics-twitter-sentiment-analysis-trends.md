@@ -25,6 +25,10 @@ In this tutorial, you'll learn how to build a solution by bringing Twitter event
 
 A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers.  They use social media insights on topics relevant to their readers by doing real time analytics on Twitter data.  Specifically, to identify what topics are trending, they need real-time analytics about the tweet volume and sentiment for key topics.
 
+## Prerequisites
+1.	A Twitter account is required for this tutorial.  
+2.	This walkthough leverages an event generator located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
+
 ## Create an Event Hub input and a Consumer Group
 
 The sample application will generate events and push them to an Event Hubs instance (an Event Hub, for short). Service Bus Event Hubs are the preferred method of event ingestion for Stream Analytics. See Event Hubs documentation in [Service Bus documentation](/documentation/services/service-bus/)
