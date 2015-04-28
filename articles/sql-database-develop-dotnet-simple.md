@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="04/27/2015" 
 	ms.author="tobiast"/>
 
 
 # Using SQL Database from .NET (C#) 
+
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 ## Requirements
