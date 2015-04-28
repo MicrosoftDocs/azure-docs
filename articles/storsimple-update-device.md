@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/23/2015"
+   ms.date="04/27/2015"
    ms.author="v-sharos" />
 
 # Update your StorSimple device
@@ -62,7 +62,7 @@ Alternatively, you can use Windows PowerShell for StorSimple to apply regular (N
 
 ## Install Maintenance mode updates via Windows PowerShell for StorSimple
 
-You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device. All I/O requests are paused in this mode. Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped. Both the controllers are rebooted when you enter or exit this mode. When you exit this mode, all the services will resume and should be healthy. (This may take a few minutes.)
+You use Windows PowerShell for StorSimple to apply Maintenance mode updates to your StorSimple device. All I/O requests are paused in this mode. Services such as non-volatile random access memory (NVRAM) or the clustering service are also stopped. Both controllers are rebooted when you enter or exit this mode. When you exit this mode, all the services will resume and should be healthy. (This may take a few minutes.)
 
 If you need to apply Maintenance mode updates, you will receive an alert through the Management Portal that you have updates that must be installed. This alert will include instructions for using Windows PowerShell for StorSimple to install the updates. After you update your device, use the same procedure to change the device to Regular mode. For step-by-step instructions, see [To exit Maintenance mode](#to-exit-maintenance-mode).
 
@@ -71,11 +71,11 @@ If you need to apply Maintenance mode updates, you will receive an alert through
 > - Before entering Maintenance mode, verify that both device controllers are healthy by checking the **Hardware Status** on the **Maintenance** page in the Management Portal. If the controller is not healthy, contact Microsoft Support for the next steps. For more information, go to Contact Microsoft Support. 
 > - When you are in Maintenance mode, you need to apply the update first on one controller and then on the other controller.
 
-First, use an application such as PuTTY to access the serial console.
+First, use an application such as PuTTY to access the serial console. The following procedure explains how to use PuTTY to connect to the serial console.
 
 [AZURE.INCLUDE [storsimple-use-putty](../includes/storsimple-use-putty.md)]
 
-Then, determine whether there are updates to install, and install them.
+After you connect to the console, determine whether there are updates to install, and enter maintenance mode to install them.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../includes/storsimple-enter-maintenance-mode.md)]
 
@@ -85,7 +85,7 @@ Next, install your updates.
 
 Finally, exit Maintenance mode.
 
-[AZURE.INCLUDE storsimple[-exit-maintenance-mode](../includes/storsimple-exit-maintenance-mode.md)]
+[AZURE.INCLUDE [storsimple-exit-maintenance-mode](../includes/storsimple-exit-maintenance-mode.md)]
 
 ## Install hotfixes via Windows PowerShell or StorSimple
 
@@ -106,4 +106,4 @@ If a device is reset to factory settings, then all the updates are lost. After t
 
 ## Next steps
 
-Learn more about [Windows PowerShell for StorSimple](https://https://msdn.microsoft.com/library/azure/dn772425.aspx) for StorSimple.
+Learn more about [Windows PowerShell for StorSimple](https://https://msdn.microsoft.com/library/azure/dn772425.aspx).
