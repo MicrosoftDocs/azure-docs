@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="elizapo" 
-    ms.author="04/29/2015" />
+    ms.date="04/29/2015" 
+    ms.author="elizapo" />
 
 
 

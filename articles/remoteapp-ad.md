@@ -106,4 +106,4 @@ If you are having trouble configuring directory synchronization, check the follo
 -	Under **Active Directory->Default Directory->Users**, you add a new user under that domain (e.g. myAzureSyncUser@mydomain.com).
 -	On your domain in Active Directory, you added a new domain user and made him a member of Enterprise Admins  (e.g. myDomainSyncUser@mydomain.com).
 
-Now start the Azure Directory Sync tool, and use **myAzureSyncUser@mydomain.com** credentials for the first prompt (Windows Azure Active Directory Administrator Credentials) and use **myDomainSyncUser@mydomain.com** for the second prompt.
+Now start the Azure Directory Sync tool, and use **myAzureSyncUser@mydomain.com** credentials for the first prompt (Microsoft Azure Active Directory Administrator Credentials) and use **myDomainSyncUser@mydomain.com** for the second prompt.
