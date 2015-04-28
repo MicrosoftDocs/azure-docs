@@ -1,7 +1,7 @@
 <properties
    pageTitle="Dynamic Load Reporting"
    description="An overview of Dynamic Load Reporting to the Resource Balancer"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
