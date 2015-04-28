@@ -16,10 +16,12 @@
    ms.date="04/22/2015"
    ms.author="adamkr; sstein"/>
 
-# Create an Azure SQL Database elastic pool using Azure PowerShell
+# Create and monitor an Azure SQL Database elastic database pool using Azure PowerShell
 
 > [AZURE.SELECTOR]
-- [Create an elastic pool - portal](sql-database-elastic-pool-portal.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
+- [PowerShell](sql-database-elastic-pool-powershell.md)
+
 
 ## Overview
 
@@ -40,7 +42,7 @@ This article will show you how to create everything in the above list except for
 
 
 
-## Prepare your environment
+## Prerequisites
 
 To create an elastic pool with PowerShell, you need to have Azure PowerShell installed and running, and switch it into resource manager mode to access the Azure Resource Manager PowerShell Cmdlets. 
 
@@ -66,23 +68,23 @@ After successfully signing in you should see some information on screen that inc
 
 ## Select the Azure subscription to create the elastic pool in
 
-To select an Azure subscription you will need your subscription Id. You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-Subscription** cmdlet and copy the desired **SubscriptionId** from the resultset. Once you have your subscription Id run the following cmdlet:
+To select an Azure subscription you will need your subscription Id or subscription name (**-SubscriptionName**). You can copy it from the previous step, or if you have multiple subscriptions you can run the **Get-Subscription** cmdlet and copy the desired subscription information from the resultset. Once you have your subscription run the following cmdlet:
 
 	PS C:\>Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
 
 ## Select or create a resource group to create the elastic pool in
 
-Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic pool will be created.
+Now you have access to run cmdlets against your Azure subscription so the next step is establishing the resource group that contains the server where the elastic pool will be created. You can edit the next command to use whatever valid location you choose. Run **(Get-AzureLocation | where-object {$_.Name -eq "Microsoft.Sql/servers" }).Locations** to get a list of valid locations.
 
 If you already have a resource group you can go to the next step, or you can run the following command to create a new resource group:
 
 	PS C:\>New-AzureResourceGroup -Name "resourcegroup1" -Location "West US"
 
 
-## Select or create an Azure SQL Server to create the elastic pool in
+## Select or create an Azure SQL server to create the elastic pool in
 
-Elastic pools are created inside Azure SQL Servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created.
+Elastic pools are created inside Azure SQL Servers. If you already have a server you can go to the next step, or you can run the following command to create a new V12 server. Replace the ServerName with the name for your server. It must be unique to Azure SQL Servers so you may get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt will appear after the server is successfully created. You can edit the  command to use whatever valid location you choose.
 
 	PS C:\>New-AzureSqlServer -ResourceGroupName "resourcegroup1" -ServerName "server1" -Location "West US" -ServerVersion "12.0"
 
@@ -92,6 +94,8 @@ When you run this command a window opens asking for a **User name** and **Passwo
 ## Configure a server firewall rule to allow access to the server
 
 Establish a firewall rule to access the server. Run the following command replacing the start and end IP addresses with valid values for your computer.
+
+If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch that will add a special firewall rule and allow all azure traffic access to the server.
 
 	PS C:\>New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
 
@@ -106,17 +110,17 @@ Now you have a resource group, a server, and a firewall rule configured so you c
 	PS C:\>New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
 
 
-## Create or add databases into an elastic pool
+## Create or add elastic databases into a pool
 
 The elastic pool created in the previous step is empty, it has no databases in it. The following sections show how to create new databases inside of the elastic pool, and also how to add existing databases into the pool.
 
 
-### Create a new database inside an elastic pool
+### Create a new elastic database inside an elastic pool
 
 To create a new database directly inside an elastic pool, use the **New-AzureSqlDatabase** cmdlet and set the **ElasticPoolName** parameter.
 
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
+	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
 
 
@@ -127,12 +131,84 @@ To move an existing database into an elastic pool, use the **Set-AzurSqlDatabase
 
 For demonstration, create a database that's not in an elastic pool.
 
-	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard" -MaxSizeBytes 10GB
+	PS C:\>New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -Edition "Standard"
 
 Move the existing database into the elastic pool.
 
 	PS C:\>Set-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
 
+## Monitoring elastic databases and elastic pools
+
+## Get the status of elastic pool operations
+
+You can track the status of elastic pool operations including creation and updates. 
+
+	PS C:\> Get-AzureSqlElasticPoolActivity –ResourceGroupName “resourcegroup1” –ServerName “server1” –ElasticPoolName “elasticpool1” 
+
+
+## Get the status of moving an elastic database into and out of an elastic pool
+
+	PS C:\>Get-AzureSqlElasticPoolDatabaseActivity -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1"
+
+## Get resource consumption metrics for an elastic pool
+
+Metrics that can be retrieved as a percentage of the resource pool limit:   
+
+* Average CPU utilization  - cpu_percent 
+* Average IO utilization - data_io_percent 
+* Average Log utilization - log_write_percent 
+* Average Memory utilization - memory_percent 
+* Average DTU utilization (as a max value of CPU/IO/Log utilization) – DTU_percent 
+* Maximum number of concurrent user requests (workers) – max_concurrent_requests 
+* Maximum number of concurrent user sessions – max_concurrent_sessions 
+* Total storage size for the elastic pool – storage_in_megabytes 
+
+
+Metrics granularity/retention periods:
+
+* Data will be returned at 5 minute granularity.  
+* Data retention is 14 days.  
+
+
+This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
+
+
+Retrieve the metrics:
+
+	PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+Get additional days by repeating the call and appending the data:
+
+	PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+ 
+Format the table:
+
+    PS C:\> $table = Format-MetricsAsTable $metrics 
+
+Export to a CSV file:
+
+    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation} 
+
+## Get resource consumption metrics for an elastic database
+
+These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference 
+
+* For this API metrics retrieved are expressed as a percentage of the per databaseDtuMax (or equivalent cap for the underlying metric like CPU, IO etc) set for that elastic pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per DB cap limit for that resource in the parent elastic pool. 
+
+Get the metrics:
+    PS C:\> $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+
+Get additional days if needed by repeating the call and appending the data:
+
+    PS C:\> $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015") 
+
+Format the table:
+
+    PS C:\> $table = Format-MetricsAsTable $metrics 
+
+Export to a CSV file:
+
+    PS C:\> foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 
 ## Putting it all together
@@ -146,8 +222,17 @@ Move the existing database into the elastic pool.
     New-AzureSqlServerFirewallRule -ResourceGroupName "resourcegroup1" -ServerName "server1" -FirewallRuleName "rule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
     New-AzureSqlElasticPool -ResourceGroupName "resourcegroup1" -ServerName "server1" -ElasticPoolName "elasticpool1" -Edition "Standard" -Dtu 400 -DatabaseDtuMin 10 -DatabaseDtuMax 100
     New-AzureSqlDatabase -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -ElasticPoolName "elasticpool1" -MaxSizeBytes 10GB
+    
+    
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+    $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/elasticPools/franchisepool -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
+    $table = Format-MetricsAsTable $metrics
+    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
-
+    $metrics = (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/18/2015" -EndTime "4/21/2015") 
+    $metrics = $metrics + (Get-Metrics -ResourceId /subscriptions/d7c1d29a-ad13-4033-877e-8cc11d27ebfd/resourceGroups/FabrikamData01/providers/Microsoft.Sql/servers/fabrikamsqldb02/databases/myDB -TimeGrain ([TimeSpan]::FromMinutes(5)) -StartTime "4/21/2015" -EndTime "4/24/2015")
+    $table = Format-MetricsAsTable $metrics
+    foreach($e in $table) { Export-csv -Path c:\temp\metrics.csv -input $e -Append -NoTypeInformation}
 
 ## Next steps
 
@@ -155,3 +240,7 @@ After creating an elastic pool, you can manage the databases in the pool by crea
 
 For more information, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
+
+## Elastic database pool reference
+
+For more information about elastic databases and elastic database pools, including API and error details, see [Elastic database pool reference](sql-database-elastic-pool-reference.md).

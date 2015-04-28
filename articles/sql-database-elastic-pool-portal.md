@@ -20,7 +20,8 @@
 # Create an Azure SQL Database elastic pool (preview)
 
 > [AZURE.SELECTOR]
-- [Create an elastic pool - PowerShell](sql-database-elastic-pool-powershell.md)
+- [Azure portal](sql-database-elastic-pool-portal.md)
+- [PowerShell](sql-database-elastic-pool-powershell.md)
 
 This article shows you how to create an Azure SQL elastic pool using the [Microsoft Azure portal](https://portal.azure.com).
 
