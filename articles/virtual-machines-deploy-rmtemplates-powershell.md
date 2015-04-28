@@ -270,6 +270,7 @@ To create the virtual machine, replace the elements within the “< >” with yo
 You will be prompted to supply the values of parameters in the **"parameters"** section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the resource group and the virtual machine. This table lists values for the imagePublisher, imageOffer, and imageSKU parameters.
 
 imagePublisher | imageOffer | imageSKU
+--- | --- | ---
 OpenLogic | CentOS | 6.5
 OpenLogic | CentOS | 6.6
 OpenLogic | CentOS | 7
