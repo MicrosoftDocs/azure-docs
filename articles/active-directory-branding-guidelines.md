@@ -26,9 +26,9 @@ This topic discusses the branding guidelines you should use when developing appl
 
 Microsoft manages two kinds of user accounts:
 
-- Personal accounts (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
+- **Personal accounts** (formerly known as Windows Live ID). These accounts represent the relationship between *individual* users and Microsoft, and are used to access consumer devices and services from Microsoft. These accounts are intended for personal use.
 
-- Work or school accounts. These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
+- **Work or school accounts.** These accounts are managed by Microsoft on behalf of organizations that use Azure Active Directory. These accounts are used to sign in to Office 365 and other business services from Microsoft.
 
 Microsoft work or school accounts are typically assigned to end users (employees, students, federal employees) by their organizations (company, school, government agency). These accounts are either mastered directly in the cloud, in the Azure AD platform, or synced to Azure AD from an on-premises directory, such as Windows Server Active Directory. Microsoft is the *custodian* of the work or school accounts, but the accounts are owned and controlled by the organization.
 
@@ -63,10 +63,10 @@ However, we recommend that you write explanatory text instead of relying on butt
 > *If you already use Office 365 or other business service from Microsoft, you can simply grant <your_app_name> access to your organization’s data. This will allow your users to access <your_app_name> with their existing work accounts.*
 
 
-## Visual guidance for sign-in
+### Visual guidance for sign-in
 Your app should display a sign in button that redirects users to the sign-in endpoint that corresponds to the protocol you use to integrate with Azure AD. The following section provides details on what that button should look like.
 
-## Pictogram and “work or school account” 
+### Pictogram and “work or school account” 
 It’s the association of the Microsoft logo and the generic “work or school” terms that uniquely represents Azure AD amongst other identity providers your app may support. If you don’t have enough space for “work or school account,” it’s ok to shorten it to “work account.”
  
 ![Application Types and scenarios](./media/active-directory-branding-guidelines/work-or-school-account.png)
@@ -90,7 +90,7 @@ You can also provide additional explanation to help end-users recognize whether 
 
 **DO** provide a way for users to sign out and switch to another user account. While most people have a single personal account from Microsoft/Facebook/Google/Twitter, people are often associated with more than one organization. Support for multiple signed-in users is coming soon.
 
-##Supporting both Azure AD and Microsoft Accounts in Your App
+## Supporting both Azure AD and Microsoft Accounts in Your App
 
 If your app supports both Azure AD and Microsoft accounts, you need to include two separate sign-in buttons in your app. We are actively working on an update that will allow you to integrate once and support both personal and work accounts from Microsoft. When this is available, you’ll be able to show a single “sign-in with Microsoft” button in your app.
 
