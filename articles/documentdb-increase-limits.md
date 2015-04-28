@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="04/29/2015" 
 	ms.author="stbaro"/>
 
-# Request increased DocumentDB account limits #
+# Request increased DocumentDB account limits
 
 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) has a set of default limits and quota enforcements.  Several quotas can be adjusted by contacting Azure support.  This article shows how to request an account limit increase.
 
@@ -25,7 +25,7 @@ After reading this article, you'll be able to answer the following questions:
 -	Which DocumentDB account quotas can be adjusted by contacting Azure support?
 -	How can I request a DocumentDB account quota adjustment?
 
-##<a id="AdjustableQuotas"></a>Adjustable DocumentDB account quotas ##
+##<a id="AdjustableQuotas"></a> Adjustable DocumentDB account quotas
 
 The following table describes the DocumentDB quotas that can be adjusted by contacting Azure support:   
 
@@ -42,10 +42,10 @@ The following table describes the DocumentDB quotas that can be adjusted by cont
 |Maximum number of collection creates per minute    |5
 |Maximum number of scale operations per minute    |5
 
-##<a id="RequestQuotaIncrease"></a>Request a quota adjustment ##
+##<a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.
 
-1. In the [Azure Preview portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
+1. In the [Azure portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
 
 	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
@@ -86,5 +86,5 @@ Once the support ticket has been created, you should receive the support request
 ![Screenshot of support requests blade](media/documentdb-increase-limits/supportrequest8.png)
   
 
-##<a name="NextSteps"></a>Next steps
+##<a name="NextSteps"></a> Next steps
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).

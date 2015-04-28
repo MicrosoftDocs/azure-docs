@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/29/2015" 
 	ms.author="stbaro"/>
 
 # Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template #
@@ -128,11 +128,11 @@ Now let's deploy our first template.
 
 	![Sample Todo application](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Go ahead and create a couple of tasks and then let's open the [Azure Preview portal](https://portal.azure.com).
+7. Go ahead and create a couple of tasks and then let's open the [Microsoft Azure portal](https://portal.azure.com).
 
 8. Choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myDemoResourceGroup).
 
-	![Screenshot of the Azure Preview portal with the myDemoResourceGroup highlighted](./media/documentdb-create-documentdb-website/image3.png)
+	![Screenshot of the Azure portal with the myDemoResourceGroup highlighted](./media/documentdb-create-documentdb-website/image3.png)
 9.  Notice how the resource map in the Summary lens shows all of our related resources (DocumentDB account, App Service web app, Monitoring).
 
 	![Screenshot of the Summary lens](./media/documentdb-create-documentdb-website/image4.png)
@@ -182,7 +182,7 @@ Now let's deploy our second template.
 
 	- 	A series of default monitoring rules were created.
 
-6. Let's open the [Azure Preview portal](https://portal.azure.com), choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).
+6. Let's open the [Azure portal](https://portal.azure.com), choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).
 7. In the Summary lens, click the web app which was just deployed.
 
 	![Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted](./media/documentdb-create-documentdb-website/image6.png)
@@ -205,6 +205,6 @@ Congratulations! You've deployed DocumentDB, App Service web app and a sample we
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the old portal to the new portal see: [Reference for navigating the Azure portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
