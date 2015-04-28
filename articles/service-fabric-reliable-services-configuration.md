@@ -3,7 +3,7 @@
    description="Learn about configuring stateful Reliable Services in Service Fabric."
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="sumukhs"
    manager="vipulm"
    editor=""/>
 
@@ -16,7 +16,7 @@
    ms.date="04/24/2015"
    ms.author="sumukhs"/>
 
-# Configuring stateful Reliable Services
+# Configuring Stateful Reliable Services
 Stateful Reliable Service's default configuration can be modified by changing the "settings.xml" file generated in the Visual Studio package root under the "Config" folder for each service in the application.
 
 The Service Fabric runtime looks for pre-defined section names in the "settings.xml" file and consumes the configuration values while creating the underlying runtime components.
