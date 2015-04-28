@@ -18,19 +18,7 @@
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
 
-This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and the Azure CLI as well as links to more documentation on automation for Virtual Machines. These tasks include:
-
-- Deploy a VM in Azure - DONE
-- Create a custom VM image - DONE 
-- Deploy a multi-VM application that uses a virtual network and an external load balancer - DONE
-- Updating an already deployed VM
-- Adding an additional VM to an already deployed resource group
-- Remove a resource group - DONE
-- Start a virtual machine - DONE
-- Stop a virtual machine - DONE
-- Restart a virtual machine - DONE
-- Remove a virtual machine - DONE
-
+This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and the Azure CLI as well as links to more documentation on automation for Virtual Machines. 
 
 ## Getting Ready
 
