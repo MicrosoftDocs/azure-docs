@@ -44,4 +44,4 @@ If the value is not specified in this section, 0 as default value will be used.
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps
 
-For more information: [Resource Balancer Architecture](../service-fabric-resource-balancer-architecture)
+For more information: [Resource Balancer Architecture](service-fabric-resource-balancer-architecture.md)
