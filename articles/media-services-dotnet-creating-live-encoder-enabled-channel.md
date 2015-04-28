@@ -152,22 +152,27 @@ Add the appSettings section to the app.config file, and set the values for your 
 	            // The channel's input endpoint:
 	            string ingestUrl = channel.Input.Endpoints.FirstOrDefault().Url.ToString();
 	
+	            Console.WriteLine("Intest URL: {0}", ingestUrl);
+	
+	
 	            // Use the previewEndpoint to preview and verify 
 	            // that the input from the encoder is actually reaching the Channel. 
 	            string previewEndpoint = channel.Preview.Endpoints.FirstOrDefault().Url.ToString();
+	
+	            Console.WriteLine("Preview URL: {0}", previewEndpoint);
 	
 	            // Get a thumbnail preview of a live feed.
 	            // When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. 
 	            // This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
 	
-	            var thumbnailUri = new UriBuilder
+	            string thumbnailUri = new UriBuilder
 	            {
 	                Scheme = Uri.UriSchemeHttps,
 	                Host = channel.Preview.Endpoints.FirstOrDefault().Url.Host,
 	                Path = "thumbnails/input.jpg"
-	            }.Uri;
+	            }.Uri.ToString();
 	
-	
+	            Console.WriteLine("Thumbain URL: {0}", thumbnailUri);
 	
 	            // Once you previewed your stream and verified that it is flowing into your Channel, 
 	            // you can create an event by creating an Asset, Program, and Streaming Locator. 
@@ -333,7 +338,7 @@ Add the appSettings section to the app.config file, and set the values for your 
 	        }
 	
 	        /// <summary>
-	        /// 
+	        /// Perform operations on slates.
 	        /// </summary>
 	        /// <param name="channel"></param>
 	        public static void StartStopAdsSlates(IChannel channel)
@@ -343,8 +348,8 @@ Add the appSettings section to the app.config file, and set the values for your 
 	            Log("Slate asset created", slateAsset.Id);
 	
 	            Log("Uploading file");
-	            var assetFile = slateAsset.AssetFiles.Create("slate.jpg");
-	            assetFile.Upload("slate.jpg");
+	            var assetFile = slateAsset.AssetFiles.Create("SlateTest.jpg");
+	            assetFile.Upload("SlateTest.jpg");
 	            assetFile.IsPrimary = true;
 	            assetFile.Update();
 	
@@ -482,6 +487,8 @@ Add the appSettings section to the app.config file, and set the values for your 
 	        }
 	    }
 	}
+	
+
 	
 ##Related topics
 
