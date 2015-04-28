@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL Server on Azure Virtual Machines" 
-	description="This article provides an overview of SQL Server hosted in Azure Infrastructure 	Services (IaaS). This includes links to depth content." 
+	description="This article provides an overview of SQL Server hosted on Azure IaaS Virtual Machines. This includes links to depth content." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="rothja" 

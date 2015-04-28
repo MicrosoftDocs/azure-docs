@@ -14,17 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using Python on Windows
 
 
-<!--
-2015-04-18
-Original content written by Meet Bhagdev, then edited by GeneMi.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 This topic presents a code sample written in Python. The sample runs on a Windows computer. The sample and connects to Azure SQL Database by using the **pyodbc** driver.
@@ -54,17 +51,18 @@ See the [Get Started topic](sql-database-get-started.md) to learn how to create 
 ## Connect to your SQL Database
 
 
+The [pyodbc.connect function](https://code.google.com/p/pyodbc/wiki/Module#connect) is used to connect to SQL Database.  
+
+
 	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourservername.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
 	cursor = cnxn.cursor())
 
 
-<!--
-TODO: Again, Does Python allow you to somehow split a very long line of code into multiple lines, for better display?
--->
-
-
 ## Execute an SQL SELECT
+
+
+All SQL statements are executed using the [cursor.execute](https://code.google.com/p/pyodbc/wiki/Cursor#execute) function. If the statement returns rows, such as a select statement, you can retreive them using the Cursor fetch functions ([fetchone](https://code.google.com/p/pyodbc/wiki/Cursor#fetchone), [fetchall](https://code.google.com/p/pyodbc/wiki/Cursor#fetchall), [fetchmany](https://code.google.com/p/pyodbc/wiki/Cursor#fetchmany)). If there are no rows, fetchone will return None; fetchall and fetchmany will both return empty lists.
 
 
 	import pyodbc
@@ -80,6 +78,10 @@ TODO: Again, Does Python allow you to somehow split a very long line of code int
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. In this example you will see how to execute an [insert-statement](https://msdn.microsoft.com/library/ms174335.aspx), safely pass parameters which protects from [SQL injection](https://msdn.microsoft.com/magazine/cc163917.aspx), and retrieve the auto-generated primary key value.  
+
+
+
 	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
 	cursor = cnxn.cursor()
@@ -93,42 +95,13 @@ TODO: Again, Does Python allow you to somehow split a very long line of code int
 ## Transactions
 
 
+The [cnxn.rollback](https://code.google.com/p/pyodbc/wiki/Connection#rollback) and [cnxn.commit()](https://code.google.com/p/pyodbc/wiki/Connection#commit) functions are used to handle transactions.
+
+
 	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
 	cursor = cnxn.cursor()
 	cursor.execute("BEGIN TRANSACTION")
 	cursor.execute("DELETE FROM test WHERE value = 1;")
 	cnxn.rollback()
-
-
-<!--
-TODO: Hmm, could we just as easily issue another cursor.execute('ROLLBACK TRNASACTION;')?
-If so, perhaps we should at least include a sentence explaining that the option is viable?
--->
-
-
-## Stored procedures
-
-
-We are using the **pyodbc** driver to connect to SQL Database. As of April 2015 this driver has the limitation of not supporting output parameters from a stored procedure. Therefore we execute a stored procedure that returns information in the form of a results set of rows. In the Transact-SQL source code for the stored procedure, near the end there is an SQL SELECT statement to generate and emit the results set.
-
-
-
-<!--
-TODO: I commented out these next sentences because they seem false. For example, I would expect that the Python program could issue a Transact-SQL string for a CREATE PROCEDURE statement, just as the Python program can issue an INSERT statement. Right?
-.
-Additionally you will have to use a database management tool such as SSMS to create your stored procedure. There is no way to create a stored procedure using pyodbc.
--->
-
-
-<!--
-TODO: Does AdventureWorks db have any stored procedure that returns a results set?
-Or can we use a regular system stored procedure that is a native part of SQL Database, maybe like sys.sp_helptext !
--->
-
-
-	import pyodbc
-	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=tcp:yourserver.database.windows.net;DATABASE=AdventureWorks;UID=yourusername;PWD=yourpassword')
-	cursor = cnxn.cursor()
-	cursor.execute("execute sys.sp_helptext 'SalesLT.vGetAllCategories';")
 

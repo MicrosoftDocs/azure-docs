@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="02/10/2015" 
+	ms.date="04/27/2015" 
 	ms.author="heidist"/>
 
 # How to use scoring profiles in Azure Search
@@ -29,7 +29,7 @@ The sample application demonstrates scoring behaviors using fictional data, call
 
 The sample application is written in C# using Visual Studio 2013. Try the free [Visual Studio 2013 Express edition](http://www.visualstudio.com/products/visual-studio-express-vs.aspx) if you don't already have a copy of Visual Studio.
 
-You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Get started with Azure Search](search-get-started.md) for help with setting up the service.
+You will need an Azure subscription and an Azure Search service to complete the tutorial. See [Create a Search service in the portal](search-create-service-portal.md) for help with setting up the service.
 
 [AZURE.INCLUDE [You need an Azure account to complete this tutorial:](../includes/free-trial-note.md)]
 
@@ -47,7 +47,7 @@ On the Source Code tab, click **Download** to get a zip file of the solution.
 
 1. After you extract the files, open the solution in Visual Studio to edit the configuration file.
 1. In Solution Explorer, double-click **app.config**. This file specifies the service endpoint and an `api-key` used to authenticate the request. You can obtain these values from the management portal.
-1. Sign in to the [Azure Preview Portal](https://portal.azure.com).
+1. Sign in to the [Azure Portal](https://portal.azure.com).
 1. Go to the service dashboard for Azure Search.
 1. Click the **Properties** tile to copy the service URL
 1. Click the **Keys** tile to copy the `api-key`.
@@ -80,7 +80,8 @@ You're almost ready to build and run the app, but before you do, take a look at 
 
 - Queries the index using four queries. Notice that the scoring profiles are specified as a query parameter. All of the queries search for the same term, 'best'. The first query demonstrates default scoring. The remaining three queries use a scoring profile.
 
-<h2 id="sub-5">Build and run the application</h2>
+<a id="sub-5"></a>
+## Build and run the application
 
 To rule out connectivity or assembly reference problems, build and run the application to ensure there are no issues to work out first. You should see a console application open in the background. All four queries execute in sequence without pausing. On many systems, the entire program executes in under 15 seconds. If the console application includes a message stating “Complete. Press enter to continue”, the program completed successfully. 
 
@@ -102,7 +103,8 @@ The next illustration shows the fourth and final query, boosted by 'margin'. The
 
 Now that you have experimented with scoring profiles, try changing the program to use different query syntax, scoring profiles, or richer data. Links in the next section provide more information.
 
-<h2 id="next-steps">Next steps</h2>
+<a id="next-steps"></a>
+## Next steps
 
 Learn more about scoring profiles. See [Add a scoring profile to an Azure Search index](http://msdn.microsoft.com/library/azure/dn798928.aspx) for details.
 
