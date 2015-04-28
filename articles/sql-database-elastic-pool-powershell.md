@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="04/22/2015"
+   ms.date="04/28/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and monitor an Azure SQL Database elastic database pool using Azure PowerShell
