@@ -3,7 +3,7 @@
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="wpickett" 
+	authors="wadepickett" 
 	manager="wpickett" 
 	editor=""/>
 
