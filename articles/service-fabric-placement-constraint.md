@@ -3,7 +3,7 @@
    description="A conceptual overview of placement constraints in Service Fabric"
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="abhic","masnider"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 

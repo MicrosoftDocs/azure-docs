@@ -14,16 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="mebha"/>
 
 
 # Connect to SQL Database by using Python on Ubuntu Linux
 
 
-<!--
-Original author of content is Meet Bhagdev. GeneMi edited and first published.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
@@ -89,11 +87,6 @@ In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 	while row:
 	    print "Inserted Product ID : " +str(row[0])
 	    row = cursor.fetchone()
-
-
-<!--
-TODO: The code sample must leave the schema and data in the same state as they were before the sample started. The above INSERT has no matching SQL DELETE.
--->
 
 
 ## Transactions

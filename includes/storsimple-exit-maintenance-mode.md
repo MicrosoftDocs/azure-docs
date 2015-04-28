@@ -12,12 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/21/2015"
-   ms.author="v-sharos" />### To exit Maintenance mode
+   ms.date="04/27/2015"
+   ms.author="v-sharos" />
+
+### To exit Maintenance mode
 
 1. At the command prompt type:
 
-    'Exit-HcsMaintenanceMode' 
+    **Exit-HcsMaintenanceMode** 
 
 2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
 

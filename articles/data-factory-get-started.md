@@ -116,7 +116,7 @@ In this step, you use the Azure Preview Portal to create an Azure data factory n
 
 			![Create Resource Group][image-data-factory-create-resource-group]
 
-		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).  
+		Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).  
 7. In the **New data factory** blade, notice that **Add to Startboard** is selected.
 8. Click **Create** in the **New data factory** blade.
 
