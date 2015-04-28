@@ -100,7 +100,7 @@ This capability is not supported at the moment. However, you can copy the VHD fi
 
 **What is the impact on the quota that I currently have for my subscription?**
 
-The Quotas for the Virtual Machines, Virtual Networks created through the using the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each Subscription gets new quotas to create the resources in this updated API. You can read more about the additional quotas that a subscription has [here](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/).
+The Quotas for the Virtual Machines, Virtual Networks created through the using the new Azure Resource Manager APIs  are separate from the quotas that you currently have. Each Subscription gets new quotas to create the resources in this updated API. You can read more about the additional quotas that a subscription has [here](azure-subscription-service-limits.md).
 
 **Can I continue to use my automated scripts for provisioning of Virtual Machines, Virtual Networks etc., using the new Azure Resource Manager APIs?**
 
