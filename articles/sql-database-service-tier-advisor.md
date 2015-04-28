@@ -104,10 +104,10 @@ Depending on the details of your specific database, performing an upgrade or dow
 
 
 <!--Image references-->
-[1]: ./media/sql-database-service-tier-advisor/select-database.png
-[2]: ./media/sql-database-service-tier-advisor/pricing-tier.png
-[3]: ./media/sql-database-service-tier-advisor/preview-sign-up.png
-[4]: ./media/sql-database-service-tier-advisor/choose-pricing-tier.png
-[5]: ./media/sql-database-service-tier-advisor/usage-details.png
+[1]: ./media/sql-database-pricing-tier-recommendations/select-database.png
+[2]: ./media/sql-database-pricing-tier-recommendations/pricing-tier.png
+[3]: ./media/sql-database-pricing-tier-recommendations/preview-sign-up.png
+[4]: ./media/sql-database-pricing-tier-recommendations/choose-pricing-tier.png
+[5]: ./media/sql-database-pricing-tier-recommendations/usage-details.png
 
 
