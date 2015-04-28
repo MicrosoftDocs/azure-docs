@@ -13,35 +13,35 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="04/28/2015"
 	ms.author="rasquill;dkshir"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
 > [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Windows PowerShell](powershell-azure-resource-manager.md)
 
 
 This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
 
->[AZURE.NOTE] To create and manage Azure resources on the command-line, you're going to need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)), you're going to need to [install the Azure CLI](xplat-cli-install.md), and you're going to need to [log on to use Azure resources associated with your account](xplat-connect.md). If you've done these things, you're ready to go.
+>[AZURE.NOTE] To create and manage Azure resources on the command-line, you will need an Azure account ([free trial here](http://azure.microsoft.com/pricing/free-trial/)). You will also need to [install the Azure CLI](xplat-cli-install.md), and to [log on to use Azure resources associated with your account](xplat-cli-connect.md). If you've done these things, you're ready to go.
 
 ## Azure Resources
 
-The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a database server, database, or website,) as a single logical unit, or _resource group_. For example, a resource group might contain a Website and SQL Database as resources. You can create, manage, and delete these resources imperatively on the command line, just like you can in the **asm** mode.
+The Resource Manager allows you to manage a group of _resources_ (user-managed entities such as a virtual machine, database server, database, or website) as a single logical unit, or _resource group_. You can create, manage, and delete these resources imperatively on the command line, just like you can in the **asm** mode.
 
-Using the **arm** mode, you can manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template language also describes parameters that can be filled in either inline when running a command or stored in a separate JSON **azuredeploy-parameters.json** file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the region the Website will be located in, and other common parameters.
+Using the **arm** mode, you can also manage your Azure resources in a _declarative_ way by describing the structure and relationships of a deployable group of resources in JSON *templates*. The template describes parameters that can be filled in either inline when running a command or stored in a separate JSON **azuredeploy-parameters.json** file. This allows you to easily create new resources using the same template by simply providing different parameters. For example, a template that creates a Website will have parameters for the site name, the region the Website will be located in, and other common parameters.
 
 When a template is used to modify or create a group, a _deployment_ is created, which is then applied to the group. For more information on the Resource Manager, visit the [Azure Resource Manager Overview](resource-group-overview.md).
 
 ## Authentication
 
-Working with the Resource Manager through the xplat-cli requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
+Working with the Resource Manager through the Azure CLI requires that you authenticate to Microsoft Azure using a work or school account. Authenticating with a certificate installed through a .publishsettings file will not work.
 
-For more information on authenticating using a work or school account, see [Install Azure CLI for Mac, Linux, and Windows](xplat-cli-install.md).
+For more information on authenticating using a work or school account, see [Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows](xplat-cli-connect.md).
 
-> [AZURE.NOTE] Because you use a work or school account -- which are managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
+> [AZURE.NOTE] Because you use a work or school account -- which is managed by Azure Active Directory -- you can also use Azure Role-Based Access Control (RBAC) to manage access and usage of Azure resources. For details, see [Managing and Auditing Access to Resources](resource-group-rbac.md).
 
 ## Setting the **arm** mode
 
@@ -53,7 +53,7 @@ Because the Resource Manager mode is not enabled by default, you must use the fo
 
 ## Finding the locations
 
-Most of the **arm** commands need a valid location to create or find a resource from. You can find all available locations for by using the command
+Most of the **arm** commands need a valid location to create or find a resource from. You can find all available locations by using the command
 
 	azure location list
 
@@ -61,7 +61,7 @@ It will list locations specific to regions such as "West US", "East US", and so 
 
 ## Creating Resource Group
 
-A Resource Group is a logical grouping of network, storage and other resources. Almost all commands in **arm** mode need a resource group. You can create a resource group named _testrg_ by using the command
+A Resource Group is a logical grouping of network, storage and other resources. Almost all commands in **arm** mode need a resource group. You can create a resource group named _testrg_, for example, by using the command
 
 	azure group create -n "testrg" -l "West US"
 
@@ -74,7 +74,7 @@ There are two ways to create virtual machines in the **arm** mode:
 1. Using individual Azure CLI commands
 2. Using Resource Group Templates
 
-Make sure to create at least one resource group before you start with any of these methods.
+Be sure to create at least one resource group before you start with any of these methods.
 
 ### Using individual Azure CLI commands
 
@@ -89,23 +89,24 @@ This is the basic approach to configure and create a virtual machine as per your
 >
 > `azure provider list`
 
+
 #### Creating a public IP resource
 
-You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource and a location, in that order:
+You will need to create a public IP so you can SSH into your new virtual machine for any meaningful work. Creating a public IP is straightforward. The command needs a resource group, a name for your public IP resource and a location, in that order. For example,
 
 	azure network public-ip create "testrg" "testip" "westus"
 
 #### Creating a Network Interface Card resource
 
-This needs a subnet and a virtual network to be created first. Create a virtual network in a particular location and resource group by using:
+The Network Interface Card or NIC needs a subnet and a virtual network to be created first. Create a virtual network in a particular location and resource group by using the **network vnet create**.
 
 	azure network vnet create "testrg" "testvnet" "westus"
 
-Create a subnet in this virtual network by:
+You can then create a subnet in this virtual network by using **network subnet create** as this example:
 
 	azure network subnet create "testrg" "testvnet" "testsubnet"
 
-You should be able to create an NIC using these resources.
+You should be able to create an NIC using these resources with **network nic create**.
 
 	azure network nic create "testrg" "testnic" "westus" -k "testsubnet" -m "testvnet" -p "testip"
 
@@ -115,7 +116,7 @@ For more imformation on the **network** commands, see command line help or [Usin
 
 #### Finding the Operating System image
 
-Currently, you can only find an operating system based on the publisher of the image. In other words, you must run this command to find a list OS image publishers in your desired location,
+Currently, you can only find an operating system based on the publisher of the image. In other words, you must run this command to find a list of OS image publishers in your desired location,
 
 	azure vm image list-publishers "westus"
 
@@ -138,7 +139,7 @@ Note down the URN of the image you want to load on your virtual machine.
 
 #### Creating a virtual machine
 
-You are now ready to create a virtual machine by running **vm create** command and passing the required information. It's optional to pass the public IP at this stage, since the NIC already has this information.
+You are now ready to create a virtual machine by running **vm create** command and passing the required information. It's optional to pass the public IP at this stage, since the NIC already has this information. Your command may look something like this, where _testvm_ is the name of the virtual machine created in the _testrg_ resource group.
 
 	azure-cli@0.8.0:/# azure vm create "testrg" "testvm" "westus" "Linux" -Q "CoreOS:CoreOS:Alpha:660.0.0" -u "azureuser" -p "Pass1234!" -N "testnic"
 	info:    Executing command vm create
@@ -161,6 +162,8 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 
 	azure network public-ip show "testrg" "testip"
 
+Managing this virtual machine is easy with commands like `azure vm restart "testrg" "testvm"`, or `azure vm stop "testrg" "testvm"`, and so on. For more information on **vm** commands, visit [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+
 ### **vm quick-create** shortcut
 
 The new **vm quick-create** shortcut cuts out most of the steps of the imperative method of VM creation. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking configurations. It's an interactive command, and you need to find out only the OS image URN before running it.
@@ -182,7 +185,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 #### Locating and Configuring a Resource Group Template
 
-1. When working with templates, you can either create your own, or use one from the Template Gallery. In this case, let's use one from the Template Gallery. To list available templates from the gallery, use the following command. (Because there are thousands of templates available, be sure to paginate the results or use **grep** or **findstr** [on Windows] or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching. The example below uses the template called **CoreOS.CoreOSStable.0.2.40-preview**.)
+1. When working with templates, you can either create your own, or use one from the Template Gallery, or use templates available on [github](https://github.com/azurermtemplates/azurermtemplates). To start with, let's use a template named **CoreOS.CoreOSStable.0.2.40-preview** from the Template Gallery. To list available templates from the gallery, use the following command. As there are thousands of templates available, you can paginate the results or use **grep** or **findstr**(on Windows) or your favorite string-searching command to locate interesting templates. Alternatively, you can use the **--json** option and download the entire list in JSON format for easier searching.
 
 		azure group template list
 
@@ -201,7 +204,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	This will return descriptive information about the template. The template we are using will create a Linux virtual machine.
 
-3. Once you have selected a template (**azure group template show CoreOS.CoreOSStable.0.2.40-preview**), you can download it with the following command.
+3. Once you have selected a template, you can download it with the following command.
 
 		azure group template download CoreOS.CoreOSStable.0.2.40-preview
 
@@ -213,7 +216,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	When using a template, you can supply parameters either as part of the command-line parameters, or by specifying a file containing the parameter values. You can also write your **value** fields directly inside the **parameters** section in the template, although that would make the template tightly bound to a particular deployment and wouldn't be reusable easily. Either way, the parameters must be in JSON format, and you must provide your own values for those keys that do not have default values.
 
-	For example, to create a file that contains parameters for the **CoreOS.CoreOSStable.0.2.40-preview** template, use the following data to create a file named **params.json**. Replace the values below beginning with **_test_** with your own values. The **Location** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**)
+	For example, to create a file that contains parameters for the **CoreOS.CoreOSStable.0.2.40-preview** template, use the following data to create a file named **params.json**. Replace the values used in this sample with your own values. The **Location** should specify an Azure region near you, such as **North Europe** or **South Central US**. (This example uses **West US**)
 
 		{
 		  "newStorageAccountName": {
@@ -249,12 +252,11 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 		azure group create "testRG" "West US" -f CoreOS.CoreOSStable.0.2.40-preview.json -d "testDeploy" -e params.json
 
-	>[AZURE.NOTE] This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
-	>
-	> `azure group deployment show MyGroupName MyDeployment`
-	>
-	> The **ProvisioningState** shows the status of the deployment.
-	>
+	This command will return OK once the deployment has been uploaded, but before the deployment have been applied to resources in the group. To check the status of the deployment, use the following command.
+
+		azure group deployment show MyGroupName MyDeployment
+
+	The **ProvisioningState** shows the status of the deployment.
 
 	If your deployment was successful, you will see an output similar to below:
 
@@ -291,9 +293,11 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
 
-7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, _101-simple-vm-from-image_. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template json file. Open it in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
+7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](http://www.github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, _101-simple-vm-from-image_. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template you want to use in your command by using a **--template-url** option. Open it in _raw_ mode, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
 
 		azure vm group deployment create "testDeploy" -g "testResourceGroup" --template-url https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
+
+	> [AZURE.NOTE] It is important to open the json template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode, click on the button named _Raw_ on the upper right corner when viewing the file in github.
 
 #### Working with resources
 
@@ -334,7 +338,8 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
+* For information on working with Resource Manager using Azure PowerShell, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
+* For imformation on working with Resource Manager from the Azure Portal, see [Using resource groups to manage your Azure resources][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
