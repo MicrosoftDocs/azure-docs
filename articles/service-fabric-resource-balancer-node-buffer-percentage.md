@@ -1,7 +1,7 @@
 <properties
    pageTitle="Node Buffer Percentage"
    description="An overview of the role of Node Buffer Percentage in the Resource Balancer"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
