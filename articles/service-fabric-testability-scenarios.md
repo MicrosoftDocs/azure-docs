@@ -44,6 +44,7 @@ Chaos test runs multiple iterations of faults and cluster validations for the sp
 
 ### How to run Chaos Test
 C# Sample
+
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
@@ -121,6 +122,7 @@ class Test
 ```
 
 Powershell
+
 ```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
@@ -156,6 +158,7 @@ Failover test works induces a chosen fault  and then runs validation on the serv
 
 ### How to run Failover test
 C# Sample
+
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
 
@@ -232,6 +235,7 @@ class Test
 ```
 
 Powershell
+
 ```powershell
 $connection = "localhost:19000"
 $timeToRun = 60
