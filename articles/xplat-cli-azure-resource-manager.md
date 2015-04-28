@@ -19,8 +19,8 @@
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
 > [AZURE.SELECTOR]
-- [Azure CLI](../articles/xplat-cli-azure-resource-manager)
-- [Windows PowerShell](../articles/powershell-azure-resource-manager)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Windows PowerShell](powershell-azure-resource-manager.md)
 
 
 This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
@@ -61,9 +61,9 @@ It will list locations specific to regions such as "West US", "East US", and so 
 
 ## Creating Resource Group
 
-A Resource Group is a logical grouping of network, storage and other resources. Almost all commands in **arm** mode need a resource group. You can create a resource group by using the command
+A Resource Group is a logical grouping of network, storage and other resources. Almost all commands in **arm** mode need a resource group. You can create a resource group named _testrg_ by using the command
 
-	azure group create -n "MyRG" -l "West US"
+	azure group create -n "testrg" -l "West US"
 
 You can start adding resources to this group after this, and use it to configure a new virtual machine.
 
@@ -74,7 +74,7 @@ There are two ways to create virtual machines in the **arm** mode:
 1. Using individual Azure CLI commands
 2. Using Resource Group Templates
 
-Make sure at least one resource group is created before you start with any of these methods.
+Make sure to create at least one resource group before you start with any of these methods.
 
 ### Using individual Azure CLI commands
 
@@ -83,11 +83,11 @@ This is the basic approach to configure and create a virtual machine as per your
 >[AZURE.NOTE] If you are creating resources for the first time on the command line for your subscription, you might be prompted to register for certain Resource Providers.
 > If that happens, it is easy to register the said provider and try the failed command again. For example,
 >
->	azure provider register Microsoft.Storage
+> `azure provider register Microsoft.Storage`
 >
 > You can find out the list of providers registerd for your subscription by running,
 >
->	azure provider list
+> `azure provider list`
 
 #### Creating a public IP resource
 
@@ -115,11 +115,11 @@ For more imformation on the **network** commands, see command line help or [Usin
 
 #### Finding the Operating System image
 
-Currently, you can only find an operating system based on the publisher of the image. In other words, you must run this command to find a list OS image publishers,
+Currently, you can only find an operating system based on the publisher of the image. In other words, you must run this command to find a list OS image publishers in your desired location,
 
 	azure vm image list-publishers "westus"
 
-Then choose a publisher from the list, and find the list of images by that publisher by running for example,
+Then choose a publisher from the list, and find the list of images by that publisher by running, for example,
 
 	azure vm image list "westus" "CoreOS"
 
@@ -161,20 +161,21 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 
 	azure network public-ip show "testrg" "testip"
 
->[AZURE.NOTE] The new **vm quick-create** shortcut cuts out most of the steps of the imperative method of VM creation. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking configurations. It's an interactive command, and you need to find out only the OS image URN before running it.
->
->	azure-cli@0.8.0:/# azure vm quick-create
->	info:  Executing command vm quick-create
->	Resource group name: CLIRG
->	Virtual machine name: myqvm
->	Location name: westus
-> 	Operating system Type [Windows, Linux]: Linux
->	ImageURN (format: "publisherName:offer:skus:version"): CoreOS:CoreOS:Alpha:660.0.0
->	User name: azureuser
->	Password: ********
->	Confirm password: ********
->
-> The Azure CLI will create a virtual machine with default VM size. It will also create a storage account, an NIC, a virtual network and subnet, and a public IP. You can SSH into the virtual machine using the public IP after it boots.
+### **vm quick-create** shortcut
+The new **vm quick-create** shortcut cuts out most of the steps of the imperative method of VM creation. This is handy when you want to try out creating simple virtual machines or if you do not care about the networking configurations. It's an interactive command, and you need to find out only the OS image URN before running it.
+
+	azure-cli@0.8.0:/# azure vm quick-create
+	info:  Executing command vm quick-create
+	Resource group name: CLIRG
+	Virtual machine name: myqvm
+	Location name: westus
+	Operating system Type [Windows, Linux]: Linux
+	ImageURN (format: "publisherName:offer:skus:version"): CoreOS:CoreOS:Alpha:660.0.0
+	User name: azureuser
+	Password: ********
+	Confirm password: ********
+
+The Azure CLI will create a virtual machine with default VM size. It will also create a storage account, an NIC, a virtual network and subnet, and a public IP. You can SSH into the virtual machine using the public IP after it boots.
 
 ### Using Resource Group Templates
 
@@ -253,32 +254,33 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 	>
 	> The **ProvisioningState** shows the status of the deployment.
 	>
-	> If your deployment was successful, you will see an output similar to below:
+
+	If your deployment was successful, you will see an output similar to below:
+
+		azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
+		info:    Executing command group deployment show
+		+ Getting deployments
+		data:    DeploymentName     : testDeploy
+		data:    ResourceGroupName  : testRG
+		data:    ProvisioningState  : Running
+		data:    Timestamp          : 2015-04-27T07:49:18.5237635Z
+		data:    Mode               : Incremental
+		data:    Name                   Type          Value
+		data:    ---------------------  ------------  ----------------
+		data:    newStorageAccountName  String        testStorage
+		data:    newDomainName          String        testDomain
+		data:    newVirtualNetworkName  String        testVNet
+		data:    vnetAddressSpace       String        10.0.0.0/11
+		data:    hostName               String        testHost
+		data:    userName               String        azureUser
+		data:    password               SecureString  undefined
+		data:    location               String        West US
+		data:    hardwareSize           String        2GB
+		info:    group deployment show command OK
+
+	>[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
 	>
-	> azure-cli@0.8.0:/# azure group deployment show testRG testDeploy
-	> info:    Executing command group deployment show
-	> + Getting deployments
-	> data:    DeploymentName     : testDeploy
-	> data:    ResourceGroupName  : testRG
-	> data:    ProvisioningState  : Running
-	> data:    Timestamp          : 2015-04-27T07:49:18.5237635Z
-	> data:    Mode               : Incremental
-	> data:    Name                   Type          Value
-	> data:    ---------------------  ------------  ----------------
-	> data:    newStorageAccountName  String        testStorage
-	> data:    newDomainName          String        testDomain
-	> data:    newVirtualNetworkName  String        testVNet
-	> data:    vnetAddressSpace       String        10.0.0.0/11
-	> data:    hostName               String        testHost
-	> data:    userName               String        azureUser
-	> data:    password               SecureString  undefined
-	> data:    location               String        West US
-	> data:    hardwareSize           String        2GB
-	> info:    group deployment show command OK
-	>
-	> If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
-	>
-	> `azure group deployment stop "testRG" "testDeploy"
+	> `azure group deployment stop "testRG" "testDeploy"`
 	>
 	> If you do not provide a deployment name, one will be created automatically based on the name of the template file. It will be returned as part of the output of the `azure group create` command.
 
@@ -287,6 +289,10 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 		azure group show "testRG"
 
 	This command returns information about the resources in the group. If you have multiple groups, you can use the `azure group list` command to retrieve a list of group names, and then use `azure group show` to view details of a specific group.
+
+7. You can also use latest templates directly from the github, instead of downloading from the template library. Open [Github.com](github.com) and search for AzureRmTemplates. Select the AzureRmTemplates repository and look for any templates that you find interesting, for example, 101-simple-vm-from-image. If you click on the template, you will see it contains **azuredeploy.json** among other files. This is the template json file. Open it in _raw_, and copy the URL that appears in the browser's address bar. You can then use this URL directly to create a deployment, instead of downloading from a template library, by using a command similar to
+
+		azure vm group deployment create "testDeploy" -g "testResourceGroup" --template-url https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
 #### Working with resources
 
