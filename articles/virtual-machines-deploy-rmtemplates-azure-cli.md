@@ -83,9 +83,134 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 
 You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md). 
 
-## Common Task: Deploy a VM in Azure
+## Common Task: Quick-create a VM in Azure
 
-Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet.
+Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
+
+First, create your resource group. 
+
+    azure group create coreos-quick westus
+    info:    Executing command group create
+    + Getting resource group coreos-quick                                          
+    + Creating resource group coreos-quick                                         
+    info:    Created resource group coreos-quick
+    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick
+    data:    Name:                coreos-quick
+    data:    Location:            westus
+    data:    Provisioning State:  Succeeded
+    data:    Tags: 
+    data:    
+    info:    group create command OK
+    
+
+Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md). But for this quickstart, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
+
+| Publisher                        | ImageOffer                                 | ImageSku                         | ComputeImageVersion |
+|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
+| OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
+| OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
+| CoreOS                           | CoreOS                                     | Beta                             | 647.0.0             |
+| CoreOS                           | CoreOS                                     | Stable                           | 633.1.0             |
+| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             | 8.0.40459           |
+| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             | 1.0.0               |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         | 1.0.0               |
+| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
+| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
+| Canonical                        | UbuntuServer                               | 14.04.1-LTS                      | 14.04.201501230     |
+| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
+| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
+| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
+| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
+
+Just create your VM by entering the `azure vm quick-create command` and being ready for the prompts. It should look something like this.
+
+    azure vm quick-create 
+    info:    Executing command vm quick-create
+    Resource group name: coreos-quick
+    Virtual machine name: coreos
+    Location name: westus
+    Operating system Type [Windows, Linux]: linux
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    User name: ops
+    Password: *********
+    Confirm password: *********
+    + Looking up the VM "coreos"                                                   
+    info:    Using the VM Size "Standard_A1"
+    info:    The [OS, Data] Disk or image configuration requires storage account
+    + Retrieving storage accounts                                                  
+    info:    Could not find any storage accounts in the region "westus", trying to create new one
+    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"              
+    + Looking up the storage account cli9fd3fce49e9a9b3d14302                      
+    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
+    info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    info:    Preparing to create new virtual network and subnet
+    / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    + Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
+    info:    Found public ip parameters, trying to setup PublicIP profile
+    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
+    + Creating public ip "coreo-westu-1430261891570-pip"                           
+    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    + Creating NIC "coreo-westu-1430261891570-nic"                                 
+    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
+    + Creating VM "coreos"                                                         
+    + Looking up the VM "coreos"                                                   
+    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
+    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
+    data:    ProvisioningState               :Succeeded
+    data:    Name                            :coreos
+    data:    Location                        :westus
+    data:    FQDN                            :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
+    data:    Type                            :Microsoft.Compute/virtualMachines
+    data:    
+    data:    Hardware Profile:
+    data:      Size                          :Standard_A1
+    data:    
+    data:    Storage Profile:
+    data:      Image reference:
+    data:        Publisher                   :coreos
+    data:        Offer                       :coreos
+    data:        Sku                         :stable
+    data:        Version                     :633.1.0
+    data:    
+    data:      OS Disk:
+    data:        OSType                      :Linux
+    data:        Name                        :cli9fd3fce49e9a9b3d-os-1430261892283
+    data:        Caching                     :ReadWrite
+    data:        CreateOption                :FromImage
+    data:        Vhd:
+    data:          Uri                       :https://cli9fd3fce49e9a9b3d14302.blob.core.windows.net/vhds/cli9fd3fce49e9a9b3d-os-1430261892283.vhd
+    data:    
+    data:    OS Profile:
+    data:      Computer Name                 :coreos
+    data:      User Name                     :ops
+    data:      Linux Configuration:
+    data:        Disable Password Auth       :false
+    data:    
+    data:    Network Profile:
+    data:      Network Interfaces:
+    data:        Network Interface #1:
+    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/coreos-quick/providers/Microsoft.Network/networkInterfaces/coreo-westu-1430261891570-nic
+    data:          Primary                   :true
+    data:          MAC Address               :00-0D-3A-30-72-E3
+    data:          Provisioning State        :Succeeded
+    data:          Name                      :coreo-westu-1430261891570-nic
+    data:          Location                  :westus
+    data:            Private IP alloc-method :Dynamic
+    data:            Private IP address      :10.0.1.4
+    data:            Public IP address       :104.40.24.124
+    data:            FQDN                    :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
+    info:    vm quick-create command OK
+    
+And away you go with your new VM.
+
+## Common Task: Deploy a VM in Azure from a template
+
+Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
  
@@ -350,130 +475,7 @@ You will receive the following type of information:
     data:    ubuntuOSVersion        String        14.10        
     info:    group deployment create command OK
     
-## Common Taks: Quick-create a VM in Azure
 
-Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
-
-First, create your resource group:azure group create coreos-quick westus
-
-    azure group create coreos-quick westus
-    info:    Executing command group create
-    + Getting resource group coreos-quick                                          
-    + Creating resource group coreos-quick                                         
-    info:    Created resource group coreos-quick
-    data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick
-    data:    Name:                coreos-quick
-    data:    Location:            westus
-    data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
-    info:    group create command OK
-    
-
-Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md). But for a quickstart, here's a short list of very popular images. We'll use CoreOS's Stable image for this quick-create.
-
-| Publisher                        | ImageOffer                                 | ImageSku                         | ComputeImageVersion |
-|:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
-| OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
-| OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
-| CoreOS                           | CoreOS                                     | Beta                             | 647.0.0             |
-| CoreOS                           | CoreOS                                     | Stable                           | 633.1.0             |
-| MicrosoftDynamicsNAV             | DynamicsNAV                                | 2015                             | 8.0.40459           |
-| MicrosoftSharePoint              | MicrosoftSharePointServer                  | 2013                             | 1.0.0               |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Standard                         | 1.0.0               |
-| msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
-| MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical                        | UbuntuServer                               | 14.04.1-LTS                      | 14.04.201501230     |
-| Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
-| MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
-| MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
-| MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
-
-Just create your VM by entering the `azure vm quick-create command` and being ready for the prompts. It should look something like this.
-
-    azure vm quick-create 
-    info:    Executing command vm quick-create
-    Resource group name: coreos-quick
-    Virtual machine name: coreos
-    Location name: westus
-    Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
-    User name: ops
-    Password: *********
-    Confirm password: *********
-    + Looking up the VM "coreos"                                                   
-    info:    Using the VM Size "Standard_A1"
-    info:    The [OS, Data] Disk or image configuration requires storage account
-    + Retrieving storage accounts                                                  
-    info:    Could not find any storage accounts in the region "westus", trying to create new one
-    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"              
-    + Looking up the storage account cli9fd3fce49e9a9b3d14302                      
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
-    info:    Preparing to create new virtual network and subnet
-    / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
-    + Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
-    info:    Found public ip parameters, trying to setup PublicIP profile
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
-    info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
-    + Creating public ip "coreo-westu-1430261891570-pip"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
-    + Creating NIC "coreo-westu-1430261891570-nic"                                 
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Creating VM "coreos"                                                         
-    + Looking up the VM "coreos"                                                   
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
-    data:    ProvisioningState               :Succeeded
-    data:    Name                            :coreos
-    data:    Location                        :westus
-    data:    FQDN                            :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
-    data:    Type                            :Microsoft.Compute/virtualMachines
-    data:    
-    data:    Hardware Profile:
-    data:      Size                          :Standard_A1
-    data:    
-    data:    Storage Profile:
-    data:      Image reference:
-    data:        Publisher                   :coreos
-    data:        Offer                       :coreos
-    data:        Sku                         :stable
-    data:        Version                     :633.1.0
-    data:    
-    data:      OS Disk:
-    data:        OSType                      :Linux
-    data:        Name                        :cli9fd3fce49e9a9b3d-os-1430261892283
-    data:        Caching                     :ReadWrite
-    data:        CreateOption                :FromImage
-    data:        Vhd:
-    data:          Uri                       :https://cli9fd3fce49e9a9b3d14302.blob.core.windows.net/vhds/cli9fd3fce49e9a9b3d-os-1430261892283.vhd
-    data:    
-    data:    OS Profile:
-    data:      Computer Name                 :coreos
-    data:      User Name                     :ops
-    data:      Linux Configuration:
-    data:        Disable Password Auth       :false
-    data:    
-    data:    Network Profile:
-    data:      Network Interfaces:
-    data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/coreos-quick/providers/Microsoft.Network/networkInterfaces/coreo-westu-1430261891570-nic
-    data:          Primary                   :true
-    data:          MAC Address               :00-0D-3A-30-72-E3
-    data:          Provisioning State        :Succeeded
-    data:          Name                      :coreo-westu-1430261891570-nic
-    data:          Location                  :westus
-    data:            Private IP alloc-method :Dynamic
-    data:            Private IP address      :10.0.1.4
-    data:            Public IP address       :104.40.24.124
-    data:            FQDN                    :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
-    info:    vm quick-create command OK
-    
-And away you go with your new VM.
 
 ## Common Task: Create a custom VM image
 
