@@ -76,9 +76,9 @@ To view or download a bill:
 
  **OFFER NAME** | **OFFER TYPE** |  **INCLUDES FREE SERVICES** | **DOWNLOAD** |
  :--------- |:-------- | :----------------: | :-------|
-Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](http://go.microsoft.com/fwlink/?linkid=285496&clcid=0x409)
-Pay-As-You-Go | Consumption | No| [Sample file](http://download.microsoft.com/download/8/6/8/868702B9-4750-4CF6-8254-FCB8F178EA57/Microsoft Azure PAYG - Sample Invoice.pdf)
-Detailed Usage - csv | N/A | N/A | [Sample file](http://download.microsoft.com/download/8/6/8/868702B9-4750-4CF6-8254-FCB8F178EA57/Microsoft Azure Detailed Usage - Sample CSV.xlsx)
+Azure MSDN-Visual Studio Ultimate| Benefits Program | Yes* | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_MSDN_Sample.pdf)
+Pay-As-You-Go | Consumption | No| [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_PAYG_Sample.pdf)
+Detailed Usage - csv | N/A | N/A | [Sample file](https://azurepricing.blob.core.windows.net/sampleinvoices/Microsoft_Azure_Detailed_Usage_v1_csv.xlsx)
 
 
 ## Header - Customer Information
@@ -243,12 +243,12 @@ This column captures 3rd party specific information.
 ### Additional Info
 This column shows additional data for some of the services.
 
-Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from February 2015 onwards. Below is the base file URL for the Service Download Fields:
+Please see these additional sources of information file for more details. These files are updated on a monthly basis, published on the 25th for the coming month, and are available from May 2015 onwards. Below is the base file URL for the Service Download Fields:
 
->>  https://azurepricing.blob.core.windows.net/supplemental/YYYY_MM_Service_Download_Fields.xlsx
+>>  https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_v1_MMYYYY.xlsx
 
 
-To find the most current version, enter in the Year and Month (Looking for March 2015 file, enter in **2015_03** into the section _**“YYYY_MM”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
+To find the most current version, enter in the Year and Month (looking for March 2015 file, enter in **052015** into the section _**“MMYYYY”**_ in the above URL).  This spreadsheet provides a listing of all possible combinations of the service related fields in the **Usage Download Report**.
 
 
 <!--Image references-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="04/27/2015" 
 	ms.author="wesmc"/>
 
 # Use Notification Hubs to send localized breaking news
