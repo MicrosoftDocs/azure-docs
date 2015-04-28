@@ -66,4 +66,4 @@ For more advanced topics related to Service Fabric, see the following articles.
 
 - [Placement Constraints Overview](service-fabric-placement-constraint.md)
 
-- [Secure replication traffic of Stateful Services in Azure Service Fabric](service-fabric-replication-security.md)
+- [Secure Replication traffic of Stateful Services in Azure Service Fabric](service-fabric-replication-security.md)
