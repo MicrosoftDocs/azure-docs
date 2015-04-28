@@ -1,7 +1,7 @@
 <properties
    pageTitle="Resource Balancer Service Descriptions"
    description="An overview of configuring service descriptions for the Resource Balancer to use"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
    authors="abhic"
    manager="timlt"
