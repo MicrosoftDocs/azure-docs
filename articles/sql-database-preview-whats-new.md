@@ -126,6 +126,13 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Log rate | V12 can log more data changes per second. |
 
 
+| Feature | Description |  
+| :--- | :--- |  
+| . | ***August 2015:*** |
+| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |  
+| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |  
+
+
 ### Summary of enhancements
 
 
