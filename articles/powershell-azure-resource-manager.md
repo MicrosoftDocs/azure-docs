@@ -379,7 +379,7 @@ The AzureResourceManager module includes cmdlets that help you to prevent errors
 Getting Started
 
 - [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](./xplat-cli-azure-resource-manager.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)
 - [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)
 
 Creating and Deploying Applications
