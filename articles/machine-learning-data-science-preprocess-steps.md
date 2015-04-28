@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/16/2015"
-	ms.author="xibingaomsft,msolhab" />
+	ms.author="msolhab" />
 
 
 # Preprocess and Clean Data
