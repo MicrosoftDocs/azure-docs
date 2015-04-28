@@ -9,8 +9,8 @@
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="" 
-	ms.workload="" 
+	ms.service="na" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
