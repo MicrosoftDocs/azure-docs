@@ -1,10 +1,9 @@
-<<<<<<< HEAD:articles/azure-preview-portal-using-resource-groups.md
 <properties
 	pageTitle="Using Resource groups to manage your Azure resources"
 	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it."
 	services="multiple"
 	documentationCenter=""
-	authors="tfitzmac" 
+	authors="tfitzmac"
 	writer="tomfitz"
 	manager="wpickett"
 	editor=""/>
@@ -16,26 +15,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/09/2015"
-=======
-<properties 
-	pageTitle="Using the Azure Portal to manage your Azure resources" 
-	description="Group multiple resources as a logical group that becomes the lifecycle boundary for resources contained within it." 
-	services="multiple" 
-	documentationCenter="" 
-	authors="" 
-	writer="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
-
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
->>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
-	ms.author="tomfitz"/>
 
 
 # Using the Azure Portal to manage your Azure resources
@@ -46,7 +25,7 @@
 Historically, managing a resource (a user-managed entity such as a database server, database, or website) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, management of this application became a complex task. In the Microsoft Azure preview portal you can create resource groups to manage all your resources in an application together. Resource group is a new concept in Azure that serves as the lifecycle boundary for every resource contained within it.
 <br><br />
 =======
-Historically, managing a resource (a user-managed entity such as a database server, database, or website) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, management of this application became a complex task. In the Microsoft Azure portal you can create resource groups to manage all your resources in an application together. Resource group is a new concept in Azure that serves as the lifecycle boundary for every resource contained within it. 
+Historically, managing a resource (a user-managed entity such as a database server, database, or website) in Microsoft Azure required you to perform operations against one resource at a time. If you had a complex application made up of multiple resources, management of this application became a complex task. In the Microsoft Azure portal you can create resource groups to manage all your resources in an application together. Resource group is a new concept in Azure that serves as the lifecycle boundary for every resource contained within it.
 >>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
 
 Resource groups enable you to manage all your resources in an application together. Resource groups are enabled by the new management functionality, Azure Resource Manager. Azure Resource Manager allows you to group multiple resources as a logical group which serves as the lifecycle boundary for every resource contained within it. Typically a group will contain resources related to a specific application. For example, a group may contain a Website resource that hosts your public website, a SQL Database that stores relational data used by the site, and a Storage Account that stores non-relational assets.
@@ -55,7 +34,7 @@ Resource groups enable you to manage all your resources in an application togeth
 Here is a concise overview of how to use Resource groups within the Microsoft Azure Preview Portal.
 <br><br />
 =======
-Here is a concise overview of how to use Resource groups within the Azure portal. 
+Here is a concise overview of how to use Resource groups within the Azure portal.
 >>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
 
 ## Creating resource groups
@@ -68,7 +47,7 @@ Whenever a resource is created in the portal, it is always created within a reso
 <br><br />
 When you create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can add or remove additional resources from the resource group as your application evolves.
 =======
-When you create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can add or remove additional resources from the resource group as your application evolves. 
+When you create an application that consists of a few resources working together (e.g. Website + Database) it is always created in its own resource group, so you can manage the lifecycle of all related assets using the resource group. You can add or remove additional resources from the resource group as your application evolves.
 >>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
 
 ![create resource group](./media/resource-group-portal/2_createWSandDB.png)
@@ -91,7 +70,7 @@ The resource map part can be customized to show in a larger size which will disp
 
   Clicking on the resource map launches the list view of all the resources on the resource map. This view will list all the resources within a resource group or linked to it. Clicking on these resources will launch their blades.
 =======
-The summary section shows a visual resource map of all the resources in the resource group, it also shows resources in other resource groups that are linked to the resource group. The resource map also shows the status of each resource. 
+The summary section shows a visual resource map of all the resources in the resource group, it also shows resources in other resource groups that are linked to the resource group. The resource map also shows the status of each resource.
 ![resource group summary](./media/resource-group-portal/3_1BrowseRGs.png)
 
 The resource map part can be customized to show in a larger size which will display all the resources that are contained within the resource group and resources in other resource groups that are linked. This part can be pinned to the Starboard, which will copy the part to the Startboard.
@@ -99,7 +78,7 @@ The resource map part can be customized to show in a larger size which will disp
 ![pin](./media/resource-group-portal/3_2BrowseRGs.png)
 >>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
 
-Clicking on the resource map launches the list view of all the resources on the resource map. This view will list all the resources within a resource group or linked to it. Clicking on these resources will launch their blades. 
+Clicking on the resource map launches the list view of all the resources on the resource map. This view will list all the resources within a resource group or linked to it. Clicking on these resources will launch their blades.
 
 ![see resources](./media/resource-group-portal/3_3BrowseRGs.png)
 
@@ -113,7 +92,7 @@ Note: It is not advisable to put team project in the same resource group as othe
 
 ## Deleting resource groups
 
-Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups. 
+Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups.
 
 ## Next Steps
 
@@ -127,4 +106,3 @@ Since resource groups allow you to manage the lifecycle of all the contained res
 Since resource groups allow you to manage the lifecycle of all the contained resources, deleting a resource group will delete all the resources contained within it. You can also delete individual resources within a resource group. You want to exercise caution when you are deleting a resource group since there might be other resources linked to it. You can see the linked resources in the resource map and take the necessary steps to avoid any unintentional consequences when you delete resource groups.
 =======
 >>>>>>> 77015300618a454e2b76a201f5698867b7330081:articles/resource-group-portal.md
-
