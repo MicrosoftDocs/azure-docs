@@ -70,17 +70,17 @@ We suggest that you experiment with [scoring profiles](search-get-started-scorin
 
 Adding a scoring profile changes the index; you will need to rebuild and reload the index whenever you modify the schema. For this reason, consider adding scoring profile code segments to your prototype (or modify scoring profile samples to use your indexing code).
 
-See [Add a scoring profile](https://msdn.microsoft.com/en-us/library/dn798928.aspx) for the reference documentation on scoring profiles.
+See [Add a scoring profile](https://msdn.microsoft.com/library/dn798928.aspx) for the reference documentation on scoring profiles.
 
 ## Add a suggesters
 
 Suggesters refers to the popular search feature that projects a list of possible search terms based on text inputs from the user (typing "wea" prompts a list of autocomplete search terms for "weather", "weather channel", "weather underground", and so forth).
 
-To add suggesters, add a section to the index schema that specifies which fields are used to build autocomplete or typeahead queries. Fields containing names or shorter strings having non-repetitive values tend to work the best. See [Create Index](https://msdn.microsoft.com/en-us/library/dn798928.aspx) for more information.
+To add suggesters, add a section to the index schema that specifies which fields are used to build autocomplete or typeahead queries. Fields containing names or shorter strings having non-repetitive values tend to work the best. See [Create Index](https://msdn.microsoft.com/library/dn798928.aspx) for more information.
 
 ## Try a language analyzer
 
-Language analyzers provide the linguistic rules for distinguishing between essential and non-essential words, root forms, and even synonyms. By default, Azure Search uses the Lucene language analyzer for English. You can specify different analyzers as an index attribute on specific fields, which allows you to build schemas and documents that include fields using different analyzers (for example, a multilingual application might combine French and English fields side by side in the same document). See [Language Support](https://msdn.microsoft.com/en-us/library/dn879793.aspx) for more details.
+Language analyzers provide the linguistic rules for distinguishing between essential and non-essential words, root forms, and even synonyms. By default, Azure Search uses the Lucene language analyzer for English. You can specify different analyzers as an index attribute on specific fields, which allows you to build schemas and documents that include fields using different analyzers (for example, a multilingual application might combine French and English fields side by side in the same document). See [Language Support](https://msdn.microsoft.com/library/dn879793.aspx) for more details.
 
 ## Next steps
 
