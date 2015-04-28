@@ -19,11 +19,8 @@ Set the `namespace` property to the domain of your Azure Active Directory tenant
 To provide a URL endpoint for a dynamic [Swagger](http://swagger.io/) API definition, store in the `endpoints.apiDefinition` property the relative URL of an API exposed by the API app which returns a Swagger 2.0 API definition on a GET request. For example:  
 
 		"endpoints": {
-		    "apiDefinition": "/swagger/docs/v1",
-		    "status": null
+		    "apiDefinition": "/swagger/docs/v1"
 		}
-
-(The `endpoints.status` property is for a feature that is not yet implemented.)
 
 ### Static Swagger API definition
 
