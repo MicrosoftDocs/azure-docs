@@ -98,9 +98,9 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 Once the API app has been coded, it's time to test the code in the browser.
 
-1. Press <Ctrl>F5 to run the app in your default browser.
+1. Press **&lt;Ctrl&gt;F5** to run the app in your default browser.
 
-2. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
+2. The browser might show a 403.14 error at this point. Add **/swagger** to end of URL and press **Enter**.
 
 3. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
 
