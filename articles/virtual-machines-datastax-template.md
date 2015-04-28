@@ -1,9 +1,9 @@
 <properties
 	pageTitle="DataStax on Ubuntu Resource Manager Template"
-	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager templat"
+	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="multiple"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="karthmut"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
-	ms.author="davidmu"/>
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # DataStax on Ubuntu Resource Manager Template
 
