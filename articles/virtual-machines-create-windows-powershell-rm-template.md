@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Create a Windows virtual machine with a Resource Manager template" 
-	description="Use a Resource Manager template to easily create a new Windows virtual machine." 
+	description="Use a Resource Manager template to easily create a new Windows virtual machine with PowerShell or the Azure CLI." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -34,34 +34,206 @@ Follow these steps to create a Windows VM using a Resource Manager template in t
 
 ### Step 1: Examine the JSON file for the template.
 
-[[insert]]
+Here are the contents of the JSON file for the template.
+
+	{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "newStorageAccountName": {
+            "type": "string",
+            "metadata": {
+                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+            }
+        },
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+               "Description": "Username for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "Description": "Password for the Virtual Machine."
+            }
+        },
+        "dnsNameForPublicIP": {
+            "type": "string",
+            "metadata": {
+                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            }
+        },
+        "windowsOSVersion": {
+            "type": "string",
+            "defaultValue": "2012-R2-Datacenter",
+            "allowedValues": [
+                "2008-R2-SP1", 
+                "2012-Datacenter", 
+                "2012-R2-Datacenter", 
+                "Windows-Server-Technical-Preview"
+            ],
+            "metadata": {
+                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+            }
+        }
+    },
+    "variables": {
+        "location": "West US",
+        "imagePublisher": "MicrosoftWindowsServer", 
+        "imageOffer": "WindowsServer", 
+        "OSDiskName": "osdiskforwindowssimple",
+        "nicName": "myVMNic",
+        "addressPrefix": "10.0.0.0/16", 
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "storageAccountType": "Standard_LRS",
+        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressType": "Dynamic",
+        "vmStorageAccountContainerName": "vhds",
+        "vmName": "MyWindowsVM",
+        "vmSize": "Standard_D1",
+        "virtualNetworkName": "MyVNET",        
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    },    
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[parameters('newStorageAccountName')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[variables('location')]",
+            "properties": {
+                "accountType": "[variables('storageAccountType')]"
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[variables('publicIPAddressName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+                }
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('virtualNetworkName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('addressPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnetPrefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[variables('nicName')]",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                            },
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
+                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmSize')]"
+                },
+                "osProfile": {
+                    "computername": "[variables('vmName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku" : "[parameters('windowsOSVersion')]",
+                        "version":"latest"
+                    },
+                   "osDisk" : {
+                        "name": "osdisk",
+                        "vhd": {
+                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                        },
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+	} 
 
 
 ### Step 2: Create the virtual machine with the template.
 
-Fill in an Azure deployment name, Resource Group name, Azure location, the folder for your saved JSON file, and then run these commands.
+Fill in an Azure deployment name, Resource Group name, and Azure datacenter location, and then run these commands.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\WindowsVM>" 
-	$templateFile= $folderName + "\azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the parameter values, the command creates the resource group and the virtual machine. 
 
-> [AZURE.NOTE] For the vmSourceImageName parameter, paste in the image name you copied from Step 3.
-
-Here is an example of the PowerShell command set for the azuredeploy.json template.
+Here is an example.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$folderName="C:\Azure\Templates\WindowsVM"
-	$templateFile= $folderName + "\azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
+	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 You would see something like this.
 
@@ -69,10 +241,10 @@ You would see something like this.
 	Supply values for the following parameters:
 	(Type !? for Help.)
 	newStorageAccountName: saTest
-	dnsNameForPublicIP: 131.107.89.211
-	adminUserName: WebAdmin1
+	adminUserName: WinAdmin1
 	adminPassword: *******
-	vmSourceImageName: a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd
+	dnsNameForPublicIP: contoso.com
+	windowsOSVersion: 2012-R2-Datacenter
 	...
 
 
@@ -80,24 +252,43 @@ You would see something like this.
 
 Follow these steps to create a Windows VM using a Resource Manager template in the Github template repository with Azure CLI commands.
 
-Fill in [needed info} and then run these commands.
+Fill in a resource group name and Azure location (removing the brackets), and then run these commands.
 
-[cli commands to run the template file]
-
-[explanation of how xplat runs the template]
+	azure group create [resource group] [location]
+	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json [resource group] firstdeployment
 
 Here is an example of the Azure CLI command set for the template.
 
-[xplat command example]
+	azure group create testrg westus
+	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
 
 You would see something like this.
 
-[Note to writers: paste in the xplat display for the first few prompted parameters]
+	azure group create testrg westus
+	info:    Executing command group create
+	+ Getting resource group squillace                                             
+	+ Creating resource group squillace                                            
+	info:    Created resource group squillace
+	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/squillace
+	data:    Name:                squillace
+	data:    Location:            westus
+	data:    Provisioning State:  Succeeded
+	data:    Tags: 
+	data:    
+	info:    group create command OK
 
-To remove this resource group and all of its resources ([stuff in the resource group]), use this command.
-
-[xplat command]
-
+	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
+	info:    Executing command group deployment create
+	info:    Supply values for the following parameters
+	newStorageAccountName: newstorage
+	adminUsername: ops
+	adminPassword: Pa$$W0rd1
+	dnsNameForPublicIP: contoso
+	windowsOSVersion: 2012-R2-Datacenter
+	+ Initializing template configurations and parameters                          
+	+ Creating a deployment                                                        
+	info:    Created template deployment "firstdeployment"
+	+ Registering providers                                                        
 
 
 ## Additional Resources
@@ -109,6 +300,3 @@ To remove this resource group and all of its resources ([stuff in the resource g
 [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](install-configure-powershell.md)
-
-[Use Azure PowerShell to create and preconfigure Windows-based Virtual Machines](virtual-machines-ps-create-preconfigure-windows-vms.md)
-

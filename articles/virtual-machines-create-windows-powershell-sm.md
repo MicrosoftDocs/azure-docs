@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with PowerShell (ASM version)
+# Create a Windows virtual machine with PowerShell and Service Manager
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -30,7 +30,7 @@ First, you must login to Azure with this command.
 
 Specify the email address of your Azure account and its password in the Microsoft Azure sign-in dialog.
 
-Next, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
+Next, if you have multiple Azure subscriptons, you need to set your Azure subscription. To see a list of your current subscriptions, run this command.
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
