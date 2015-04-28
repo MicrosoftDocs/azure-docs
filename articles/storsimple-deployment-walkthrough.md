@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple deployment tutorial"
+   pageTitle="Deploy your on-premises StorSimple device"
    description="Steps and best practices for deploying the StorSimple device and service."
    services="storsimple"
    documentationCenter="NA"
