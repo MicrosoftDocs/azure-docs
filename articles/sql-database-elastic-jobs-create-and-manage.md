@@ -81,15 +81,12 @@ After a job has begun, you can check on its progress.
 
 1. From the elastic database pool page, click **Manage jobs**.
 
-	![Check other jobs from elastic database pool][3]
+	![Click "Manage jobs"][2]
 
-2. Click on the name (a) of the running job. The job's page appears (b). The list (c) below the description shows the progress of the script against databases in the pool.
+2. Click on the name (a) of a job. The **STATUS** can be "Completed" or "Failed." The job's details appear (b) with its date and time of creation and running. The list (c) below the that shows the progress of the script against each database in the pool, giving its date and time details.
 
-![Checking a running job][2]
+	![Checking a finished job][3]
 
-To check on an job that has finished running, from the elastic database job pool, click **Manage jobs**. Then click on the name of any job to view its details. 
-
-![Check other jobs from elastic database pool][3]
 
 ## Checking failed jobs
 
@@ -97,14 +94,13 @@ If a job fails, a log of its execution can found. Click the name of the failed j
 
 ![Check a failed job][4]
 
-## Next steps
 
-To understand the job creation, see "Creating an elastic database job"
+[AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-create-and-manage/screen-1.png
-[2]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
-[3]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
+[2]: ./media/sql-database-elastic-jobs-create-and-manage/click-manage-jobs.png
+[3]: ./media/sql-database-elastic-jobs-create-and-manage/running-jobs.png
 [4]: ./media/sql-database-elastic-jobs-create-and-manage/failed.png
 
 
