@@ -1,7 +1,8 @@
-<properties pagetitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
+<properties 
+			pageTitle="How to use Azure File storage with PowerShell and .NET | Microsoft Azure"
             description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#."
             services="storage"
-            documentationcenter=".net"
+            documentationCenter=".net"
             authors="tamram"
             manager="adinah"
             editor="" />
@@ -109,7 +110,7 @@ Next, create the new share, named `logs` in this example:
 
 You now have a file share in File storage. Next we'll add a directory and a file.
 
-> [AZURE.IMPORTANT] The name of your file share must be all lowercase. For complete details on naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/en-us/library/azure/dn167011.aspx).
+> [AZURE.IMPORTANT] The name of your file share must be all lowercase. For complete details on naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### Create a directory in the file share
 

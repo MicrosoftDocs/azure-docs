@@ -3,7 +3,7 @@
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Table service. The samples are written written using the
 Ruby API. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**.
