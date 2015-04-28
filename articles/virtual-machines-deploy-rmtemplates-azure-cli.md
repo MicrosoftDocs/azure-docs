@@ -630,337 +630,337 @@ Follow these steps to deploy a multi-VM application that uses a virtual network 
 
 Here are the contents of the JSON file for the template. If you want the most recent version, it's located [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). This topic uses the `--template-uri` switch to call in the template, but you can also use the `--template-file` switch to pass a local version.
 
-{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-              "description": "Location of resources"
-            }
-        },
-        "storageAccountName": {
-            "type": "string",
-            "metadata": {
-              "description": "Name of storage account"
-            }
-        },
-        "adminUsername": {
-            "type": "string",
-            "metadata": {
-              "description": "Admin username"
-            }
-        },
-        "adminPassword": {
-            "type": "securestring",
-            "metadata": {
-              "description": "Admin password"
-            }
-        },
-        "dnsNameforLBIP": {
-            "type": "string",
-            "metadata": {
-              "description": "DNS for Load Balancer IP"
-            }
-        },
-        "backendPort": {
-            "type": "int",
-            "defaultValue": 3389,
-            "metadata": {
-              "description": "Backend port"
-            }
-        },
-        "vmNamePrefix": {
-            "type": "string",
-            "defaultValue": "myVM",
-            "metadata": {
-              "description": "Prefix to use for VM names"
-            }
-        },
-        "vmSourceImageName": {
-            "type": "string",
-            "defaultValue": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"
-        },
-        "lbName": {
-            "type": "string",
-            "defaultValue": "myLB",
-            "metadata": {
-              "description": "Load Balancer name"
-            }
-        },
-        "nicNamePrefix": {
-            "type": "string",
-            "defaultValue": "nic",
-            "metadata": {
-              "description": "Network Interface name prefix"
-            }
-        },
-        "publicIPAddressName": {
-            "type": "string",
-            "defaultValue": "myPublicIP",
-            "metadata": {
-              "description": "Public IP Name"
-            }
-        },
-        "vnetName": {
-            "type": "string",
-            "defaultValue": "myVNET",
-            "metadata": {
-              "description": "VNET name"
-            }
-        },
-        "vmSize": {
-            "type": "string",
-            "defaultValue": "Standard_A1",
-            "metadata": {
-              "description": "Size of the VM"
-            }
-        }
-    },
-    "variables": {
-        "storageAccountType": "Standard_LRS",
-        "vmStorageAccountContainerName": "vhds",
-        "availabilitySetName": "myAvSet",
-        "addressPrefix": "10.0.0.0/16",
-        "subnetName": "Subnet-1",
-        "subnetPrefix": "10.0.0.0/24",
-        "publicIPAddressType": "Dynamic",
-        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vnetName'))]",
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables ('subnetName'))]",
-        "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]",
-        "lbID": "[resourceId('Microsoft.Network/loadBalancers',parameters('lbName'))]",
-        "numberOfInstances": 2,
-        "nicId1": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 0))]",
-        "nicId2": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 1))]",
-        "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LBFE')]",
-        "backEndIPConfigID1": "[concat(variables('nicId1'),'/ipConfigurations/ipconfig1')]",
-        "backEndIPConfigID2": "[concat(variables('nicId2'),'/ipConfigurations/ipconfig1')]",
-        "sourceImageName": "[concat('/', subscription().subscriptionId,'/services/images/',parameters('vmSourceImageName'))]",
-        "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/LBBE')]",
-        "lbProbeID": "[concat(variables('lbID'),'/probes/tcpProbe')]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "[variables('storageAccountType')]"
-            }
-        },
-        {
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            "apiVersion": "2015-05-01-preview",
-            "location": "[parameters('location')]",
-            "properties": { }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "[parameters('publicIPAddressName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                "dnsSettings": {
-                    "domainNameLabel": "[parameters('dnsNameforLBIP')]"
+    {
+        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "location": {
+                "type": "string",
+                "metadata": {
+                  "description": "Location of resources"
+                }
+            },
+            "storageAccountName": {
+                "type": "string",
+                "metadata": {
+                  "description": "Name of storage account"
+                }
+            },
+            "adminUsername": {
+                "type": "string",
+                "metadata": {
+                  "description": "Admin username"
+                }
+            },
+            "adminPassword": {
+                "type": "securestring",
+                "metadata": {
+                  "description": "Admin password"
+                }
+            },
+            "dnsNameforLBIP": {
+                "type": "string",
+                "metadata": {
+                  "description": "DNS for Load Balancer IP"
+                }
+            },
+            "backendPort": {
+                "type": "int",
+                "defaultValue": 3389,
+                "metadata": {
+                  "description": "Backend port"
+                }
+            },
+            "vmNamePrefix": {
+                "type": "string",
+                "defaultValue": "myVM",
+                "metadata": {
+                  "description": "Prefix to use for VM names"
+                }
+            },
+            "vmSourceImageName": {
+                "type": "string",
+                "defaultValue": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd"
+            },
+            "lbName": {
+                "type": "string",
+                "defaultValue": "myLB",
+                "metadata": {
+                  "description": "Load Balancer name"
+                }
+            },
+            "nicNamePrefix": {
+                "type": "string",
+                "defaultValue": "nic",
+                "metadata": {
+                  "description": "Network Interface name prefix"
+                }
+            },
+            "publicIPAddressName": {
+                "type": "string",
+                "defaultValue": "myPublicIP",
+                "metadata": {
+                  "description": "Public IP Name"
+                }
+            },
+            "vnetName": {
+                "type": "string",
+                "defaultValue": "myVNET",
+                "metadata": {
+                  "description": "VNET name"
+                }
+            },
+            "vmSize": {
+                "type": "string",
+                "defaultValue": "Standard_A1",
+                "metadata": {
+                  "description": "Size of the VM"
                 }
             }
         },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('vnetName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "[variables('addressPrefix')]"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnetName')]",
-                        "properties": {
-                            "addressPrefix": "[variables('subnetPrefix')]"
-                        }
-                    }
-                ]
-            }
+        "variables": {
+            "storageAccountType": "Standard_LRS",
+            "vmStorageAccountContainerName": "vhds",
+            "availabilitySetName": "myAvSet",
+            "addressPrefix": "10.0.0.0/16",
+            "subnetName": "Subnet-1",
+            "subnetPrefix": "10.0.0.0/24",
+            "publicIPAddressType": "Dynamic",
+            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('vnetName'))]",
+            "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables ('subnetName'))]",
+            "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]",
+            "lbID": "[resourceId('Microsoft.Network/loadBalancers',parameters('lbName'))]",
+            "numberOfInstances": 2,
+            "nicId1": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 0))]",
+            "nicId2": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'), 1))]",
+            "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LBFE')]",
+            "backEndIPConfigID1": "[concat(variables('nicId1'),'/ipConfigurations/ipconfig1')]",
+            "backEndIPConfigID2": "[concat(variables('nicId2'),'/ipConfigurations/ipconfig1')]",
+            "sourceImageName": "[concat('/', subscription().subscriptionId,'/services/images/',parameters('vmSourceImageName'))]",
+            "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/LBBE')]",
+            "lbProbeID": "[concat(variables('lbID'),'/probes/tcpProbe')]"
         },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Network/networkInterfaces",
-            "name": "[concat(parameters('nicNamePrefix'), copyindex())]",
-            "location": "[parameters('location')]",
-            "copy": {
-                "name": "nicLoop",
-                "count": "[variables('numberOfInstances')]"
+        "resources": [
+            {
+                "type": "Microsoft.Storage/storageAccounts",
+                "name": "[parameters('storageAccountName')]",
+                "apiVersion": "2015-05-01-preview",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "accountType": "[variables('storageAccountType')]"
+                }
             },
-            "dependsOn": [
-                "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
-            ],
-            "properties": {
-                "ipConfigurations": [
-                    {
-                        "name": "ipconfig1",
-                        "properties": {
-                            "privateIPAllocationMethod": "Dynamic",
-                            "subnet": {
-                                "id": "[variables('subnetRef')]"
+            {
+                "type": "Microsoft.Compute/availabilitySets",
+                "name": "[variables('availabilitySetName')]",
+                "apiVersion": "2015-05-01-preview",
+                "location": "[parameters('location')]",
+                "properties": { }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/publicIPAddresses",
+                "name": "[parameters('publicIPAddressName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                    "dnsSettings": {
+                        "domainNameLabel": "[parameters('dnsNameforLBIP')]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/virtualNetworks",
+                "name": "[parameters('vnetName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "[variables('addressPrefix')]"
+                        ]
+                    },
+                    "subnets": [
+                        {
+                            "name": "[variables('subnetName')]",
+                            "properties": {
+                                "addressPrefix": "[variables('subnetPrefix')]"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/networkInterfaces",
+                "name": "[concat(parameters('nicNamePrefix'), copyindex())]",
+                "location": "[parameters('location')]",
+                "copy": {
+                    "name": "nicLoop",
+                    "count": "[variables('numberOfInstances')]"
+                },
+                "dependsOn": [
+                    "[concat('Microsoft.Network/virtualNetworks/', parameters('vnetName'))]"
+                ],
+                "properties": {
+                    "ipConfigurations": [
+                        {
+                            "name": "ipconfig1",
+                            "properties": {
+                                "privateIPAllocationMethod": "Dynamic",
+                                "subnet": {
+                                    "id": "[variables('subnetRef')]"
+                                }
+                            },
+    
+                            "loadBalancerBackendAddressPools": [
+                                {
+                                    "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/backendAddressPools/LBBE')]"
+                                }
+                            ],
+                            "loadBalancerInboundNatRules": [
+                                {
+                                    "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/inboundNatRule/RDP-VM', copyindex())]"
+                                }
+                            ]
+    
+    
+                        }
+                    ]
+    
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "name": "[parameters('lbName')]",
+                "type": "Microsoft.Network/loadBalancers",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "nicLoop",
+                    "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
+                ],
+                "properties": {
+                    "frontendIPConfigurations": [
+                        {
+                            "name": "LBFE",
+                            "properties": {
+                                "publicIPAddress": {
+                                    "id": "[variables('publicIPAddressID')]"
+                                }
+                            }
+                        }
+                    ],
+                    "backendAddressPools": [
+                        {
+                            "name": "LBBE"
+    
+                        }
+                    ],
+                    "inboundNatRules": [
+                        {
+                            "name": "RDP-VM1",
+                            "properties": {
+                                "frontendIPConfiguration":
+                                    {
+                                        "id": "[variables('frontEndIPConfigID')]"
+                                    },
+                                "protocol": "tcp",
+                                "frontendPort": 50001,
+                                "backendPort": 3389,
+                                "enableFloatingIP": false
                             }
                         },
-
-                        "loadBalancerBackendAddressPools": [
-                            {
-                                "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/backendAddressPools/LBBE')]"
-                            }
-                        ],
-                        "loadBalancerInboundNatRules": [
-                            {
-                                "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/inboundNatRule/RDP-VM', copyindex())]"
-                            }
-                        ]
-
-
-                    }
-                ]
-
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "name": "[parameters('lbName')]",
-            "type": "Microsoft.Network/loadBalancers",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "nicLoop",
-                "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]"
-            ],
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "LBFE",
-                        "properties": {
-                            "publicIPAddress": {
-                                "id": "[variables('publicIPAddressID')]"
-                            }
-                        }
-                    }
-                ],
-                "backendAddressPools": [
-                    {
-                        "name": "LBBE"
-
-                    }
-                ],
-                "inboundNatRules": [
-                    {
-                        "name": "RDP-VM1",
-                        "properties": {
-                            "frontendIPConfiguration":
-                                {
-                                    "id": "[variables('frontEndIPConfigID')]"
-                                },
-                            "protocol": "tcp",
-                            "frontendPort": 50001,
-                            "backendPort": 3389,
-                            "enableFloatingIP": false
-                        }
-                    },
-                    {
-                        "name": "RDP-VM2",
-                        "properties": {
-                            "frontendIPConfiguration":
-                                {
-                                    "id": "[variables('frontEndIPConfigID')]"
-                                },
-                            "protocol": "tcp",
-                            "frontendPort": 50002,
-                            "backendPort": 3389,
-                            "enableFloatingIP": false
-                        }
-                    }
-                ],
-                "loadBalancingRules": [
-                    {
-                        "name": "LBRule",
-                        "properties": {
-                            "frontendIPConfiguration": {
-                                "id": "[variables('frontEndIPConfigID')]"
-                            },
-                            "backendAddressPool": {
-                                "id": "[variables('lbPoolID')]"
-                            },
-                            "protocol": "tcp",
-                            "frontendPort": 80,
-                            "backendPort": 80,
-                            "enableFloatingIP": false,
-                            "idleTimeoutInMinutes": 5,
-                            "probe": {
-                                "id": "[variables('lbProbeID')]"
-                            }
-                        }
-                    }
-                ],
-                "probes": [
-                    {
-                        "name": "tcpProbe",
-                        "properties": {
-                            "protocol": "tcp",
-                            "port": 80,
-                            "intervalInSeconds": "5",
-                            "numberOfProbes": "2"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Compute/virtualMachines",
-            "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
-            "copy": {
-                "name": "virtualMachineLoop",
-                "count": "[variables('numberOfInstances')]"
-            },
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
-                "[concat('Microsoft.Network/networkInterfaces/', parameters('nicNamePrefix'), copyindex())]",
-                "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
-            ],
-            "properties": {
-                "availabilitySet": {
-                    "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-                },
-                "hardwareProfile": {
-                    "vmSize": "[parameters('vmSize')]"
-                },
-                "osProfile": {
-                    "computername": "[concat(parameters('vmNamePrefix'), copyIndex())]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                },
-                "storageProfile": {
-                    "sourceImage": {
-                        "id": "[variables('sourceImageName')]"
-                    },
-                    "destinationVhdsContainer": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/')]"
-                },
-                "networkProfile": {
-                    "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'),copyindex()))]"
+                            "name": "RDP-VM2",
+                            "properties": {
+                                "frontendIPConfiguration":
+                                    {
+                                        "id": "[variables('frontEndIPConfigID')]"
+                                    },
+                                "protocol": "tcp",
+                                "frontendPort": 50002,
+                                "backendPort": 3389,
+                                "enableFloatingIP": false
+                            }
+                        }
+                    ],
+                    "loadBalancingRules": [
+                        {
+                            "name": "LBRule",
+                            "properties": {
+                                "frontendIPConfiguration": {
+                                    "id": "[variables('frontEndIPConfigID')]"
+                                },
+                                "backendAddressPool": {
+                                    "id": "[variables('lbPoolID')]"
+                                },
+                                "protocol": "tcp",
+                                "frontendPort": 80,
+                                "backendPort": 80,
+                                "enableFloatingIP": false,
+                                "idleTimeoutInMinutes": 5,
+                                "probe": {
+                                    "id": "[variables('lbProbeID')]"
+                                }
+                            }
+                        }
+                    ],
+                    "probes": [
+                        {
+                            "name": "tcpProbe",
+                            "properties": {
+                                "protocol": "tcp",
+                                "port": 80,
+                                "intervalInSeconds": "5",
+                                "numberOfProbes": "2"
+                            }
                         }
                     ]
                 }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Compute/virtualMachines",
+                "name": "[concat(parameters('vmNamePrefix'), copyindex())]",
+                "copy": {
+                    "name": "virtualMachineLoop",
+                    "count": "[variables('numberOfInstances')]"
+                },
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                    "[concat('Microsoft.Network/networkInterfaces/', parameters('nicNamePrefix'), copyindex())]",
+                    "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]"
+                ],
+                "properties": {
+                    "availabilitySet": {
+                        "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
+                    },
+                    "hardwareProfile": {
+                        "vmSize": "[parameters('vmSize')]"
+                    },
+                    "osProfile": {
+                        "computername": "[concat(parameters('vmNamePrefix'), copyIndex())]",
+                        "adminUsername": "[parameters('adminUsername')]",
+                        "adminPassword": "[parameters('adminPassword')]"
+                    },
+                    "storageProfile": {
+                        "sourceImage": {
+                            "id": "[variables('sourceImageName')]"
+                        },
+                        "destinationVhdsContainer": "[concat('http://',parameters('storageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/')]"
+                    },
+                    "networkProfile": {
+                        "networkInterfaces": [
+                            {
+                                "id": "[resourceId('Microsoft.Network/networkInterfaces',concat(parameters('nicNamePrefix'),copyindex()))]"
+                            }
+                        ]
+                    }
+                }
             }
-        }
-    ]
-}
+        ]
+    }
 
 ### Step 2: Create the deployment with the template.
 
@@ -981,50 +981,54 @@ Create a resource group for the template using `azure group create <location>`, 
     info:    group create command OK
     
 
-When you run the New-AzureResourceGroupDeployment command, you will be prompted to supply the values of parameters of the JSON file. When you have specified all the parameter values, the command creates the resource group and the deployment. 
+Now use the `azure group deployment create` command and the `--template-uri` option to deploy the template. Be ready with your parameter values when it prompts you, as below. 
 
-    azure group deployment create --template-file azuredeploy.json lbgroup lbdeployment
+    azure group deployment create \
+    > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json \
+    > lbgroup \
+    > newdeployment
     info:    Executing command group deployment create
     info:    Supply values for the following parameters
-    region: westus
-    storageAccountName: sldkfjlkjlksslkjslkjd
+    location: westus
+    newStorageAccountName: storagename
     adminUsername: ops
-    adminPassword: Pa$$W0rd1
-    dnsNameforLBIP: lskdjfrandom
-    
-You would see something like this.
-	
+    adminPassword: password
+    dnsNameforLBIP: lbdomainname
     + Initializing template configurations and parameters                          
     + Creating a deployment                                                        
-    info:    Created template deployment "lbdeployment"
+    info:    Created template deployment "newdeployment"
     + Registering providers                                                        
     info:    Registering provider microsoft.storage
     info:    Registering provider microsoft.compute
     info:    Registering provider microsoft.network
     + Waiting for deployment to complete                                           
-    error:   Deployment provisioning state was not successful
-    data:    DeploymentName     : lbdeployment
+    data:    DeploymentName     : newdeployment
     data:    ResourceGroupName  : lbgroup
     data:    ProvisioningState  : Succeeded
-    data:    Timestamp          : 2015-04-28T15:32:45.6780013Z
+    data:    Timestamp          : 2015-04-28T20:58:40.1678876Z
     data:    Mode               : Incremental
-    data:    Name                 Type          Value                                                                             
-    data:    -------------------  ------------  ----------------------------------------------------------------------------------
-    data:    region               String        westus                                                                            
-    data:    storageAccountName   String        lbstorageaccount                                                                  
-    data:    adminUsername        String        ops                                                                               
-    data:    adminPassword        SecureString  undefined                                                                         
-    data:    dnsNameforLBIP       String        lbdeployment                                                                         
-    data:    backendPort          Int           3389                                                                              
-    data:    vmNamePrefix         String        myVM                                                                              
-    data:    vmSourceImageName    String        a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201412.01-en.us-127GB.vhd
-    data:    lbName               String        myLB                                                                              
-    data:    nicNamePrefix        String        nic                                                                               
-    data:    publicIPAddressName  String        myPublicIP                                                                        
-    data:    vnetName             String        myVNET                                                                            
-    data:    vmSize               String        Standard_A1                                                                       
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
+    data:    ContentVersion     : 1.0.0.0
+    data:    Name                   Type          Value                 
+    data:    ---------------------  ------------  ----------------------
+    data:    location               String        westus                
+    data:    newStorageAccountName  String        storagename         
+    data:    adminUsername          String        ops                   
+    data:    adminPassword          SecureString  undefined             
+    data:    dnsNameforLBIP         String        lbdomainname         
+    data:    backendPort            Int           3389                  
+    data:    vmNamePrefix           String        myVM                  
+    data:    imagePublisher         String        MicrosoftWindowsServer
+    data:    imageOffer             String        WindowsServer         
+    data:    imageSKU               String        2012-R2-Datacenter    
+    data:    lbName                 String        myLB                  
+    data:    nicNamePrefix          String        nic                   
+    data:    publicIPAddressName    String        myPublicIP            
+    data:    vnetName               String        myVNET                
+    data:    vmSize                 String        Standard_A1           
     info:    group deployment create command OK
     
+Note that this template deploys a Windows Server image; however, it could easily be replaced by any Linux image, too. 
 
 ## Remove a resource group
 
@@ -1042,7 +1046,15 @@ This one is quite common while creating or using templates. The call to display 
 
 To target specific failures, for example, you might use tools like **jq** to query things a bit more precisely, such as which individual failures you need to correct. The following example uses **jq** to parse a deployment log for the **lbgroup**, looking for failures
 
- azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
+    azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
+
+You can discover very quickly what went wrong, fix, and retry. In the following case, the template had been creating two VMs at the same time, which created a lock on the .vhd. (After modifying the template, the deployment succeeded quickly.)
+
+    {
+      "statusCode": "Conflict",
+      "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+    }
+    
 
 ## Display information about a virtual machine
 
