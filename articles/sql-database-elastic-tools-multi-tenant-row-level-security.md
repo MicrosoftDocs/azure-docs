@@ -33,7 +33,7 @@ In short, the elastic database client library’s data dependent routing APIs au
 
 * Use Visual Studio (2012 or higher) 
 * Create three Azure SQL Databases 
-* Download sample project: Elastic DB Tools for Azure SQL - Multi-Tenant Shards [TODO]
+* Download sample project: [Elastic DB Tools for Azure SQL - Multi-Tenant Shards](http://go.microsoft.com/?linkid=9888163)
 
 	Fill in the information for your databases at the beginning of Program.cs 
 

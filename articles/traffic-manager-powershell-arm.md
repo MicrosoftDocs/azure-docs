@@ -54,6 +54,7 @@ As the Azure Resource Manager support for Traffic Manager is a Preview service, 
 
 - 	The REST API does not support PATCHing of Traffic Manager profiles.  To update a profile property, you must GET the profile, and PUT the modified profile.
 - 	Only ‘external’ endpoints are supported.  These can still be used to use Traffic Manager with Azure-based services, and when doing so those endpoints will be billed at the internal endpoint rate.  (The only impact of using external endpoints is that they will not be disabled or deleted automatically if the underlying Azure service is disabled or deleted, instead you will have to disable or delete the endpoint manually).
+-	Azure Traffic Manager is not yet available in the Azure portal, only on the classic portal.
 
 ## Setting up Azure PowerShell
 

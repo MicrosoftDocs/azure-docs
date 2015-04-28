@@ -46,16 +46,16 @@ If you haven't done these yet:
 * Add the Application Insights SDK to your project:
  * [ASP.NET project][greenbrown]
  * [Windows project][windows]
- * [Java project][java] 
+ * [Java project][java]    
  * [JavaScript in each web page][client]   
 
 * In your device or web server code, include:
 
-    *C#:* `using Microsoft.ApplicationInsights;`
+  *C#:* `using Microsoft.ApplicationInsights;`
 
-    *VB:* `Imports Microsoft.ApplicationInsights`
+  *VB:* `Imports Microsoft.ApplicationInsights`
 
-    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+  *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
 * Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
