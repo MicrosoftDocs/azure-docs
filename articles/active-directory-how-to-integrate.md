@@ -28,7 +28,7 @@ There are several ways for your application to integrate with Azure AD.  Take ad
 
 **Reduce sign in friction and reduce support costs**  By using Azure AD to sign in to your application, your users won't have one more name and password to remember.  As a developer, you'll have one less password to store and protect.  Not having to handle forgotten password resets may be a significant savings alone.  Azure AD powers sign in for some of the world's most popular cloud applications, including Office 365 and Microsoft Azure.  With more than 430 million users from nearly 5 million organizations, chances are your user is already signed in to Azure AD.  Learn more about [adding support for Azure AD sign in](active-directory-authentication-scenarios.md).
 
-**Simplify sign up for your application**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing up you application for Azure AD Account login](http://azure.microsoft.com/documentation/articles/mobile-services-how-to-register-active-directory-authentication/) .
+**Simplify sign up for your application**  During sign up for your application, Azure AD can send essential information about a user so that you can pre-fill your sign up form or eliminate it completely.  Users can sign up for your application using their Azure AD account via a familiar consent experience similar to those found in social media and mobile applications.  Any user can sign up and sign in to an application that is integrated with Azure AD without requiring IT involvement.  Learn more about [signing up you application for Azure AD Account login](mobile-services-how-to-register-active-directory-authentication.md) .
 
 ### Browse for Users, Manage User Provisioning, and Control Access to Your Application
 
@@ -38,7 +38,7 @@ There are several ways for your application to integrate with Azure AD.  Take ad
 
 **Use Azure AD to control who has access to your application**  Administrators and application owners in Azure AD can assigning access to applications to specific users and groups.  Using the Graph API, you can read this list and use it to control provisioning and de-provisioning of resources and access within your application.  Learn more about [user assignment to applications](https://msdn.microsoft.com/library/azure/hh967609.aspx) and [group assignment to applications](https://msdn.microsoft.com/library/azure/dn532279.aspx).
 
-**Use Azure AD for Roles Based Access Control**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD.  Role information is sent to your application in sign in tokens and can also be read using the Graph API.  Learn more about [using Azure AD for authorization](http://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/).
+**Use Azure AD for Roles Based Access Control**  Administrators and application owners can assign users and groups to roles that you define when you register your application in Azure AD.  Role information is sent to your application in sign in tokens and can also be read using the Graph API.  Learn more about [using Azure AD for authorization](active-directory-authentication-scenarios.md).
 
 ### Get Access to User's Profile, Calendar, Email, Contacts, Files, and More
 
@@ -74,7 +74,7 @@ Integration with Azure AD comes with benefits that do not require you to write a
 
 ### Easy Development
 
-**Industry standard protocols**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](http://azure.microsoft.com/documentation/services/active-directory/authentication-protocols/).
+**Industry standard protocols**  Microsoft is committed to supporting industry standards.  Azure AD supports the SAML 2.0, OpenID Connect 1.0, OAuth 2.0, and WS-Federation 1.2 authentication protocols.  The Graph API is OData 4.0 compliant.  If your application already supports the SAML 2.0 or OpenID Connect 1.0 protocols for federated sign in, adding support for Azure AD can be straightforward.  Learn more about [Azure AD supported authentication protocols](authentication-protocols.md).
 
 **Open source libraries**  Microsoft provides fully supported open source libraries for popular languages and platforms to speed development.  The source code is licensed under Apache 2.0, and you are free to fork and contribute back to the projects.  Learn more about [Azure AD open source libraries]https://msdn.microsoft.com/library/azure/dn151135.aspx).
 
