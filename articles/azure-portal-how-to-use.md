@@ -35,9 +35,9 @@ You will need a valid Azure subscription to go through this tutorial.  If you do
 
 Azure has a marketplace with thousands of items that you can create from one place.  Let’s say you want to create a new Windows Server 2012 VM.  The +NEW hub is your entry point into a curated set of featured categories from the marketplace.  Each category has a small set of featured items along with a link to the full marketplace that shows all categories and search. To create that new Windows Server 2012 VM, perform the following actions:  
 
-	1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
-	2.	Fill out some basic inputs on a form.
-	3.	Click ‘Create’ and you’re VM will begin to provision immediately. 
+1.	Windows Server 2012 is featured, so you can select it from the Compute category.  
+2.	Fill out some basic inputs on a form.
+3.	Click ‘Create’ and you’re VM will begin to provision immediately. 
 
 The notifications hub will alert you when your resource has been created and a management blade will open (you can always browse to resources later).
 
@@ -54,11 +54,11 @@ You can always pin frequently accessed resources to your startboard, but you mig
 
 From this blade you can connect to the virtual machine using remote desktop, monitor key performance metrics, control access to this VM using role based access (RBAC), configure the VM, and perform other important management tasks.  Delegating access based on role is critical to managing at scale.  Click [here](role-based-access-control-configure.md) to learn more about it. To delegate access to a resource, perform the following actions:
 
-	1.	Browse to your resource.
-	2.	Click ‘All settings’ in the Essentials section.
-	3.	Click ‘Users’ in the settings list.
-	4.	Click ‘Add’ in the command bar.
-	5.	Choose a user and a role.
+1.	Browse to your resource.
+2.	Click ‘All settings’ in the Essentials section.
+3.	Click ‘Users’ in the settings list.
+4.	Click ‘Add’ in the command bar.
+5.	Choose a user and a role.
 
 ![Managing a Resource][ManageResource] 
 
@@ -66,10 +66,10 @@ From this blade you can connect to the virtual machine using remote desktop, mon
 
 Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
 
-	1.	Browse to your resource.
-	2.	Click the ‘…’ at the top of the blade you want to customize.
-	3.	Click ‘Add parts’.
-	4.	Start dragging and dropping parts.  
+1.	Browse to your resource.
+2.	Click the ‘…’ at the top of the blade you want to customize.
+3.	Click ‘Add parts’.
+4.	Start dragging and dropping parts.  
 
 ![Customizing Blades][CustomizeBlades]
 
@@ -82,14 +82,13 @@ If you ever have a problem, we’re here for you.  The portal has a help and sup
 ## Summary
 
 Let’s review what you learned in this tutorial:
-
-•	You learned how to sign up, get a subscription, and browse to the portal
-•	You got oriented with the portal UI and learned how to create and browse resources
-•	You learned how to create a resource and browse resources
-•	You learned about the structure or management blades and how you can consistently manage different types of resources
-•	You learned how to customize the portal to bring the information you care about to the front and center
-•	You learned how to control access to resources using role based access (RBAC)
-•	You learned how to get help and support
+- You learned how to sign up, get a subscription, and browse to the portal
+- You got oriented with the portal UI and learned how to create and browse resources
+- You learned how to create a resource and browse resources
+- You learned about the structure or management blades and how you can consistently manage different types of resources
+- You learned how to customize the portal to bring the information you care about to the front and center
+- You learned how to control access to resources using role based access (RBAC)
+- You learned how to get help and support
 
 The Microsoft Azure portal radically simplifies building and managing your applications in the cloud.  Take a look at the [management blog](http://azure.microsoft.com/blog/topics/management/) to keep up to date as we’re constantly [listening to feedback](http://feedback.azure.com/forums/223579-azure-preview-portal) and making improvements.  [ScottGu’s blog](http://weblogs.asp.net/scottgu) is another great place to look for all Azure updates.
 
