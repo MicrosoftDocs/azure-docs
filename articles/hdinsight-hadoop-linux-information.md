@@ -22,7 +22,7 @@ Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environm
 
 ## Domain names
 
-The fully qualified domain name (FQDN) to use when connecting to the cluster is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername>.aurehdinsight.net**.
+The fully qualified domain name (FQDN) to use when connecting to the cluster is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername-ssh>.azurehdinsight.net**.
 
 ## Remote access to services
 
