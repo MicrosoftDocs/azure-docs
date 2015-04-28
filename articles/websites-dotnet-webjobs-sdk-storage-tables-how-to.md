@@ -1,30 +1,30 @@
 <properties 
 	pageTitle="How to use Azure table storage with the WebJobs SDK" 
 	description="Learn how to use Azure table storage with the WebJobs SDK. Create tables, add entities to tables, and read existing tables." 
-	services="web-sites, storage" 
+	services="app-service\web, storage" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure table storage with the WebJobs SDK
 
 ## Overview
 
-This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](../websites-dotnet-webjobs-sdk/) version 1.x.
+This guide provides C# code samples that show how to read and write Azure storage tables by using [WebJobs SDK](websites-dotnet-webjobs-sdk.md) version 1.x.
 
-The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](../websites-dotnet-webjobs-sdk-get-started/).
+The guide assumes you know [how to create a WebJob project in Visual Studio with connection strings that point to your storage account](websites-dotnet-webjobs-sdk-get-started.md).
 		
-Some of the code snippets show the `Table` attribute used in functions that are [called manually](../websites-dotnet-webjobs-sdk-storage-queues-how-to/#manual), that is, not by using one of the trigger attributes. 
+Some of the code snippets show the `Table` attribute used in functions that are [called manually](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), that is, not by using one of the trigger attributes. 
 
 ## <a id="ingress"></a> How to add entities to a table
 
@@ -141,11 +141,11 @@ The following code sample uses a `CloudTable` object to add a single entity to t
 		    tableBinding.Execute(insertOperation);
 		}
 
-For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](../storage-dotnet-how-to-use-tables/). 
+For more information about how to use the `CloudTable` object, see [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md). 
 
 ## <a id="queues"></a>Related topics covered by the queues how-to article
 
-For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+For information about how to handle table processing triggered by a queue message, or for WebJobs SDK scenarios not specific to table processing, see [How to use Azure queue storage with the WebJobs SDK](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Topics covered in that article include the following:
 

@@ -17,7 +17,7 @@
 	ms.author="rasquill"/>
 
 # The Docker Virtual Machine Extension for Linux on Azure
-[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) to create a Docker VM that hosts any number of containers for your applications on Azure.
+[Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses [Linux containers](http://en.wikipedia.org/wiki/LXC) rather than virtual machines as a way of isolating data and computing on shared resources. You can use the Docker VM extension to the [Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) to create a Docker VM that hosts any number of containers for your applications on Azure.
 
 This topic describes:
 
@@ -67,7 +67,7 @@ To create Docker-enabled VMs right now, see:
 + [How to use the Docker VM Extension with the Azure Portal]
 
 ## <a id='Virtual Machine Extensions for Linux and Windows'>Virtual Machine Extensions for Linux and Windows</a>
-The Docker VM extension for Azure is just one of several VM extensions that provide special behaviour, and more are in development. For example, several of the [Linux VM Agent extension](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) features allow you to modify and manage the Virtual Machine, including security features, kernel and networking features, and so on. The VMAccess extension for example lets you reset the administrator password or SSH key.
+The Docker VM extension for Azure is just one of several VM extensions that provide special behaviour, and more are in development. For example, several of the [Linux VM Agent extension](virtual-machines-linux-agent-user-guide.md) features allow you to modify and manage the Virtual Machine, including security features, kernel and networking features, and so on. The VMAccess extension for example lets you reset the administrator password or SSH key.
 
 For a complete list, see [Azure VM Extensions](http://msdn.microsoft.com/library/azure/dn606311.aspx).
 

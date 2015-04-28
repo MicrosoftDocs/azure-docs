@@ -25,7 +25,7 @@ The **Azure Media Services .NET SDK** library enables you to program against Med
 
 ##Prerequisites
 
--   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](../media-services-create-account/).
+-   A Media Services account in a new or existing Azure subscription. See the topic [How to Create a Media Services Account](media-services-create-account.md).
 -   Operating Systems: Windows 7, Windows 2008 R2, or Windows 8.
 -   .NET Framework 4.5.
 -   Visual Studio 2013, Visual Studio 2012, or Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express). 

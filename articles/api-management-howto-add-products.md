@@ -137,10 +137,10 @@ Once the desired APIs are added and the product published, developers can subscr
 [api-management-]: ./media/api-management-howto-add-products/
 
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Next steps]: #next-steps
-[How to create and use groups to manage developer accounts in Azure API Management]: ../api-management-howto-create-groups
-[How create and configure advanced product settings in Azure API Management]: ../api-management-howto-product-with-rules
+[How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
+[How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md

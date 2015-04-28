@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="DocumentDB programming: Stored procedures, triggers, and UDFs | Azure" 
 	description="Find out how to use Microsoft Azure DocumentDB to write stored procedures, triggers, and user defined functions (UDFs) natively in JavaScript." 
 	services="documentdb" 
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/23/2015" 
 	ms.author="mimig"/>
 
 # DocumentDB programming: Stored procedures, triggers, and UDFs
 
 Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write application logic that can be shipped and executed directly on the database storage partitions 
 
-By reading this article, you'll be able to answer the following questions:
+We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side programming model. 
+
+> [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
+
+Then, return to this article, where you'll learn the answers to the following questions:  
 
 - How do I write a a stored procedure, trigger, or UDF using JavaScript?
 - How does DocumentDB guarantee ACID?
@@ -142,7 +146,7 @@ Note that this stored procedure can be modified to take an array of document bod
 The example described demonstrated how to use stored procedures. We will cover triggers and user defined functions (UDFs) later in the tutorial. First, lets look at the general characteristics of the scripting support in DocumentDB.  
 
 ##Runtime Support
-[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](../documentdb-interactions-with-resources.md).
+[DocumentDB JavaScript server side SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/) provides support for the most of the mainstream JavaScript language features as standardized by [ECMA-262](documentdb-interactions-with-resources.md).
  
 ##Transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation and Durability.  
@@ -403,7 +407,7 @@ The UDF can subsequently be used in queries like in the following sample:
 		.then(function(response) { 
 		    console.log("Created", response.resource);
 	
-		    var query = 'SELECT * FROM TaxPayers t WHERE tax(t.income) > 20000'; 
+		    var query = 'SELECT * FROM TaxPayers t WHERE udf.tax(t.income) > 20000'; 
 		    return client.queryDocuments(collection.self,
 	               query).toArrayAsync();
 		}, function(error) {
@@ -601,7 +605,7 @@ This sample shows how to use the [.NET SDK](https://msdn.microsoft.com/library/a
 	    });
 
 
-And the following example shows how to create a user defined function (UDF) and use it in a [DocumentDB SQL query](../documentdb-sql-query.md).
+And the following example shows how to create a user defined function (UDF) and use it in a [DocumentDB SQL query](documentdb-sql-query.md).
 
 	UserDefinedFunction function = new UserDefinedFunction()
 	{
@@ -613,7 +617,7 @@ And the following example shows how to create a user defined function (UDF) and 
 	};
 	
 	foreach (Book book in client.CreateDocumentQuery(collection.SelfLink,
-	    "SELECT * FROM Books b WHERE LOWER(b.Title) = 'war and peace'"))
+	    "SELECT * FROM Books b WHERE udf.LOWER(b.Title) = 'war and peace'"))
 	{
 	    Console.WriteLine("Read {0} from query", book);
 	}

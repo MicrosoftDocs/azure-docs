@@ -2,7 +2,7 @@
 	pageTitle="Get Started with Azure Mobile Services for Windows Phone apps" 
 	description="Follow this tutorial to get started using Azure Mobile Services for Windows Phone development." 
 	services="mobile-services" 
-	documentationCenter="windows" 
+	documentationCenter="mobile-services" 
 	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/22/2014" 
+	ms.date="04/16/2015" 
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 
-This topic is no longer supported; a Windows Phone 8.0 quickstart project is no longer available for download from the portal. To add Mobile Services to an existing Windows Phone 8.0 or Windows Phone 8.1 Silverlight app, see the topic [Add Mobile Services to an existing app ](/documentation/articles/mobile-services-windows-phone-get-started-data/). 
+This topic is no longer supported; a Windows Phone 8.0 quickstart project is no longer available for download from the portal. To add Mobile Services to an existing Windows Phone 8.0 or Windows Phone 8.1 Silverlight app, see the topic [Add Mobile Services to an existing app ](mobile-services-windows-phone-get-started-data.md). 
 
-A quickstart project download is available for Windows Phone Store 8.1 apps as part of an universal Windows project. For more information, see [Get started with Mobile Services](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+A quickstart project download is available for Windows Phone Store 8.1 apps as part of an universal Windows project. For more information, see [Get started with Mobile Services](mobile-services-javascript-backend-windows-store-dotnet-get-started.md). 

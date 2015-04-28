@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Continuous delivery with Visual Studio Online in Azure" 
 	description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -19,7 +19,7 @@
 
 # Continuous delivery to Azure using Visual Studio Online
 
-  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](../cloud-services-dotnet-continuous-delivery).)
+  You can configure your Visual Studio Online team projects to automatically build and deploy to Azure web apps or cloud services.  (For information on how to set up a continuous build and deploy system using an *on-premises* Team Foundation Server, see [Continuous Delivery for Cloud Services in Azure](cloud-services-dotnet-continuous-delivery.md).)
 
 This tutorial assumes you have Visual Studio 2013 and the Azure SDK installed. If you don't already have Visual Studio 2013, download it by choosing the **Get started for free** link at [www.visualstudio.com](http://www.visualstudio.com). Install the Azure SDK from [here](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -52,7 +52,10 @@ Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to
 You can deploy a website or a cloud service (Azure Application) by following the steps in this walkthrough.
 If you want to create a new solution, create a new Azure Cloud Service project,
 or a new ASP.NET MVC project. Make sure that the project targets .NET Framework 4 or 4.5, and if you are creating a cloud service project, add an ASP.NET MVC web role and a worker role, and choose Internet application for the web role. When prompted, choose **Internet Application**.
-If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure Websites and ASP.NET](http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+If you want to create a website, choose the ASP.NET Web Application project template, and then choose MVC. See [Get started with Azure Websites and ASP.NET](web-sites-dotnet-get-started.md).
+
+> [AZURE.NOTE] Visual Studio Online only support CI deployments of Visual Studio Web Applications at this time. Web Site projects are out of scope.
+
 
 2. Open the context menu for the solution, and select **Add Solution to Source Control**.<br/>
 ![][5]
@@ -241,7 +244,7 @@ This step applies only to websites, not cloud services. To put a quality gate on
 
 For more about unit testing in Visual Studio Online, see [Run unit tests in your build](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publish to Azure Websites with Git](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/).
+For more information, see [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). If you're using Git, see [Share your code in Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) and [Publish to Azure Websites with Git](web-sites-publish-source-control.md).
 
 [Step 1: Create a team project.]: #step1
 [Step 2: Check in a project to source control.]: #step2

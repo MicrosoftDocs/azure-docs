@@ -1,9 +1,10 @@
 <properties 
-	pageTitle="Search diagnostic logs" 
-	description="Search logs generated with Trace, NLog, or Log4Net." 
+	pageTitle="Logs, exceptions and custom diagnostics for ASP.NET in Application Insights" 
+	description="Diagnose issues in ASP.NET web apps by searching requests, exceptions and logs generated with Trace, NLog, or Log4Net." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-01-09" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
-# Search logs, exceptions and custom diagnostics in Application Insights
+# Logs, exceptions and custom diagnostics for ASP.NET in Application Insights
 
 [Application Insights][start] includes a powerful [Diagnostic Search][diagnostic] tool that enables you to explore and drill in to telemetry sent by the Application Insights SDK from your application. Many events such as user page views are automatically sent by the SDK.
 
@@ -36,7 +37,7 @@ The details vary from one application type to another. You can click through any
 
 ##<a name="events"></a>Custom events
 
-Custom events show up both in [Diagnostic Search][diagnostics] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
+Custom events show up both in [Diagnostic Search][diagnostic] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
 
 A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.
 
@@ -151,7 +152,9 @@ You'll see the messages in Diagnostic Search when you select the Trace filter.
 
 Getting exception reports in Application Insights provides a very powerful experience, especially since you can navigate between the failed requests and the exceptions, and read the exception stack.
 
-You can write code to send exception telemetry:
+In some cases, you need to [insert a few lines of code][exceptions] to make sure your exceptions are being caught automatically.
+
+You can also write explicit code to send exception telemetry:
 
 JavaScript
 
@@ -222,7 +225,7 @@ You can also open Diagnostic Search directly, filter on exceptions, and choose t
 
 Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
-However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
+However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. See [Exception telemetry for ASP.NET][exceptions] for details. 
 
 ### Correlating with a build
 
@@ -277,8 +280,16 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[exceptions]: app-insights-web-failures-exceptions.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

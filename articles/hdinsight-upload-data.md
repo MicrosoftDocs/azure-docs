@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
@@ -312,27 +312,27 @@ Now that you understand how to get data into HDInsight, read the following artic
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
-[azure-create-storage-account]: ../storage-create-storage-account/
-[azure-azcopy-download]: http://aka.ms/WaCopy
-[azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
+[azure-create-storage-account]: storage-create-storage-account.md
+[azure-azcopy-download]: storage-use-azcopy.md
+[azure-azcopy]: storage-use-azcopy.md
 
-[hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
+[hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-get-started]: ../hdinsight-get-started/
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
-[hdinsight-use-pig]: ../hdinsight-use-pig
-[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-use-hive]: hdinsight-use-hive.md
+[hdinsight-use-pig]: hdinsight-use-pig.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure/
+[sqldatabase-create-configue]: sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: ../install-configure-powershell/
+[Powershell-install-configure]: install-configure-powershell.md
 
-[xplatcli]: ../xplat-cli/
+[xplatcli]: xplat-cli.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png

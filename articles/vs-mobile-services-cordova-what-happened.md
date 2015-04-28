@@ -3,22 +3,24 @@
 	description="Describes what happened to your Azure Mobile Service project in Cordova" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea123" 
+	authors="patshea" 
 	manager="douge" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="02/02/2015" 
 	ms.author="patshea"/>
 
+# What happened to my project?
+
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-mobile-services-cordova-getting-started/)
-> - [What Happened](/documentation/articles/vs-mobile-services-cordova-what-happened/)
+> - [Getting Started](vs-mobile-services-cordova-getting-started.md)
+> - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

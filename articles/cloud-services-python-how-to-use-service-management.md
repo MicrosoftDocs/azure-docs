@@ -398,9 +398,9 @@ To finally create the virtual machine using the captured image, use the **create
 		role_size='Small',
 		vm_image_name = image_name)
 
-To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-capture-image/)
+To learn more about how to capture a Linux Virtual Machine, see [How to Capture a Linux Virtual Machine.](virtual-machines-linux-capture-image.md)
 
-To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-capture-image-windows-server/)
+To learn more about how to capture a Windows Virtual Machine, see [How to Capture a Windows Virtual Machine.](virtual-machines-capture-image-windows-server.md)
 
 ## <a name="What's Next"> </a>Next Steps
 

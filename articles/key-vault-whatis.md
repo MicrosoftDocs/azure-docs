@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What is Azure Key Vault? | Overview" 
 	description="Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Azure Key Vault, customers can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs)." 
-	services="Key-Vault" 
+	services="key-vault" 
 	documentationCenter="" 
 	authors="cabailey" 
 	manager="mbaldwin"/>
@@ -56,7 +56,7 @@ Developers can also manage the keys directly, by using  APIs. For more informati
 
 ## Next Steps
 
-For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](../key-vault-get-started).
+For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
 
 For more information about using keys and secrets with Azure Key Vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 

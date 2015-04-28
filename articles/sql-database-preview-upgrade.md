@@ -55,7 +55,7 @@ Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a 
 # Related Links  #
 
 -  [What's new in the SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/)
-- [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-plan-prepare-upgrade/)
+- [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](sql-database-preview-plan-prepare-upgrade.md)
 
 
 <!--Image references-->

@@ -95,6 +95,6 @@ Click on the "Welcome" page to edit what is displayed on the home page of the de
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Get started with advanced API configuration]: ../api-management-get-started-advanced
+[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/

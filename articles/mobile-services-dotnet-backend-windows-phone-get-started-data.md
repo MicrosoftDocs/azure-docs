@@ -339,10 +339,10 @@ Once you have completed the data series, try one of these other tutorials:
 <!-- URLs. -->
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-wp8
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-data-js
 [JavaScript backend version]: /develop/mobile/tutorials/get-started-with-data-wp8
 

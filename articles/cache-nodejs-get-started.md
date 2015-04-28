@@ -89,5 +89,5 @@ Output:
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-[Build a Node.js Chat Application with Socket.IO on an Azure Website]: ../web-sites-nodejs-chat-app-socketio
+[Build a Node.js Chat Application with Socket.IO on an Azure Website]: web-sites-nodejs-chat-app-socketio.md
 

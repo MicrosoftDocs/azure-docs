@@ -117,16 +117,16 @@ For more details on using Azure services from your web and worker roles, such as
 <!--Link references-->
 
 [What is a Cloud Service?]: /manage/services/cloud-services/what-is-a-cloud-service/
-[execution model-web sites]: ../fundamentals-application-models/#WebSites
-[execution model-vms]: ../fundamentals-application-models/#VMachine
-[execution model-cloud services]: ../fundamentals-application-models/#CloudServices
+[execution model-web sites]: fundamentals-application-models.md#WebSites
+[execution model-vms]: fundamentals-application-models.md#VMachine
+[execution model-cloud services]: fundamentals-application-models.md#CloudServices
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage-python-how-to-use-blob-storage/
-[Queue Service]: ../storage-python-how-to-use-queue-storage/
-[Table Service]: ../storage-python-how-to-use-table-storage/
-[Service Bus Queues]: ../service-bus-python-how-to-use-queues/
-[Service Bus Topics]: ../service-bus-python-how-to-use-topics-subscriptions/
+[Blob Service]: storage-python-how-to-use-blob-storage.md
+[Queue Service]: storage-python-how-to-use-queue-storage.md
+[Table Service]: storage-python-how-to-use-table-storage.md
+[Service Bus Queues]: service-bus-python-how-to-use-queues.md
+[Service Bus Topics]: service-bus-python-how-to-use-topics-subscriptions.md
 
 
 <!--External Link references-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 # What is Azure Machine Learning Studio?
@@ -53,8 +53,8 @@ An experiment consists of datasets that provide data to analytical modules, whic
 - All input ports for modules must have some connection to the data flow. 
 - All required parameters for a module must be set. 
 
-For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). 
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
 
 ### Datasets
 
@@ -70,10 +70,10 @@ As you build an experiment, the working list of datasets is available to the lef
 
 A module is an algorithm that you can perform on your data. Machine Learning Studio has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
 
-- **Convert to ARFF** - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF). 
-- **Elementary Statistics** - Calculates elementary statistics such as mean, standard deviation, etc. 
-- **Linear Regression** - Creates an online gradient descent-based linear regression model. 
-- **Score Model** - Scores a trained classification or regression model. 
+- [Convert to ARFF][convert-to-arff] - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF). 
+- [Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc. 
+- [Linear Regression][linear-regression] - Creates an online gradient descent-based linear regression model. 
+- [Score Model][score-model] - Scores a trained classification or regression model. 
 
 As you build an experiment, the working list of modules is available to the left of the canvas. 
 
@@ -81,3 +81,10 @@ A module may have a set of parameters that you can use to configure the module's
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+
+<!-- Module References -->
+[convert-to-arff]: https://msdn.microsoft.com/library/azure/62d2cece-d832-4a7a-a0bd-f01f03af0960/
+[elementary-statistics]: https://msdn.microsoft.com/library/azure/3086b8d4-c895-45ba-8aa9-34f0c944d4d3/
+[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

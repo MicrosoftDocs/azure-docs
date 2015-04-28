@@ -2,8 +2,9 @@
 	pageTitle="Using Diagnostic Search" 
 	description="Search and filter individual events, requests, and log traces." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2015-02-04" 
+	ms.date="04/22/2015" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
@@ -39,7 +40,7 @@ The main body of Diagnostic Search is a list of telemetry items - server request
 
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
 
-![Open diagnostic search](./media/appinsights/appinsights-32detail.png)
+![Open diagnostic search](./media/app-insights-diagnostic-search/10-detail.png)
 
 To find the full set of fields, use plain strings (without wildcards). The available fields depend on the type of telemetry.
 
@@ -74,9 +75,11 @@ Choosing no values of a particular property has the same effect as choosing all 
 
 Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
 
-In this example, it's clear that the Order/Payment request results in the majority of the 500 errors:
+In this example, it's clear that the `Reports/Employees` request results in the majority of the 500 errors:
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
+
+Additionally if you want to also see what other events were happening during this time, you can check **Include events with undefined properties**.
 
 ## Inspect individual occurrences
 
@@ -90,6 +93,19 @@ Click through an exception to see its detail.
 
 ![Click an exception](./media/app-insights-diagnostic-search/06-callStack.png)
 
+## Find events with the same property
+
+Find all the items with the same property value:
+
+![Right-click a property](./media/app-insights-diagnostic-search/12-samevalue.png)
+
+## Search by metric value
+
+Get all the requests response time > 5s.  Times are represented in ticks: 10 000 ticks = 1ms.
+
+!["Response time":(threshold TO *)](./media/app-insights-diagnostic-search/11-responsetime.png)
+
+
 
 ## <a name="search"></a>Search the data
 
@@ -101,115 +117,47 @@ You might want to set a time range, as searches over a shorter range are faster.
 
 Search for terms, not substrings. Terms are alphanumeric strings including some punctuation such as '.' and '_'. For example:
 
-<table>
-  <tr><th>term</th><th>is NOT matched by</th><th>but these do match</th></tr>
-  <tr><td>HomeController.About</td><td>about<br/>home</td><td>h*about<br/>home*</td></tr>
-  <tr><td>IsLocal</td><td>local<br/>is<br/>*local</td><td>isl*<br/>islocal<br/>i*l</td></tr>
-  <tr><td>New Delay</td><td>w d</td><td>new<br/>delay<br/>n* AND d*</td></tr>
-</table>
+term|is *not* matched by|but these do match
+---|---|---
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
+
 
 Here are the search expressions you can use:
 
-<table>
-                    <tr>
-                      <th>
-                        <p>Sample query</p>
-                      </th>
-                      <th>
-                        <p>Effect</p>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">slow</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find all events in the date range whose fields include the term "slow"</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">database??</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database01, databaseAB, ...</p>
-                        <p>? is not allowed at the start of a search term.</p>
-                      </td>
-                    </tr>
-                     <tr>
-                      <td>
-                        <p>
-                          <span class="code">database*</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Matches database, database01, databaseNNNN</p>
-                        <p>* is not allowed at the start of a search term</p>
-                      </td>
-                    </tr>
-                   <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple AND banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain both terms. Use capital "AND", not "and".</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple OR banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain either term. Use "OR", not "or".</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>
-                          <span class="code">apple NOT banana</span>
-                        </p>
-                        <p>
-                          <span class="code">apple -banana</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Find events that contain one term but not the other.</p>
-                        <p>Short form.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>app* AND banana NOT (grape OR pear)</p>
-                        <p>
-                          <span class="code">app* AND banana -(grape pear)</span>
-                        </p>
-                      </td>
-                      <td>
-                        <p>Logical operators and bracketing.</p>
-                        <p>Shorter form.</p>
-                      </td>
-                    </tr>
+Sample query | Effect 
+---|---
+slow|Find all events in the date range whose fields include the term "slow"
+database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
+database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
+apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
+apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
+app* AND banana -(grape pear)|Logical operators and bracketing.
+"Metric": 0 TO 500<br/>"Metric" : 500 TO * | Find events that contain the named measurement within the value range.
 
-</table>
+
+## Save your search
+
+When you've set all the filters you want, you can save the search as a favorite. If you work in an organizational account, you can choose whether to share it with other team members.
+
+![Click Favorite, set the name, and click Save](./media/app-insights-diagnostic-search/08-favorite-save.png)
+
+
+To see the search again, **go to the overview blade** and open Favorites:
+
+![Favorites tile](./media/app-insights-diagnostic-search/09-favorite-get.png)
+
+If you saved with Relative time range, the re-opened blade has the latest data. If you saved with Absolute time range, you see the same data every time.
+
 
 ## Send more telemetry to Application Insights
 
 In addition to the out-of-the-box telemetry sent by Application Insights SDK, you can:
 
-* Capture log traces from your favorite logging framework. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
-* Write code to send custom events, page views, and exceptions. 
+* Capture log traces from your favorite logging framework in [.NET][netlogs] or [Java][javalogs]. This means you can search through your log traces and correlate them with page views, exceptions, and other events. 
+* [Write code][track] to send custom events, page views, and exceptions. 
 
 [Learn how to send logs and custom telemetry to Application Insights][trace].
 
@@ -219,6 +167,10 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 ### <a name="limits"></a>How much data is retained?
 
 Up to 500 events per second from each application. Events are retained for seven days.
+
+### How can I see POST data in my server requests?
+
+We don't log the POST data automatically, but you can use [TrackTrace or log calls][trace]. Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
 
@@ -230,8 +182,13 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[javalogs]: app-insights-java-trace-logs.md
+[netlogs]: app-insights-asp-net-trace-logs.md
+[qna]: app-insights-troubleshoot-faq.md
+[start]: app-insights-get-started.md
+[trace]: app-insights-search-diagnostic-logs.md
+[track]: app-insights-custom-events-metrics-api.md
 

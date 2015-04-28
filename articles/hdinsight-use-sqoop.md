@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/12/2014" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
-# Use Sqoop with Hadoop in HDInsight
+#Use Sqoop with Hadoop in HDInsight
  
 Learn how to use Azure PowerShell and the HDInsight .NET SDK from a workstation to run Sqoop to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
 
-## <a id="whatissqoop"></a> What is Sqoop?
+##What is Sqoop?
 
 Although Hadoop is a natural choice for processing unstructured and semistructured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.
 
@@ -32,7 +32,7 @@ For Sqoop versions that are supported on HDInsight clusters, see [What's new in 
 
 
 
-##<a id="prerequisites"></a>Prerequisites
+##Prerequisites
 
 Before you begin this tutorial, you must have the following:
 
@@ -71,7 +71,7 @@ Before you begin this tutorial, you must have the following:
 
 		* When you are using SQL Server on an Azure virtual machine, any virtual network configuration can be used if the virtual machine hosting SQL Server is a member of the same virtual network as HDInsight.
 
-	* To provision an HDInsight cluster on a virtual network, see [Provision Hadoop clusters in HDInsight using custom options](/documentation/articles/hdinsight-provision-clusters/)
+	* To provision an HDInsight cluster on a virtual network, see [Provision Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md)
 
 	> [AZURE.NOTE] SQL Server must also allow authentication. You must use a SQL Server login to complete the steps in this article.
 
@@ -86,7 +86,7 @@ Before you begin this tutorial, you must have the following:
 
 > [AZURE.NOTE] Fill-in the values in the previous tables. It will be helpful for going through this tutorial.
 
-## <a id="scenario"></a>Understand the scenario
+##Understand the scenario
 An HDInsight cluster comes with some sample data. You will use the following two samples:
 
 - A log4j log file, which is located at */example/data/sample.log*. The following logs are extracted from the file:
@@ -143,7 +143,7 @@ If you want to access the file directly from the storage account, the blob name 
 	example/data/sample.log
 
 
-##<a id="prepare"></a>Prepare the tutorial
+##Prepare the tutorial
 
 You will create two tables in the Azure SQL database or in SQL Server. These are used by Sqoop to export later in the tutorial. You also need to process the sample.log files before they can be processed by Sqoop.
 
@@ -347,14 +347,14 @@ This is fine for other examples that use this data, but we must remove these exc
 6. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample for using Azure PowerShell to download a file and display the file content.
 
 
-##<a id="export"></a>Use PowerShell to run Sqoop export
+##Use PowerShell to run Sqoop export
 
 In this section, you will use Azure PowerShell to run the Sqoop export command to export a Hive table and a data file to an Azure SQL database or to SQL Server. The next section provides an HDInsight .NET sample.
 
 > [AZURE.NOTE] Other than connection string information, the steps in this section should work for an Azure SQL database or for SQL Server. These steps were tested by using the following configuration:
 > 
 > * **Azure virtual network point-to-site configuration**: A virtual network connected the HDInsight cluster to a SQL Server in a private datacenter. See [Configure a Point-to-Site VPN in the Management Portal](http://msdn.microsoft.com/library/azure/dn133792.aspx) for more information.
-> * **Azure HDInsight 3.1**: See [Provision Hadoop clusters in HDInsight using custom options](/documentation/articles/hdinsight-provision-clusters/) for information about creating a cluster on a virtual network.
+> * **Azure HDInsight 3.1**: See [Provision Hadoop clusters in HDInsight using custom options](hdinsight-provision-clusters.md) for information about creating a cluster on a virtual network.
 > * **SQL Server 2014**: Configured to allow authentication and running the VPN client configuration package to connect securely to the virtual network.
 
 **To export the log4j log file**
@@ -464,7 +464,7 @@ In this section, you will use Azure PowerShell to run the Sqoop export command t
 
 
 
-##<a id="export-sdk"></a>Use the HDInsight .NET SDK to run Sqoop export
+##Use the HDInsight .NET SDK to run Sqoop export
 
 The following is a C# sample that uses the HDInsight .NET SDK to run the Sqoop export. For the general information about using the HDInsight .NET SDK, see [Submit Hadoop jobs programmatically][hdinsight-submit-jobs].
 
@@ -561,7 +561,7 @@ The script file must be located in Azure Blob storage.
 
 
 
-##<a id="import"></a>Use Azure PowerShell to run the Sqoop import
+##Use Azure PowerShell to run the Sqoop import
 
 In this section, you will import the log4j logs (that you exported to the Azure SQL database) back to HDInsight.
 
@@ -614,7 +614,7 @@ In this section, you will import the log4j logs (that you exported to the Azure 
 5. Click **Run Script** or press **F5** to run the script. 
 6. To examine the modified data file, you can use the Azure portal, an Azure Storage explorer tool, or Azure PowerShell.  [Get started with HDInsight][hdinsight-get-started] has a code sample about using Azure PowerShell to download a file and display the file content.
 
-##<a id="nextsteps"></a>Next steps
+##Next steps
 
 Now you have learned how to use Sqoop. To learn more, see:
 
@@ -627,20 +627,20 @@ Now you have learned how to use Sqoop. To learn more, see:
 
 [azure-management-portal]: https://manage.windowsazure.com/
 
-[hdinsight-versions]:  ../hdinsight-component-versioning/
-[hdinsight-provision]: ../hdinsight-provision-clusters/
-[hdinsight-get-started]: ../hdinsight-get-started/
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
-[hdinsight-analyze-flight-data]: ../hdinsight-analyze-flight-delay-data/
-[hdinsight-use-oozie]: ../hdinsight-use-oozie/
-[hdinsight-upload-data]: ../hdinsight-upload-data/
-[hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
+[hdinsight-versions]:  hdinsight-component-versioning.md
+[hdinsight-provision]: hdinsight-provision-clusters.md
+[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
+[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
+[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
-[sqldatabase-get-started]: ../sql-database-get-started/
-[sqldatabase-create-configue]: ../sql-database-create-configure/
+[sqldatabase-get-started]: sql-database-get-started.md
+[sqldatabase-create-configue]: sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: ../install-configure-powershell
+[powershell-install]: install-configure-powershell.md
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

@@ -27,7 +27,7 @@ The policy is
 2. Microsoft will support the **at least the latest two versions of the supported Guest OS families**. 
 3. Microsoft will support the at **least the latest two versions of the Azure SDK**. When a version of the SDK is retired, customers will have 12 months from the official retirement date to update to a newer version. 
 
-At times more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services-guestos-update-matrix).
+At times more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
 
 ## When a Guest OS family or version is retired 
@@ -40,12 +40,12 @@ New Guest OS **versions** are introduced about every month to incorporate the la
 ### Process during a Guest OS family retirement 
 
 
-Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services-guestos-update-matrix).
+Once the retirement is announced, customers have a 12 month "transition" period before the older family is officially removed from service. This transition time may be extended at the discretion of Microsoft. Updates will be posted on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
 A gradual retirement process will begin 6 months into the transition period. During this time:
 
 1. Microsoft will notify customers of the retirement. 
-2. The newer version of the Azure SDK won’t support the retired Guest OS family.
+2. The newer version of the Azure SDK wonâ€™t support the retired Guest OS family.
 3. New deployments and redeployments of Cloud Services will not be allowed on the retired family
 
 Microsoft will continue to introduce new Guest OS version incorporating the latest MSRC updates until the last day of the transition period, known as the "expiration date". At that time, the any Cloud Services still running will be unsupported under the Azure SLA. Microsoft has the discretion to force upgrade, delete or stop those services after that date.
@@ -61,7 +61,7 @@ At 60 days into the lifespan a version is "*disabled*". "Disabled" means that th
 
 At a later time, the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary. 
 
-These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](../cloud-services-guestos-update-matrix).
+These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
 
 
@@ -85,4 +85,4 @@ You should use latest Guest OS family for designing your Cloud Services.
 
 **What if my web application requires deeper integration with the OS?**
 
-If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "[Startup Tasks](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.
+If your web application architecture requires deeper dependency on the underlying operating system, use platform supported capabilities such as "[Startup Tasks](https://msdn.microsoft.com/library/windowsazure/gg456327.aspx)" or other extensibility mechanisms which may exist in the future. Alternatively, you can also use [Azure Virtual Machines](http://www.windowsazure.com/home/scenarios/virtual-machines/) (IaaS â€“ Infrastructure as a Service), where you are responsible for maintaining the underlying operating system.

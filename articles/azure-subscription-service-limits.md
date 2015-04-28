@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints" 
+<properties
+	pageTitle="Microsoft Azure Subscription and Service Limits, Quotas, and Constraints"
 	description="Provides a list of common Azure subscription and service limits, quotas, and constraints. This includes information on how to increase limits along with maximum values."
-	services="" 
-	documentationCenter="" 
-	authors="rothja" 
-	manager="jeffreyg" 
+	services=""
+	documentationCenter=""
+	authors="rothja"
+	manager="jeffreyg"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/08/2015"
 	ms.author="jroth"/>
 
 # Azure Subscription and Service Limits, Quotas, and Constraints
@@ -23,6 +23,21 @@
 This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge][azurelimitsblogpost]. The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
+
+## Account Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Maximum Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">Subscriptions</a> per <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">account</a></td>
+   <td valign="middle"><p>Unlimited</p></td>
+   <td valign="middle"><p>Unlimited</p></td>
+</tr>
+</table>
 
 ## Subscription Limits
 
@@ -93,15 +108,24 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Resource Groups</a> per subscription</p></td>
    <td valign="middle"><p>500</p></td>
    <td valign="middle"><p>500</p></td>
 </tr>
-
+<tr>
+   <td valign="middle"><p>Resource Manager API Reads</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
+   <td valign="middle"><p>32000 per hour</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Resource Manager API Writes</p></td>
+   <td valign="middle"><p>1200 per hour</p></td>
+   <td valign="middle"><p>1200 per hour</p></td>
+</tr>
 <tr>
    <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Batch Preview</a> accounts per region per subscription</p></td>
    <td valign="middle"><p>1</p></td>
-   <td valign="middle"><p>50</p></td>   
+   <td valign="middle"><p>50</p></td>
 </tr>
 </table>
 
@@ -109,7 +133,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 <sup>2</sup>Each virtual network supports a single virtual network gateway.
 
-## Cloud Service Limits
+## Cloud Services Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -139,9 +163,9 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 </tr>
 </table>
 
-<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling). 
+<sup>1</sup>Each Cloud Service with Web/Worker roles can have two deployments, one for production and one for staging. Also note that this limit refers to the number of distinct roles (configuration) and not the number of instances per role (scaling).
 
-## Virtual Machine Limits
+## Virtual Machines Limits
 
 <table cellspacing="0" border="1">
 <tr>
@@ -165,7 +189,43 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
 
-## Websites Limits
+
+## Resource Group Limits
+
+<table cellspacing="0" border="1">
+<tr>
+   <th align="left" valign="middle">Resource</th>
+   <th align="left" valign="middle">Default Limit</th>
+   <th align="left" valign="middle">Maximum Limit</th>
+</tr>
+<tr>
+   <td valign="middle"><p>Resources per resource group (per resource type)</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Deployments per resource group</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Resources per deployment</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Management Locks (per unique scope)</p></td>
+   <td valign="middle"><p>20</p></td>
+   <td valign="middle"><p>20</p></td>
+</tr>
+
+
+</table>
+
+
+
+## Web Apps (Websites) Limits
+
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -274,9 +334,9 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 </tr>
 </table>
 
-<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets][storagelimits]. 
+<sup>1</sup>For more details on these limits, see [Azure Storage Scalability and Performance Targets][storagelimits].
 
-<sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure][vmsizes]. 
+<sup>2</sup>For virtual machines in the Basic Tier, do not place more than 66 highly used VHDs in a storage account to avoid the 20,000 total request rate limit (20,000/300). For virtual machines in the Standard Tier, do not place more than 40 highly used VHDs in a storage account (20,000/500). For more information, see [Virtual Machine and Cloud Service Sizes for Azure][vmsizes].
 
 <sup>3</sup>GRS is [Geo Redundant Storage][georedundantstorage]. LRS is [Locally Redundant Storage][locallyredundantstorage]. Note that GRS is also locally redundant.
 
@@ -284,7 +344,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-## DocumentDB Preview Limits
+## DocumentDB Limits
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
@@ -319,8 +379,8 @@ For Azure Active Directory (AD), please see the following topic:
 
   [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx
+  [storagelimits]: http://azure.microsoft.com/documentation/articles/storage-scalability-targets/
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
   [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx

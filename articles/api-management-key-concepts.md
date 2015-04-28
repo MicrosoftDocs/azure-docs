@@ -79,16 +79,16 @@ You can customize the look and feel of your developer portal by adding custom co
 [Policies]: #policies
 [Developer portal]: #developer-portal
 
-[How to create APIs]: ../api-management-howto-create-apis
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to create and use groups]: ../api-management-howto-create-groups
-[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
-[How create and configure advanced product settings]: ../api-management-howto-product-with-rules
-[How to create or invite developers]: ../api-management-howto-create-or-invite-developers
-[Policy reference]: ../api-management-policy-reference
-[API Management policies]: ../api-management-howto-policies
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md
+[How to create or invite developers]: api-management-howto-create-or-invite-developers.md
+[Policy reference]: api-management-policy-reference.md
+[API Management policies]: api-management-howto-policies.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 
 

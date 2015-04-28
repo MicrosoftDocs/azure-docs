@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Delivering Media on-Demand with Azure Media Services" 
-	description="This topic talks about common scenarios of delivering media on-Demand with Azure Media Services." 
+	description="This topic talks about common scenarios of delivering media on-demand with Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/10/2015" 
+	ms.date="04/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 
 This topic describes steps of a typical Azure Media Services (AMS) Video-on-Demand workflow. Each step links to relevant topics. For tasks that can be achieved using different technologies, there are buttons that link to technology of your choice (for example, .NET or REST).   
 
-Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN, or a third-party CDN. 
+Note that you can integrate Media Services with your existing tools and processes. For example, encode content on-site, then upload to Media Services for transcoding into multiple formats and deliver through Azure CDN or a third-party CDN. 
 
 The following diagram shows the major parts of the Media Services platform that are involved in the Video on Demand Workflow.
 ![VoD workflow][vod-overview]
@@ -137,15 +137,19 @@ The following examples create encoding jobs with **Azure Management Portal**, **
 
 ##Encoding 
 
-An overview: [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
+**Overview**: 
 
-Encode with **Media Encoder Premium Workflow** using **.NET**. 
-
-[Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
+- [Encoding On-Demand Content with Azure Media Services](media-services-encode-asset.md).
 
 Encode with **Azure Media Encoder** using **Azure Management Portal**, **.NET**, or **REST API**.
  
 [AZURE.INCLUDE [media-services-selector-encode](../includes/media-services-selector-encode.md)]
+
+Advanced encoding with **Media Encoder Premium Workflow** using **.NET**. 
+
+[AZURE.INCLUDE [media-services-selector-advanced-encoding](../includes/media-services-selector-advanced-encoding.md)]
+
 
 ##Monitoring job progress
 
@@ -165,13 +169,17 @@ Configure content protection and key authorization policy using **.NET** or **RE
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../includes/media-services-selector-content-key-auth-policy.md)]
 
-##Configuring asset delivery policy
+
+##Publishing and delivering assets
+
+**Overview**: 
+
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
+- [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
 
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
-
-##Publishing assets
 
 Publish assets (by creating Locators) using **Azure Management Portal** or **.NET**.
 
@@ -189,9 +197,9 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 [This](media-services-how-to-scale.md) topic links to relevant topics.
 
+##Playback your content with existing players
 
-##Playback your content
+For more information, see [playing your content with existing players](media-services-playback-content-with-existing-players.md).
 
-For more information, see [playing your content with existing players](media-services-playback-content.md).
 
 [vod-overview]: ./media/media-services-overview/media-services-video-on-demand.png

@@ -36,7 +36,7 @@
 > [AZURE.NOTE] If you would like to see the source code of the completed app, go <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData">here</a>.
 
 If you would like to see the Eclipse version of this tutorial, go to 
-[Get started with data using Eclipse](/documentation/articles/mobile-services-android-get-started-data-EC/).
+[Get started with data using Eclipse](mobile-services-android-get-started-data-EC.md).
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Azure Free Trial</a>.
 
@@ -139,7 +139,7 @@ Once you have completed the data series, try these other Android tutorials:
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
+[Get started with data (Eclipse)]: mobile-services-android-get-started-data-EC.md
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 

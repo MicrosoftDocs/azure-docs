@@ -240,7 +240,7 @@ String IDs provide you with the following benefits:
 
 When a string ID value is not set on an inserted record, Mobile Services generates a unique value for the ID. You can use the `Guid.NewGuid()` method To generate your own ID values, either on the client or in a .NET mobile backend service. To learn more about generating GUIDs in a JavaScript backend mobile service, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
 
-You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](/documentation/articles/virtual-machines-command-line-tools/#Mobile_Tables).
+You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
 ##<a name="modifying"></a>How to: Modify data in a mobile service
 
@@ -302,9 +302,9 @@ The Mobile Services client enables you to register for push notifications with A
 		    await MobileService.GetPush().RegisterNativeAsync(channel.Uri, tags);
 		}
 
-Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push/)
+Note that in this example, two tags are included with the registration. For more information, see [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
->[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/).
+>[AZURE.NOTE]When you need to send notifications to specific registered users, it is important to require authentication before registration, and then verify that the user is authorized to register with a specific tag. For example, you must check to make sure a user doesn't register with a tag that is someone else's user ID. For more information, see [Send push notifications to authenticated users](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md).
 
 
 ##<a name="optimisticconcurrency"></a>How to: Use Optimistic Concurrency
@@ -651,13 +651,13 @@ This property converts all properties to lower case during serialization.
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
-* [Add Mobile Services to an existing app](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data)
+* [Add Mobile Services to an existing app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md)
   <br/>Learn more about storing and querying data using Mobile Services.
 
-* [Add authentication to your mobile services app](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users)
+* [Add authentication to your mobile services app](mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md)
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push)
+* [Add push notifications to your app](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push.md)
 
 <!-- Anchors. -->
 [What is Mobile Services]: #what-is
@@ -723,5 +723,5 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Custom API in Azure Mobile Services Client SDKs]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[Call a custom API from the client]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
+[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx

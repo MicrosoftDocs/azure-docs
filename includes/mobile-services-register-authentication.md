@@ -19,3 +19,5 @@ To authenticate users, register your app with an identity provider, and then reg
 4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**. Both your mobile service and your app are now configured to work with your chosen authentication provider.
 
     > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
+
+5. (Optional) Repeat steps 3 and 4 to configure any other identity provider that you want your app to support.

@@ -10,15 +10,15 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-phonegap" 
 	ms.devlang="multiple" 
 	ms.topic="hero-article" 
-	ms.date="11/21/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
+
+# Get started with Mobile Services <a name="getting-started"></a>
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
-
-# <a name="getting-started"> </a>Get started with Mobile Services
 
 This tutorial shows you how to add a cloud-based backend service to an app using Azure Mobile Services. In this tutorial, you will create both a new mobile service and a simple _To do list_ app that stores app data in the new mobile service. 
 
@@ -41,7 +41,7 @@ PhoneGap supports developing for multiple platforms. In addition to the PhoneGap
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-<h2>Create a new PhoneGap app</h2>
+## Create a new PhoneGap app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -165,8 +165,8 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/mobile-services-html-get-started-data
-[Get started with authentication]: /documentation/articles/mobile-services-html-get-started-users
+[Get started with data]: mobile-services-html-get-started-data.md
+[Get started with authentication]: mobile-services-html-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/mobile-services-html-get-started-push
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/

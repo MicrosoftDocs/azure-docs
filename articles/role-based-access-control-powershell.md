@@ -32,7 +32,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/).
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](install-configure-powershell.md).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -46,8 +46,8 @@ For example, to get help for the Add-AzureAccount cmdlet, type:
 
 Please also read the following tutorials to get familiar with set up and using Azure Resource Manager in Windows PowerShell:
 
-- [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
-- [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/)
+- [How to install and configure Azure PowerShell](install-configure-powershell.md)
+- [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md)
 
 ## In this tutorial ##
 
@@ -63,7 +63,7 @@ Since RBAC only works with Azure Resource Manager, the first thing to do is to s
 
     PS C:\> Switch-AzureMode -Name AzureResourceManager
 
-For more information, please refer to [Using Windows PowerShell with Resource Manager](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
+For more information, please refer to [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 
 To connect o your Azure subscriptions, type:
 
@@ -78,7 +78,7 @@ If you have multiple subscriptions and want to switch to another one, type:
     # Use the subscription name to select the one you want to work on.
     PS C:\> Select-AzureSubscription -SubscriptionName <subscription name>
 
-For more information, please refer to [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+For more information, please refer to [How to install and configure Azure PowerShell](install-configure-powershell.md).
 
 ## <a id="check"></a>Check existing role assignments ##
 
@@ -153,11 +153,11 @@ Then when you try to run other cmdlet like `New-AzureResourceGroup`, you will ge
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
  
-- [Role based access control in Windows Azure](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)
+- [Role based access control in Windows Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
 - [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
-- [Configure role based access control using XPLAT CLI](http://azure.microsoft.com/documentation/articles/role-based-access-control-xplat-cli/)
-- [Troubleshooting role based access control](http://azure.microsoft.com/documentation/articles/role-based-access-control-troubleshooting/)
+- [Configure role based access control using XPLAT CLI](role-based-access-control-xplat-cli.md)
+- [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)

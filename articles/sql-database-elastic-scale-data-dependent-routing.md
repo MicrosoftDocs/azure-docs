@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Data Dependent Routing" 
-	description="How to use the ShardMapManager for data-dependent routing, a feature of Elastic Scale for Azure SQL DB" 
+	pageTitle="Data dependent routing" 
+	description="How to use the ShardMapManager for data-dependent routing, a feature of elastic databases for Azure SQL DB" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="stuartozer" 
-	authors="stuartozer" 
+	manager="jeffreyg" 
+	authors="sidneyh" 
 	editor=""/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
-	ms.author="stuarto"/>
+	ms.date="04/16/2015" 
+	ms.author="sidneyh"/>
 
 #Data dependent routing
 
 The **ShardMapManager** class provides ADO.NET applications the ability to easily direct database queries and commands to the appropriate physical database in a sharded environment. This is called **data-dependent routing** and it is a fundamental pattern when working with sharded databases. Each specific query or transaction in an application using data-dependent routing is restricted to accessing a single database per request.  
 
-Using data-dependent routing, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](./sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
+Using data-dependent routing, there is no need for the application to track the various connection strings or DB locations associated with different slices of data in the sharded environment. Rather, the [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md) takes responsibility for handing out open connections to the correct database when needed, based on the data in the shard map and the value of the sharding key that is the target of the application’s request. (This key is typically the *customer_id*, *tenant_id*, *date_key*, or some other specific identifier that is a fundamental parameter of the database request). 
 
 ## Using a ShardMapManager in a data dependent routing application 
 
@@ -32,7 +32,7 @@ For applications using data-dependent routing, a **ShardMapManager** should be i
 
 In this example, both a **ShardMapManager** and a specific **ShardMap** that it contains are initialized. 
 
-For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Managing Elastic Scale Credentials](sql-database-elastic-scale-manage-credentials.md). 
+For an application that is not manipulating the shard map itself, the credentials used in the factory method to get the **ShardMapManager** (in the above example, *smmConnectionString*) should be credentials that have just read-only permissions on the **Global Shard Map** database referenced by the connection string. These credentials are typically different from credentials used to open connections to the shard map manager. See also [Using credentials in the elastic database client libraries](sql-database-elastic-scale-manage-credentials.md). 
 
 ## Invoking data dependent routing 
 
@@ -108,7 +108,7 @@ int newPersonId = 4321;
 </code></pre>
 
 
-Packages necessary to implement transient fault handling are downloaded automatically when you build the Elastic Scale Starter Kit application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
+Packages necessary to implement transient fault handling are downloaded automatically when you build the elastic database sample application. Packages are also available separately at [Enterprise Library - Transient Fault Handling Application Block](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Use version 6.0 or later. 
 
 ## Transactional consistency 
 

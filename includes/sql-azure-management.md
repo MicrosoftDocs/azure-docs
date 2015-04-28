@@ -21,7 +21,11 @@ databases on Azure, you can use the Management Studio application installed with
 SQL Server or download the free SQL Server 2014 Management Studio (SSMS). The steps below describe
 how to install SSMS.
 
-1.  On the [SQL Server 2014 Express][] page, scroll down and select **MgmtStudio 32BIT\SQLManagementStudio_x86_ENU.exe** if you are running a 32-bit operating system, or **MgmtStudio 64BIT\SQLManagementStudio_x64_ENU.exe** if you are running a 64-bit operating system. Click **Next**, and when prompted, run Setup.
+1.  On the [Microsoft SQL Server 2014 Express][] page, click **Download** to open the file selection window.
+
+2.  Select **MgmtStudio 32BIT\SQLManagementStudio_x86_ENU.exe** if you are running a 32-bit operating system, or **MgmtStudio 64BIT\SQLManagementStudio_x64_ENU.exe** if you are running a 64-bit operating system.
+
+3.  Click **Next**, and when prompted, run Setup.
 
 2.  Click **New SQL Server stand-alone installation or add features to an
     existing installation** and click **OK**.

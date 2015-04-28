@@ -22,7 +22,7 @@
 
 This topic shows you how to authenticate users in Azure Mobile Services from your Windows Phone app. In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.
 
->[AZURE.NOTE] This topic supports only Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps. If you have a Windows Phone Store 8.1 or universal Windows app, please instead follow the [universal Windows app version of this topic](/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users/).
+>[AZURE.NOTE] This topic supports only Windows Phone 8.0 and Windows Phone 8.1 Silverlight apps. If you have a Windows Phone Store 8.1 or universal Windows app, please instead follow the [universal Windows app version of this topic](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md).
 
 This tutorial walks you through these basic steps to enable authentication in your app:
 
@@ -77,14 +77,14 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Single sign-on for Windows Phone apps by using Live Connect]: /documentation/articles/mobile-services-windows-phone-single-sign-on
-[Get started with Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[Authorize users with scripts]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts
-[JavaScript and HTML]: /documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Single sign-on for Windows Phone apps by using Live Connect]: mobile-services-windows-phone-single-sign-on.md
+[Get started with Mobile Services]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Get started with authentication]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Get started with push notifications]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Register your Windows Store app package for Microsoft authentication]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Register your Windows Store app package for Microsoft authentication]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md

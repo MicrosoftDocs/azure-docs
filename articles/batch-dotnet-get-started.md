@@ -24,7 +24,7 @@ This article contains the following two tutorials to help you get started develo
 -	[Tutorial 2: Azure Batch Apps library for .NET](#tutorial2)  
 
 
-For background information and scenarios for Azure Batch, see [Azure Batch technical overview](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).
+For background information and scenarios for Azure Batch, see [Azure Batch technical overview](batch-technical-overview.md).
 
 ##<a name="tutorial1"></a>Tutorial 1: Azure Batch library for .NET
   	
@@ -56,7 +56,7 @@ The Batch service is used for scheduling scalable and distributed computation. I
 Let's start with the most basic usage.
 
 ###Create an Azure Batch account
-You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).  
+You can use the Management Portal to create a Batch account. A key is provided to you after the account is created. For more information, see [Azure Batch technical overview](batch-technical-overview.md).  
 
 ###How to: Add a pool to an account
 A pool of task virtual machines is the first set of resources that you must create when you want to run tasks.  

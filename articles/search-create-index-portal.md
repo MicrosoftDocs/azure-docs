@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="HeidiSteen" 
 	manager="mblythe" 
-	editor=""/>
+	editor=""
+    tags="azure-portal"/>
 
 <tags 
 	ms.service="search" 
@@ -13,16 +14,16 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+	ms.date="04/27/2015" 
 	ms.author="heidist"/>
 
 # Create an Azure Search index in the portal
 
 You can quickly prototype an index in Azure Search by creating one in the Azure management portal. Using the portal is great for proof-of-concept testing, but you can also use it to view schema definitions and resource usage for any index deployed to your service.
 
-To complete this task, make sure you have an Azure Search service that's ready to go. See [Create an Azure Search service in the portal](../search-create-service-portal/) if you need help setting it up.
+To complete this task, make sure you have an Azure Search service that's ready to go. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you need help setting it up.
 
-1. Sign in to [Azure Preview portal](https://portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 2. Open the service dashboard of your Azure Search service. Here are a few ways to find the dashboard.
 	- In the Jumpbar, click **Home**. The home page has tiles for every service in your subscription. Click on the tile to open the service dashboard.
@@ -56,13 +57,13 @@ To complete this task, make sure you have an Azure Search service that's ready t
 
 9. Click **OK** on each blade (fields and index) to create the index.
 
-##Add fields##
+##Add fields
 
 In Azure Search, index attributes such as searchable, facetable, and filterable are enabled by default. Typically, when you set these attributes, its usually to turn off search behaviors that don't make sense (for example, sorting or faceting on a description).
 
 The portal is different. In the portal, search behaviors are off by default so that you can select all of the behaviors that apply, on a field by field basis.
 
-1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index mentioned in the article [How to use Fiddler with Azure Search](../search-fiddler/). 
+1. Click **Add/Edit fields** to add more fields. In this exercise, we'll recreate the *hotels* index mentioned in the article [How to use Fiddler with Azure Search](search-fiddler.md). 
 
 	![][4]
 
@@ -76,9 +77,9 @@ The portal is different. In the portal, search behaviors are off by default so t
 
   	![][6]
 
-##Next steps##
+##Next steps
 
-Although the index is defined, it won't be ready to use until you load documents. To do this easily, continue on with [How to use Fiddler with Azure Search](../search-fiddler/), at **Load Documents**. You can then follow the remaining steps in that article to run some queries.
+Although the index is defined, it won't be ready to use until you load documents. To do this easily, continue on with [How to use Fiddler with Azure Search](search-fiddler.md), at **Load Documents**. You can then follow the remaining steps in that article to run some queries.
 
 Once you are comfortable with the basic index, consider adding a language analyzer or suggester to add multilanguage support or type-ahead suggestions. Both features are specified in the index schema. See [Language Support](https://msdn.microsoft.com/elibrary/azure/dn879793.aspx) and [Create Index](https://msdn.microsoft.com/library/azure/dn798941.aspx) for more information.
 

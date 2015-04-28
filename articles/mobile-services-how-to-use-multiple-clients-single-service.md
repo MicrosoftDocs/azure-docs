@@ -46,7 +46,7 @@ Tables in the following sections link to the client-specific tutorials that show
 
 In a .NET backend mobile service, you send notifications by calling the [SendAsync] method on the [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) object obtained from the [ApiServices.Push](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) property. The push notification sent (native or template) depends on the specific [IPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx)-derived object that is passed to the [SendAsync] method, as shown in the following table: 
 
-|Platform |[APNS](/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-dotnet-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)|
+|Platform |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Native|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx)   |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx)     |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -81,7 +81,7 @@ When you use template client registrations rather than native client registratio
 
 In a JavaScript backend mobile service, you send notifications by calling the **send** method on the platform-specific object obtained from the global [push object], as shown in the following table: 
 
-|Platform |[APNS](/documentation/articles/mobile-services-javascript-backend-ios-get-started-push)|[GCM](/documentation/articles/mobile-services-javascript-backend-android-get-started-push) |[WNS](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push) |[MPNS](/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push)|
+|Platform |[APNS](mobile-services-javascript-backend-ios-get-started-push.md)|[GCM](mobile-services-javascript-backend-android-get-started-push.md) |[WNS](mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-javascript-backend-windows-phone-get-started-push.md)|
 |-----|-----|----|----|-----|
 |Native|[apns object](http://msdn.microsoft.com/library/azure/jj839711.aspx)   |[gcm object](http://msdn.microsoft.com/library/azure/dn126137.aspx)     |[wns object](http://msdn.microsoft.com/library/azure/jj860484.aspx) | [mpns object](http://msdn.microsoft.com/library/azure/jj871025.aspx) |
 
@@ -162,7 +162,7 @@ In addition to this general guidance, Visual Studio also provides specific facil
 
 Visual Studio 2013 Update 2 adds support for universal Windows app projects. Universal apps are solutions that include both Windows Store 8.1 and Windows Phone Store 8.1 app projects along with a shared code project. In this kind of project, shared code is treated as if it is part of both the Windows Store and Windows Phone projects. For more information, see [Building universal Windows apps for all Windows devices]. Universal Windows apps can be written in both C#/XAML and JavaScript/HTML. 
 
-By default, the Mobile Service quickstart tab in the [Azure Management portal] generates a universal Windows app version of the TodoList sample app to get you started. You can choose to download either a C#/XAML or a JavaScript/HTML version of the project. For more information, see [Get started with Mobile Services](/documentation/articles/mobile-services-windows-store-get-started/). 
+By default, the Mobile Service quickstart tab in the [Azure Management portal] generates a universal Windows app version of the TodoList sample app to get you started. You can choose to download either a C#/XAML or a JavaScript/HTML version of the project. For more information, see [Get started with Mobile Services](mobile-services-windows-store-get-started.md). 
 
 >[AZURE.NOTE]The C# version of the quickstart app project from the portal shares the MainPage.xaml.cs code-behind page but doesn't use a view model. For an example of the TodoList app as a universal Windows app project in C# that uses MVVM, see [Universal Windows app project for Azure Mobile Services using MVVM]. 
 
@@ -170,7 +170,7 @@ By default, the Mobile Service quickstart tab in the [Azure Management portal] g
 
 You can leverage your Visual Studio and C# development experience, by using Xamarin and either Visual Studio or Xamarin Studio to develop apps for iOS and Android. Xamarin uses a cross-platform implementation of the .NET Framework that lets you use C# code to develop iOS and Android apps. By using Xamarin, you can leverage existing code from your Windows projects that uses the Mobile Services .NET client library to access your mobile service.  For more information, see [Cross-Platform Development in Visual Studio](http://msdn.microsoft.com/library/dn771552.aspx).
 
-To get started building Xamarin apps that use Mobile Services, see the Xamarin quickstart tutorials ([iOS](/documentation/articles/partner-xamarin-mobile-services-ios-get-started) / [Android](/documentation/articles/partner-xamarin-mobile-services-android-get-started)).
+To get started building Xamarin apps that use Mobile Services, see the Xamarin quickstart tutorials ([iOS](partner-xamarin-mobile-services-ios-get-started.md) / [Android](partner-xamarin-mobile-services-android-get-started.md)).
 
 
 ### Windows Store and Windows Phone Silverlight apps
@@ -199,9 +199,9 @@ The Mobile Services .NET client library supports both Windows Phone Store 8.1 an
 [How to use a .NET client with Mobile Services]: documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
 [push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
 [TemplatePushMessage]:http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.templatepushmessage.aspx
-[PhoneGap]: /documentation/articles/mobile-services-javascript-backend-phonegap-get-started/
-[Sencha]: /documentation/articles/partner-sencha-mobile-services-get-started/
-[Appcelerator]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[PhoneGap]: mobile-services-javascript-backend-phonegap-get-started.md
+[Sencha]: partner-sencha-mobile-services-get-started.md
+[Appcelerator]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [SendAsync]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.notifications.pushclient.sendasync.aspx
 [What's next for Windows Phone 8 developers]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905

@@ -3,7 +3,7 @@
 	description="This topic shows how to manage Streaming Endpoints using the Azure Management Portal." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	writer="juliako" 
 	manager="dwrede" 
 	editor=""/>
@@ -20,12 +20,12 @@
 
 #<a id="managemediaservicesorigins"></a>How to Manage Streaming Endpoints in a Media Services Account
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series.  
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series.  
 
 
 In Microsoft Azure Media Services, a **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. Media Services also provides seamless Azure CDN integration. The outbound stream from a StreamingEndpoint service can be a live stream, or a video on demand Asset in your Media Services account.  
 
-In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](https://msdn.microsoft.com/en-us/library/azure/jj889436.aspx), CDN integration, and advanced configuration.
+In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting scale units (also known as streaming units). It is recommended to allocate one or more scale units for applications in production environment. Scale units provide you with both dedicated egress capacity that can be purchased in increments of 200 Mbps and additional functionality which functionality which includes: [dynamic packaging](https://msdn.microsoft.com/library/azure/jj889436.aspx), CDN integration, and advanced configuration.
 
 Note that you are only billed when your StreamingEndpoint is in running state. 
 
@@ -79,7 +79,7 @@ Streaming Endpoint enables you to configure the following properties when you ha
 - Cache control
 - Cross site access policies
 
-For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/en-us/library/azure/dn783468.aspx).
+For detailed information about these properties, see [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx).
 
 You can configure these properties using .NET SDK, REST API, or Azure Management Portal.
 
@@ -108,7 +108,11 @@ A brief description of the fields follows.
 
 You can specify to enable the Azure CDN integration for a Streaming Endpoint (it is disabled by default.)
 
-To set the Azure CDN integration to true, the streaming endpoint must have at least one streaming (scale) unit and be in the stopped state. If later you want to set scale units to 0, you must first disable the CDN integration. 
+To set the Azure CDN integration to true:
+
+- The streaming endpoint must have at least one streaming (scale) unit. If later you want to set scale units to 0, you must first disable the CDN integration. 
+
+- The streaming endpoint must be in a stopped state. Once the CDN gets enabled, you can start the streaming endpoint. 
 
 It could take up to 90 min for the Azure CDN integration to get enabled.   
 

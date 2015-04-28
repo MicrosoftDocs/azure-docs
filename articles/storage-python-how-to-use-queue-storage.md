@@ -31,7 +31,7 @@ deleting queues**. For more information on queues, refer to the [Next Steps][] s
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 
-> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 ## How To: Create a Queue
 

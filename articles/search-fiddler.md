@@ -22,7 +22,7 @@ This procedure uses Fiddler, available as a [free download from Telerik](http://
 
 In the steps below, you'll create an index, upload documents, query the index, and then query the system for service information.
 
-To complete these steps, you will need an Azure Search service and `api-key`. See [Create an Azure Search service in the portal](../search-create-service-portal/) for instructions on how to get started.
+To complete these steps, you will need an Azure Search service and `api-key`. See [Create an Azure Search service in the portal](search-create-service-portal.md) for instructions on how to get started.
 
 ## Create an index
 
@@ -225,8 +225,8 @@ You can also query the system to get document counts and storage consumption. On
 
 The following links provide additional information for a no-code approach to managing and using Azure Search.
 
--  [Manage your Search service on Azure](../search-manage/)
--  [How to use Chrome Postman with Azure Search](../search-chrome-postman/)
+-  [Manage your Search service on Azure](search-manage.md)
+-  [How to use Chrome Postman with Azure Search](search-chrome-postman.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png

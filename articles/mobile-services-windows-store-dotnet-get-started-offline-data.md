@@ -1,8 +1,8 @@
 <properties 
 	pageTitle="Using offline data in Mobile Services (Windows Store) | Mobile Dev Center" 
 	description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Store application" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
+	documentationCenter="mobile-services" 
+	authors="lindydonna" 
 	manager="dwrede" 
 	editor="" 
 	services="mobile-services"/>
@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/10/2014" 
-	ms.author="wesmc"/>
+	ms.date="04/16/2015" 
+	ms.author="donnam"/>
 
 # Using offline data sync in Mobile Services
 
@@ -52,7 +52,7 @@ This tutorial requires the following:
 * Visual Studio 2013 running on Windows 8.1.
 * Completion of the [Get started with Mobile Services].
 * [Azure Mobile Services SDK version 1.3.0 (or later)][Mobile Services SDK Nuget]
-* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store Nuget]
+* [Azure Mobile Services SQLite Store version 1.0.0 (or later)][SQLite store nuget]
 * [SQLite for Windows 8.1](www.sqlite.org/downloads)
 
 >[AZURE.NOTE] To complete this tutorial, you need a Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure Free Trial</a>. 
@@ -206,7 +206,7 @@ Azure Mobile Services offline features allow you to interact with a local databa
 
 In this section, you will modify the app so that it does not sync on the insert and update operations, but only when the **Refresh** button is pressed. Then, you will break the app connection with the mobile service to simulate an offline scenario. When you add data items, they will be held in the local store, but not synced to the mobile service.
 
-1. Open App.xaml.cs in the shared project. Edit the methods `InsertTodoItem` and `UpdateCheckedTodoItem` to comment out the calls to `SyncAsync`.
+1. Open MainPage.cs in the shared project. Edit the methods `InsertTodoItem` and `UpdateCheckedTodoItem` to comment out the calls to `SyncAsync`.
 
 2. Edit App.xaml.cs in the shared project. Comment out the initialization of the **MobileServiceClient** and add the following lines, which use an invalid mobile service URL:
 
@@ -282,16 +282,16 @@ In this section you reconnect the app to the mobile service. This simulates the 
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md 
 [TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
+[Getting Started]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Get started with data]: mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 [SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Windows Phone 8 Tutorial for Visual Studio 2012]: /documentation/articles/mobile-services-windows-phone-get-started-offline-data/
-[Soft Delete]: /documentation/articles/mobile-services-using-soft-delete/
+[Windows Phone 8 Tutorial for Visual Studio 2012]: mobile-services-windows-phone-get-started-offline-data.md
+[Soft Delete]: mobile-services-using-soft-delete.md
 
 
 [Mobile Services SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0

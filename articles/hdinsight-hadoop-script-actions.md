@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/31/2015" 
 	ms.author="bradsev"/> 
 
 # Script Action development with HDInsight 
@@ -85,7 +85,37 @@ Helper method | Description
 **Test-IsActiveHDIHeadNode** | Check if the computer where the script executes is an active head node.
 **Test-IsHDIDataNode** | Check if the computer where the script executes is a data node.
 **Edit-HDIConfigFile** | Edit the config files hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml, or yarn-site.xml.
- 
+
+## <a name="commonusage"></a>Common usage patterns
+
+This section provides guidance on implementing some of the common usage patterns that you might run into while writing your own custom script.
+
+### Setting environment variables
+
+Often in script action development, you will feel the need to set environment variables. For instance, a most likely scenario is when you download a binary from an external site, install it on the cluster, and add the location of where it is installed to your ‘PATH’ environment variable. The following snippet shows you how to set environment variables in the custom script.
+
+	Write-HDILog "Starting environment variable setting at: $(Get-Date)";
+	[Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
+
+This statement sets the environment variable **MDS_RUNNER_CUSTOM_CLUSTER** to the value 'true' and also sets the scope of this variable to be machine-wide. At times it is important that environment variables are set at the appropriate scope – machine or user. Refer [here](https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx "here") for more information on setting environment variables.
+
+### Access to locations where the custom scripts are stored
+
+Scripts used to customize a cluster needs to either be in the default storage account for the cluster or in a public read-only container on any other storage account. If your script accesses resources located elsewhere these need to be in a publicly accessible (at least public read-only). For instance you might want to access a file and save it using the SaveFile-HDI command.
+
+	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
+
+### Throwing exception for failed cluster deployment
+
+If you want to get accurately notified of the fact that cluster customization did not succeed as expected, it is important to throw an exception and fail the cluster provisioning. For instance, you might want to process a file if it exists and handle the error case where the file does not exist. This would ensure that the script exits gracefully and the state of the cluster is correctly known. The following snippet gives an example of how to achieve this:
+
+	If(Test-Path($SomePath)) {
+		#Process file in some way
+	} else {
+		# File does not exist; handle error case
+		# Print error message
+	exit
+	}
 
 ## <a name="deployScript"></a>Checklist for deploying a script action
 Here are the steps we took when preparing to deploy these scripts:
@@ -112,7 +142,7 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 - [Install and use Solr on HDInsight clusters](../hdinsight-hadoop-solr-install)
 - [Install and use Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] The sample scripts work only with HDInsight cluster version 3.1 or above. For more information on HDInsight cluster versions, see [HDInsight cluster versions](../hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>How to test your custom script with the HDInsight Emulator
 
@@ -120,7 +150,7 @@ A straight-forward way to test a custom script before using it in the HDInsight 
 
 This section outlines the procedure for using the HDInsight Emulator locally for testing purposes, but the procedure for using a VM is similar.
 
-**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/).
+**Install the HDInsight Emulator** - To run Script Action locally, you must have the HDInsight Emulator installed. For instructions on how to install it, see [Get started with the HDInsight Emulator](../hdinsight-get-started-emulator/).
 
 **Set the execution policy for Azure PowerShell** - Open Azure PowerShell and run (as administrator) the following command to set the execution policy to *LocalMachine* and to be *Unrestricted*:
  
@@ -128,10 +158,12 @@ This section outlines the procedure for using the HDInsight Emulator locally for
 
 We need this policy to be unrestricted as scripts are not signed.
 
-**Download the script action** that you want to run to a local destination. The Spark and R scripts that can be run locally are available, for example, from the following locations:
+**Download the script action** that you want to run to a local destination. The following sample scripts are available to download from the following locations:
 
-* https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
-* https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
+* **Spark**. https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv02/spark-installer-v02.ps1
+* **R**. https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1
+* **Solr**. https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1
+* **Giraph**. https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1
 
 **Run the script action** - Open a new Azure PowerShell window in admin mode and run the Spark or R installation script from the local location where they were saved.
 

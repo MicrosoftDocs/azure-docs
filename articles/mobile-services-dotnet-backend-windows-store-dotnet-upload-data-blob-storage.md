@@ -74,14 +74,14 @@ Next, you will update the quickstart app to capture and upload images.
 [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
 
 <!-- URLs. -->
-[Send email from Mobile Services with SendGrid]: /documentation/articles/store-sendgrid-mobile-services-send-email-scripts/
-[Schedule backend jobs in Mobile Services]: /documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-dotnet-get-started
+[Send email from Mobile Services with SendGrid]: store-sendgrid-mobile-services-send-email-scripts.md
+[Schedule backend jobs in Mobile Services]: mobile-services-dotnet-backend-schedule-recurring-tasks.md
+[Get started with Mobile Services]: mobile-services-windows-store-dotnet-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /documentation/articles/storage-create-storage-account/
+[How To Create a Storage Account]: storage-create-storage-account.md
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Mobile Services .NET How-to Conceptual Reference]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
 

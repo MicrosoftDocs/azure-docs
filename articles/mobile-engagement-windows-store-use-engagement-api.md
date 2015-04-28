@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Windows Store SDK Tagging API" 
-	description="Latest updates and procedures for Windows Store SDK for Azure Mobile Engagement" 					
+	pageTitle="How to Use the Engagement API on Windows Universal" 
+	description="How to Use the Engagement API on Windows Universal"			
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -11,14 +11,14 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-#How to Use the Engagement API on Windows
+#How to Use the Engagement API on Windows Universal
 
-This document is an add-on to the document [How to Integrate Engagement on Windows](../mobile-engagement-windows-store-integrate-engagement/): it provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to Integrate Engagement on Windows Universal](../mobile-engagement-windows-store-integrate-engagement/): it provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Page` sub-classes inherit from the `EngagementPage` class.
 
@@ -30,7 +30,7 @@ Even if the agent module has not been initialized, each call to the API is defer
 
 ##Engagement concepts
 
-The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/) for the Windows platform.
+The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/) for the Windows Universal platform.
 
 ### `Session` and `Activity`
 
@@ -48,7 +48,7 @@ But *activities* can also be controlled manually by using the Engagement API. Th
 
 You need to call `StartActivity()` each time the user activity changes. The first call to this function starts a new user session.
 
-> [AZURE.TIP] You don't need to call `EndActivity()` after each call to `StartActivity()`.
+> [AZURE.IMPORTANT] The SDK automatically call the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
 
 #### Example
 

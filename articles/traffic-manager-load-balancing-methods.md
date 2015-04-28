@@ -19,7 +19,7 @@
 
 There are three load balancing methods available in Traffic Manager. Each Traffic Manager profile can use only one load balancing method at a time, although you can select a different load balancing method for your profile at any time.
 
-It’s important to note that all load balancing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the load balancing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](../traffic-manager-monitoring). 
+It’s important to note that all load balancing methods include endpoint monitoring. After you configure your Traffic Manager profile to specify the load balancing method that best fits your requirements, configure your monitoring settings. When monitoring is correctly configured, Traffic Manager will monitor the state of your endpoints, consisting of cloud services and websites, and won’t send traffic to endpoints it thinks are unavailable. For information about Traffic Manager monitoring, see [About Traffic Manager Monitoring](traffic-manager-monitoring.md). 
 
 The three Traffic Manager load balancing methods are:
 
@@ -54,7 +54,7 @@ The following numbered steps correspond to the numbers in Figure 1.
 
 ### Round robin load balancing method
 
-A common load balancing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](../traffic-manager-onitoring).
+A common load balancing pattern is to provide a set of identical endpoints and send traffic to each in a round-robin fashion. The Round Robin method splits up traffic across various endpoints. It selects a healthy endpoint at random and will not send traffic to services that are detected as being down. For more information, see [Traffic Manager Monitoring](traffic-manager-onitoring.md).
 
 Figure 2 shows an example of the Round Robin load balancing method for a set of endpoints.
 
@@ -115,7 +115,7 @@ The following numbered steps correspond to the numbers in Figure 4.
 - If your profile contains multiple endpoints in the same datacenter, then traffic directed to that datacenter is distributed evenly across the endpoints that are available and healthy according to endpoint monitoring.
 - If all endpoints in a given datacenter are not available (according to endpoint monitoring), traffic for those endpoints will be distributed across all other available endpoints that are specified in the profile, not to the next-closest endpoint(s). This is to help avoid a cascading failure that could potentially occur if the next-closest endpoint becomes overloaded.
 - When the Internet Latency Table is updated, you may notice a difference in traffic patterns and load on your endpoints. These changes should be minimal.
-- When using the Performance load balancing method with external endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment. For more information, see [Manage Endpoints in Traffic Manager](../traffic-manager-endpoints).
+- When using the Performance load balancing method with external endpoints, you will need to specify the location of those endpoints. Choose the Azure region closest to your deployment. For more information, see [Manage Endpoints in Traffic Manager](traffic-manager-endpoints.md).
 
 ## Traffic Manager figures
 
@@ -123,9 +123,9 @@ If you want the figures in this topic as PowerPoint sides for your own presentat
 
 ## See Also
 
-[Traffic Manager Overview](../traffic-manager-overview)
+[Traffic Manager Overview](traffic-manager-overview.md)
 
-[About Traffic Manager Monitoring](../traffic-manager-monitoring)
+[About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 
 [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
 

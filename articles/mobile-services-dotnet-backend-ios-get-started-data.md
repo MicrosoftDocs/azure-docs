@@ -84,5 +84,5 @@ Download the [GetStartedWithData iOS app]. In Xcode, open the project and examin
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [GitHub repo]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
-[Quick Start]: /documentation/articles/mobile-services-dotnet-backend-ios-get-started/
+[Quick Start]: mobile-services-dotnet-backend-ios-get-started.md
 [GetStartedWithData iOS app]: http://go.microsoft.com/fwlink/p/?LinkId=268622

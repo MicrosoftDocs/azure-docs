@@ -66,8 +66,8 @@ Once the desired regions are removed, click **Save**.
 [api-management-select-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
 
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
-[Get started with Azure API Management]: ../api-management-get-started
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
 
 [Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region

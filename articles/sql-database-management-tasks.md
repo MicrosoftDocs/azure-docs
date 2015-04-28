@@ -19,7 +19,7 @@
 	ms.author="jeffreyg"/>
 
 
-## Overview
+# How to Manage SQL Database
 
 This article shows you how to perform simple management tasks in Azure SQL Database. 
 

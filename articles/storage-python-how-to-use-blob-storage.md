@@ -32,7 +32,7 @@ Azure Blob storage service. The samples are written in Python and use the [Pytho
 
 ## How to: Create a Container
 
-> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+> [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 
 The **BlobService** object lets you work with containers and blobs. The

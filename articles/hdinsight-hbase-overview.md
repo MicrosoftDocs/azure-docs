@@ -3,7 +3,7 @@
 	description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="jgao" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
 
 # HDInsight HBase overview #
 
-## What is HBase? 
 HBase is an Apache, open-source, NoSQL database that is built on Hadoop. HBase provides random access and strong consistency for large amounts of unstructured and semistructured data. It was modeled on Google's BigTable, and it is a column-family-oriented database. Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is a schema-less database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
 ## What is HDInsight HBase in Azure?
@@ -52,9 +51,9 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 
 - [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 - [Provision HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
+- [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md) 
 - [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
 - [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
-- [C# HBase SDK][cs-hbase-sdk]
 
 ##<a name="see-also"></a>See also
 
@@ -64,25 +63,23 @@ Applications can run on top of HBase by using it as a datastore. Examples includ
 
 
 
-[hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet/
+[hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 
-[hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
+[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
-[hbase-build-java-maven]: ../hdinsight-hbase-build-java-maven/
+[hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
-[hdinsight-use-hive]: ../hdinsight-use-hive/
+[hdinsight-use-hive]: hdinsight-use-hive.md
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage/
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
-
-[cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account/ 
+[azure-create-storageaccount]: storage-create-storage-account.md 
 
 [apache-hadoop]: http://hadoop.apache.org/
 
