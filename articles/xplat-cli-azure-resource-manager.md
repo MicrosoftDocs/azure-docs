@@ -241,7 +241,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 			"value": "West US"
 		  },
 		  "hardwareSize": {
-			"value": "2GB"
+			"value": "Medium"
 		  }
 	    }
 
@@ -276,7 +276,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 		data:    userName               String        azureUser
 		data:    password               SecureString  undefined
 		data:    location               String        West US
-		data:    hardwareSize           String        2GB
+		data:    hardwareSize           String        Medium
 		info:    group deployment show command OK
 
 	>[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
