@@ -86,7 +86,7 @@ Substitute in the folder name of your local folder and run these commands:
 	$filePath = $folderName + "\shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Step 1-a: Download the template files using the Azure CLI
+### Step 1-b: Download the template files using the Azure CLI
 
 Clone the entire template repository using a git client of your choice, for example:
 
