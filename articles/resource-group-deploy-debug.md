@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshooting Resource Group Deployments in Azure"
    description="Describes common problems deploying resources in Azure, and shows how to use the Azure Portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues."
-   services="multiple"
+   services="virtual-machines"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
