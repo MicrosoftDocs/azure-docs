@@ -1,30 +1,28 @@
 <properties
-	pageTitle="Create a virtual machine running Windows in the Azure Portal"
-	description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Portal"
+	pageTitle="Create a virtual machine running Windows in the Azure Preview Portal"
+	description="Learn how to create an Azure virtual machine (VM) running Windows, using the Azure Marketplace in the Azure Preview Portal"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="dlepow"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""
-	tags="azure-portal"/>
-
+	editor=""/>
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
-	ms.author="danlep"/>
+	ms.date="04/29/2015"
+	ms.author="kathydav"/>
 
-# Create a Virtual Machine in the Microsoft Azure Portal#
+# Create a Virtual Machine Running Windows in the Azure Preview Portal#
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure portal. This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
+This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure Preview portal. This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
 
 You can also create Windows VMs using [your own images](virtual-machines-create-upload-vhd-windows-server-classic-portal.md). To learn more about Azure VMs, see [Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx).
 
@@ -33,10 +31,10 @@ You can also create Windows VMs using [your own images](virtual-machines-create-
 
 ## How to create the virtual machine
 
-This section shows you how to use the portal to create a VM, using Windows Server 2012 R2 Datacenter as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
+This section shows you how to use the Preview portal to create a VM, using Windows Server 2012 R2 Datacenter as an example. You can use Azure's default settings for most of the configuration and create the VM in just a few minutes.
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Preview portal](https://portal.azure.com).
 
 2. On the Hub menu, click **New**.
 
@@ -56,7 +54,6 @@ This section shows you how to use the portal to create a VM, using Windows Serve
 
 	>[AZURE.NOTE] Premium storage is available for DS-series virtual machines in certain regions. For details, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage-preview-portal.md).
 
-
 6. When you're done reviewing or updating the settings, click **Create**.
 
 7. While Azure creates the VM, you can keep track of the progress in **Notifications**, in the Hub menu. After Azure creates the VM, you'll see it on your Startboard.
@@ -69,7 +66,7 @@ This section shows you how to log on to the VM so you can manage its settings an
 
 >[AZURE.NOTE] For requirements and troubleshooting tips, see [Connect to an Azure virtual machine with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
+1. If you haven't already done so, sign in to the [Preview portal](https://portal.azure.com).
 
 2. Click your VM on the Startboard. If you need to find it, click **Browse** and then click  **Virtual machines**. Then select your VM from the list.
 
