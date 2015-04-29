@@ -19,7 +19,7 @@
 
 # Listing your application in the Azure Active Directory application gallery
 
-To list an application that supports single sign-on with Azure Active Directory in the Azure AD gallery and in the Azure Marketplace, the Azure AD team will need to verify your integration. This requires that you send the following information to <waadpartners@microsoft.com>:
+To list an application that supports single sign-on with Azure Active Directory in the [Azure AD gallery](http://azure.microsoft.com/marketplace/active-directory/all/) and in the Azure Marketplace, the Azure AD team will need to verify your integration. This requires that you send the following information to <waadpartners@microsoft.com>:
 
 - The username and password of a test user account in a test instance of Azure Active Directory that is able to sign into your application
 - URL and/or instructions on how this test user should sign into the application
@@ -43,7 +43,7 @@ After testing is completed, then the application can be listed in the Azure Acti
 >
 > Application Technical Support Website or Contact Info:
 >
-> Have you integrated your application with Azure AD and tested it (http://go.microsoft.com/fwlink/?LinkId=327879)?
+> Have you integrated your application with Azure AD and tested it (see [Azure Active Directory authentication scenarios](active-directory-authentication-scenarios.md))?
 >
 > Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
 >
