@@ -18,7 +18,7 @@
 
 # DataStax on Ubuntu with a Resource Manager Template
 
-DataStax is a recognized industry leader in developing and delivering solutions based on commercially supported, enterprise-ready Apache Cassandra™ - the open source NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
+DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra™ - the commercially-supported, enterprise-ready NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
 
 In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs using a Resource Manager template deployed through [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI](xplat-cli.md).
 
@@ -171,7 +171,7 @@ In the "parameters" section at the top of the **azuredeploy.json** file, you’l
 
 Each parameter has details such as data type and allowed values. This allows for validation of parameters passed during template execution in an interactive mode (e.g. PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically-built by parsing the list of required parameters and their descriptions.
 
-### Step 3: Deploy a DataStax cluster with a template using PowerShell
+### Step 3-a: Deploy a DataStax cluster with a template using PowerShell
 
 Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters. This file will then be passed as a single entity to the deployment command. If you do not include a parameters file, PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.
 
