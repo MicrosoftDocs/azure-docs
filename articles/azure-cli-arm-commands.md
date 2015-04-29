@@ -495,7 +495,7 @@ Creates a load balancer set
 	+ Looking up the load balancer "mylb"
 	+ Creating load balancer "mylb"
 	+ Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Id:                           /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
 	data:    Name:                         mylb
 	data:    Type:                         Microsoft.Network/loadBalancers
 	data:    Location:                     westus
@@ -542,7 +542,7 @@ Displays load balancer information of a specific load balancer within a resource
 	C:\>azure network lb show group-1 mylb -v
 	info:    Executing command network lb show
 	verbose: Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Id:                           /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
 	data:    Name:                         mylb
 	data:    Type:                         Microsoft.Network/loadBalancers
 	data:    Location:                     westus
@@ -569,6 +569,16 @@ Delete load balancer objects.
 	Delete load balancer "mylb"? [y/n] y
 	+ Deleting load balancer "mylb"
 	info:    network lb delete command OK
+
+Optional parameters:
+
+ 	-h, --help                             output usage information
+ 	-v, --verbose                          use verbose output
+ 	--json                                 use json output
+ 	-g, --resource-group <resource-group>  the name of the resource group
+ 	-n, --name <name>                      the name of the load balancer
+ 	-q, --quiet                            quiet mode, do not ask for delete confirmation
+ 	-s, --subscription <subscription>      the subscription identifier
 
 **Commands to manage probes of a load balancer**
 	
