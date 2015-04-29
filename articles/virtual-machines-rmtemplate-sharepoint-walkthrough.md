@@ -20,7 +20,7 @@
 
 This topic steps you through the structure of the azuredeploy.json template file for the three-server SharePoint farm. You can see the contents of this template in your browser from [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json).
 
-Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SharePointFarm). Fill in the folder name and run these commands at the Azure PowerShell command prompt.
+Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SharePointFarm). Fill in the folder name and run these commands at the Azure PowerShell command prompt. 
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
