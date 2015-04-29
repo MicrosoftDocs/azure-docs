@@ -26,7 +26,7 @@ Diagnostics for Node.js applications hosted on Azure is provided by [IISNode]. W
 <a id="enablelogging"></a>
 ## Enable logging
 
-By default, an App Service web apps only captures diagnostic information about deployments, such as when you deploy a web app using Git. This information is useful if you are having problems during deployment, such as a failure when installing a module referenced in **package.json**, or if you are using a custom deployment script.
+By default, an App Service web app only captures diagnostic information about deployments, such as when you deploy a web app using Git. This information is useful if you are having problems during deployment, such as a failure when installing a module referenced in **package.json**, or if you are using a custom deployment script.
 
 To enable the logging of stdout and stderr streams, you must create an **IISNode.yml** file at the root of your Node.js application and add the following:
 
