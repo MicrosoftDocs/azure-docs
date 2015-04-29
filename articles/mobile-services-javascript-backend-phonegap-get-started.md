@@ -155,7 +155,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 * [Add authentication to your app]
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* [Add push notifications to your app](https://msdn.microsoft.com/en-us/magazine/dn879353.aspx)
+* [Add push notifications to your app](https://msdn.microsoft.com/magazine/dn879353.aspx)
   <br/>Learn how to register for and send push notifications to your app.
   
 <!-- Images. -->
