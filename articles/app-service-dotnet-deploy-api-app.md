@@ -44,7 +44,7 @@ In this section, you'll see the steps required to deploy an API app to an Azure 
 	- If you have multiple Azure subscriptions, select the one you want to use.
 	- Under **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
 	- Under **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
-	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure Portal.
+	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure preview portal.
 	- Under **Region**, select a region close to you.  
 
 	![Configure Microsoft Azure Web App dialog](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog-v3.png)
@@ -65,11 +65,11 @@ The **Azure App Service Activity** window shows the deployment progress.
 
 ![Status notification of the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
 
-## View the app in the Azure Portal
+## View the app in the Azure preview portal
 
 In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app. With each deployment, the portal will reflect the changes you're making to your API app. 
 
-1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). 
+1. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
 
 2. Click the **Browse** button on the sidebar and select **API Apps**.
 

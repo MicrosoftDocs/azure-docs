@@ -16,20 +16,9 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# The High-Availability SharePoint Farm Resource Manager template
+# The High-Availability SharePoint Farm Resource Manager Template
 
-This topic steps you through the structure of the azuredeploy.json template file for the high-availability SharePoint farm. You can see the contents of this template in your browser from [here](https://raw.githubusercontent.com/simongdavies/sharepoint-server-farm-ha/master/azuredeploy.json) [[final URL of template]].
-
-Alternately, to examine a local copy of the azuredeploy.json file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SharePointFarm). Fill in the folder name and run these commands at the Azure PowerShell command prompt.
-
-	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
-	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/simongdavies/sharepoint-server-farm-ha/master/azuredeploy.json"
-	#  [[need final URL of template]]
-	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
-
-Open the azuredeploy.json template in a text editor or tool of your choice. The following describes the structure of the template file and the purpose of each section. 
+This topic steps you through the structure of the azuredeploy.json template file for the high-availability SharePoint farm.
 
 ## "parameters" section
 
@@ -359,7 +348,7 @@ Note the overall organization of the subsections of the **"resources"** section 
 
 Your own JSON template to build a multi-tier infrastructure in Azure should follow the same steps:
 
-1.	Create the common (storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, load balancer instances) elements of Azure infrastructure that are required for your deployment.
+1.	Create the common (storage account, virtual network), tier-specific (availability sets), and virtual machine-specific (public IP addresses, availability sets, network interfaces, and load balancer instances) elements of Azure infrastructure that are required for your deployment.
 2.	For each tier in your application (such as authentication, database, web), create and configure the servers in that tier using the common (storage account, virtual network), tier-specific (availability set) and virtual machine-specific (public IP addresses, network interfaces, load balancer instances) elements.
 
 For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
@@ -367,11 +356,11 @@ For more information, see [Azure Resource Manager Template Language](https://msd
 
 ## Additional Resources
 
+[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+
+[Azure Resource Manager Overview](resource-group-overview.md)
+
+[Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md)
+
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
-
-[How to install and configure Azure PowerShell](install-configure-powershell.md)
 

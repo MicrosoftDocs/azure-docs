@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="04/01/2015"
+   ms.date="04/29/2015"
    ms.author="sstein"/>
 
-# Pricing tier recommendations (preview) for SQL Database 
+# SQL Database pricing tier recommendations
 
  When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload.
 
-> [AZURE.NOTE] Pricing tier recommendations are currently in preview and are only available for Web and Business databases when using the [Azure Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Currently, pricing tier recommendations are only available for Web and Business databases, and only available in the [Azure Portal](https://portal.azure.com/).
 
 
 ## Overview
@@ -35,37 +35,17 @@ This information is analyzed and the service tier and performance level that is 
 
 ### Recommendations
 
-Based on your database's usage, there are 4 categories of recommendations that can be encountered:
+Based on your database's usage, there are currently 2 categories of recommendations that can be encountered:
 
 
 | Recommendation | Description |
 | :--- | :--- |
-| Scale Up       | Upgrading to a higher service tier / performance level will increase performance. |
-| Scale Down     | Downgrading to a lower service tier / performance level should be sufficient for your typical workload. |
-| No Change      | The current service tier / performance level is ideal for your typical workload. |
+| Upgrade | Upgrade to a new tier. |
 | Unavailable | A database requires a minimum workload or approximately 14 days of activity. There is not enough data to provide a valid recommendation. |
-
-
-
-#### Effects of business continuity features and database size on recommendations
-
-Recommendations are also based on the current size of your database and the feature sets that your database is using. The service will not recommend moving to a tier that provides less features than your database requires.
-
-- If your database has Standard Geo-Replication enabled, then the minimum recommendation will be Standard tier (S0).
-- If your database has Active Geo-Replication enabled, then the minimum recommendation will be Premium tier (P1). 
-
-For a list of available business continuity features for each service tier, see [Azure SQL Database Business Continuity](https://msdn.microsoft.com/library/azure/hh852669.aspx).
-
-Additionally, The service will not recommend a service tier that has a max database size limit that is smaller than your current database's size.  For a list of max database sizes for each service tier, see [Azure SQL Database Service Tiers and Performance Levels](https://msdn.microsoft.com/library/azure/dn741336.aspx).
-
-
-
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing database and clicking on the **Pricing tier** tile.
-
-> [AZURE.NOTE] You must sign up for the preview to enable recommendations. You will be presented with the option to sign up for the preview after clicking the **Pricing tier** tile during step 5 below.
+Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
@@ -78,15 +58,12 @@ Get pricing tier recommendations by selecting an existing database and clicking 
 
     ![Pricing tier][2]
 
-    *If you haven't already signed up for the preview, clicking the Pricing tier tile will present you with the option to sign up for the service tier advisor preview. click the sign up message at the top of the **Choose your pricing tier** blade and sign up for the preview. You only need to sign up one time for each subscription. Subsequent visits will not require this sign-up step.
-
-
 
 7. After clicking the **Pricing tier** tile you will be presented with the **Recommended pricing tiers** blade where you can click the suggested tier and then click the **Select** button to change to that tier.
 
     ![Sign up for the preview][4]
 
-8. Optionally, click **View usage details** to open the **Pricing tier recommendations (preview)** blade where you can view the recommended tier for the database, a feature comparison between current and recommended tiers, and a graph of the  historical resource usage analysis.
+8. Optionally, click **View usage details** to open the **Pricing Tier Recommendation Details** blade where you can view the recommended tier for the database, a feature comparison between current and recommended tiers, and a graph of the  historical resource usage analysis.
 
     ![Sign up for the preview][5]
 
