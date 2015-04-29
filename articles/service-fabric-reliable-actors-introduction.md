@@ -51,6 +51,8 @@ public class CalculatorActor : Actor, ICalculatorActor
 }
 ```
 
+For each interface method, the arguments and the result type of the Task that it returns must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+
 The implementation of these methods does not involve dealing with locking or other concurrency issues because the Actors runtime provides turn-based concurrency for the actor methods. More details on this are in the [Concurrency](#concurrency) section.
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events and performance counters related to actor methods](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
@@ -76,9 +78,27 @@ The Actors runtime provides a simple turn-based concurrency for actor methods. T
 
 A turn consists of the complete execution of an actor method in response to the request from other actors or clients, or the complete execution of a [timer/reminder](service-fabric-reliable-actors-timers-reminders.md) callback. Even though these methods and callbacks are asynchronous, the Actors runtime does not interleave them. A turn must be fully completed before a new turn is allowed. In other words, an actor method or timer/reminder callback that is currently executing must be completed fully before a new call to a method or a callback is allowed. A method or callback is considered completed if execution has returned from the method or callback, and the Task returned by the method or callback has completed. It is worth emphasizing that turn-based concurrency is respected even across different methods, timers and callbacks.
 
-The following example illustrates the above concepts. Consider an actor that implements two asynchronous methods (say Method1 and Method2), a timer and a reminder. The Actors runtime guarantees that while Method2 is executing in response to a client request, it will not invoke Method1 or Method2 on behalf of any other client request. In addition, it will not invoke any timer or reminder callbacks while Method2 is executing. Any new method or timer/reminder callback will be invoked only after the execution has returned from Method2 and the Task returned by Method2 has completed.
+The Actors runtime enforces turn-based concurrency by acquiring a per-actor lock at the beginning of a turn and releasing the lock at the end of the turn. Thus, turn-based concurrency is enforced on a per-actor basis and not across actors. Actor methods and timer/reminder callbacks can execute simultaneously on behalf of different actors.
 
-The Actors runtime however, allows reentrancy by default. This means that if an actor method of Actor A calls method on Actor B which in turn calls another method on actor A, that method is allowed to run as it is part of the same logical call chain context. All timer and reminder calls start with the new logical call context. See [Reentrancy](service-fabric-reliable-actors-reentrancy.md) section for more details.
+The following example illustrates the above concepts. Consider an actor type that implements two asynchronous methods (say *Method1* and *Method2*), a timer and a reminder. The diagram below shows an example of a timeline for the execution of these methods and callbacks on behalf of two actors - *ActorId1* and *ActorId2* - that belong to this actor type.
+
+![][1]
+
+The conventions followed by the above diagram are:
+
+- Each vertical line shows the logical flow of execution of a method or a callback on behalf of a particular actor.
+- The events marked on each vertical line occur in chronological order with newer events occurring below the older ones.
+- Different colors are used for timelines corresponding to different actors.
+- Highlighting is used to indicate the duration for which the per-actor lock is held on behalf of a method or callback.
+
+The following points about the above diagram are worth mentioning:
+
+- When *Method1* is executing on behalf of *ActorId2* in response to client request *xyz789*, another client request *abc123* arrives that also requires *Method1* to be executed by *ActorId2*. However, the latter execution of *Method1* does not begin until the former execution has completed. Similarly, a reminder registered by *ActorId2* fires while *Method1* is being executed in response to client request *xyz789*. The reminder callback is executed only after both executions of *Method1* are complete. All of this is due to turn-based concurrency being enforced for *ActorId2*.
+- Similarly, turn-based concurrency is also enforced for *ActorId1*, as demonstrated by the execution of *Method1*, *Method2* and the timer callback on behalf of *ActorId1* happening in a serial fashion.
+- Execution of *Method1* on behalf of *ActorId1* overlaps with its execution on behalf of *ActorId2*. This is because turn-based concurrency is only enforced within an actor and not across actors.
+- In some of the method/callback executions, the `Task` returned by the method/callback completes after the method returns. In some others, the `Task` is already complete by the time the method/callback returns. In either case, the per-actor lock is released only after the both of these happen, i.e. after the method/callback returns and the `Task` completes.
+
+The Actors runtime allows reentrancy by default. This means that if an actor method of Actor A calls method on Actor B which in turn calls another method on actor A, that method is allowed to run as it is part of the same logical call chain context. All timer and reminder calls start with the new logical call context. See [Reentrancy](service-fabric-reliable-actors-reentrancy.md) section for more details.
 
 The Actors runtime provides these concurrency guarantees in situations where it controls the invocation of these methods. For example, it provides these guarantees for the method invocations that are done in response to receiving a client request and for timer and reminder callbacks. However, if the actor code directly invokes these methods outside of the mechanisms provided by the Actors runtime, then the runtime cannot provide any concurrency guarantees. For example, if the method is invoked in the context of some Task that is not associated with the Task returned by the actor methods, or if it is invoked from a thread that the actor creates on its own, then the runtime cannot provide concurrency guarantees. Therefore, to perform background operations, actors should use [Actor Timers or Actor Reminders](service-fabric-reliable-actors-timers-reminders.md) that respect the turn-based concurrency.
 
@@ -115,6 +135,8 @@ class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
     ...
 }
 ```
+
+The type of the actor state must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 > [Note] please refer to the [Reliable Actors notes on serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md) article for mode details on how interfaces and Actor State types should be defined.  
 
@@ -157,3 +179,6 @@ Timer callbacks can be marked with the `Readonly` attribute in a similar way. Fo
 [Configuring KVSActorStateProvider Actor](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [Actor Diagnostics and Performance Monitoring](service-fabric-reliable-actors-diagnostics.md)
+
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
