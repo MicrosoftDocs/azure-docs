@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL Database elastic database pool reference" 
-	description="An elastic database pool is a collection of available resources that are shared by a group of databases. This reference provides links and details to elastic database pool articles and programmability information." 
+	pageTitle="Azure SQL elastic database reference" 
+	description="This reference provides links and details to elastic pool articles and programmability information." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Azure SQL Database elastic database pool (preview) reference
+# SQL Database elastic database reference
 
 For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
 
@@ -25,22 +25,21 @@ This reference provides links and details to elastic database articles and progr
 
 ## Overview
 
-An elastic database pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Databases can be added to, and removed from the pool at any time. The databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.
+An elastic pool is a collection of database throughput units (DTUs), and storage (GBs) that are shared by multiple databases. Elastic databases can be added to, and removed from the pool at any time. Elastic databases in the pool utilize only the resources they require from the pool freeing up available resources for only the active databases that need them.
 
 
 
-## Prerequisites for creating and managing elastic database pools
+## Prerequisites for creating and managing elastic pools
 
 
 - Elastic pools are only available in Azure SQL Database V12 servers.   
 - PowerShell and REST APIs for elastic pools are supported on Azure Resource Manager (ARM) only; service management commands (RDFE) are not supported. 
-- Creating and managing elastic pools is supported in the [Microsoft Azure portal](https:portal.azure.com) only; the Azure classic portal is not supported. 
+- Creating and managing elastic pools is supported in the [Microsoft Azure portal](https:portal.azure.com) only. 
 
 
 ## Restrictions for the current preview
 
-- The pricing tier for an elastic pool in the current preview is Standard.    
-- Standard Geo-Replication is not currently supported. 
+- The pricing tier for an elastic pool in the current preview is Standard.     
 
 
 ## List of articles
@@ -49,9 +48,9 @@ The following articles will help you get started using elastic databases and ela
 
 | Article | Description |
 | :-- | :-- |
-| [Azure SQL Database elastic database pool](sql-database-elastc-pool.md) | Overview of elastic pools |
-| [Create an Azure SQL Database elastic database pool in the Microsoft Azure portal](sql-database-elastic-pool-portal.md) | How to create an elastic pool using the Azure portal |
-| [Create an Azure SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md) | How to create an elastic pool using PowerShell cmdlets |
+| [SQL Database elastic pools](sql-database-elastc-pool.md) | Overview of elastic pools |
+| [Create and manage a SQL Database elastic pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
+| [Create and manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
 | [Installing the elastic database job component](sql-database-elastic-jobs-service-installation.md) | How to install the elastic database job service |
 | [Creating and managing elastic database jobs]() | desc |
@@ -106,7 +105,7 @@ The maximum number of concurrent workers and concurrent sessions supported for a
 
 ## Azure Resource Manager limitations
 
-An elastic pool requires an Azure SQL Database server (V12). Servers are located within a resource group.
+An elastic pool requires an Azure SQL Database V12 server. Servers are located within a resource group.
 
 - Each resource group can have a maximum 800 servers.
 - Each server can have a maximum 800 elastic pools.
@@ -148,7 +147,7 @@ The following PowerShell cmdlets and REST API commands are available for creatin
 | [Get-Metrics]() | [Get Metrics]() |
 
 
-## Billing Information
+## Billing and pricing information
 
 Elastic database pools are billed per the following characteristics:
 
@@ -156,6 +155,11 @@ Elastic database pools are billed per the following characteristics:
 - An elastic pool is billed hourly. This is the same metering frequency as for performance levels of standalone databases. 
 - If an elastic pool is resized to a new amount of DTUs, then the pool is not billed according to the new amount of DTUS until the resizing operation completes.  This follows the same pattern as changing the performance level of standalone databases. 
 
+
+- The price of an elastic pool is based on the number of DTUs of the pool, and the number of databases in the pool. 
+- Price is computed by (number of pool DTUs)x(unit price per DTU) + (number of databases)x(unit price per database)
+
+The unit DTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database/).  
 
 ## Elastic database pool errors
 
@@ -181,12 +185,6 @@ Elastic database pools are billed per the following characteristics:
 | 40889 | EX_USER | The DTUs or storage limit for the elastic pool '%.*ls' cannot be decreased since that would not provide sufficient storage space for its databases. | Name of elastic pool. | Attempting to decrease the storage limit of the elastic pool below its storage usage. | Please consider reducing the storage usage of individual databases in the elastic pool or remove databases from the pool in order to reduce its DTUs or storage limit. |
 | 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
-
-
-
-
-<!--Image references-->
-[1]: ./media/sql-database-elastic-pool/new-elastic-pool.png
 
 
 
