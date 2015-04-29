@@ -21,7 +21,9 @@
 
 2. Type the password. The default password is **Password1**.
 
-3. At the command prompt, type: `Get-HcsUpdateAvailability` 
+3. At the command prompt, type:
+
+     `Get-HcsUpdateAvailability` 
     
 4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Enter Maintenance mode](#enter-maintenance-mode) for instructions.
 

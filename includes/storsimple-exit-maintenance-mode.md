@@ -17,7 +17,9 @@
 
 #### To exit Maintenance mode
 
-1. At the command prompt type: `Exit-HcsMaintenanceMode`
+1. At the command prompt type:
+
+     `Exit-HcsMaintenanceMode`
 
 2. A warning message and a confirmation message will appear. Type **Y** to exit Maintenance mode.
 

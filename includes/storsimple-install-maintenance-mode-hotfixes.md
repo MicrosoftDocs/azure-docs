@@ -21,7 +21,9 @@
 
 1. Place the device into Maintenance mode. See [Enter Maintenance mode](#enter-maintenance-mode) for instructions on how to enter Maintenance mode.
 
-2. To apply the hotfix, type: `Start-HcsHotfix` 
+2. To apply the hotfix, type:
+
+     `Start-HcsHotfix` 
 
 3. When prompted, supply the path to the network shared folder that contains the hotfix files.
 

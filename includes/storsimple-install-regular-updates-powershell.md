@@ -19,11 +19,15 @@
 
 1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 
 
-2. At the command prompt, type: `Get-HcsUpdateAvailability`
+2. At the command prompt, type:
+
+     `Get-HcsUpdateAvailability`
     
     You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
 
-3. At the command prompt, type: `Start-HcsUpdate`
+3. At the command prompt, type:
+
+     `Start-HcsUpdate`
 
     The update process with start.
 
