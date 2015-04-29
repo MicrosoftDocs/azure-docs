@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Delegate your domain to Azure DNS" 
-   description="Delegate your domain to Azure DNS" 
+   description="using delegation to change the name servers from your registrar to point to Azure DNS" 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/27/2015"
+   ms.date="04/28/2015"
    ms.author="joaoma"/>
 
 
@@ -49,7 +49,13 @@ Each registrar have their own DNS management tools to change the name server rec
 
 After those steps are done, your domain will be delegated to Azure DNS for name resolution.
 
->[AZURE.NOTE] The time to live (TTL) for the NS record  defines how much time the record will be cached on DNS servers.The domain delegation might take some time to show in place because of the cached record haven't expired on the DNS server which queried the domain before. As a best practice, you can reduce the TTL for the NS record so the record expires faster and DNS server will have to query for the new updated NS records. After transitioning to Azure DNS, you can increase the TTL for the record to be cached longer to any DNS server which queries your domain.
+>[AZURE.NOTE] The time to live (TTL) for the NS record  defines how much time the record will be cached on DNS servers. The domain delegation might take some time to show in place because of the cached record haven't expired on the DNS server which queried the domain before. As a best practice, you can reduce the TTL for the NS record so the record expires faster and DNS server will have to query for the new updated NS records. After transitioning to Azure DNS, you can increase the TTL for the record to be cached longer to any DNS server which queries your domain.
+
 ##See Also 
+
+[Perform operations on DNS zones](./dns-operations-dnszones.md)
+
+[Perform operations on DNS records](./dns-operations-recordsets.md)
+
 [Traffic Manager Overview](traffic-manmager-overview.md)
 

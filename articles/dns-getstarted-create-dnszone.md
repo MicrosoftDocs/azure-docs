@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Get started with Azure DNS" 
-   description="configure powershell and Dns zone for Azure DNS" 
+   description="configure Powershell and DNS zone for Azure DNS - Step by step " 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,19 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/27/2015"
+   ms.date="04/23/2015"
    ms.author="joaoma"/>
 
-#Get Started With Azure DNS
+# Get Started With Azure DNS
 The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.<BR><BR>
 To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.<BR><BR>
 These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Microsoft Azure Command Line Interface, REST API or SDK.<BR><BR>
   
-##Set up Azure DNS PowerShell
+## Set up Azure DNS PowerShell
 
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
-1. Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at Using Windows Powershell with Resource Manager.<BR><BR>
+1. Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](./powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 2. Log in to your Azure account.<BR><BR>
@@ -51,10 +51,11 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 		PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
-##Etags and Tags
-###Etags
+## Etags and Tags
+### Etags
 Suppose two people or two processes try to modify a DNS record at the same time.  Which one wins?  And does the winner know that they’ve just overwritten changes created by someone else?<BR><BR>
-Azure DNS uses Etags to handle concurrent changes to the same resource safely. Each DNS resource (zone or record set) has an Etag associated with it.  Whenever a resource is retrieved, its Etag is also retrieved.  When updating a resource, you have the option to pass back the Etag so Azure DNS can verify that the Etag on the server matches.  Since each update to a resource results in the Etag being re-generated, an Etag mismatch indicates a concurrent change has occurred.  Etags are also used when creating a new resource to ensure that the resource does not already exist.<BR><BR>
+Azure DNS uses Etags to handle concurrent changes to the same resource safely. Each DNS resource (zone or record set) has an Etag associated with it.  Whenever a resource is retrieved, its Etag is also retrieved.  When updating a resource, you have the option to pass back the Etag so Azure DNS can verify that the Etag on the server matches.  Since each update to a resource results in the Etag being re-generated, an Etag mismatch indicates a concurrent change has occurred.  Etags are also used when creating a new resource to ensure that the resource does not already exist.
+
 By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets.  The optional ‘-Overwrite’ switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.<BR><BR>
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
 |Header|Behavior|
@@ -64,7 +65,14 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 |If-match *	|PUT only succeeds if resources exists|
 |If-none-match |*	PUT only succeeds if resource does not exist|
 
-##Create a DNS zone
+### Tags
+Tags are different from Etags. Tags are a list of name-value pairs, and are used by Azure Resource Manager to label resources for billing or grouping purposes. For more information about Tags see using tags to organize your Azure resources.
+Azure DNS PowerShell supports Tags on both zones and record sets specified using the options ‘-Tag’ parameter.  The following example shows how to create a DNS zone with two tags, ‘project = demo’ and ‘env = test’:
+
+	PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup -Tag @( @{ Name="project"; Value="demo" }, @{ Name="env"; Value="test" } )
+
+
+## Create a DNS zone
 A DNS zone is created using the New-AzureDnsZone cmdlet. In the example below we will create a DNS zone called 'contoso.com' in the resource group called 'MyResourceGroup':<BR>
 
 		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
@@ -124,9 +132,10 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
         default TTL = 300 (5 mins)
 
 
-##See Also
+## Next Steps
 
 
 [Get started creating record sets and records](./dns-getstarted-create-record.md)<BR>
 [Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
-[Perform operations on DNS records](./dns-operations-recordsets.md)
+[Perform operations on DNS records](./dns-operations-recordsets.md)<BR>
+[Automate Azure Operations with .NET SDK](./dns-sdk.md)
