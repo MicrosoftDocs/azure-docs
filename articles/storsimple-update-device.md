@@ -42,7 +42,7 @@ Regular updates are non-disruptive updates that can be installed when the device
 
 ### Maintenance mode updates
 
-Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [Change device modes](#change-device-modes). You cannot use the Management Portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
+Maintenance Mode updates are disruptive updates such as disk firmware upgrades or USM firmware upgrades. These updates require the device to be put into Maintenance mode. For details, see [To enter Maintenance mode](to-enter-maintenance-mode). You cannot use the Management Portal to install Maintenance mode updates. Instead, you must use Windows PowerShell for StorSimple. 
 
 For details on how to install Maintenance mode updates, see [Install Maintenance mode updates via Windows PowerShell for StorSimple](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple).
 

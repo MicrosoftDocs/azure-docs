@@ -30,7 +30,7 @@ This article also describes the tools for troubleshooting StorSimple deployments
 If you run into an issue when deploying your device for the first time, consider the following:
 
 - If you are troubleshooting a physical device, make sure that the hardware has been installed and configured as described in [Hardware installation of your device](https://msdn.microsoft.com/library/azure/dn772375.aspx).
-- Check prerequisites for deployment. Make sure that you have all the information described in the [deployment checklist](storsimple-deployment-walkthrough.md#pre-installation checklist).
+- Check prerequisites for deployment. Make sure that you have all the information described in the [deployment checklist](storsimple-deployment-walkthrough.md#pre-installation-checklist).
 - Review the StorSimple Release Notes to see if the problem is described. The release notes include workarounds for known installation problems. 
 
 During device deployment, the most common issues that users face occur when they run the setup wizard and when they register the device via Windows PowerShell for StorSimple. (You use Windows PowerShell for StorSimple to register and configure your StorSimple device. For more information on device registration, see [Register your device](https://msdn.microsoft.com/library/azure/dn757742.aspx).)
@@ -39,7 +39,7 @@ The following sections can help you resolve issues that you encounter when you c
 
 ## First-time setup wizard process
 
-The following steps summarize the setup wizard process. For detailed setup information, see the [StorSimple deployment walkthrough](storsimple-deployment-walkthrough.md).
+The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
 
 1. Run the [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet to start the setup wizard that will guide you through the remaining steps. 
 2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
@@ -53,7 +53,7 @@ The following steps summarize the setup wizard process. For detailed setup infor
  
     > [AZURE.IMPORTANT] Passwords are collected before registration, but applied only after you successfully register the device. If there is a failure to apply a password, you will be prompted to supply the password again until the required passwords (that meet the complexity requirements) are collected.
 
-4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) from the Azure Management Portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
+4. Register the device: the final step is to register the device with the StorSimple Manager service running in Microsoft Azure. The registration requires you to [get the service registration key.](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) from the Azure Management Portal, and provide it in the setup wizard. After the device is successfully registered, a service data encryption key is provided to you. Be sure to keep this encryption key in a safe location because it will be required to register all subsequent devices with the service.
 
 ## Common errors during device deployment
 
