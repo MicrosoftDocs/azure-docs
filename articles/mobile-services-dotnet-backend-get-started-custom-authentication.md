@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Get started with custom authentication | Mobile Dev Center" 
 	description="Learn how to authenticate users with a username and password." 
-	documentationCenter="" 
+	documentationCenter="Mobile" 
 	authors="mattchenderson" 
 	manager="dwrede" 
 	editor="" 
@@ -10,35 +10,26 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/29/2015" 
 	ms.author="mahender"/>
 
 # Get started with custom authentication
 
+## Overview
 This topic shows you how to authenticate users in the Azure Mobile Services .NET backend by issuing your own Mobile Services authentication token. In this tutorial, you add authentication to the quickstart project using a custom username and password for your app.
 
 >[AZURE.NOTE] This tutorial demonstrates an advanced method of authenticating your Mobile Services with custom credentials. Many apps will be best suited to instead use the built-in social identity providers, allowing users to log in via Facebook, Twitter, Google, Microsoft Account, and Azure Active Directory. If this is your first experience with authentication in Mobile Services, please see the [Get Started with Users] tutorial.
 
-This tutorial walks you through these basic steps to enable authentication in your app:
-
-1. [Set up the accounts table]
-2. [Create the registration endpoint]
-3. [Create the LoginProvider]
-4. [Create the login endpoint]
-5. [Configure the mobile service to require authentication]
-6. [Test the login flow using the test client]
-
 This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
 
->[AZURE.NOTE] The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services. This is not to be taken as security guidance. In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.
+>[AZURE.IMPORTANT] The purpose of this tutorial is to show you how to issue an authentication token for Mobile Services. This is not to be taken as security guidance. In developing your app, you need to be aware of the security implications of password storage, and you need to have a strategy for managing brute-force attacks.
 
+## Set up the accounts table
 
-## <a name="table-setup"></a>Set up the accounts table
-
-Because you are using custom authentication and not relying on another identity provider, you will need to store your users' login information. In this section, you will create a table for your accounts and set up the basic security mechanisms. The accounts table will contain the usernames and the salted and hashed passwords, and you can also include additional user information if needed.
+Because you are using custom authentication and not relying on another identity provider, you will need to store your users' sign-in information. In this section, you will create a table for your accounts and set up the basic security mechanisms. The accounts table will contain the usernames and the salted and hashed passwords, and you can also include additional user information if needed.
 
 1. In the `DataObjects` folder of your backend project, create a new entity called `Account`:
 
@@ -87,7 +78,7 @@ Because you are using custom authentication and not relying on another identity 
         }
 
 
-## <a name="register-endpoint"></a>Create the registration endpoint
+## Create the registration endpoint
 
 At this point, you have everything you need to begin creating user accounts. In this section, you will set up a registration endpoint to handle new registration requests. This is where you will enforce new username and password policies and ensure that the username is not taken. Then you will safely store the user information in your database.
 
@@ -101,7 +92,7 @@ At this point, you have everything you need to begin creating user accounts. In 
 
     If you wish to collect other information at registration time, you can include it here.
 
-1. In your Mobile Services backend project, add a new custom controller named CustomRegistrationController and paste in the following:
+2. In your Mobile Services backend project, add a new custom controller named CustomRegistrationController and paste in the following:
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
         public class CustomRegistrationController : ApiController
@@ -147,7 +138,7 @@ At this point, you have everything you need to begin creating user accounts. In 
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
-## <a name="login-provider"></a>Create the LoginProvider
+## Create the LoginProvider
 
 One of the fundamental constructs in the Mobile Services authentication pipeline is the `LoginProvider`. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.
 
@@ -221,11 +212,11 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
             return credentials;
         }
 
-## <a name="login-endpoint"></a>Create the login endpoint
+## Create the sign-in endpoint
 
 Next, you will create an endpoint for your users to log in. The username and password that you receive will be checked against the database by first applying the user's salt, hashing the password, and making sure that the incoming value matches that of the database. If it does, then you can create a `ClaimsIdentity` and pass it to the `CustomLoginProvider`. The client app will then receive a user ID and an authentication token for further access to your mobile service.
 
-1. In your Mobile Services backend project, create an object to represent an incoming login attempt:
+1. In your Mobile Services backend project, create an object to represent an incoming sign-in attempt:
 
         public class LoginRequest
         {
@@ -266,16 +257,16 @@ Next, you will create an endpoint for your users to log in. The username and pas
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.NOTE] Your `CustomLoginController` for production use should also contain a brute-force detection strategy. Otherwise your login solution may be vulnerable to attack.
+>[AZURE.IMPORTANT] Your `CustomLoginController` for production use should also contain a brute-force detection strategy. Otherwise your sign-in solution may be vulnerable to attack.
 
-## <a name="require-authentication"></a>Configure the mobile service to require authentication
+## Configure the mobile service to require authentication
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 
-## <a name="test-login"></a>Test the login flow using the test client
+## Test the sign-in flow using the test client
 
-In your client application, you will need to develop a custom login screen which takes usernames and passwords and sends them as a JSON payload to your registration and login endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
+In your client application, you will need to develop a custom sign-in screen which takes usernames and passwords and sends them as a JSON payload to your registration and sign-in endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
 
 >[AZURE.NOTE] The Mobile Services SDKs will communicate with the service over HTTPS. If you plan to access this endpoint via a direct REST call, you must make sure that you use HTTPS to call your mobile service, as passwords are being sent as plaintext.
 
@@ -295,18 +286,12 @@ In your client application, you will need to develop a custom login screen which
 
     ![][3]
 
-5. Repeat this process for your login endpoint. After sending the same username and password that you registered before, you should receive your user's ID and an authentication token.
+5. Repeat this process for your sign-in endpoint. After sending the same username and password that you registered before, you should receive your user's ID and an authentication token.
 
     ![][4]
 
 
 <!-- Anchors. -->
-[Set up the accounts table]: #table-setup
-[Create the registration endpoint]: #register-endpoint
-[Create the LoginProvider]: #login-provider
-[Create the login endpoint]: #login-endpoint
-[Configure the mobile service to require authentication]: #require-authentication
-[Test the login flow using the test client]: #test-login
 
 
 <!-- Images. -->
