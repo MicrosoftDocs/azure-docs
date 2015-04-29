@@ -49,7 +49,7 @@ After testing is completed, then the application can be listed in the Azure Acti
 >
 > Application Sign-Up URL where customers go to sign up for and /or purchase the application:
 >
-> Choose up to three categories for your application to be listed under (for available categories see  http://go.microsoft.com/fwlink/?LinkId=327881):
+> Choose up to three categories for your application to be listed under (for available categories see the [Azure Active Directory Marketplace](http://go.microsoft.com/fwlink/?LinkId=327881)):
 >
 > Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
 >
