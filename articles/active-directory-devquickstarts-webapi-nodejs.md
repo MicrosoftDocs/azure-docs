@@ -35,9 +35,9 @@ Installed modules are saved in the node_modules directory at the root of your No
 
 This dependency chain structure results in a larger application footprint, but it guarantees that all dependencies are met and that the version of the modules used in development will also be used in production. This makes the production app behavior more predictable and prevents versioning problems that might affect users.
 
-### Step 1: Register a Windows Azure AD Tenant
+### Step 1: Register a Azure AD Tenant
 
-To use this sample you will need a Windows Azure Active Directory Tenant. If you're not sure what a tenant is or how you would get one, see  [How to get an Azure AD tenant](active-directory-howto-tenant.md).
+To use this sample you will need a Azure Active Directory Tenant. If you're not sure what a tenant is or how you would get one, see  [How to get an Azure AD tenant](active-directory-howto-tenant.md).
 
 ### Step 2: Add A Web API to your tenant
 
@@ -248,9 +248,9 @@ Create a `server.js` file in our favorite editor and add the following informati
 
 Save the file. We will return to it shortly.
 
-### Step 11: Create a config file to store your Windows Azure AD settings
+### Step 11: Create a config file to store your Azure AD settings
 
-This code file passes the configuration parameters from your Windows Azure Active Directory Portal to Passport.js. You created these configuration values when you added the Web API to the portal in the first part of the walkthrough. We will explain what to put in the values of these parameters after you've copied the code.
+This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js. You created these configuration values when you added the Web API to the portal in the first part of the walkthrough. We will explain what to put in the values of these parameters after you've copied the code.
 
 
 From the command-line, change directories to the **azuread** folder if not already there:
@@ -841,7 +841,7 @@ Restify (and Express) have a lot of deep customization you can do for a REST API
 
 
 var server = restify.createServer({
-        name: "Windows Azure Active Directroy TODO Server",
+        name: "Azure Active Directroy TODO Server",
     version: "1.0.0",
     formatters: {
         'application/json': function(req, res, body){
@@ -935,7 +935,7 @@ var server = restify.createServer({
 
   server.listen(serverPort, function() {
 
-  var consoleMessage = '\n Windows Azure Active Directory Tutorial'
+  var consoleMessage = '\n Azure Active Directory Tutorial'
   consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++'
   consoleMessage += '\n %s server is listening at %s';
   consoleMessage += '\n Open your browser to %s/tasks\n';
@@ -1008,7 +1008,7 @@ If all this works out, we are ready to add OAuth to the REST API server.
 
 ### Step 18: Add Passport.js code to our REST API Server
 
-Now that we have a running REST API (congrats, btw!) let's get to making it useful against Windows Azure AD.
+Now that we have a running REST API (congrats, btw!) let's get to making it useful against Azure AD.
 
 From the command-line, change directories to the **azuread** folder if not already there:
 
