@@ -15,7 +15,7 @@
    ms.date="04/21/2015"
    ms.author="v-sharos" />
 
-### To enter Maintenance mode
+#### To enter Maintenance mode
 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 

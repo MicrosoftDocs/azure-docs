@@ -14,7 +14,8 @@
    ms.workload="TBD"
    ms.date="04/23/2015"
    ms.author="v-sharos" />
-### To install regular hotfixes via Windows PowerShell for StorSimple
+
+#### To install regular hotfixes via Windows PowerShell for StorSimple
 
 1. Connect to the device serial console. For more information, see [To connect through the serial console](#to-connect-through-the-serial-console).
 

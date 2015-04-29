@@ -16,7 +16,7 @@
    ms.author="v-sharos" />
 
 
-### To configure and register the device
+#### To configure and register the device
 
 1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
 

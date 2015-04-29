@@ -15,7 +15,7 @@
    ms.date="04/29/2015"
    ms.author="v-sharos" />
 
-### To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
+#### To install Maintenance mode hotfixes via Windows PowerShell for StorSimple
 
 > [AZURE.IMPORTANT] In Maintenance mode, you need to apply the hotfix first on one controller and then on the other controller.
 

@@ -39,7 +39,7 @@ The following sections can help you resolve issues that you encounter when you c
 
 ## First-time setup wizard process
 
-The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your StorSimple device](storsimple-deployment-walkthrough.md).
+The following steps summarize the setup wizard process. For detailed setup information, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
 
 1. Run the [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet to start the setup wizard that will guide you through the remaining steps. 
 2. Configure the network: the setup wizard lets you configure network settings for the DATA 0 network interface on your StorSimple device. These settings include the following:
@@ -396,12 +396,12 @@ The error could be caused by any of the following:
 
 7. Check for firewall interference. If you have verified that the virtual IP (VIP), subnet, gateway, and DNS settings are all correct, and you still see connectivity issues, then it is possible that your firewall is blocking communication between your device and the outside network. You need to ensure that ports 80 and 443 are available on your StorSimple device for outbound communication. For more information, see [Networking requirements for StorSimple device](https://msdn.microsoft.com/library/azure/dn772371.aspx).
 
-8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device logs-for-troubleshooting).
+8. Look at the logs. Go to [Support packages and device logs available for troubleshooting](#support-packages-and-device-logs-available-for-troubleshooting).
 
 9. If the preceding steps do not resolve the problem, [contact Microsoft Support](https://msdn.microsoft.com/library/azure/dn757750.aspx) for assistance.
 
 ## Next steps
-[Troubleshoot an operational device](storsimple-troubleshoot-an-operational-device.md)
+[Troubleshoot an operational device](storsimple-troubleshoot-operational-device.md)
 
 <!--Link references-->
 
