@@ -17,17 +17,17 @@
    ms.author="joaoma"/>
 
 
-#Create a RecordSet and Resource Records for a DNS Zone
+# Create a RecordSet and Resource Records for a DNS Zone
 
 After creating your DNS Zone, you need to add the record sets and resource records for the hosts you want to have the names resolved for your domain.
 
 
-##Understanding record sets and records
+## Understanding record sets and records
 Each DNS record has a name and a type.
 
 A fully qualified name includes the zone name, whereas a relative name does not.  For example, the relative record name ‘www’ in the zone ‘contoso.com’ gives the fully qualified record name ‘www.contoso.com’.
 
->[AZURE.NOTE]: In Azure DNS, records are specified using relative names.
+>[AZURE.NOTE] In Azure DNS, records are specified using relative names.
 Records come in various types according to the data they contain.  The most common type is an ‘A’ record, which maps a name to an IPv4 address.  Another type is an ‘MX’ record, which maps a name to a mail server.  Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.
 
 Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
@@ -85,7 +85,7 @@ You can review the DNS Zone, record set and records using Get-AzureDnsRecordSet:
 
 You can also use nslookup or other DNS tools to query the new record set.  
 
->[AZURE.NOTE]As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
+>[AZURE.NOTE] As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
 
 
 	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
