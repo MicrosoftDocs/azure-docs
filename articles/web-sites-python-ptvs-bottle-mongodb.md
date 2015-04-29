@@ -19,7 +19,7 @@
 
 # Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio
 
-  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
+> **NOTE:** The MongoLab workflow is not currently supported in the Preview Portal
 
 In this tutorial, we'll use [Python Tools for Visual Studio] to create a simple polls web app using one of the PTVS sample templates. This tutorial is also available as a [video](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
 
@@ -84,9 +84,9 @@ You can create a free trial with MongoLab by following these steps.
 
   	<!-- ![Choose Add-on Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon1.png) -->
 
-1.  In Name, type a name to use for the database service.
+1.  In **Name**, type a name to use for the database service.
 
-1.  Choose a Region in which to locate the database service. If you will be using the database from your Azure application, select the same region where you will deploy your application.
+1.  Choose a **Region** in which to locate the database service. If you will be using the database from your Azure application, select the same region where you will deploy your application.
 
   	<!-- ![Personalize Add-on Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabAddon2.png) -->
 
@@ -102,7 +102,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
   	<!--![Connection Info Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonMongoLabConnectionInfo.png) -->
 
-1.  In Visual Studio, right-click on your project node in Solution Explorer and select **Properties**.  Click on the **Debug** tab.
+1.  In Solution Explorer, right-click the project and select **Properties**.  Click on the **Debug** tab.
 
   	![Project Debug Settings](./media/web-sites-python-ptvs-bottle-mongodb/PollsBottleMongoDBProjectDebugSettings.png)
 
@@ -118,7 +118,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 1.  The code that implements the MongoDB repository is in **models/mongodb.py**.
 
-1.  Run the application with `F5`.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in MongoDB.
+1.  Click `F5` to run the application.  Polls that are created with **Create Sample Polls** and the data submitted by voting will be serialized in MongoDB.
 
 1.  Browse to the **About** page to verify that the application is using the **MongoDB** repository.
 
@@ -126,7 +126,7 @@ In this section, we'll configure our application to use the MongoDB database we 
 
 ## Explore the MongoDB Database
 
-You can use an application such as [RoboMongo] to query and make edits to a MongoDB database. In this section we'll use RoboMongo to view the contents of the polls application database.
+You can use an application such as [RoboMongo] to query and make edits to a MongoDB database. In this section, we'll use RoboMongo to view the contents of the polls application database.
 
 1.  Create a new connection.  You'll need the **MONGOLAB\_URI** we retrieved in the previous section.
 

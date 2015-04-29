@@ -49,7 +49,7 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 
 - [iOS](active-directory-devquickstarts-ios.md)
 - [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-native-dotnet.md)
+- [.NET](active-directory-devquickstarts-dotnet.md)
 - [Windows Phone](active-directory-devquickstarts-windowsphone.md)
 - [Windows Store](active-directory-devquickstarts-windowsstore.md)
 - [Xamarin](active-directory-devquickstarts-xamarin.md)
@@ -61,7 +61,7 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
 - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
 - [Javascript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-authentication-webapi-nodejs.md)
+- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 <!-- COMMENT
 
@@ -163,7 +163,7 @@ These articles provide foundation reference for REST and authentication library 
 
 ### Graph API
 
-- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API.
+- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API. [View the new interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 
 ### Authentication Protocols

@@ -5,8 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""f/>
 
 <tags
 	ms.service="cloud-services"
@@ -86,7 +85,7 @@ You first install Microsoft HPC Pack on an on-premises computer running Windows 
 	![Finish][install_hpc7]
 
 ## Prepare the Azure subscription
-Use the [Azure classic portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node.
+Use the [Azure Management Portal](https://manage.windowsazure.com) to perform the following steps with your Azure subscription. These are needed so you can later deploy Azure nodes from the on-premises head node.
 
 - Upload a management certificate (needed for secure connections between the head node and the Azure services)
 
@@ -99,7 +98,7 @@ Use the [Azure classic portal](https://manage.windowsazure.com) to perform the f
 ### <a>Upload the default management certificate</a>
 HPC Pack installs a self-signed certificate on the head node, called the Default Microsoft HPC Azure Management certificate, that you can upload as an Azure management certificate. This certificate is provided for testing purposes and proof-of-concept deployments.
 
-1. From the head node computer, sign in to the [classic portal](https://manage.windowsazure.com).
+1. From the head node computer, sign in to the [Azure portal](https://manage.windowsazure.com).
 
 2. Click **Settings**, and then click **Management Certificates**.
 
@@ -117,7 +116,7 @@ You will see **Default HPC Azure Management** in the list of management certific
 
 >[AZURE.NOTE]For best performance, create the cloud service and the storage account in the same geographic region.
 
-1. In the classic portal, on the command bar, click **New**.
+1. In the portal, on the command bar, click **New**.
 
 2. Click **Compute**, click **Cloud Service**, and then click **Quick Create**.
 
@@ -127,7 +126,7 @@ You will see **Default HPC Azure Management** in the list of management certific
 
 ### <a>Create an Azure storage account</a>
 
-1. In the classic portal, on the command bar, click **New**.
+1. In the portal, on the command bar, click **New**.
 
 2. Click **Data Services**, click **Storage**, and then click **Quick Create**.
 
@@ -234,7 +233,7 @@ When you want to use the cluster resources in Azure, use HPC Cluster Manager to 
 
 3. After a few minutes, the Azure nodes finish provisioning and are in the **Offline** state. In this state the role instances are running but will not yet accept cluster jobs.
 
-4. To confirm that the role instances are running, in the [classic Portal](https://manage.windowsazure.com), click **Cloud Services**, click the name of your cloud service, and then click **Instances**.
+4. To confirm that the role instances are running, in the [portal](https://manage.windowsazure.com), click **Cloud Services**, click the name of your cloud service, and then click **Instances**.
 
 	![Running Instances][view_instances1]
 

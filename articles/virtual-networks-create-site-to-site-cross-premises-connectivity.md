@@ -13,18 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/28/2015" 
 	ms.author="cherylmc"/>
 
 
 
-
-
-<h1 id="vnettut1">Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity</h1>
+# Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity
 
 This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. 
 
-If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=296653).
+If you want to create a cloud-only virtual network, see [Tutorial: Create a Cloud-Only Virtual Network in Azure](create-virtual-network.md). If you want to create a point-to-site VPN by using certificates and a VPN client, see [Configure a Point-to-Site VPN in the Management Portal](http://go.microsoft.com/fwlink/p/?LinkId=296653).
 
 This tutorial assumes you have no prior experience using Azure. It's meant to help you become familiar with the steps required to create an example cross-premises virtual network. If you're looking for design scenarios and advanced information about Virtual Network, see the [Azure Virtual Network Overview](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
@@ -38,13 +36,13 @@ Note that the example configuration settings used in this tutorial are not custo
 
 For information about adding a virtual machine and extending your on-premises Active Directory to Azure Virtual Network, see the following:
 
--  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
+-  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/p/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
+-  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/p/?LinkId=299877)
 
 For guidelines about deploying AD DS on Azure Virtual Machines, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
-For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/?LinkId=296652).
+For additional Virtual Network configuration procedures and settings, see [Azure Virtual Network Configuration Tasks](http://go.microsoft.com/fwlink/p/?LinkId=296652).
 
 ##  Objectives
 
@@ -56,7 +54,7 @@ In this tutorial you will learn:
 
 ##  Prerequisites
 
--  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+-  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 If you are using this tutorial to configure a working cross-premises virtual network that is customized for your organization, you need the following:
 
@@ -64,7 +62,7 @@ If you are using this tutorial to configure a working cross-premises virtual net
 
 -  The name and IP address of an on-premises DNS server.
 
--  A VPN device with a public IPv4 address. You'll need the IP address in order to complete the wizard. The VPN device cannot be located behind a network address translator (NAT) and must meet the minimum device standards. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) for more information. 
+-  A VPN device with a public IPv4 address. You'll need the IP address in order to complete the wizard. The VPN device cannot be located behind a network address translator (NAT) and must meet the minimum device standards. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098) for more information. 
 
 	Note: You can use Routing and Remote Access Service (RRAS) in Windows Server as part of your VPN solution. However, this tutorial doesn't walk you through the RRAS configuration steps. 
 	For RRAS configuration information, see [Routing and Remote Access Service templates](http://msdn.microsoft.com/library/windowsazure/dn133801.aspx). 
@@ -92,7 +90,7 @@ To create an example virtual network that connects to a company network:
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png)
 
-3.	On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on the details page, see the **Virtual Network Details** section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
+3.	On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on the details page, see the **Virtual Network Details** section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **Name:** Name your virtual network. For the example in this tutorial, type **YourVirtualNetwork**.
 
@@ -101,7 +99,7 @@ To create an example virtual network that connects to a company network:
 	
 4.	On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the forward arrow on the lower right. 
 
-> [AZURE.NOTE] It's possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092).
+> [AZURE.NOTE] It's possible to select both **Point-To-Site** and **Site-To-Site** configurations on this page concurrently. For the purposes of this tutorial, we will select to configure only **Site-To-Site**. For more information about the settings on this page, see the **DNS Servers and VPN Connectivity** page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=248092).
 
 	-  **DNS SERVERS:** Enter the DNS server name and IP address that you want to use for name resolution. Typically this would be a DNS server that you use for on-premises name resolution. This setting does not create a DNS server. For the example in this tutorial, type **YourDNS** for the name and **10.1.0.4** for the IP address.
 	-  **Configure Point-To-Site VPN:** Leave this field blank. 
@@ -110,7 +108,7 @@ To create an example virtual network that connects to a company network:
  
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png)
 
-5.	On the **Site-To-Site Connectivity** page, enter the information below, and then click the checkmark in the lower right of the page. For more information about the settings on this page, see the **Site-to-Site Connectivity** page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?LinkID=248092). 
+5.	On the **Site-To-Site Connectivity** page, enter the information below, and then click the checkmark in the lower right of the page. For more information about the settings on this page, see the **Site-to-Site Connectivity** page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?LinkID=248092). 
 
 	-  **NAME:** For the example in this tutorial, type **YourCorpHQ**.
 
@@ -143,7 +141,7 @@ To create an example virtual network that connects to a company network:
 
 ##  <a name="StartGateway">Start the Gateway</a>
 
-After creating your Azure Virtual Network, use the following procedure to configure the virtual network gateway in order to create your site-to-site VPN. This procedure requires that you have a VPN device that meets the minimum requirements. For more information about VPN devices and device configuration, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098).
+After creating your Azure Virtual Network, use the following procedure to configure the virtual network gateway in order to create your site-to-site VPN. This procedure requires that you have a VPN device that meets the minimum requirements. For more information about VPN devices and device configuration, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098).
 
 **To start the gateway:**
 
@@ -155,7 +153,7 @@ After creating your Azure Virtual Network, use the following procedure to config
 
 2.	Click **DASHBOARD** at the top of the page. On the Dashboard page, on the bottom of the page, click **CREATE GATEWAY**. Select either **Dynamic Routing** or **Static Routing** for the type of Gateway that you want to create. 
 
-	Note that if you want to use this virtual network for point-to-site connections in addition to site-to-site, you must select **Dynamic Routing** as the gateway type. Before creating the gateway, verify that your VPN device will support the gateway type that you want to create. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098). When the system prompts you to confirm that you want the gateway created, click **YES**.
+	Note that if you want to use this virtual network for point-to-site connections in addition to site-to-site, you must select **Dynamic Routing** as the gateway type. Before creating the gateway, verify that your VPN device will support the gateway type that you want to create. See [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098). When the system prompts you to confirm that you want the gateway created, click **YES**.
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_08_CreateGateway.png)
 
@@ -185,22 +183,22 @@ After creating your Azure Virtual Network, use the following procedure to config
 
 	![](./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_11_DownloadVPNDeviceScript.png)
 
-If you don't see your VPN device in the drop-down list, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkID=248098) in the MSDN library for additional script templates.
+If you don't see your VPN device in the drop-down list, see [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/p/?LinkID=248098) in the MSDN library for additional script templates.
 
 
 ##  <a name="ConfigVPN">Configure the VPN Device (Network Administrator)</a>
 
 Because each VPN device is different, this is only a high-level procedure. This procedure should be done by your network administrator.
 
-You can get the VPN configuration script from the Management Portal or from the [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/?LinkId=248098), which also explains routing types and the devices that are compatible with the routing configuration that you select to use.
+You can get the VPN configuration script from the Management Portal or from the [About VPN Devices for Virtual Network](http://go.microsoft.com/fwlink/p/?LinkId=248098), which also explains routing types and the devices that are compatible with the routing configuration that you select to use.
 
-For additional information about configuring a virtual network gateway, see [Configure the Virtual Network Gateway in the Management Portal](http://go.microsoft.com/fwlink/?LinkId=299878) and consult your VPN device documentation.
+For additional information about configuring a virtual network gateway, see [Configure the Virtual Network Gateway in the Management Portal](http://go.microsoft.com/fwlink/p/?LinkId=299878) and consult your VPN device documentation.
 
 This procedure assumes the following:
 
 -  The person configuring the VPN device is proficient at configuring the device that has been selected. Due to the number of devices that are compatible with virtual network and the configurations that are specific to each device family, these steps do not walk through device configuration at a granular level. Therefore, it's important that the person configuring the device is familiar with the device and its configuration settings. 
 
--  The device that you have selected to use is compatible with virtual network. Check [here](http://go.microsoft.com/fwlink/?LinkID=248098) for device compatibility.
+-  The device that you have selected to use is compatible with virtual network. Check [here](http://go.microsoft.com/fwlink/p/?LinkID=248098) for device compatibility.
 
 
 **To configure the VPN device:**
@@ -247,11 +245,11 @@ This procedure assumes the following:
 ##  Next Steps
 To extend your on-premises Active Directory to the virtual network you just created, continue with the following tutorials:
 
--  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/?LinkID=294356)
+-  [How to Custom Create a Virtual Machine](http://go.microsoft.com/fwlink/p/?LinkID=294356)
 
--  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/?LinkId=299877)
+-  [Install a Replica Active Directory Domain Controller in Azure Virtual Network](http://go.microsoft.com/fwlink/p/?LinkId=299877)
 
-If you want to export your virtual network settings to a network configuration file in order to back up your configuration or to use it as a template, see [Export Virtual Network Settings to a Network Configuration File](http://go.microsoft.com/fwlink/?LinkID=299880).
+If you want to export your virtual network settings to a network configuration file in order to back up your configuration or to use it as a template, see [Export Virtual Network Settings to a Network Configuration File](http://go.microsoft.com/fwlink/p/?LinkID=299880).
 
 ## See Also
 
@@ -259,13 +257,13 @@ If you want to export your virtual network settings to a network configuration f
 
 -  [Virtual Network FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configuring a Virtual Network Using Network Configuration Files](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
+-  [Configuring a Virtual Network Using Network Configuration Files](virtual-networks-using-network-configuration-file.md)
 
--  [Add a Virtual Machine to a Virtual Network](http://www.windowsazure.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Add a Virtual Machine to a Virtual Network](virtual-machines-create-custom.md)
 
 -  [About VPN Devices for Virtual Network](http://msdn.microsoft.com/library/windowsazure/jj15] 75.aspx)
 
--  [Azure Name Resolution Overview](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [Name Resolution for VMs and Role Instances](http://go.microsoft.com/fwlink/p/?LinkId=248097)
 -  [Set up a hybrid cloud environment for testing](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 
