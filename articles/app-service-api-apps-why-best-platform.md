@@ -61,6 +61,8 @@ In the near future, the API Apps platform will also create a rich ecosystem of A
 
 - **Automatic updates** - When you update the code for one of your API app packages that you've shared, you'll be able to push the update out to everyone who has installed and is running your API app. This will work for non-breaking changes and users who have opted-in to receiving updates.
 
+Many of these features, such the public marketplace and automatic updates, are already available for API apps provided by Microsoft.
+
 ## API Apps concepts ##
 
 - **Gateway** - A web app that handles API administration functions and authentication for all API apps in a resource group. 
