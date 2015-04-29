@@ -127,7 +127,7 @@ An elastic pool requires an Azure SQL Database V12 server. Servers are located w
 
 The following PowerShell cmdlets and REST API commands are available for creating and managing elastic pools:
 
-| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/dn790568.aspx) |
+| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/mt163571.aspx) |
 | :-- | :-- |
 | Get-AzureSqlDatabase | Get Azure SQL database |
 | Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
