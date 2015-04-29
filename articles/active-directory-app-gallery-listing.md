@@ -31,17 +31,28 @@ To list an application that supports single sign-on with Azure Active Directory 
 
 After testing is completed, then the application can be listed in the Azure Active Directory application gallery and in the Azure Marketplace. Complete the questions below and send to <waadpartners@microsoft.com>.
 
-``Company Name: 
-Company Website: 
-Application Name: 
-Application Description (256 character limit): 
-Application Website (informational): 
-Application Technical Support Website or Contact Info: 
-Have you integrated your application with Azure AD and tested it (http://go.microsoft.com/fwlink/?LinkId=327879)? 
-Client ID of the application, as shown in the application details at https://manage.windowsazure.com: 
-Application Sign-Up URL where customers go to sign up for and /or purchase the application: 
-Choose up to three categories for your application to be listed under (for available categories see  http://go.microsoft.com/fwlink/?LinkId=327881):
-Attach Application Small Icon (PNG file, 45px by 45px, solid background color): 
-Attach Application Large Icon (PNG file, 215px by 215px, solid background color): 
-Attach Application Logo (PNG file, 150px by 122px, transparent background color):``
-
+> Company Name:
+>
+> Company Website:
+>
+> Application Name:
+>
+> Application Description (256 character limit):
+>
+> Application Website (informational):
+>
+> Application Technical Support Website or Contact Info:
+>
+> Have you integrated your application with Azure AD and tested it (http://go.microsoft.com/fwlink/?LinkId=327879)?
+>
+> Client ID of the application, as shown in the application details at https://manage.windowsazure.com:
+>
+> Application Sign-Up URL where customers go to sign up for and /or purchase the application:
+>
+> Choose up to three categories for your application to be listed under (for available categories see  http://go.microsoft.com/fwlink/?LinkId=327881):
+>
+> Attach Application Small Icon (PNG file, 45px by 45px, solid background color):
+>
+> Attach Application Large Icon (PNG file, 215px by 215px, solid background color):
+>
+> Attach Application Logo (PNG file, 150px by 122px, transparent background color):
