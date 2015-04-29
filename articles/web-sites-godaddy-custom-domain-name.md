@@ -35,7 +35,7 @@ In this article:
 -   [Add a DNS record for your custom domain](#bkmk_configurecname)
 -   [Enable the domain on your web](#enabledomain)
 
-<a name="understanding-records"></a>## Understanding DNS records
+<a name="understanding-records"></a> ## Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
@@ -79,7 +79,7 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 
-<a name="enabledomain"></a>## Enable the domain name on your web app 
+<a name="enabledomain"></a> ## Enable the domain name on your web app 
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
