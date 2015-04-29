@@ -350,7 +350,7 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 
 2. Specify details for the vCenter server and select the process server that will be used to discover it.  The process server must be on the same network as the vCenter server and should have VMware vSphere CLI 5.5 installed.
 
-	![vCenter server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_AddVCenter3.png)
+	![vCenter server settings](./media/site-recovery-vmware-to-azure/ASRVMWare_AddVCenter4.png)
 
 3. After discovery completes the vCenter server will be listed under the configuration server details.
 
