@@ -3,7 +3,7 @@
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
