@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Manage DNS zones using Powershell" 
-   description="Manage DNS zones using Powershell" 
+   pageTitle="Operations on DNS zones" 
+   description="You can manage DNS zones using Azure Powershell cmdlets. How to update, delete and create DNS zones on Azure DNS" 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="joaoma"/>
 
 # Operations on DNS Zones
@@ -27,7 +27,9 @@ To create a new DNS zone to host your domain, use the New-AzureDnsZone cmdlet:
 		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 The operation creates a new DNS zone in Azure DNS and returns a local object corresponding to that zone.  You can optionally specify an array of Azure Resource Manager tags, for more information see [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags).
+
 The name of the zone must be unique within the resource group, and the zone must not exist already, otherwise the operation will fail.
+
 The same zone name can be re-used in a different resource group or a different Azure subscription.  Where multiple zones share the same name, each instance will be assigned different name server addresses, and only one instance can be delegated from the parent domain. See [Delegate a Domain to Azure DNS](./dns-domain-delegation.md) for more information.
 
 ## Get a DNS zone
@@ -45,16 +47,17 @@ By omitting the zone name from Get-AzureDnsZone, you can enumerate all zones in 
 This operation returns an array of zone objects.
 
 ## Update a DNS zone
-Changes to a DNS zone resource can be made using Set-AzureDnsZone.  This does not update any of the DNS record sets within the zone (see Operations on Record sets and records).  It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See Etags and Tags for more information.
+Changes to a DNS zone resource can be made using Set-AzureDnsZone.  This does not update any of the DNS record sets within the zone (see [operations on record sets and records](./dns-operations-recordsets.md)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
+
 Use one of the following two ways to update DNS zone:
 
-###Option 1
+### Option 1
  
 Specify the zone using the zone name and resource group.
 
 	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
-###Option 2
+### Option 2
 Specify the zone using a $zone object from Get-AzureDnsZone:
 
 	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -88,7 +91,7 @@ Specify the zone using a $zone object from Get-AzureDnsZone:
 The ‘-Force’ switch is the same as in Option 1.
 
 As with ‘Set-AzureDnsZone’, specifying the zone using a $zone object enables ‘etag’ checks to ensure concurrent changes are not deleted. <BR>
-The optional ‘-Overwrite’ flag suppresses these checks. See Etags and Tags for more information.
+The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
 
 The zone object can also be piped instead of being passed as a parameter:
 
@@ -97,5 +100,5 @@ The zone object can also be piped instead of being passed as a parameter:
 ## Next Steps
 
 
-[Perform operations on DNS records](./dns-operations-recordsets.md)
+[Operations on record sets and records](./dns-operations-recordsets.md)
 [Automate operations using .NET SDK](./dns-sdk.md)

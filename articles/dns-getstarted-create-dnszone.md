@@ -25,29 +25,34 @@ These instructions use Microsoft Azure PowerShell.  Be sure to update to the lat
 
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
-1. Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](./powershell-azure-resource-manager.md).<BR><BR>
+### Step 1
+ Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](./powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
-2. Log in to your Azure account.<BR><BR>
+
+### Step 2
+ Log in to your Azure account.<BR><BR>
 			
 		PS C:\> Add-AzureAccount
 
 You will be prompted to Authenticate with your credentials.<BR>
 
-3. Choose which of your Azure subscriptions to use. <BR>
+### Step 3
+Choose which of your Azure subscriptions to use. <BR>
 
 
 		PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 To see a list of available subscriptions, use the ‘Get-AzureSubscription’ cmdlet.<BR>
 
-4. Create a new resource group (skip this step if using an existing resource group)<BR>
+### Step 4
+Create a new resource group (skip this step if using an existing resource group)<BR>
 
 		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
 
-5. The Azure DNS service is managed by the Microsoft.Network resource provider.  Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS.  This is a one-time operation for each subscription.<BR>
+The Azure DNS service is managed by the Microsoft.Network resource provider.  Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS.  This is a one-time operation for each subscription.<BR>
 
 		PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
@@ -77,7 +82,7 @@ A DNS zone is created using the New-AzureDnsZone cmdlet. In the example below we
 
 		PS C:\> New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGRoup
 
->[AZURE.NOTE]: In Azure DNS, zone names should be specified without a terminating ‘.’.  For example, as ‘contoso.com’ rather than ‘contoso.com.’.<BR>
+>[AZURE.NOTE] In Azure DNS, zone names should be specified without a terminating ‘.’.  For example, as ‘contoso.com’ rather than ‘contoso.com.’.<BR>
 
 
 Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creates the following DNS records:<BR>
@@ -85,7 +90,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 
 - The ‘Start of Authority’ (SOA) record.  This is present at the root of every DNS zone.
-- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](./dns-domain-delegation.md)for more information.<BR>
+- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](./dns-domain-delegation.md) for more information.<BR>
 
 To view these records, use Get-AzureDnsRecordSet:
 
@@ -110,7 +115,7 @@ To view these records, use Get-AzureDnsRecordSet:
                   ns4-01.azure-dns.info}
 	Tags              : {}
 
->[AZURE.NOTE] record sets at the root (or ‘apex’) of a DNS Zone use "@" as the record set name.
+>[AZURE.NOTE] Record Sets at the root (or ‘apex’) of a DNS Zone use "@" as the record set name.
 
 
 Having created your first DNS zone, you can test it using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/en-us/library/jj590781.aspx).<BR>
@@ -135,7 +140,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating record sets and records](./dns-getstarted-create-record.md)<BR>
+[Get started creating Record Sets and records](./dns-getstarted-create-record.md)<BR>
 [Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
 [Perform operations on DNS records](./dns-operations-recordsets.md)<BR>
 [Automate Azure Operations with .NET SDK](./dns-sdk.md)

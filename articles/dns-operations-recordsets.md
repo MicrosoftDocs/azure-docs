@@ -20,7 +20,7 @@
 
 This guide will show how to manage record sets and records for your DNS zone.
 
-It is important to understand the distinction between DNS record sets and individual D NS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](./dns-getstarted-create-record.md#Understanding-record-sets-and-records)
+It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](./dns-getstarted-create-record.md#Understanding-record-sets-and-records)
 
 ## Create a record set
 
@@ -175,9 +175,8 @@ In this example we add two additional MX records to the existing record set:
 
 Records can be removed from a record set using Remove-AzureDnsRecordConfig.  Note that the record being removed must be an exact match with an existing record, across all parameters.  Changes must be committed using Set-AzureDnsRecordSet.
 
-Removing the last record from a record set does not delete the record set.  See Delete a record set below for more.
+Removing the last record from a record set does not delete the record set.  See [Delete a record set](#delete-a-record-set) below for more.
 
-### Remove A record from a record set
 
 	PS C:\> $rs = Get-AzureDnsRecordSet -Name "test-a" -RecordType A –Zone $zone
 	PS C:\> Remove-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "1.2.3.4"
@@ -249,7 +248,8 @@ Specify the record set by object:
 Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted.  The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](./dns-getstarted-create-dnszone.md) for more information.
 
 The record set object can also be piped instead of being passed as a parameter:
-PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
+
+	PS C:\> Get-AzureDnsRecordSet -Name "test-a" -RecordType A -Zone $zone | Remove-AzureDnsRecordSet [-Overwrite] [-Force]
 
 ##See Also
 
