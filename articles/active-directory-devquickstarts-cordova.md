@@ -227,7 +227,7 @@ The concrete steps for running the app vary by platform.
 
    `cordova run windows`
 
-   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license]( https://msdn.microsoft.com/en-us/library/windows/apps/hh974578.aspx) for more details.
+   __Note__: During first run you may be asked to sign in for a developer license. See [Developer license]( https://msdn.microsoft.com/library/windows/apps/hh974578.aspx) for more details.
 
 
 ##### To build and run application on Windows Phone 8.1
