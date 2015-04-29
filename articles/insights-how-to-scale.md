@@ -136,7 +136,7 @@ However, you may want to have more agressive scaling during the day, or the week
 
 ## Next steps
 
-* [Monitor service health metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
+* [Monitor service metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
 * [Receive alert notifications](./insights-receive-alert-notifications) whenever operational events happen or metrics cross a threshold.
 * [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
