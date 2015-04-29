@@ -262,7 +262,7 @@ This diagram describes the relationships between all the files downloaded from G
 
 ![datastax-files](media/virtual-machines-datastax-template/datastax-files.png)
 
-This section steps you through the structure of the **azuredeploy.json** file for the Redis Cluster.
+This section steps you through the structure of the **azuredeploy.json** file for the Datastax cluster.
 
 ### "parameters" section
 
