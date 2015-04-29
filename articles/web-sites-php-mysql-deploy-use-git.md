@@ -44,11 +44,15 @@ Follow these steps to create a web app and a MySQL database:
 1. Login to the [Azure Portal][management-portal].
 2. Click the **New** icon on the bottom left of the portal.
 
-	![Create New Azure web site][new-website]
+	![Create New Azure web app][new-website]
 
-3. Click **Web + Mobile**, then **Web app + MySQL**.
+3. Click **Web + Mobile**, then **Azure Marketplace**. 
 
-	![Custom Create a new web site][custom-create]
+	![Custom Create a new web app][custom-create]
+
+4. Click **Web Apps**, then **Web app + MySQL**. Then, click **Create**.
+
+	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. Enter a valid name for your resource group.
 
