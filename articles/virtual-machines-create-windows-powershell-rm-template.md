@@ -26,7 +26,7 @@ Before you dive in, make sure you have Azure, PowerShell, and Azure CLI configur
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
 
-[AZURE.INCLUDE [xplat-getting-set-up](../includes/xplat-getting-set-up.md)]
+[AZURE.INCLUDE [xplat-getting-set-up](../includes/xplat-getting-set-up-arm.md)]
 
 ## Create a Windows VM with a Resource Manager template using Azure PowerShell
 

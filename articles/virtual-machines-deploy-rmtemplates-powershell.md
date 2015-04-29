@@ -18,7 +18,7 @@
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
 
-All of the tasks you perform to deploy Azure Virtual Machines can be fully automated. This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and Azure PowerShell as well as links to more documentation on automation for Virtual Machines.
+This article show you how to use Azure Resource Manager templates and Powershell to automate common tasks for deploying and managing Azure Virtual Machines.
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 

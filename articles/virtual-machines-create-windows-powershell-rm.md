@@ -81,10 +81,10 @@ Here is an example of you might see:
 	PS C:\> $locName="West US"
 	PS C:\> $rgName="TestRG"
 	PS C:\> New-AzureResourceGroup -Name $rgName -Location $locName
-	VERBOSE: 12:45:15 PM - Created resource group 'BuildRG2' in location 'westus'
+	VERBOSE: 12:45:15 PM - Created resource group 'TestRG' in location 'westus'
 	
 	
-	ResourceGroupName : BuildRG2
+	ResourceGroupName : TestRG
 	Location          : westus
 	ProvisioningState : Succeeded
 	Tags              :
@@ -93,7 +93,7 @@ Here is an example of you might see:
 	                    =======  ==========
 	                    *
 	
-	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/BuildRG2
+	ResourceId        : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/TestRG
 	
 	
 	PS C:\> $storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
