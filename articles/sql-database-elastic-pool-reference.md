@@ -123,28 +123,28 @@ An elastic pool requires an Azure SQL Database V12 server. Servers are located w
 
 The following PowerShell cmdlets and REST API commands are available for creating and managing elastic pools:
 
-| PowerShell cmdlet | REST API command |
+| [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) | [REST API commands](https://msdn.microsoft.com/library/azure/dn790568.aspx) |
 | :-- | :-- |
-| [Get-AzureSqlDatabase]() | [Get Azure SQL database]() |
-| [Get-AzureSqLElasticPool]() | [Get Azure SQL Database elastic database pool]() |
-| [Get-AzureSqlElasticPoolActivity]() | [Get Azure SQL Database elastic database pool operations]() |
-| [Get-AzureSqlElasticPoolDatabase]() | [Get Azure SQL Database elastic database]() |
-| [Get-AzureSqlElasticPoolDatabaseActivity]() | [Get Azure SQL Database elastic database operations]() |
-| [Get-AzureSqlServer]() | [Get Azure SQL Database server]() |
-| [Get-AzureSqlServerFirewallRule]() | [Get Azure SQL Database server firewall rule]() |
-| [Get-AzureSqlServerServiceObjective]() | [Get Azure SQL Database server service objective]() |
-| [New-AzureSqlDatabase]() | [Create Azure SQL database]() |
-| [New-AzureSqlElasticPool]() | [Create Azure SQL Database elastic database pool]() |
-| [New-AzureSqlServer]() | [Create Azure SQL Database server]() |
-| [New-AzureSqlServerFirewallRule]() | [Create Azure SQL Database server firewall rule]() |
-| [Remove-AzureSqlDatabase]() | [Remove Azure SQL database]() |
-| [Remove-AzureSqlElasticPool]() | [Remove Azure SQL Database elastic database pool]() |
-| [Remove-AzureSqlServer]() | [Remove Azure SQL Database server]() |
-| [Set-AzureSqlDatabase]() | [Set Azure SQL database]() |
-| [Set-AzureSqlElasticPool]() | [Set Azure SQL Database elastic database pool]() |
-| [Set-AzureSqlServer]() | [Set Azure SQL Database server]() |
-| [Set-AzureSqlServerFirewallRule]() | [Set Azure SQL Database server firewall rule]() |
-| [Get-Metrics]() | [Get Metrics]() |
+| Get-AzureSqlDatabase | Get Azure SQL database |
+| Get-AzureSqLElasticPool | Get Azure SQL Database elastic database pool |
+| Get-AzureSqlElasticPoolActivity | Get Azure SQL Database elastic database pool operations |
+| Get-AzureSqlElasticPoolDatabase | Get Azure SQL Database elastic database |
+| Get-AzureSqlElasticPoolDatabaseActivity | Get Azure SQL Database elastic database operations |
+| Get-AzureSqlServer | Get Azure SQL Database server |
+| Get-AzureSqlServerFirewallRule | Get Azure SQL Database server firewall rule |
+| Get-AzureSqlServerServiceObjective | Get Azure SQL Database server service objective |
+| New-AzureSqlDatabase | Create Azure SQL database |
+| New-AzureSqlElasticPool | Create Azure SQL Database elastic database pool |
+| New-AzureSqlServer | Create Azure SQL Database server |
+| New-AzureSqlServerFirewallRule | Create Azure SQL Database server firewall rule) |
+| Remove-AzureSqlDatabase | Remove Azure SQL database |
+| Remove-AzureSqlElasticPool | Remove Azure SQL Database elastic database pool |
+| Remove-AzureSqlServer | Remove Azure SQL Database server |
+| Set-AzureSqlDatabase | Set Azure SQL database |
+| Set-AzureSqlElasticPool | Set Azure SQL Database elastic database pool |
+| Set-AzureSqlServer | Set Azure SQL Database server |
+| Set-AzureSqlServerFirewallRule | Set Azure SQL Database server firewall rule |
+| Get-Metrics | Get Metrics |
 
 
 ## Billing and pricing information

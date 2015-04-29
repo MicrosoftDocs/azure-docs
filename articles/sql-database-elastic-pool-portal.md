@@ -69,7 +69,7 @@ An elastic pool's pricing tier is somewhat analogous to a SQL database's service
 
 | Pricing Tier | DTU MAX per Database |
 | :--- | :--- |
-| Elastic Standard | 100 MAX DTUs per database |
+| Standard | 100 MAX DTUs per database |
 
 ### Add databases
 

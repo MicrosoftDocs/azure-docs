@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create and manage a SQL Database elastic pool using PowerShell" 
-   description="Create and manage a SQL Database elastic pool using PowerShell" 
+   description="Create and manage an Azure SQL Database elastic pool using PowerShell" 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -16,7 +16,7 @@
    ms.date="04/29/2015"
    ms.author="adamkr; sstein"/>
 
-# Create and manage an elastic pool with PowerShell
+# Create and manage an elastic pool with PowerShell (preview)
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-portal.md)
@@ -25,14 +25,14 @@
 
 ## Overview
 
-This article shows you how to create and manage an elastic pool using PowerShell.
+This article shows you how to create and manage a SQL Database elastic pool using PowerShell.
 
 
 The individual steps to create an elastic pool with Azure PowerShell are broken out and explained for clarity. For those who simply want a concise list of commands, see the **Putting it all together** section at the bottom of this article.
 
 This article will show you how to create everything you need to create and configure an elastic pool, except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
-
+> [AZURE.NOTE] Elastic pools are currently in preview, and only available with SQL Database V12  Servers.
 
 
 ## Prerequisites
