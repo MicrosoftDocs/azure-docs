@@ -20,7 +20,7 @@ documentationCenter=""/>
 
 All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 
-For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to learn more.
+For some services, you may need to turn on diagnostics in order to see any metrics. For others, such as virtual machines, you will get a basic set of metrics, but need to enable the full set high-frequency metrics. See [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to learn more.
 
 ## Using monitoring charts 
 
@@ -71,9 +71,9 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library
 
 ## Next steps
 
-* [Receive alert notifications](./insights-receive-alert-notifications) whenever a metric crosses a threshold.
-* [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
-* [Scale instance count automatically](./insights-how-to-scale) to make sure your service is available and responsive.
-* [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.
-* Use [Application Insights for JavaScript apps and web pages](./app-insights-web-track-usage/) to get client analytics about the browsers that visit a web page.
-* [Monitor availability and responsiveness of any web page](./app-insights-monitor-web-app-availability/) with Application Insights so you can find out if your page is down.
+* [Receive alert notifications](insights-receive-alert-notifications.md) whenever a metric crosses a threshold.
+* [Enable monitoring and diagnostics](insights-how-to-use-diagnostics.md) to collect detailed high-frequency metrics on your service.
+* [Scale instance count automatically](insights-how-to-scale.md) to make sure your service is available and responsive.
+* [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
+* Use [Application Insights for JavaScript apps and web pages](app-insights-web-track-usage.md) to get client analytics about the browsers that visit a web page.
+* [Monitor availability and responsiveness of any web page](app-insights-monitor-web-app-availability.md) with Application Insights so you can find out if your page is down.
