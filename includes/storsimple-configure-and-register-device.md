@@ -34,7 +34,7 @@
 
 5. At the command prompt, type your password. The default device password is *Password1*.
 
-6. Type the following command: **Invoke-HcsSetupWizard** 
+6. Type the following command: `Invoke-HcsSetupWizard` 
 
 7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
    - IP address for the DATA 0 network interface

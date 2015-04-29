@@ -300,9 +300,7 @@ Use the Test-HcsmConnection cmdlet for a device that is already connected to and
    - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
    - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
    
-   If it does not throw a web exception, check for the following:
-
-   - ErrorCode.CiSApplianceFailure – this indicates that the appliance failed.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceFailure. This indicates that the appliance failed.
 
 5. Check the cloud service connectivity. If the service throws a web exception, you might see the following errors:
 
@@ -311,8 +309,7 @@ Use the Test-HcsmConnection cmdlet for a device that is already connected to and
   - ErrorCode.CiSApplianceDNSError – this indicates a WebExceptionStatus.NameResolutionFailure exception: the name resolver service could not resolve the host name. .
   - ErrorCode.CiSApplianceACSError – this indicates that the service returned an authentication error, but there is connectivity.
   
-  If it does not throw a web exception, check for the following: 
-  - ErrorCode.CiSApplianceSaasServiceError – this indicates a problem with the StorSimple Manager service.
+    If it does not throw a web exception, check for ErrorCode.CiSApplianceSaasServiceError. This indicates a problem with the StorSimple Manager service.
  
 6. Check Azure Service Bus connectivity. ErrorCode.CiSApplianceServiceBusError indicates that the device cannot connect to the Service Bus.
  

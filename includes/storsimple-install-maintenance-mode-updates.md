@@ -21,20 +21,14 @@
 
 2. Type the password. The default password is **Password1**.
 
-3. At the command prompt, type:
-
-   **Get-HcsUpdateAvailability** 
+3. At the command prompt, type: `Get-HcsUpdateAvailability` 
     
-    You will be notified if updates are available and whether the updates are disruptive or non-disruptive.
+4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [To enter Maintenance Mode](storsimple-enter-maintenance-mode.md) for instructions.
 
-4. To apply disruptive updates, you need to put the device into Maintenance mode. See [To enter Maintenance Mode](#to-enter-maintenance-mode) for instructions.
-
-5. When your device is in Maintenance mode, at the command prompt, type:
-
-    **Start-HcsUpdate** 
+5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
 
 6. You will be prompted for confirmation. After you confirm the updates, they will be installed on the controller that you are currently accessing. After the updates are installed, the controller will restart. 
 
 7. When the restart of the first controller is finished, connect to the other controller, and perform steps 1 through 6.
 
-8. After both controllers are updated, exit Maintenance mode. See [To exit Maintenance mode]](#to-exit-maintenance-mode) for instructions.
+8. After both controllers are updated, exit Maintenance mode. See [To exit Maintenance mode](storsimple-exit-maintenance-mode.md) for instructions.

@@ -20,9 +20,7 @@
 
 2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
 
-3. At the command prompt, type:
-
-     **Start-HcsHotfix**
+3. At the command prompt, type: `Start-HcsHotfix`
 
    > [AZURE.IMPORTANT]
    >

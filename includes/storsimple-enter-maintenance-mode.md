@@ -21,9 +21,7 @@
 
 2. Type the password. The default password is **Password1**.
 
-3. At the command prompt, type
-
-    **Enter-HcsMaintenanceMode** 
+3. At the command prompt, type `Enter-HcsMaintenanceMode`
 
 4. You will see a warning message telling you that Maintenance mode will disrupt all I/O requests and sever the connection to the Management Portal, and you will be prompted for confirmation. Type **Y** to enter Maintenance mode.
 
