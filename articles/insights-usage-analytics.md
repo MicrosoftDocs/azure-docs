@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
-	ms.author="awills"/>
+	ms.date="04/28/2015" >
+
 
 # Application Insights for JavaScript apps and web pages
 

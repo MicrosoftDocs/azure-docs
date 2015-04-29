@@ -30,13 +30,13 @@ To learn about preparing for disaster and when to recover your database, visit o
 
 The recovery operation impacts the application. It requires changing the SQL connection string and could result in permanent data loss. Therefore it should be done only when the outage is likely to last longer than your application's RTO. When the application is deployed to production you should perform regular monitoring of the application health and use the following data points to assert that the recovery is warranted:
 
-1. Permanent connectivity failure from the application tier to the database
-2. Your Azure Portal shows an alert about an incident in the region with broad impact
+1. Permanent connectivity failure from the application tier to the database.
+2. Your Azure Portal shows an alert about an incident in the region with broad impact.
 
-## Recovery to a Geo-Replicated secondary
-> [AZURE.NOTE] You must configure [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) to use Geo-Replication for database recovery. Geo-Replication is only available for Standard and Premium databases. 
+## Failover to the Geo-Replicated secondary database
+> [AZURE.NOTE] You must configure [Standard Geo-Replication](https://msdn.microsoft.com/library/azure/dn758204.aspx) or [Active Geo-Replication](https://msdn.microsoft.com/library/azure/dn741339.aspx) to have a secondary database to use for failover. Geo-Replication is only available for Standard and Premium databases. 
 
-In the event of an outage on the primary database, you can recover to a  Geo-Replicated secondary. To do this you will need to force terminate the continuous copy relationship. For a full description of terminating continuous copy relationships go [here](https://msdn.microsoft.com/library/azure/dn741323.aspx). 
+In the event of an outage on the primary database, you can failover to a secondary database to restore availability. To do this you will need to force terminate the continuous copy relationship. For a full description of terminating continuous copy relationships go [here](https://msdn.microsoft.com/library/azure/dn741323.aspx). 
 
 
 

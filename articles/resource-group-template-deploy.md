@@ -1,7 +1,12 @@
 <properties
    pageTitle="Deploy an application with Azure Resource Manager Template"
+<<<<<<< HEAD
    description="Use Azure Resource Manager to deploy an application to Azure. Template is JSON file and can be used from Portal, PowerShell, Cross-Platform Command-Line Interface, or REST."
    services="azure-portal"
+=======
+   description="Use Azure Resource Manager to deploy an application to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
+   services="na"
+>>>>>>> 682d2d3d488aeebc56b1e4ba74f532babf9b9096
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -13,7 +18,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz;ryjones"/>
 
 # Deploy an application with Azure Resource Manager template
@@ -243,8 +248,10 @@ If you use a parameter file to pass the parameter values to your template during
     }
 
 ## Next steps
-- [Template Deployment REST API reference documentation](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
-
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
+- [Advanced Template Operations](./resource-group-advanced-template.md)  
+- [Deploy Azure Resources Using .NET Libraries and a Template](./arm-template-deployment.md)
 
 

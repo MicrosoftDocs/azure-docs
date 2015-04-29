@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="04/29/2015" 
 	ms.author="mimig"/>
 
 
@@ -50,10 +50,10 @@ Please refer to the [DocumentDB pricing details](http://go.microsoft.com/fwlink/
 ## <a id="setup"></a> Set up Microsoft Azure DocumentDB
 
 ###How do I sign-up for Microsoft Azure DocumentDB?
-Microsoft Azure DocumentDB is available in the new [Azure Preview portal][preview-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription via the Marketplace.   
+Microsoft Azure DocumentDB is available in the new [Azure portal][azure-portal].  First you must sign up for a Microsoft Azure subscription.  Once you sign up for a Microsoft Azure subscription, you can add a DocumentDB account to your Azure subscription via the Marketplace.   
 
 ###What is a master key?
-A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the Keys blade of the [Azure Preview portal][preview-portal].
+A master key is a security token to access all resources for an account. Individuals with the key have read and write access to the all resources in the database account. Use caution when distributing master keys. The primary master key and secondary master key are available in the Keys blade of the [Azure portal][azure-portal].
 
 ###How do I create a database?
 You can create databases using one of the DocumentDB SDKs or through the REST APIs. See the Development section on the [DocumentDB documentation page](http://go.microsoft.com/fwlink/p/?LinkID=402319) page for information on how to develop applications. 
@@ -94,5 +94,5 @@ Yes, because DocumentDB is a RESTful service, resource links are immutable and c
 
 
 
-[preview-portal]: https://portal.azure.com
+[azure-portal]: https://portal.azure.com
 [query]: documentdb-sql-query.md

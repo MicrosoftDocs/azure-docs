@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
 # Scale instance count manually or automatically
@@ -98,6 +98,7 @@ With this additional rule, if your load exceeds 85% before a scale action, you w
 
 ## Scale based on a schedule
 
+
 By default, when you create a scale rule it will  always apply. You can see that when you click on the profile header:
 
 ![Profile](./media/insights-how-to-scale/Insights_Profile.png)
@@ -135,7 +136,7 @@ However, you may want to have more agressive scaling during the day, or the week
 
 ## Next steps
 
-* [Monitor service metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
+* [Monitor service health metrics](./insights-how-to-customize-monitoring) to make sure your service is available and responsive.
 * [Enable monitoring and diagnostics](./insights-how-to-use-diagnostics) to collect detailed high-frequency metrics on your service.
 * [Receive alert notifications](./insights-receive-alert-notifications) whenever operational events happen or metrics cross a threshold.
 * [Monitor application performance](./insights-perf-analytics) if you want to understand exactly how your code is performing in the cloud.

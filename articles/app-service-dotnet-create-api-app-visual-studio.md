@@ -57,7 +57,7 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/addapiappsdk.png)
 
-11. In the **Choose API App Metadata source** dialog, click **Automatic Metadata Generation**. This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. For information about the static Swagger metadata file option, see [Convert an existing API to an API app](app-service-dotnet-create-api-app-visual-studio.md).
+11. In the **Choose API App Metadata source** dialog, click **Automatic Metadata Generation**. This choice enables the dynamic Swagger UI, which you'll see later in the tutorial. For information about the static Swagger metadata file option, see the [Next steps](#next-steps) section later in this tutorial.
 
 	![](./media/app-service-dotnet-create-api-app-visual-studio/chooseswagger.png)
 
@@ -65,4 +65,8 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 In the next section, we'll cover what files were added to your project.
 
+
 [AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
+
+
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]

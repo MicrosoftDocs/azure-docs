@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect to SQL Database by using NodeJS on Windows" 
-	description="Presents a NodeJS code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
+	pageTitle="Connect to SQL Database by using Node.js on Windows" 
+	description="Presents a Node.js code sample you can use to connect to Azure SQL Database. The sample runs on a Windows client computer."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="meet-bhagdev" 
@@ -14,37 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
+	ms.date="04/27/2015" 
 	ms.author="mebha"/>
 
 
-# Connect to SQL Database by using NodeJS on Windows
+# Connect to SQL Database by using Node.js on Windows
 
 
-<!--
-2015-04-18
-Original author is Meet Bhagdev (mebha; or on github 'meet-bhagdev'). GeneMi did an edit pass, and did the first publish.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-This topic presents a NodeJS code sample that you can use to connect to Azure SQL Database. The NodeJS program runs on a Windows client computer. To manage the connection, the msnodesql driver is used.
+This topic presents a Node.js code sample that you can use to connect to Azure SQL Database. The Node.js program runs on a Windows client computer. To manage the connection, the msnodesql driver is used.
 
 
 ## Requirements
 
 
 The following software items must exist on your client development computer.
-
-
-<!--
-TODO, FIX ERROR?
-Is the Python 2.7.6 download truly necessary for the NodeJS sample to work, or was there a copy-paste error? If Python not needed in this NodeJS topic, we must remove that bullet line and its child bullet line.
-.
-2015-04-18 12:33pm, I (GeneMi) am taking an educated chance and am removing the Python download lines. Should they be re-added to the live text?
-.
-- [Python 2.7.6](https://www.python.org/download/releases/2.7.6/), the installer for either x86 or x64. 
- - The x64 version is probably preferable. You want the "Installer" link, not the "program database" link.
--->
 
 
 -  Node.js – [Version 0.8.9 (32 bit version)](http://blog.nodejs.org/2012/09/11/node-v0-8-9-stable/). Scroll and click the download for Window Installer for 32 bit x86, and not for Windows x64 Installer 64 bit.
@@ -79,11 +65,6 @@ See the [Get Started topic](sql-database-get-started.md) to learn how to create 
 
 
 ## Connect to your SQL Database
-
-
-<!--
-TODO, to Meet: In this code sample, the connection string lines are excessively long, and will not display well in a web browser. Please split them into 2 or 3 shorter lines.
--->
 
 
 - Copy the following code in a .js file located in your project directory.

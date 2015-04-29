@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
 # Enable monitoring and diagnostics
@@ -44,7 +44,6 @@ If you have already created a resource and you want to change the diagnostics se
 2. Select **Diagnostics**.
 
 3. The **Diagnostics** blade has all of the possible diagnostics and monitoring collection data for that resource. For some resources you can also choose a **Retention** policy for the data, to clean it up from your storage account. 
-
     ![Storage diagnostics](./media/insights-how-to-use-diagnostics/Insights_StorageDiagnostics.png)
 
 4. Once you've chosen your settings, click the **Save** command. It may take a little while for monitoring data to show up if you are enabling it for the first time. 

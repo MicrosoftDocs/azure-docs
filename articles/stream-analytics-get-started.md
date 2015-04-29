@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/22/2015"
+	ms.date="04/28/2015"
 	ms.author="jeffstok" />
 
 
@@ -188,7 +188,7 @@ To identify potentially fraudulent usage we'll look for calls originating from t
 		FROM CallStream CS1 TIMESTAMP BY CallRecTime
 		JOIN CallStream CS2 TIMESTAMP BY CallRecTime
 		ON CS1.CallingIMSI = CS2.CallingIMSI
-		AND DATEDIFF(15, CS1, CS2) BETWEEN 1 AND 5
+		AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5
 		WHERE CS1.SwitchNum != CS2.SwitchNum
 
 2.	Click **Rerun** under the query editor to see the results of the query.
@@ -239,7 +239,7 @@ Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.c
 ![Fraudulent events viewed in real-time](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
 
 ## Next steps

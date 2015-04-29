@@ -1,12 +1,11 @@
 <properties 
-	pageTitle="Monitor service metrics" 
+	pageTitle="Monitor service health metrics" 
 	description="Learn how to customize monitoring charts in Azure." 
 	authors="stepsic-microsoft-com" 
 	manager="ronmart" 
 	editor="" 
 	services="azure-portal"
- 
-	documentationCenter=""/>
+documentationCenter=""/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -14,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="04/28/2015" 
 	ms.author="stepsic"/>
 
-# Monitor service metrics
+# Monitor service health metrics
 
 All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 
