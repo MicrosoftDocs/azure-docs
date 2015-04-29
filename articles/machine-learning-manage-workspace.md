@@ -25,6 +25,8 @@ Using the Azure management portal, you can manage your Machine Learning workspac
 - Manage web services created in the workspace
 - Delete the workspace
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 In addition, the dashboard tab provides an overview of your workspace usage and a quick glance of your workspace information.  
 
 > [AZURE.TIP] In Azure Machine Learning Studio, on the **WEB SERVICES** tab, you can add, update, or delete a Machine Learning web service.

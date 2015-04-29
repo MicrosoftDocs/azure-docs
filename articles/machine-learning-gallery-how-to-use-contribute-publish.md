@@ -24,6 +24,8 @@ The Gallery also enables users to browse and copy experiments contributed by Mic
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.azureml.net)**
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ## Benefits ##
 Start using the Gallery to enjoy these benefits:
 

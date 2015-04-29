@@ -28,6 +28,8 @@ This topic provides instructions on how to:
 *  access intermediate datasets from experiments
 *  use the Python client library to enumerate datasets, access metadata, read the contents of a dataset, create new datasets and update existing datasets
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
  
 ##<a name="prerequisites"></a>Prerequisites
 
