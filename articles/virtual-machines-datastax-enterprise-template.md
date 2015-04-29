@@ -273,7 +273,7 @@ You can check the status of individual resources deployments with the following 
 
 	azure group deployment list dsc
 
-## A tour of template structure and file organization created to deploy DataStax Enterprise on Ubuntu
+## A tour of the Datastax Enterprise template structure and file organization
 
 In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax Enterprise. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
