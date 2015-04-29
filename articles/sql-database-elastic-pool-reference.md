@@ -39,7 +39,8 @@ An elastic pool is a collection of database throughput units (DTUs), and storage
 
 ## Restrictions for the current preview
 
-- The pricing tier for an elastic pool in the current preview is Standard.     
+- The pricing tier for an elastic pool in the current preview is Standard.  
+- Import of a database directly into an elastic pool is not supported. You can import into a stand-alone database and then move the database into a pool. Export of a database from within a pool is supported.
 
 
 ## List of articles
