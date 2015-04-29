@@ -21,8 +21,8 @@
 You can operationalize published [Azure Machine Learning][azure-machine-learning] models within Azure Data Factory pipelines.These pipelines are called predictive pipelines. To create a predictive pipeline, you will need:
 
 -	The published workspace model’s API Key and the batch scoring URL (see the image below)
--	An Azure blob storage holding the input CSV file to be scored.
--	An Azure blob storage that will hold the scoring results CSV file.
+-	An Azure blob storage holding the input CSV file (or) an Azure SQL database that contains the input data to be scored. 
+-	An Azure blob storage that will hold the scoring results CSV file (or) an Azure SQL database that will hold the output data. 
 
 	![Machine Learning Dashboard][machine-learning-dashboard]
 
@@ -31,12 +31,16 @@ You can operationalize published [Azure Machine Learning][azure-machine-learning
 A **predictive pipeline** has these parts:
 
 -	Input and output tables
--	Azure Storage and Azure ML linked services
+-	Azure Storage/Azure SQL and Azure ML linked services
 -	A pipeline with Azure ML Batch Scoring Activity
 
+> [ACOM.NOTE] You can use Web service parameters that are exposed by a published Azure Machine Learning Web service in Azure Data Factory (ADF) pipelines. For more information, see the Web Service Parameters section in this article.  
+
 ## Example
+This example uses Azure Storage to hold both the input and output data. You can also use Azure SQL Database instead of using Azure Storage. 
 
-
+We recommend that you go through the [Get started with Azure Data Factory][adf-getstarted] tutorial prior to going through this example and use the Data Factory Editor to create Data Factory artifacts (linked services, tables, pipeline) in this example.   
+ 
 
 1. Create a linked service for your Azure Storage. If the scoring input and output files will be in different storage accounts, you will need two linked services. Here is a JSON example:
 
@@ -184,10 +188,15 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 
 ### Azure SQL Readers and Writers
 A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The Reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the Writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
-For the list of supported readers and writers, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
+For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
 
 #### Azure SQL Reader
-In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input. The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.   
+In Azure ML Studio, you can build an experiment and publish a Web service with an Azure SQL Reader for the input. The Azure SQL Reader has connection properties that can be exposed as Web service parameters, allowing values for the connection properties to be passed at runtime in the batch scoring request.
+
+At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters. Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.
+
+If you have any additional Web service parameters, use the **webServiceParameters** section of the activity JSON. 
+     
 
 To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following: 
 
@@ -195,17 +204,15 @@ To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following:
 - Create a Data Factory **table** that uses **AzureSqlTableLocation**.
 - Set that Data Factory **table** as the **input** for the **AzureMLBatchScoringActivity** in the pipeline JSON. 
 
-At runtime, the details from the input Data Factory table will be used by the Data Factory service to fill in the Web service parameters. Note that you must use default names (Database server name, Database name, Server user account name, Server user account password) for the Web service parameters for this integration with the Data Factory service to work.  
 
-If you use different names for the Web service parameters or have any additional Web service parameters, use the **webServiceParameters** section of the activity JSON.  
 
 #### Azure SQL Writer
 As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following list describes when the input linked service is used vs. output linked service.   
 
-- **If the activity input is an Azure SQL table**, the settings of Azure SQL linked service associated with the input table are passed as values for the Web service parameters. The settings of linked service associated with the output table are not used even if the output linked service is an Azure SQL linked service. Therefore, if you are using both Azure SQL Reader and Azure SQL Writer in the Machine Learning model, ensure that both the reader and writer share same database settings.       
-- **If the activity input is NOT an Azure SQL table**, the settings of Azure SQL linked service associated with the output table are used for passing values for the Web service parameters.
+- **If the activity input is an Azure SQL table**, the settings of Azure SQL linked service associated with the input table are passed as values for the Web service parameters. The settings of linked service associated with the output table are not used even if the output linked service is an Azure SQL linked service. Therefore, if you are using both Azure SQL Reader and Azure SQL Writer in the Machine Learning model, ensure the following: both the reader and writer share same database settings and use same parameter names (OR) writer parameters are exposed directly and values for them are specified in the webServiceParameters section of the activity JSON.         
+- **If the activity input is NOT an Azure SQL table**, the settings of Azure SQL linked service associated with the output table are used for passing values for the Web service parameters. You must use the default names generated in Azure Machine Learning Studio for this to work.  
 
-    
+ 
 
 
 ## See Also
