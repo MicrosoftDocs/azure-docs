@@ -190,11 +190,6 @@ For the offer "WindowsServer":
 From this list, copy the chosen SKU name and you have all the information for the **Set-AzureVMSourceImage** PowerShell cmdlet or for a resource group template file that requires you to specify the publisher, offer, and SKU for an image.
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
-## Next steps
-
-
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 [6]: ./media/markdown-template-for-new-articles/pretty49.png
