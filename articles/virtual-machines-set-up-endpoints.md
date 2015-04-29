@@ -1,11 +1,12 @@
 <properties 
 	pageTitle="Set up endpoints on a virtual machine in Azure" 
-	description="Learn how to setup communication with a virtual machine in Azure." 
+	description="Learn to set up endpoints in the classic portal to allow communication with a virtual machine in Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor=""/>
+	editor=""/
+	tags=azure-classic-portal>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -89,7 +90,7 @@ For PowerShell configuration of ACLs, see [Managing Access Control Lists (ACLs) 
 
 ##Additional Resources
 
-[Load Balancing Virtual Machines](http://www.windowsazure.com/manage/windows/common-tasks/how-to-load-balance-virtual-machines/)
+[Load Balancing for Azure Infrastructure Services](virtual-machines-load-balance.md)
 
 [About Network Access Control Lists](http://go.microsoft.com/fwlink/p/?linkid=303816&clcid=0x409)
 

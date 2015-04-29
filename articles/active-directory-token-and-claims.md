@@ -56,6 +56,7 @@ In a JWT token, the audience appears in an aud claim.
 ### Application Authentication Context Class Reference
 
 The Application Authentication Context Class Reference claim indicates how the client was authenticated. For a public client, the value is 0. If client ID and client secret are used, the value is 1.
+
 In a JWT token, the authentication context class reference value appears in an appidacr (application-specific ACR value) claim.
 
     "appidacr": "0"

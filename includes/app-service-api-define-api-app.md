@@ -23,7 +23,7 @@ The default contents of the *apiapp.json* file resemble the following example:
 
 The *Metadata* folder contains information such as screenshots for the API App gallery or a static Swagger API definition file.
 
-For this tutorial you don't need to modify any of this metadata. For more information about the format of *apiapp.json* and the contents of the *Metadata* folder, see [Convert an existing API to an API app](app-service-dotnet-create-api-app-visual-studio.md). 
+For this tutorial you don't need to modify any of this metadata. 
 
 ## Add Web API code
 
@@ -125,5 +125,3 @@ To view the API test page, perform the following steps.
 ## Next steps
 
 Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.
-
-For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)

@@ -108,7 +108,7 @@ This document specifies some of the most common Microsoft Azure limits. Note tha
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Resource Groups</a> per subscription</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">Resource Groups</a> per subscription</p></td>
    <td valign="middle"><p>500</p></td>
    <td valign="middle"><p>500</p></td>
 </tr>
@@ -380,7 +380,7 @@ For Azure Active Directory (AD), please see the following topic:
   [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
   [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx
-  [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
+  [storagelimits]: http://azure.microsoft.com/documentation/articles/storage-scalability-targets/
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
   [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
