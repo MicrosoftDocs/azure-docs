@@ -23,7 +23,7 @@
 
 3. At the command prompt, type: `Get-HcsUpdateAvailability` 
     
-4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Enter Maintenance Mode](#enter-maintenance-mode) for instructions.
+4. You will be notified if updates are available and whether the updates are disruptive or non-disruptive. To apply disruptive updates, you need to put the device into Maintenance mode. See [Enter Maintenance mode](#enter-maintenance-mode) for instructions.
 
 5. When your device is in Maintenance mode, at the command prompt, type: `Start-HcsUpdate`
 
