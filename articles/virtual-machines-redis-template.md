@@ -32,12 +32,6 @@ The Redis Cluster template for the “Medium” t-shirt size creates this config
 
 ![cluster-architecture](media/virtual-machines-redis-template/cluster-architecture.png)
 
-Basically, through a parameter you can define the number of nodes that will be deployed in the new Apache Cassandra cluster and, in addition to that, an instance of DataStax Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related that cluster.
-
-Once the deployment is complete you can access the Datastax Operations Center VM instance using the configured DNS address. The OpsCenter VM has SSH port 22 enabled, as well as port 8443 for HTTPS. DNS address for the operations center will include the dnsName and region entered as parameters when creating a deployment based on this template in the format `{dnsName}.{region}.cloudapp.azure.com`. If you created a deployment with the `dnsName` parameter set to “datastax” in the “West US” region you could access the Datastax Operations Center virtual machine for the deployment at `https://datastax.westus.cloudapp.azure.com:8443`.
-
-> [AZURE.NOTE] The certificate used in the deployment is a self-signed certificate that will create a browser warning. You can follow the process on the [Datastax](http://www.datastax.com/) web site for replacing the certificate with your own SSL certificate.
-
 Before diving into more details related to Azure Resource Manager and the template we used for this deployment, make sure you have Azure, PowerShell, and Azure CLI configured and ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
