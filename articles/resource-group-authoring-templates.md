@@ -11,9 +11,9 @@
    ms.service="azure-portal"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="AzurePortal"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz;ilygre"/>
 
 # Authoring Azure Resource Manager Templates
@@ -74,7 +74,7 @@ The following list shows common functions.
 
 - **resourceId([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
-    Returns the unique identifier of a resource.
+    Returns the unique identifier of a resource. Can be used to retrieve resource from another resource group.
 
 The following example shows how to use several of the functions when constructing values:
  
@@ -311,7 +311,12 @@ The following example shows a value that is returned in the Outputs section.
        }
     }
 
+## More advanced scenarios.
+This topic provides an introductory look at the template. However, your scenario may require more advanced tasks.
 
+You may need to merge two templates together or use a child template within a parent template. For more information, see [Nested Templates](./resource-group-advanced-template.md/#nested-template).
+
+You may need to use resources that exist within a different resource group. This is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](./resource-group-template-functions.md/#resourceid).
 
 ## Complete template
 The following template deploys a web app and provisions it with code from a .zip file. 
@@ -397,7 +402,7 @@ The following template deploys a web app and provisions it with code from a .zip
 
 ## Next Steps
 - [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- [Deploying Templates](./resouce-group-template-deploy.md)
+- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)
 

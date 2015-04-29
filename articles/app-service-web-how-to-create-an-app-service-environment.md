@@ -134,7 +134,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
 
 <!--Links-->
-[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
+[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/

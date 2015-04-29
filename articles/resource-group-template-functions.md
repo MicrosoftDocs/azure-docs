@@ -11,7 +11,7 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="AzurePortal"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="04/28/2015"
    ms.author="tomfitz;ilygre"/>
@@ -56,7 +56,7 @@ The following example shows how to combine multiple values to return a value.
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
-Returns the keys of a storage account. This function takes the resourceId and the API version as parameters. The resourceId can be specified by using the resourceId function described above or by using the format 'providerNamespace/resourceType/resourceName'). You can use the function to get the primaryKey and secondaryKey.
+Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
@@ -152,7 +152,7 @@ By using the reference expression, you declare that one resource depends on anot
 
 **resourceGroup()**
 
-Returns a structured object (with id, name, and location properties) that represents the current resource group. The object will be in the following format:
+Returns a structured object that represents the current resource group. The object will be in the following format:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="04/27/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz"/>
 
 # Authenticating a Service Principal with Azure Resource Manager
@@ -121,6 +121,34 @@ see [Create a new Azure Service Principal using the Azure classic portal](./reso
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
   You should now be authenticated as the service principal for the AAD application that you created.
+
+## Next Steps
+Getting Started  
+
+- [Azure Resource Manager Overview](./resource-group-overview.md)  
+- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)  
+- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)  
+  
+Creating and Deploying Applications  
+  
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
+- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)  
+- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)  
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
+- [Advanced Template Operations](./resource-group-advanced-template.md)  
+- [Deploy Azure Resources Using .NET Libraries and a Template](./arm-template-deployment.md)
+  
+Organizing Resources  
+  
+- [Using tags to organize your Azure resources](./resource-group-using-tags.md)  
+  
+Managing and Auditing Access  
+  
+- [Managing and Auditing Access to Resources](./resource-group-rbac.md)  
+- [Create a new Azure Service Principal using the Azure portal](./resource-group-create-service-principal-portal.md)  
+  
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
