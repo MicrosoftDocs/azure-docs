@@ -476,6 +476,11 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 2.  In the Data Factory Editor, open JSON definition for the pipeline you created in the walkthrough and replace **HDInsightLinkedService** with **AzureBatchLinkedService**.
 3.  You may want to change the start and end times for the pipeline so that you can test the scenario with the Azure Batch service. 
+4.  You can see the Azure Batch tasks associated with processing the slices in the Azure Batch Explorer as shown in the following diagram.
+
+	![Azure Batch tasks][image-data-factory-azure-batch-tasks]
+
+
 
 [batch-net-library]: batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -510,3 +515,5 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+[image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
