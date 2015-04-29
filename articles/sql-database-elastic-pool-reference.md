@@ -81,11 +81,12 @@ An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Az
 | elasticPoolName | Name of the pool.  The name is unique relative to its parent server. |
 | location | Data center location where the pool was created. |
 | state | State is “Disabled” if payment of the bill for subscription is delinquent, and “Ready” otherwise. |
-| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.  The storage limit of the pool is determined by the amount of DTUs of the pool; each DTU = 1 GB storage.  For example, a 200 DTU pool has a storage limit of 200 GB. |
+| storageMB | Storage limit in MB for the pool.  Any single database in the pool can use up to Standard Edition storage limit (250 GB), but the total of storage used by all databases in the pool cannot exceed this pool limit.   |
 
 
 ## DTU and storage limits for elastic pools and elastic databases
 
+The storage limit of the pool is determined by the amount of DTUs of the pool; each DTU = 1 GB storage.  For example, a 200 DTU pool has a storage limit of 200 GB.
 
 | property | default value | valid values |
 | :-- | :-- | :-- |
