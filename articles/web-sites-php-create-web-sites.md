@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 # Create a PHP web app in Azure App Service
 
 ## Overview
-This article will show you how to create a PHP web app in [Azure App Service] by using the [Azure Portal], the [Azure Command Line Tools for Mac and Linux][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
+This article will show you how to create a PHP web app in [Azure App Service] by using the [Azure preview portal](https://portal.azure.com), the [Azure CLI for Mac, Linux, and Windows][xplat-tools], or the [Azure PowerShell cmdlets][powershell-cmdlets].
 
 In general, creating a PHP web app is no different that creating *any* web app in Azure App Service. By default, PHP is enabled for all web apps. For information about configuring PHP (or providing your own customized PHP runtime), see [Configure PHP in Azure App Service Web Apps].
 
@@ -27,21 +27,19 @@ Each option described below shows you how to create a web app in a shared hostin
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-<a name="portal"></a>
-## Create a PHP web app using the Azure Portal
+## Create a PHP web app using the Azure preview portal
 
-When you create a PHP web app in the Azure Portal, you have three options: 
+When you create a PHP web app in the Azure preview portal, you have three options: 
 
-- **Quick create** - see [How to: Create a web app Using the Azure Portal](web-sites-create-deploy.md#createawebsiteportal)
+- **Quick create** - see [How to: Create a web app Using the Azure preview portal](web-sites-create-deploy.md#createawebsiteportal)
 - **Create with database** - see [Create a PHP-MySQL web app in Azure App Service and deploy using Git] 
 - **From the Marketplace** - see [Create a WordPress web app in Azure App Service]
 
-<a name="XplatTools"></a>
-## Create a PHP web app using the Azure Command Line Tools for Mac and Linux
+## Create a PHP web app using the Azure CLI
 
-To create a PHP web app using the Azure Command Line Tools for Mac and Linux do the following:
+To create a PHP web app using the Azure CLI do the following:
 
-1. Install the Azure Command Line Tools by following the instructions here: [How to install the Azure Command Line Tools for Mac and Linux](xplat-cli.md#install).
+1. Install the Azure CLI by following the instructions here: [How to install the Azure CLI for Mac, Linux and Windows](xplat-cli.md#install).
 
 1. Download and import your publish settings file by following the instructions here: [How to download and import publish settings](xplat-cli.md#configure).
 
@@ -57,7 +55,6 @@ Note that you can execute the `azure site create` command with any of the follow
 * `--hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
 * `--git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-<a name="PowerShell"></a>
 ## Create a PHP web app using the Azure PowerShell cmdlets
 
 To create a PHP web app using the Azure PowerShell cmdlets, do the following:
@@ -78,7 +75,6 @@ Note that you can execute the `New-AzureWebsite` command with any of the followi
 * `-Hostname [custom host name]`. This option allows you to specify a custom hostname for your web app.
 * `-Git`. This option allows you to use git to publish to your web app by creating git repositories in both your local application directory and in your web app's data center. Note that if your local folder is already a git repository, the command will add a new remote to the existing repository, pointing to the repository in your web app's data center.
 
-<a name="NextSteps"></a>
 ## Next steps
 
 Now that you have created a PHP web app in Azure App Service, you can manage, configure, monitor, deploy to, and scale your app. For more information, see the following links:
@@ -94,7 +90,7 @@ For end-to-end tutorials, visit the [PHP Developer Center - Tutorials](/develop/
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Azure Portal]: http://go.microsoft.com/fwlink/?LinkId=529715

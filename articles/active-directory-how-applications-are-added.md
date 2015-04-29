@@ -23,6 +23,7 @@ One of the initially puzzling things when viewing a list of applications in your
 ## What services does Azure AD provide to applications?
 
 Applications are added to Azure AD to leverage one or more of the services it provides.  Those services include:
+
 * App authentication and authorization
 * User authentication & authorization
 * Single sign-on (SSO) using federation or password
@@ -36,6 +37,7 @@ Applications are added to Azure AD to leverage one or more of the services it pr
 Applications are represented in the Azure AD using 2 objects: an application object and a service principal object.  There is one application object, registered in a "home"/"owner" or "publishing" directory and one or more service principal objects representing the application in every directory in which it acts.  
 
 The application object describes the app to Azure AD (the multi-tenant service) and may include any of the following: (*Note*: This is not an exhaustive list.)
+
 * Name, Logo & Publisher
 * Secrets (symmetric and/or asymmetric keys used to authenticate the app)
 * API dependencies (oAuth)
@@ -46,6 +48,7 @@ The application object describes the app to Azure AD (the multi-tenant service) 
 * Proxy metadata and configuration
 
 The service principal is a record of the application in every directory, where the application acts including its home directory.  The service principal:
+
 * Refers back to an application object via the app id property
 * Records local user and group app-role assignments
 * Records local user and admin permissions granted to the app
@@ -61,13 +64,15 @@ The service principal is a record of the application in every directory, where t
 
 ![A diagram illustrating how application objects and service principals existing with Azure AD instances.][apps_service_principals_directory]
 
-As you can see from the diagram above.  Microsoft maintains two directories internally (on the left) it uses to publish applications.  
+As you can see from the diagram above.  Microsoft maintains two directories internally (on the left) it uses to publish applications. 
+ 
 * One for Microsoft Apps (Microsoft services directory)
 * One for pre-integrated 3rd Party Apps (App Gallery directory)
 
 Application publishers/vendors who integrate with Azure AD are required to have a publishing directory.  (Some SAAS Directory).
 
 Applications that you add yourself include:
+
 * Apps you developed (integrated with AAD)
 * Apps you connected for single-sign-on
 * Apps you published using the Azure AD application proxy.
@@ -85,6 +90,7 @@ Applications that you add yourself include:
 
 ## How are apps added to my Azure AD instance?
 There are many ways an app can be added to Azure AD:
+
 * Add an app from the [Azure Active Directory App Gallery](http://azure.microsoft.com/updates/azure-active-directory-over-1000-apps/)
 * Sign up/into a 3rd Party App integrated with Azure Active Directory (For example: [Smartsheet](https://app.smartsheet.com/b/home) or [DocuSign](https://www.docusign.net/member/MemberLogin.aspx))
     * During sign up/in users are asked to give permission to the app to access their profile and other permissions.  The first person to give consent causes a service principal representing the app to be added to the directory.
@@ -95,19 +101,21 @@ There are many ways an app can be added to Azure AD:
 * Add an app you're developing using Visual Studio see:
     * [ASP.Net Authentication Methods](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions)
     * [Connected Services](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
-* Add an app to use to use the [Azure AD] Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
+* Add an app to use to use the [Azure AD Application Proxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 * Connect an app for single sign on using SAML or Password SSO
 * Many others including various developer experiences in Azure and/in API explorer experiences across developer centers
 
 ## Who has permission to add applications to my Azure AD instance?
 
 Only global administrators can:
+
 * Add apps from the Azure AD app gallery (pre-integrated 3rd Party Apps)
 * Publish an app using the Azure AD Application Proxy
 
 All users in your directory have rights to add applications that they are developing and discretion over which applications they share/give access to their organizational data.  *Remember user sign up/in to an app and granting permissions may result in a service principal being created.*
 
 This might initially sound concerning, but keep the following in mind:
+
 * Apps have been able to leverage Windows Server Active Directory for user authentication for many years without requiring the application to be registered/recorded in the directory.  Now the organization will have improved visibility to exactly how many apps are using the directory and what for.
 * No need for admin driven app publishing/registration process.  With Active Directory Federation Services it was likely that an admin had to add an app as a relying party on behalf of developers.  Now developers can self-service.
 * Users signing in/up to apps using their organization accounts for business purposes is a good thing.  If they subsequently leave the organization they will lose access to their account in the application they were using.
@@ -126,6 +134,7 @@ With all of that said it is possible to prevent users in your directory from add
 ## Next steps
 
 Learn more about how to add applications to Azure AD and how to configure services for apps.
+
 * Developers: [Learn how to integrate an application with AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
 * Developers: [Review sample code for apps integrated with Azure Active Directory on Github](https://github.com/AzureADSamples)
 * Developers and IT Pros: [Review the REST API documentation for the Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/hh974478.aspx)

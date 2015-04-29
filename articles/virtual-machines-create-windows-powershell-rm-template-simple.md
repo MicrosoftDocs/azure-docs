@@ -58,19 +58,19 @@ You will see something like this:
 	adminPassword: *********
 	dnsNameForPublicIP: contoso
 	VERBOSE: 10:56:59 AM - Template is valid.
-	VERBOSE: 10:56:59 AM - Create template deployment 'BuildDeployment'.
+	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
 	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
 	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'buildsaacct' provisioning status is running
-	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'buildsaacct' provisioning status is succeeded
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
 	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
 	
 	
-	DeploymentName    : BuildDeployment
-	ResourceGroupName : BuildRG
+	DeploymentName    : TestDeployment
+	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
 	Timestamp         : 4/28/2015 6:02:13 PM
 	Mode              : Incremental
@@ -78,10 +78,10 @@ You will see something like this:
 	Parameters        :
                     	Name             Type                       Value
 	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     buildsaacct
+	                    newStorageAccountName  String                     newsaacct
 	                    adminUsername    String                     WinAdmin1
 	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contoso9875
+	                    dnsNameForPublicIP  String                     contoso
 	                    windowsOSVersion  String                     2012-R2-Datacenter
 	
 	Outputs           :
