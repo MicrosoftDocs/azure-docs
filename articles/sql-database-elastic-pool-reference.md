@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# SQL Database elastic database reference
+# SQL Database elastic database reference (preview)
 
 For SaaS developers who have tens, hundreds, or even thousands of databases, an elastic database pool simplifies the process of creating, maintaining, and managing both performance and cost across the entire group of databases. 
 
