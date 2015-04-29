@@ -67,7 +67,7 @@ You can create an elastic pool in minutes using the Microsoft Azure portal. For 
 
 You can also create elastic pools programmatically using PowerShell cmdlets. For details, see [Create an Azure SQL Database elastic database pool using PowerShell](sql-database-elastic-pool-powershell.md).
 
-For information about the elastic jobs service that enables running T-SQL scripts across all elastic databases in a pool, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
+For information about the elastic jobs that enable running T-SQL scripts across all elastic databases in a pool, see [Elastic database jobs overview](sql-database-elastic-jobs-overview.md).
 
 
 

@@ -70,7 +70,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [3]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/scalepool.png
 
 <!--Links-->
-[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
+[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ScaleWebapp]: http://azure.microsoft.com/documentation/articles/web-sites-scale/
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/

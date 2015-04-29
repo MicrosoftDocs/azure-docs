@@ -3,7 +3,7 @@
 	description="Demonstrates how to create a database in Azure SQL Database Update V12" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="sonalmm" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="04/22/2015" 
-	ms.author="genemi"/>
+	ms.date="04/28/2015" 
+	ms.author="sonalm"/>
 
 
 # Create a database in SQL Database V12
