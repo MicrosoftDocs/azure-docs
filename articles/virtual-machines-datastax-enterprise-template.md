@@ -88,7 +88,7 @@ Clone the entire template repository using a git client of your choice, for exam
 
 When completed, look for the **datastax-enterprise** folder in your C:\Azure\Templates directory.
 
-### Step 2: (optional) Familiarize with template parameters.
+### Step 2: (optional) Understand the template parameters
 
 When you deploy non-trivial solutions like an Apache Cassandra cluster based on DataStax, you must specify a set of configuration parameters to deal with a number of settings required. By declaring these parameters in the template definition, it’s possible to specify values during deployment through an external file or in the command-line.
 
