@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure CLI](xplat-cli-azure-resource-manager.md)
-- [Windows PowerShell](powershell-azure-resource-manager.md)
+- [Azure PowerShell](powershell-azure-resource-manager.md)
 
 
 This topic describes how to create, manage, and delete Azure resources and VMs using the Azure CLI for Mac, Linux, and Windows using the **arm** mode.  
@@ -241,7 +241,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 			"value": "West US"
 		  },
 		  "hardwareSize": {
-			"value": "2GB"
+			"value": "Medium"
 		  }
 	    }
 
@@ -276,7 +276,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 		data:    userName               String        azureUser
 		data:    password               SecureString  undefined
 		data:    location               String        West US
-		data:    hardwareSize           String        2GB
+		data:    hardwareSize           String        Medium
 		info:    group deployment show command OK
 
 	>[AZURE.NOTE] If you realize that your configuration isn't correct, and need to stop a long running deployment, use the following command.
@@ -334,7 +334,7 @@ To view logged information on operations performed on a group, use the `azure gr
 ## Next steps
 
 * For more information on using the Azure Cross-Platform Command-Line Interface, see [Install and Configure the Microsoft Azure Cross-Platform Command-Line Interface][xplatsetup].
-* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Windows PowerShell with Resource Manager][psrm]
+* For information on working with Resource Manager using Azure PowerShell, see [Getting Started using Azure PowerShell with Resource Manager][psrm]
 
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="04/27/2015" 
+	ms.date="04/28/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -39,7 +39,7 @@ You can quickly create an elastic pool using the Azure portal.
 To create an elastic pool you need an the following:
 
 - An Azure account! If you don't have an azure account, you can [sign up for a FREE trial](http://azure.microsoft.com/pricing/free-trial/).
-- An Azure SQL Database version 12 server. If you don't have a V12 server, create one following the steps: [Create your first Azure SQL Database](sql-database-get-started.md).
+- An Azure SQL Database version 12 server. If you do not have a V12 server, create one following the steps: [Create your first Azure SQL Database](sql-database-get-started.md).
 
 
 

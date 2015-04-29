@@ -94,23 +94,33 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 	        Console.ReadLine();
 	    }
 
-7. Press <Ctrl>F5 to run the app.
+## Test the API app client
 
-8. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
+Once the API app has been coded, it's time to test the code in the browser.
 
-9. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
+1. Open **Solution Explorer**.
 
-10. Click **Get** to view the schema and **Try it out** button.
+2. Right-click the console application you created in the previous section.
 
-11. Click **Try it out**. The Contact records will be displayed in the Web page's **Response Body** section.
+3. From the console application's context menu, select **Debug > Start new instance**. 
 
-12. From the **View** menu, select **Server Explorer**. 
+4. A console windows should open and display all of the contacts. 
 
-13. In the **Server Explorer**, expand the **Azure > App Service** node. 
+	![Running console app](./media/app-service-dotnet-remotely-debug-api-app/running-console-app.png)
 
-14. Locate the resource group that you created when you deployed your API app. 
+5. Press **Enter** to dismiss the console window.          
 
-15. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+## Debug the API app 
+
+Now that the API app and its client are coded and tested, let's see how to debug it.
+
+1. From the Visual Studio **View** menu, select **Server Explorer**. 
+
+2. In the **Server Explorer**, expand the **Azure > App Service** node. 
+
+3. Locate the resource group that you created when you deployed your API app. 
+
+4. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
@@ -130,6 +140,8 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 ## Next steps
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API apps.
+Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for Azure API apps. 
+
+App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md). 
 
 The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).

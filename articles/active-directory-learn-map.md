@@ -18,12 +18,10 @@
 
 # Learn more about Azure AD
 
-> [AZURE.SELECTOR]
-- [What is Azure AD?](active-directory-whatis.md)
-- [How does it work?](active-directory-works.md)
-- [Get started](active-directory-get-started.md)
-- [Next steps](active-directory-next-steps.md)
-- [Learn more](active-directory-learn-map.md)
+[What is Azure AD?](active-directory-whatis.md)<br>
+[How does it work?](active-directory-works.md)<br>
+[Get started](active-directory-get-started.md)<br>
+[Next steps](active-directory-next-steps.md)
 
 I already have an Azure subscription. How is Azure AD related to that? [Learn more](https://msdn.microsoft.com/library/azure/dn629581.aspx)
 
