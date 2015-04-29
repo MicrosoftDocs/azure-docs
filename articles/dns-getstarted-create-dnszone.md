@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="joaoma"/>
 
 # Get Started With Azure DNS
@@ -115,7 +115,7 @@ To view these records, use Get-AzureDnsRecordSet:
                   ns4-01.azure-dns.info}
 	Tags              : {}
 
->[AZURE.NOTE] Record Sets at the root (or ‘apex’) of a DNS Zone use "@" as the record set name.
+>[AZURE.NOTE] Record sets at the root (or ‘apex’) of a DNS Zone use "@" as the record set name.
 
 
 Having created your first DNS zone, you can test it using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/en-us/library/jj590781.aspx).<BR>
