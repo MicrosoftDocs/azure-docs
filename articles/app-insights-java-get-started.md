@@ -79,7 +79,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.2<\version>`
+* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.3</version>`
 
 #### If you're using Gradle...
 
@@ -96,7 +96,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.2'`
+* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.3'`
 
 #### Otherwise ...
 
@@ -226,6 +226,14 @@ Click through any chart to see more detailed metrics.
 And when viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
  
 ![](./media/app-insights-java-track-http-requests/7-instance.png)
+
+
+#### Performance counters
+
+Click the Servers tile, and you'll see a variety of performance counters.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
 
 
 [Learn more about metrics.][metrics]
