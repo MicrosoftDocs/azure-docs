@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Manage DNS record sets and records on Azure DNS" 
-   description="Manage DNS record sets and records on Azure DNS" 
+   description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records." 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Get started with Azure DNS" 
-   description="configure Powershell and DNS zone for Azure DNS - Step by step " 
+   description="Learn how to create DNS zones for Azure DNS - Step by step to get your first DNS zone created to start hosting your DNS domain on Microsoft Azure" 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 

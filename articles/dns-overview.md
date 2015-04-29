@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Overview of Azure DNS" 
-   description="Overview of DNS hosting services for Azure" 
+   description="Overview of Azure DNS hosting services on Microsoft Azure. Features and concepts" 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 
