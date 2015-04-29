@@ -13,7 +13,7 @@
 
 The following steps help you use the xplat-cli easily with the most recent version and the proper subscription. If you need to install the xplat-cli and connect it to your account first, see the [Azure Command-Line Interface (xplat-cli)](xplat-cli.md).
 
-## Step 1: Update the xplat-cli version
+### Step 1: Update the xplat-cli version
 
 To use the xplat-cli for imperative commands with service management mode, you should have a recent version if possible. To verify your version, type `azure --version`. You should see something like:
 
@@ -22,7 +22,7 @@ To use the xplat-cli for imperative commands with service management mode, you s
     
 If you want to update your version of the xplat-cli, see [xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
-## Step 2: Set the Azure account and subscription
+### Step 2: Set the Azure account and subscription
 
 Once you have connected your xplat-cli with the account you want to use, you may have more than one subscription. If you do, you should review the subscriptions available for your account by typing `azure account list`, and then select the subscription you want to use by typing `azure account set <subscription id or name> true` where _subscription id or name_ is either the subscription id or the subscription name that you would like to work with in the current session. You should see something like the following:
 
