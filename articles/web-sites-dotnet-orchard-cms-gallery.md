@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 # Create an Orchard CMS web app from the Azure Marketplace
 
 ## Overview
 
-The Marketplace makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the Marketplace do not require installation of any software other than the browser used to connect to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). For more information about the web applications in the Marketplace, see [Azure Marketplace](/marketplace/).
+The Marketplace makes available a wide range of popular web applications developed by Microsoft, third party companies, and open source software initiatives. Web applications created from the Marketplace do not require installation of any software other than the browser used to connect to the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). For more information about the web applications in the Marketplace, see [Azure Marketplace](/marketplace/).
 
 In this tutorial, you'll learn:
 
@@ -39,7 +39,7 @@ You'll build an Orchard CMS web app that uses a default template. [Orchard](http
 
 ## Create an Orchard web app from the Marketplace
 
-1. Login to the [Azure Portal](http://portal.azure.com).
+1. Login to the [Azure preview portal](http://portal.azure.com).
 
 2. Click **New** > **Web + Mobile** > **Azure Marketplace**.
 	
@@ -78,7 +78,7 @@ You'll build an Orchard CMS web app that uses a default template. [Orchard](http
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png

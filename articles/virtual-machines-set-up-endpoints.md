@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor=""/
-	tags=azure-classic-portal>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
