@@ -36,7 +36,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 - Linked resource management is not supported for non-production slots.
 
-	> [AZURE.NOTE] In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##
