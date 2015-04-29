@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@ Upon completing this guide, you will have a PHP-SQL Database web app running in 
  
 You will learn:
 
-* How to create a web app in App Service Web Apps and a SQL Database using the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
+* How to create a web app in App Service Web Apps and a SQL Database using the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). Because PHP is enabled in Web Apps by default, nothing special is required to run your PHP code.
 * How to develop a PHP application using WebMatrix.
 * How to publish and re-publish your application to Azure using WebMatrix.
  
@@ -67,7 +67,7 @@ By following this tutorial, you will build a simple Tasklist web application in 
 
 Follow these steps to create an Azure web app and a SQL Database:
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the [Azure preview portal](https://portal.azure.com).
 
 2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
 	
@@ -213,7 +213,7 @@ You've seen how to create and deploy a web app from WebMatrix to Azure App Servi
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 
@@ -239,26 +239,6 @@ You've seen how to create and deploy a web app from WebMatrix to Azure App Servi
 [OpenRemoteView]: ./media/web-sites-php-sql-database-use-webmatrix/OpenRemoteView.png
 [Remote_editIndex]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_editIndex.png
 [Remote_run]: ./media/web-sites-php-sql-database-use-webmatrix/Remote_run.png
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [preview-portal]: https://manage.windowsazure.com
 
