@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor=""/
+	editor=""
 	tags=azure-classic-portal>
 
 <tags 
