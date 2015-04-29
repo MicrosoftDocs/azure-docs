@@ -240,9 +240,9 @@ After your tests, if you need to remove this resource group and all of its resou
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
-### Step 3-b: Deploy a DataStax cluster with a template using Azure CLI
+### Step 3-b: Deploy a DataStax cluster with a template using the Azure CLI
 
-To deploy a Datastax cluster via Azure CLI, first create a Resource Group by specifying a name and a location:
+To deploy a Datastax cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:
 
 	azure group create dsc "West US"
 
