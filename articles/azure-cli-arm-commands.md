@@ -790,7 +790,6 @@ Parameter options:
 	-q, --quiet                            quiet mode, do not ask for delete confirmation
 	-s, --subscription <subscription>      the subscription identifier
 
-
 **Commands to manage backend address pools of a load balancer**
 	
 	network lb address-pool create [options] <resource-group> <lb-name> <name>
