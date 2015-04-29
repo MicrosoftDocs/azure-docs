@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Create a RecordSet and Records in Azure DNS  " 
-   description="Create  DNS RecordSets and Records in Azure DNS" 
+   description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell" 
    services="virtual-network" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -13,91 +13,104 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/27/2015"
+   ms.date="04/29/2015"
    ms.author="joaoma"/>
 
 
-#Create a RecordSet and Resource Records for a DNS Zone
+# Create a RecordSet and Resource Records for a DNS Zone
 
-After creating your DNS Zone, you need to add the record sets and resource records for the hosts you want to have the names resolved for your domain.
-
-
-##Understanding record sets and records
-Record set will be name of the host record you are adding to your DNS zone and a collection of specific record type.For example, we create a "www" record set of type "A" record for DNS zone 'contoso.com' which allow IPv4 values like "65.55.39.10".
-
-When browsing to 'www.contoso.com' the IP address resolving it would be '65.55.39.10.
-
-If you want another IP address to also resolve "www.contoso.com" , you will just add another IPv4 value to the "www" record set.  
+After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 
 
-##Step by step creating record sets and records
+## Understanding record sets and records
+Each DNS record has a name and a type.
+
+A fully qualified name includes the zone name, whereas a relative name does not.  For example, the relative record name ‘www’ in the zone ‘contoso.com’ gives the fully qualified record name ‘www.contoso.com’.
+
+>[AZURE.NOTE] In Azure DNS, records are specified using relative names.
+
+Records come in various types according to the data they contain.  The most common type is an ‘A’ record, which maps a name to an IPv4 address.  Another type is an ‘MX’ record, which maps a name to a mail server. 
+
+Azure DNS supports all common DNS record types: A, AAAA, CNAME, MX, NS, SOA, SRV and TXT.
+
+Sometimes, you need to create more than one DNS record with a given name and type.  For example, suppose the www.contoso.com web site is hosted on two different IP addresses.  This requires two different A records, one for each IP address:
+
+	www.contoso.com.		3600	IN	A	134.170.185.46
+	www.contoso.com.		3600	IN	A	134.170.188.221
+
+This is an example of a record set.  A record set is the collection of DNS records in a zone with the same name and the same type.  Most record sets contain a single record, but examples like the one above in which a record set contains more than one record are not uncommon.  (Records sets of type SOA and CNAME are an exception, the DNS standards do not permit multiple records with the same name for these types.)
+
+The Time-to-Live, or TTL, specifies how long each record is cached by clients before being re-queried.  In the above example, the TTL is 3600 seconds or 1 hour.  The TTL is specified for the record set, not for each record, so the same value is used for all records within that record set.
+
+>[AZURE.NOTE] Azure DNS manages DNS records using record sets.
+
+
+
+## Create record sets and records
 
 In the following example we will show how to create a record set and records:
 
 
-Step 1. Create record set for the DNS Zone and define the record type for it:
+### Step 1
+
+Create record set for the DNS Zone and define the record type for it:
 and assign to a variable $rs:
 
-	PS C:\$rs=New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60 
+	PS C:\>$rs=New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60 
 
-The record set 'www' was created in zone 'contoso.com'.<BR>
+The record set has relative name ‘www’ in the DNS Zone ‘contoso.com’, so the fully-qualified name of the records will be ‘www.contoso.com’.  The record type is ‘A’ and the TTL is 60 seconds. 
+
 The record set is empty and we have to add records to be able to use the newly create "www" record set.<BR>
 
-Step 2. Add IPv4 A records to the "www" record set using the $rs variable assigned when created record set on step 1: 
+### Step 2
 
-	PS C:\>Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address "65.55.39.10"
+Add IPv4 A records to the "www" record set using the $rs variable assigned when created record set on step 1: 
 
-Commit the changes to the record set after adding the record:
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+
+Adding records to a record set using Add-AzureDnsRecordConfig is an off-line operation.  Only the local variable $rs is updated.
+
+### Step 3 
+Commit the changes to the record set.  Use Set-AzureDnsRecordSet to upload the changes to the record set to Azure DNS:
+
 
 	Set-AzureDnsRecordSet -RecordSet $rs
 
-You can review the DNS Zone, record set and records using Get-AzureDnsRecordSet:
-
-	PS C:\logs> Get-AzureDnsRecordSet -ResourceGroupName Azuredns -ZoneName contoso.com
+The changes are complete.  You can retrieve the record set from Azure DNS using Get-AzureDnsRecordSet: 
 
 
-	Name              : @
-	ZoneName          : contoso.com
-	ResourceGroupName : MyResourceGroup
-	Ttl               : 3600
-	Etag              : 2b855de1-5c7e-4038-bfff-3a9e55b49caf
-	RecordType        : SOA
-	Records           : {[edge1.azuredns-cloud.net,msnhst.microsoft.com,900,300,604800,300]}
-	Tags              : {}
-
-	Name              : @
-	ZoneName          : contoso.com
-	ResourceGroupName : MyResourceGroup
-	Ttl               : 3600
-	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
-	RecordType        : NS
-	Records           : {edge1.azuredns-cloud.net, edge2.azuredns-cloud.net, edge3.azuredns-cloud.net,
-                    edge4.azuredns-cloud.net}
-	Tags              : {}
+	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
 	ZoneName          : contoso.com
-	ResourceGroupName : MyResourceGroup
-	Ttl               : 60
-	Etag              : f8403f6c-611e-4e08-acce-939de90c4d34
+	ResourceGroupName : MyAzureResourceGroup
+	Ttl               : 3600
+	Etag              : 68e78da2-4d74-413e-8c3d-331ca48246d9
 	RecordType        : A
-	Records           : {65.55.39.10}
-	Tags              : {}
+	Records           : {134.170.185.46, 134.170.188.221}
+	Tags              : {} 
 
 
-You can now use nslookup or other DNS tool to query the new record set:
 
-To test the new record, you can query directly the name server for the DNS zone.
+You can also use nslookup or other DNS tools to query the new record set.  
 
-	c:\Nslookup
-	> server edge1.azuredns-cloud.net
-	Default Server:  edge1.azuredns-cloud.n
-	Address:  204.14.181.10
+>[AZURE.NOTE] As when creating the zone, if you have not yet delegated the domain to the Azure DNS name servers you will need to specify the name server address for your zone explicitly.
 
-	> www.contoso.com
-	Server:  edge1.azuredns-cloud.net
-	Address:  204.14.181.10
+
+	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+
+	Server: ns1-01.azure-dns.com
+	Address:  208.76.47.1
 
 	Name:    www.contoso.com
-	Addresses:  65.55.39.10
+	Addresses:  134.170.185.46
+    	        134.170.188.221
+
+## Next Steps
+[Performing operations with DNS zones](./dns-operations-dnszones.md)
+
+[Performing operations with Record sets and records](./dns-operations-recordsets.md)<BR>
+
+[Automate Azure Operations with .NET SDK](./dns-sdk.md)
