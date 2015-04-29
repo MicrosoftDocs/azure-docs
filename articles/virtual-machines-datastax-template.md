@@ -84,7 +84,7 @@ Clone the entire template repository using a git client of your choice, for exam
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-When completed, look for the **datastax-on-ubuntu** folder in your C:\Azure\Templates.
+When completed, look for the **datastax-on-ubuntu** folder in your C:\Azure\Templates directory.
 
 ### Step 2: (optional) Familiarize with template parameters.
 
