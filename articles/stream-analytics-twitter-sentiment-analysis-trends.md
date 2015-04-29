@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/21/2015"
+   ms.date="04/28/2015"
    ms.author="jeffstok"/>
 
 
@@ -220,7 +220,7 @@ Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.c
 ![Stream Analytics output in a Power BI dashboard.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
 
 ## Next steps

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -603,4 +603,4 @@ In this document, you have learned how to use the Java Event Hubs Spout and Bolt
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
-* [HDInsight Storm Examples](https://github.com/hdinsight/hdinsight-storm-examples)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)

@@ -71,7 +71,7 @@ If you haven't done these yet:
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-We recommend you use one instance of TelemetryClient for each request in a web app, or for each session in other apps. You can set properties such as TelemetryClient.Context.User.Id = 
+We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. 
 
 
 ## Track Event
