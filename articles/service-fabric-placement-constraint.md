@@ -1,9 +1,9 @@
 <properties
    pageTitle="Service Fabric Cluster Orchestration Placement Constraints"
    description="A conceptual overview of placement constraints in Service Fabric"
-   services="Service-Fabric"
+   services="service-fabric"
    documentationCenter=".net"
-   authors="masnider"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/17/2015"
-   ms.author="masnider"/>
+   ms.author="abhic"/>
 
 # Placement Constraints Overview
 
