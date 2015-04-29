@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <properties
 	pageTitle="How to use Table storage from Ruby | Microsoft Azure"
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API."
@@ -14,6 +15,24 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="03/11/2015"
+=======
+<properties 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tamram" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+>>>>>>> 1027d857ab887821da78f739f970417c421f6fa5
 	ms.author="tomfitz"/>
 
 
@@ -23,7 +42,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Table service. The samples are written written using the
 Ruby API. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**.

@@ -3,7 +3,7 @@
    description="VNet to VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services NOT in a virtual network."
    services="virtual-network"
    documentationCenter="na"
-   authors="deneha"
+   authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2015"
+   ms.date="04/28/2015"
    ms.author="cherylmc"/>
 
 

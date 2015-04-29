@@ -210,25 +210,375 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
+Allows to create a new virtual network. In the example below we create a virtual network with newvnet on resource group myresourcegroup in the West US region:
+
+	
+	C:\>azure network vnet create myresourcegroup newvnet "west us"
+	info:    Executing command network vnet create
+	+ Looking up virtual network "newvnet"
+	+ Creating virtual network "newvnet"
+	 Loading virtual network state
+	data:    Id:                   /subscriptions/###############################
+	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Name:                 newvnet
+	data:    Type:                 Microsoft.Network/virtualNetworks
+	data:    Location:             westus
+	data:    Tags:
+	data:    Provisioning state:   Succeeded
+	data:    Address prefixes:
+	data:     10.0.0.0/8
+	data:    DNS servers:
+	data:    Subnets:
+	data:
+	info:    network vnet create command OK
+
+
+Optional parameters:
+
+ 	-h, --help                                 output usage information
+ 	-v, --verbose                              use verbose output
+	--json                                     use json output
+ 	-g, --resource-group <resource-group>      the name of the resource group
+ 	-n, --name <name>                          the name of the virtual network
+ 	-l, --location <location>                  the location
+ 	-a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+      For example -a 10.0.0.0/24,10.0.1.0/24.
+      Default value is 10.0.0.0/8
+ 
+	-d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
+ 	-t, --tags <tags>                          the tags set on this virtual network.
+      Can be multiple. In the format of "name=value".
+      Name is required and value is optional.
+      For example, -t tag1=value1;tag2
+	 -s, --subscription <subscription>          the subscription identifier
+<BR>
+
 	network vnet set [options] <resource-group> <name>
+Sets a virtual network configuration within a resource group. 
+
+	C:\>azure network vnet set myresourcegroup newvnet
+	info:    Executing command network vnet set
+	+ Looking up virtual network "newvnet"
+	+ Updating virtual network "newvnet"
+	+ Loading virtual network state
+	data:    Id:                   /subscriptions/###############################
+	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Name:                 newvnet
+	data:    Type:                 Microsoft.Network/virtualNetworks
+	data:    Location:             westus
+	data:    Tags:
+	data:    Provisioning state:   Succeeded
+	data:    Address prefixes:
+	data:     10.0.0.0/8
+	data:    DNS servers:
+	data:    Subnets:
+	data:
+	info:    network vnet set command OK
+Optional parameters:
+
+	   -h, --help                                 output usage information
+	   -v, --verbose                              use verbose output
+	   --json                                     use json output
+	   -g, --resource-group <resource-group>      the name of the resource group
+	   -n, --name <name>                          the name of the virtual network
+	   -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network.
+        For example -a 10.0.0.0/24,10.0.1.0/24.
+        This list will be appended to the current list of address prefixes.
+        The address prefixes in this list should not overlap between them.
+        The address prefixes in this list should not overlap with existing address prefixes in the vnet.
+
+	   -d, --dns-servers [dns-servers]            the comma separated list of DNS servers IP addresses.
+        This list will be appended to the current list of DNS server IP addresses.
+
+	   -t, --tags <tags>                          the tags set on this virtual network.
+        Can be multiple. In the format of "name=value".
+        Name is required and value is optional. For example, -t tag1=value1;tag2.
+        This list will be appended to the current list of tags
+
+	   --no-tags                                  remove all existing tags
+	   -s, --subscription <subscription>          the subscription identifier
+
+<BR>
+
 	network vnet list [options] <resource-group>
+The command allows to list all virtual networks in a resource group
+
+
+
+	C:\>azure network vnet list myresourcegroup
+
+	info:    Executing command network vnet list
+	+ Listing virtual networks
+		data:    ID
+       Name      Location  Address prefixes  DNS servers
+	data:    -------------------------------------------------------------------	
+	------  --------  --------  ----------------  -----------
+	data:    /subscriptions/###############################/resourceGroups/
+	wvnet   newvnet   westus    10.0.0.0/8
+	info:    network vnet list command OK
+
+Optional parameters:
+
+
+      -h, --help                             output usage information
+      -v, --verbose                          use verbose output
+      --json                                 use json output
+      -g, --resource-group <resource-group>  the name of the resource group
+      -s, --subscription <subscription>      the subscription identifier
+
+<BR>
+	
 	network vnet show [options] <resource-group> <name>
+The command shows the virtual network properties in a resource group
+
+
+	info:    Executing command network vnet show
+	+ Looking up virtual network "newvnet"
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Name:                 newvnet
+	data:    Type:                 Microsoft.Network/virtualNetworks
+	data:    Location:             westus
+	data:    Tags:
+	data:    Provisioning state:   Succeeded
+	data:    Address prefixes:
+	data:     10.0.0.0/8
+	data:    DNS servers:
+	data:    Subnets:
+	data:
+	info:    network vnet show command OK
+<BR>
+
 	network vnet delete [options] <resource-group> <name>
+The command removes a virtual network. 
+  	
+	C:\>azure network vnet delete myresourcegroup newvnetX
+	info:    Executing command network vnet delete
+	+ Looking up virtual network "newvnetX"
+	Delete virtual network newvnetX? [y/n] y
+	+ Deleting virtual network "newvnetX"
+	info:    network vnet delete command OK
+
+Optional parameters:
+
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -n, --name <name>                      the name of the virtual network
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -s, --subscription <subscription>      the subscription identifier
+
 
 **Commands to manage virtual network subnets**
 	
 	network vnet subnet create [options] <resource-group> <vnet-name> <name>
+command allows to add another subnet to an existing virtual network.
+
+	azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
+ 
+	info:    Executing command network vnet subnet create
+	+ Looking up the subnet "subnet"
+	+ Creating subnet "subnet"
+	+ Looking up the subnet "subnet"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+	data:    Name:                      subnet
+	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+	data:    Provisioning state:        Succeeded
+	data:    Address prefix:            10.0.1.0/24
+	info:    network vnet subnet create command OK
+
+Optional parameters:
+
+     -h, --help                                                       output usage information
+     -v, --verbose                                                    use verbose output
+		 --json                                                           use json output
+	 -g, --resource-group <resource-group>                            the name of the resource group
+	 -e, --vnet-name <vnet-name>                                      the name of the virtual network
+     -n, --name <name>                                                the name of the subnet
+     -a, --address-prefix <address-prefix>                            the address prefix
+     -w, --network-security-group-id <network-security-group-id>      the network security group identifier.
+           e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/networkSecurityGroups/<nsg-name>
+     -o, --network-security-group-name <network-security-group-name>  the network security group name
+     -s, --subscription <subscription>                                the subscription identifier
+
+<BR>
+
 	network vnet subnet set [options] <resource-group> <vnet-name> <name>
+
+Sets a specific virtual network subnet within a resource group
+
+
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+
+	info:    Executing command network vnet subnet set
+	+ Looking up the subnet "subnet1"
+	+ Setting subnet "subnet1"
+	+ Looking up the subnet "subnet1"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+	data:    Name:                      subnet1
+	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+	data:    Provisioning state:        Succeeded
+	data:    Address prefix:            10.0.1.0/24
+	info:    network vnet subnet set command OK
+<BR>
+
 	network vnet subnet list [options] <resource-group> <vnet-name>
+
+Lists all the virtual network subnets for a specific virtual network within a resource group
+
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
+	info:    Executing command network vnet subnet set
+	+ Looking up the subnet "subnet1"
+	+ Setting subnet "subnet1"
+	+ Looking up the subnet "subnet1"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+	data:    Name:                      subnet1
+	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+	data:    Provisioning state:        Succeeded
+	data:    Address prefix:            10.0.1.0/24
+	info:    network vnet subnet set command OK
+<BR>
+
 	network vnet subnet show [options] <resource-group> <vnet-name> <name>
+Displays virtual network subnet properties 
+
+	C:\>azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
+	info:    Executing command network vnet subnet show
+	+ Looking up the subnet "subnet1"
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
+	.Network/virtualNetworks/newvnet/subnets/subnet1
+	data:    Name:                      subnet1
+	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
+	data:    Provisioning state:        Succeeded
+	data:    Address prefix:            10.0.1.0/24
+	info:    network vnet subnet show command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-e, --vnet-name <vnet-name>            the name of the virtual network
+	-n, --name <name>                      the name of the subnet
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
+Removes a subnet from an existing virtual network 
+
+	C:\>azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
+	info:    Executing command network vnet subnet delete
+	+ Looking up the subnet "subnet1"
+	Delete subnet "subnet1"? [y/n] y
+	+ Deleting subnet "subnet1"
+	info:    network vnet subnet delete command OK
+
+Optional parameters:
+
+ 	-h, --help                             output usage information
+ 	-v, --verbose                          use verbose output
+ 	--json                                 use json output
+ 	-g, --resource-group <resource-group>  the name of the resource group
+ 	-e, --vnet-name <vnet-name>            the name of the virtual network
+ 	-n, --name <name>                      the subnet name
+ 	-s, --subscription <subscription>      the subscription identifier
+ 	-q, --quiet                            quiet mode, do not ask for delete confirmation
 
 **Commands to manage load balancers**
 
 	network lb create [options] <resource-group> <name> <location>
+Creates a load balancer set 
+
+	C:\>azure network lb create -g myresourcegroup -n mylb -l westus
+	info:    Executing command network lb create
+	+ Looking up the load balancer "mylb"
+	+ Creating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Name:                         mylb
+	data:    Type:                         Microsoft.Network/loadBalancers
+	data:    Location:                     westus
+	data:    Provisioning state:           Succeeded
+	info:    network lb create command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the load balancer
+	-l, --location <location>              the location
+	-t, --tags <tags>                      the list of tags.
+     Can be multiple. In the format of "name=value".
+     Name is required and value is optional. For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb list [options] <resource-group>
+Lists Load balancer objects within a resource group. 
+
+	C:\>azure network lb list myresourcegroup
+	info:    Executing command network lb list
+	+ Getting the load balancers
+	data:    Name  Location
+	data:    ----  --------
+	data:    mylb  westus
+	info:    network lb list command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb show [options] <resource-group> <name>
+Displays load balancer information of a specific load balancer within a resource group
+
+	C:\>azure network lb show myresourcegroup mylb -v
+	info:    Executing command network lb show
+	verbose: Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Name:                         mylb
+	data:    Type:                         Microsoft.Network/loadBalancers
+	data:    Location:                     westus
+	data:    Provisioning state:           Succeeded
+	info:    network lb show command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+
+<BR>
+
 	network lb delete [options] <resource-group> <name>
+Delete load balancer objects.
+
+	C:\>azure network lb delete  myresourcegroup mylb
+	info:    Executing command network lb delete
+	+ Looking up the load balancer "mylb"
+	Delete load balancer "mylb"? [y/n] y
+	+ Deleting load balancer "mylb"
+	info:    network lb delete command OK
+
+Optional parameters:
+
+ 	-h, --help                             output usage information
+ 	-v, --verbose                          use verbose output
+ 	--json                                 use json output
+ 	-g, --resource-group <resource-group>  the name of the resource group
+ 	-n, --name <name>                      the name of the load balancer
+ 	-q, --quiet                            quiet mode, do not ask for delete confirmation
+ 	-s, --subscription <subscription>      the subscription identifier
 
 **Commands to manage probes of a load balancer**
 	

@@ -6,7 +6,7 @@
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
+	manager="paulettm" 
 	editor="cgronlun"  />
 
 <tags 

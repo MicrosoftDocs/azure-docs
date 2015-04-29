@@ -74,7 +74,7 @@ For information about the Media Services REST API version history, see [Azure Me
 
 ###General Media Services Updates
 
-- [Announcing Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
+- [Announcing Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-manage-channels-overview.md#channel_input)
 - Azure Media Indexer updates
 	- Support for Spanish Language
@@ -155,7 +155,7 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
 
-Announcing the new release of Media Services Azure Media Encoder. With the latest Azure Media Encoder you are only charged for output GBs, but otherwise the new encoder is feature compatible with Windows Azure Media Encoder. For more information [Media Services Pricing Details]).
+Announcing the new release of Media Services Azure Media Encoder. With the latest Azure Media Encoder you are only charged for output GBs, but otherwise the new encoder is feature compatible with the previous encoder. For more information [Media Services Pricing Details]).
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK 
 
