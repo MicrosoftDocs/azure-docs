@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required" 
-   ms.date="02/23/2015"
+   ms.date="04/29/2015"
    ms.author="mwasson"/>
 
 # How to use Azure Redis Cache with Node.js 
@@ -33,7 +33,7 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 ## Create a Redis cache on Azure
 
-In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New** and select **Redis Cache**. 
+In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + storage**, and select **Redis Cache**. 
 
   ![][1]
 
@@ -84,10 +84,10 @@ Output:
 
 
 <!--Image references-->
-[1]: ./media/cache-java-get-started/cache01.png
-[2]: ./media/cache-java-get-started/cache02.png
-[3]: ./media/cache-java-get-started/cache03.png
-[4]: ./media/cache-java-get-started/cache04.png
+[1]: ./media/cache-nodejs-get-started/cache01.png
+[2]: ./media/cache-nodejs-get-started/cache02.png
+[3]: ./media/cache-nodejs-get-started/cache03.png
+[4]: ./media/cache-nodejs-get-started/cache04.png
 
 [Build a Node.js Chat Application with Socket.IO on an Azure Website]: web-sites-nodejs-chat-app-socketio.md
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="04/29/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -22,12 +22,6 @@ This guide shows you how to get started using
 **Azure Redis Cache**. The samples are written in C\# code and
 use the .NET API. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
 information on using Azure Redis Cache, refer to the [Next Steps][] section.
-
-<a name="video"></a>
-## Introduction to Azure Redis Cache (Video)
-In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
-
-> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
