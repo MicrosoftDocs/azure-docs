@@ -86,7 +86,7 @@ Clone the entire template repository using a git client of your choice, for exam
 
 When completed, look for the **datastax-on-ubuntu** folder in your C:\Azure\Templates directory.
 
-### Step 2: (optional) Familiarize with template parameters.
+### Step 2: (optional) Understand the template parameters
 
 When you deploy non-trivial solutions like an Apache Cassandra cluster based on DataStax, you must specify a set of configuration parameters to deal with a number of settings required. By declaring these parameters in the template definition, it’s possible to specify values during deployment through an external file or in the command-line.
 
@@ -254,7 +254,7 @@ You can check the status of individual resources deployments with the following 
 
 	azure group deployment list dsc
 
-## A tour of template structure and file organization created to deploy DataStax on Ubuntu
+## A tour of the Datastax template structure and file organization
 
 In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
