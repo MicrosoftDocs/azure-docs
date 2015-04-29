@@ -159,7 +159,7 @@ Elastic database pools are billed per the following characteristics:
 - The price of an elastic pool is based on the number of DTUs of the pool, and the number of databases in the pool. 
 - Price is computed by (number of pool DTUs)x(unit price per DTU) + (number of databases)x(unit price per database)
 
-The unit DTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](http://azure.microsoft.com/en-us/pricing/details/sql-database/).  
+The unit DTU price for an elastic pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](http://azure.microsoft.com/pricing/details/sql-database/).  
 
 ## Elastic database pool errors
 
