@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a RecordSet and Records in Azure DNS  " 
+   pageTitle="Create a record set and records for a DNS Zone" 
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell" 
    services="virtual-network" 
    documentationCenter="na" 
@@ -17,7 +17,7 @@
    ms.author="joaoma"/>
 
 
-# Create a RecordSet and Resource Records for a DNS Zone
+# Create records for a DNS zone
 
 After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 
@@ -25,7 +25,7 @@ After creating your DNS Zone, you need to add the DNS records for your domain.  
 ## Understanding record sets and records
 Each DNS record has a name and a type.
 
-A fully qualified name includes the zone name, whereas a relative name does not.  For example, the relative record name ‘www’ in the zone ‘contoso.com’ gives the fully qualified record name ‘www.contoso.com’.
+A _fully qualified_ name includes the zone name, whereas a _relative_ name does not.  For example, the relative record name ‘www’ in the zone ‘contoso.com’ gives the fully qualified record name ‘www.contoso.com’.
 
 >[AZURE.NOTE] In Azure DNS, records are specified using relative names.
 
