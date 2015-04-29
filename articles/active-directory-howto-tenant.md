@@ -38,6 +38,7 @@ If you have an existing Office 365 subscription but don't have an Azure subscrip
 If you have previously signed up for an Azure subscription with your individual Microsoft Account, you already have a tenant!  In the [Azure Management Portal](https://manage.windowsazure.com), you should find a tenant named "Default Tenant" listed under "All Items" and "Active Directory."  You are free to use this tenant as you see fit - but you may want to create an Organizational administrator account.
 
 To do so, follow these steps.  Alternatively, you may wish to create a new tenant and create an administrator in that tenant following a similar process.
+
 1.	Log into the [Azure Management Portal](https://manage.windowsazure.com) with your individual account
 2.	Navigate to the “Active Directory” section of the portal (found in the left nav bar)
 3.	Select the “Default Directory” entry in the list of available directories
