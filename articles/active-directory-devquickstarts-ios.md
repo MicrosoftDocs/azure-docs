@@ -146,7 +146,7 @@ The current defaults are set up to work with our [Azure Active Directory Sample 
 
 ## Step 7: Build and Run the application
 
-You should be able to connect to the REST API endpoint and be prompted with the credentials from your Windows Azure Active Directory account.
+You should be able to connect to the REST API endpoint and be prompted with the credentials from your Azure Active Directory account.
 
 For additional resources, check out:
 - [AzureADSamples on GitHub >>](https://github.com/AzureAdSamples)
