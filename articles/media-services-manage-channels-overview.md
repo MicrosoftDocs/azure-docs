@@ -20,22 +20,9 @@
 
 ##Overview
 
-In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
+In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in the following way:
 
-- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. When requested, Media Services delivers the stream to customers.
-- A single bitrate stream (in one of the following formats: **RTP** (MPEG-TS)), **RTMP**, or **Smooth Streaming** (Fragmented MP4)) is sent to the **Channel** that is enabled to perform live encoding with Media Services. The **Channel** then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers. 
-
-	Encoding a live stream with Media Services is currently in Preview.
-
-Starting with the Media Services 2.10 release, when you create a **Channel**, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
-
-- **None** – Specify this value, if you plan to use an on-premises live encoder which will output multi-bitrate stream. In this case, the incoming stream passed through to the output without any encoding. This is the behavior of a Channel prior to 2.10 release.  For more detailed information about working with channels of this type, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md).
-
-- **Standard** (Preview) – Choose this value, if you plan to use Media Services to encode your single bitrate live stream to multi-bitrate stream. 
-
-	Encoding a live stream with Media Services is currently in **Preview**.
-
->[AZURE.NOTE]This topic discusses attributes of channels that are note enabled to perform live encoding (**None** encoding type). For information about working with channels that are enabled to perform live encoding, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. Your live encoder can lso send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
 
 The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
