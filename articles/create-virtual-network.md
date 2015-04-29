@@ -42,7 +42,7 @@ p
 
 To create this example cloud-only virtual network, do the following
 
-1. Log in to the [Azure Management Portal](http://manage.windowsazure.com/).
+1. Log in to the Management Portal.
 
 2. In the lower left-hand corner of the screen, click **New** > **Network Services** > **Virtual Network**, and then click **Custom Create** to begin the configuration wizard.
 
@@ -57,9 +57,9 @@ To create this example cloud-only virtual network, do the following
 
 	![][Image2]
 
-4. Click the next arrow on the lower right. For more information about the settings on this page, see the Virtual Network Details page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409).
+4. Click the next arrow on the lower right. For more information about the settings on this page, see the Virtual Network Details page section in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?linkid=248092&clcid=0x409).
 
-5. On the **DNS Servers and VPN Connectivity** page, click the next arrow on the lower right. Azure will assign an Internet-based Azure DNS server to new virtual machines that are added to this virtual network, which will allow them to access Internet resources. For more information about the settings on this page, see the DNS Servers and VPN Connectivity page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409).
+5. On the **DNS Servers and VPN Connectivity** page, click the next arrow on the lower right. Azure will assign an Internet-based Azure DNS server to new virtual machines that are added to this virtual network, which will allow them to access Internet resources. For more information about the settings on this page, see the DNS Servers and VPN Connectivity page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?linkid=248092&clcid=0x409).
 	
 6.	Just like a real network, the virtual network needs a range of IP addresses (known as an address space) to assign to virtual machines that you place within it. The virtual network also supports subnets, which need their own address spaces, derived from the virtual network address space. For this tutorial, we will create the BackEndSubnet and FrontEndSubnet. On the **Virtual Network Address Spaces** page, configure the following:
 
@@ -73,7 +73,7 @@ To create this example cloud-only virtual network, do the following
  
 	![][Image7]
 
- Note that the address space for a virtual network must be from the private address spaces of 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 and specified in Classless Inter-Domain Routing (CIDR) notation (also known as network prefix notation). For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409).
+ Note that the address space for a virtual network must be from the private address spaces of 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16 and specified in Classless Inter-Domain Routing (CIDR) notation (also known as network prefix notation). For more information about the settings on this page, see the Virtual Network Address Spaces page in [About Configuring a Virtual Network using the Management Portal](http://go.microsoft.com/fwlink/p/?linkid=248092&clcid=0x409).
 
 
 7. Click the checkmark in the lower right of the page and your virtual network will begin to create. When your virtual network has been created, you will see **Created** listed under Status on the **Networks** page in the Azure Management Portal.  
@@ -82,9 +82,9 @@ To create this example cloud-only virtual network, do the following
 
 You can continue learning about Azure infrastructure services with the following:
 
-- [How to Create a Custom Virtual Machine](http://www.windowsazure.com/manage/windows/how-to-guides/custom-create-a-vm/) Use this topic to install a virtual machine in your virtual network. For more information about virtual machines and installation options, see [Azure Virtual Machines](http://www.windowsazure.com/manage/windows/).
+- [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md) Use this topic to install a virtual machine in your virtual network. For more information about virtual machines and installation options, see [Azure Virtual Machines](http://azure.microsoft.com/documentation/services/virtual-machines/).
 
-- [Install a new Active Directory forest on an Azure Virtual Network](http://www.windowsazure.com/manage/services/networking/active-directory-forest/) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
+- [Install a new Active Directory forest on an Azure Virtual Network](active-directory-new-forest-virtual-machine.md) - Use this topic to install a new Windows Server Active Directory (AD) forest without connectivity to any other network. The tutorial will explain the specific steps required to create a virtual machine (VM) for a new forest installation. If you plan to use this tutorial, do not create any VMs by using the Management Portal. For more information, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 To remove this virtual network, select it, click **Delete**, and then click **Yes**.
 
