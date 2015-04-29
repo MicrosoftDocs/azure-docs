@@ -210,16 +210,16 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the example below we create a virtual network with newvnet on resource group Group-1 in the West US region:
+Allows to create a new virtual network. In the example below we create a virtual network with newvnet on resource group myresourcegroup in the West US region:
 
 	
-	C:\>azure network vnet create Group-1 newvnet "west us"
+	C:\>azure network vnet create myresourcegroup newvnet "west us"
 	info:    Executing command network vnet create
 	+ Looking up virtual network "newvnet"
 	+ Creating virtual network "newvnet"
 	 Loading virtual network state
 	data:    Id:                   /subscriptions/###############################
-	/resourceGroups/Group-1/providers/Microsoft.Network/virtualNetworks/newvnet
+	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
 	data:    Name:                 newvnet
 	data:    Type:                 Microsoft.Network/virtualNetworks
 	data:    Location:             westus
@@ -256,13 +256,13 @@ Optional parameters:
 	network vnet set [options] <resource-group> <name>
 Sets a virtual network configuration within a resource group. 
 
-	C:\>azure network vnet set Group-1 newvnet
+	C:\>azure network vnet set myresourcegroup newvnet
 	info:    Executing command network vnet set
 	+ Looking up virtual network "newvnet"
 	+ Updating virtual network "newvnet"
 	+ Loading virtual network state
 	data:    Id:                   /subscriptions/###############################
-	/resourceGroups/Group-1/providers/Microsoft.Network/virtualNetworks/newvnet
+	/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
 	data:    Name:                 newvnet
 	data:    Type:                 Microsoft.Network/virtualNetworks
 	data:    Location:             westus
@@ -305,7 +305,7 @@ The command allows to list all virtual networks in a resource group
 
 
 
-	C:\>azure network vnet list group-1
+	C:\>azure network vnet list myresourcegroup
 
 	info:    Executing command network vnet list
 	+ Listing virtual networks
@@ -334,7 +334,7 @@ The command shows the virtual network properties in a resource group
 
 	info:    Executing command network vnet show
 	+ Looking up virtual network "newvnet"
-	data:    Id:                   /subscriptions/###############################/resourceGroups/Group-1/providers/Microsoft.Network/virtualNetworks/newvnet
+	data:    Id:                   /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet
 	data:    Name:                 newvnet
 	data:    Type:                 Microsoft.Network/virtualNetworks
 	data:    Location:             westus
@@ -351,7 +351,7 @@ The command shows the virtual network properties in a resource group
 	network vnet delete [options] <resource-group> <name>
 The command removes a virtual network. 
   	
-	C:\>azure network vnet delete group-1 newvnetX
+	C:\>azure network vnet delete myresourcegroup newvnetX
 	info:    Executing command network vnet delete
 	+ Looking up virtual network "newvnetX"
 	Delete virtual network newvnetX? [y/n] y
@@ -374,13 +374,13 @@ Optional parameters:
 	network vnet subnet create [options] <resource-group> <vnet-name> <name>
 command allows to add another subnet to an existing virtual network.
 
-	azure network vnet subnet create -g group-1 --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
+	azure network vnet subnet create -g myresourcegroup --vnet-name newvnet -n subnet --address-prefix 10.0.1.0/24
  
 	info:    Executing command network vnet subnet create
 	+ Looking up the subnet "subnet"
 	+ Creating subnet "subnet"
 	+ Looking up the subnet "subnet"
-	data:    Id:                        /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
 	data:    Name:                      subnet
 	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
 	data:    Provisioning state:        Succeeded
@@ -408,13 +408,13 @@ Optional parameters:
 Sets a specific virtual network subnet within a resource group
 
 
-	C:\>azure network vnet subnet set -g group-1 --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
 	+ Setting subnet "subnet1"
 	+ Looking up the subnet "subnet1"
-	data:    Id:                        /subscriptions/###############################/resourceGroups/Group-1/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
 	data:    Name:                      subnet1
 	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
 	data:    Provisioning state:        Succeeded
@@ -426,12 +426,12 @@ Sets a specific virtual network subnet within a resource group
 
 Lists all the virtual network subnets for a specific virtual network within a resource group
 
-	C:\>azure network vnet subnet set -g group-1 --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 	info:    Executing command network vnet subnet set
 	+ Looking up the subnet "subnet1"
 	+ Setting subnet "subnet1"
 	+ Looking up the subnet "subnet1"
-	data:    Id:                        /subscriptions/###############################/resourceGroups/Group-1/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet1
 	data:    Name:                      subnet1
 	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
 	data:    Provisioning state:        Succeeded
@@ -442,10 +442,10 @@ Lists all the virtual network subnets for a specific virtual network within a re
 	network vnet subnet show [options] <resource-group> <vnet-name> <name>
 Displays virtual network subnet properties 
 
-	C:\>azure network vnet subnet show -g group-1 --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet show -g myresourcegroup --vnet-name newvnet -n subnet1
 	info:    Executing command network vnet subnet show
 	+ Looking up the subnet "subnet1"
-	data:    Id:                        /subscriptions/###############################/resourceGroups/Group-1/providers/Microsoft
+	data:    Id:                        /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft
 	.Network/virtualNetworks/newvnet/subnets/subnet1
 	data:    Name:                      subnet1
 	data:    Type:                      Microsoft.Network/virtualNetworks/subnets
@@ -467,7 +467,7 @@ Optional parameters:
 	network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
 Removes a subnet from an existing virtual network 
 
-	C:\>azure network vnet subnet delete -g group-1 --vnet-name newvnet -n subnet1
+	C:\>azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
 	info:    Executing command network vnet subnet delete
 	+ Looking up the subnet "subnet1"
 	Delete subnet "subnet1"? [y/n] y
@@ -490,12 +490,12 @@ Optional parameters:
 	network lb create [options] <resource-group> <name> <location>
 Creates a load balancer set 
 
-	C:\>azure network lb create -g group-1 -n mylb -l westus
+	C:\>azure network lb create -g myresourcegroup -n mylb -l westus
 	info:    Executing command network lb create
 	+ Looking up the load balancer "mylb"
 	+ Creating load balancer "mylb"
 	+ Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
 	data:    Name:                         mylb
 	data:    Type:                         Microsoft.Network/loadBalancers
 	data:    Location:                     westus
@@ -519,7 +519,7 @@ Optional parameters:
 	network lb list [options] <resource-group>
 Lists Load balancer objects within a resource group. 
 
-	C:\>azure network lb list group-1
+	C:\>azure network lb list myresourcegroup
 	info:    Executing command network lb list
 	+ Getting the load balancers
 	data:    Name  Location
@@ -539,10 +539,10 @@ Optional parameters:
 	network lb show [options] <resource-group> <name>
 Displays load balancer information of a specific load balancer within a resource group
 
-	C:\>azure network lb show group-1 mylb -v
+	C:\>azure network lb show myresourcegroup mylb -v
 	info:    Executing command network lb show
 	verbose: Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/###############################/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
 	data:    Name:                         mylb
 	data:    Type:                         Microsoft.Network/loadBalancers
 	data:    Location:                     westus
@@ -563,7 +563,7 @@ Optional parameters:
 	network lb delete [options] <resource-group> <name>
 Delete load balancer objects.
 
-	C:\>azure network lb delete  group-1 mylb
+	C:\>azure network lb delete  myresourcegroup mylb
 	info:    Executing command network lb delete
 	+ Looking up the load balancer "mylb"
 	Delete load balancer "mylb"? [y/n] y
