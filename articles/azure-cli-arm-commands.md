@@ -488,9 +488,87 @@ Optional parameters:
 **Commands to manage load balancers**
 
 	network lb create [options] <resource-group> <name> <location>
+Creates a load balancer set 
+
+	C:\>azure network lb create -g group-1 -n mylb -l westus
+	info:    Executing command network lb create
+	+ Looking up the load balancer "mylb"
+	+ Creating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Name:                         mylb
+	data:    Type:                         Microsoft.Network/loadBalancers
+	data:    Location:                     westus
+	data:    Provisioning state:           Succeeded
+	info:    network lb create command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the load balancer
+	-l, --location <location>              the location
+	-t, --tags <tags>                      the list of tags.
+     Can be multiple. In the format of "name=value".
+     Name is required and value is optional. For example, -t tag1=value1;tag2
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb list [options] <resource-group>
+Lists Load balancer objects within a resource group. 
+
+	C:\>azure network lb list group-1
+	info:    Executing command network lb list
+	+ Getting the load balancers
+	data:    Name  Location
+	data:    ----  --------
+	data:    mylb  westus
+	info:    network lb list command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb show [options] <resource-group> <name>
+Displays load balancer information of a specific load balancer within a resource group
+
+	C:\>azure network lb show group-1 mylb -v
+	info:    Executing command network lb show
+	verbose: Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/group-1/providers/Microsoft.Network/loadBalancers/mylb
+	data:    Name:                         mylb
+	data:    Type:                         Microsoft.Network/loadBalancers
+	data:    Location:                     westus
+	data:    Provisioning state:           Succeeded
+	info:    network lb show command OK
+
+Optional parameters:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-n, --name <name>                      the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+
+<BR>
+
 	network lb delete [options] <resource-group> <name>
+Delete load balancer objects.
+
+	C:\>azure network lb delete  group-1 mylb
+	info:    Executing command network lb delete
+	+ Looking up the load balancer "mylb"
+	Delete load balancer "mylb"? [y/n] y
+	+ Deleting load balancer "mylb"
+	info:    network lb delete command OK
 
 **Commands to manage probes of a load balancer**
 	
