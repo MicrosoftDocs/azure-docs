@@ -709,14 +709,14 @@ the command below adds a public IP called mypubip5 to an existing load balancer 
 	+ Looking up the public ip "mypubip5"
 	+ Updating load balancer "mylb"
 	+ Looking up the load balancer "mylb"
-	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Id:                           /subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
 	data:    Name:                         myfrontendip
 	data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
 	data:    Provisioning state:           Succeeded
 	data:    Private IP allocation method: Dynamic
 	data:    Private IP address:
 	data:    Subnet:
-	data:    Public IP address:            id=/subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypubip5
+	data:    Public IP address:            id=/subscriptions/###############################/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypubip5
 	data:    Inbound NAT rules
 	data:    Outbound NAT rules
 	data:    Load balancing rules
