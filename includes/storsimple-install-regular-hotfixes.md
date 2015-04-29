@@ -12,12 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="v-sharos" />
 
 #### To install regular hotfixes via Windows PowerShell for StorSimple
 
-1. Connect to the device serial console. For more information, see [To connect through the serial console](#to-connect-through-the-serial-console).
+1. Connect to the device serial console. For more information, see [Connect to the serial console](#connect-to-the-serial-console).
 
 2. In the serial console menu, select option 1, **Log in with full access**. Type the password. The default password is **Password1**.
 
