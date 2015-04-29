@@ -18,7 +18,7 @@
 
 # Installing the elastic database job components
 
-The [elastic database pool (preview)](sql-database-elastic-pool-portal.md) provides a predictable model for deploying large numbers of databases. Once you have installed an elastic pool, you can use the **elastic database job** to manage it. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. Here's how to install the service.
+The [elastic database pool (preview)](sql-database-elastic-pool-portal.md) provides a predictable model for deploying large numbers of databases. Once you have created an elastic database pool, you can use **elastic database jobs** to execute administrative tasks across each database in the elastic database pool. For example, you can deploy new schema such as setting an RLS policy on each database to restrict data only to the person with the right credentials to view sensitive data. Here's how to install **elastic database jobs**.
 
 **Estimated time to complete:** 10 minutes.
 
@@ -31,21 +31,21 @@ First go to the [Azure preview portal](https://ms.portal.azure.com/#).
 
 
 1. From the dashboard view of the elastic database pool, click **Create job**.
-2. If you are creating a job for the first time you must install the service components by clicking **PREVIEW TERMS**. 
+2. If you are creating a job for the first time you must install **elastic database jobs** by clicking **PREVIEW TERMS**. 
 3. Accept the terms by clicking the checkbox.
-4.  In the "Install services" view, click **JOB CREDENTIALS**.
+4. In the "Install services" view, click **JOB CREDENTIALS**.
 
 	![Installing the services][1]
 
-5. Type a user name and password for a database admin. As part of the installation, a new Azure SQL Database server is created. That database is used to contain the metadata for the elastic database pool. The user name and password created here are used for two purposes: (1) to log in to the "master" database, and (2) as the identity used to log in to each database in the elastic pool whenever a you execute a job.
+5. Type a user name and password for a database admin. If a common user for script execution already exists across every database in the elastic database pool, consider using this same user to eliminate the requirement to add a new user to each database for script execution. As part of the installation, a new Azure SQL Database server is created. Within this new server, a new database, known  as the conrtol database, is created that is used to contain the metadata for elastic database jobs. The user name and password created here are used for two purposes: (1) to log in to the control database, and (2) as the credential used to log in to each database in the elastic pool whenever a you run a job for script exeution.
  
 	![Create username and password][2]
-6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](resource-group-portal.md). The new group is pinned to the start board, as shown below. Once created, the job services (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
+6. Click the OK button. The components are created for you in a few minutes in a new [Resource group](resource-group-portal.md). The new resource group is pinned to the start board, as shown below. Once created, elastic database jobs (Cloud Service, SQL Database, Service Bus, and Storage) are all created in the group.
 
 	![resource group in start board][3]
 
 
-7. If you attempt to return to the **Credentials** view while the deployment is incomplete, you will see this. 
+7. If you attempt to create or manage a job while elastic database jobs is installing, when providing **Credentials** you will see the following message. 
 
 	![Deployment still in progress][4]
 
@@ -54,7 +54,7 @@ First go to the [Azure preview portal](https://ms.portal.azure.com/#).
 
 ## Next steps
 
-In order to log in to each database, a log in must be created on each DB. See [How to add users to an elastic database pool](sql-database-elastic-jobs-add-logins-to-dbs.md). 
+If a new credential was provided when installing elastic databse jobs which doesn't already exist in each database in the elastic database pool with the appropriate rights for script execution, the credential must be created on each database. See [How to add users to an elastic database pool](sql-database-elastic-jobs-add-logins-to-dbs.md). 
 To understand the job creation, see [Creating and managing an elastic database job](sql-database-elastic-jobs-create-and-manage.md).
 
 <!--Image references-->
