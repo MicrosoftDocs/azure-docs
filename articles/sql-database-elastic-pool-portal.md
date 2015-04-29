@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and manage a SQL Database elastic pool (preview)" 
+	pageTitle="Create and manage a SQL Database elastic database pool (preview)" 
 	description="Create a single pool of resources to share across a group of Azure SQL Databases." 
 	services="sql-database" 
 	documentationCenter="" 

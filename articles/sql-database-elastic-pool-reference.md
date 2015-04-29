@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure SQL elastic database reference" 
-	description="This reference provides links and details to elastic pool articles and programmability information." 
+	pageTitle="Azure SQL elastic database pool reference" 
+	description="This reference provides links and details to elastic database pool articles and programmability information." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="stevestein" 
@@ -59,9 +59,13 @@ The following articles will help you get started using elastic databases and ela
 
 
 
-## Namespace details
-An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database namespace:
-Microsoft.Sql/ElasticPool
+## Namespace and endpoint details
+An elastic pool is an ARM resource of type “ElasticPool” in the Microsoft Azure SQL Database.
+
+- **namespace**: Microsoft.Sql/ElasticPool
+- **secondary-endpoint** for REST API calls (Azure resource manager): https://management.azure.com
+
+
 
 ## Elastic database pool properties
 
