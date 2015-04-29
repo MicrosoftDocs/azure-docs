@@ -233,7 +233,7 @@ Allows to create a new virtual network. In the example below we create a virtual
 	info:    network vnet create command OK
 
 
-Optional parameters:
+Parameter options:
 
  	-h, --help                                 output usage information
  	-v, --verbose                              use verbose output
@@ -274,7 +274,7 @@ Sets a virtual network configuration within a resource group.
 	data:    Subnets:
 	data:
 	info:    network vnet set command OK
-Optional parameters:
+Parameter options:
 
 	   -h, --help                                 output usage information
 	   -v, --verbose                              use verbose output
@@ -317,7 +317,7 @@ The command allows to list all virtual networks in a resource group
 	wvnet   newvnet   westus    10.0.0.0/8
 	info:    network vnet list command OK
 
-Optional parameters:
+Parameter options:
 
 
       -h, --help                             output usage information
@@ -358,7 +358,7 @@ The command removes a virtual network.
 	+ Deleting virtual network "newvnetX"
 	info:    network vnet delete command OK
 
-Optional parameters:
+Parameter options:
 
      -h, --help                             output usage information
      -v, --verbose                          use verbose output
@@ -387,7 +387,7 @@ command allows to add another subnet to an existing virtual network.
 	data:    Address prefix:            10.0.1.0/24
 	info:    network vnet subnet create command OK
 
-Optional parameters:
+Parameter options:
 
      -h, --help                                                       output usage information
      -v, --verbose                                                    use verbose output
@@ -453,7 +453,7 @@ Displays virtual network subnet properties
 	data:    Address prefix:            10.0.1.0/24
 	info:    network vnet subnet show command OK
 
-Optional parameters:
+Parameter options:
 
 	-h, --help                             output usage information
 	-v, --verbose                          use verbose output
@@ -474,7 +474,7 @@ Removes a subnet from an existing virtual network
 	+ Deleting subnet "subnet1"
 	info:    network vnet subnet delete command OK
 
-Optional parameters:
+Parameter options:
 
  	-h, --help                             output usage information
  	-v, --verbose                          use verbose output
@@ -502,7 +502,7 @@ Creates a load balancer set
 	data:    Provisioning state:           Succeeded
 	info:    network lb create command OK
 
-Optional parameters:
+Parameter options:
 
 	-h, --help                             output usage information
 	-v, --verbose                          use verbose output
@@ -527,7 +527,7 @@ Lists Load balancer objects within a resource group.
 	data:    mylb  westus
 	info:    network lb list command OK
 
-Optional parameters:
+Parameter options:
 
 	-h, --help                             output usage information
 	-v, --verbose                          use verbose output
@@ -549,7 +549,7 @@ Displays load balancer information of a specific load balancer within a resource
 	data:    Provisioning state:           Succeeded
 	info:    network lb show command OK
 
-Optional parameters:
+Parameter options:
 
 	-h, --help                             output usage information
 	-v, --verbose                          use verbose output
@@ -570,7 +570,7 @@ Delete load balancer objects.
 	+ Deleting load balancer "mylb"
 	info:    network lb delete command OK
 
-Optional parameters:
+Parameter options:
 
  	-h, --help                             output usage information
  	-v, --verbose                          use verbose output
@@ -583,16 +583,213 @@ Optional parameters:
 **Commands to manage probes of a load balancer**
 	
 	network lb probe create [options] <resource-group> <lb-name> <name>
+Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer needs to have a frontend-ip configured first. Check the command azure network frontend-ip on how to assign the ip address to load balancer.
+
+	azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 --path default.aspx -i 300
+	info:    Executing command network lb probe create
+	warn:    Probe request path will be ignored when its protocol is Tcp
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	info:    network lb probe create command OK
+
+Parameter options:
+
+ 	-h, --help                             output usage information
+ 	-v, --verbose                          use verbose output
+ 	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the probe
+	-p, --protocol <protocol>              the probe protocol
+	-o, --port <port>                      the probe port
+	-f, --path <path>                      the probe path
+	-i, --interval <interval>              the probe interval in seconds
+	-c, --count <count>                    the number of probes
+	-s, --subscription <subscription>      the subscription identifier
+
+<BR>
+
 	network lb probe set [options] <resource-group> <lb-name> <name>
+
+Updates the an existing lb probe to the new values for it.
+
+	azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -f default.aspx -i 300
+	info:    Executing command network lb probe set
+	warn:    Probe request path will be ignored when its protocol is Tcp
+	+ Looking up the load balancer "mylb"
+	+ Updating load balancer "mylb"
+	info:    network lb probe set command OK
+
+Parameter options
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the probe
+	-e, --new-probe-name <new-probe-name>  the new name of the probe
+	-p, --protocol <protocol>              the new value for probe protocol
+	-o, --port <port>                      the new value for probe port
+	-f, --path <path>                      the new value for probe path
+	-i, --interval <interval>              the new value for probe interval in seconds
+	-c, --count <count>                    the new value for number of probes
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb probe list [options] <resource-group> <lb-name>
+
+List the probe properties for a load balancer set 
+
+	C:\>azure network lb probe list -g myresourcegroup -l mylb
+	info:    Executing command network lb probe list
+	+ Looking up the load balancer "mylb"
+	data:    Name       Protocol  Port  Path  Interval  Count
+	data:    ---------  --------  ----  ----  --------  -----
+	data:    mylbprobe  Tcp       443         300       2
+	info:    network lb probe list command OK
+ 
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+
+
 	network lb probe delete [options] <resource-group> <lb-name> <name>
+Removes the probe created for the load balancer
+
+	azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
+	info:    Executing command network lb probe delete
+	+ Looking up the load balancer "mylb"
+	Delete a probe "mylbprobe?" [y/n] y
+	+ Updating load balancer "mylb"
+	info:    network lb probe delete command OK
 
 **Commands to manage frontend ip configurations of a load balancer**
 
 	network lb frontend-ip create [options] <resource-group> <lb-name> <name>
+Adds a frontend IP configuration to an existing load balancer set. You can only configure a public IP or private IP with the create command. You need to use network lb frontend-ip set to further add another IP.
+
+	azure network lb frontend-ip create -g myresourcegroup --lb-name mylb -n myfrontendip -o Dynamic -e subnet -m newvnet
+	info:    Executing command network lb frontend-ip create
+	+ Looking up the load balancer "mylb"
+	+ Looking up the subnet "subnet"
+	+ Creating frontend IP configuration "myfrontendip"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b9
+	0d882299f7/resourceGroups/Myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb
+	/frontendIPConfigurations/myfrontendip
+	data:    Name:                         myfrontendip
+	data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
+	data:    Provisioning state:           Succeeded
+	data:    Private IP allocation method: Dynamic
+	data:    Private IP address:           10.0.1.4
+	data:    Subnet:                       id=/subscriptions/c4a17ddf-aa84-491c-b6f9	-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/newvnet/subnets/subnet
+	data:    Public IP address:
+	data:    Inbound NAT rules
+	data:    Outbound NAT rules
+	data:    Load balancing rules
+	data:
+	info:    network lb frontend-ip create command OK
+
+<BR>
+
 	network lb frontend-ip set [options] <resource-group> <lb-name> <name>
+
+Update configuration for frontend IP. It allows to change the current configuration of an existing frontend IP.
+the command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip
+
+	azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
+	info:    Executing command network lb frontend-ip set
+	+ Looking up the load balancer "mylb"
+	+ Looking up the public ip "mypubip5"
+	+ Updating load balancer "mylb"
+	+ Looking up the load balancer "mylb"
+	data:    Id:                           /subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/loadBalancers/mylb/frontendIPConfigurations/myfrontendip
+	data:    Name:                         myfrontendip
+	data:    Type:                         Microsoft.Network/loadBalancers/frontendIPConfigurations
+	data:    Provisioning state:           Succeeded
+	data:    Private IP allocation method: Dynamic
+	data:    Private IP address:
+	data:    Subnet:
+	data:    Public IP address:            id=/subscriptions/c4a17ddf-aa84-491c-b6f9-b90d882299f7/resourceGroups/myresourcegroup/providers/Microsoft.Network/publicIPAddresses/mypubip5
+	data:    Inbound NAT rules
+	data:    Outbound NAT rules
+	data:    Load balancing rules
+	data:
+	info:    network lb frontend-ip set command OK
+
+Parameter options:
+
+	-h, --help                                                         output usage information
+	-v, --verbose                                                      use verbose output
+	--json                                                             use json output
+	-g, --resource-group <resource-group>                              the name of the resource group
+	-l, --lb-name <lb-name>                                            the name of the load balancer
+	-n, --name <name>                                                  the name of the frontend ip configuration
+	-a, --private-ip-address <private-ip-address>                      the private ip address
+	-o, --private-ip-allocation-method <private-ip-allocation-method>  the private ip allocation method [Static, Dynamic]
+	-u, --public-ip-id <public-ip-id>                                  the public ip identifier.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/publicIPAddresses/<public-ip-name>
+	-i, --public-ip-name <public-ip-name>                              the public ip name.
+	This public ip must exist in the same resource group as the lb.
+	Please use public-ip-id if that is not the case.
+	-b, --subnet-id <subnet-id>                                        the subnet id.
+	e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/VirtualNetworks/<vnet-name>/subnets/<subnet-name>
+	-e, --subnet-name <subnet-name>                                    the subnet name
+	-m, --vnet-name <vnet-name>                                        the virtual network name.
+	This virtual network must exist in the same resource group as the lb.
+	Please use subnet-id if that is not the case.
+	-s, --subscription <subscription>                                  the subscription identifier
+
+<BR>
+	
 	network lb frontend-ip list [options] <resource-group> <lb-name>
+
+Lists all the frontend IP's configured for the load balancer 
+
+	azure network lb frontend-ip list -g myresourcegroup -l mylb
+	info:    Executing command network lb frontend-ip list
+	+ Looking up the load balancer "mylb"
+	data:    Name         Provisioning state  Private IP allocation method  Subnet
+	data:    -----------  ------------------  ----------------------------  ------
+	data:    myprivateip  Succeeded           Dynamic
+	info:    network lb frontend-ip list command OK
+
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-s, --subscription <subscription>      the subscription identifier
+<BR>
+
 	network lb frontend-ip delete [options] <resource-group> <lb-name> <name>
+Deletes the frontend IP object associated to load balancer
+
+	network lb frontend-ip delete -g myresourcegroup -l mylb -n myfrontendip
+	info:    Executing command network lb frontend-ip delete
+	+ Looking up the load balancer "mylb"
+	Delete frontend ip configuration "myfrontendip"? [y/n] y
+	+ Updating load balancer "mylb"
+	
+Parameter options:
+
+	-h, --help                             output usage information
+	-v, --verbose                          use verbose output
+	--json                                 use json output
+	-g, --resource-group <resource-group>  the name of the resource group
+	-l, --lb-name <lb-name>                the name of the load balancer
+	-n, --name <name>                      the name of the frontend ip configuration
+	-q, --quiet                            quiet mode, do not ask for delete confirmation
+	-s, --subscription <subscription>      the subscription identifier
+
 
 **Commands to manage backend address pools of a load balancer**
 	
