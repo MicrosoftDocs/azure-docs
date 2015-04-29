@@ -18,4 +18,4 @@ Data in your storage account is replicated to ensure durability that is also hig
 
 For more details about replication options, see the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/) and [Azure Storage Redundancy Options](storage-redundancy.md).
 	
-The pricing differences between the various replication options can be found on the [Storage Pricing Details]([Pricing - Cloud Storage | Microsoft Azure](http://azure.microsoft.com/pricing/details/storage/)) page.
+The pricing differences between the various replication options can be found on the [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/)) page.
