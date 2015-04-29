@@ -18,16 +18,7 @@
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
 
-All of the tasks you perform to deploy Azure Virtual Machines can be fully automated. This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and Azure PowerShell as well as links to more documentation on automation for Virtual Machines. These tasks include:
-
-- Deploy a VM in Azure
-- Create a custom VM image 
-- Deploy a multi-VM application that uses a virtual network and an external load balancer
-- Remove a resource group
-- Start a virtual machine
-- Stop a virtual machine
-- Restart a virtual machine
-- Remove a virtual machine
+This article show you how to use Azure Resource Manager templates and Powershell to automate common tasks for deploying and managing Azure Virtual Machines.
 
 Before you get started, make sure you have Azure PowerShell ready to go.
 
@@ -46,327 +37,258 @@ The resources you create using Azure Resource Manager Templates will be deployed
 - Audit operations. 
 - Tag resources with additional meta-data for better tracking. 
 
-You can learn more about Azure Resource Groups [here](azure-preview-portal-using-resource-group.md).
+You can learn more about Azure Resource Manager [here](virtual-machines-azurerm-versus-azuresm.md).
 
-## Common Task: Deploy a VM in Azure
+## Common Task: Deploy a Windows VM
 
 Use the instructions in this section to deploy a new Azure VM using a Resource Manager Template and Azure PowerShell. This template creates a single virtual machine in a new virtual network with a single subnet.
 
-![](./media/virtual-machines-deploy-rmtemplates-powershell/new-vm.png)
+![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
  
-Follow these steps to deploy a VM using a Resource Manager template with Azure PowerShell commands.
+Follow these steps to create a Windows VM using a Resource Manager template in the Github template repository with Azure PowerShell.
 
 ### Step 1: Examine the JSON file for the template.
 
 Here are the contents of the JSON file for the template.
 
 	{
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters" : {
+    "parameters": {
         "newStorageAccountName": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+            }
         },
-        "dnsNameForPublicIP" : {
-            "type" : "string"
-        },
-        "adminUserName": {
-            "type": "string"
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+               "Description": "Username for the Virtual Machine."
+            }
         },
         "adminPassword": {
-            "type": "securestring"
-        },
-        "imagePublisher": {
-            "type": "string",
-            "defaultValue": "Canonical",
+            "type": "securestring",
             "metadata": {
-                 "Description": "Image Publisher"
+                "Description": "Password for the Virtual Machine."
             }
         },
-        "imageOffer": {
+        "dnsNameForPublicIP": {
             "type": "string",
-            "defaultValue": "UbuntuServer",
             "metadata": {
-                "Description": "Image Offer"
+                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
             }
         },
-        "imageSKU": {
+        "windowsOSVersion": {
             "type": "string",
-            "defaultValue": "14.04.2-LTS",
+            "defaultValue": "2012-R2-Datacenter",
+            "allowedValues": [
+                "2008-R2-SP1", 
+                "2012-Datacenter", 
+                "2012-R2-Datacenter", 
+                "Windows-Server-Technical-Preview"
+            ],
             "metadata": {
-                "Description": "Image SKU"
+                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
-        },
-        "location": {
-            "type": "String",
-            "defaultValue" : "West US"
-        },
-        "vmSize": {
-            "type": "string",
-            "defaultValue": "Standard_A0"
-        },
-        "publicIPAddressName": {
-            "type": "string"
-        },
-        "vmName": {
-            "type": "string",
-            "defaultValue" : "myVM"
-        },
-        "virtualNetworkName":{
-            "type" : "string",
-            "defaultValue" : "myVNET"
-        },
-        "nicName":{
-            "type" : "string",
-            "defaultValue":"myNIC"
         }
     },
     "variables": {
-        "addressPrefix":"10.0.0.0/16",
-        "subnet1Name": "Subnet-1",
-        "subnet2Name": "Subnet-2",
-        "subnet1Prefix" : "10.0.0.0/24",
-        "subnet2Prefix" : "10.0.1.0/24",
-        "vmStorageAccountContainerName": "vhds",
-        "publicIPAddressType" : "Dynamic",
+        "location": "West US",
+        "imagePublisher": "MicrosoftWindowsServer", 
+        "imageOffer": "WindowsServer", 
+        "OSDiskName": "osdiskforwindowssimple",
+        "nicName": "myVMNic",
+        "addressPrefix": "10.0.0.0/16", 
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
-        "vnetID":"[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
-        "subnet1Ref" : "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]"
-    },
+        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressType": "Dynamic",
+        "vmStorageAccountContainerName": "vhds",
+        "vmName": "MyWindowsVM",
+        "vmSize": "Standard_D1",
+        "virtualNetworkName": "MyVNET",        
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    },    
     "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[parameters('newStorageAccountName')]",
-      "apiVersion": "2015-05-01-preview",
-      "location": "[parameters('location')]",
-      "properties": {
-        "accountType": "[variables('storageAccountType')]"
-      }
-    },
-    {
-        "apiVersion": "2015-05-01-preview",
-        "type": "Microsoft.Network/publicIPAddresses",
-        "name": "[parameters('publicIPAddressName')]",
-        "location": "[parameters('location')]",
-        "properties": {
-            "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-            "dnsSettings": {
-                "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[parameters('newStorageAccountName')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[variables('location')]",
+            "properties": {
+                "accountType": "[variables('storageAccountType')]"
             }
-        }
-    },
-    {
-      "apiVersion": "2015-05-01-preview",
-      "type": "Microsoft.Network/virtualNetworks",
-      "name": "[parameters('virtualNetworkName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "[variables('addressPrefix')]"
-          ]
         },
-        "subnets": [
-          {
-            "name": "[variables('subnet1Name')]",
-            "properties" : {
-                "addressPrefix": "[variables('subnet1Prefix')]"
-            }
-          },
-          {
-            "name": "[variables('subnet2Name')]",
-            "properties" : {
-                "addressPrefix": "[variables('subnet2Prefix')]"
-            }
-          }
-        ]
-      }
-    },
-    {
-        "apiVersion": "2015-05-01-preview",
-        "type": "Microsoft.Network/networkInterfaces",
-        "name": "[parameters('nicName')]",
-        "location": "[parameters('location')]",
-        "dependsOn": [
-            "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
-            "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-        ],
-        "properties": {
-            "ipConfigurations": [
-            {
-                "name": "ipconfig1",
-                "properties": {
-                    "privateIPAllocationMethod": "Dynamic",
-                    "publicIPAddress": {
-                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
-                    },
-                    "subnet": {
-                        "id": "[variables('subnet1Ref')]"
-                    }
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "name": "[variables('publicIPAddressName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                "dnsSettings": {
+                    "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
                 }
             }
-            ]
-        }
-    },
-    {
-        "apiVersion": "2015-05-01-preview",
-        "type": "Microsoft.Compute/virtualMachines",
-        "name": "[parameters('vmName')]",
-        "location": "[parameters('location')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-            "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
-        ],
-        "properties": {
-            "hardwareProfile": {
-                "vmSize": "[parameters('vmSize')]"
-            },
-            "osProfile": {
-                "computername": "[parameters('vmName')]",
-                "adminUsername": "[parameters('adminUsername')]",
-                "adminPassword": "[parameters('adminPassword')]"
-            },
-            "storageProfile": {
-                "imageReference": {
-                    "publisher": "[parameters('imagePublisher')]",
-                    "offer": "[parameters('imageOffer')]",
-                    "sku" : "[parameters('imageSKU')]",
-                    "version":"latest"
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[variables('virtualNetworkName')]",
+            "location": "[variables('location')]",
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('addressPrefix')]"
+                    ]
                 },
-                "osDisk" : {
-                    "name": "osdisk",
-                    "vhd": {
-                       "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/vhds/','osdisk.vhd')]"
-                    },
-                    "caching": "ReadWrite",
-                    "createOption": "FromImage"
-                }
-            },
-            "networkProfile": {
-                "networkInterfaces" : [
-                {
-                    "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
-                }
+                "subnets": [
+                    {
+                        "name": "[variables('subnetName')]",
+                        "properties": {
+                            "addressPrefix": "[variables('subnetPrefix')]"
+                        }
+                    }
                 ]
             }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[variables('nicName')]",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+            ],
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                            },
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[variables('location')]",
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
+                "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+            ],
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('vmSize')]"
+                },
+                "osProfile": {
+                    "computername": "[variables('vmName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('imagePublisher')]",
+                        "offer": "[variables('imageOffer')]",
+                        "sku" : "[parameters('windowsOSVersion')]",
+                        "version":"latest"
+                    },
+                   "osDisk" : {
+                        "name": "osdisk",
+                        "vhd": {
+                            "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                        },
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                        }
+                    ]
+                }
+            }
         }
-    }
     ]
-	}
+	} 
 
-We are also building a repository of templates in GitHub that you can use and contribute your own templates.
 
 ### Step 2: Create the virtual machine with the template.
 
-To create the virtual machine, replace the elements within the “< >” with your specific information and run these commands:
+Fill in an Azure deployment name, Resource Group name, and Azure datacenter location, and then run these commands.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-You will be prompted to supply the values of parameters in the **"parameters"** section of the JSON file. When you have specified all the parameter values, Azure Resource Manager creates the resource group and the virtual machine. This table lists values for the imagePublisher, imageOffer, and imageSKU parameters.
+When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values of parameters in the "parameters" section of the JSON file. When you have specified all the needed parameter values, the command creates the resource group and the virtual machine. 
 
-imagePublisher | imageOffer | imageSKU
---- | --- | ---
-OpenLogic | CentOS | 6.5
-OpenLogic | CentOS | 6.6
-OpenLogic | CentOS | 7
-OpenLogic | CentOS | 7.1
-CoreOS | CoreOS | Beta
-CoreOS | CoreOS | Stable
-MicrosoftDynamicsNAV | DynamicsNAV | 2015
-msopentech | JDK | 8
-MicrosoftSharePoint | MicrosoftSharePointServer | 2013
-msopentech | Oracle-Database-11g-R2 | Enterprise
-msopentech | Oracle-WebLogic-Server-12c | Enterprise
-msopentech | Oracle-Database-11g-R2 | Standard
-msopentech | Oracle-Database-11g-R2-WebLogic-Server-11g | Enterprise
-msopentech | Oracle-Database-11g-R2-WebLogic-Server-11g | Standard
-msopentech | Oracle-Database-12c | Standard
-msopentech | Oracle-Database-12c | Enterprise
-msopentech | Oracle-Database-12c-Weblogic-Server-12c | Standard
-msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise
-msopentech | Oracle-WebLogic-Server-11g | Enterprise
-msopentech | Oracle-WebLogic-Server-11g | Standard
-msopentech | Oracle-WebLogic-Server-12c | Enterprise
-msopentech | Oracle-WebLogic-Server-12c | Enterprise
-msopentech	Oracle-WebLogic-Server-12c | Standard
-MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Enterprise
-MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Standard
-MicrosoftSQLServer | SQL2008R2SP3-WS2008R2SP1 | Web
-MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise
-MicrosoftSQLServer | SQL2012SP2-WS2012 | Standard
-MicrosoftSQLServer | SQL2012SP2-WS2012 | Web
-MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise-Optimized-for-DW
-MicrosoftSQLServer | SQL2012SP2-WS2012 | Enterprise-Optimized-for-OLTP
-MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise
-MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Standard
-MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Web
-MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise-Optimized-for-DW
-MicrosoftSQLServer | SQL2012SP2-WS2012R2 | Enterprise-Optimized-for-OLTP
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
-MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
-MicrosoftSQLServer | SQL2014-WS2012R2 | Web
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
-MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
-MicrosoftSQLServer | SQL2014-WS2012R2 | Web
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
-MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
-MicrosoftSQLServer | SQL2014-WS2012R2 | Web
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise
-MicrosoftSQLServer | SQL2014-WS2012R2 | Standard
-MicrosoftSQLServer | SQL2014-WS2012R2 | Web
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW
-MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP
-Canonical | UbuntuServer | 12.04.2-LTS
-Canonical | UbuntuServer | 12.04.3-LTS
-Canonical | UbuntuServer | 12.04.4-LTS
-Canonical | UbuntuServer | 12.04.5-LTS
-Canonical | UbuntuServer | 14.04.0-LTS
-Canonical | UbuntuServer | 14.04.1-LTS
-Canonical | UbuntuServer | 14.04.2-LTS
-Canonical | UbuntuServer | 14.10-beta
-Canonical | UbuntuServer | 14.1
-Canonical | UbuntuServer | 15.04
-Canonical | UbuntuServer | 12.04-DAILY
-Canonical | UbuntuServer | 12.04.5-LTS
-Canonical | UbuntuServer | 14.04.2-LTS
-Canonical | UbuntuServer | 14.04-DAILY
-Canonical | UbuntuServer | 14.10-DAILY
-Canonical | UbuntuServer | 15.04-DAILY
-MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1
-MicrosoftWindowsServer | WindowsServer | 2012-Datacenter
-MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter
-MicrosoftWindowsServer | WindowsServer | Windows-Server-Technical-Preview
-MicrosoftWindowsServerEssentials | WindowsServerEssentials	WindowsServerEssentials
-MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2
-MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | TechnicalPreview
-
-Here is an example:
+Here is an example.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-You will receive the following type of information:
+You will see something like this:
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	newStorageAccountName: saTest
-	dnsNameForPublicIP: contoso.com
-	adminUserName: WebAdmin1
-	adminPassword: *******
-	imagepublisher: MicrosoftWindowsServer
-	...
+	newStorageAccountName: newsaacct
+	adminUsername: WinAdmin1
+	adminPassword: *********
+	dnsNameForPublicIP: contoso
+	VERBOSE: 10:56:59 AM - Template is valid.
+	VERBOSE: 10:56:59 AM - Create template deployment 'BuildDeployment'.
+	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'buildsaacct' provisioning status is running
+	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'buildsaacct' provisioning status is succeeded
+	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	
+	
+	DeploymentName    : BuildDeployment
+	ResourceGroupName : BuildRG
+	ProvisioningState : Succeeded
+	Timestamp         : 4/28/2015 6:02:13 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+                    	Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     buildsaacct
+	                    adminUsername    String                     WinAdmin1
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contoso9875
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
 
+You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
 ## Common Task: Create a custom VM image
 
@@ -466,7 +388,7 @@ To create an new virtual machine based on the VHD, replace the elements within t
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
@@ -477,7 +399,7 @@ Here is an example:
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-vm-from-specialized-vhd/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-from-specialized-vhd/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
@@ -487,14 +409,13 @@ You will receive the following type of information:
 	cmdlet New-AzureResourceGroup at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	osDiskVhdUri: WindowsServer.vhd
+	osDiskVhdUri: http://saacct.blob.core.windows.net/vhds/osdiskforwindows.vhd
 	osType: windows
 	location: West US
 	vmSize: Standard_A3
 	...
 
-
-## Deploy a multi-VM application that uses a virtual network and an external load balancer
+## Common task: Deploy a multi-VM application that uses a virtual network and an external load balancer
 
 Use the instructions in these sections to deploy a multi-VM application that uses a virtual network and a load balancer with a Resource Manager template using Azure PowerShell. This template creates two virtual machines in a new virtual network with a single subnet in a new cloud service, and adds them to an external load-balanced set for incoming traffic to TCP port 80.
 
@@ -824,7 +745,7 @@ Fill in an Azure deployment name, Resource Group name, Azure location, and then 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
@@ -833,7 +754,7 @@ When you run the New-AzureResourceGroupDeployment command, you will be prompted 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
 	$locname="West US"
-	$templateURI="https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
+	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json"
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
@@ -856,6 +777,16 @@ You can remove any resource group you have created with the **Remove-AzureResour
 
 	Remove-AzureResourceGroup  -Name "<resource group name>"
 
+You will see information like this:
+
+	Confirm
+	Are you sure you want to remove resource group 'BuildRG'
+	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+
+## Log on to a Windows virtual machine
+
+For the detailed steps, see [How to Log on to a Virtual Machine Running Windows Server](virtual-machines-log-on-windows-server.md).
+
 ## Display information about a virtual machine
 
 You can see information about a VM using the **Get-AzureVM** command. This command returns a VM object that can be manipulated using various other cmdlets to update the state of the VM. Replace everything within the quotes, including the < and > characters, with the correct names.
@@ -864,14 +795,65 @@ You can see information about a VM using the **Get-AzureVM** command. This comma
 
 You will see information about your virtual machine like this:
 
-	ResourceGroupName                  :  resourcegroupname
-	Name                               :  vmname
-	VMSize                             :  Standard_A2
-	Tags                               :  {}
-	AvailabilitySetId                  :
-	ProvisioningState                  :  succeeded
-	OSConfiguration                    :  Windows
-	...
+	AvailabilitySetReference : null
+	Extensions               : []
+	HardwareProfile          : {
+	                             "VirtualMachineSize": "Standard_D1"
+	                           }
+	Id                       : /subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/BuildRG/providers/Microso
+	                           ft.Compute/virtualMachines/MyWindowsVM
+	InstanceView             : null
+	Location                 : westus
+	Name                     : MyWindowsVM
+	NetworkProfile           : {
+	                             "NetworkInterfaces": [
+	                               {
+	                                 "Primary": null,
+	                                 "ReferenceUri": "/subscriptions/fd92919d-eeca-4f5b-840a-e45c6770d92e/resourceGroups/Bu
+	                           ildRG/providers/Microsoft.Network/networkInterfaces/myVMNic"
+	                               }
+	                             ]
+	                           }
+	OSProfile                : {
+	                             "AdminPassword": null,
+	                             "AdminUsername": "WinAdmin1",
+	                             "ComputerName": "MyWindowsVM",
+	                             "CustomData": null,
+	                             "LinuxConfiguration": null,
+	                             "Secrets": [],
+	                             "WindowsConfiguration": {
+	                               "AdditionalUnattendContents": [],
+	                               "EnableAutomaticUpdates": true,
+	                               "ProvisionVMAgent": true,
+	                               "TimeZone": null,
+	                               "WinRMConfiguration": null
+	                             }
+	                           }
+	Plan                     : null
+	ProvisioningState        : Succeeded
+	StorageProfile           : {
+	                             "DataDisks": [],
+	                             "ImageReference": {
+	                               "Offer": "WindowsServer",
+	                               "Publisher": "MicrosoftWindowsServer",
+	                               "Sku": "2012-R2-Datacenter",
+	                               "Version": "latest"
+	                             },
+	                             "OSDisk": {
+	                               "OperatingSystemType": "Windows",
+	                               "Caching": "ReadWrite",
+	                               "CreateOption": "FromImage",
+	                               "Name": "osdisk",
+	                               "SourceImage": null,
+	                               "VirtualHardDisk": {
+	                                 "Uri": "http://buildsaacct.blob.core.windows.net/vhds/osdiskforwindowssimple.vhd"
+	                               }
+	                             },
+	                             "SourceImage": null
+	                           }
+	Tags                     : {}
+	Type                     : Microsoft.Compute/virtualMachines
+
 
 ## Start a virtual machine
 
@@ -879,17 +861,55 @@ You can start a VM using the **Start-AzureVM** command.  Replace everything with
 
 	Start-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
+You will see information like this:
+
+	EndTime             : 4/28/2015 11:11:41 AM -07:00
+	Error               :
+	Output              :
+	StartTime           : 4/28/2015 11:10:35 AM -07:00
+	Status              : Succeeded
+	TrackingOperationId : e1705973-d266-467e-8655-920016145347
+	RequestId           : aac41de1-b85d-4429-9a3d-040b922d2e6d
+	StatusCode          : OK
+
 ## Stop a virtual machine
 
 You can stop a VM using the **Stop-AzureVM** command.  Replace everything within the quotes, including the < and > characters, with the correct names.
 
 	Stop-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
-##Restart a Virtual Machine
+You will see information like this:
+
+	Virtual machine stopping operation
+	This cmdlet will stop the specified virtual machine. Do you want to continue?
+	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+	
+	
+	EndTime             : 4/28/2015 11:09:08 AM -07:00
+	Error               :
+	Output              :
+	StartTime           : 4/28/2015 11:06:55 AM -07:00
+	Status              : Succeeded
+	TrackingOperationId : 0c94dc74-c553-412c-a187-108bdb29657e
+	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
+	StatusCode          : OK
+
+##Restart a virtual machine
 
 You can restart a VM using the **Restart-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.
 
 	Restart-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
+
+You will see information like this:
+
+	EndTime             : 4/28/2015 11:16:26 AM -07:00
+	Error               :
+	Output              :
+	StartTime           : 4/28/2015 11:16:25 AM -07:00
+	Status              : Succeeded
+	TrackingOperationId : 390571e0-c804-43ce-88c5-f98e0feb588e
+	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
+	StatusCode          : OK
 
 ## Delete a virtual machine
 
@@ -897,12 +917,31 @@ You can delete a VM using the **Remove-AzureVM** command. Replace everything wit
 
 	Remove-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 
+You will see information like this:
+
+	Virtual machine removal operation
+	This cmdlet will remove the specified virtual machine. Do you want to continue?
+	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
+	
+	
+	EndTime             : 4/28/2015 11:21:55 AM -07:00
+	Error               :
+	Output              :
+	StartTime           : 4/28/2015 11:20:13 AM -07:00
+	Status              : Succeeded
+	TrackingOperationId : f74fad9e-f6bc-46ae-82b1-bfad3952aa44
+	RequestId           : 6a30d2e0-63ca-43cf-975b-058631e048e7
+	StatusCode          : OK
+
 ## Additional Resources
+
+[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+
+[Azure Resource Manager Overview](resource-group-overview.md)
+
+[Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
-
 [How to install and configure Azure PowerShell](install-configure-powershell.md)
+

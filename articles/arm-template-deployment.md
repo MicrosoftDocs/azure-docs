@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy Azure Resources by Using a Template" 
 	description="Learn to use some of the available clients in the Azure Resource Management Library to deploy a virtual machine, virtual network, and storage account" 
-	services="multiple" 
+	services="virtual-machines,virtual-networks,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 
 	manager="timlt" 
@@ -51,7 +51,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	![Create an AD application](./media/arm-template-deployment/azureapplicationid.png)
 
-	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Azure portal.	
+	>[AZURE.NOTE] You can also find the application identifier in the client id field of the application in the Management Portal.	
 
 5. Replace {application-id} with the identifier that you just recorded and then create the service principal for the application:
 
@@ -444,8 +444,8 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 2.	Press **Enter** after each status code is returned to create each resource. After the virtual machine is created, do the next step before pressing Enter to delete all of the resources.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
+	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure preview portal before you delete them.
 
-3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
+3. Browse to the Audit Logs in the Azure preview portal to see the status of the resources:
 
 	![Create an AD application](./media/arm-template-deployment/crpportal.png)

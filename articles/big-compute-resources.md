@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical Resources for Batch and High Performance Computing (HPC)
@@ -88,7 +88,7 @@ Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn19789
 
 ## Architecture blueprints
 
-* [Large-Scale Computing - Financial Services](architecture-blueprint-large-scale-compute-financial.md)
+* [Large-Scale Computing - Financial Services](http://go.microsoft.com/fwlink/?LinkId=536378) (PDF) shows how to operationalize and orchestrate large-scale computation and data analysis in the cloud for risk management, reporting, and simulations.
 
 ## Samples and demos
 
@@ -115,4 +115,4 @@ Azure offers a [range of sizes](https://msdn.microsoft.com/library/azure/dn19789
 ## Next steps
 
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](http://azure.microsoft.com/blog/tag/hpc/).
-* Also see [what's new in Batch](http://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).ss
+* Also see [what's new in Batch](http://azure.microsoft.com/updates/?service=batch) or subscribe to the [RSS feed](http://azure.microsoft.com/updates/feed/?service=batch).
