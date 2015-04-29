@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/20/2015"
+   ms.date="04/29/2015"
    ms.author="rasquill"/>
 
 # Application Frameworks using templates
@@ -43,4 +43,6 @@ Use this stuff to create great things, quickly.
 
 ## Next steps
 
-Discover all the templates at your disposal and learn about Azure Resource Management [here](resource-group-template-deploy.md).
+Discover all the templates at your disposal on [GitHub](https://github.com/Azure/azure-quickstart-templates).
+
+Learn more about Azure Resource Management [here](resource-group-template-deploy.md).
