@@ -247,7 +247,7 @@ Here is an example you can find in the **azuredeploy-parameters.json** file.  No
 		}
 	}
 
-[AZURE.NOTE] The parameter `storageAccountName` must be a non-existent, unique storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).  This storage account will be created as part of the deployment process.
+>[AZURE.NOTE] The parameter `storageAccountName` must be a non-existent, unique storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).  This storage account will be created as part of the deployment process.
 
 Fill in an Azure deployment name, Resource Group name, Azure location, and the folder for your saved JSON files. Then run these commands:
 
@@ -262,7 +262,7 @@ Fill in an Azure deployment name, Resource Group name, Azure location, and the f
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-[AZURE.NOTE] `$RGName` must be unique within your subscription.
+>[AZURE.NOTE] `$RGName` must be unique within your subscription.
 
 When you run the **New-AzureResourceGroupDeployment** command, this will extract parameter values from the parameters JSON file (azuredeploy-parameters.json), and will start executing the template accordingly. Defining and using multiple parameter files with your different environments (e.g. Test, Production, etc.) will promote template reuse and simplify complex multi-environment solutions.
 
@@ -395,7 +395,7 @@ Here is an example of a parameter for the “t-shirt size”:
 		}
 	},
 
-[AZURE.NOTE] Notice that a `defaultValue` may be specified, as well as `allowedValues`.
+>[AZURE.NOTE] Notice that a `defaultValue` may be specified, as well as `allowedValues`.
 
 ### "variables" section
 
