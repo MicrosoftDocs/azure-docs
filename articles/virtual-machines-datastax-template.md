@@ -273,7 +273,7 @@ The "parameters" section of **azuredeploy.json** specifies modifiable parameters
 The "variables" section specifies variables that can be used throughout this template. This contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time. Here is the "variables" section for this Datastax template:
 
 	"variables": {
-	"templateBaseUrl": "https://raw.githubusercontent.com/trentmswanson/azure-quickstart-templates/master/datastax-on-ubuntu/",
+	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-on-ubuntu/",
 	"sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
 	"clusterNodesTemplateUrl": "[concat(variables('templateBaseUrl'), 'ephemeral-nodes-resources.json')]",
 	"opsCenterTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-resources.json')]",
