@@ -32,7 +32,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 	- Additional stability and improvement added to Event Hubs feature.
 	- Adding support of Amqp protocol over WebSocket for messaging and Event Hubs.
 
-##HDInsight Tools for Visual Studio udpates
+##HDInsight Tools for Visual Studio updates
 
 - **IntelliSense enhancement**: remote metadata suggestion
 
@@ -62,7 +62,7 @@ With Azure SDK 2.6 you can develop cloud service applications (PaaS) targeting .
 
 	For more information, see [In-Role Cache for Azure Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
 
-##Azure Tools updates
+##Azure App Service Tools
 
 The following items were updated in the Azure SDK 2.6 release.
 
@@ -76,9 +76,11 @@ The following items were updated in the Azure SDK 2.6 release.
 
 The Azure resource manager tools have been updated to include templates for Virtual Machines, Networking and Storage. The JSON editing experience has been updated to include a new outline view for templates and the ability to edit the templates using JSON snippets. Templates deployed from Visual Studio use a PowerShell script provided with the project, so any changes made to the script will be used by Visual Studio.
 
-##Diagnostics improvements 
+##Diagnostics improvements for Cloud Services
 
 Azure SDK 2.6 brings back support for collecting diagnostics logs in the Azure compute emulator and transferring them to development storage. Any diagnostics logs (including application trace Logs, Event Tracing for Windows (ETW) logs, performance counters, infrastructure logs and windows event logs) generated when the application is running in the emulator can be transferred to development storage to verify that your diagnostics logging is working on your local machine. 
+
+The Diagnostics storage account can now be specified in the service configuration (.cscfg) file making it easier to use different diagnostics storage accounts for different environments. There are some notable differences between how the connection string worked in Azure SDK 2.4 and Azure SDK 2.6. For more information on how to use the Diagnostics Storage connection string and how it impacts your projects see [Configuring Diagnostics for Azure Cloud Services](http://go.microsoft.com/fwlink/?LinkID=532784).
 
 ##Breaking changes
 

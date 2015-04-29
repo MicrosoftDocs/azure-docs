@@ -22,25 +22,10 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../includes/media-services-selector-manage-channels.md)]
 
 
->[AZURE.NOTE]
-To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
-For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure Free Trial</a>.
->
-You also need a webcam and a live encoder. This tutorial uses <a href="http://www.telestream.net/wirecast/overview.htm">Telestream Wirecast</a> live encoder.
-
-This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a **Channel** receives a multi-bitrate live stream from an on-premises live encoder. 
-
-In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Program** enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel. 
-
-When working with Live Streaming, one of the components that is involved in the workflow is a live video encoder that converts signals from the camera to streams that are sent to a live streaming service. A **Channel** can receive live input streams from an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. You can use the following live encoders that output Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. The live encoder can also ingest a single bitrate stream, but since the stream is not processed, the client applications will also receive a single bitrate stream (this option is not recommended). Once the received content is published, it can be streamed to client playback applications through one or more **Streaming Endpoint**s. The following adaptive streaming protocols can be used to play the stream: HLS,  MPEG DASH, Smooth Stream, HDS. 
-
-A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. You should allocate at least one reserved unit for applications in a production environment. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
-
-For a more detailed overview of working with channels and related components, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-channels-overview.md).   
+This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a **Channel** receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-channels-overview.md). 
 
 In this tutorial, the Azure Management Portal is used to accomplish the following tasks: 
 
-1.  Create a Media Services account
 2.  Configure streaming endpoints
 3.  Create a channel
 1.  Configure a live encoder and ingest live stream into the channel (Wirecast is used in this step)
@@ -49,32 +34,13 @@ In this tutorial, the Azure Management Portal is used to accomplish the followin
 1.  Play your content 
 2.  Cleaning up
 
-##Create a Media Services account
+##Prerequisites
+The following are required to complete the tutorial.
 
-1. In the [Management Portal][], click **New**, click **Media Service**, and then click **Quick Create**.
-   
-	![Media Services Quick Create](./media/media-services-create-account/wams-QuickCreate.png)
-
-2. In **NAME**, enter the name of the new account. A Media Services account name is all lower-case numbers or letters with no spaces, and is 3 - 24 characters in length. 
-
-3. In **REGION**, select the geographic region that will be used to store the metadata records for your Media Services account. Only the available Media Services regions appear in the dropdown. 
-
-4. In **STORAGE ACCOUNT**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account. A new storage account is created in the same region. 
-
-5. If you created a new storage account, in **NEW STORAGE ACCOUNT NAME**, enter a name for the storage account. The rules for storage account names are the same as for Media Services accounts.
-
-6. Click **Quick Create** at the bottom of the form.
-
-	You can monitor the status of the process in the message area at the bottom of the window.
-
-	Once account is successfully created, the status changes to Active. 
-	
-	At the bottom of the page, the **MANAGE KEYS** button appears. When you click on this button, a dialog with the Media Services account name and the primary and secondary keys is displayed. You will need the account name and the primary key information to programmatically access the Media Services account. 
-
-	
-	![Media Services Page](./media/media-services-create-account/wams-mediaservices-page.png)
-
-	When you double-click on the account name, the Quick Start page is displayed by default. This page enables you to do some management tasks that are also available on other pages of the portal. For example, you can upload a video file from this page, or do it from the CONTENT page.
+- To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. 
+For details, see [Azure Free Trial](azure.microsoft.com).
+- A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
+- A webcam and an encoder that can send a multi-bitrate live stream.
 
 	 
 ##Configure streaming endpoint using Portal
@@ -107,14 +73,20 @@ To change the number of streaming reserved units, do the following:
 
 ##Create a channel
 
-In the Azure Management Portal, select the **CHANNEL** page. Then, click **NEW**.
+In the Azure Management Portal, select the **CHANNEL** page. Then, click **NEW**. In the **Create a new Live Channel** dialog enter a name for your channel and specify **None** for the ENCODING TYPE. This type specifies that you want to create a Channel that is not enabled for live encoding with Media Services. That means the incoming stream is already encoded into an adaptive (multi-bitrate) stream. For more information about live encoding with Media Services, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md). 
 
-In the **Create a new Live Channel** dialog enter a name for your channel and specify the ingest protocol. Wirecast outputs RTMP, so we will leave this protocol.
+![createchannel](./media/media-services-managing-channels/media-services-create-channel-none0.png)
+
+Press **Next** and specify the ingest protocol. In this case we are using Wirecast which outputs RTMP, so we will leave this protocol.
+
+![channelprotocol](./media/media-services-managing-channels/media-services-create-channel_none1.png)
+
+Press **Next** and specify ingest restrictions (if any). Also, specify to start the channel.
+
+![channel](./media/media-services-managing-channels/media-services-create-channel_none3.png)
 
 Press **OK**.   
 
- 
-![createchannel](./media/media-services-managing-channels/media-services-create-channel.png)
 
 After a few minutes the channel gets created and started.
 

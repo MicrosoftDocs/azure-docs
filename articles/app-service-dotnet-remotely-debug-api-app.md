@@ -94,13 +94,33 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 	        Console.ReadLine();
 	    }
 
-7. From the **View** menu, select **Server Explorer**. 
+## Test the API app client
 
-8. In the **Server Explorer**, expand the **Azure > App Service** node. 
+Once the API app has been coded, it's time to test the code in the browser.
 
-9. Locate the resource group that you created when you deployed your API app. 
+1. Open **Solution Explorer**.
 
-10. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
+2. Right-click the console application you created in the previous section.
+
+3. From the console application's context menu, select **Debug > Start new instance**. 
+
+4. A console windows should open and display all of the contacts. 
+
+	![Running console app](./media/app-service-dotnet-remotely-debug-api-app/running-console-app.png)
+
+5. Press **Enter** to dismiss the console window.          
+
+## Debug the API app 
+
+Now that the API app and its client are coded and tested, let's see how to debug it.
+
+1. From the Visual Studio **View** menu, select **Server Explorer**. 
+
+2. In the **Server Explorer**, expand the **Azure > App Service** node. 
+
+3. Locate the resource group that you created when you deployed your API app. 
+
+4. Under the resource group, right-click the node for your API app and select **Attach Debugger**. 
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/08-attach-debugger-v3.png)
 
@@ -108,11 +128,11 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 	![Attaching debugger](./media/app-service-dotnet-remotely-debug-api-app/09-attaching-v3.png)
 
-11. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
+16. After the connection is established, open the **ContactsController.cs** file in the API App project, and add breakpoints at the `Get` and `Post` methods. They may not appear as active at first, but if the remote debugger is attached, you're ready to debug. 
 
 	![Applying breakpoints to controller](./media/app-service-dotnet-remotely-debug-api-app/10-breakpoints-v3.png)
 
-12. To debug, right-click the console app in **Solution Explorer** and select **Debug** > **Start new instance**. Now, you can debug the API app remotely and the client app locally, and see the entire flow of the data. 
+17. To debug, right-click the console app in **Solution Explorer** and select **Debug** > **Start new instance**. Now, you can debug the API app remotely and the client app locally, and see the entire flow of the data. 
 
 	The following screen shot shows the debugger when it hits the breakpoint for the `Post` method. You can see that the contact data from the client was deserialized into a strongly-typed `Contact` object. 
 
@@ -120,6 +140,8 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 
 ## Next steps
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API apps.
+Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for Azure API apps. 
+
+App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md). 
 
 The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).

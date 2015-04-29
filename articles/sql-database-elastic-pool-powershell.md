@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="04/22/2015"
+   ms.date="04/28/2015"
    ms.author="adamkr; sstein"/>
 
 # Create and monitor an Azure SQL Database elastic database pool using Azure PowerShell
@@ -37,7 +37,7 @@ To create an elastic pool you will need the following:
 - Azure SQL Server
 - Firewall rule on the server that allows access to the computer running the PowerShell cmdlets.
 
-This article will show you how to create everything in the above list except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article!
+This article will show you how to create everything in the above list except for the Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 
 
 

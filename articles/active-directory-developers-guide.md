@@ -29,9 +29,9 @@ Azure Active Directory offers developers an effective way to integrate identity 
 These articles provide developers with high-level information about the use, implementation, and key features of Azure Active Directory. We suggest you read them in order.
 
 
-1. **[How To Integrate with Azure AD](http://www.azure.com)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
+1. **[How To Integrate with Azure AD](active-directory-how-to-integrate.md)**: Discover why integration with Azure Active Directory offers the best solution for secure sign in and authorization.
 
-1. **[Using Azure AD for sign in](https://msdn.microsoft.com/library/azure/dn499820.aspx)**: Take advantage of Azure Active Directory's simplified authentication to provide sign on to your application.
+1. **[Using Azure AD for sign in](active-directory-authentication-scenarios.md)**: Take advantage of Azure Active Directory's simplified authentication to provide sign on to your application.
 
 1. **[Querying the Directory](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: Use the Azure Active Directory Graph API to programmatically access Azure AD through REST API endpoints.
 
@@ -43,22 +43,25 @@ These articles provide developers with high-level information about the use, imp
 <a name='getting-started'></a>
 ## Getting Started
 
-These tutorials are tailored for multiple platforms and allow you to quickly started with Azure Active Directory.
-
+These tutorials are tailored for multiple platforms, and allow you to quickly started with Azure Active Directory.
 
 **Mobile or PC Application**:
-- [iOS]()
-- [Android]()
-- [.NET]()
-- [Windows Phone]()
-- [Windows Store
-- Xamarin
-- Cordova
+
+- [iOS](active-directory-devquickstarts-ios.md)
+- [Android](active-directory-devquickstarts-android.md)
+- [.NET](active-directory-devquickstarts-native-dotnet.md)
+- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
+- [Windows Store](active-directory-devquickstarts-windowsstore.md)
+- [Xamarin](active-directory-devquickstarts-xamarin.md)
+- [Cordova](active-directory-devquickstarts-cordova.md)
 
 
 **Web Application or Web API**:
-- [.NET]()
-- [Javascript]()
+
+- [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
+- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
+- [Javascript](active-directory-devquickstarts-angular.md)
+- [Node.js](active-directory-authentication-webapi-nodejs.md)
 
 <!-- COMMENT
 
@@ -70,7 +73,7 @@ These tutorials are tailored for multiple platforms and allow you to quickly sta
 
 These articles describe how to perform specific tasks using Azure Active Directory.
 
-- [How to get Azure Active Directory]()
+- [How to get Azure Active Directory](active-directory-howto-tenant.md)
 
 <!--
 

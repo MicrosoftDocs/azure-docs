@@ -3,7 +3,7 @@
 	description="" 
 	services="" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="flanakin" 
 	writer="" 
 	manager="wpickett" 
 	editor=""/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="04/28/2015" 
 	ms.author="micflan"/>
 
 
@@ -44,7 +44,7 @@ From here, you can click on each individual tag to view a list of all the resour
 
 First thing's first, grab the latest [Azure PowerShell module](./install-configure-powershell.md). If this is your first time using the Azure PowerShell module, [read the documentation](./install-configure-powershell.md) to get up to speed. For the purposes of this article, we'll assume you're already added an account and selected a subscription with the resources you want to tag.
 
-Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Windows PowerShell with Resource Manager](powershell-azure-resource-manager.md).
+Tagging is only available for resources and resource groups available from [Resource Manager](http://msdn.microsoft.com/library/azure/dn790568.aspx), so the next thing we need to do is switch to use Resource Manager. For more information, see [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md).
 
     Switch-AzureMode AzureResourceManager
 
@@ -88,4 +88,27 @@ To view your taxonomy of tags in the portal, use the Browse hub to view Everythi
 Pin the most important tags to your Startboard for quick access and you're ready to go. Have fun!
 
 ![Pin tags to the Startboard](./media/resource-group-using-tags/pin-tags.png)
+
+## Next Steps
+Getting Started  
+
+- [Azure Resource Manager Overview](./resource-group-overview.md)  
+- [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md)  
+- [Using the Azure Portal to manage your Azure resources](./resource-group-portal.md)  
+  
+Creating and Deploying Applications  
+  
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)  
+- [Deploy an application with Azure Resource Manager Template](./resource-group-template-deploy.md)  
+- [Troubleshooting Resource Group Deployments in Azure](./resource-group-deploy-debug.md)  
+- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)  
+- [Advanced Template Operations](./resource-group-advanced-template.md)  
+  
+Managing and Auditing Access  
+  
+- [Managing and Auditing Access to Resources](./resource-group-rbac.md)  
+- [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md)  
+- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)  
+  
 
