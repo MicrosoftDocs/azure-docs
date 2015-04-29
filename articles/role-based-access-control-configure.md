@@ -35,7 +35,7 @@ We’ve added support for role-based access control (RBAC) in the Microsoft Azur
 * [Next steps](#next)
 
 
-<h2><a id="whatisrbac"></a>RBAC in Azure</h2>
+##<a id="whatisrbac"></a>RBAC in Azure
                                                                    
 Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Microsoft Azure classic portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
 
@@ -66,19 +66,19 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
+##<a id="coexist"></a>Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure classic portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
 If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure portal, you should add them to the subscription co-administrators using the Azure classic portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
-<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+##<a id="authmgmt"></a>Authorization for management versus data operations
 
 Role-based access control is supported only for management operations of the Azure resources in Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
 
-<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+##<a id="addremoveaccess"></a>How to add and remove access
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
@@ -156,12 +156,12 @@ When you add an external user, a guest is created in the directory. Thereafter, 
 
 You can also remove a guest from any role, just as you would remove any user. Removing the guest from a role on a resource does not remove the guest from the directory. 
  
-<h2><a id="knownissues"></a>Known issues when using role-based access control</h2>
+##<a id="knownissues"></a>Known issues when using role-based access control
 
 If you encounter a problem when you use role based access control feature, see [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md) for any known issues that may be related to the problem.
 
 
-<h2><a id="builtinroles"></a>Built-in roles</h2>
+##<a id="builtinroles"></a>Built-in roles
 
 Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
@@ -978,12 +978,12 @@ Role name  | Description
 </table>
 
 
-<h2><a id="feedback"></a>How to provide feedback</h2>
+##<a id="feedback"></a>How to provide feedback
 
 Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback). 
 
 
-<h2><a id="next"></a>Next steps</h2>
+##<a id="next"></a>Next steps
 
 Here are some additional resources to help you use role-based access control: 
 
