@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Create a virtual machine running Windows in Azure" 
-	description="Learn to create Windows virtual machine (VM) in the Azure classic portal." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Create a virtual machine running Windows in Azure"
+	description="Learn to create Windows virtual machine (VM) in the Azure classic portal."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor="tysonn"
-	tags="AZURE CLASSIC PORTAL"/>
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/27/2015"
 	ms.author="kathydav"/>
 
 
@@ -23,7 +23,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM). This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.
@@ -49,6 +49,3 @@ This section shows you how to use the **From Gallery** option in the Azure class
 ## Additional Resources
 
 To learn more about what you can configure for a VM and when you can do it, see [About Azure VM configuration settings](http://msdn.microsoft.com/library/azure/dn763935.aspx).
-
-
-

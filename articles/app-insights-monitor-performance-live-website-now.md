@@ -30,7 +30,7 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
  * A range of standard diagnostic and usage telemetry. 
- * And you can use the [Application Insights API][api] if you want to write your own telemetry.
+ * The ability to use the [Application Insights API][api] if you want to write your own telemetry.
 * **Run time:** Use Status Monitor to instrument your web app on the server. Benefits include:
  * Apply it to web apps that are already running, without the need to modify the code or republish.
  * Standard diagnostic and usage telemetry.
@@ -51,7 +51,8 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 1. You need a [Microsoft Azure](http://azure.com) subscription. 
 
-1. On your IIS web server, login with administrator credentials.
+1. On your IIS web server, log in with administrator credentials.
+
 2. Download and run the [Status Monitor installer](http://go.microsoft.com/fwlink/?LinkId=506648).
 
 4. In the installation wizard, sign in to Microsoft Azure.
@@ -99,17 +100,17 @@ Click through any chart to see more details.
 
 ![](./media/appinsights/appinsights-038-dependencies.png)
 
-#### Dependencies
+### Dependencies
 
 The charts labeled HTTP, SQL, AZUREBLOB show the response times and counts of calls to dependencies: that is, external services that your application uses.
 
 
 
-#### Performance counters
+### Performance counters
 
 Click any performance counter chart to change what it shows. Or you can add a new chart. 
  
-#### Exceptions
+### Exceptions
 
 ![Click through the server exceptions chart](./media/appinsights/appinsights-039-1exceptions.png)
 
@@ -142,7 +143,7 @@ OS support for Application Insights Status Monitor on Server:
 
 with latest SP and .NET Framework 4.0 and 4.5
 
-On the client side Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
+On the client side: Windows 7, 8 and 8.1, again with .NET Framework 4.0 and 4.5
 
 IIS support is: IIS 7, 7.5, 8, 8.5
 (IIS is required)

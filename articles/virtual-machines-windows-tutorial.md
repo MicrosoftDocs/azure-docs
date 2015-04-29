@@ -6,7 +6,7 @@
 	authors="dlepow"
 	manager="timlt"
 	editor=""
-	tags="AZURE PORTAL"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic.md)
+- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 This tutorial shows you how easy it is to create an Azure virtual machine (VM) in the Azure portal. This tutorial uses a Windows Server image, but that's only one of the many images available through Azure. This includes Windows operating systems, Linux-based operating systems, and images with installed applications. The images you can choose from depend on the type of subscription you have. For example, desktop images may be available to MSDN subscribers.

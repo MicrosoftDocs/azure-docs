@@ -72,4 +72,20 @@ For each actor in its Active Actors table, the Actors runtime keeps track of the
 
 Any time an actor gets used, its idle time reset to 0. After this, the actor can only be garbage collected if it again remains idle for `IdleTimeoutInSeconds`. Recall that an actor is considered to have been used if either an actor interface method an actor reminder callback is executed. An actor is **not** considered to have been used if its timer callback is executed.
 
+The diagram below contains an example to illustrate these concepts.
+
+![][1]
+
+The example assumes that there is only one active actor in the Active Actors table and shows the impact of actor method calls, reminders and timers on the lifetime of this actor. The following points about the example are worth mentioning:
+
+- ScanInterval and IdleTimeout are set to 5 and 10 respectively in the example (units do not matter here, since our purpose is only to illustrate the concept).
+- The scan for actors to be garbage collected happens at T=0,5,10,15,20,25 as defined by the ScanInterval of 5.
+- A periodic timer fires at T=4,8,12,16,20,24 and its callback executes. It does not impact the idle time of the actor.
+- An actor method call at T=7, resets the idle time to 0 and delays the garbage collection of the actor.
+- An actor reminder callback executes at T=14 and further delays the garbage collection of the actor.
+- During the garbage collection scan at T=25, the actor's idle time finally exceeds the IdleTimeout of 10 and the actor is garbage collected.
+
 Please note that an actor will never get garbage collected while it is executing one of its methods, no matter how much time is spent in executing that method. As mentioned earlier, the execution of actor interface methods and reminder callbacks prevents garbage collection by resetting the actor's idle time to 0. The execution of timer callbacks does not reset the idle time to 0. However, the garbage collection of the actor is deferred until the timer callback has completed execution.
+
+<!--Image references-->
+[1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

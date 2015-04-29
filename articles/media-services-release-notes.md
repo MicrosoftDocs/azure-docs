@@ -74,7 +74,6 @@ For information about the Media Services REST API version history, see [Azure Me
 
 ###General Media Services Updates
 
-- [Announcing Preview of Live Encoding with Azure Media Services](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/). Also, for more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 - [Announcing Azure Media Player](http://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/).
 - Starting with Media Services REST 2.10, channels that are configured to ingest an RTMP protocol, are created with primary and secondary ingest URLs. For more information, see [Channel ingest configurations](media-services-manage-channels-overview.md#channel_input)
 - Azure Media Indexer updates

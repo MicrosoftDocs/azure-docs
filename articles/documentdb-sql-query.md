@@ -21,8 +21,8 @@ Microsoft Azure DocumentDB supports querying documents using SQL (Structured Que
 
 While designing the query language for DocumentDB we had two goals in mind:
 
--	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace the SQL language. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL query language provides a formal programming model for rich queries over JSON documents.
--	<strong>Extend SQL</strong> – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our SQL query language. The DocumentDB SQL query language is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
+-	<strong>Embrace SQL</strong> – Instead of inventing a new query language, we wanted to embrace SQL. After all, SQL is one of the most familiar and popular query languages. DocumentDB SQL provides a formal programming model for rich queries over JSON documents.
+-	<strong>Extend SQL</strong> – As a JSON document database capable of executing JavaScript directly in the database engine, we wanted to use JavaScript's programming model as the foundation for our query language. The DocumentDB SQL is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON documents, self joins, and invocation of user defined functions (UDFs) written entirely in JavaScript, among other features. 
 
 We believe that these capabilities are key to reducing the friction between the application and the database and are crucial for developer productivity.
 
@@ -160,7 +160,7 @@ We would like to draw attention to a few noteworthy aspects of the DocumentDB qu
 
 ##DocumentDB Indexing
 
-Before we get into the DocumentDB SQL language, it is worth exploring the indexing design in DocumentDB. 
+Before we get into the DocumentDB SQL grammar, it is worth exploring the indexing design in DocumentDB. 
 
 The purpose of database indexes is to serve queries in their various forms and shapes with minimum resource consumption (like CPU and input/output) while providing good throughput and low latency. Often, the choice of the right index for querying a database requires much planning and experimentation. This approach poses a challenge for schema-less databases where the data doesn’t conform to a strict schema and evolves rapidly. 
 
@@ -176,7 +176,7 @@ Therefore, when we designed the DocumentDB indexing subsystem, we set the follow
 
 -	Storage efficiency: For cost effectiveness, the on-disk storage overhead of the index is bounded and predictable. This is crucial because DocumentDB allows the developer to make cost based tradeoffs between index overhead in relation to the query performance.  
 
-Refer to the [DocumentDB samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL language.
+Refer to the [DocumentDB samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) on MSDN for samples showing how to configure the indexing policy for a collection. Let’s now get into the details of the DocumentDB SQL grammar.
 
 
 ##Basics of DocumentDB Query
@@ -1443,7 +1443,7 @@ In summary, UDFs are great tools to do complex business logic as part of the que
 ###Operator Evaluation
 DocumentDB, by the virtue of being a JSON database, draws parallels with JavaScript operators and its evaluation semantics. While DocumentDB tries to preserve JavaScript semantics in terms of JSON support, the operation evaluation deviates in some instances.
 
-In the DocumentDB SQL query language, unlike in traditional SQL, the types of values are often not known until the values are actually retrieved from database. In order to efficiently execute queries, most of the operators have strict type requirements. 
+In DocumentDB SQL, unlike in traditional SQL, the types of values are often not known until the values are actually retrieved from database. In order to efficiently execute queries, most of the operators have strict type requirements. 
 
 DocumentDB SQL doesn't perform implicit conversions, unlike JavaScript. For instance, a query like `SELECT * FROM Person p WHERE p.Age = 21` matches documents which contain an Age property whose value is 21. Any other document whose Age property matches string "21", or
 other possibly infinite variations like "021", "21.0", "0021", "00021", etc. will not be matched. 
@@ -2187,7 +2187,7 @@ The following example show how to use the queryDocuments in the JavaScript serve
 
 ##References
 1.	[Introduction to Azure DocumentDB][introduction]
-2.	[DocumentDB SQL Language specification](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2.	[DocumentDB SQL specification](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET samples](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
 4.	[DocumentDB Consistency Levels][consistency-levels]
 5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

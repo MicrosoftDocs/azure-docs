@@ -29,7 +29,7 @@ Each of these tutorial sections is independent -- you can follow the instruction
 
 ## Prerequisites
 
-the tutorial assumes that you are familiar with how to create projects and add code to them in Visual Studio, and how to [manage API apps in the Azure portal](app-service-api-apps-manage-in-portal.md).
+the tutorial assumes that you are familiar with how to create projects and add code to them in Visual Studio, and how to [manage API apps in the Azure preview portal](app-service-api-apps-manage-in-portal.md).
 
 The project and code samples in this article are based on the API app project that you create, deploy, and protect in these articles:
 
@@ -51,7 +51,7 @@ In this section you create a console application project and add code to it that
 
 	That tutorial directs you to set the access level in the Visual Studio publish dialog to **Available to anyone**, which is the same as **Public (anonymous)** in the portal. However, if you did the [Protect an API app](app-service-dotnet-add-authentication.md) tutorial after that, the access level has been set to **Public (authenticated)**, and in that case you need to change it as directed in the following step.
 
-2. In the [Azure portal](https://portal.azure.com/), in the **API app** blade for the API app that you want to call, go to **Settings > Application Settings** and set **Access level** to **Public (anonymous)**.
+2. In the [Azure preview portal](https://portal.azure.com/), in the **API app** blade for the API app that you want to call, go to **Settings > Application Settings** and set **Access level** to **Public (anonymous)**.
 
 	![](./media/app-service-api-dotnet-consume/setpublicanon.png)
  
@@ -146,7 +146,7 @@ Azure API apps also support the client authentication flow.  A client flow authe
 
 ### Add code to call the API app
 
-5. In the Azure portal, copy the URL for your API app's gateway.  You'll use this value in the next step.
+5. In the Azure preview portal, copy the URL for your API app's gateway.  You'll use this value in the next step.
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
