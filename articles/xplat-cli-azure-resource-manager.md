@@ -162,7 +162,7 @@ and SSH into it by using the command **ssh username@ipaddress**. To quickly look
 
 	azure network public-ip show "testrg" "testip"
 
-Managing this virtual machine is easy with commands like `azure vm restart "testrg" "testvm"`, or `azure vm stop "testrg" "testvm"`, and so on. For more information on **vm** commands, visit [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
+Managing this virtual machine is easy with **vm** commands; for more information, visit [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](azure-cli-arm-commands.md).
 
 ### **vm quick-create** shortcut
 
@@ -297,7 +297,7 @@ The Azure CLI will create a virtual machine with default VM size. It will also c
 
 		azure vm group deployment create "testDeploy" -g "testResourceGroup" --template-url https://raw/githubusercontent.com/azurermtemplates/azurermtemplates/master/101-simple-vm-from-image/azuredeploy.json
 
-	> [AZURE.NOTE] It is important to open the json template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode, click on the button named _Raw_ on the upper right corner when viewing the file in github.
+	> [AZURE.NOTE] It is important to open the json template in _raw_ mode. The URL that appears in the browser's address bar is different from the one that appears in regular mode. To open the file in _raw_ mode, click on the button named _Raw_ on the upper right corner when viewing the file on github.
 
 #### Working with resources
 
