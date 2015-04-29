@@ -24,6 +24,8 @@ A common example is setting up the [Reader][reader] module so that the user of t
 
 You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified accordingly.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 
 ##How to set and use Web Service Parameters
 

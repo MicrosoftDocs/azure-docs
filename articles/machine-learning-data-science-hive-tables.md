@@ -23,6 +23,7 @@
  
 In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. These Hive queries are shared in the GitHub repository. [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql). 
 
+
 If you create an Azure virtual machine by following the instructions in "Set Up an Azure Virtual Machine with IPython Notebook Server", this script file has been downloaded to the `C:\Users\<user name>\Documents\Data Science Scripts` directory on the virtual machine. You need to plug in your own data schema and Azure blob storage configuration in the corresponding fields in these queries and these Hive queries should be ready for submission. 
 
 We assume that the data for Hive tables is in **uncompressed** tabular format, and the data has been uploaded to the default or additional container of the storage account used by the Hadoop cluster. If users want to practice on the _NYC Taxi Trip Data_, they need to first [download all 24 files](http://www.andresmh.com/nyctaxitrips/) (12 Trip files, and 12 Fair files), **unzip** all files into .csv files, and upload them to the default or additional container of the Azure storage account that are used when the [Azure HDInsight Hadoop cluster is customized](machine-learning-data-science-customize-hadoop-cluster.html). 

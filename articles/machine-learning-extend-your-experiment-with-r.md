@@ -27,6 +27,8 @@ You access each input port of the module by using code similar to the following:
 
     dataset1 <- maml.mapInputPort(1)
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ##Listing all currently-installed packages
 
 The list of installed packages can change. To get the complete list, include the following lines in the [Execute R Script][execute-r-script] module to send the list to the output dataset:

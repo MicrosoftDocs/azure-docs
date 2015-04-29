@@ -33,6 +33,8 @@ But how do I choose a machine learning algorithm for my specific solution?
 The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** is designed to help you sift through the available machine learning algorithms and choose the appropriate one to use for your predictive analytics solution.
 The cheat sheet asks you questions about both the nature of your data and the problem you're working to address, and then suggests an algorithm for you to try.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 [Azure Machine Learning Studio](https://studio.azureml.net/) gives you the flexibility to experiment - 
 try one algorithm, and if you're not satisfied with the results, try another.
 Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net) of an experiment that tries several algorithms against the same data and compares the results:
