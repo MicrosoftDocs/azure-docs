@@ -3,7 +3,7 @@
    description="High-level overview of the reliable service architecture"
    services="service-fabric"
    documentationCenter=".net"
-   authors="rwike77"
+   authors="AlanWarwick"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="04/13/2015"
-   ms.author="ryanwi"/>
+   ms.author="alanwar"/>
 
 # Reliable Service Architecture
 
