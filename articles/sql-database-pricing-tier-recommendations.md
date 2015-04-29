@@ -16,11 +16,11 @@
    ms.date="04/29/2015"
    ms.author="sstein"/>
 
-# SQL Database pricing tier recommendations (preview)
+# SQL Database pricing tier recommendations
 
  When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload.
 
-> [AZURE.NOTE] Pricing tier recommendations are currently in preview and are only available for Web and Business databases when using the [Azure Portal](https://portal.azure.com/).
+> [AZURE.NOTE] Currently, pricing tier recommendations are only available for Web and Business databases, and only available in the [Azure Portal](https://portal.azure.com/).
 
 
 ## Overview
@@ -35,21 +35,17 @@ This information is analyzed and the service tier and performance level that is 
 
 ### Recommendations
 
-Based on your database's usage, there are 4 categories of recommendations that can be encountered:
+Based on your database's usage, there are currently 2 categories of recommendations that can be encountered:
 
 
 | Recommendation | Description |
 | :--- | :--- |
-| Scale Up       | Upgrading to a higher service tier / performance level will increase performance. |
-| Scale Down     | Downgrading to a lower service tier / performance level should be sufficient for your typical workload. |
-| No Change      | The current service tier / performance level is ideal for your typical workload. |
+| Upgrade | Upgrade to a new tier. |
 | Unavailable | A database requires a minimum workload or approximately 14 days of activity. There is not enough data to provide a valid recommendation. |
 
 ## Getting pricing tier recommendations
 
-Get pricing tier recommendations by selecting an existing database and clicking on the **Pricing tier** tile.
-
-> [AZURE.NOTE] You must sign up for the preview to enable recommendations. You will be presented with the option to sign up for the preview after clicking the **Pricing tier** tile during step 5 below.
+Get pricing tier recommendations by selecting an existing Web or Business database and clicking on the **Pricing tier** tile.
 
 1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click **BROWSE** in the left menu.
@@ -61,9 +57,6 @@ Get pricing tier recommendations by selecting an existing database and clicking 
 5. On the database blade, select the **Pricing tier** tile.
 
     ![Pricing tier][2]
-
-    *If you haven't already signed up for the preview, clicking the Pricing tier tile will present you with the option to sign up for the preview. click the sign up message at the top of the **Choose your pricing tier** blade and sign up for the preview. You only need to sign up one time for each subscription. Subsequent visits will not require this sign-up step.
-
 
 
 7. After clicking the **Pricing tier** tile you will be presented with the **Recommended pricing tiers** blade where you can click the suggested tier and then click the **Select** button to change to that tier.
