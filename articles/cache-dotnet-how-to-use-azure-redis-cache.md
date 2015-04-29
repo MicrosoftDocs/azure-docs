@@ -54,7 +54,7 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the [Microsoft Azure portal][], and click **New**, **Data + Storage**, **Redis Cache**.
+To create a cache, first sign in to the [Microsoft Azure preview portal][], and click **New**, **Data + Storage**, **Redis Cache**.
 
 ![New cache][NewCacheMenu]
 
@@ -364,7 +364,7 @@ follow these links to learn how to do more complex caching tasks.
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Microsoft Azure portal]: https://portal.azure.com/
+[Microsoft Azure preview portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
