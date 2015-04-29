@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/28/2015" 
 	ms.author="cherylmc"/>
 
 
 
-
-
-<h1 id="vnettut1">Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity</h1>
+# Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity
 
 This tutorial walks you through the steps to create an example cross-premises virtual network with a site-to-site connection. 
 
@@ -56,7 +54,7 @@ In this tutorial you will learn:
 
 ##  Prerequisites
 
--  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://www.windowsazure.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+-  A Microsoft account with at least one valid, active Azure subscription.  If you do not already have an Azure subscription, you can sign up for a free trial at [Try Azure](http://azure.microsoft.com/pricing/free-trial/). If you have an MSDN Subscription, see [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 If you are using this tutorial to configure a working cross-premises virtual network that is customized for your organization, you need the following:
 
