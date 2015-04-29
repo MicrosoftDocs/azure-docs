@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="04/29/2015"
 	ms.author="dkshir"/>
 
 # Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows
