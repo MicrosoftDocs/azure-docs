@@ -3,7 +3,7 @@
 	description="Demonstrates how to create a database in Azure SQL Database Update V12" 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="sonalmm" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-management" 
-	ms.date="04/22/2015" 
-	ms.author="genemi"/>
+	ms.date="04/28/2015" 
+	ms.author="sonalm"/>
 
 
 # Create a database in SQL Database V12
@@ -42,7 +42,7 @@ True author is: authors="sonalmm" , ms.author="sonalm".
 |6. Click **Select Source**. The different types of sources you can select from to create a database are: a blank database, a sample database or from a backup of a database.| ![Select the source for the database][10]|
 |7. Next, in the **SQL database** blade, click **PRICING TIER**. You can select one of the recommended pricing tier or **View all** available pricing tiers. After you make a choice, click **Select**. <p> For more information about pricing tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](./sql-database-upgrade-new-service-tiers/) and [Azure SQL Database Service Tiers and Performance Levels](http://msdn.microsoft.com/library/azure/dn741336.aspx). |![Select a pricing tier][7]
 | 8. Next, in **SQL database** blade, click **Optional Configuration**, make the selections and click **OK**. 
-| 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](azure-preview-portal-using-resource-groups.md)|![Specify Resource group][11]
+| 9. When you select existing server, **Resource Group** and **Subscription** are already chosen for you. In the **SQL database** blade, you will see a locked icon next to **Resource Group** and **Subscription**. If you create a new server, then you get to select or create a resource group. For more information, review [Using resource groups to manage your Azure resources.](resource-group-overview.md)|![Specify Resource group][11]
 | 10. Click **Create**. A new database with SQL Database V12 features is created. |![Creates a new database][12]
 
 ## Related Links

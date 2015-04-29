@@ -36,9 +36,9 @@ Typically, CORS (Cross-Origin Resource Sharing) is needed in HTML applications t
 
 ### Enabling CORS for API App Gateways
 
-API App Gateways can be configured to enable CORS using the Azure Portal. By adding the **MS_CrossDomainOrigins** *appSetting* you can specify which URLs are allowed to call your API App. This section will explain how to use this *appSetting* to enable CORS at the API Gateway level. 
+API App Gateways can be configured to enable CORS using the Azure prreview portal. By adding the **MS_CrossDomainOrigins** *appSetting* you can specify which URLs are allowed to call your API App. This section will explain how to use this *appSetting* to enable CORS at the API Gateway level. 
 
-1. Navigate to the Azure Portal blade for the API App you want to CORS-enable. Once there, click the *Gateway* icon for your API App. 
+1. Navigate to the Azure preview portal blade for the API App you want to CORS-enable. Once there, click the *Gateway* icon for your API App. 
 
 	![Clicking the API App Gateway button](./media/app-service-api-javascript-client/19-api-app-blade.png)
 
@@ -62,7 +62,7 @@ API App Gateways can be configured to enable CORS using the Azure Portal. By add
 
 		http://contactlistwebapp.azurewebsites.net
 
-	The screen shot below demonstrates how this setting should look once you've saved it in the Azure Portal. 
+	The screen shot below demonstrates how this setting should look once you've saved it in the Azure preview portal. 
 
 	![](./media/app-service-api-javascript-client/23-app-settings-set.png)
 
@@ -324,7 +324,7 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 
 > Note: This section assumes you've read and completed the [Deploy an API App](app-service-dotnet-deploy-api-app.md) article or you've previously deployed your own API App. 
 
-1. Open the API App's blade in the Azure Portal. Click the URL in the blade to open it up in your browser. Once it opens, copy out the URL of the API App from the browser address bar. 
+1. Open the API App's blade in the Azure preview portal. Click the URL in the blade to open it up in your browser. Once it opens, copy out the URL of the API App from the browser address bar. 
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/12-open-api-app-from-blade.png)
 

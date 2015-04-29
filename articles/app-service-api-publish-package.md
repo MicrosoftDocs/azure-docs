@@ -32,7 +32,7 @@ Following is the general publishing flow
 1. Create a Nuget package for your API app following the instructions in tutorial [Create an API App Package](app-service-api-create-package).
 2. Publish it to a Nuget-backed gallery at https://apiapps.nuget.org.
 3. It will then be synced to [Azure Marketplace](http://azure.microsoft.com/marketplace/api-apps/) automatically.
-4. Go to [Azure Marketplace](http://azure.microsoft.com/marketplace/api-apps/) and [Azure Portal](https://portal.azure.com) to verify end-to-end experience.
+4. Go to [Azure Marketplace](http://azure.microsoft.com/marketplace/api-apps/) and [Azure preview portal](https://portal.azure.com) to verify end-to-end experience.
 
 ## Publish to Nuget-backed gallery
 
@@ -56,8 +56,8 @@ After a few minutes, your API app package will be synced to Azure Marketplace. Y
 
 ![Azure Marketplace API App Page](./media/app-service-api-publish-package/acom-marketplace-apiapp-page.png) 
 
-## Deploy your API app package in Azure portal
+## Deploy your API app package in Azure preview portal
 
-You can also log into [Azure portal](https://portal.azure.com) using your Azure account (it can be a different account from the one you use to publish the API app package). Here you can verify the Azure portal create experience for your API app package. If there is anything you need to change, simply change it in your API app package and re-publish.
+You can also log into [Azure preview portal](https://portal.azure.com) using your Azure account (it can be a different account from the one you use to publish the API app package). Here you can verify the Azure preview portal create experience for your API app package. If there is anything you need to change, simply change it in your API app package and re-publish.
 
 For details of how to deploy an API app package in Azure portal, see an example of deploy DropboxConnector [here](app-service-api-connnect-your-app-to-saas-connector.md).

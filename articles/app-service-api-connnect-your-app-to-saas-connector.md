@@ -26,16 +26,16 @@ For example, if you want to use HTTP requests to read and write files in your Dr
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 
-* Install the Dropbox connector in a [resource group](azure-preview-portal-using-resource-groups.md) in your Azure subscription. 
+* Install the Dropbox connector in a [resource group](resource-group-overview.md) in your Azure subscription. 
 * Configure the Dropbox connector so that it can connect to the Dropbox service. (To complete this step you'll need a Dropbox account.)
 * Configure the resource group so that only authenticated users can access API apps that are included in the resource group.
 * Test to verify that both user authentication and Dropbox authentication work.
 
 ## Install the Dropbox connector
 
-1. Go to the [Azure portal](https://portal.azure.com/) home page and click **Marketplace**.
+1. Go to the [Azure preview portal] home page and click **Marketplace**.
 
-	![Marketplace in Azure portal](./media/app-service-api-connect-your-app-to-saas-connector/marketplace.png)
+	![Marketplace in Azure preview portal](./media/app-service-api-connect-your-app-to-saas-connector/marketplace.png)
 
 2. Search for Dropbox, and then click the **Dropbox Connector** icon.
 
@@ -51,7 +51,7 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 
 4. Under **Resource Group**, click **Create New**, and then in the **Create New Resource Group** box enter DropboxRG.
 
-	For more information about resource groups, see [Using resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
+	For more information about resource groups, see [Using resource groups to manage your Azure resources](resource-group-overview.md).
 
 7. Select the Free **Pricing Tier**. (If you don't see it in the list, click **View All**. After you click **F1 Free**, click the **Select** button.)
 
@@ -65,7 +65,7 @@ This tutorial uses a DropBox connector as an example and walks you through the f
 
 	Azure App Service creates a resource group, and in the resource group it creates a Dropbox connector API app, and a *gateway* web app. The gateway's function is to manage access to all API apps in the resource group. 
 
-	You can check the progress of resource creation by clicking **Notifications** on the Azure portal home page.
+	You can check the progress of resource creation by clicking **Notifications** on the Azure preview portal home page.
 
 3. When Azure finishes creating the connector, click **Browse > Resource groups > DropboxRG**.
  
@@ -103,7 +103,7 @@ The following steps show the process for creating a Dropbox app using the Dropbo
 
 ### Copy the Dropbox app settings to the Azure Dropbox connector and vice versa 
 
-4. In another browser window or tab, go to the [Azure portal].
+4. In another browser window or tab, go to the [Azure preview portal].
 
 3. Go to the **API App** blade for your Dropbox connector. (If you're still on the **Resource Group** blade, just click the Dropbox connector in the diagram.)
 
@@ -165,7 +165,7 @@ Do the following steps in a new browser window. Depending on what authentication
 
     	http://[gatewayurl]/login/[providername]
 
-	You can get the gateway URL from the **Gateway** blade in the [Azure portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
+	You can get the gateway URL from the **Gateway** blade in the [Azure preview portal]. (To get to the **Gateway** blade, click the gateway in the diagram shown on the **Resource group** blade.)
 
 	![Gateway URL](./media/app-service-api-connect-your-app-to-saas-connector/gatewayurl.png)
 
@@ -177,7 +177,7 @@ Do the following steps in a new browser window. Depending on what authentication
 
 3. Enter your credentials when the browser displays a login page. 
  
-	If you configured Azure Active Directory login, log in as one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [management portal], such as admin@contoso.onmicrosoft.com.
+	If you configured Azure Active Directory login, log in as one of the users listed in the **Users** tab for the application you created in the Azure Active Directory tab of the [Azure portal], such as admin@contoso.onmicrosoft.com.
 
 	When login is successful, you get a "Login complete" page.
 
@@ -227,7 +227,7 @@ The HTTP Post request to the gateway has to include the authentication token tha
 
 2. Go to the URL that you received in response to the HTTP Post request.
 
-	Dropbox associates your user identity with your Dropbox API app, and then redirects the browser to the redirect URL that you specified (e.g., the Azure portal if you followed the example and used https://portal.azure.com).
+	Dropbox associates your user identity with your Dropbox API app, and then redirects the browser to the redirect URL that you specified (e.g., the Azure preview portal if you followed the example and used https://portal.azure.com).
 
 	Because your Dropbox app is in developer mode, you may get a login page from Dropbox before the browser goes to the redirect URL.  After you log in using your Dropbox credentials, the user identity you used to log in to the gateway is associated with your Dropbox app, and in the future this Dropbox login step is no longer required for that user identity. 
 
@@ -245,7 +245,7 @@ The only one you have to use when making HTTP requests to work with Dropbox is t
 
 In the following steps you make a Get request to the Dropbox connector to look at files in your Dropbox account. Since you can use a browser window for a Get request, and since your browser window already has the zumo token in a cookie, all you have to do is go to a URL and you get back Dropbox data. 
 
-1. In the browser window that has the Azure portal open, go back to the **API App** blade for your Dropbox connector. 
+1. In the browser window that has the Azure preview portal open, go back to the **API App** blade for your Dropbox connector. 
 
 2. Copy the API app's URL.
  
@@ -271,4 +271,5 @@ In the following steps you make a Get request to the Dropbox connector to look a
 
 You've seen how to install, configure, and test a SaaS connector. For more information, see [Using connectors](app-service-logic-use-biztalk-connectors.md). 
 
-[Azure portal]: https://portal.azure.com/
+[Azure preview portal]: https://portal.azure.com/
+[Azure portal]: https://manage.windowsazure.com/
