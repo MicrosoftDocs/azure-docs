@@ -175,7 +175,7 @@ Before publishing your application to App Service Web Apps, the database connect
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Click **Choose and existing site from Microsoft Azure**.
+3. Click **Choose an existing site from Microsoft Azure**.
 
 	![](./media/web-sites-php-sql-database-use-webmatrix/webmatrix-publish-existing-site.png)
 
