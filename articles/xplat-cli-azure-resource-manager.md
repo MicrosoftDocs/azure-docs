@@ -3,13 +3,13 @@
 	description="Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management."
 	editor="tysonn"
 	manager="timlt"
-	documentationCenter=""
+	documentationCenter="virtual-machines"
 	authors="squillace"
-	services=""/>
+	services="virtual-machines"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
