@@ -205,7 +205,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 
 	location list [options]
 
-## azure network: Commands to manage network resource
+## azure network: Commands to manage network resources
 
 **Commands to manage virtual networks**
 
