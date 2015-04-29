@@ -163,7 +163,7 @@ These articles provide foundation reference for REST and authentication library 
 
 ### Graph API
 
-- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API. [View the new interactive Graph API reference experience](https://msdn.microsoft.com/en-us/Library/Azure/Ad/Graph/api/api-catalog).
+- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API. [View the new interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 
 ### Authentication Protocols
