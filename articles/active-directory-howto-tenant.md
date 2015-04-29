@@ -26,10 +26,10 @@ To allow Azure AD users to sign in to your application, you must register your a
 
 So, how do you go about getting an Azure AD tenant?  The process might be a little different if you:
 
-- [Have an existing Office 365 subscription](#Use-an-existing-Office-365-subscription)
-- [Have an existing Azure subscription associated with a Microsoft Account](#Use-an-MSA-Azure-subscription)
-- [Have an existing Azure subscription associated with an organizational account](#Use-an-organizational-Azure-subscription)
-- [Have none of the above & want to start from scratch](#Start-from-scratch)
+- [Have an existing Office 365 subscription](#use-an-existing-office-365-subscription)
+- [Have an existing Azure subscription associated with a Microsoft Account](#use-an-msa-azure-subscription)
+- [Have an existing Azure subscription associated with an organizational account](#use-an-organizational-azure-subscription)
+- [Have none of the above & want to start from scratch](#start-from-scratch)
 
 ## Use an existing Office 365 subscription
 If you have an existing Office 365 subscription but don't have an Azure subscription (and can't sign into the [Azure Management Portal](https://manage.windowsazure.com)), please follow [these instructions](https://technet.microsoft.com/library/dn832618.aspx) to gain access to your Azure AD tenant.
