@@ -30,7 +30,7 @@ This template utilizes a “t-shirt size” concept in order to specify a “sma
 
 The Redis Cluster template for the “Medium” t-shirt size creates this configuration:
 
-![cluster-architecture](media/virtual-machines-redis-template/redis-architecture.png)
+![cluster-architecture](media/virtual-machines-redis-template/cluster-architecture.png)
 
 Basically, through a parameter you can define the number of nodes that will be deployed in the new Apache Cassandra cluster and, in addition to that, an instance of DataStax Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related that cluster.
 
