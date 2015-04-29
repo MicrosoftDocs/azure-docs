@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Microsoft Azure preview portal overview" 
-	description="Learn how to use the Microsoft Azure Preview Portal." 
+	description="Learn how to use the Microsoft Azure preview portal." 
 	services="" 
 	documentationCenter="" 
 	authors="davidwrede" 
