@@ -3,7 +3,7 @@
     description="Create new Azure Machine Learning experiments from sample experiments and experiments shared by the community." 
     services="machine-learning" 
     documentationCenter="" 
-    authors="chhavib,olgali" 
+    authors="cjgronlund" 
     manager="paulettm" 
     editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
     ms.devlang="na" 
     ms.topic="article" 
     ms.date="02/16/2015" 
-    ms.author="chhavib"/>
+    ms.author="chhavib;olgali"/>
 
 # Use sample experiments to create new experiments
 When you want to create an experiment, look for examples in Machine Learning team sample experiments and experiments shared by the Machine Learning community. You also can ask questions or post comments about experiments in the [Gallery](http://gallery.azureml.net/)

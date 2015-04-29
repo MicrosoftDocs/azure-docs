@@ -1,20 +1,18 @@
 <properties 
-	pageTitle="Learning Guide: Advanced data processing in Azure " 
-	description="Prepare data for use in Azure Machine Learning" 
+	pageTitle="Learning Guide: Advanced data processing in Azure | Microsoft Azure" 
+	description="Prepare data for use in Azure Machine Learning." 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sidneyh" 
-	videoId="" 
-	scriptId="" 
+	authors="sidneyh"  
 	manager="jhubbard" />
 
 <tags 
 	ms.service="machine-learning" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="may be required" 
-	ms.workload="required" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
 	ms.date="02/11/2015" 
 	ms.author="sidneyh" />
 # Learning Guide: Advanced data processing in Azure 

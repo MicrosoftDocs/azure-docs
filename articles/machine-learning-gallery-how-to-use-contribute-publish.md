@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Machine Learning Gallery | Azure" 
+	pageTitle="Azure Machine Learning Gallery | Microsoft Azure" 
 	description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="chhavib" 
+	authors="cjgronlund" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/16/2015" 
-	ms.author="chhavib,garye"/>
+	ms.author="chhavib;garye"/>
 
 
 # **Machine Learning Gallery** #
