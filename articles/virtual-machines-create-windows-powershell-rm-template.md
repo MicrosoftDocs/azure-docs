@@ -235,18 +235,45 @@ Here is an example.
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-You would see something like this.
+You will see something like this:
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	newStorageAccountName: saTest
-	adminUserName: WinAdmin1
-	adminPassword: *******
-	dnsNameForPublicIP: contoso.com
-	windowsOSVersion: 2012-R2-Datacenter
-	...
+	newStorageAccountName: newsaacct
+	adminUsername: WinAdmin1
+	adminPassword: *********
+	dnsNameForPublicIP: contoso
+	VERBOSE: 10:56:59 AM - Template is valid.
+	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
+	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
+	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	
+	
+	DeploymentName    : TestDeployment
+	ResourceGroupName : TestRG
+	ProvisioningState : Succeeded
+	Timestamp         : 4/28/2015 6:02:13 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+                    	Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     newsaacct
+	                    adminUsername    String                     WinAdmin1
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contoso9875
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
 
+You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
 ## Create a Windows VM with a Resource Manager template using Azure CLI
 

@@ -3,7 +3,7 @@
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
