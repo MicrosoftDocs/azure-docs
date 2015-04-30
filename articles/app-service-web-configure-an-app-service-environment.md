@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to Configure an App Service Environment" 
 	description="Configuration, management and monitoring of App Service Environments" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -30,7 +30,7 @@ At a high level an App Service Environment consists of several major components:
 - Virtual Network with at least one subnet
 - subnet with the Azure App Environment hosted service running in it
 
-To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
+To help manage and monitor your App Service Environments you can access UI for that purpose from Browse -> App Service Environments in the Azure preview portal. The initial release does have what you need to manage the system and will continue to improve with additional capabilities in coming weeks.  
 
 ![][1]
 
@@ -110,6 +110,9 @@ To get started with App Service Environments, see [How To Create An App Service 
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-configure-an-app-service-environment/configureaseblade.png

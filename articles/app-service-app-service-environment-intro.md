@@ -54,7 +54,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
 [MoreInfoOnVirtualNetworks]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[AzurePortal]: http://portal.azure.com
+[Azure preview portal]: http://portal.azure.com
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [WebApps]: http://azure.microsoft.com/documentation/articles/app-service-web-overview/
