@@ -17,12 +17,11 @@
  
 # Release Notes - Application Insights
 
-Read also our [Service Updates](http://azure.microsoft.com/en-us/updates/?service=application-insights) which summarize major improvements.
+Read also our [Service Updates](http://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements.
 
 ## Portal updates
 
-* User experience
-* Analytics
+
 
 ## ASP.NET
 
@@ -38,7 +37,7 @@ Read also our [Service Updates](http://azure.microsoft.com/en-us/updates/?servic
 
 ## JavaScript
 
-* Windows
+
 
 ## iOS
 
