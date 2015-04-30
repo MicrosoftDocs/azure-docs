@@ -52,6 +52,12 @@ This section shows how to use the Azure API App project template to create an AP
 
 Visual Studio creates a Web API project configured for deployment as an API app.
 
-[AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
+[AZURE.INCLUDE [app-service-api-review-metadata](../includes/app-service-api-review-metadata.md)]
 
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
+
+[AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
+
+## Next steps
+
+Your API app is now ready to be deployed, and you can follow the [Deploy an API app](app-service-dotnet-deploy-api-app.md) tutorial to do that.
