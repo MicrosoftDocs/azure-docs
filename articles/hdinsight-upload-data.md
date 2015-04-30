@@ -51,11 +51,11 @@ For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs]
 
 ##<a id="powershell"></a>Upload data to Azure Blob storage by using Azure PowerShell##
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. You can use Azure PowerShell to upload data to Azure Blob storage, so the data can be processed by MapReduce jobs. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell][powershell-install-configure].
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. You can use Azure PowerShell to upload data to Azure Blob storage, so the data can be processed by MapReduce jobs. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](powershell-install-configure.md).
 
 **To upload a local file to Azure Blob storage**
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -131,7 +131,7 @@ The Azure CLI for Mac, Linux and Windows is a cross-platform tool that allows yo
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in Azure Storage. It is a free tool that can be downloaded from CodePlex: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storageaccount].  
+Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
 1. Run Azure Storage Explorer.
 
