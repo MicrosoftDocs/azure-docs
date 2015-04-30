@@ -55,7 +55,7 @@ How does a parent zone ‘point’ to the name servers for a child zone?  It doe
 
 The following diagram illustrates:
 
-![Dns-nameserver](../media/dns-domain-delegation/image1.png)
+![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
 Each delegation actually has two copies of the NS records—one in the parent zone pointing to the child, and another in the child zone itself.  I.e. the ‘contoso.com’ zone contains the NS records for ‘contoso.com’ (in addition to the NS records in ‘com’).  These are called authoritative NS records, and they sit at the apex of the child zone.
 
