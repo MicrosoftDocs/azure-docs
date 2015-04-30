@@ -18,7 +18,7 @@
 
 #Troubleshoot agents or Operations Manager data flow to Operational Insights
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
 

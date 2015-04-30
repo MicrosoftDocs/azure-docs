@@ -17,7 +17,7 @@
 
 # Create an Operational Insights account and sign in
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Use the following information to set up an account to use with Microsoft Azure Operational Insights, and sign in to Operational Insights.
 

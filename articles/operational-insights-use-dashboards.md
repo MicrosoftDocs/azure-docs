@@ -18,7 +18,7 @@
 
 # Operational Insights dashboards
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 This guide helps you understand how Operational Insights Dashboards can visualize all of your saved searches, giving you a single lens to view your environment.
 

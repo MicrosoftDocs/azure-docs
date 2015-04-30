@@ -18,7 +18,7 @@
 
 # Intelligence Packs
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Intelligence Packs are powered by Operational Insights Search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing. 
 

@@ -19,9 +19,13 @@
 #Collect machine data
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Operational Insights uses data from servers in your on-premises or cloud infrastructure. You can collect machine data from the following sources:
 =======
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+=======
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+>>>>>>> 896fe67... Op Insights - fixed include link
 
 Operational Insights uses data from servers in your on-premise or cloud infrastructure. You can collect machine data from the following sources:
 >>>>>>> e47aec5... Op Insights - added include to all articles

@@ -17,7 +17,7 @@
 
 # Manage servers and usage data
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Operational Insights collects data and sends it to the Operational Insights service periodically.  You can use the **Usage** dashboard to view how much data is being sent to the Operational Insights service. The **Usage** dashboard also shows you how much data is being sent daily by intelligence packs and how often your management groups are sending data.
 
