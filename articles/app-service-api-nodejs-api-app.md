@@ -220,8 +220,6 @@ In the Azure preview portal, go to the **API App Host** blade for your API app, 
 
 The browser displays the home page that you saw earlier when you ran the sample app locally.  
 
-## API app metadata
-
 [AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Next steps
