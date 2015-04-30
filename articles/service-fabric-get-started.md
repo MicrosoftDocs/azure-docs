@@ -36,17 +36,20 @@ Installation of the Service Fabric components is handled by the Web Platform Ins
 Installation will proceed automatically.
 
 ## Enable PowerShell script execution
-Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
+Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 
 ## Install and start a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
-- Launch a new PowerShell window as an adminstator.
-- Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
-- Run ./DevClusterSetup.ps1
+
+1. Launch a new PowerShell window as an adminstator.
+
+2. Navigate to %programfiles%\Microsoft SDKs\Service Fabric\ClusterSetup\
+
+3. Run ./DevClusterSetup.ps1
 
 In a few moments you should see output that shows node information and confirmation that the cluster was created successfully. In some cases, you may see warnings while the Service Fabric Host Service and Naming Services start up. These are normal and will be followed momentarily by some basic information about the cluster.
 
