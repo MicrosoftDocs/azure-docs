@@ -75,7 +75,9 @@ An Azure AD Application was created in the directory that you selected in the wi
 
 ###What additional changes were made to my project because I checked *Read directory data*?
 Additional references have been added.
+
 #####Additional NuGet package references
+
 - `EntityFramework`
 - `Microsoft.Azure.ActiveDirectory.GraphClient`
 - `Microsoft.Data.Edm`
@@ -83,7 +85,9 @@ Additional references have been added.
 - `Microsoft.Data.Services.Client`
 - `Microsoft.IdentityModel.Clients.ActiveDirectory`
 - `System.Spatial`
+
 #####Additional .NET references
+
 - `EntityFramework`
 - `EntityFramework.SqlServer`
 - `Microsoft.Azure.ActiveDirectory.GraphClient`
