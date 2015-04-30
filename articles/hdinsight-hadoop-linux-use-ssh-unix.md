@@ -34,7 +34,7 @@ Linux-based Azure HDInsight clusters provide the option of using Secure Shell (S
 
 OR
 
-* <a href="../xplat-cli/" target="_blank">Azure Cross-Platform Command-line Interface</a>.
+* [Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 ##What is SSH?
 
@@ -74,7 +74,7 @@ When creating a Linux-based HDInsight cluster, you must provide the public key c
 
 * **Azure portal** - Uses a web-based portal to create the cluster.
 
-* **Azure Cross-Platform Command-Line Interface (xplat-cli)** - Uses command-line commands to create the cluster.
+* **Azure CLI for Mac, Linux and Windows** - Uses command-line commands to create the cluster.
 
 Each of these methods will require either a password or a public key. For complete information on creating a Linux-based HDInsight cluster, see <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Linux-based HDInsight clusters</a>.
 
@@ -93,7 +93,7 @@ This creates a login for the specified user, by using the password or public key
 
 ###Azure Cross-Platform Command-Line Interface
 
-You can use the <a href="../xplat-cli/" target="_brad">Azure Cross-Platform Command-Line Interface</a> to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](xplat.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Hadoop Linux clusters in HDInsight using custom options</a>.
 

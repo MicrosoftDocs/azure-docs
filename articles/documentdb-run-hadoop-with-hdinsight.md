@@ -158,7 +158,7 @@ This tutorial uses Script Action from the Azure classic portal to customize your
 			<td>Specifies the default container on the storage account that is used as the default file system for the HDInsight cluster. If you choose <strong>Use Existing Storage</strong> for the <strong>Storage Account</strong> field, and there are no existing containers in that account, the container is created by default with the same name as the cluster name. If a container with the name of the cluster already exists, a sequence number will be appended to the container name.
         </td></tr>
 		<tr><td>Additional Storage Accounts</td>
-			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Azure classic portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
+			<td>HDInsight supports multiple storage accounts. There is no limit on the additional storage accounts that can be used by a cluster. However, if you create a cluster using the Azure portal, you have a limit of seven due to the UI constraints. Each additional storage account you specify adds an extra Storage Account page to the wizard where you can specify the account information.</td></tr>
 	</table>
 
 	Click the right arrow.
@@ -188,7 +188,7 @@ This tutorial uses Script Action from the Azure classic portal to customize your
 
 1. Install Azure PowerShell. Instructions can be found [here][powershell-install-configure].
 
-	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure classic portal][azure-classic-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
+	> [AZURE.NOTE] Alternatively, just for Hive queries, you can use HDInsight's online Hive Editor. To do so, sign in to the [Azure portal][azure-classic-portal], click **HDInsight** on the left pane to view a list of your HDInsight clusters. Click the cluster you want to run Hive queries on, and then click **Query Console**.
 
 2. Open the Azure PowerShell Integrated Scripting Environment:
 	- On a computer running Windows 8 or Windows Server 2012 or higher, you can use the built-in Search. From the Start screen, type **powershell ise** and click **Enter**. 
@@ -293,7 +293,7 @@ This tutorial uses Script Action from the Azure classic portal to customize your
 
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure portal][azure-portal]. 
+10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -380,7 +380,7 @@ This tutorial uses Script Action from the Azure classic portal to customize your
 		
 9. **Run** your new script! **Click** the green execute button.
 
-10. Check the results. Sign into the [Azure portal][azure-portal]. 
+10. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel. </br>
 	2. Click <strong>everything</strong> at the top-right of the browse panel. </br>
 	3. Find and click <strong>DocumentDB Accounts</strong>. </br>
@@ -423,7 +423,7 @@ This tutorial uses Script Action from the Azure classic portal to customize your
 
 5. **Run** your new script! **Click** the green execute button.
 
-6. Check the results. Sign into the [Azure portal][azure-portal]. 
+6. Check the results. Sign into the [Azure Preview portal][azure-portal]. 
 	1. Click <strong>Browse</strong> on the left-side panel.
 	2. Click <strong>everything</strong> at the top-right of the browse panel.
 	3. Find and click <strong>DocumentDB Accounts</strong>.

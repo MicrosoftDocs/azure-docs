@@ -2,13 +2,13 @@
 	pageTitle="Troubleshooting and Questions about Application Insights" 
 	description="Something in Visual Studio Application Insights unclear or not working? Try here." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
 <tags 
 	ms.service="application-insights" 
-	ms.workload="tbd" 
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 

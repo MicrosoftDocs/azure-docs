@@ -2,7 +2,7 @@
 	pageTitle="Get started with Application Insights in a Java web project" 
 	description="Monitor performance and usage of your Java website with Application Insights" 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -292,7 +292,7 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 *	displayName – The name displayed in the Application Insights portal
 *	categoryName – The performance counter category (performance object) with which this performance counter is associated
 *	counterName – The name of the performance counter
-*	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify "__SELF__".
+*	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
 Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
 
