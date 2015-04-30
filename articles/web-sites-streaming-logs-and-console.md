@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Streaming logs and console" 
 	description="Streaming logs and console overview"
-	tags="azure-portal" 
 	authors="adamabdelhamed" 
 	manager="wpickett" 
 	editor="" 
@@ -21,12 +20,12 @@
 
 ### Streaming Logs ###
 
-The [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) provides an integrated streaming log viewer that lets you view tracing events from your [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web apps in real time.  
+The [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) provides an integrated streaming log viewer that lets you view tracing events from your [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web apps in real time.  
 
 Setting this up requires a few simple steps:
 
 - Write traces in your code
-- Enable Application Diagnostics from within the Azure Portal
+- Enable Application Diagnostics from within the Azure preview portal
 - Click on the streaming logs tile on the web app's blade
 
 ### How to write traces in your code ###
@@ -57,7 +56,7 @@ console.log("My trace statement").
 
 Diagnostics are enabled on a per web app basis. 
 
-1. From within the [Azure Portal](https://portal.azure.com), click **Browse** > **Web Apps** to get to the list of all your web apps.  
+1. From within the [Azure preview portal](https://portal.azure.com), click **Browse** > **Web Apps** to get to the list of all your web apps.  
 
 2. Click on the name of the web app that you want to configure. 
 
@@ -73,7 +72,7 @@ Diagnostics are enabled on a per web app basis.
 
 ## Access the console ##
 
-The Azure Portal provides console access to your web app. You can explore your web app's file system and run powershell/cmd scripts.  You are bound by the same permissions set as your running web app code when executing console commands. You won't be able to access protected directories or run scripts that require elevated permissions.  
+The Azure preview portal provides console access to your web app. You can explore your web app's file system and run powershell/cmd scripts.  You are bound by the same permissions set as your running web app code when executing console commands. You won't be able to access protected directories or run scripts that require elevated permissions.  
 
 1. Browse to a web app's blade as described in the section above.
 
@@ -83,11 +82,9 @@ The Azure Portal provides console access to your web app. You can explore your w
 
 To get familiar with the console, try basic commands like these:
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
 
 <!-- Images. -->
 [BrowseSitesScreenshot]: ./media/web-sites-streaming-logs-and-console/browse-sites.png

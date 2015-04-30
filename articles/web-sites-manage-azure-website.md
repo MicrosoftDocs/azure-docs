@@ -35,7 +35,7 @@ Azure App Service is offered in five tiers: Free, Shared, Basic, Standard, and P
 
 ### Configuration
 
-Use the [Azure Portal](https://portal.azure.com/) to set various configuration options. For details, see [Configure web apps in Azure App Service](web-sites-configure.md). Here is a quick checklist:
+Use the [Azure preview portal](https://portal.azure.com/) to set various configuration options. For details, see [Configure web apps in Azure App Service](web-sites-configure.md). Here is a quick checklist:
 
 - Select **runtime versions** for .NET, PHP, Java, or Python, if needed.
 - Enable **WebSockets** if your web app uses the WebSocket protocol. (This includes apps that use [ASP.NET SignalR](http://www.asp.net/signalr) or [socket.io](web-sites-nodejs-chat-app-socketio.md).)
@@ -59,7 +59,7 @@ While your web app is running, you want to make sure it is available, and that i
 
 ### Monitoring
 
-- Through the Azure Portal, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
+- Through the Azure preview portal, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
 - For deeper insight, use New Relic to monitor and manage performance. See [.NET web app in Azure App Service with New Relic application performance management](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Scale your web app](web-sites-scale.md) in response to traffic. Depending on your tier, you can scale the number of VMs and/or the size of the VM instances. In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.  
  
@@ -90,12 +90,9 @@ If you use Visual Studio Online, you can set up continuous deployment from sourc
 - [Using Team Foundation Version Control (TFVC)](cloud-services-continuous-delivery-use-vso.md) 
 - [Using Git](cloud-services-continuous-delivery-use-vso-git.md)
  
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
  
 <!-- Anchors. -->
 

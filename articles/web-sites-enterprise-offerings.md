@@ -122,7 +122,7 @@ When creating an Azure SQL Database a number of options are available to import 
 
 The expenses application database was created by creating a new Azure SQL Database, connecting to the database using SQL Server Management Studio and then running a script to build the database schema and populate it with data from the on-premises database.
 
-The final step in this first stage of the migration requires the updating of connection strings to the database for the application. This can be achieved via the Azure Portal. Each web app has its own dashboard along with a configuration screen, which allows modification of application specific settings, including any connection strings being used by the application to connect to any database being used.
+The final step in this first stage of the migration requires the updating of connection strings to the database for the application. This can be achieved via the Azure portal. For each web app you can modify application specific settings, including any connection strings being used by the application to connect to any database being used.
 
 ### Alternatives to using Azure SQL Database ###
 
@@ -138,7 +138,7 @@ App Service Web Apps offers two methods of connecting to on premises resources, 
 
 As a business grows its workforce, via acquisitions or natural organic growth, so too must web applications scale to meet these new demands. Indeed today it is common to see an even greater spread of co-located teams and remote employees, for example companies with offices in the United States, Europe and Asia, with a mobile sales force in many more territories. Web Apps has the capability to handle elastic changes in scale comfortably and automatically.
 
-App Service Web Apps allows web applications to be configured to scale automatically via the Management Portal, depending on two vectors – scheduled times or by CPU usage. Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion. For more information and guidance on scaling your web applications using Web Apps, see [How to Scale Websites](web-sites-scale.md).
+App Service Web Apps allows web applications to be configured to scale automatically via the Azure portal, depending on two vectors – scheduled times or by CPU usage. Web Apps Auto Scaling provides a cost effective and extremely flexible way to cater for greater changes in usage for all business applications, from web applications like our expense reporting system to marketing websites, which experience a high burst of traffic for a short duration of promotion. For more information and guidance on scaling your web applications using Web Apps, see [How to Scale Websites](web-sites-scale.md).
 
 In addition to the scaling flexibility of Web Apps, the overall platform enables business continuity and resiliency through the possible distribution of web applications and their assets across multiple datacenters and geographic regions.
 
@@ -148,8 +148,7 @@ App Service Web Apps offers a flexible, cost effective, responsive solution to t
 ## Call to Action ##
 For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/sservices/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 

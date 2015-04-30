@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required" 
-   ms.date="02/19/2015"
+   ms.date="04/30/2015"
    ms.author="mwasson"/>
 
 # How to use Azure Redis Cache with Python 
@@ -28,7 +28,7 @@ Install [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Create a Redis cache on Azure
 
-In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New** and select **Redis Cache**. 
+In the [Azure Management Portal Preview](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**. 
 
   ![][1]
 
