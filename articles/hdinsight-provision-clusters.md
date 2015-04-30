@@ -378,9 +378,9 @@ For a general guide on how to use the command-line interface, see [Azure CLI for
 
 Instructions below guide you on how to install the cross-platform command line on Linux and Windows, and then how to use the command line to provision a cluster.
 
-- [Set up an Azure cross-platform command line for Linux](#clilin)
-- [Set up an Azure cross-platform command line for Windows](#cliwin)
-- [Provision HDInsight clusters by using an Azure cross-platform command line](#cliprovision)
+- [Set up the Azure CLI for Linux](#clilin)
+- [Set up the Azure CLI for Windows](#cliwin)
+- [Provision HDInsight clusters by using the Azure CLI](#cliprovision)
 
 #### <a id="clilin"></a>Set up a cross-platform command line for Linux
 
@@ -486,9 +486,9 @@ Before using the command-line interface, you must configure connectivity between
 
 		azure account import <path/to/the/file>
 
-#### <a id="cliprovision"></a>Provision HDInsight clusters by using an Azure cross-platform command line
+#### <a id="cliprovision"></a>Provision HDInsight clusters by using an Azure CLI
 
-The following procedures are needed to provision an HDInsight cluster by using a cross-platform command line:
+The following procedures are needed to provision an HDInsight cluster by using the Azure CLI:
 
 - Create an Azure Storage account
 - Provision a cluster
