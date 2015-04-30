@@ -4,7 +4,7 @@
 	description="A downloadable machine learning algorithm cheat sheet that can help you answer the question, How do I choose a machine learning algorithm?"
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="brohrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="04/29/2015" 
-	ms.author="garye" />
+	ms.author="brohrer" />
 
 
 # Microsoft Azure Machine Learning Algorithm Cheat Sheet
