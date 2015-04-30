@@ -24,6 +24,8 @@ Once you've created and iterated on a *training experiment* to train your predic
 
 By converting to a scoring experiment, you're getting your trained model ready to be published as a scoring web service. Users of the web service will send input data to your model and your model will send back the prediction results. So as you convert to a scoring experiment you will want to keep in mind how you expect your model to be used by others.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 The process of converting a training experiment to a scoring experiment involves three steps:
 
 1.	Save the machine learning model that you've trained, and then replace the machine learning algorithm and [Train Model][train-model] modules with your saved trained model.

@@ -284,7 +284,7 @@ During the deployment, you will see something like this:
                     =======  ==========
                     *
 
-	ResourceId        : /subscriptions/2018abc3-dbd9-4437-81a8-bb3cf56138ed/resourceGroups/twarmredistutrg10
+	ResourceId        : /subscriptions/1234abc1-abc1-1234-12a1-ab1ab12345ab/resourceGroups/TestRG
 
 	PS C:\> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 	VERBOSE: 2:39:10 PM - Template is valid.

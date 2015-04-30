@@ -35,11 +35,11 @@ Installed modules are saved in the node_modules directory at the root of your No
 
 This dependency chain structure results in a larger application footprint, but it guarantees that all dependencies are met and that the version of the modules used in development will also be used in production. This makes the production app behavior more predictable and prevents versioning problems that might affect users.
 
-### Step 1: Register a Azure AD Tenant
+## Step 1: Register a Azure AD Tenant
 
 To use this sample you will need a Azure Active Directory Tenant. If you're not sure what a tenant is or how you would get one, see  [How to get an Azure AD tenant](active-directory-howto-tenant.md).
 
-### Step 2: Add A Web API to your tenant
+## Step 2: Add A Web API to your tenant
 
 After you get your Azure Active Directory tenant, add this sample app to your tenant so you can use it to protect the API.
 
@@ -55,12 +55,12 @@ To enable your app to authenticate users, you'll first need to register a new ap
     - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
 - Once you’ve completed registration, AAD will assign your app a unique client identifier.  You’ll need this value in the next sections, so copy it from the Configure tab.
 
-### Step 3: Download node.js for your platform
+## Step 3: Download node.js for your platform
 To successfully use this sample, you must have a working installation of Node.js.
 
 Install Node.js from [http://nodejs.org](http://nodejs.org).
 
-### Step 4: Install MongoDB on to your platform
+## Step 4: Install MongoDB on to your platform
 
 To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
 
@@ -69,11 +69,11 @@ Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
 **NOTE:** This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
 
 
-### Step 5: Install the Restify modules in to your Web API
+## Step 5: Install the Restify modules in to your Web API
 
 We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
 
-#### Install Restify
+### Install Restify
 
 From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
 
@@ -85,11 +85,11 @@ Type the following command:
 
 This command installs Restify.
 
-##### DID YOU GET AN ERROR?
+#### DID YOU GET AN ERROR?
 
 When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
 
-##### DID YOU GET AN ERROR REGARDING DTRACE?
+#### DID YOU GET AN ERROR REGARDING DTRACE?
 
 You may see something like this when installing Restify:
 
@@ -139,7 +139,7 @@ The output of this command should appear similar to the following:
 	└── bunyan@0.22.0 (mv@0.0.5)
 
 
-### Step 6: Install Passport.js in to your Web API
+## Step 6: Install Passport.js in to your Web API
 
 [Passport](http://passportjs.org/) is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively dropped in to any Express-based or Resitify web application. A comprehensive set of strategies support authentication using a username and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory. We will install this module and then add the Azure Active Directory strategy plug-in.
 
@@ -155,7 +155,7 @@ The output of the commadn should appear similar to the following:
 	├── pause@0.0.1
 	└── pkginfo@0.2.3
 
-### Step 7: Add Passport.js Bearer Token Support to your Web API
+## Step 7: Add Passport.js Bearer Token Support to your Web API
 
 Next, we will add the Bearer strategy, using passport-bearer-http, a Bearner handler for [Passport](http://passportjs.org/). We will also add JWT token handler support by using node-jwt.
 
@@ -165,9 +165,9 @@ From the command-line, change directories to the **azuread** directory.
 
 Type the following command to install Passport.js modules:
 
-`npm install passport-oauth`q
-`npm install passport-http-bearer`
-`npm install node-jwt`
+- `npm install passport-oauth`
+- `npm install passport-http-bearer`
+- `npm install node-jwt`
 
 The output of the commamd should appear similar to the following:
 
@@ -178,7 +178,7 @@ The output of the commamd should appear similar to the following:
 	└── xml2js@0.1.14 (sax@0.5.2)
 
 
-### Step 8: Add MongoDB modules to your Web API
+## Step 8: Add MongoDB modules to your Web API
 
 We will be using MongoDB as our datastore For that reason, we need to install both the widely used plug-in to manage models and schemas called Mongoose, as well as the database driver for MongoDB, also called MongoDB.
 
@@ -186,7 +186,7 @@ We will be using MongoDB as our datastore For that reason, we need to install bo
 * `npm install mongoose`
 * `npm install mongodb`
 
-### Step 9:  Install additional modules
+## Step 9:  Install additional modules
 
 Next, we'll install the remaining required modules.
 
@@ -219,7 +219,7 @@ Enter the following commands to install the following modules in your node_modul
 * `npm update`
 
 
-### Step 10: Create a server.js with your dependencies
+## Step 10: Create a server.js with your dependencies
 
 The server.js file will be providing the majority of our functionality for our Web API server. We will be adding most of our code to this file. For production purposes you would refactor the functionality in to smaller files, such as separate routes and controllers. For the purpose of this demo we will use server.js for this functionality.
 
@@ -248,7 +248,7 @@ Create a `server.js` file in our favorite editor and add the following informati
 
 Save the file. We will return to it shortly.
 
-### Step 11: Create a config file to store your Azure AD settings
+## Step 11: Create a config file to store your Azure AD settings
 
 This code file passes the configuration parameters from your Azure Active Directory Portal to Passport.js. You created these configuration values when you added the Web API to the portal in the first part of the walkthrough. We will explain what to put in the values of these parameters after you've copied the code.
 
@@ -276,7 +276,7 @@ Create a `config.js` file in our favorite editor and add the following informati
 **NOTE:** We roll our keys at frequent intervals. Please ensure that you are always pulling from the "openid_keys" URL and that the app can access the internet.
 
 
-### Step 12: Add configuration to your server.js file
+## Step 12: Add configuration to your server.js file
 
 We need to read these values from the Config file you just created across our application. To do this, we simply add the .config file as a required resource in our application and then set the global variables to those in the config.js document
 
@@ -300,7 +300,7 @@ var serverPort = process.env.PORT || 8888;
 var serverURI = ( process.env.PORT ) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
 
 ```
-### Step 13: Create a metadata.js helper file to aid in parsing metadata/tokens
+## Step 13: Create a metadata.js helper file to aid in parsing metadata/tokens
 
 Since the goal is to keep only application logic in the server.js file, it makes sense to put some helper methods in a separate file. These methods simply help us parse the OpenID Connect metadata and do not relate to the core scenario. It's better to stuff them away. We will be adding more to this file as we go through the Walkthrough.
 
@@ -514,7 +514,7 @@ exports.Metadata = Metadata;
 ```
 As you can see from the code, it simply takes the openid URL you passed in `config.js` and then parses it for information which we will use in the `server.js` file. You are more than welcome to investigate this code and expand it if needed.
 
-#### Load the metadata.js file in your server.js
+### Load the metadata.js file in your server.js
 
 We need to tell our server where to get the methods you jus wrote.
 
@@ -533,7 +533,7 @@ Next, add to the end of the `Configuration` section this call to send the metada
 this.aadutils = new var Metadata = require('./metadata').Metadata;
 ```
 
-### Step 14: Add The MongoDB Model and Schema Information using Moongoose
+## Step 14: Add The MongoDB Model and Schema Information using Moongoose
 
 Now all this preparation is going to start paying off as we wind these three files together in to a REST API service.
 
@@ -543,7 +543,7 @@ If you recall from the `config.js` file we created in ***Step 11*** we called ou
 
 Now that we've told the server what MongoDB database we'd like to use, we need to write some additional code to create the model and schema for our server's Tasks.
 
-##### Discussion of the model
+#### Discussion of the model
 
 Our Schema model is very simple, and you expand it as required.
 
@@ -555,7 +555,7 @@ DATE - The date that the task is due. A ***DATETIME***
 
 COMPLETED - If the Task is completed or not. A ***BOOLEAN***
 
-##### Creating the schema in the code
+#### Creating the schema in the code
 
 
 From the command-line, change directories to the **azuread** folder if not already there:
@@ -575,7 +575,7 @@ var Schema = mongoose.Schema;
 ```
 This will connect to the MongoDB server and hand back a Schema object to us.
 
-##### Using the Schema, create our model in the code
+#### Using the Schema, create our model in the code
 
 Below the code you wrote above, add the following code:
 
@@ -598,11 +598,11 @@ var Task = mongoose.model('Task');
 ```
 As you can tell from the code, we create our Schema and then create a model object we will use to store our data throughout the code when we define our ***Routes***.
 
-### Step 15: Add our Routes for our Task REST API server
+## Step 15: Add our Routes for our Task REST API server
 
 Now that we have a database model to work with, let's add the routes we will use for our REST API server.
 
-##### About Routes in Restify
+### About Routes in Restify
 
 Routes work in Restify in the exact same way they do using the Express stack. You define routes using the URI that you expect the client applicaitons to call. Usually, you define your routes in a separate file. For our purposes, we will put our routes in the server.js file. We recommend you factor these in to their own file for production use.
 
@@ -629,7 +629,7 @@ server.post('/service/:add/:object', createObject); // calls createObject on rou
 
 This is the pattern at the most basic level. Resitfy (and Express) provide much deeper functionaltiy such as defining application types and doing complex routing across different endpoints. For our purposes, we will keep these routes very simply.
 
-##### Add default routes to our server
+#### Add default routes to our server
 
 We will now add the basic CRUD routes of Create, Retrieve, Update, and Delete.
 
@@ -774,7 +774,7 @@ function listTasks(req, res, next) {
 }
 ```
 
-#### Add some error handling for the routes
+### Add some error handling for the routes
 
 It makes sense to add some error handling so we can communicate back to the client the problem we encountered in a way it can understand.
 
@@ -828,7 +828,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-### Step 16: Create your Server!
+## Step 16: Create your Server!
 
 We have our database defined, we have our routes in place, and the last thing to do is add our server instance that will manage our calls.
 
@@ -948,9 +948,9 @@ var server = restify.createServer({
 });
 ```
 
-### Step 17: Before we add OAuth support, let's run the server.
+## Step 17: Before we add OAuth support, let's run the server.
 
-It's a good idea to make sure we have no mistakes befor we continue on to the OAuth part of the Walkthrough.
+It's a good idea to make sure we have no mistakes before we continue on to the OAuth part of the Walkthrough.
 
 The easiest way to do this is by using `curl` in a command line. Before we do that, we need a simple utility that allows us to parse output as JSON. To do that, install the [json](https://github.com/trentm/json) tool as all the examples below use that.
 
@@ -1006,7 +1006,7 @@ And we can list tasks for Brandon this way:
 
 If all this works out, we are ready to add OAuth to the REST API server.
 
-### Step 18: Add Passport.js code to our REST API Server
+## Step 18: Add Passport.js code to our REST API Server
 
 Now that we have a running REST API (congrats, btw!) let's get to making it useful against Azure AD.
 
@@ -1014,7 +1014,7 @@ From the command-line, change directories to the **azuread** folder if not alrea
 
 `cd azuread`
 
-##### Step 1: Add our Passport modules
+### Step 1: Add our Passport modules
 
 Open your `server.js` file in our favorite editor and add the following information below where you previously stated the modules to load. This is towards the top of the file and should be right after the `var aadutils = require('./aadutils');` import.
 
@@ -1028,7 +1028,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-##### 2. Tell our server we are using authentication
+### 2. Tell our server we are using authentication
 
 Open your `server.js` file in our favorite editor and add the following information **below the server.get()** where you defined your Routes but above the **server.listen()** method.
 
@@ -1042,7 +1042,7 @@ We need to tell Restify to begin using its `authorizationParser()` and look at t
 ```
 
 
-##### 3. Add the Passport OAuth2 module to our code
+### 3. Add the Passport OAuth2 module to our code
 
 Here we use the specific OAuth2 parameters we added to the config.js file. If our `aadutils.js` file did its job parsing our Federation Metadata document, all these values should be populated for us even if they are blank in the config.js file.
 
@@ -1069,7 +1069,7 @@ passport.use('provider', new OAuth2Strategy({
 server.use(passport.initialize());
 
 ```
-##### Step 4: Add Routes for OAuth authentication
+### Step 4: Add Routes for OAuth authentication
 
 ```Javascript
 // Redirect the user to the OAuth 2.0 provider for authentication.  When
@@ -1088,7 +1088,7 @@ server.get('/auth/provider/callback',
                                       failureRedirect: '/login' }));
 ```
 
-##### Step 5: Add a IsAuthenticated() Helper Method to the Routes
+### Step 5: Add a IsAuthenticated() Helper Method to the Routes
 
 ```Javascript
 // Simple route middleware to ensure user is authenticated.
@@ -1106,7 +1106,7 @@ var ensureAuthenticated = function(req, res, next) {
 
 ```
 
-##### Step 6: Add a caching mechnaism for the cookies
+### Step 6: Add a caching mechnaism for the cookies
 
 ```Javascript
 // Passport session setup.
@@ -1124,7 +1124,7 @@ passport.deserializeUser(function(id, done) {
   });
 });
 ```
-##### Step 7: Finally, protect some endpoints
+### Step 7: Finally, protect some endpoints
 
 You protect endpoints by specifying the passport.authenticate() call with the protocol you wish to use.
 
@@ -1135,7 +1135,7 @@ server.get('/tasks', passport.authenticate('provider', { session: false }), list
 ```
 
 
-### Step 19: Run your server application again and ensure it rejects you
+## Step 19: Run your server application again and ensure it rejects you
 
 Let's use `curl` again to see if we now have OAuth2 protection against our endpoints. We will do this before runnning any of our client SDKs against this endpoint. The headers returned should be enough to tell us we are down the right path.
 
@@ -1160,7 +1160,7 @@ Try a basic GET:
 
 A 302 is the response you are looking for here, as that indicates that the Passport layer is trying to redirect to the authorize endpoint, which is exactly what you want.
 
-### Congratulations! You have a REST API Service using OAuth2!
+## Congratulations! You have a REST API Service using OAuth2!
 
 You've went as far as you can with this server without using an OAuth2 compatible client. You will need to go through an additional walkthrough.
 

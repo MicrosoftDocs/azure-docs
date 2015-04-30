@@ -21,6 +21,8 @@
 
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms are dependent on various parameters. When we train a model, we need to provide values for those parameters. The efficacy of the trained model is dependent on the model parameters that we choose. The process of finding out the optimal set of parameters is known as model selection. 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 There are various ways in which model selection can be done. In machine learning, cross-validation is one of the most widely used methods for model selection and it is the default model selection mechanism in Azure Machine Learning. Since both R and Python are supported by Azure Machine Learning, users can always implement their own model selection mechanism using either R or Python. 
 
 There are four steps in the process of finding the best parameter set. 

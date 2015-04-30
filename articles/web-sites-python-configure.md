@@ -36,11 +36,11 @@ The Azure Marketplace contains templates for the Bottle, Django and Flask framew
 - [Creating web apps with Flask][]
 
 
-## Web app creation on Azure Portal
+## Web app creation on Azure Preview Portal
 
-This tutorial assumes an existing Azure subscription and access to the Azure Portal.
+This tutorial assumes an existing Azure subscription and access to the Azure Preview Portal.
 
-If you do not have an existing web app, you can create one from the [Azure Portal](https://portal.azure.com).  Click the NEW button in the bottom left corner, then click **Web + Mobile** > **Web app**.
+If you do not have an existing web app, you can create one from the [Azure Preview Portal](https://portal.azure.com).  Click the NEW button in the bottom left corner, then click **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 

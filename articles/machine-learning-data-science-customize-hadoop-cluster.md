@@ -23,6 +23,7 @@ This article describes how to customize an HDInsight Hadoop cluster by installin
 
 This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
 
+
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 
 To create a customized HDInsight Hadoop cluster, users need to log on to [**Management Portal of Azure**](https://manage.windowsazure.com/), click **New** at the left bottom corner, and then select DATA SERVICES -> HDINSIGHT -> **CUSTOM CREATE** to bring up the **Cluster Details** window. 
