@@ -5,8 +5,7 @@
 	authors="stephbaron" 
 	manager="johnmac" 
 	editor="monicar" 
-	documentationCenter=""
-	tags="azure-portal"/>
+	documentationCenter=""/>
 
 <tags 
 	ms.service="documentdb" 
@@ -129,7 +128,7 @@ Now let's deploy our first template.
 
 	![Sample Todo application](./media/documentdb-create-documentdb-website/image2.png)
 
-7. Go ahead and create a couple of tasks and then let's open the [Microsoft Azure portal](https://portal.azure.com).
+7. Go ahead and create a couple of tasks and then let's open the [Microsoft Azure Preview portal](https://portal.azure.com).
 
 8. Choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myDemoResourceGroup).
 
@@ -173,7 +172,7 @@ Now let's deploy our second template.
 	> [AZURE.TIP] Note that you will be prompted to enter your Azure account username and password as part of running the script.  The full deployment will take between 10 and 15 minutes to complete.  	
 
 4. The deployment output will be very similar to the first template example. 
-5. Before we open the Azure portal, let's understand what this template deployment accomplished:
+5. Before we open the Azure Preview portal, let's understand what this template deployment accomplished:
 
 	- An App Service web app was created.
 
@@ -183,14 +182,14 @@ Now let's deploy our second template.
 
 	- 	A series of default monitoring rules were created.
 
-6. Let's open the [Azure portal](https://portal.azure.com), choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).
+6. Let's open the [Azure Preview portal](https://portal.azure.com), choose to browse Resource Groups and select the Resource Group we created during the deployment (in the sample above, myOtherDemoResourceGroup).
 7. In the Summary lens, click the web app which was just deployed.
 
 	![Screenshot of the Summary lens with the myotherdocumentdbwebapp web app highlighted](./media/documentdb-create-documentdb-website/image6.png)
 8. On the web app's blade, click **All settings**, then **Application Settings** and note how there are application settings present for the DocumentDB endpoint and each of the DocumentDB master keys.
 
 	![Screenshot of the web app, Settings, and application settings blades](./media/documentdb-create-documentdb-website/image7.png)
-9. Feel free to continue exploring the Azure portal, or follow one of our DocumentDB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own DocumentDB application.
+9. Feel free to continue exploring the Azure Preview portal, or follow one of our DocumentDB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own DocumentDB application.
 
 	
 	

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure and test a SaaS connector in Azure App Service" 
+	pageTitle="Use a SaaS connector from code" 
 	description="Learn how to configure a SaaS connector that you install in your Azure subscription from the Azure Marketplace." 
 	services="app-service\api" 
 	documentationCenter=".net" 
@@ -16,13 +16,15 @@
 	ms.date="04/07/2015" 
 	ms.author="tdykstra"/>
 
-# Configure and test a SaaS connector in Azure App Service
+# Use a SaaS connector from code
 
 ## Overview
 
-This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](app-service-logic-what-are-bizTalk-api-apps.md) in [Azure App Service](/documentation/services/app-service/). A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. 
+This tutorial shows how to install, configure, and test a [Software-as-a-Service (SaaS) connector](app-service-logic-what-are-bizTalk-api-apps.md) in [Azure App Service](/documentation/services/app-service/) for calling it programmatically, such as from a mobile app. A SaaS connector is an [API app](app-service-api-apps-why-best-platform.md) that simplifies interaction with a SaaS platform such as Office 365, Salesforce, Facebook, and Dropbox. 
 
-For example, if you want to use HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing application code or using SaaS data in a [logic app](app-service-logic-what-are-logic-apps.md).
+For example, if you want to code HTTP requests to read and write files in your Dropbox account, the authentication process for working directly with Dropbox is complicated. A Dropbox connector takes care of the complexity of authentication so that you can focus on writing your business-specific code.
+
+> [AZURE.WARNING] The instructions here **should *not* to be followed if you want to use a SaaS connector from a logic app**. Please see [Create a new logic app](app-service-logic-create-a-logic-app.md) for details on how to use SaaS connectors inside logic apps. This article is specifically if you want use *code* to call your connector.
  
 This tutorial uses a DropBox connector as an example and walks you through the following steps:
 
@@ -153,7 +155,7 @@ As explained [earlier](#gateway), the gateway is a special web app that manages 
 
 After you have configured the gateway in your DropboxRG resource group to use an authentication provider, you can test your Dropbox connector.
 
-Most of the time you'll use a connector by calling it from code or in a logic app, and we're also writing tutorials that will show how to do that. But sometimes you'll want to validate that the connector is working before wiring up other parts of an app. This tutorial shows how to use a browser and a simple REST client tool to verify that you can interact with the Dropbox service through the Dropbox connector that you just installed and configured.
+Most of the time you'll use a connector by calling it from code, and we're also writing tutorials that will show how to do that. But sometimes you'll want to validate that the connector is working before wiring up other parts of an app. This tutorial shows how to use a browser and a simple REST client tool to verify that you can interact with the Dropbox service through the Dropbox connector that you just installed and configured.
 
 The following instructions show how to do these steps by using the Chrome browser developer tools and Postman REST client tool. This is just an example, and you can do the same procedures with other browsers and tools.
 

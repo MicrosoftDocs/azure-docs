@@ -27,6 +27,8 @@ The Cloud Data Science Process workflow is presented in the **[Data Science Proc
 
 This article discusses the questions to consider when setting up your Cloud Data Science environment, enumerates resources and tools that are useful for this process, and provides guidance on how to use the Cloud Data Science Process map.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ## Questions to Consider
 
 Before you begin creating your Cloud Data Science environment, consider the following questions.

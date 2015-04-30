@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create and manage a SQL Database elastic pool (preview)" 
+	pageTitle="Create and manage a SQL Database elastic database pool (preview)" 
 	description="Create a single pool of resources to share across a group of Azure SQL Databases." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -85,7 +85,7 @@ When you select a database to be added to a pool, the following conditions must 
 
 ### Configure performance
 
-You configure the performance of the pool by setting the performance parameters for both the pool, and the elastic databases in the pool. Keep in mind, that the **per database** settings apply to all databases in the pool.
+You configure the performance of the pool by setting the performance parameters for both the pool, and the elastic databases in the pool. Keep in mind, that the **Elastic database settings** apply to all databases in the pool.
 
    ![Configure Elastic Pool][3]
 
@@ -148,7 +148,7 @@ For more information, see [Elastic database jobs overview](sql-database-elastic-
 
 ## Related
 
-- [SQL Database elastic pool](sql-database-elastic-database-pool.md)
+- [SQL Database elastic pool](sql-database-elastic-pool.md)
 - [Create a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md)
 - [Elastic database reference](sql-database-elastic-pool-reference.md)
 
