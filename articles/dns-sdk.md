@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Automating DNS and record sets operations using .net SDK" 
    description=" Using the .NET SDK to automate all DNS operations for Azure DNS. " 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-networks"
+   ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -100,4 +100,4 @@ The following example shows how to get a list of DNS zones and Record sets:
     // do something like write out each record set
 	}
 ## See Also 
-[Traffic Manager Overview](traffic-manager-overview.md)
+[Traffic Manager Overview](../traffic-manager-overview)

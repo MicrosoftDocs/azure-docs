@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Overview of Azure DNS" 
    description="Overview of Azure DNS hosting services on Microsoft Azure. Features and concepts" 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -30,9 +30,9 @@ Azure DNS does not currently support purchasing of domain names.  To purchase do
 
 ## Next Steps
 
-[Get started creating DNS zones](dns-getstarted-create-dnszones.md)<BR>
+[Get started creating DNS zones](../dns-getstarted-create-dnszones)<BR>
 
-[Automate Azure Operations with .NET SDK](dns-sdk.md)
+[Automate Azure Operations with .NET SDK](../dns-sdk)
 
 
 

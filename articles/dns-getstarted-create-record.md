@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Create a record set and records for a DNS Zone" 
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell" 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="Adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -109,8 +109,8 @@ You can also use nslookup or other DNS tools to query the new record set.
     	        134.170.188.221
 
 ## Next Steps
-[Performing operations with DNS zones](dns-operations-dnszones.md)
+[Performing operations with DNS zones](../dns-operations-dnszones)
 
-[Performing operations with Record sets and records](dns-operations-recordsets.md)<BR>
+[Performing operations with Record sets and records](../dns-operations-recordsets)<BR>
 
-[Automate Azure Operations with .NET SDK](dns-sdk.md)
+[Automate Azure Operations with .NET SDK](../dns-sdk)
