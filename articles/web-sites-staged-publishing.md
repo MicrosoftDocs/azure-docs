@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="04/29/2015"
 	ms.author="cephalin"/>
 
-<a name="Overview"></a>
 # Set up staging environments for web apps in Azure App Service
+<a name="Overview"></a>
 
 When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), you can deploy to a separate deployment slot instead of the default production slot when running in the **Standard** or **Premium** App Service plan mode. Deployment slots are actually live web apps with their own hostnames. Web app content and configurations elements can be swapped between two deployment slots, including the production slot. Deploying your application to a deployment slot has the following benefits:
 
@@ -36,7 +36,7 @@ Each App Service plan mode supports a different number of deployment slots. To f
 
 - Linked resource management is not supported for non-production slots.
 
-	> [AZURE.NOTE] In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
+	> [AZURE.NOTE] In the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715) only, you can avoid this potential impact on a production slot by temporarily moving the non-production slot to a different App Service plan mode. Note that the non-production slot must once again share the same mode with the production slot before you can swap the two slots.
 
 <a name="Add"></a>
 ## Add a deployment slot to a web app ##

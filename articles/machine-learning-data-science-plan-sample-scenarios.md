@@ -23,7 +23,9 @@
 
 This article walks through the Cloud Data Science Process map and some sample data source and target scenarios. It illustrates some of the option choices and processing sequences based on data characteristics, source location, and target repositories in Azure. The Cloud Data Science Process flow for the sample scenarios is summarized in the last section.
 
-#### For all scenarios, you need:
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+**For all scenarios, you need:**
 
    [Create a storage account](storage-whatis-account.md)
 
