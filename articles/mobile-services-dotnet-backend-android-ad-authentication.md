@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="04/30/2015" 
 	ms.author="mahender" 
 	ms.devlang="java"/>
 
