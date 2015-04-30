@@ -24,7 +24,7 @@ Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) o
 
 Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete. Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data. Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data. 
 
-Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Cross-Platform Command-Line Interface][xplatcli], or through explorer tools. Here are some of the available tools:
+Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Command-Line Interface for Mac, Linux, and Windows][xplatcli], or through explorer tools. Here are some of the available tools:
 
 * [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
 * [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
@@ -85,7 +85,7 @@ If you use Azure Explorer tools, you may notice some 0 byte files. These files s
 - They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.
 
 
-##<a id="xplatcli"></a>Upload data to Azure Blob storage by using the Azure Cross-Platform Command-Line Interface
+##<a id="xplatcli"></a>Upload data to Azure Blob storage by using the Azure CLI
 
 The Azure CLI for Mac, Linux and Windows is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
