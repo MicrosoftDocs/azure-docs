@@ -1,7 +1,6 @@
 <properties 
 	pageTitle=".NET web app in Azure App Service with New Relic application performance management" 
 	description="Learn how to use New Relic's performance monitoring for ASP.NET applications running on Azure App Service." 
-	tags="azure-portal"
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -58,7 +57,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 1. Create a New Relic account
 
-1. Log in to the [Azure Portal](https://portal.azure.com) and click **New** in the lower-left corner.
+1. Log in to the [Azure preview portal](https://portal.azure.com) and click **New** in the lower-left corner.
 3. Click **Developer services** > **New Relic APM**.
 4. Configure your New Relic account by specifying the following, then click **Create**.
 	- **Name**
@@ -74,7 +73,7 @@ To sign up for New Relic directly from the Azure Marketplace, follow these four 
 
 ## Step 2: Configure New Relic integration for your web app
 
-2. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
+2. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
 3. Click **Application monitoring** > **New Relic**. Select the account that you created in the previous step, then click **OK**. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performce-management/configure-new-relic-integration.png)
@@ -91,7 +90,7 @@ Using Visual Studio or WebMatrix, publish your web app. If you have previously p
 
 To view your New Relic dashboard:
 
-2. Open your web app's blade in the [Azure Portal](https://portal.azure.com).
+2. Open your web app's blade in the [Azure preview portal](https://portal.azure.com).
 3. Click **Application monitoring** > **application name** > **View at New Relic**.
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performce-management/view-new-relic-data.png)
@@ -174,7 +173,7 @@ browsers to load your webpages, where they come from, and what browsers they use
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the Azure portal to the Azure preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 
 [webmatrixwebsite]: web-sites-dotnet-using-webmatrix.md
