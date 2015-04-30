@@ -94,7 +94,7 @@ To add a DIP to the VM created using the script above, runt he following command
 
 [Reserved Public IP](../virtual-networks-reserved-public-ip)
 
-[Instance-Level Public IP (ILIP)](../virtual-networks-instance-level-public-ip)
+[Instance-Level Public IP (IL-PIP)](../virtual-networks-instance-level-public-ip)
 
 [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
