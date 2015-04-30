@@ -1,14 +1,14 @@
 <properties
    pageTitle="Deploy an application with Azure Resource Manager Template"
+   services="azure-portal"
    description="Use Azure Resource Manager to deploy an application to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
-   services="na"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-portal"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
