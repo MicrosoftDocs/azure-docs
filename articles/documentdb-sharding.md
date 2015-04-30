@@ -38,7 +38,7 @@ The SDK also includes two classes that support the two canonical partitioning te
 
 ## Add partitioning logic and register the PartitionResolver 
 
-For example, here's a snippet of how to create a [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) and register with the DocumentClient for a database:
+Here's a snippet showing how to create a [HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) and register with the DocumentClient for a database.
 
 ```cs
 // Create some collections to partition data.
