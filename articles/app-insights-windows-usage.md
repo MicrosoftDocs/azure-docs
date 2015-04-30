@@ -2,7 +2,7 @@
 	pageTitle="Monitor usage in Windows Store and Phone apps with Application Insights" 
 	description="Analyze usage of your Windows device app with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
