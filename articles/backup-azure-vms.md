@@ -23,7 +23,7 @@ This article is the essential guide to backing up Azure virtual machines. Before
 
 ## Backing up Azure virtual machines
 Backing up Azure virtual machines involves three key steps:
-  	![Three steps to backup an Azure virtual machine][three-steps]
+![Three steps to backup an Azure virtual machine][three-steps]
 
 ## Discover the Azure virtual machines
 The discovery process queries Azure for the list of virtual machines in the subscription, along with additional information like the Cloud Service name, and the Region.
