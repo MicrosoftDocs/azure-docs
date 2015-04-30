@@ -21,23 +21,22 @@ You can automate operations to create , delete or update DNS zones, recordsets a
 ## NuGet Packages & Namespace Declarations
 In order to use the DNS Client, it is necessary to install the “Azure DNS Management Library” NuGet package and add the DNS management namespaces to your project. Go to Visual Studio, open a project or new project and go to tools, Nuget package manager console. Download the Azure DNS management library:
 
-using Microsoft.Azure;<BR>
-using Microsoft.Azure.Management.Dns;
+	using Microsoft.Azure;
+	using Microsoft.Azure.Management.Dns;
+	using Microsoft.Azure.Management.Dns.Models;
+
 
 ## Initializing the DNS Management Client
 
 The DnsManagementClient contains the methods and properties necessary for managing DNS zones and recordsets.  In order for the client to be able to access your subscription it is necessary to setup the correct permissions and generate an AWT token, see “Authenticating Azure Resource Manager requests” for more details.
 
-Get a token for the AAD application (see linked article for code)<BR>
-
+	// get a token for the AAD application (see linked article for code)
 	string jwt = GetAToken();
 
-make the TokenCloudCredentials using subscription ID and token:<BR>
-
+	// make the TokenCloudCredentials using subscription ID and token
 	TokenCloudCredentials tcCreds = new TokenCloudCredentials(subID, jwt);
 
-make the DNS management client:<BR>
-
+	// make the DNS management client
 	DnsManagementClient dnsClient = new DnsManagementClient(tcCreds);
 
 ## Creating or Updating a DNS Zone
@@ -46,34 +45,37 @@ To create a DNS zone, a Zone object is created and passed to dnsClient.Zones.Cre
 
 create a DNS zone:
 
+	// create a DNS zone
 	Zone z = new Zone("global");
 	z.Properties = new ZoneProperties();
 	z.Tags.Add("dept", "shopping");
 	z.Tags.Add("env", "production");
 	ZoneCreateOrUpdateParameters zoneParams = new ZoneCreateOrUpdateParameters(z);
-	ZoneCreateOrUpdateResponse responseCreateZone =
+	ZoneCreateOrUpdateResponse responseCreateZone = 
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
-Azure DNS supports optimistic concurrency called [Etags](./dns-getstarted-create-dnszone.md#Etags-and-tags)  The Etag is a property of the Zone and IfNoneMatch is a property in ZoneCreateOrUpdateParameters.
+
+Azure DNS supports optimistic concurrency called [Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags)  The Etag is a property of the Zone and IfNoneMatch is a property in ZoneCreateOrUpdateParameters.
 
 ## Creating or Updating DNS Records
 DNS records are managed as a record set.  A record set is the set of records with the same name and record type within a zone.  To create or update a record set, a RecordSet object is created and passed to dnsClient.RecordSets.CreateOrUpdate.  Note that the record set name is relative to the zone name as opposed to being the fully qualified DNS name.  Again the location is set to "global".
     
 make some records sets
 
+	// make some records sets
 	RecordSet rsWwwA = new RecordSet("global");
-	sWwwA.Properties = new RecordProperties(3600);>
+	rsWwwA.Properties = new RecordProperties(3600);
 	rsWwwA.Properties.ARecords = new List<ARecord>();
 	rsWwwA.Properties.ARecords.Add(new ARecord("1.2.3.4"));
 	rsWwwA.Properties.ARecords.Add(new ARecord("1.2.3.5"));
 	RecordCreateOrUpdateParameters recordParams = 
-	new RecordCreateOrUpdateParameters(rsWwwA);
+								new RecordCreateOrUpdateParameters(rsWwwA);
 	RecordCreateOrUpdateResponse responseCreateA = 
-	dnsClient.RecordSets.CreateOrUpdate("myresgroup", 
+								dnsClient.RecordSets.CreateOrUpdate("myresgroup", 
 	"myzone.com", "www", RecordType.A, recordParams);
-
+	
     
-Azure DNS supports optimistic concurrency [Etags](./dns-getstarted-create-dnszone.md#Etags-and-tags).  The Etag is a property of the RecordSet and IfNoneMatch is a property in RecordSetCreateOrUpdateParameters.
+Azure DNS supports optimistic concurrency [Etags](../dns-getstarted-create-dnszone.md#Etags-and-tags).  The Etag is a property of the RecordSet and IfNoneMatch is a property in RecordSetCreateOrUpdateParameters.
 
 ## Getting Zones and RecordSets
 The Zones and RecordSets collections provide the ability to get zones and record sets respectively.  RecordSets are identified by their type, name and the zone (and resource group) they exist in.  Zones are identified by their name and the resource group they exist in.
@@ -94,8 +96,8 @@ The following example shows how to get a list of DNS zones and Record sets:
 	ZoneListResponse zoneListResponse = dnsClient.Zones.List("myresgroup", new ZoneListParameters());
 	foreach (Zone zone in zoneListResponse.Zones)
 	{
-    RecordListResponse recordSets = 
-                 dnsClient.RecordSets.ListAll("myresgroup", "myzone.com", new RecordSetListParameters());
+    	RecordListResponse recordSets = 
+                 			dnsClient.RecordSets.ListAll("myresgroup", "myzone.com", new RecordSetListParameters());
 
     // do something like write out each record set
 	}
