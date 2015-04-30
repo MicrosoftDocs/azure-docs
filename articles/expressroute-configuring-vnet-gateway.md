@@ -1,6 +1,7 @@
 <tags 
    pageTitle="Configuring a virtual network for Expressroute"
    description="This tutorial walks you through setting up a virtual network for ExpressRoute"
+   documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
@@ -8,11 +9,12 @@
 
 <tags 
    ms.service="expressroute"
-   ms.topic="article"
+   ms.devlang="na"
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="4/29/2015"
-   ms.author="cherylmc" />
+   ms.date="04/29/2015"
+   ms.author="cherylmc"/>
 
 #  Configure a Virtual Network and VNet Gateway for ExpressRoute
 
