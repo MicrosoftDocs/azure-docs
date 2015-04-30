@@ -26,18 +26,21 @@ Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b
 
 ## Install the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
-- Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
-- Click Install to begin the install process.
-- Review and accept the EULA.
+
+1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
+
+2. Click Install to begin the install process.
+
+3. Review and accept the EULA.
 
 Installation will proceed automatically.
 
 ## Enable PowerShell script execution
-Service Fabric uses Windows PowerShell scripts for creating a local development cluster and deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
+Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows will block these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
 
-```
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-```
+
+    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+
 
 ## Install and start a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
@@ -50,15 +53,21 @@ In a few moments you should see output that shows node information and confirmat
 > [AZURE.NOTE] Your local cluster uses exactly the same runtime as what will run in Azure. It is not simulated or emulated in any way. The only difference is that all of your nodes run on a single machine, rather than being distributed across multiple machines as they will be in Azure.
 
 ## Validate your cluster setup
+
 You can check that your cluster was created successfully using the Service Fabric Explorer tool that ships with the SDK.
-- Launch ServiceFabricExplorer.exe from %programfiles%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\
-- Expand the Onebox/Local Cluster node in the top left corner.
-- Ensure that the Application and Node views are green.
+
+1. Launch ServiceFabricExplorer.exe from %programfiles%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\
+
+2. Expand the Onebox/Local Cluster node in the top left corner.
+
+3. Ensure that the Application and Node views are green.
 
 If any element is not green or you see an error, wait a few moments and click the refresh button. If you still have issues, check out the [setup troubleshooting steps](service-fabric-troubleshoot-local-cluster-setup.md).
 
 ## Next steps
+
 Now that your development environment is set up, you can start building and running apps.
+
 - [Learn about the programming models: Reliable Actors and Reliable Services](service-fabric-choose-framework.md)
 - [Get started with the Reliable Services API](service-fabric-reliable-services-quick-start.md)
 - [Get started with the Reliable Actors API](service-fabric-reliable-actors-get-started.md)
