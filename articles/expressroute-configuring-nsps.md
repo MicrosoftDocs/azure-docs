@@ -1,4 +1,4 @@
-<tags 
+<properties 
    pageTitle="Configuring Expressroute with NSPs"
    description="This tutorial walks you through setting up ExpressRoute through NSPs"
    documentationCenter="na"
@@ -134,7 +134,7 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 
 4. **Configure your Virtual Network and Gateway.** 
 
-	See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/en-us/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
+	See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
 
 5. **Link your network to a circuit.** 
 

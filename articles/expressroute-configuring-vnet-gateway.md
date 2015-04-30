@@ -1,4 +1,4 @@
-<tags 
+<properties
    pageTitle="Configuring a virtual network for Expressroute"
    description="This tutorial walks you through setting up a virtual network for ExpressRoute"
    documentationCenter="na"

@@ -1,4 +1,4 @@
-<tags 
+<properties 
    pageTitle="Configuring ExpressRoute through an Exchange Provider"
    description="This tutorial walks you through setting up ExpressRoute through exchange providers (EXPs)."
    documentationCenter="na"
