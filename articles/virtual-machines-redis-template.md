@@ -3,7 +3,7 @@
 	description="Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="multiple"
 	documentationCenter=""
-	authors="karthmut"
+	authors="timwieman"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="twieman"/>
 
 # Redis Cluster Resource Manager Template
 
@@ -48,49 +48,53 @@ Designate a local folder as the location for the JSON template and other files a
 
 Fill in the folder name and run these commands:
 
-	$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
-	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json"
-	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
+```powershell
+$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
+$webclient = New-Object System.Net.WebClient
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json"
+$filePath = $folderName + "\azuredeploy.json"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy-parameters.json"
-	$filePath = $folderName + "\azuredeploy-parameters.json"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy-parameters.json"
+$filePath = $folderName + "\azuredeploy-parameters.json"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/empty-resources.json"
-	$filePath = $folderName + "\empty-resources.json"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/empty-resources.json"
+$filePath = $folderName + "\empty-resources.json"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/jumpbox-resources.json"
-	$filePath = $folderName + "\jumpbox-resources.json"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/jumpbox-resources.json"
+$filePath = $folderName + "\jumpbox-resources.json"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/node-resources.json"
-	$filePath = $folderName + "\node-resources.json"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/node-resources.json"
+$filePath = $folderName + "\node-resources.json"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-cluster-install.sh"
-	$filePath = $folderName + "\redis-cluster-install.sh"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-cluster-install.sh"
+$filePath = $folderName + "\redis-cluster-install.sh"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-cluster-setup.sh"
-	$filePath = $folderName + "\redis-cluster-setup.sh"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-cluster-setup.sh"
+$filePath = $folderName + "\redis-cluster-setup.sh"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-sentinel-startup.sh"
-	$filePath = $folderName + "\redis-sentinel-startup.sh"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/redis-sentinel-startup.sh"
+$filePath = $folderName + "\redis-sentinel-startup.sh"
+$webclient.DownloadFile($url,$filePath)
 
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/shared-resources.json"
-	$filePath = $folderName + "\shared-resources.json"
-	$webclient.DownloadFile($url,$filePath)
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/shared-resources.json"
+$filePath = $folderName + "\shared-resources.json"
+$webclient.DownloadFile($url,$filePath)
+```
 
 As an alternative, you can also clone the template repository using a git client of your choice, for example:
 
-	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
+```
+git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
+```
 
-When completed, look for redis-high-availability folder in your C:\Azure\Templates directory.
+When completed, look for the "redis-high-availability" folder in your C:\Azure\Templates directory.
 
 ### Step 2: (optional) View the parameters of the template.
 
@@ -98,105 +102,107 @@ When you create a Redis Cluster with a template, you must specify a set of confi
 
 Look for the **"parameters"** section at the top of the file, which lists the set of parameters that are needed by the template to configure the Redis Cluster. Here is the **"parameters"** section for the azuredeploy.json template:
 
-	"parameters": {
-		"adminUsername": {
-			"type": "string",
-			"metadata": {
-				"Description": "Administrator user name used when provisioning virtual machines"
-			}
-		},
-		"adminPassword": {
-			"type": "securestring",
-			"metadata": {
-				"Description": "Administrator password used when provisioning virtual machines"
-			}
-		},
-		"storageAccountName": {
-			"type": "string",
-			"defaultValue": "",
-			"metadata": {
-				"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
-			}
-		},
-		"region": {
-			"type": "string",
-			"metadata": {
-				"Description": "Location where resources will be provisioned"
-			}
-		},
-		"virtualNetworkName": {
-			"type": "string",
-			"defaultValue": "redisVirtNet",
-			"metadata": {
-				"Description": "The arbitrary name of the virtual network provisioned for the Redis cluster"
-			}
-		},
-		"addressPrefix": {
-			"type": "string",
-			"defaultValue": "10.0.0.0/16",
-			"metadata": {
-				"Description": "The network address space for the virtual network"
-			}
-		},
-		"subnetName": {
-			"type": "string",
-			"defaultValue": "redisSubnet1",
-			"metadata": {
-				"Description": "Subnet name for the virtual network that resources will be provisioned in to"
-			}
-		},
-		"subnetPrefix": {
-			"type": "string",
-			"defaultValue": "10.0.0.0/24",
-			"metadata": {
-				"Description": "Address space for the virtual network subnet"
-			}
-		},
-		"nodeAddressPrefix": {
-			"type": "string",
-			"defaultValue": "10.0.0.1",
-			"metadata": {
-				"Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
-			}
-		},
-		"jumpbox": {
-			"type": "string",
-			"defaultValue": "Disabled",
-			"allowedValues": [
-			"Enabled",
-			"Disabled"
-			],
-			"metadata": {
-				"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Redis nodes"
-			}
-		},
-		"tshirtSize": {
-			"type": "string",
-			"defaultValue": "Small",
-			"allowedValues": [
-			"Small",
-			"Medium",
-			"Large"
-			],
-			"metadata": {
-				"Description": "T-shirt size of the Redis deployment"
-			}
-		},
-		"redisVersion": {
-			"type": "string",
-			"defaultValue": "stable",
-			"metadata": {
-				"Description": "The version of the Redis package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
-			}
-		},
-		"redisClusterName": {
-			"type": "string",
-			"defaultValue": "redis-cluster",
-			"metadata": {
-				"Description": "The arbitrary name of the Redis cluster"
-			}
+```json
+"parameters": {
+	"adminUsername": {
+		"type": "string",
+		"metadata": {
+			"Description": "Administrator user name used when provisioning virtual machines"
 		}
 	},
+	"adminPassword": {
+		"type": "securestring",
+		"metadata": {
+			"Description": "Administrator password used when provisioning virtual machines"
+		}
+	},
+	"storageAccountName": {
+		"type": "string",
+		"defaultValue": "",
+		"metadata": {
+			"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
+		}
+	},
+	"region": {
+		"type": "string",
+		"metadata": {
+			"Description": "Location where resources will be provisioned"
+		}
+	},
+	"virtualNetworkName": {
+		"type": "string",
+		"defaultValue": "redisVirtNet",
+		"metadata": {
+			"Description": "The arbitrary name of the virtual network provisioned for the Redis cluster"
+		}
+	},
+	"addressPrefix": {
+		"type": "string",
+		"defaultValue": "10.0.0.0/16",
+		"metadata": {
+			"Description": "The network address space for the virtual network"
+		}
+	},
+	"subnetName": {
+		"type": "string",
+		"defaultValue": "redisSubnet1",
+		"metadata": {
+			"Description": "Subnet name for the virtual network that resources will be provisioned in to"
+		}
+	},
+	"subnetPrefix": {
+		"type": "string",
+		"defaultValue": "10.0.0.0/24",
+		"metadata": {
+			"Description": "Address space for the virtual network subnet"
+		}
+	},
+	"nodeAddressPrefix": {
+		"type": "string",
+		"defaultValue": "10.0.0.1",
+		"metadata": {
+			"Description": "The IP address prefix that will be used for constructing a static private IP address for each node in the cluster"
+		}
+	},
+	"jumpbox": {
+		"type": "string",
+		"defaultValue": "Disabled",
+		"allowedValues": [
+		"Enabled",
+		"Disabled"
+		],
+		"metadata": {
+			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Redis nodes"
+		}
+	},
+	"tshirtSize": {
+		"type": "string",
+		"defaultValue": "Small",
+		"allowedValues": [
+		"Small",
+		"Medium",
+		"Large"
+		],
+		"metadata": {
+			"Description": "T-shirt size of the Redis deployment"
+		}
+	},
+	"redisVersion": {
+		"type": "string",
+		"defaultValue": "stable",
+		"metadata": {
+			"Description": "The version of the Redis package to be deployed on the cluster (or use 'stable' to pull in the latest and greatest)"
+		}
+	},
+	"redisClusterName": {
+		"type": "string",
+		"defaultValue": "redis-cluster",
+		"metadata": {
+			"Description": "The arbitrary name of the Redis cluster"
+		}
+	}
+},
+```
 
 By describing required parameters, including details like data types, allowed values and so on, it’s clear that this section will be really helpful for any validation task related to parameter values passed at template execution in an interactive mode (e.g. PowerShell or Azure CLI), but also to whatever self-discovery UI that could be dynamically built by parsing the list of required parameters and their description.
 
@@ -205,62 +211,66 @@ By describing required parameters, including details like data types, allowed va
 Prepare a parameter file for your deployment by creating a JSON file containing runtime values for all parameters, which will then be passed as a single entity to the deployment command.
 Here is an example you can find in the **azuredeploy-parameters.json** file.  Note that you will need to provide valid values for the parameters `storageAccountName`, `adminUsername`, and `adminPassword`, plus any customizations to the other parameters:
 
-	{
-		"storageAccountName": {
-			"value": "redisdeploy1"
-		},
-		"adminUsername": {
-			"value": ""
-		},
-		"adminPassword": {
-			"value": ""
-		},
-		"region": {
-			"value": "West US"
-		},
-		"virtualNetworkName": {
-			"value": "redisClustVnet"
-		},
-		"subnetName": {
-			"value": "Subnet1"
-		},
-		"addressPrefix": {
-			"value": "10.0.0.0/16"
-		},
-		"subnetPrefix": {
-			"value": "10.0.0.0/24"
-		},
-		"nodeAddressPrefix": {
-			"value": "10.0.0.1"
-		},
-		"redisVersion": {
-			"value": "3.0.0"
-		},
-		"redisClusterName": {
-			"value": "redis-arm-cluster"
-		},
-		"jumpbox": {
-			"value": "Enabled"
-		},
-		"tshirtSize":  {
-			"value": "Small"
-		}
+```json
+{
+	"storageAccountName": {
+		"value": "redisdeploy1"
+	},
+	"adminUsername": {
+		"value": ""
+	},
+	"adminPassword": {
+		"value": ""
+	},
+	"region": {
+		"value": "West US"
+	},
+	"virtualNetworkName": {
+		"value": "redisClustVnet"
+	},
+	"subnetName": {
+		"value": "Subnet1"
+	},
+	"addressPrefix": {
+		"value": "10.0.0.0/16"
+	},
+	"subnetPrefix": {
+		"value": "10.0.0.0/24"
+	},
+	"nodeAddressPrefix": {
+		"value": "10.0.0.1"
+	},
+	"redisVersion": {
+		"value": "3.0.0"
+	},
+	"redisClusterName": {
+		"value": "redis-arm-cluster"
+	},
+	"jumpbox": {
+		"value": "Enabled"
+	},
+	"tshirtSize":  {
+		"value": "Small"
 	}
+}
+```
 
 >[AZURE.NOTE] The parameter `storageAccountName` must be a non-existent, unique storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).  This storage account will be created as part of the deployment process.
 
 Fill in an Azure deployment name, Resource Group name, Azure location, and the folder for your saved JSON files. Then run these commands:
 
-	$deployName="<deployment name>, such as TestDeployment"
-	$RGName="<resource group name>, such as TestRG"
-	$locName="<Azure location, such as West US>"
-	$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
-	$templateFile= $folderName + "\azuredeploy.json"
-	$templateParameterFile= $folderName + "\azuredeploy-parameters.json"
+```powershell
+$deployName="<deployment name>, such as TestDeployment"
+$RGName="<resource group name>, such as TestRG"
+$locName="<Azure location, such as West US>"
+$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
+$templateFile= $folderName + "\azuredeploy.json"
+$templateParameterFile= $folderName + "\azuredeploy-parameters.json"
 
-	New-AzureResourceGroup –Name $RGName –Location $locName
+New-AzureResourceGroup –Name $RGName –Location $locName
 
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
+```
 
 >[AZURE.NOTE] `$RGName` must be unique within your subscription.
 
@@ -340,21 +350,29 @@ To do that, go to the [Azure Portal](https://portal.azure.com), and do the follo
 
 After your tests, if you need to remove this resource group and all of its resources (the storage account, virtual machine, and virtual network), use this command:
 
-	Remove-AzureResourceGroup –Name "<resource group name>"
+```powershell
+Remove-AzureResourceGroup –Name "<resource group name>"
+```
 
 ### Step 3-b: Create a Redis Cluster with a Resource Manager template using Azure CLI
 
 Functionally equivalent with the PowerShell approach listed above, deploying a Redis Cluster via Azure CLI requires you to first create a Resource Group by specifying name and location:
 
-	azure group create TestRG "West US"
+```powershell
+azure group create TestRG "West US"
+```
 
 And subsequently, invoking a deployment creation and passing Resource Group name, parameter file and the actual template as shown below:
 
-	azure group deployment create TestRG -f .\azuredeploy.json -e .\azuredeploy-parameters.json
+```powershell
+azure group deployment create TestRG -f .\azuredeploy.json -e .\azuredeploy-parameters.json
+```
 
 It is also possible to check status of individual deployments by invoking the following command:
 
-	azure group deployment list TestRG
+```powershell
+azure group deployment list TestRG
+```
 
 ## A tour of template structure and file organization created to deploy Redis Cluster on Ubuntu
 
@@ -368,11 +386,13 @@ This section steps you through the structure of the azuredeploy.json template fo
 
 If you have not already downloaded a copy of the template file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\RedisCluster). Fill in the folder name and run these commands.
 
-	$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
-	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json"
-	$filePath = $folderName + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
+```powershell
+$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
+$webclient = New-Object System.Net.WebClient
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json"
+$filePath = $folderName + "\azuredeploy.json"
+$webclient.DownloadFile($url,$filePath)
+```
 
 Open the azuredeploy.json template in a text editor or tool of your choice. The following describes the structure of the template file and the purpose of each section. Alternately, you can see the contents of this template in your browser from [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/redis-high-availability/azuredeploy.json).
 
@@ -382,18 +402,20 @@ We mentioned already the role of **azuredeploy-parameters.json**, which will be 
 
 Here is an example of a parameter for the “t-shirt size”:
 
-	"tshirtSize": {
-		"type": "string",
-		"defaultValue": "Small",
-		"allowedValues": [
-			"Small",
-			"Medium",
-			"Large"
-		],
-		"metadata": {
-			"Description": "T-shirt size of the Redis deployment"
-		}
-	},
+```json
+"tshirtSize": {
+	"type": "string",
+	"defaultValue": "Small",
+	"allowedValues": [
+		"Small",
+		"Medium",
+		"Large"
+	],
+	"metadata": {
+		"Description": "T-shirt size of the Redis deployment"
+	}
+},
+```
 
 >[AZURE.NOTE] Notice that a `defaultValue` may be specified, as well as `allowedValues`.
 
@@ -401,60 +423,64 @@ Here is an example of a parameter for the “t-shirt size”:
 
 The "variables" section specifies variables that can be used throughout this template.  Basically this contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time.  Here are some examples that range from simple to more complex:
 
-	"vmStorageAccountContainerName": "vhd-redis",
-	"vmStorageAccountDomain": ".blob.core.windows.net",
-	"vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-	...
-	"machineSettings": {
-		"adminUsername": "[parameters('adminUsername')]",
-		"machineNamePrefix": "redisnode-",
-		"osImageReference": {
-			"publisher": "[variables('osFamilyUbuntu').imagePublisher]",
-			"offer": "[variables('osFamilyUbuntu').imageOffer]",
-			"sku": "[variables('osFamilyUbuntu').imageSKU]",
-			"version": "latest"
-		}
-	},
-	...
-	"vmScripts": {
-		"scriptsToDownload": [
-		"[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
-		"[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
-		"[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
-		],
-		"installCommand": "[concat('bash ', variables('installCommand'))]",
-		"setupCommand": "[concat('bash ', variables('installCommand'), ' -l')]"
+```json
+"vmStorageAccountContainerName": "vhd-redis",
+"vmStorageAccountDomain": ".blob.core.windows.net",
+"vnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+...
+"machineSettings": {
+	"adminUsername": "[parameters('adminUsername')]",
+	"machineNamePrefix": "redisnode-",
+	"osImageReference": {
+		"publisher": "[variables('osFamilyUbuntu').imagePublisher]",
+		"offer": "[variables('osFamilyUbuntu').imageOffer]",
+		"sku": "[variables('osFamilyUbuntu').imageSKU]",
+		"version": "latest"
 	}
+},
+...
+"vmScripts": {
+	"scriptsToDownload": [
+	"[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
+	"[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
+	"[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
+	],
+	"installCommand": "[concat('bash ', variables('installCommand'))]",
+	"setupCommand": "[concat('bash ', variables('installCommand'), ' -l')]"
+}
+```
 
 The `vmStorageAccountContainerName` and `vmStorageAccountDomain` are examples of simple name/value variables. `vnetID` is an example of a variable that is calculated at runtime using the functions `resourceId` and `parameters`.  `machineSettings` builds on these concepts even further by nesting the JSON object `osImageReference` in the `machineSettings` variable.  `vmScripts` contains a JSON array, `scriptsToDownload`, which is calculated at runtime using the `concat` and `variables` functions.  
 
 If you want to customize the size of the Redis Cluster deployment, then you can change the properties of the variables `tshirtSizeSmall`, `tshirtSizeMedium`, and `tshirtSizeLarge` in the **azuredeploy.json** template.  
 
-	"tshirtSizeSmall": {
-		"vmSizeMember": "Standard_A1",
-		"numberOfMasters": 3,
-		"numberOfSlaves": 0,
-		"totalMemberCount": 3,
-		"totalMemberCountExcludingLast": 2,
-		"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
-	},
-	"tshirtSizeMedium": {
-		"vmSizeMember": "Standard_A2",
-		"numberOfMasters": 3,
-		"numberOfSlaves": 3,
-		"totalMemberCount": 6,
-		"totalMemberCountExcludingLast": 5,
-		"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
-	},
-	"tshirtSizeLarge": {
-		"vmSizeMember": "Standard_A5",
-		"numberOfMasters": 3,
-		"numberOfSlaves": 6,
-		"totalMemberCount": 9,
-		"totalMemberCountExcludingLast": 8,
-		"arbiter": "Enabled",
-		"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
-	},
+```json
+"tshirtSizeSmall": {
+	"vmSizeMember": "Standard_A1",
+	"numberOfMasters": 3,
+	"numberOfSlaves": 0,
+	"totalMemberCount": 3,
+	"totalMemberCountExcludingLast": 2,
+	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+},
+"tshirtSizeMedium": {
+	"vmSizeMember": "Standard_A2",
+	"numberOfMasters": 3,
+	"numberOfSlaves": 3,
+	"totalMemberCount": 6,
+	"totalMemberCountExcludingLast": 5,
+	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+},
+"tshirtSizeLarge": {
+	"vmSizeMember": "Standard_A5",
+	"numberOfMasters": 3,
+	"numberOfSlaves": 6,
+	"totalMemberCount": 9,
+	"totalMemberCountExcludingLast": 8,
+	"arbiter": "Enabled",
+	"vmTemplate": "[concat(variables('templateBaseUrl'), 'node-resources.json')]"
+},
+```
 
 You can see that we have to specify the totalMemberCountExcludingLast in addition to the totalMemberCount because the template language currently does not have “math” operations.
 
@@ -464,7 +490,8 @@ More information regarding the template language can be found in MSDN at [Azure 
 
 The **"resources"** section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the `templateLink` element (and related version property) it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as you can notice in this fragment:
 
-	{
+```json
+{
     "name": "shared-resources",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
@@ -486,8 +513,8 @@ The **"resources"** section is where most of the action is happening. Looking ca
             }
         }
     }
-	},
-
+},
+```
 
 From this first example it is clear how **azuredeploy.json** in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files, each one responsible for part of the required deployment activities.
 
@@ -501,7 +528,8 @@ Let’s drill down into *how* this last template, **node-resources.json**, is us
 
 When **node-resources.json** is invoked from within the main **azuredeploy.json** file, it is invoked from inside a resource that uses the “copy” element to create a loop of sorts.  A resource that uses the “copy” element will “copy” itself for the number of times specified in the “count” parameter of the “copy” element.  For all settings where it is necessary to specify unique values between different instances of the deployed resource, the **copyindex()** function can be used to obtain a numeric value indicating the current index in that particular resource loop creation. In the following fragment from **azuredeploy.json**, you can see this concept applied to multiple VMs being created for the Redis Cluster nodes:
 
-	{
+```json
+{
     "type": "Microsoft.Resources/deployments",
     "name": "[concat('node-resources', copyindex())]",
     "apiVersion": "2015-01-01",
@@ -544,13 +572,15 @@ When **node-resources.json** is invoked from within the main **azuredeploy.json*
             }
         }
     }
-	},
+},
+```
 
 Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the **dependsOn** JSON array. In this particular template, you can see that the Redis Cluster nodes are dependent on the shared resources being created first.
 
 As was previously mentioned, the last node needs to wait for provisioning until all other nodes in the Redis Cluster have been provisioned with Redis server running on them.  This is accomplished in **azuredeploy.json** by having a resource named **“lastnode-resources”** that depends on the “copy” loop named **“memberNodesLoop”** from the template snippet above.  After the “memberNodesLoop” has completed, the **“lastnode-resources”** can be provisioned:
 
-	{
+```json
+{
 	"name": "lastnode-resources",
 	"type": "Microsoft.Resources/deployments",
 	"apiVersion": "2015-01-01",
@@ -590,13 +620,14 @@ As was previously mentioned, the last node needs to wait for provisioning until 
 			}
 		}
 	}
-
+```
 
 Notice how the **“lastnode-resources”** resource passes a slightly different “machineSettings.commandToExecute” to the linked template.  This is because for the last node, in addition to installed Redis server, it also needs to call a script to setup the Redis Cluster (which must be done only once after all the Redis servers are up and running).
 
 Another interesting fragment to explore, is the one related to the **“CustomScriptForLinux”** VM extensions. These are installed as a separate type of resource, with a dependency on each cluster node.  In this case, this is used to install and setup Redis on each VM node.  Let’s look at a snippet from the **node-resources.json** template that uses these:
 
-	{
+```json
+{
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat('vmMember', parameters('machineSettings').machineIndex, '/installscript')]",
     "apiVersion": "2015-05-01-preview",
@@ -613,7 +644,8 @@ Another interesting fragment to explore, is the one related to the **“CustomSc
             "commandToExecute": "[parameters('machineSettings').commandToExecute]"
         }
     }
-	}
+}
+```
 
 You can see that this resource depends on the resource VM already being deployed (Microsoft.Compute/virtualMachines/vmMember<X>, where <X> is the parameter “machineSettings.machineIndex”, which is the index of the VM that was passed to this script using the “copyindex()” function.
 
