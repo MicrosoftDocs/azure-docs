@@ -77,7 +77,7 @@ Using Azure PowerShell, the authoritative NS records can be retrieved as follows
 
 	Name              : @
 	ZoneName          : contoso.com
-	ResourceGroupName : Azuredns
+	ResourceGroupName : MyResourceGroup
 	Ttl               : 3600
 	Etag              : 5fe92e48-cc76-4912-a78c-7652d362ca18
 	RecordType        : NS
