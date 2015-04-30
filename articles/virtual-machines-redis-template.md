@@ -168,8 +168,8 @@ Look for the **"parameters"** section at the top of the file, which lists the se
 		"type": "string",
 		"defaultValue": "Disabled",
 		"allowedValues": [
-		"Enabled",
-		"Disabled"
+			"Enabled",
+			"Disabled"
 		],
 		"metadata": {
 			"Description": "The flag allowing to enable or disable provisioning of the jumpbox VM that can be used to access the Redis nodes"
@@ -179,9 +179,9 @@ Look for the **"parameters"** section at the top of the file, which lists the se
 		"type": "string",
 		"defaultValue": "Small",
 		"allowedValues": [
-		"Small",
-		"Medium",
-		"Large"
+			"Small",
+			"Medium",
+			"Large"
 		],
 		"metadata": {
 			"Description": "T-shirt size of the Redis deployment"
@@ -441,9 +441,9 @@ The "variables" section specifies variables that can be used throughout this tem
 ...
 "vmScripts": {
 	"scriptsToDownload": [
-	"[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
-	"[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
-	"[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
+		"[concat(variables('scriptUrl'), 'redis-cluster-install.sh')]",
+		"[concat(variables('scriptUrl'), 'redis-cluster-setup.sh')]",
+		"[concat(variables('scriptUrl'), 'redis-sentinel-startup.sh')]"
 	],
 	"installCommand": "[concat('bash ', variables('installCommand'))]",
 	"setupCommand": "[concat('bash ', variables('installCommand'), ' -l')]"
@@ -520,9 +520,9 @@ From this first example it is clear how **azuredeploy.json** in this scenario ha
 
 In particular, the following linked templates will be used for this deployment:
 
--	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM’s OS disks, virtual networks, and availability sets.
--	**jumpbox-resources.json**: deploys the “jump box” VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
--	**node-resources.json**: deploys all Redis Cluster node VMs and connected resources (e.g. network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script to physically install and set up Redis on each node.  The script to invoke is passed to this template in the `“machineSettings` parameter `commandToExecute` property.  All but one of the Redis Cluster nodes can be deployed and scripted in parallel.  One node needs to be saved until the end because the Redis Cluster setup can only be run on one node, and it must be done after all of the nodes are running the Redis server.  This is why the script to execute is passed to this template; the last node needs to run a slightly different script that will not only install Redis server, but also setup the Redis Cluster.
+- **shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM’s OS disks, virtual networks, and availability sets.
+- **jumpbox-resources.json**: deploys the “jump box” VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
+- **node-resources.json**: deploys all Redis Cluster node VMs and connected resources (e.g. network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script to physically install and set up Redis on each node.  The script to invoke is passed to this template in the `machineSettings` parameter `commandToExecute` property.  All but one of the Redis Cluster nodes can be deployed and scripted in parallel.  One node needs to be saved until the end because the Redis Cluster setup can only be run on one node, and it must be done after all of the nodes are running the Redis server.  This is why the script to execute is passed to this template; the last node needs to run a slightly different script that will not only install Redis server, but also setup the Redis Cluster.
 
 Let’s drill down into *how* this last template, **node-resources.json**, is used, as it is one of the most interesting from a template development perspective. One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance, it can set unique values for required settings. This concept is known as **Resource Looping**.
 
@@ -585,41 +585,41 @@ As was previously mentioned, the last node needs to wait for provisioning until 
 	"type": "Microsoft.Resources/deployments",
 	"apiVersion": "2015-01-01",
 	"dependsOn": [
-			"memberNodesLoop"
+		"memberNodesLoop"
 	],
 	"properties": {
-			"mode": "Incremental",
-			"templateLink": {
-					"uri": "[variables('clusterSpec').vmTemplate]",
-					"contentVersion": "1.0.0.0"
+		"mode": "Incremental",
+		"templateLink": {
+			"uri": "[variables('clusterSpec').vmTemplate]",
+			"contentVersion": "1.0.0.0"
+		},
+		"parameters": {
+			"commonSettings": {
+				"value": "[variables('commonSettings')]"
 			},
-			"parameters": {
-					"commonSettings": {
-							"value": "[variables('commonSettings')]"
-					},
-					"storageSettings": {
-							"value": "[variables('storageSettings')]"
-					},
-					"networkSettings": {
-							"value": "[variables('networkSettings')]"
-					},
-					"machineSettings": {
-							"value": {
-									"adminUsername": "[variables('machineSettings').adminUsername]",
-									"machineNamePrefix": "[variables('machineSettings').machineNamePrefix]",
-									"osImageReference": "[variables('machineSettings').osImageReference]",
-									"vmSize": "[variables('clusterSpec').vmSizeMember]",
-									"machineIndex": "[variables('clusterSpec').totalMemberCountExcludingLast]",
-									"vmScripts": "[variables('vmScripts').scriptsToDownload]",
-									"commandToExecute": "[concat(variables('vmScripts').setupCommand, ' -i ', variables('clusterSpec').totalMemberCountExcludingLast)]"
-							}
-					},
-					"adminPassword": {
-							"value": "[parameters('adminPassword')]"
-					}
+			"storageSettings": {
+				"value": "[variables('storageSettings')]"
+			},
+			"networkSettings": {
+				"value": "[variables('networkSettings')]"
+			},
+			"machineSettings": {
+				"value": {
+					"adminUsername": "[variables('machineSettings').adminUsername]",
+					"machineNamePrefix": "[variables('machineSettings').machineNamePrefix]",
+					"osImageReference": "[variables('machineSettings').osImageReference]",
+					"vmSize": "[variables('clusterSpec').vmSizeMember]",
+					"machineIndex": "[variables('clusterSpec').totalMemberCountExcludingLast]",
+					"vmScripts": "[variables('vmScripts').scriptsToDownload]",
+					"commandToExecute": "[concat(variables('vmScripts').setupCommand, ' -i ', variables('clusterSpec').totalMemberCountExcludingLast)]"
+				}
+			},
+			"adminPassword": {
+				"value": "[parameters('adminPassword')]"
 			}
 		}
 	}
+}
 ```
 
 Notice how the **“lastnode-resources”** resource passes a slightly different “machineSettings.commandToExecute” to the linked template.  This is because for the last node, in addition to installed Redis server, it also needs to call a script to setup the Redis Cluster (which must be done only once after all the Redis servers are up and running).
