@@ -20,7 +20,7 @@
 # How to Programmatically Enable Monitoring For a Stream Analytics Job 
 This article shows demonstrates how to enable monitoring for a Stream Analytics job. The monitoring data will show up in the “Monitor” tab in the Azure Portal for your Stream Analytics job.
 
-![Monitor Jobs Tab.](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
+![Monitor Jobs Tab](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
 ## Prerequisites
 Before you begin this article, you must have the following:
