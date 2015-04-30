@@ -111,7 +111,7 @@ To complete the steps in this article, you will need the following:
 
 4. Once the state of the job has changed to **SUCCEEDED**, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter passed with the query contains the location of the output file; in this case, **wasb:///example/curl**. This address stores the output of the job in the **example/curl** directory on the default storage container used by your HDInsight cluster.
 
-    You can list and download these files by using the <a href="../xplat-cli/" target="_blank">Azure Cross-Platform Command-Line Interface (xplat-cli)</a>. For example, to list files in **example/curl**, use the following command:
+    You can list and download these files by using the [Azure CLI for Mac, Linux and Windows](xplat-cli.md). For example, to list files in **example/curl**, use the following command:
 
 		azure storage blob list <container-name> example/curl
 
@@ -135,7 +135,7 @@ To complete the steps in this article, you will need the following:
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
     * **SELECT** - Selects all rows from the new **errorLogs** table.
 
-7. Use the job ID returned to check the status of the job. Once it has succeeded, use xplat-cli as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
+7. Use the job ID returned to check the status of the job. Once it has succeeded, use Azure CLI for Mac, Linux and Windows as described previously to download and view the results. The output should contain three lines, all of which contain **[ERROR]**.
 
 
 ##<a id="summary"></a>Summary

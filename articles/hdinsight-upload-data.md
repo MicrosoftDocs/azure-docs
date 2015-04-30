@@ -87,9 +87,9 @@ If you use Azure Explorer tools, you may notice some 0 byte files. These files s
 
 ##<a id="xplatcli"></a>Upload data to Azure Blob storage by using the Azure Cross-Platform Command-Line Interface
 
-The Azure Cross-Platform Command-Line Interface (xplat-cli) is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
+The Azure CLI for Mac, Linux and Windows is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
-1. <a href="../xplat-cli" target="_blank">Install and configure the xplat-cli</a>.
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
