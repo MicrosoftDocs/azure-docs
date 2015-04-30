@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Azure Websites, Cloud Services and Virtual Machines comparison" 
-	description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." 
-	services="web-sites, virtual-machines, cloud-services" 
+	pageTitle="Azure App Service, Cloud Services and Virtual Machines comparison" 
+	description="Learn when to use Azure App Service, Cloud Services, and Virtual Machines for hosting web applications."
+	services="•app-service\web, virtual-machines, cloud-services" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="04/29/2015" 
 	ms.author="tdykstra"/>
 
-# Azure Websites, Cloud Services, and Virtual Machines comparison
+# Azure App Service, Cloud Services, and Virtual Machines comparison
 
 ## Overview
 

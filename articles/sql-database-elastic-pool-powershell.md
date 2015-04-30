@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Create and manage a SQL Database elastic pool using PowerShell" 
-   description="Create and manage an Azure SQL Database elastic pool using PowerShell" 
+   pageTitle="Create and manage a SQL Database elastic database pool using PowerShell" 
+   description="Create and manage an Azure SQL Database elastic database pool using PowerShell" 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
