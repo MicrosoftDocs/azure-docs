@@ -65,9 +65,11 @@ You can also disable the agent, if needed or you enable it using the command lin
 ### To Enable the agent using the command line or script
 - You can use either Windows PowerShell or a VB script with the following example.
 
-```$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'```
-```$healthServiceSettings.EnableOnlineMonitoring('workspacename', 'workspacekey')```
-```$healthServiceSettings.ReloadConfiguration()```
+```powershell
+$healthServiceSettings = New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg'
+$healthServiceSettings.EnableOnlineMonitoring('workspacename', 'workspacekey')
+$healthServiceSettings.ReloadConfiguration()
+```
 
 ## Configure proxy and firewall settings (optional)
 If you have proxy servers or firewalls in your environment that restrict access to the Internet, you might need to follow the following procedures to enable Operations Manager or agents to communicate to the Operational Insights service.
