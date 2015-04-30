@@ -5,19 +5,21 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders" />
 
 
 
 # View Operations Manager alerts
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
 
 Before you can use Alert Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). The intelligence pack only works when you your servers are monitored by to Operations Manager agents. See [Collect machine data](operational-insights-collect-data.md) for information about using Operations Manager with Operational Insights.
 

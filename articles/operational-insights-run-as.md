@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders" />
 
 # Operations Manager run-as accounts for Operational Insights
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
 
 Microsoft Azure Operational Insights uses the Operations Manager agent and management group to collect and send data to the Operational Insights service. Operational Insights builds upon management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain account. You need to provide credential information by configuring an Operations Manager Run As account.
 
