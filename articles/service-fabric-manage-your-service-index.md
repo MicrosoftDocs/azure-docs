@@ -27,6 +27,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 The following topics discuss the Service Fabric application model as well as how to package and deploy your applications.
 
 - [Application Model](service-fabric-application-model.md)
+- [Service Manifest Resources](service-fabric-service-manifest-resources.md)
 - [Package an Application](service-fabric-application-model.md)
 - [Deploy and Remove an Application](service-fabric-deploy-remove-applications.md)
 - [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
@@ -41,3 +42,8 @@ Read the following to learn how to upgrade an application:
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md)
 - [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) 
 - [Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md)
+
+## Scale and partition applications services
+The following articles describe scaling and partitioning:
+- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+- [Scaling Service Fabric Applications](service-fabric-concepts-scalability.md)
