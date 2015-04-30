@@ -18,7 +18,7 @@
 
 # Operational Insights intelligence packs
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Microsoft Azure Operational Insights includes the base Configuration Assessment module. However, you can get additional functionality by adding intelligence packs to it from the Overview page.
 

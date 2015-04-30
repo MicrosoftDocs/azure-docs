@@ -17,7 +17,7 @@
 
 # Supported configurations for Operational Insights
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 What do you need to use Operational Insights? Check out the following information to prepare for Operational Insights.
 

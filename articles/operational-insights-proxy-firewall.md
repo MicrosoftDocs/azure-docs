@@ -17,7 +17,7 @@
 
 # Configure proxy and firewall settings for Operational Insights
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Actions needed to configure proxy and firewall settings for Operational Insights differ when you use Operations Manager and it’s agents versus Microsoft Monitoring agents that connect directly to servers. Review the following sections for the type of agent that you use.
 

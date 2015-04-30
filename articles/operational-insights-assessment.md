@@ -17,7 +17,7 @@
 
 # Optimize your environment with Assessment intelligence packs
 
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can use Assessment intelligence packs to assess the risk and health of your server environments on a regular interval. They provide a prioritized list of recommendations specific to your deployed server infrastructure. Recommendations are categorized across six focus areas which helps your quickly understand the risk and health of your infrastructure and to help you easily take action to decrease risk and improve health.
 
