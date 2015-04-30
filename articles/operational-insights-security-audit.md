@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/02/2015"
+   ms.date="04/30/2015"
    ms.author="banders" />
 
 # Explore Operational Insights security and audit data
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
 
 The Operational Insights Security and Audit intelligence pack provides a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention.
 

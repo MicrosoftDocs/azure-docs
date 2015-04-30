@@ -13,9 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders"/>
+
 #Collect machine data
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
 
 Operational Insights uses data from servers in your on-premise or cloud infrastructure. You can collect machine data from the following sources:
 

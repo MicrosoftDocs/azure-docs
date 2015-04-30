@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2015" 
+	ms.date="04/30/2015" 
 	ms.author="banders"/>
 
-#Operational Insights feature guide#
+# Operational Insights feature guide
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
 
 This article helps you understand what problems Operational Insights can help you solve, what the Operational Insights environment consists of, and how you can create an Operational Insights account and sign in to the service.
 
-##Transform machine data##
+## Transform machine data
 
 Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data.
 
@@ -45,7 +47,7 @@ You can also:
 - **Do all of the above on the go with the mobile application**
 	- For more information about the Windows Phone application, see [Operational Insights Mobile app](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
-##Operational Insights environment##
+## Operational Insights environment
 
 The Operational Insights environment is made up of:
 
@@ -65,7 +67,7 @@ The data in each intelligence pack is analyzed, indexed, and presented in the Op
 
 ![Image of Operational Insights overview diagram](./media/operational-insights-feature-guide/environment.png)
 
-###Where is Operational Insights Available?###
+### Where is Operational Insights Available?
 Microsoft Azure Operational Insights is hosted in the United States. Although the language of Operational Insights is English, the service is available in a number of additional markets. For information, see [International Availability](http://go.microsoft.com/fwlink/?LinkId=229842).
 
 

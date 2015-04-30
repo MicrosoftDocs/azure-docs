@@ -9,15 +9,17 @@
 
 <tags 
 	ms.service="operational-insights" 
-	ms.workload="appservices" 
+	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/23/2015" 
+	ms.date="04/30/2015" 
 	ms.author="dmuscett"/>
 
-
 #Troubleshoot agents or Operations Manager data flow to Operational Insights
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/includes/operational-insights-note-moms.md)]
+
 The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
 
 ##Procedure 1: Validate if the right Management Packs get downloaded to your Operations Manager Environment
