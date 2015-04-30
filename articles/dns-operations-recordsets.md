@@ -16,7 +16,7 @@
    ms.date="04/29/2015"
    ms.author="joaoma"/>
 
-# Operations on DNS records
+# How to manage DNS records
 
 This guide will show how to manage record sets and records for your DNS zone.
 

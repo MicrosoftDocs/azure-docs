@@ -17,7 +17,7 @@
    ms.author="joaoma"/>
 
 
-# Create records for a DNS zone
+# Create DNS records
 
 After creating your DNS Zone, you need to add the DNS records for your domain.  To do this, you first need to understand DNS records and record sets.
 

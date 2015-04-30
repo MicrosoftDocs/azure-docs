@@ -16,7 +16,7 @@
    ms.date="04/29/2015"
    ms.author="joaoma"/>
 
-# Operations on DNS Zones
+# How to manage DNS Zones
 
 This guide will show how to manage your DNS zone. It will help understanding the sequence of operations to be done in order to administer your DNS zone.
 
