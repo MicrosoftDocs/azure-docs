@@ -101,6 +101,7 @@ See also the following sections on [Deploying WebJobs](#deploy) and [Testing and
 
 ##<a name="additionalsdk"></a>Additional WebJobs SDK resources
 
+* [WebJobs SDK source code](https://github.com/Azure/azure-webjobs-sdk)
 * [Triggers, Bindings, and Route parameters in AzureJobs](http://blogs.msdn.com/b/jmstall/archive/2014/01/28/trigger-bindings-and-route-parameters-in-azurejobs.aspx) 
 * Azure Storage Bindings
 	* [Blobs](http://blogs.msdn.com/b/jmstall/archive/2014/02/18/azure-storage-bindings-part-1-blobs.aspx)

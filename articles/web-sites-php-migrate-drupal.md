@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -69,7 +69,7 @@ Save the **settings.php** file. Now you are ready to deploy.
 
 The last step is to deploy your code to Web Apps using Git or FTP.
 
-If you are using FTP, get the FTP hostname and username from you web app’s blade in the [Azure Portal](https://portal.azure.com). Then, use any FTP client to upload the Drupal files to the **/site/wwwroot** folder of the remote site.
+If you are using FTP, get the FTP hostname and username from you web app’s blade in the [Azure preview portal](https://portal.azure.com). Then, use any FTP client to upload the Drupal files to the **/site/wwwroot** folder of the remote site.
 
 If you are using Git, you should have set up a Git repository in the previous steps. You must install Git on your local machine. Then, follow the instructions provided after you created the repository.
 
@@ -92,7 +92,7 @@ For more information, see the following posts and topics:
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+* For a guide to the change of the portal to the preview portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
 
   [Create a PHP-MySQL web app in Azure App Service and deploy using Git]: /develop/php/tutorials/website-w-mysql-and-git/
   

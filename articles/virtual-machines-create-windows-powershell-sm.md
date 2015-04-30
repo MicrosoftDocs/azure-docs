@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a Windows virtual machine with PowerShell (ASM version)" 
+	pageTitle="Create a Windows virtual machine with PowerShell and Azure Service Manager" 
 	description="Use Azure PowerShell to quickly create a new Windows virtual machine." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="04/29/2015" 
 	ms.author="josephd"/>
 
-# Create a Windows virtual machine with PowerShell and Service Manager
+# Create a Windows virtual machine with PowerShell and Azure Service Manager
 
 If you have already installed Azure PowerShell, you must have Azure PowerShell version 0.8.0 or later. You can check the version of Azure PowerShell that you have installed with this command at the Azure PowerShell command prompt.
 
@@ -84,7 +84,7 @@ Next, copy the following set of PowerShell commands to a text editor, such as No
 	$vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	New-AzureVM –ServiceName $csName –Location $locName -VMs $vm
 
-In your text editor, fill in the name of the virtual machine in <machine name>, the cloud service name in  <cloud service name>, and the location in <Azure location>. 
+In your text editor, fill in the name of the virtual machine, the cloud service name, and the location. 
 
 Finally, copy the command set to the clipboard and then right-click your open Azure PowerShell command prompt. This will issue the command set as a series of PowerShell commands, prompt you for the name and password of the local administrator account, and create your Azure virtual machine.
 Here is an example of what running the command set looks like.
@@ -128,11 +128,11 @@ Here is an example of what running the command set looks like.
 
 ## Additional Resources
 
+[Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-rm.md)
+
+[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-rm-template-simple.md)
+
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](install-configure-powershell.md)
 

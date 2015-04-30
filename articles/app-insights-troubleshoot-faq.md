@@ -80,28 +80,8 @@ The details depend on the type of project. For a web application:
 
 ####<a name="NuGetBuild"></a> I get "NuGet package(s) are missing" on my build server, though everything builds OK on my dev machines
 
-This error can occur in some situations if the relative paths to the package directory are different on the development and build machines.
-
-Explanation:
-
-During the installation of NuGet package Microsoft.ApplicationInsights.Web, a dependent package is installed, Microsoft.Diagnostics.Instrumentation.Extensions.Intercept. This modifies the project file, adding an import: 
-
-`<Import Project="**..\packages**\Microsoft .... Intercept.targets" />`
-
-And it also adds assembly references like:
-
-`< Reference .... >< HintPath>**..\packages**\...Intercept.dll ...`
-
-The problem is in the relative path name, which is correct in the dev machine, but can be wrong for the package cache on the build machine.
-
-Solution: 
-
-* After you have added Application Insights to your project (or installed the NuGets manually):
-* Edit the project file and globally replace "..\packages" with "$(PackageDir)".
-* Insert a default definition:
-    `<PackageDir Condition=" '$(PackageDir)' == '' ">..\packages</PackageDir>`
-* Define $(PackageDir) in an appropriate place in your build system - for example, as a parameter of the build definition.
-
+Please see [NuGet Package Restore](http://docs.nuget.org/Consume/Package-Restore)
+and [Automatic Package Restore](http://docs.nuget.org/Consume/package-restore/migrating-to-automatic-package-restore).
 
 ## No data
 

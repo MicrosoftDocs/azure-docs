@@ -22,7 +22,7 @@ Actor events provide a way to send best effort notifications from the Actor to t
 
 Following code snippets shows how to use actor events in your application.
 
-Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be data contract serializable. The methods must return void as event notifications are one-way and best effort.
+Define an interface that describes the events published by the actor. This interface must be derived from the `IActorEvents` interface. The arguments of the methods must be [data contract serializable](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). The methods must return void as event notifications are one-way and best effort.
 
 ```csharp
 public interface IGameEvents : IActorEvents

@@ -38,10 +38,10 @@ Follow these steps to create a web app and enable Git publishing.
 3. Click **Web + Mobile**, then **Web app**.
 
     ![][portal-quick-create]
-s
+
 4. Enter a value for **URL**.
 
-5. Select an App Service plan or create a new one. If you create a new plan, select the pricing tier, location, and other options.s
+5. Select an App Service plan or create a new one. If you create a new plan, select the pricing tier, location, and other options.
 
     ![][portal-quick-create2]
 
