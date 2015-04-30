@@ -268,7 +268,7 @@ The following procedure uses Azure PowerShell to submit a Sqoop job.
 
 **To import data to HDInsight by using Sqoop and Azure PowerShell**
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](powershell-install-configure.md).
 2. Set the values of the first eight variables in the following script:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -326,7 +326,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
+[sqldatabase-create-configure]: sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
