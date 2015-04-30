@@ -4,7 +4,7 @@
 	editor="tysonn"
 	manager="timlt"
 	documentationCenter=""
-	authors="squillace"
+	authors="dsk-2015"
 	services="virtual-machines"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/28/2015"
-	ms.author="rasquill;dkshir"/>
+	ms.author="dkshir;rasquill"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
 
