@@ -330,7 +330,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [xplatcli]: xplat-cli.md
 

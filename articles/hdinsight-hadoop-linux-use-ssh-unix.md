@@ -93,7 +93,7 @@ This creates a login for the specified user, by using the password or public key
 
 ###Azure Cross-Platform Command-Line Interface
 
-You can use the <a href="../xplat-cli/" target="_brad">Azure Cross-Platform Command-Line Interface</a> to create a new cluster by using the `azure hdinsight cluster create` command.
+You can use the [Azure CLI for Mac, Linux and Windows](xplat.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
 For more information on using this command, see <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Provision Hadoop Linux clusters in HDInsight using custom options</a>.
 
