@@ -16,7 +16,7 @@
 	ms.date="04/29/2015"
 	ms.author="timwieman"/>
 
-# Redis Cluster Resource Manager Template
+# Redis cluster with a Resource Manager template
 
 Redis is an open-source key-value cache and store, where keys can contain data structures such as strings, hashes, lists, sets and sorted sets. Redis supports a set of atomic operations on these data types.  With the release of Redis version 3.0, Redis Cluster is now available in the latest stable version of Redis.  Redis Cluster is a distributed implementation of Redis where data is automatically sharded across multiple Redis nodes, with the ability to continue operations when a subset of nodes are experiencing failures.
 
@@ -38,7 +38,7 @@ Before diving into more details related to the Azure Resource Manager and the te
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../includes/xplat-getting-set-up-arm.md)]
 
-## Create a Redis Cluster with a Resource Manager template
+## Deploy a Redis cluster with a Resource Manager template
 
 Follow these steps to create a Redis Cluster using a Resource Manager template from the Github template repository. Each step will include directions for both Azure PowerShell and the Azure CLI.
 
@@ -94,7 +94,7 @@ Clone the entire template repository using a git client of your choice, for exam
 
 When completed, look for the **redis-high-availability** folder in your C:\Azure\Templates directory.
 
-### Step 2: (optional) View the parameters of the template.
+### Step 2: (optional) Understand the template parameters 
 
 When you create a Redis Cluster with a template, you must specify a set of configuration parameters. To see the parameters that you need to specify for the template in a local JSON file before running the command to create the Redis Cluster, open the JSON file in a tool or text editor of your choice.
 
@@ -345,7 +345,7 @@ After your tests, if you need to remove this resource group and all of its resou
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
-### Step 3-b: Deploy a Redis Cluster with a template using the Azure CLI
+### Step 3-b: Deploy a Redis cluster with a template using the Azure CLI
 
 To deploy a Redis cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:
 
@@ -359,7 +359,7 @@ You can check the status of individual resources deployments with the following 
 
 	azure group deployment list TestRG
 
-## A tour of template structure and file organization created to deploy Redis Cluster on Ubuntu
+## A tour of the Redis cluster template structure and file organization 
 
 In order to create a robust and reusable approach to Resource Manager template design, additional thinking is required to organize the series of complex and interrelated tasks required during deployment of a complex solution like Redis Cluster. By leveraging ARM **template linking** capabilities, **resource looping**, and script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
