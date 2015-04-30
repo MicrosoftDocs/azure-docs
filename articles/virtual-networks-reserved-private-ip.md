@@ -92,7 +92,7 @@ To add a DIP to the VM created using the script above, runt he following command
 
 ## See Also
 
-[Reserved Public IP (LBIP)](../virtual-networks-reserved-public-ip)
+[Reserved Public IP](../virtual-networks-reserved-public-ip)
 
 [Instance-Level Public IP (ILIP)](../virtual-networks-instance-level-public-ip)
 

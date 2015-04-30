@@ -16,21 +16,21 @@
    ms.author="telmos" />
 
 # Instance-Level Public IP Overview
-An Instance-Level Public IP (ILIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the Load Balanced Public IP (LBIP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
+An Instance-Level Public IP (ILIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (Virtual IP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
 
-[AZURE.NOTE] In the past, an ILIP was referred to as a ILIP, and an LBIP was referred to as a VIP.
+[AZURE.NOTE] In the past, an ILIP was referred to as a PIP, which stands for Public IP. 
 
 ![Difference between ILIP and LBIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-As shown in Figure 1, the cloud service is accessed using a LBIP, while the individual VMs are normally accessed using LBIP:<port number>. By assigning an ILIP to a specific VM, that VM can be accessed directly using that ILIP.
+As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:<port number>. By assigning an ILIP to a specific VM, that VM can be accessed directly using that IP address.
 
-When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual LBIP. The same process happens for ILIP, allowing access to the VM or role instance by FQDN instead of the ILIP.  
+When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for ILIP, allowing access to the VM or role instance by FQDN instead of the ILIP.  
 
 
-[AZURE.NOTE] You can assign only one ILIP for each VM or role instance. You can use up to 5 ILIPs per subscription. At this time, ILIP is not supported for multi-NIC VMs.
+[AZURE.NOTE] You can assign only one ILIP for each VM or role instance. You can use up to 5 ILIP's per subscription. At this time, ILIP is not supported for multi-NIC VMs.
 
 ## Why should I request an ILIP?
-If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service LBIP:<port number>, request an ILIP for your VM or your role instance.
+If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:<port number>, request an ILIP for your VM or your role instance.
 - **Passive FTP** - By having an ILIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
 - **Outbound IP** - Outbound traffic originating from the VM goes out with the ILIP as the source and this uniquely identifies the VM to external entities.
 
@@ -122,7 +122,7 @@ You can also associate an ILIP to a VM by using a service configuration (CSCFG) 
 
 [Reserved Private IP (DIP)](../virtual-networks-reserved-private-ip)
 
-[Reserved Public IP (LBIP)](../virtual-networks-reserved-public-ip)
+[Reserved Public IP](../virtual-networks-reserved-public-ip)
 
 [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
