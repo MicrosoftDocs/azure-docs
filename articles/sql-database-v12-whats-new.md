@@ -58,10 +58,10 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
-## V12 enhancements
+The next sections describe the enhancements in Azure SQL Database V12.
 
 
-### Expanded database management
+## Expanded database management
 
 
 | Feature | Description |
@@ -85,7 +85,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | More DBCC commands | Several more [DBCC](http://msdn.microsoft.com/library/ms188796.aspx) commands are now available in V12. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
 
-### Programming and application support
+## Programming and application support
 
 
 | Feature | Description |
@@ -105,7 +105,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Application roles | For security and permissions control, V12 enables you to issue [GRANT](http://msdn.microsoft.com/library/ms187965.aspx) - [DENY](http://msdn.microsoft.com/library/ms188338.aspx) - [REVOKE](http://msdn.microsoft.com/library/ms187728.aspx) commands against [application roles](http://msdn.microsoft.com/library/ms190998.aspx). |
 
 
-### Better customer insights
+## Better customer insights
 
 
 | Feature | Description |
@@ -116,7 +116,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Columnstore indexes | A columnstore index improves system performance for data warehouses when an indexed column contains repetitions of the same value. The [columnstore index compresses](http://msdn.microsoft.com/library/gg492088.aspx) the duplicate values to reduce the number of physical rows that must be accessed during queries. |
 
 
-### Performance improvements at the Premium service tier
+## Performance improvements at the Premium service tier
 
 
 These performance enhancements apply to the P2 and P3 levels within the Premium service tier.
@@ -131,7 +131,7 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Log rate | V12 can log more data changes per second. |
 
 
-### V12 to become API default beginning August 1, 2015  
+## V12 to become API default beginning August 1, 2015  
 
 
 | Feature | Description |
@@ -141,7 +141,7 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |
 
 
-### Summary of enhancements
+## Summary of enhancements
 
 
 V12 elevates our SQL Database close to full feature compatibility with our SQL Server product. V12 focuses on the most popular features, and on programmability support. This makes your development more efficient and more enjoyable.  It is now even easier to move your SQL database applications to the cloud.
