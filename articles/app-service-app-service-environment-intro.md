@@ -64,7 +64,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
 [SiteToSite]: https://msdn.microsoft.com/library/azure/dn133795.aspx
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
-[HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
+[HowToConfigureanAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
