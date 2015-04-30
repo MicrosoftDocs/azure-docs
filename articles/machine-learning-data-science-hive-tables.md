@@ -6,7 +6,7 @@
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
+	manager="paulettm" 
 	editor="cgronlun"  />
 
 <tags 
@@ -22,6 +22,7 @@
 #Create and load data into Hive tables from Azure blob storage
  
 In this document, generic Hive queries that create Hive tables and load data from Azure blob storage are presented. These Hive queries are shared in the GitHub repository. [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql). 
+
 
 If you create an Azure virtual machine by following the instructions in "Set Up an Azure Virtual Machine with IPython Notebook Server", this script file has been downloaded to the `C:\Users\<user name>\Documents\Data Science Scripts` directory on the virtual machine. You need to plug in your own data schema and Azure blob storage configuration in the corresponding fields in these queries and these Hive queries should be ready for submission. 
 

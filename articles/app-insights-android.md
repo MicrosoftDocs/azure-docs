@@ -2,14 +2,14 @@
     pageTitle="Application Insights for Android apps" 
     description="Analyze usage and performance of your Android app with Application Insights." 
     services="application-insights" 
-    documentationCenter=""
+    documentationCenter="android"
     authors="alancameronwills" 
     manager="ronmart"/>
 
 <tags 
     ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
+    ms.workload="mobile" 
+    ms.tgt_pltfrm="mobile-android" 
     ms.devlang="na" 
     ms.topic="article" 
 	ms.date="04/28/2015" 

@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Manage an API app" 
-	description="Learn how to manage API apps by using the Azure portal and Visual Studio Server Explorer." 
+	description="Learn how to manage API apps by using the Azure preview portal and Visual Studio Server Explorer." 
 	services="app-service\api" 
 	documentationCenter="" 
 	authors="tdykstra" 
@@ -18,11 +18,11 @@
 
 # Manage an API app
 
-This article shows how use the Azure portal to perform API app management tasks such as configuring authentication and setting up auto-scaling. The article also shows how to do some management tasks in the Server Explorer window in Visual Studio.
+This article shows how use the Azure preview portal to perform API app management tasks such as configuring authentication and setting up auto-scaling. The article also shows how to do some management tasks in the Server Explorer window in Visual Studio.
 
 ## Understanding API app architecture
 
-In Azure App Service, an API app is a [web app](app-service-web-overview.md) that has additional features for hosting web services. In the Azure portal, there is an **API app** blade for managing the API-specific features, and an **API App host** blade for managing the underlying web app. 
+In Azure App Service, an API app is a [web app](app-service-web-overview.md) that has additional features for hosting web services. In the Azure preview portal, there is an **API app** blade for managing the API-specific features, and an **API App host** blade for managing the underlying web app. 
 
 Every resource group that contains at least one API app also includes a  *gateway*. The gateway acts as a proxy; handling authentication and other administrative functions for all API apps in a resource group. Like an API app, a gateway is a web app with extra functionality, so there are also two portal blades for managing the gateway: a **Gateway** blade for gateway-specific functions, and a **Gateway host** blade for managing the underlying web app.
 
@@ -59,7 +59,7 @@ You use the **Gateway Host** blade for all of the tasks that you would do for an
 
 ## Navigate to the API app blade 
 
-One way to get to the **API App** blade is through the Azure portal's browse feature.  In the portal home page, click **Browse > API Apps** to see all the API apps that you can manage. 
+One way to get to the **API App** blade is through the Azure preview portal's browse feature.  In the portal home page, click **Browse > API Apps** to see all the API apps that you can manage. 
 
 ![](./media/app-service-api-manage-in-portal/browse.png)
 
@@ -103,5 +103,5 @@ To get to an API app in Server Explorer, click **Azure > App Service > [the reso
 
 ## Summary
 
-This article has shown how to use the Azure portal to perform API app management tasks. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)
+This article has shown how to use the Azure preview portal to perform API app management tasks. For more information, see [What are API apps?](app-service-api-apps-why-best-platform.md)
 

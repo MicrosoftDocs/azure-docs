@@ -27,4 +27,4 @@ Type in your question and get your answers!
 
 ![Azure ML Chat Dialog](./media/machine-learning-live-chat/AzureMLChat.png)
 
-Happy machine learning!
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]

@@ -2,7 +2,7 @@
 	pageTitle="Explore .NET trace logs in Application Insights" 
 	description="Search logs generated with Trace, NLog, or Log4Net." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
