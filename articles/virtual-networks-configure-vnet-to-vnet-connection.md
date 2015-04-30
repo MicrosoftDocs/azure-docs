@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configure a VNet to VNet Connection"
-   description="VNet to VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services NOT in a virtual network."
-   services="virtual-network"
+   description="VNet to VNet is used to connect virtual networks to each other."
+   services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="04/30/2015"
    ms.author="cherylmc"/>
 
 
