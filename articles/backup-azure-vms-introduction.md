@@ -109,7 +109,7 @@ The image below shows the relationships between the various Azure Backup entitie
 4. In **Region**, select the geographic region for the vault. Note that the vault must be in the same region as the virtual machines you want to protect. If you have virtual machines in different regions create a vault in each one. There is no need to specify storage accounts to store the backup data – the backup vault and the Azure Backup service will handle this automatically.
   	![Create backup vault][create-vault]
 
-  	> [AZURE.NOTE] Virtual machine backup using the Azure Backup service is only supported in select regions. Check list of [supported regions](http://azure.microsoft.com/en-us/regions/#services). If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
+  	> [AZURE.NOTE] Virtual machine backup using the Azure Backup service is only supported in select regions. Check list of [supported regions](http://azure.microsoft.com/regions/#services). If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 
 5. Click on **Create Vault**.
 It can take a while for the backup vault to be created. Monitor the status notifications at the bottom of the portal.
@@ -142,7 +142,7 @@ Learn about the [VM Agent][vmagent-doc] and [how to install it][vmagent-howtoins
 
 + Cross-region backup and restore is not supported.
 
-+ Virtual machine backup using the Azure Backup service is only [supported in select regions][regions]. If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
++ Virtual machine backup using the Azure Backup service is only supported in select regions. Check list of [supported regions](http://azure.microsoft.com/regions/#services). If the region you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 
 + Registration of offline virtual machines will fail. The virtual machine must be running for the registration process to succeed.
 
@@ -163,9 +163,9 @@ To get started with virtual machine backup, learn how to:
 
 
 [mgmt-portal]: http://manage.windowsazure.com/
-[vm-doc]: https://azure.microsoft.com/en-us/documentation/services/virtual-machines/
-[azure-backup-pricing]: http://azure.microsoft.com/en-us/pricing/details/backup/
-[vault-storage-redundancy]: http://azure.microsoft.com/en-us/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options
+[vm-doc]: https://azure.microsoft.com/documentation/services/virtual-machines/
+[azure-backup-pricing]: http://azure.microsoft.com/pricing/details/backup/
+[vault-storage-redundancy]: http://azure.microsoft.com/documentation/articles/backup-azure-backup-create-vault/#azure-backup---storage-redundancy-options
 [vmagent-doc]: https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409
 [vmagent-howtoinstall]: http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/
 
