@@ -1,6 +1,6 @@
 <properties
-	pageTitle="DataStax on Ubuntu Resource Manager Template"
-	description="Learn to easily deploy a new DataStax cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
+	pageTitle="DataStax Enterprise on Ubuntu with a Resource Manager Template"
+	description="Learn to easily deploy a new DataStax Enterprise cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="karthmut"
@@ -16,15 +16,17 @@
 	ms.date="04/29/2015"
 	ms.author="karthmut"/>
 
-# DataStax on Ubuntu with a Resource Manager Template
+# DataStax Enterprise on Ubuntu with a Resource Manager Template
 
-DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra™ - the commercially-supported, enterprise-ready NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. It also provides capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise search.
+DataStax is a recognized industry leader in developing and delivering solutions based on Apache Cassandra™ - the commercially-supported, enterprise-ready NoSQL distributed database technology that is widely-acknowledged as agile, always-on, and predictably scalable to any size. DataStax offers both the Enterprise (DSE) and Community (DSC) flavors. In addition to what the Community edition provides, Datastax Enterprise is Production-certified Cassandra with capabilities like in-memory computing, enterprise-level security, fast and powerful integrated analytics, and enterprise management.
 
-In addition to what is already available in Azure Marketplace, now you can also easily deploy a new DataStax cluster on Ubuntu VMs using a Resource Manager template deployed through [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI](xplat-cli.md).
+>[AZURE.NOTE] Unlike the Community edition, in order to deploy DataStax Enterprise, you need to have a valid DataStax account (username and password) to pass in as parameters during template deployment. Please visit the [Datastax](http://www.datastax.com) website to setup your account if you don’t have one already.
+
+In addition to what is already available in Azure Marketplace, now you can also easily deploy a new Datastax Enterprise cluster on Ubuntu VMs using a Resource Manager template deployed through [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI](xplat-cli.md).
 
 Newly deployed clusters based on this template will have the topology described in the following diagram, although other topologies can be easily achieved by customizing the template presented in this article:
 
-![cluster-architecture](media/virtual-machines-datastax-template/cluster-architecture.png)
+![cluster-architecture](media/virtual-machines-datastax-enterprise-template/cluster-architecture.png)
 
 Using parameters, you can define the number of nodes that will be deployed in the new Apache Cassandra cluster. An instance of the DataStax Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related to that cluster.
 
@@ -38,9 +40,9 @@ Before diving into more details related to the Azure Resource Manager and the te
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../includes/xplat-getting-set-up-arm.md)]
 
-## Create a Datastax-based Cassandra cluster with a Resource Manager template
+## Create a Datastax Enterprise-based Cassandra cluster with a Resource Manager template
 
-Follow these steps to create an Apache Cassandra cluster, based on DataStax, using a Resource Manager template from the Github template repository. Each step will include directions for both Azure PowerShell and the Azure CLI.
+Follow these steps to create an Apache Cassandra cluster, based on DataStax Enterprise, using a Resource Manager template from the Github template repository. Each step will include directions for both Azure PowerShell and the Azure CLI.
 
 ### Step 1-a: Download the template files using PowerShell
 
@@ -50,31 +52,31 @@ Substitute in the folder name of your local folder and run these commands:
 
 	$folderName="C:\Azure\Templates\DataStax"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/azuredeploy.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/azuredeploy-parameters.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/azuredeploy-parameters.json"
 	$filePath = $folderName + "\azuredeploy-parameters.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/dsenode.sh"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/dsenode.sh"
 	$filePath = $folderName + "\dsenode.sh"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/ephemeral-nodes-resources.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/ephemeral-nodes-resources.json"
 	$filePath = $folderName + "\ephemeral-nodes-resources.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/metadata.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/metadata.json"
 	$filePath = $folderName + "\metadata.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/opscenter-install-resources.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/opscenter-install-resources.json"
 	$filePath = $folderName + "\opscenter-install-resources.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/opscenter-resources.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/opscenter-resources.json"
 	$filePath = $folderName + "\opscenter-resources.json"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/opscenter.sh"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/opscenter.sh"
 	$filePath = $folderName + "\opscenter.sh"
 	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-on-ubuntu/shared-resources.json"
+	$url = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/datastax-enterprise/shared-resources.json"
 	$filePath = $folderName + "shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -84,13 +86,13 @@ Clone the entire template repository using a git client of your choice, for exam
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-When completed, look for the **datastax-on-ubuntu** folder in your C:\Azure\Templates directory.
+When completed, look for the **datastax-enterprise** folder in your C:\Azure\Templates directory.
 
 ### Step 2: (optional) Understand the template parameters
 
 When you deploy non-trivial solutions like an Apache Cassandra cluster based on DataStax, you must specify a set of configuration parameters to deal with a number of settings required. By declaring these parameters in the template definition, it’s possible to specify values during deployment through an external file or in the command-line.
 
-In the "parameters" section at the top of the **azuredeploy.json** file, you’ll find the set of parameters that are required by the template to configure a DataStax cluster. Here is an example of the parameters section from this template's azuredeploy.json file:
+In the "parameters" section at the top of the **azuredeploy.json** file, you’ll find the set of parameters that are required by the template to configure a Datastax Enterprise cluster. Here is an example of the parameters section from this template's azuredeploy.json file:
 
 	"parameters": {
 		"region": {
@@ -131,13 +133,24 @@ In the "parameters" section at the top of the **azuredeploy.json** file, you’l
 			"metadata": {
 				"Description": "Administrator password used when provisioning virtual machines"
 			}
-		},
-		"opsCenterAdminPassword": {
-			"type": "securestring",
-			"metadata": {
-				"Description": "Sets the operations center admin user password"
-			}
-		},
+			"datastaxUsername": {
+				"type": "string",
+				"metadata": {
+					"description": "Your Datastax account username.  If you do not have one go to (datastax.com)"
+				}
+			},
+			"datastaxPassword": {
+				"type": "securestring",
+				"metadata": {
+					"description": "Your Datastax account password"
+				}
+			},
+			"opsCenterAdminPassword": {
+				"type": "securestring",
+				"metadata": {
+					"description": "Sets the operations center admin user password.  You will use this when you login to the operations center portal"
+				}
+			},
 		"clusterVmSize": {
 			"type": "string",
 			"defaultValue": "Standard_D3",
@@ -171,7 +184,7 @@ In the "parameters" section at the top of the **azuredeploy.json** file, you’l
 
 Each parameter has details such as data type and allowed values. This allows for validation of parameters passed during template execution in an interactive mode (e.g. PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically-built by parsing the list of required parameters and their descriptions.
 
-### Step 3-a: Deploy a DataStax cluster with a template using PowerShell
+### Step 3-a: Deploy a DataStax Enterprise cluster with a template using PowerShell
 
 Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters. This file will then be passed as a single entity to the deployment command. If you do not include a parameters file, PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.
 
@@ -191,6 +204,12 @@ Here is an example set of parameters from the **azuredeploy-parameters.json** fi
 			"value": "scoriani"
 		},
 		"adminPassword": {
+			"value": ""
+		},
+		"datastaxUsername": {
+			"value": "scorianidx"
+		},
+		"datastaxPassword": {
 			"value": ""
 		},
 		"region": {
@@ -227,12 +246,12 @@ When you run the **New-AzureResourceGroupDeployment** command, this will extract
 
 When deploying, please keep in mind that a new Azure Storage Account needs to be created so the name you provide as the storage account parameter must be unique and meet all requirements for an Azure Storage Account (lowercase letters and numbers only).
 
-During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.  
+During and after deployment, you can check all the requests that were made during provisioning, including any errors that occurred.
 
 To do that, go to the [Azure Portal](https://portal.azure.com) and do the following:
 
-- Click "Browse” on the left-hand navigation bar, scroll down and click on "Resource Groups”.  
-- After clicking on the Resource Group that you just created, it will bring up the "Resource Group” blade.  
+- Click "Browse” on the left-hand navigation bar, scroll down and click on "Resource Groups”.
+- After clicking on the Resource Group that you just created, it will bring up the "Resource Group” blade.
 - By clicking on the "Events” bar graph in the "Monitoring” part of the "Resource Group” blade, you can see the events for your deployment:
 - Clicking on individual events lets you drill further down into the details of each individual operation made on behalf of the template
 
@@ -240,9 +259,9 @@ After your tests, if you need to remove this resource group and all of its resou
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
-### Step 3-b: Deploy a DataStax cluster with a template using the Azure CLI
+### Step 3-b: Deploy a DataStax Enterprise cluster with a template using the Azure CLI
 
-To deploy a Datastax cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:
+To deploy a Datastax Enterprise cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:
 
 	azure group create dsc "West US"
 
@@ -254,15 +273,15 @@ You can check the status of individual resources deployments with the following 
 
 	azure group deployment list dsc
 
-## A tour of the Datastax template structure and file organization
+## A tour of the Datastax Enterprise template structure and file organization
 
-In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
+In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like DataStax Enterprise. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
 This diagram describes the relationships between all the files downloaded from GitHub for this deployment:
 
-![datastax-files](media/virtual-machines-datastax-template/datastax-files.png)
+![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
-This section steps you through the structure of the **azuredeploy.json** file for the Datastax cluster.
+This section steps you through the structure of the **azuredeploy.json** file for the Datastax Enterprise cluster.
 
 ### "parameters" section
 
@@ -273,7 +292,7 @@ The "parameters" section of **azuredeploy.json** specifies modifiable parameters
 The "variables" section specifies variables that can be used throughout this template. This contains a number of fields (JSON data types or fragments) that will be set to constants or calculated values at execution time. Here is the "variables" section for this Datastax template:
 
 	"variables": {
-	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-on-ubuntu/",
+	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-enterprise/",
 	"sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
 	"clusterNodesTemplateUrl": "[concat(variables('templateBaseUrl'), 'ephemeral-nodes-resources.json')]",
 	"opsCenterTemplateUrl": "[concat(variables('templateBaseUrl'), 'opscenter-resources.json')]",
@@ -372,7 +391,7 @@ In particular, the following linked templates will be used for this deployment:
 
 Let’s drill down into how this last template is used, as it is one of the most interesting from a template development perspective. One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance can set unique values for required settings. This concept is known as **Resource Looping**.
 
-When **ephemeral-nodes-resources.json** is invoked from within the main **azuredeploy.json** file, a parameter called **nodeCount** is provided as part of the parameters list. Within the child template, nodeCount (the number of nodes to deploy in the cluster) will be used inside the **"copy”** element of each resource that needs to be deployed in multiple copies, as highlighted in the fragment below. For all settings where you need unique values for different instances of the deployed resource, the **copyindex()** function can be used to obtain a numeric value indicating the current index in that particular resource loop creation. In the following fragment, you can see this concept applied to multiple VMs being created for the Datastax cluster nodes:
+When **ephemeral-nodes-resources.json** is invoked from within the main **azuredeploy.json** file, a parameter called **nodeCount** is provided as part of the parameters list. Within the child template, nodeCount (the number of nodes to deploy in the cluster) will be used inside the **"copy”** element of each resource that needs to be deployed in multiple copies, as highlighted in the fragment below. For all settings where you need unique values for different instances of the deployed resource, the **copyindex()** function can be used to obtain a numeric value indicating the current index in that particular resource loop creation. In the following fragment, you can see this concept applied to multiple VMs being created for the Datastax Enterprise cluster nodes:
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -469,7 +488,7 @@ Another interesting fragment to explore is the one related to CustomScriptForLin
 
 By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-nodes solutions, based on any technology, leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
 
-![datastax-template-structure](media/virtual-machines-datastax-template/datastax-template-structure.png)
+![datastax-enterprise-template-structure](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-template-structure.png)
 
 In essence, this approach suggests to:
 
