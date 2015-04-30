@@ -83,6 +83,11 @@ For details around controlling inbound traffic to your App Service Environment, 
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 
+
 <!-- LINKS -->
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [ControlInboundTraffic]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
