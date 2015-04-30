@@ -2,7 +2,7 @@
 	pageTitle="Troubleshoot Application Insights in a Windows devices" 
 	description="Troubleshooting guide and question and answer." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 

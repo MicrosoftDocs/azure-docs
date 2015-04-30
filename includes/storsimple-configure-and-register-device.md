@@ -16,7 +16,7 @@
    ms.author="v-sharos" />
 
 
-### To configure and register the device
+#### To configure and register the device
 
 1. Access the Windows PowerShell interface on your StorSimple device serial console. See [Use PuTTY to connect to the device serial console](#use-putty-to-connect-to-the-device-serial-console) for instructions. **Be sure to follow the procedure exactly or you will not be able to access the console.**
 
@@ -32,9 +32,11 @@
   
      Complete steps 5-12 to configure the minimum required network settings for your device. **These configuration steps need to be performed on the active controller of the device.** The serial console menu indicates the controller state in the banner message. If you are not connected to the active controller, disconnect and then connect to the active controller.
 
-5. At the command prompt, type your password. The default device password is *Password1*.
+5. At the command prompt, type your password. The default device password is **Password1**.
 
-6. Type the following command: **Invoke-HcsSetupWizard** 
+6. Type the following command:
+
+     `Invoke-HcsSetupWizard` 
 
 7. A setup wizard will appear to help you configure the network settings for the device. Supply the the following information: 
    - IP address for the DATA 0 network interface

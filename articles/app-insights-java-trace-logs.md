@@ -2,7 +2,7 @@
 	pageTitle="Explore Java trace logs in Application Insights" 
 	description="Search Log4J or Logback traces in Application Insights" 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 

@@ -1,25 +1,25 @@
 <properties 
 	pageTitle="Role-based access control in the Microsoft Azure portal" 
 	description="Describes how role based access control works and how to set it up" 
-	services="" 
-	documentationCenter="" 
+	services="azure-portal" 
+	documentationCenter="na" 
 	authors="Justinha" 
 	manager="terrylan" 
 	editor=""
 	tags="azure-portal"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.devlang="dotnet" 
+	ms.service="azure-portal" 
+	ms.devlang="na" 
 	ms.topic="article" 
-	ms.tgt_pltfrm="Ibiza" 
-	ms.workload="infrastructure-services" 
-	ms.date="04/27/2015" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="na" 
+	ms.date="02/20/2015" 
 	ms.author="justinha"/>
 
-# Role-based access control in the Microsoft Azure portal 
+# Role-based access control in the Azure Portal 
 
-<p> We’ve added support for role-based access control (RBAC) in the Microsoft Azure portal to help organizations meet their access management requirements simply and precisely. The <a href="http://go.microsoft.com/fwlink/?LinkId=511576" target="_blank">blog post</a> will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases. </p>
+We’ve added support for role-based access control (RBAC) in the Microsoft Azure portal to help organizations meet their access management requirements simply and precisely. The [blog post](http://go.microsoft.com/fwlink/?LinkId=511576) will give you a quick introduction of the feature and get you started. This topic describes the concepts in detail and covers additional use cases.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -34,7 +34,8 @@
 * [How to provide feedback](#feedback)
 * [Next steps](#next)
 
-<h2><a id="whatisrbac"></a>RBAC in Azure</h2>
+
+##<a id="whatisrbac"></a>RBAC in Azure
                                                                    
 Every Azure subscription is associated with an Azure Active Directory. Users and services that access resources of the subscription using the Microsoft Azure classic portal or Azure Resource Manager API first need to authenticate with that Azure Active Directory.
 
@@ -65,18 +66,19 @@ Access does not need to be granted to the entire subscription. Roles can also be
 
 ![][2]
 
-<h2><a id="coexist"></a>Co-existence of RBAC with subscription co-administrators</h2>
+##<a id="coexist"></a>Co-existence of RBAC with subscription co-administrators
 
 Subscription administrator and co-admins will continue to have full access to the Azure portals and management APIs. In the RBAC model, they are assigned the Owner role at the subscription level.  
 However, the new RBAC model is supported only by the Azure portal and Azure Resource Manager APIs. Users and services that are assigned RBAC roles cannot access the Azure classic portal and the Service Management APIs. Adding a user to the Owner role of a subscription in the Azure portal does not make that user a co-administrator of the subscription in the full Azure portal.
 
 If you wish to grant access to a user to an Azure Resource that isn’t yet available to be managed via the Azure portal, you should add them to the subscription co-administrators using the Azure classic portal. Service Bus and Cloud Services are examples of resources that today cannot be managed by using RBAC.
 
-<h2><a id="authmgmt"></a>Authorization for management versus data operations</h2>
+##<a id="authmgmt"></a>Authorization for management versus data operations
 
 Role-based access control is supported only for management operations of the Azure resources in Azure portal and Azure Resource Manager APIs. Not all data level operations for Azure resources can be authorized via RBAC. For instance, create/read/update/delete of Storage Accounts can be controlled via RBAC, but create/read/update/delete of blobs or tables within the Storage Account cannot yet be controlled via RBAC. Similarly, create/read/update/delete of a SQL DB can be controlled via RBAC but create/read/update/delete of SQL tables within the DB cannot yet be controlled via RBAC.
 
-<h2><a id="addremoveaccess"></a>How to add and remove access</h2>
+
+##<a id="addremoveaccess"></a>How to add and remove access
 
 Let’s take a look at an example of how a resource owner in an organization can manage access. In this scenario, you have multiple people working on a variety of test and production projects that are built using Azure resources. You want to follow best practices for granting access. Users should have access to all resources that they need, but no additional access. You want to re-use all the investments you have made in processes and tooling to use security groups that are mastered in an on-premises Active Directory. These sections cover how you set up access to these resources:
 
@@ -84,7 +86,7 @@ Let’s take a look at an example of how a resource owner in an organization can
 * [Remove access](#remove)
 * [Add or remove access for external user](#addremoveext)
 
-<h3><a id="add"></a>Add access</h3>
+### <a id="add"></a>Add access
 
 Here is a summary of the access requirements and how they are set up in Azure.
 
@@ -117,7 +119,7 @@ Role assignments can also be managed by using the Microsoft Azure module for Win
 
 For more information about using Windows PowerShell to add and remove access, see [Managing role-based access control with Windows PowerShell](role-based-access-control-powershell.md). 
 
-<h3><a id="remove"></a>Remove access</h3>
+### <a id="remove"></a>Remove access
 
 You can also remove assignments easily. Let’s say you want to remove a user named Brad Adams from the Reader role for a resource group named TestDB. Open the resource group blade, click **Reader > Brad Adams > Remove**.
 
@@ -127,7 +129,7 @@ Here is an example of how to remove Brad Adams by using the Remove-AzureRoleAssi
 
 	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
-<h3><a id="addremoveext"></a>Add or remove access for external user</h3>
+###<a id="addremoveext"></a>Add or remove access for external user
 
 The **Configure** tab of a directory includes options to control access for external users. These options can be changed only in the UI (there is no Windows PowerShell or API method) in the full Azure portal by a directory global administrator. 
 To open the **Configure** tab in the Azure portal, click **Active Directory**, and then click the name of the directory.
@@ -154,12 +156,12 @@ When you add an external user, a guest is created in the directory. Thereafter, 
 
 You can also remove a guest from any role, just as you would remove any user. Removing the guest from a role on a resource does not remove the guest from the directory. 
  
-<h2><a id="knownissues"></a>Known issues when using role-based access control</h2>
+##<a id="knownissues"></a>Known issues when using role-based access control
 
 If you encounter a problem when you use role based access control feature, see [Troubleshooting role-based access control](role-based-access-control-troubleshooting.md) for any known issues that may be related to the problem.
 
 
-<h2><a id="builtinroles"></a>Built-in roles</h2>
+##<a id="builtinroles"></a>Built-in roles
 
 Azure role-based access control comes with the following built-in roles that can be assigned to users, groups, and services. You can’t modify the definition of built-in roles. In an upcoming release of Azure RBAC, you will be able to define custom roles by composing a set of actions from a list of available actions that can be performed on Azure resources.
 
@@ -193,7 +195,7 @@ Role name  | Description
 [Website Contributor](#WebsiteContrib) | Lets you manage websites (not web plans), but not access to them.
 
 
-<h3><a id="APIMgmt"></a>API Management Service Contributor</h3>
+###<a id="APIMgmt"></a>API Management Service Contributor
 
 <table style=width:100%">
 <tr>
@@ -225,7 +227,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="AppInsights"></a>Application Insights Component Contributor</h3>
+###<a id="AppInsights"></a>Application Insights Component Contributor
 
 <table style=width:100%">
 <tr>
@@ -260,7 +262,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="BizTalk"></a>BizTalk Contributor</h3>
+###<a id="BizTalk"></a>BizTalk Contributor
 
 <table style=width:100%">
 <tr>
@@ -292,7 +294,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="ClearDB"></a>ClearDB MySQL DB Contributor</h3>
+###<a id="ClearDB"></a>ClearDB MySQL DB Contributor
 
 <table style=width:100%">
 <tr>
@@ -324,7 +326,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Contributor"></a>Contributor</h3>
+###<a id="Contributor"></a>Contributor
 
 <table style=width:100%">
 <tr>
@@ -347,7 +349,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="DataFactory"></a>Data Factory Contributor</h3>
+###<a id="DataFactory"></a>Data Factory Contributor
 
 <table style=width:100%">
 <tr>
@@ -376,7 +378,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="DocDBContrib"></a>Document DB Account Contributor</h3>
+###<a id="DocDBContrib"></a>Document DB Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -408,7 +410,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="IntelliSysContrib"></a>Intelligent Systems Account Contributor</h3>
+###<a id="IntelliSysContrib"></a>Intelligent Systems Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -440,7 +442,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="NewRelicContrib"></a>NewRelic APM Account Contributor</h3>
+###<a id="NewRelicContrib"></a>NewRelic APM Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -472,7 +474,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Owner"></a>Owner</h3>
+###<a id="Owner"></a>Owner
 
 <table style=width:100%">
 <tr>
@@ -484,7 +486,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Reader"></a>Reader</h3>
+###<a id="Reader"></a>Reader
 
 <table style=width:100%">
 <tr>
@@ -496,7 +498,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="Redis"></a>Redis Cache Contributor</h3>
+###<a id="Redis"></a>Redis Cache Contributor
 
 <table style=width:100%">
 <tr>
@@ -525,7 +527,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLDBContrib"></a>SQL DB Contributor</h3>
+###<a id="SQLDBContrib"></a>SQL DB Contributor
 
 <table style=width:100%">
 <tr>
@@ -580,7 +582,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLSecMgr"></a>SQL Security Manager</h3>
+###<a id="SQLSecMgr"></a>SQL Security Manager
 
 <table style=width:100%">
 <tr>
@@ -636,7 +638,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SQLSrvContrib"></a>SQL Server Contributor</h3>
+###<a id="SQLSrvContrib"></a>SQL Server Contributor
 
 <table style=width:100%">
 <tr>
@@ -691,7 +693,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SchedContrib"></a>Scheduler Job Collections Contributor</h3>
+###<a id="SchedContrib"></a>Scheduler Job Collections Contributor
 
 <table style=width:100%">
 <tr>
@@ -723,7 +725,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="SearchContrib"></a>Search Service Contributor</h3>
+###<a id="SearchContrib"></a>Search Service Contributor
 
 <table style=width:100%">
 <tr>
@@ -755,7 +757,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="StorageContrib"></a>Storage Account Contributor</h3>
+###<a id="StorageContrib"></a>Storage Account Contributor
 
 <table style=width:100%">
 <tr>
@@ -787,7 +789,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="UserAccessAdmin"></a>User Access Administrator</h3>
+###<a id="UserAccessAdmin"></a>User Access Administrator
 
 <table style=width:100%">
 <tr>
@@ -807,7 +809,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="VMContrib"></a>Virtual Machine Contributor</h3>
+###<a id="VMContrib"></a>Virtual Machine Contributor
 
 <table style=width:100%">
 <tr>
@@ -867,7 +869,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="VNetContrib"></a>Virtual Network Contributor</h3>
+###<a id="VNetContrib"></a>Virtual Network Contributor
 
 <table style=width:100%">
 <tr>
@@ -899,7 +901,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="WebPlanContrib"></a>Web Plan Contributor</h3>
+###<a id="WebPlanContrib"></a>Web Plan Contributor
 
 <table style=width:100%">
 <tr>
@@ -931,7 +933,7 @@ Role name  | Description
 </tr>
 </table>
 
-<h3><a id="WebsiteContrib"></a>Website Contributor</h3>
+###<a id="WebsiteContrib"></a>Website Contributor
 
 <table style=width:100%">
 <tr>
@@ -976,12 +978,12 @@ Role name  | Description
 </table>
 
 
-<h2><a id="feedback"></a>How to provide feedback</h2>
+##<a id="feedback"></a>How to provide feedback
 
 Please try Azure RBAC and send us [feedback](http://aka.ms/azurerbacfeedback). 
 
 
-<h2><a id="next"></a>Next steps</h2>
+##<a id="next"></a>Next steps
 
 Here are some additional resources to help you use role-based access control: 
 
