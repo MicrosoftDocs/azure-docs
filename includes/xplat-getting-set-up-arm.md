@@ -15,7 +15,7 @@ Before you can use the xplat-cli with Resource Manager commands and templates to
 
 > [AZURE.NOTE] If you don't already have an Azure account but you do have a subscription to MSDN subscription, you can get free Azure credits by activating your [MSDN subscriber benefits here](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) -- or you can use the free account. Either will work for Azure access.
 
-## Step 1: Verify the xplat-cli version
+### Step 1: Verify the xplat-cli version
 
 To use the xplat-cli for imperative commands and ARM templates, you need to have at least version 0.8.17. To verify your version, type `azure --version`. You should see something like:
 
@@ -24,7 +24,7 @@ To use the xplat-cli for imperative commands and ARM templates, you need to have
     
 If you need to update your version of the xplat-cli, see [xplat-cli](https://github.com/Azure/azure-xplat-cli).
 
-## Step 2: Verify you are using a work or school identity with Azure
+### Step 2: Verify you are using a work or school identity with Azure
 
 You can only use the ARM command mode if you are using an [Azure Active Directory tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) or a [Service Principal Name](https://msdn.microsoft.com/library/azure/dn132633.aspx). (These are also called *organizational ids*.)
 
@@ -43,7 +43,7 @@ To see if you have one, log in by typing `azure login` and using your work or sc
     
 If you do not see this, you must create a new tenant (or service principal) with your Microsoft account identity. (This is often the case with personal MSDN subscriptions or free trial subscriptions.) To create a work or school id from your Azure account created with a Microsoft id, see [Associate an Azure AD Directory with a new Azure Subscription](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). If you think you should have an organizational id already, you may need to talk with the person who created the account for you.
 
-## Step 3: Choose your Azure subscription
+### Step 3: Choose your Azure subscription
 
 If you have only one subscription in your Azure account, the xplat-cli associates itself with that subscription by default. If you have more than one subscription, you need to select the subscription you want to use by typing `azure account set <subscription id or name> true` where _subscription id or name_ is either the subscription id or the subscription name that you would like to work with in the current session. 
 
@@ -55,7 +55,7 @@ You should see something like the following:
     info:    Changes saved
     info:    account set command OK
     
-## Step 4: Place your xplat-cli in the ARM mode
+### Step 4: Place your xplat-cli in the ARM mode
 
 To use the Azure Resource Management (ARM) mode with the xplat-cli, type `azure config mode arm`. You should see something like the following:
 

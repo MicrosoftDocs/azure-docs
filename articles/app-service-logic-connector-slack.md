@@ -95,4 +95,4 @@ Once your API app is created, you can now use the Slack connector as an action f
 
 <!-- Links -->
 [Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[Slack API Definition]: http://slackconnector1582e22a63384574892faff988e5bb67.azurewebsites.net/PostMessage/
+[Slack API Definition]: https://msdn.microsoft.com/en-us/library/dn708020.aspx

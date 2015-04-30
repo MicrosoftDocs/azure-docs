@@ -50,23 +50,30 @@ For instructions and a link to the latest version, see [How to Install and Confi
 
 If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
-List your Azure subscriptions with this command.
-
-	Get-AzureSubscription
-
-For the subscription into which you want to deploy new resources, note the **Accounts** property. Run this command to login to Azure using an account listed in the **Accounts** property.
+Open an Azure PowerShell command prompt and log on to Azure with this command.
 
 	Add-AzureAccount
 
-Specify the email address of the account and its password in the Microsoft Azure sign-in dialog.
+If you have multiple Azure subscriptions, you can list your Azure subscriptions with this command.
 
-Set your Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+	Get-AzureSubscription
 
-	$subscr="<subscription name>"
-	Select-AzureSubscription -SubscriptionName $subscr –Current
-	Set-AzureSubscription -SubscriptionName $subscr
+You will receive the following type of information:
 
-You can get the correct subscription name from the **SubscriptionName** property of the output of the **Get-AzureSubscription** command.
+	SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
+	SubscriptionName          : Visual Studio Ultimate with MSDN
+	Environment               : AzureCloud
+	SupportedModes            : AzureServiceManagement,AzureResourceManager
+	DefaultAccount            : johndoe@contoso.com
+	Accounts                  : {johndoe@contoso.com}
+	IsDefault                 : True
+	IsCurrent                 : True
+	CurrentStorageAccountName : 
+	TenantId                  : 32fa88b4-86f1-419f-93ab-2d7ce016dba7
+
+You can set the current Azure subscription by running these commands at the Azure PowerShell command prompt. Replace everything within the quotes, including the < and > characters, with the correct name.
+
+	$subscr="<SubscriptionName from the display of Get-AzureSubscription>"
+	Select-AzureSubscription -SubscriptionName $subscr –Current	
 
 For more information about Azure subscriptions and accounts, see [How to: Connect to your subscription](powershell-install-configure.md#Connect).
-

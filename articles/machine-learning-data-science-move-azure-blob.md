@@ -30,6 +30,7 @@ The [Cloud data science sample scenarios](machine-learning-data-science-plan-sam
 
 Before uploading/downloading data, you must know your Azure storage account name and account key. For instructions on getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Manage storage accounts](storage-create-storage-account.md). This document assumes that you have an Azure storage account and the corresponding storage key(s).
 
+
 <a id="explorer"></a>
 ## Use Azure Storage Explorer 
 

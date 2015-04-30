@@ -43,25 +43,28 @@ These articles provide developers with high-level information about the use, imp
 <a name='getting-started'></a>
 ## Getting Started
 
-These tutorials are tailored for multiple platforms, and allow you to quickly started with Azure Active Directory.
+These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory.
 
-**Mobile or PC Application**:
+- **[How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)**: An Azure Active Directory tenant is a prerequisite for the tutorials below.
 
-- [iOS](active-directory-devquickstarts-ios.md)
-- [Android](active-directory-devquickstarts-android.md)
-- [.NET](active-directory-devquickstarts-native-dotnet.md)
-- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-- [Windows Store](active-directory-devquickstarts-windowsstore.md)
-- [Xamarin](active-directory-devquickstarts-xamarin.md)
-- [Cordova](active-directory-devquickstarts-cordova.md)
+- **Mobile or PC application quickstart guides**:
 
+  - [iOS](active-directory-devquickstarts-ios.md)
+  - [Android](active-directory-devquickstarts-android.md)
+  - [.NET](active-directory-devquickstarts-dotnet.md)
+  - [Windows Phone](active-directory-devquickstarts-windowsphone.md)
+  - [Windows Store](active-directory-devquickstarts-windowsstore.md)
+  - [Xamarin](active-directory-devquickstarts-xamarin.md)
+  - [Cordova](active-directory-devquickstarts-cordova.md)
 
-**Web Application or Web API**:
+&nbsp;
 
-- [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
-- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
-- [Javascript](active-directory-devquickstarts-angular.md)
-- [Node.js](active-directory-authentication-webapi-nodejs.md)
+- **Web Application or Web API quickstart guides**:
+
+  - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
+  - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
+  - [Javascript](active-directory-devquickstarts-angular.md)
+  - [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 <!-- COMMENT
 
@@ -163,7 +166,9 @@ These articles provide foundation reference for REST and authentication library 
 
 ### Graph API
 
-- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API.
+- **[Graph API Reference](https://msdn.microsoft.com/library/azure/hh974476.aspx)**: REST reference for the Azure Active Directory Graph API. [View the new interactive Graph API reference experience](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+
+- **[Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)**: The OAuth 2.0 permission scopes that are used to control the access an app has to directory data in a tenant.
 
 
 ### Authentication Protocols
@@ -179,7 +184,7 @@ These articles provide foundation reference for REST and authentication library 
 
 - **[WS-Federation 1.2 Protocol Reference](https://msdn.microsoft.com/library/azure/dn903702.aspx)**: The WS-Federation 1.2 protocol, as specified in the Web Services Federation Version 1.2 Specification.
 
-- **[Supported Security Tokens and Claims](https://msdn.microsoft.com/library/azure/dn195587.aspx)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
+- **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
 ### Social
 

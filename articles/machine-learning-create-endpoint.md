@@ -23,6 +23,8 @@ Azure Machine Learning allows you to create multiple endpoints for a published w
 
 This allows Azure Machine Learning users to create web services that they can then sell forward to their customers. Each endpoint can be individually customized with its own trained models while still being linked to the experiment which created this webservice. In addition, any updates to the experiment can be selectively applied to an endpoint without overwriting the customizations.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ## Endpoint Creation Steps
 - Open [http://manage.windowsazure.com](http://manage.windowsazure.com), click **Machine Learning** in the left column. Click the workspace which has the web service you’re interested in.
 ![Navigate to workspace](./media/machine-learning-create-endpoint/figure-1.png)
