@@ -138,14 +138,14 @@ The SDKs vary between platforms, and there are are several components that you c
 Your action  | Data classes collected (see next table)
 ---|---
 [Add Application Insights SDK to a .NET web project][greenbrown] | ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
-[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>Anon users<br/>**Auth users**
-[Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session
+[Install Status Monitor on IIS][redfield]<br/>[Add AI Extension to Azure VM or Web App][azure]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
+[Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>Anon users<br/>**Auth users**
 [Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf
-[Add SDK to Windows Store app][windows]|DeviceContext<br/>**Auth users**<br/>Crashes
+[Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
 [Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
 [Call Track*][api]|Event name<br/>**Properties**
-[Call TrackException][api]|**Exception**
+[Call TrackException][api]|**Stack dumpt with parameter data**<br/>**Properties**
 
 For [SDKs for other platforms][platforms], see their documents.
 
@@ -153,20 +153,27 @@ For [SDKs for other platforms][platforms], see their documents.
 
 Collected data class | Includes (not an exhaustive list) 
 ---|---|---
-ServerContext |Machine name, locale, OS, 
-ClientContext |Browser type, OS, locale, language, network, window resolution
-DeviceContext |Locale, language, Device model, Device language, network, network type, OEM name, screen resolution
+ServerContext |Machine name, locale, OS, device, user session, user context, operation 
+ClientContext |OS, locale, language, network, window resolution
+DeviceContext |Id, IP, Locale, Device model, network, network type, OEM name, screen resolution, Role Instance, Role Name, Device Type
+
 Perf counters | Processor time, available memory, request rate, exception rate, process private bytes, IO rate, request duration, request queue length
-Requests |HTTP request string, duration, response code
-Dependencies|Type(SQL, HTTP, ...), connection string or URI
-**Exceptions** | Type, message, call stacks, **parameter data**
-Crashes | Process id, parent process id, crash thread id, application patch, obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
+Requests |URL, duration, response code
+Dependencies|Type(SQL, HTTP, ...), connection string or URI, sync|async, duration, success, SQL statement (with Status Monitor)
+**Exceptions** | Type, message, call stacks, source file and line number, thread id **parameter data**
+Crashes | Process id, parent process id, crash thread id; application patch, id, build;  exception type, address, reason; obfuscated symbols and registers, binary start and end addresses, binary name and path, cpu type
 Session | session id
 Anon users | GUID 
 Page | URL and page name
 **Auth users** |
 Inferred |geo location from IP address, timestamp, OS, browser
 **Properties**|**Any data - determined by your code**
+Client perf | URL/page name, browser load time
+Trace | Message and severity level
+Metrics | Metric name and value
+Events | Event name and value
+
+
 
 
 

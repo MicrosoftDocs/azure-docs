@@ -106,7 +106,6 @@ Back on the overview blade, click Usage:
 * **Sessions:** A session is counted when a user has not made any requests for 30 minutes.
 * **Page views** Counts the number of calls to trackPageView(), typically called once in each web page.
 
-(User and session counts are also derived from server telemetry.)
 
 ### Click through to more detail
 
@@ -121,6 +120,17 @@ Click a chart to see other metrics that you can display, or add a new chart and 
 
 > [AZURE.NOTE] Metrics can only be displayed in some combinations. When you select a metric, the incompatible ones are disabled.
 
+### Excluding user counts from the server
+
+User and session data can come from both the browser and from the SDK in the server side of your app. The user id is a property of the TelemetryConfiguration, and is sent along with every telemetry event. An anonymous user id is generated and sent as a cookie to the user's browser. 
+
+User counts from the server can be unreliable because they may count bots and web tests, counting each test as a new user. If you are getting data from both client and server, you might want to disable the server from counting users.
+
+Edit this node in ApplicationInsights.config:
+
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.Web.TelemetryModules.WebUserTrackingTelemetryModule, Microsoft.ApplicationInsights.Extensibility.Web">
+        <SetCookie>false</SetCookie>      
+    </Add>
 
 
 ## Custom page counts

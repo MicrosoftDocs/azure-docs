@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="stephbaron" 
 	manager="jhubbard" 
-	editor="cgronlun"
-	tags="azure-portal"/>
+	editor="cgronlun"/>
 
 <tags 
 	ms.service="documentdb" 
