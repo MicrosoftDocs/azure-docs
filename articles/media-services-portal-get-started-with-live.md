@@ -73,20 +73,11 @@ To change the number of streaming reserved units, do the following:
 
 ##Create a channel
 
-In the Azure Management Portal, select the **CHANNEL** page. Then, click **NEW**. In the **Create a new Live Channel** dialog enter a name for your channel and specify **None** for the ENCODING TYPE. This type specifies that you want to create a Channel that is not enabled for live encoding with Media Services. That means the incoming stream is already encoded into an adaptive (multi-bitrate) stream. For more information about live encoding with Media Services, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md). 
+In the Azure Management Portal, select the **CHANNEL** page. Then, click **NEW**. In the **Create a new Live Channel** dialog enter a name for your channel. 
 
-![createchannel](./media/media-services-managing-channels/media-services-create-channel-none0.png)
-
-Press **Next** and specify the ingest protocol. In this case we are using Wirecast which outputs RTMP, so we will leave this protocol.
-
-![channelprotocol](./media/media-services-managing-channels/media-services-create-channel_none1.png)
-
-Press **Next** and specify ingest restrictions (if any). Also, specify to start the channel.
-
-![channel](./media/media-services-managing-channels/media-services-create-channel_none3.png)
+![createchannel](./media/media-services-managing-channels/media-services-create-channel.png)
 
 Press **OK**.   
-
 
 After a few minutes the channel gets created and started.
 

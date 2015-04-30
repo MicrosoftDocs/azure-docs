@@ -5,8 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags
 	ms.service="batch"
@@ -69,11 +68,11 @@ The following sections summarize key concepts for working with the Batch service
 ### <a id="BKMK_Account">Batch account</a>
 You need a unique **Batch account** to work with the Batch service. All requests that you make to the Batch service must be authenticated using the name of the account and its access key.
 
-You can create a Batch account and manage access keys for the account in the Azure classic portal or with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md).
+You can create a Batch account and manage access keys for the account in the Azure portal or with the [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md).
 
-To create a Batch account in the classic portal:
+To create a Batch account in the portal:
 
-1. Sign in to the [classic portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure Management Portal](https://manage.windowsazure.com).
 2. Click **New**, click **Compute**, click **Batch Service**, and then click **Quick Create**.
 ![Create a Batch account][account_portal]
 

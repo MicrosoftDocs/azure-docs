@@ -32,15 +32,15 @@ Use a sample Visual Studio 2013 C# solution to build and populate a search index
 
 3. Edit app.config to add configuration settings that target your Search service and api-key. 
 
-	> AZURE.NOTE You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type just the service name (15 characters or less), omitting the https prefix and the `search.windows.net` domain.
+	> AZURE.NOTE You can get the URL and the admin api-key from [service dashboard in the portal](search-create-service-portal.md). For the URL, type the full path of the service name, including the https prefix and the `search.windows.net` domain.
 
 4. Build the solution to ensure there are no build errors. You might need to update packages to resolve build errors. Right-click **Manage NuGet packages** on the solution to update the packages.
 
 5. Run the solution using the built-in schema and data files. This step is optional, but it confirms the solution works before you invest any time into adding your own data. The console outputs the following messages:
 
 	- Index deleted (occurs only if an index of the name "musicstoreindex" exists)
-	- Index created.
-	- Documents posted (one message for each JSON file).
+	- Index created (a new index named "musicstoreindex" is created in your service)
+	- Documents posted (one message for each JSON file)
 	- Waiting 5 seconds (allows indexing to complete before issuing the first query)
 	- Search Results for search term 'best' with no boosting (runs a simple query proving the data is loaded in the index).
 

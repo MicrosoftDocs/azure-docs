@@ -53,7 +53,8 @@ This document covers the movement of data from flat files (csv/tsv) or an on-pre
 </tr>
 </table>
 
-Please note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
+Note that this document assumes that SQL commands are executed from SQL Server Management Studio or Visual Studio Database Explorer.
+
 
 
 ## <a name="sqlonazurevm"></a>Moving your data to a SQL Server VM on an Azure

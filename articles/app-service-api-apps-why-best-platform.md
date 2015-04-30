@@ -53,20 +53,21 @@ The additional features that the API Apps platform provides make it easy to deve
 
 - **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of [creating](app-service-dotnet-create-api-app.md), [deploying](app-service-dotnet-deploy-api-app.md), [debugging](app-service-dotnet-remotely-debug-api-app), and managing API apps.
 
-The API Apps platform also creates a rich ecosystem of APIs by making it easy to share your code:  
+In the near future, the API Apps platform will also create a rich ecosystem of APIs by making it easy to share your code:  
 
-- **Public and private marketplaces** - The [Azure Marketplace](http://azure.microsoft.com/marketplace/) makes it easy to find and deploy to your Azure subscription pre-packaged API apps developed by Microsoft and third parties. And you can package and publish your own API apps that you develop, so other developers can deploy them to their Azure subscriptions. When you publish your APIs to the Azure Marketplace, you can make them visible only to other members of your organization. 
+- **Public and private marketplaces** - The [Azure Marketplace](http://azure.microsoft.com/marketplace/) will make it easy to find and deploy to your Azure subscription pre-packaged API apps developed by Microsoft and third parties. And you'll be able to package and publish your own API apps that you develop, so other developers can deploy them to their Azure subscriptions. When you publish your APIs to the Azure Marketplace, you'll be able to make them visible only to other members of your organization. 
 
-- **Automatic dependency deployment** - Whenever you deploy an API app from the Marketplace to your Azure subscription, Azure automatically deploys dependent API apps and creates required resources. An API app package specifies the API apps that it depends on and the Azure resources that it requires.
+- **Automatic dependency deployment** - Whenever you deploy an API app from the Marketplace to your Azure subscription, Azure will automatically deploy dependent API apps and create required resources. An API app package will specify the API apps that it depends on and the Azure resources that it requires.
 
-- **Automatic updates** - When you update the code for one of your API app packages that you've shared, you can push the update out to everyone who has installed and is running your API app. This works for non-breaking changes and users who have opted-in to receiving updates.
+- **Automatic updates** - When you update the code for one of your API app packages that you've shared, you'll be able to push the update out to everyone who has installed and is running your API app. This will work for non-breaking changes and users who have opted-in to receiving updates.
+
+Many of these features, such the public marketplace and automatic updates, are already available for API apps provided by Microsoft.
 
 ## API Apps concepts ##
 
 - **Gateway** - A web app that handles API administration functions and authentication for all API apps in a resource group. 
 - **Swagger** - A framework for interactive documentation and discovery of a RESTful API, used by default in API apps. For more information, see [http://swagger.io/](http://swagger.io/).
 - **Connector** - A type of API app that makes it easy to connect to SaaS platforms such as Salesforce and Office 365. For more information, see [What are connectors and BizTalk API apps](app-service-logic-what-are-biztalk-api-apps.md).
-- **API Apps Gallery** - Select from an ever-growing list of existing API app templates.
 
 ## Getting started
 

@@ -115,7 +115,7 @@ You can optionally provide up to 5 screen shots for your API app package.
 
 Sometimes an API app package requires some custom configuration during deployment. For example, the [Azure Storage Blob Connector](http://azure.microsoft.com/marketplace/partners/microsoft_com/azurestorageblobconnector/) requires the Azure Storage blob container URI. Optionally, you can also configure an access key.
 
-To support this scenario, you can add a list of Azure Resource Manager (ARM) template JSON files in this folder to customize the API app deployment. The API App platform will merge your custom ARM templates with our system template to produce a final template for deployment. All the parameters defined in your custom ARM templates (expected for **$system**) will also be prompted in the Azure portal **create** blade automatically so that users of your API app can enter the values.
+To support this scenario, you can add a list of Azure Resource Manager (ARM) template JSON files in this folder to customize the API app deployment. The API App platform will merge your custom ARM templates with our system template to produce a final template for deployment. All the parameters defined in your custom ARM templates (expected for **$system**) will also be prompted in the Azure preview portal **create** blade automatically so that users of your API app can enter the values.
 
 Below is a sample ARM template demonstrating how to ask for blob container URI and access key during API app deployment.
 
@@ -157,7 +157,7 @@ Below is a sample ARM template demonstrating how to ask for blob container URI a
       ]
     }
 
-The corresponding Azure portal create blade is shown in the screen shot below. (The screen shot shows an API app package using UIDefinition.json to improve the create blade. For details, see [metadata/UIDefinition.json](#metadata-uidefinition-json).
+The corresponding Azure preview portal create blade is shown in the screen shot below. (The screen shot shows an API app package using UIDefinition.json to improve the create blade. For details, see [metadata/UIDefinition.json](#metadata-uidefinition-json).
 
 ![Custom ARM Template Create Blade Example](./media/app-service-api-create-package/custom-arm-template-create-blade-example.png)
 
@@ -165,7 +165,7 @@ For more information, see [Azure Resource Manager Template Language](https://msd
 
 ## metadata/UIDefinition.json
 
-When you need to use custom ARM templates to specify custom configuration required for deploying an API app, the Azure portal **create** blade automatically prompts for the ARM template parameters so that users of your API app can enter the values. You can use the *UIDefinition.json* file to improve this **create** blade UI by providing default values, tooltips, validations, etc.
+When you need to use custom ARM templates to specify custom configuration required for deploying an API app, the Azure preview portal **create** blade automatically prompts for the ARM template parameters so that users of your API app can enter the values. You can use the *UIDefinition.json* file to improve this **create** blade UI by providing default values, tooltips, validations, etc.
 
 To provide a *UIDefinition.json file*, start with the following skeleton, then follow the table below to configure each parameter.
 
@@ -181,10 +181,10 @@ To provide a *UIDefinition.json file*, start with the following skeleton, then f
 
 |Name |Type|Description|
 |:---------------------|:-------|:------------|
-|defaultValue|string|Default value of the input control in the Azure portal create blade.|
-|displayName|string|Label of the input control in the Azure portal create blade. This should be short.|
+|defaultValue|string|Default value of the input control in the Azure preview portal create blade.|
+|displayName|string|Label of the input control in the Azure preview portal create blade. This should be short.|
 |description|string|Description of the input control.|
-|tooltip|string|Tooltip of the input control in the Azure portal create blade. This will show up when users click the information bubble on the right hand of the label. This can be long and comprehensive.|
+|tooltip|string|Tooltip of the input control in the Azure preview portal create blade. This will show up when users click the information bubble on the right hand of the label. This can be long and comprehensive.|
 |constraints|Object|Constraints to check against the parameter.|
 |constraints.required|bool|Whether the parameter is required or not. Default is false.|
 
@@ -215,7 +215,7 @@ As an example, here is the *UIDefinition.json* file for the [Azure Storage Blob 
       }
     }
 
-This configures the Azure portal **create** blade to show the following **Package Settings** blade.
+This configures the Azure preview portal **create** blade to show the following **Package Settings** blade.
 
 ![UIDefinition Create Blade Example](./media/app-service-api-create-package/uidefinition-create-blade-example.png)
 

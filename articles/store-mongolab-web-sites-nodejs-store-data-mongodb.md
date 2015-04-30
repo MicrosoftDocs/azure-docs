@@ -24,7 +24,6 @@
 
 # Create a Node.js web app on Azure with MongoDB using the MongoLab add-on
 
-  	<!-- The MongoLab workflow is not yet supported in the Preview Portal -->
 
 <p><em>By Eric Sedor, MongoLab</em></p>
 
