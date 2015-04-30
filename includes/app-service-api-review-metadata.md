@@ -21,3 +21,4 @@ The default contents of the *apiapp.json* file resemble the following example:
 		    }
 		}
 
+For this tutorial you can accept the defaults. The [API app metadata](#api-app-metadata) section later in the tutorial explains how to customize this metadata.

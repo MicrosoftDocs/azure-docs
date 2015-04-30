@@ -69,9 +69,9 @@ This section shows how to configure an existing Web API project as an API app. Y
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../includes/app-service-api-review-metadata.md)]
 
-[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
-
 [AZURE.INCLUDE [app-service-api-define-api-app](../includes/app-service-api-define-api-app.md)]
+
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Next steps
 
