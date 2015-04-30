@@ -26,7 +26,7 @@ These instructions use Microsoft Azure PowerShell.  Be sure to update to the lat
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
 ### Step 1
- Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](./powershell-azure-resource-manager.md).<BR><BR>
+ Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](powershell-azure-resource-manager.md).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -90,7 +90,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 
 - The ‘Start of Authority’ (SOA) record.  This is present at the root of every DNS zone.
-- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](./dns-domain-delegation.md) for more information.<BR>
+- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.<BR>
 
 To view these records, use Get-AzureDnsRecordSet:
 
@@ -140,7 +140,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](./dns-getstarted-create-record.md)<BR>
-[Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
-[Perform operations on DNS records](./dns-operations-recordsets.md)<BR>
-[Automate Azure Operations with .NET SDK](./dns-sdk.md)
+[Get started creating Record Sets and records](dns-getstarted-create-record.md)<BR>
+[Perform operations on DNS zones](dns-operations-dnszones.md)<BR>
+[Perform operations on DNS records](dns-operations-recordsets.md)<BR>
+[Automate Azure Operations with .NET SDK](dns-sdk.md)

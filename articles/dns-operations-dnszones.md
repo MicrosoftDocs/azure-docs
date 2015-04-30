@@ -100,5 +100,6 @@ The zone object can also be piped instead of being passed as a parameter:
 ## Next Steps
 
 
-[Operations on record sets and records](./dns-operations-recordsets.md)
-[Automate operations using .NET SDK](./dns-sdk.md)
+[Operations on record sets and records](dns-operations-recordsets.md)
+
+[Automate operations using .NET SDK](dns-sdk.md)

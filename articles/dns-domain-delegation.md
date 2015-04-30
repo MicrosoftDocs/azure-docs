@@ -53,9 +53,9 @@ After those steps are done, your domain will be delegated to Azure DNS for name 
 
 ##See Also 
 
-[Perform operations on DNS zones](./dns-operations-dnszones.md)
+[Perform operations on DNS zones](dns-operations-dnszones.md)
 
-[Perform operations on DNS records](./dns-operations-recordsets.md)
+[Perform operations on DNS records](dns-operations-recordsets.md)
 
 [Traffic Manager Overview](traffic-manmager-overview.md)
 

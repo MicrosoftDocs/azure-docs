@@ -245,7 +245,7 @@ Specify the record set by object:
 
 	PS C:\> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
-Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted.  The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](./dns-getstarted-create-dnszone.md) for more information.
+Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted.  The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](dns-getstarted-create-dnszone.md#Etags-and-tags) for more information.
 
 The record set object can also be piped instead of being passed as a parameter:
 
@@ -253,6 +253,6 @@ The record set object can also be piped instead of being passed as a parameter:
 
 ##See Also
 
-[Get started creating record sets and records](./dns-getstarted-create-record.md)<BR>
-[Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
-[Automate operations using .NET SDK](./dns-sdk.md)
+[Get started creating record sets and records](dns-getstarted-create-record.md)<BR>
+[Perform operations on DNS zones](dns-operations-dnszones.md)<BR>
+[Automate operations using .NET SDK](dns-sdk.md)

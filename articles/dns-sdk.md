@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/22/2015"
+   ms.date="04/29/2015"
    ms.author="joaoma"/>
 # Creating DNS zones and record sets using the .NET SDK#
 You can automate operations to create , delete or update DNS zones, recordsets and records using DNS SDK with .NET DNS Management library.
@@ -100,4 +100,4 @@ The following example shows how to get a list of DNS zones and Record sets:
     // do something like write out each record set
 	}
 ## See Also 
-[Traffic Manager Overview](./traffic-manager-overview.md)
+[Traffic Manager Overview](traffic-manager-overview.md)
