@@ -18,7 +18,7 @@
 
 # Provision HBase clusters on Azure Virtual Network
 
-Learn how to create Azure HDInsight HBase clusters on [Azure Virtual Network][1]. 
+Learn how to create Azure HDInsight HBase clusters on an [Azure Virtual Network][1]. 
 
 With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly. The benefits include:
 
@@ -26,8 +26,7 @@ With virtual network integration, HBase clusters can be deployed to the same vir
 - Improved performance by not having your traffic go over multiple gateways and load-balancers.
 - The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
-
-##<a id="prerequisites"></a>Prerequisites
+##Prerequisites
 Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
@@ -43,7 +42,9 @@ Before you begin this tutorial, you must have the following:
 		Select-AzureSubscription <AzureSubscriptionName>
 
 
-##<a id="hbaseprovision"></a>Provision an HBase cluster into a virtual network 
+##Provision an HBase cluster into a virtual network 
+
+Before provisioning an HBase cluster, you need to have an Azure virtual network.
 
 **To create a virtual network by using the Azure portal**
 
@@ -56,23 +57,31 @@ Before you begin this tutorial, you must have the following:
 	- **Maximum VM count** - Choose one of the maximum virtual machine (VM) counts. This value determines the number of possible hosts (VMs) that can be created under the address space. For walking through this tutorial, **4096 [CIDR: /20]** is sufficient. 
 	- **Location** - The location must be the same as the HBase cluster that you will create.
 	- **DNS server** - This tutorial uses an internal Domain Name System (DNS) server provided by Azure, so you can choose **None**. More advanced networking configurations with custom DNS servers are also supported. For detailed guidance, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
-4. Click **CREATE A VIRTUAL NETWORK**. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
+4. Click **CREATE A VIRTUAL NETWORK** in the lower-right corner. The new virtual network name will appear in the list. Wait until the Status column shows **Created**.
 5. In the main pane, click the virtual network you just created.
 6. Click **DASHBOARD** on the top of the page.
 7. Under **quick glance**, make a note of the virtual network ID. You will need it when provisioning the HBase cluster.
 8. Click **CONFIGURE** on the top of the page.
 9. On the bottom of the page, the default subnet name is **Subnet-1**. You can optionally rename the subnet or add a new subnet for the HBase cluster. Make a note of the subnet name; you will need it when provisioning the cluster.
 10. Verify **CIDR(ADDRESS COUNT)** for the subnet that will be used for the cluster. The address count must be greater than the number of worker nodes plus seven (gateway: 2, head node: 2, Zookeeper: 3). For example, if you need a 10-node HBase cluster, the address count for the subnet must be greater than 17 (10+7). Otherwise the deployment will fail.
-
-	> [AZURE.NOTE] It is highly recommended to designate a single subnet for one cluster. 
-
 11. Click **Save** on the bottom of the page, if you have updated the subnet values.
 
 
+**To add a DNS server virtual machine to the virtual network**
+
+A DNS server is optional, but necessary in some cases.  The procedure has been documented in [Configure DNS between two Azure virtual networks][hdinsight-hbase-replication-dns]. Basically, you will need to perform these steps:
+
+1. add an Azure virtual machine to the virtual network
+2. set a static IP address for the virtual machine
+3. add the DNS server role to the virtual machine
+4. Assign the DNS server to the virtual network 
+
+
+**To create an Azure Storage account and a Blob storage container to be used by the cluster**
 
 > [AZURE.NOTE] HDInsight clusters use Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with Hadoop in HDInsight](hdinsight-use-blob-storage.md). You will need a storage account and a Blob storage container. The storage account location must match the virtual network location and the cluster location.
 
-**To create an Azure Storage account and a Blob storage container**
+Like other HDInsight clusters, HBase cluster requires an Azure Storage account and a Blob storage container as the default file system. The storage account location must match the virtual network location and the cluster location. For more information, see [Use Azure Blob storage with Hadoop in HDInsight][hdinsight-storage]. When you provision an HBase cluster, you have the options to create new or use existing ones. This procedure shows you how to create a storage account and a Blob storage container using the Azure portal.
 
 1. Sign in to the [Azure portal][azure-portal].
 2. Click **NEW** in the lower-left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
@@ -178,7 +187,7 @@ Before you begin this tutorial, you must have the following:
 	
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-get-started.md).
 
-##<a id="connect"></a>Connect to the HBase cluster provisioned in the virtual network by using HBase Java RPC APIs
+##Connect to the HBase cluster provisioned in the virtual network by using HBase Java RPC APIs
 
 1.	Provision an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. So both the virtual machine and the HBase cluster use the same internal DNS server to resolve host names. To do so, you must choose the **From Gallery** option, and select the virtual network instead of a data center. For instructions, see [Create a Virtual Machine Running Windows Server](virtual-machines-windows-tutorial.md). A standard Windows Server 2012 image with a small VM size is sufficient.
 	
@@ -325,7 +334,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 
 > [AZURE.NOTE] For more information on name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx).
 
-##<a id="powershell"></a>Provision an HBase cluster by using Azure PowerShell
+##Provision an HBase cluster by using Azure PowerShell
 
 **To provision an HBase cluster by using Azure PowerShell**
 
@@ -364,7 +373,7 @@ To use this information in a Java application, you can follow the steps in [Use 
 
 	Get-AzureHDInsightCluster 
 
-##<a id="nextsteps"></a>Next steps
+##Next steps
 
 In this tutorial you learned how to provision an HBase cluster. To learn more, see:
 
@@ -413,6 +422,7 @@ In this tutorial you learned how to provision an HBase cluster. To learn more, s
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
+[hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-DNS.md
 
 [img-dns-surffix]: ./media/hdinsight-hbase-provision-vnet/DNSSuffix.png
 [img-primary-dns-suffix]: ./media/hdinsight-hbase-provision-vnet/PrimaryDNSSuffix.png

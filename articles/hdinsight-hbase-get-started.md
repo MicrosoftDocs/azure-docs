@@ -170,16 +170,16 @@ Now that you have provisioned an HBase cluster and created an HBase table, you c
 
 1. Enter the following HiveQL script into Hive Editor and click **SUBMIT** to create an Hive Table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
 
-    	CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
-    	STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
-    	WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
-    	TBLPROPERTIES ('hbase.table.name' = 'sampletable');
+		CREATE EXTERNAL TABLE hbasecontactstable(rowkey STRING, name STRING, homephone STRING, office STRING)
+		STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+		WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,Personal:Name,Personal:HomePhone,Office:Address')
+		TBLPROPERTIES ('hbase.table.name' = 'Contacts');
 
 	Wait until the **Status** updates to **Completed**.
 
 2. Enter the following HiveQL script into Hive Editor, and then click **SUBMIT**. The Hive query queries the data in the HBase table:
 
-     	SELECT count(*) FROM hbasesampletable;
+     	SELECT count(*) FROM hbasecontactstable;
 
 4. To retrieve the results of the Hive query, click the **View Details** link in the **Job Session** window when the job finishes running. There will be only one job output file because you put one record into the HBase table.
 

@@ -1,5 +1,5 @@
 ﻿<properties 
-   pageTitle="Steps to failback from Azure to VMware when protecting using InMage" 
+   pageTitle="Steps to failback from Azure to VMware" 
    description="This article describes how Azure Site Recovery and vContinuum tool can be used to failback a virtual machine back to VMware." 
    services="site-recovery" 
    documentationCenter="" 
@@ -13,14 +13,18 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="ruturajd@microsoft.com"/>
 
-# Steps to failback from Azure to VMware when protecting using InMage
+# Steps to failback from Azure to VMware
+
+This document will walk you through the steps you need to failback from Azure back to your VMware site. You must have already followed the steps given in the tutorial for [VMware to Azure protection and recovery](site-recovery-vmware-to-azure.md).
 
 After a successful failover to Azure, the virtual machines will be
 available in the virtual machines tab. When you decide to failback –
-below are the steps you need to
+below are the steps you need to follow.
+
+Note that when you failback from Azure back to your VMware site, the recovery can only be to a virtual machine. Even if your initial source on VMware was a physical machine, failover to Azure followed by a failback to VMware will convert it into a virtual machine.
 
 ## Overview
 

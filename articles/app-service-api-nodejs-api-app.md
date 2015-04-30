@@ -24,12 +24,12 @@ Here is a screenshot of the completed application:
 
 ![][sample-api-app-page]
 
-## Create an API app in the Azure Portal
+## Create an API app in the Azure preview Portal
 
 > [AZURE.NOTE] To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/) or [sign up for a free trial](/pricing/free-trial/).
  You can also try for free [App Service App Samples](http://tryappservice.azure.com).
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the [Azure preview portal](https://portal.azure.com).
 
 2. Click **NEW** at the bottom left of the portal.
 
@@ -192,11 +192,11 @@ In this section you create a local Git repository and push from that repository 
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 	 	* [new branch]      master -> master
 
-## View the API definition in the Azure portal
+## View the API definition in the Azure preview portal
 
-Now that you have deployed an API to your API app, you can see the API definition in the Azure portal. You'll begin by restarting the *gateway*, which enables Azure to recognize that an API app's API definition has changed. The gateway is a web app that handles API administration and authorization for the API apps in a resource group.
+Now that you have deployed an API to your API app, you can see the API definition in the Azure preview portal. You'll begin by restarting the *gateway*, which enables Azure to recognize that an API app's API definition has changed. The gateway is a web app that handles API administration and authorization for the API apps in a resource group.
 
-6. In the Azure portal, go to the **API App** blade for the API app that you created earlier, and click the **Gateway** link.
+6. In the Azure preview portal, go to the **API App** blade for the API app that you created earlier, and click the **Gateway** link.
 
 	![](./media/app-service-api-nodejs-api-app/clickgateway.png)
 
@@ -214,11 +214,15 @@ Now that you have deployed an API to your API app, you can see the API definitio
 
 ## Run the sample application in Azure
 
-In the Azure portal, go to the **API App Host** blade for your API app, and click **Browse** .
+In the Azure preview portal, go to the **API App Host** blade for your API app, and click **Browse** .
 
 ![][browse-api-app-page]
 
 The browser displays the home page that you saw earlier when you ran the sample app locally.  
+
+## API app metadata
+
+[AZURE.INCLUDE [app-service-api-direct-deploy-metadata](../includes/app-service-api-direct-deploy-metadata.md)]
 
 ## Next steps
 

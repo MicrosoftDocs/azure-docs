@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/16/2015"
+   ms.date="04/23/2015"
    ms.author="larryfr"/>
 
 # Use MapReduce in Hadoop on HDInsight
@@ -153,12 +153,12 @@ For instructions to write your own MapReduce job, see [Develop Java MapReduce pr
 
 HDInsight can run HiveQL jobs by using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
-|**Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system**|
------------------------------------ | ------------------------ | ---------------- | ------------
-<a href="../hdinsight-hadoop-use-mapreduce-ssh/" target="_blank">SSH</a> | Use the Hadoop command through **SSH** | Linux | Linux, Unix, Mac OS X, or Windows
-<a href="../hdinsight-hadoop-use-mapreduce-curl/" target="_blank">Curl</a> | Submit the job remotely by using **REST** | Linux or Windows | Linux, Unix, Mac OS X, or Windows
-<a href="../hdinsight-hadoop-use-mapreduce-powershell/" target="_blank">Windows PowerShell</a> | Submit the job remotely by using **Windows PowerShell**| Linux or Windows | Windows
-<a href="../hdinsight-hadoop-use-mapreduce-remote-desktop/" target="_blank">Remote Desktop</a> |Use the Hadoop command through **Remote Desktop** | Windows | Windows
+| **Use this**...                                                    | **...to do this**                                       | ...with this **cluster operating system** | ...from this **client operating system** |
+|:-------------------------------------------------------------------|:--------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
+| [SSH](hdinsight-hadoop-use-mapreduce-ssh.md)                       | Use the Hadoop command through **SSH**                  | Linux                                     | Linux, Unix, Mac OS X, or Windows        |
+| [Curl](hdinsight-hadoop-use-mapreduce-curl.md)                     | Submit the job remotely by using **REST**               | Linux or Windows                          | Linux, Unix, Mac OS X, or Windows        |
+| [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) | Submit the job remotely by using **Windows PowerShell** | Linux or Windows                          | Windows                                  |
+| [Remote Desktop](hdinsight-hadoop-use-mapreduce-remote-desktop)    | Use the Hadoop command through **Remote Desktop**       | Windows                                   | Windows                                  |
 
 ##<a id="nextsteps"></a>Next steps
 

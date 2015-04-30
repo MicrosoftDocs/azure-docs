@@ -1,10 +1,10 @@
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. Web apps created from the Azure Marketplace do not require installation of any software other than the browser used to connect to the [Azure Preview Portal](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 In this tutorial, you'll learn:
 
 - How to create a new web app through the Azure Marketplace.
 
-- How to deploy the web app through the Azure Portal.
+- How to deploy the web app through the Azure Preview Portal.
  
 You'll build a WordPress blog that uses a default template. The following illustration shows the completed application:
 
@@ -15,17 +15,13 @@ You'll build a WordPress blog that uses a default template. The following illust
 
 ## Create a web app in the portal
 
-1. Log in to the Azure Portal.
+1. Log in to the Azure Preview Portal.
 
-2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + mobile** and then **Azure Marketplace** at the bottom.
+2. Open the Azure Marketplace either by clicking the **Marketplace** icon, or by clicking the **New** icon on the bottom left of the dashboard, selecting **Web + Mobile** and then **Azure Marketplace** at the bottom.
 	
 	![Create New][5]
 	
-3. In the Marketplace, select **Web Apps**.
-
-   ![Web Apps][webapps]
-
-4. Search for **WordPress** and click the **WordPress** icon.
+3. Select **Web Apps**. Search for **WordPress** and click the **WordPress** icon.
 
 	![WordPress from list][7]
 	

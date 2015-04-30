@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2015"
+	ms.date="04/29/2015"
 	ms.author="garye" />
 
 
@@ -27,6 +27,8 @@ You access each input port of the module by using code similar to the following:
 
     dataset1 <- maml.mapInputPort(1)
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ##Listing all currently-installed packages
 
 The list of installed packages can change. To get the complete list, include the following lines in the [Execute R Script][execute-r-script] module to send the list to the output dataset:
@@ -34,7 +36,7 @@ The list of installed packages can change. To get the complete list, include the
     out <- data.frame(installed.packages())
     maml.mapOutputPort("out")
 
-To view the output log, run the experiment, select the [Execute R Script][execute-r-script] module, and click the **View output log** link near the bottom of the module properties pane. 
+To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**.
 
 ##Importing packages
 
@@ -498,3 +500,4 @@ To get the complete list of packages that are currently available, see the secti
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/

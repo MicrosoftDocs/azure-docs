@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="04/16/2015" 
+	ms.date="04/29/2015" 
 	ms.author="anhoh"/>
 
 #Get started with the DocumentDB .NET SDK  

@@ -28,7 +28,9 @@ If you are new to the world of API apps, here are some articles to get started.
 2. [Deploy an API App](app-service-dotnet-deploy-api-app.md) - Deploy an API app to your Azure subscription.
 3. [Debug an API App](app-service-dotnet-remotely-debug-api-app.md) - Use Visual Studio to remotely debug an API app running in Azure.
 
-In addition, you might find the [FileWatcher API App](https://code.msdn.microsoft.com/windowsazure/FileWatcher-Azure-API-App-313c5cb3) code sample to be useful.
+In addition, all of the code snippets in this topic are copied from the [FileWatcher API App code sample](http://go.microsoft.com/fwlink/?LinkId=534802). 
+
+Note that you'll need to download the following nuget package for the code in this article to build and run: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## What are API app triggers?
 
@@ -209,7 +211,7 @@ To test this poll trigger, follow these steps:
 
 ### Describe triggers in API definition
 
-After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
+After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
 
 ![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 

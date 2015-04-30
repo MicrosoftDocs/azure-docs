@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/14/2015" 
+	ms.date="04/23/2015" 
 	ms.author="heidist"/>
 
 # Typical workflow for Azure Search development
@@ -42,18 +42,17 @@ There are two pricing tiers to choose from. We recommend the shared (free) servi
 
 After you create the service, you are ready to create an index, starting with its schema definition. 
 
-The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data.
+The fastest and easiest way to create an index is through the portal. At a minimum, each document must have a unique key and at least one field that contains searchable data. To get started, see [Create an index in the portal](../search-create-index-portal/).
 
-To get started, see [Create an index in the portal](../search-create-index-portal/).
-
-####Inside an index in Azure Search
-
-An index is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Your search data is stored in the cloud as part of your Search service subscription, which enable search operations to execute quickly and consistently. For an online retail application, the search index would include all of the products or services that are searchable in your application, such as items, sizes, prices, colors, brands, and even references to images or other resource files that you want returned within search results.
-
-The index schema that you define in this step determines the structure of the documents collection, which provides the bulk of your searchable data. In search terminology, a document is the set of fields that comprise an item of interest (for example, an online retailer would have one document for each SKU). The schema should define all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
-
-In addition to defining the document structure, an index also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests. **For prototypes, we recommend that you start out simply by specifying just the fields in a document**, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).  
-
+> [AZURE.NOTE] **Inside an Azure Search Index**
+>
+> An *index* is organized, persisted data that serves as the *search corpus* for all subsequent search operations. Your search corpus is stored in the cloud as part of your Search service subscription, which enables search operations to execute quickly and consistently. In search terminology, an item in your search corpus is called a *document*, and the sum total of all documents is the *documents collection*. 
+>
+>An *index schema* defines all of the fields within a document by name, data type, and attributes that specify whether the field is searchable, filterable, facetable, and so forth. 
+>
+> Besides document structure, an index schema also specifies scoring profiles that provide criteria for boosting a search score, and configuration settings that enable auto-complete queries (suggesters) and CORS for cross-domain query requests. **For prototypes, we recommend that you start out simply by specifying just the fields in a document**, and then add other features incrementally (see Step 5 for a list of additional functionality to add later).  
+> 
+> Applied to a real-world example, consider an e-commerce application. The search index would contain all of the products or services that are searchable in your application (anything that comes back in a search results). There would be one document for each SKU. Each document would include the product name, brand, sizes, price, colors, and even references to images or other resource files that you want returned within search results.
 
 ###Step 3: Load documents
 
@@ -61,24 +60,24 @@ After saving the index in Azure Search, the next step is to populate the index w
 
 Data that you upload to an index must conform to the schema you defined in the previous step. Document data is represented as a set of key/value pairs for each field, in JSON format. If your schema specifies an ID (key) field, a name field, a number field, and a URL field (which you might do if external images are part of your search results), then all the documents you feed into the index must have values (or null) for each field.
 
-There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step is the most time consuming due to a coding requirement.
+There are several ways to load documents, but right now, all of them require an API. For most prototypes, this step might be the most time consuming due to a coding requirement. Options are described below.
 
-> [AZURE.TIP] For minimal coding and very small datasets, you can use [Fiddler](../search-fiddler) or [Chrome Postman](../search-chrome-postman) to upload documents. 
+> [AZURE.NOTE] Remember that the shared service limits you to 10,000 documents per index. Be sure to reduce your dataset so that it stays under the limits. See [Limits and constraints](https://msdn.microsoft.com/library/dn798934.aspx) for more information.
 
 ####How to load data into an index
 
-For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use [indexers](https://msdn.microsoft.com/library/dn946891.aspx) as an alternative for loading documents.
+One approach is to use an indexer. For Azure DocumentDB or SQL Server relational data sources in Azure (specifically Azure SQL Database, or SQL Server in an Azure VM), you can use [indexers](https://msdn.microsoft.com/library/dn946891.aspx) to retrieve documents from a supported data source. Code samples that use indexers for loading documents can be found in any of these Getting started tutorials: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
 
-You could also write a simple program using either the [REST API]() or the [.NET library]() that loads the documents:
+A second option is to write a simple program using either the REST API or the .NET library that loads the documents:
 
 - [Add, update, or delete documents (REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions Class](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-Modify any of the samples that include code for loading documents. Code that loads documents can be found in any of these Getting started tutorials: [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/).
+A third option that works for very small datasets is to use [Fiddler](../search-fiddler/) or [Chrome Postman](../search-chrome-postman/) to upload documents. 
 
-You can also review this code sample for an [Adventure Works C# REST API example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or this [scoring profiles C# REST API example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
+A fourth option, perhaps the easiest one, is to borrow code from either the [Adventure Works C# REST API Example](https://azuresearchadventureworksdemo.codeplex.com/) that loads documents from an embedded database (.mdf) in the solution, or [Scoring Profiles C# REST API Example](https://azuresearchscoringprofiles.codeplex.com/) that loads data from JSON data files included in the solution.
 
-> [AZURE.NOTE] Remember that the shared service limits you to 10,000 documents per index. See [Limits and constraints](https://msdn.microsoft.com/library/dn798934.aspx) for details.
+> [AZURE.TIP] You could modify and run the [scoring profiles sample](https://azuresearchscoringprofiles.codeplex.com/), replacing the data JSON files and schema.json file with data that is valid for your application.
 
 ###Step 4: Query documents
 
