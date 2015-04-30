@@ -45,5 +45,6 @@ Read the following to learn how to upgrade an application:
 
 ## Scale and partition applications services
 The following articles describe scaling and partitioning:
+
 - [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
 - [Scaling Service Fabric Applications](service-fabric-concepts-scalability.md)
