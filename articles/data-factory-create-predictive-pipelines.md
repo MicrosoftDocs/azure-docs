@@ -208,17 +208,97 @@ To use an Azure SQL Reader via an Azure Data Factory pipeline, do the following:
 
 
 #### Azure SQL Writer
-As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following list describes when the input linked service is used vs. output linked service.   
+As with Azure SQL Reader, an Azure SQL Writer can also have its properties exposed as Web service parameters. An Azure SQL Writer uses settings from either the linked service associated with the input table or the output table. The following table describes when the input linked service is used vs. output linked service.   
 
-- **If the activity input is an Azure SQL table**, the settings of Azure SQL linked service associated with the input table are passed as values for the Web service parameters. The settings of linked service associated with the output table are not used even if the output linked service is an Azure SQL linked service. Therefore, if you are using both Azure SQL Reader and Azure SQL Writer in the Machine Learning model, ensure the following: both the reader and writer share same database settings and use same parameter names (OR) writer parameters are exposed directly and values for them are specified in the webServiceParameters section of the activity JSON.         
-- **If the activity input is NOT an Azure SQL table**, the settings of Azure SQL linked service associated with the output table are used for passing values for the Web service parameters. You must use the default names generated in Azure Machine Learning Studio for this to work.
+<table>
+<tr>
+<td>Output/Input</td>
+<td><b>Input is Azure SQL</b></td>
+<td><b>Input is Azure Blob</b></td>
+</tr>
+<tr>
+<td><b>Output is Azure SQL</b></td>
+<td><p>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
+<p>If the Azure SQL Reader and Azure SQL Writer in your Azure ML model share the same Web service parameters mentioned above, you are fine. If they do not share same Web service paramers, for example, if the Azure SQL Writer uses parameters names: Database server name1, Database name1, Server user account name1, Server user account password1 (with '1' at the end), you must pass values for these OUTPUT web service parameters in the webServiceParameters section of activity JSON.</p>
+<p>
+You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON.  
+</p>
+
+</td>
+<td>
+<p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
+<p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Output blob will be used as output location.</p>
+</td>
+</tr>
+<tr>
+<td><b>Output is Azure Blob</b></td>
+<td>The Data Factory service uses the connection string information from the INPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.
+</td>
+<td>
+<p>You must pass values for any Web service parameters using the WebServiceParameters section of activity JSON.</p> 
+
+<p>Blobs will be used as input and output locations.</p>
+
+</td>
+<tr>
+
+</table>
+    
 
 > [AZURE.NOTE] Azure SQL Writer may encounter key violations if it is overwriting an identity column. You should ensure that you structure your output table to avoid this situation. 
 > 
 > You can use staging tables with a Stored Procedure Activity to merge rows, or to truncate the data before scoring. If you use this approach, set concurrency setting of the executionPolicy to 1.    
 
 ### Example of using Web service parameters
+#### Pipeline with AzureMLBatchScoringActivity with Web Service Parameters
+
+	{
+		"name": "MLWithSqlReaderSqlWriter",
+	  	"properties": {
+		    "description": "Azure ML model with sql azure reader/writer",
+		    "activities": [
+		    	{
+		    	    "name": "MLSqlReaderSqlWriterActivity",
+		    	    "type": "AzureMLBatchScoringActivity",
+		    	    "description": "test",
+		        	"inputs": [ { "name": "MLSqlInput" } ],
+		        	"outputs": [ { "name": "MLSqlOutput" } ],
+		        	"linkedServiceName": "MLSqlReaderSqlWriterScoringModel",
+		        	"policy": {
+		          		"concurrency": 1,
+			          	"executionPriorityOrder": "NewestFirst",
+			          "retry": 1,
+			          "timeout": "02:00:00"
+			        },
+			        transformation: {
+			        	webServiceParameters: {
+		            		"Database server name1": "output.database.windows.net",
+				            "Database name1": "outputDatabase",
+		            		"Server user account name1": "outputUser",
+		            		"Server user account password1": "outputPassword",
+			           		"Comma separated list of columns to be saved": "CustID, Scored Labels, Scored Probabilities",
+		    		        "Data table name": "BikeBuyerPredicted" 
+		          		}  
+		        	}
+		      	}
+	    	]
+		}
+	}
  
+In the above JSON example:
+
+- The Azure ML model uses both Azure SQL Reader and Azure SQL Writer
+- When exposed via Web service, the default names are used for the parameters
+	- For the **reader**: Database server name, Database name, Server user account name, and Server user account password.
+	- For the **writer**: Database server name1, Database name1, Server user account name1, and Server user account password1.
+	
+		Note that the reader and writer do not share parameters in this case.  
+- The Data Factory service automatically generates values for Web service parameters with the names **Database server name**, **Database name**, **Server user account name**, and **Server user account password**, which match the names of the input reader. Therefore, you do not need to explicitly pass the values for these parameters via **webServiceParameters** in the activity JSON below.  
+- The parameters for writer (the ones with '1' suffix) are not automatically filled in by the Data Factory service. Therefore, you need to specify values for these parameters in the **webServiceParameters** section of the activity JSON.  
+- **Customer ID**, **scored labels**, and **scored probabilities** are saved as comma separated columns. 
+- The **Data table name** in this example corresponds to a table in the output database.
+
+
 
 
 ## See Also
