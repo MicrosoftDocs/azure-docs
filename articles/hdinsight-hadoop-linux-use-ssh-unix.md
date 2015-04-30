@@ -91,7 +91,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 This creates a login for the specified user, by using the password or public key you provide.
 
-###Azure Cross-Platform Command-Line Interface
+###Azure Command-Line Interface for Mac, Linux and Windows
 
 You can use the [Azure CLI for Mac, Linux and Windows](xplat.md) to create a new cluster by using the `azure hdinsight cluster create` command.
 
