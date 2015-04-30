@@ -24,6 +24,7 @@ This article shows you how to upload a virtual hard disk (VHD) with an operating
 > [AZURE.NOTE] When you create a virtual machine based on an image, you can customize the operating system settings as appropriate for the applications you plan to run on the virtual machine. This configuration is saved for that virtual machine and doesn't affect the image. 
 
 ## Prerequisites##
+
 This article assumes you have the following:
 
 1. **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F): You get credits you can use to try out paid Azure services, and even after they're used up you can keep the account and use free Azure services, such as Websites. Your credit card will never be charged, unless you explicitly change your settings and ask to be charged. You also can [activate MSDN subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Your MSDN subscription gives you credits every month that you can use for paid Azure services.   
@@ -155,7 +156,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 3. Azure authenticates and saves the credential information, and then closes the window.
 
-<h3>Use the certificate method</h3> 
+### Use the certificate method 
 
 1. Open the Azure PowerShell console. 
 
@@ -173,7 +174,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-## Step 4: Upload the .vhd file ##
+## Step 4: Upload the .vhd file
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account that you created in Step 2, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 
