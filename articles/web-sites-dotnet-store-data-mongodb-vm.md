@@ -420,7 +420,7 @@ In **Solution Explorer**, open the *DAL/Dal.cs* file. Find the following line of
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure Management Portal, select **Virtual Machines**, and find **DNS Name**.
+Replace `<vm-dns-name>` with the DNS name of the virtual machine running MongoDB you created in the [Create a virtual machine and install MongoDB][] step of this tutorial.  To find the DNS name of your virtual machine, go to the Azure portal, select **Virtual Machines**, and find **DNS Name**.
 
 If the DNS name of the virtual machine is "testlinuxvm.cloudapp.net" and MongoDB is listening on the default port 27017, the connection string line of code will look like:
 
@@ -451,15 +451,14 @@ In this section you will publish your changes to Azure App Service Web Apps.
 
 You have now successfully deployed your ASP.NET application to Azure App Service Web Apps. To view the web app:
 
-1. Log into the [Azure Portal](https://portal.azure.com).
-2. Click **Browse** > **Web apps**. 
+1. Log into the Azure portal.
+2. Click **Web apps**. 
 3. Select your web app in the **Web Apps** list.
 
 For more information on developing C# applications against MongoDB, see [CSharp Language Center][MongoC#LangCenter]. 
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+ 
 
 <!-- HYPERLINKS -->
 
