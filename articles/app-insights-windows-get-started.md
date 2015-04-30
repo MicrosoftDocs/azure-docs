@@ -2,7 +2,7 @@
 	pageTitle="Application Insights for Windows Phone and Store apps" 
 	description="Analyze usage and performance of your Windows device app with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 

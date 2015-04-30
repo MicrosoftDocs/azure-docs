@@ -2,7 +2,7 @@
 	pageTitle="Get started with Application Insights in a Java web project" 
 	description="Monitor performance and usage of your Java website with Application Insights" 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -79,7 +79,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
     </dependencies>
 
 
-* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.2<\version>`
+* *Build or checksum validation errors? Try using a specific version:* `<version>0.9.3</version>`
 
 #### If you're using Gradle...
 
@@ -96,7 +96,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
       // or applicationinsights-core for bare API
     }
 
-* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.2'`
+* *Build or checksum validation errors? Try using a specific version:* `version:'0.9.3'`
 
 #### Otherwise ...
 
@@ -122,7 +122,7 @@ Manually add the SDK:
 `applicationinsights-web` gives you metrics tracking HTTP request counts and response times. 
 
 
-## 3. Add an Application Insights config file
+## 3. Add an Application Insights xml file
 
 Add ApplicationInsights.xml to the resources folder in your project. Copy into it the following XML.
 
@@ -228,6 +228,7 @@ And when viewing the properties of a request, you can see the telemetry events a
 ![](./media/app-insights-java-track-http-requests/7-instance.png)
 
 
+
 [Learn more about metrics.][metrics]
 
 #### Smart address name calculation
@@ -239,13 +240,70 @@ For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET H
 
 This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
+## 5. Performance counters
+
+Click the Servers tile, and you'll see a range of performance counters.
 
 
-## 5. Capture log traces
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### Customizing performance counter collection
+
+To disable collection of the standard set of performance counters, add the following snippet under the root node of the ApplicationInsights.xml file:
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### Collecting additional performance counters
+
+You can specify additional performance counters to be collected.
+
+#### JMX counters (exposed by the Java Virtual Machine)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` – The name displayed in the Application Insights portal.
+*	`objectName` – The JMX object name.
+*	`attribute` – The attribute of the JMX object name to fetch
+*	`type` (optional) - The type of JMX object’s attribute:
+ *	Default: a simple type such as int or long.
+ *	`composite`: the perf counter data is in the format of 'Attribute.Data'
+ *	`tabular`: the perf counter data is in the format of a table row
+
+
+
+#### Windows (64-bit) performance counters 
+
+Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName – The name displayed in the Application Insights portal
+*	categoryName – The performance counter category (performance object) with which this performance counter is associated
+*	counterName – The name of the performance counter
+*	instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
+
+Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+## 6. Capture log traces
 
 You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
 
-## 6. Send your own telemetry
+## 7. Send your own telemetry
 
 Now that you've installed the SDK, you can use the API to send your own telemetry. 
 

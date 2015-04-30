@@ -32,7 +32,7 @@ In order to get started with Reliable Actors you just need to understand 4 basic
 	* Name resolution: it is able to locate the Actor in the cluster (find in which node of the cluster it is hosted).
 	* Handle failures: it can re-try method invocations and re-determine the Actor location after, for instance, a failure that requires the actor to be relocated to another node in the cluster.
 
-## Step 1: Create a new project in Visual Studio
+## Create a new project in Visual Studio
 After you install the Service Fabric Tools for Visual Studio, you can create a new project types. The new project types are under the 'Cloud' category of the New Project Dialog
 
 
