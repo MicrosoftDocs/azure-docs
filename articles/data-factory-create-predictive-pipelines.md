@@ -189,7 +189,7 @@ You can also use [Data Factory Functions](https://msdn.microsoft.com/library/dn8
 > [AZURE.NOTE] The Web service parameters are case-sensitive, so ensure that the names you specify in the activity JSON match the ones exposed by the Web service. 
 
 ### Azure SQL Readers and Writers
-A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The Reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the Writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
+A common scenario for using Web service parameters is the use of Azure SQL Readers and Writers. The reader module is used to load data into an experiment from data management services outside Azure Machine Learning Studio and the writer module is to save data from your experiments into data management services outside Azure Machine Learning Studio.  
 For details about Azure Blob/Azure SQL reader/writer, see [Reader](https://msdn.microsoft.com/library/azure/dn905997.aspx) and [Writer](https://msdn.microsoft.com/library/azure/dn905984.aspx) topics on MSDN Library. The example in the previous section used the Azure Blob reader and Azure Blob writer. This section discusses using Azure SQL reader and Azure SQL writer.  
 
 #### Azure SQL Reader
@@ -227,7 +227,7 @@ You can pass values for any other Web service parameters using the webServicePar
 </td>
 <td>
 <p>The Data Factory service uses the connection string information from the OUTPUT linked service to generate the web service parameters with names: "Database server name", "Database name", "Server user account name", "Server user account password". Note that you must use these default names for Web service parameters in Azure ML Studio.</p>
-<p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Output blob will be used as output location.</p>
+<p>You can pass values for any other Web service parameters using the webServiceParameters section of activity JSON . <p>Input blob will be used as input location.</p>
 </td>
 </tr>
 <tr>
