@@ -1,6 +1,6 @@
 <properties
    pageTitle="Configuring a virtual network for Expressroute"
-   description="This tutorial walks you through setting up a virtual network for ExpressRoute"
+   description="This tutorial walks you through setting up a virtual network (VNet) for ExpressRoute"
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
