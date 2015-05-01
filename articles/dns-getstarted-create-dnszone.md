@@ -153,7 +153,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
+[Get started creating Record Sets and records](../dns-getstarted-create-recordset)<BR>
 [Manage  DNS zones](../dns-operations-dnszones)<BR>
 [Manage DNS records](../dns-operations-recordsets)<BR>
 [Automate Azure Operations with .NET SDK](../dns-sdk)
