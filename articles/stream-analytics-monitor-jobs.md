@@ -44,16 +44,17 @@ Before you begin this article, you must have the following:
 
     ```
     <appSettings>
-    <!--CSM Prod related values-->
-    <add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-    <add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
-    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-    <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-    <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
-    <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+    	<!--CSM Prod related values-->
+    	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
+    	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+    	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+    	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+    	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
-    ```
+	```
+
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
     ```
     Get-AzureAccount
