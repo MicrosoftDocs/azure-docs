@@ -23,7 +23,7 @@
 
 ## Overview
 
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Queue service. The samples are written using the Node.js
 API. The scenarios covered include **inserting**, **peeking**,
 **getting**, and **deleting** queue messages, as well as **creating and

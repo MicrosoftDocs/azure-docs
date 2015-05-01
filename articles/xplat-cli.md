@@ -116,7 +116,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 
-	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organization's Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
 	> 

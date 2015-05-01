@@ -2,7 +2,7 @@
 	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
 	description="Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -137,10 +137,15 @@ VB
 
 The properties and measurements parameters are optional, but are useful for [filtering and adding][diagnostic] extra information. For example, if you have an app that can run several games, you could find all the exception reports related to a particular game. You can add as many items as you like to each dictionary.
 
+## Browser exceptions
 
-## Web forms/pages
+Most browser exceptions are reported.
 
-For web forms/pages, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
+If your web page includes script files from content delivery networks or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"```,  and that the server sends [CORS headers](http://enable-cors.org/). This will allow you to get a stack trace and detail for unhandled JavaScript exceptions from these resources.
+
+## Web forms
+
+For web forms, the HTTP Module will be able to collect the exceptions when there are no redirects configured with CustomErrors.
 
 But if you have active redirects, add the following lines to the Application_Error function in Global.asax.cs. (Add a Global.asax file if you don't already have one.)
 

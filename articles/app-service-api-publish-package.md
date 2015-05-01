@@ -60,4 +60,4 @@ After a few minutes, your API app package will be synced to Azure Marketplace. Y
 
 You can also log into [Azure preview portal](https://portal.azure.com) using your Azure account (it can be a different account from the one you use to publish the API app package). Here you can verify the Azure preview portal create experience for your API app package. If there is anything you need to change, simply change it in your API app package and re-publish.
 
-For details of how to deploy an API app package in Azure preview portal, see an example of deploy DropboxConnector [here](app-service-api-connnect-your-app-to-saas-connector).
+For details of how to deploy an API app package in Azure portal, see an example of deploy DropboxConnector [here](app-service-api-connnect-your-app-to-saas-connector.md).

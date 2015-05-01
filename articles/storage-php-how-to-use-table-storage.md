@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <properties
 	pageTitle="How to use Table storage from PHP | Microsoft Azure"
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table."
@@ -5,6 +6,15 @@
 	documentationCenter="php"
 	authors="tfitzmac" 
 	manager="adinah"
+=======
+<properties 
+	pageTitle="How to use Table storage from PHP | Microsoft Azure" 
+	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
+	services="storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="adinah" 
+>>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	editor=""/>
 
 <tags

@@ -17,9 +17,11 @@
 	ms.author="zhangya;bradsev" />
 
 
-# Feature Engineering and Selection in Azure Machine Learning
+# Feature engineering and selection in Azure Machine Learning
 
 This topic explains the purposes of feature engineering and feature selection in the data enhancement process of machine learning. It illustrates what these processes involve using examples provided by Azure Machine Learning Studio.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 The training data used in machine learning can often be enhanced by the selection or extraction of features from the raw data collected. A  example of an engineered feature in the context of learning how to classify the images of handwritten characters is a bit density map constructed from the raw bit distribution data. This map can help locate the edges of the characters more efficiently than the raw distribution.
 

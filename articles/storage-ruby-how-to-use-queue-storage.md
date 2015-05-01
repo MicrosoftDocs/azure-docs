@@ -12,7 +12,7 @@
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 >>>>>>> 1027d857ab887821da78f739f970417c421f6fa5
 	editor=""/>

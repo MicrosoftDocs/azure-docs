@@ -5,11 +5,11 @@
 	manager="timlt"
 	documentationCenter=""
 	authors="squillace"
-	services=""/>
+	services="virtual-machines"/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services""
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"

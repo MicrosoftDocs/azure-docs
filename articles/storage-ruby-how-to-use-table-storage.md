@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <properties
 	pageTitle="How to use Table storage from Ruby | Microsoft Azure"
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API."
@@ -23,6 +24,15 @@
 	documentationCenter="ruby" 
 	authors="tamram" 
 	manager="wpickett" 
+=======
+<properties 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+>>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	editor=""/>
 
 <tags 

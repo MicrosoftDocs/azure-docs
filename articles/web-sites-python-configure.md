@@ -31,16 +31,16 @@ It describes additional features of Git deployment, such as virtual environment 
 
 The Azure Marketplace contains templates for the Bottle, Django and Flask frameworks. If you are developing your first web app in Azure App Service, or you are not familiar with Git, we recommend that you follow one of these tutorials, which include step-by-step instructions for building a working application from the gallery using Git deployment from Windows or Mac:
 
-- [Creating web apps with Bottle][]
-- [Creating web apps with Django][]
-- [Creating web apps with Flask][]
+- [Creating web apps with Bottle](web-sites-python-create-deploy-bottle-app.md)
+- [Creating web apps with Django](web-sites-python-create-deploy-django-app.md)
+- [Creating web apps with Flask](web-sites-python-create-deploy-flask-app.md)
 
 
-## Web app creation on Azure Portal
+## Web app creation on Azure Preview Portal
 
-This tutorial assumes an existing Azure subscription and access to the Azure Portal.
+This tutorial assumes an existing Azure subscription and access to the Azure Preview Portal.
 
-If you do not have an existing web app, you can create one from the [Azure Portal](https://portal.azure.com).  Click the NEW button in the bottom left corner, then click **Web + Mobile** > **Web app**.
+If you do not have an existing web app, you can create one from the [Azure Preview Portal](https://portal.azure.com).  Click the NEW button in the bottom left corner, then click **Web + Mobile** > **Web app**.
 
 ## Git Publishing
 
@@ -379,6 +379,5 @@ Contents of `ptvs_virtualenv_proxy.py`:
 
 
 
-[Creating web apps with Bottle]: web-sites-python-create-deploy-bottle-app.md
-[Creating web apps with Django]: web-sites-python-create-deploy-django-app.md
-[Creating web apps with Flask]: web-sites-python-create-deploy-flask-app.md
+
+

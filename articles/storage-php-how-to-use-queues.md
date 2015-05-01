@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <properties
 	pageTitle="How to use Queue storage from PHP | Microsoft Azure"
 	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP."
@@ -5,6 +6,15 @@
 	services="storage"
 	authors="tfitzmac" 
 	manager="adinah"
+=======
+<properties 
+	pageTitle="How to use Queue storage from PHP | Microsoft Azure" 
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="adinah" 
+>>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	editor=""/>
 
 <tags
