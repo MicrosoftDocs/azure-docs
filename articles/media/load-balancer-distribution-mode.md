@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure Load Balancer distribution mode"
-   description="Azure Load balancer source IP affinity"
+   pageTitle="Configure Load Balancer distribution mode | Microsoft Azure"
+   description="How to configure Azure load balancer distribution mode to support source IP affinity also known as sticky sessions "
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 

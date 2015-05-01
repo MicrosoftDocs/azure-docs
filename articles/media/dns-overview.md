@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Overview of Azure DNS" 
-   description="Overview of Azure DNS hosting services on Microsoft Azure. Features and concepts" 
+   pageTitle="Overview of Azure DNS | Microsoft Azure" 
+   description="Overview of Azure DNS hosting services on Microsoft Azure and start hosting your domain on Microsoft Azure" 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma"/>
 
 # Azure DNS Overview

@@ -12,11 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 
-# Azure Resource Manager support for Azure Load Balancer Preview
+# Overview 
+
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
 >[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
