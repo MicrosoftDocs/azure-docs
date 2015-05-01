@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Overview of Azure DNS" 
    description="Overview of Azure DNS hosting services on Microsoft Azure. Features and concepts" 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -25,14 +25,14 @@ Azure DNS is hosting service for DNS domains, providing name resolution using Mi
 DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers.  We use Anycast networking, so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 
 The service is based on Azure Resource Manager (ARM).  Your domains and records can be managed via Azure Resource Manager REST APIs, .NET SDK, PowerShell cmdlets and command line interface.  Azure DNS is currently in Preview, and is not yet supported in the Azure management portal.<BR><BR>
-Azure DNS does not currently support purchasing of domain names.  To purchase domains you should use a third-party domain name registrar, who will typically charge a small annual fee.  These domains can then be hosted in Azure DNS for management of DNS records—see [Delegate a Domain to Azure DNS](./dns-domain-delegation.md/) for details.
+Azure DNS does not currently support purchasing of domain names.  To purchase domains you should use a third-party domain name registrar, who will typically charge a small annual fee.  These domains can then be hosted in Azure DNS for management of DNS records—see [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
 
 ## Next Steps
 
-[Get started creating DNS zones](./dns-getstarted-create-dnszones.md/)<BR>
+[Get started creating DNS zones](../dns-getstarted-create-dnszones)<BR>
 
-[Automate Azure Operations with .NET SDK](./dns-sdk.md)
+[Automate Azure Operations with .NET SDK](../dns-sdk)
 
 
 

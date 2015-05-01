@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Manage DNS record sets and records on Azure DNS" 
    description="Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records." 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="Adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="dns"
    ms.devlang="en"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -16,11 +16,11 @@
    ms.date="04/29/2015"
    ms.author="joaoma"/>
 
-# Operations on DNS records
+# How to manage DNS records
 
 This guide will show how to manage record sets and records for your DNS zone.
 
-It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](./dns-getstarted-create-record.md#Understanding-record-sets-and-records)
+It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-record#Understanding-record-sets-and-records)
 
 ## Create a record set
 
@@ -245,7 +245,7 @@ Specify the record set by object:
 
 	PS C:\> Remove-AzureDnsRecordSet –RecordSet $rs [-Overwrite] [-Force]
 
-Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted.  The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](./dns-getstarted-create-dnszone.md) for more information.
+Specifying the record set using an object enables ‘etag’ checks to ensure concurrent changes are not deleted.  The optional ‘-Overwrite’ flag suppresses these checks. See [Etags and tags](../dns-getstarted-create-dnszone#Etags-and-tags) for more information.
 
 The record set object can also be piped instead of being passed as a parameter:
 
@@ -253,6 +253,6 @@ The record set object can also be piped instead of being passed as a parameter:
 
 ##See Also
 
-[Get started creating record sets and records](./dns-getstarted-create-record.md)<BR>
-[Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
-[Automate operations using .NET SDK](./dns-sdk.md)
+[Get started creating record sets and records](../dns-getstarted-create-record)<BR>
+[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
+[Automate operations using .NET SDK](../dns-sdk)
