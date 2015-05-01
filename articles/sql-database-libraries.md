@@ -50,10 +50,8 @@ The following table displays libraries that are released by Microsoft. The **Lib
 ## Third party libraries
 
 
-> [AZURE.WARNING] The following table displays libraries that are released by third parties under third party license terms. You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries. You bear the risk of using these libraries. Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users. Nothing herein implies any kind of endorsement by Microsoft.
-
-
-> [AZURE.IMPORTANT] It is up to the public community of developers to update and maintain the information that is in this "Third party libraries" section, by using the [azure-content](http://github.com/Azure/azure-content/) repository owned by **Azure** on GitHub.com. Microsoft personnel do *not* intend to maintain the information that is in this section. 
+> [AZURE.IMPORTANT] The following table displays libraries that are released by third parties under third party license terms. You are responsible for verifying and complying with the relevant third party licenses in order to use these libraries. You bear the risk of using these libraries. Microsoft makes no warranties, express or implied, with respect to the information provided here and has merely provided the information as a matter of convenience to the users. Nothing herein implies any kind of endorsement by Microsoft.
+<br/><br/>It is up to the public community of developers to update and maintain the information that is in this "Third party libraries" section, by using the [azure-content](http://github.com/Azure/azure-content/) repository owned by **Azure** on GitHub.com. Microsoft encourages developers to update this section. Microsoft personnel do *not* intend to maintain the information that is in this section, partly because other people are more expert with each particular third party library than we are.  Thank you.
 
 
 The following table displays libraries that are released by third parties such as other companies or by the community. Libraries released by Microsoft are restricted to the earlier section in this topic.
