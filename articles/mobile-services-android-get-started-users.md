@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/03/2015" 
+	ms.date="04/30/2015" 
 	ms.author="ricksal"/>
 
 # Add authentication to your Mobile Services app
@@ -34,15 +34,15 @@
 This tutorial walks you through the basic steps to enable authentication in your app.
 
 
-##Prerequisites
+## Prerequisites
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
-<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
+## Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
+## Restrict permissions to authenticated users
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -54,21 +54,21 @@ This tutorial walks you through the basic steps to enable authentication in your
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a>Add authentication to the app</h2>
+## Add authentication to the app
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Cache authentication tokens on the client
+## Cache authentication tokens on the client
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
-## <a name="refresh-tokens"></a>Refresh the token cache
+## Refresh the token cache
 
 [AZURE.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
 
 
-## <a name="next-steps"></a>Next steps
+## Next steps
 
 In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
 
