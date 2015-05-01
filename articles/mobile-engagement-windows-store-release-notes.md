@@ -18,11 +18,7 @@
 
 #Windows Universal Apps SDK Release Notes
 
-##3.0.1 (04/29/2015)
-
--   Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.
-
-##3.0.0 (04/03/2015)
+##3.0.0 (04/01/2015)
 
 -   Introducing the Mobile Engagement SDK for Universal App (Windows and Windows Phone WinRT).
 -   Default notification icon updated.
