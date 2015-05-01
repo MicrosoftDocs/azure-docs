@@ -17,6 +17,8 @@
 	ms.author="banders"/>
 # Connect computers directly to Operational Insights 
 
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+
 You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board. 
 
 
