@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="seanmck"/>
 
 # Set up your Service Fabric development environment
- This article covers everything you need to start building Service Fabric apps, including installing the runtime, SDK, and tools and setting up a local cluster.
+ This article covers everything you need to start building [Service Fabric][1] apps, including installing the runtime, SDK, and tools and setting up a local cluster.
 
 ## Prerequisites
-The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which you can find [here](http://go.microsoft.com/fwlink/?LinkId=517106).
+The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which you can find [here][2].
 
-Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx) with Visual Studio pre-installed using an image from the VM Gallery.
+Alternatively, you can [set up an Azure virtual machine][3] with Visual Studio pre-installed using an image from the VM Gallery.
 
 ## Install the runtime, SDK, and tools
-Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
+Installation of the Service Fabric components is done by the Web Platform Installer. Follow these instructions to install:
 
-1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
+1. Click [here][4] to download the SDK using the Web Platform Installer.
 
 2. Click Install to begin the install process.
 
@@ -76,3 +76,8 @@ Now that your development environment is set up, you can start building and runn
 - [Get started with the Reliable Actors API](service-fabric-reliable-actors-get-started.md)
 - [Check out the Service Fabric samples on GitHub](https://github.com/azure/servicefabric-samples)
 - [Visualize your cluster using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+
+[1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric campaign page"
+[2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
+[3]: http://blogs.msdn.com/b/visualstudioalm/archive/2014/06/04/visual-studio-14-ctp-now-available-in-the-virtual-machine-azure-gallery.aspx "Azure VM"
+[4]:http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI link"
