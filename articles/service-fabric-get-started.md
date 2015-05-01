@@ -47,9 +47,9 @@ Service Fabric uses Windows PowerShell scripts for creating a local development 
 ## Install and start a local cluster
 A local cluster represents the multi-machine topology that you will eventually use in production on a single development machine. To setup the local cluster, follow these steps:
 
-1. Launch a new PowerShell window as an adminstator.
+1. Launch a new PowerShell window as an administator.
 
-2. Navigate to the cluster setup directory with "cd $env:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup"
+2. Navigate to the cluster setup directory with cd "$env:ProgramFiles\Microsoft SDKs\Service Fabric\ClusterSetup"
 
 3. Run ./DevClusterSetup.ps1
 
