@@ -167,5 +167,5 @@ Pretend there is a paragraph here, dude.
 
 [Virtual Network Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/jj156206.aspx)
 
-[Blog Post - Multiple VM NICs and VNet Appliances in Azure](http://azure.microsoft.com/blog/2014/10/30/multiple-vm-nics-and-network-virtual-appliances-in-azure/)
+[Blog Post - Multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
