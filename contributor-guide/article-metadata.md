@@ -20,7 +20,8 @@ The properties section uses this syntax:
        documentationCenter="dev-center-name" 
        authors="GitHub-alias-of-only-one-author" 
        manager="manager-alias" 
-       editor=""/>
+       editor=""
+       tags=""/>
 
 The tags section uses this syntax:
 
@@ -109,7 +110,9 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**manager**: Required if you are a Microsoft contributor. List the alias of the content publishing manager for the technology area. If you are a community contributor, include the attribute but leave it empty so we can fill it out.
 
-![](./media/article-metadata/checkmark-small.png)**editor**: not required.
+![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
+
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the following approved values: mysql, billing, architecture. This value does not support free-form tags or hashtags.
 
 ## Attributes and values for the tags section
 
