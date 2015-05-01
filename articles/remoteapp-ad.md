@@ -7,23 +7,14 @@
     authors="lizap"
     manager="mbaldwin" />
 
-<<<<<<< HEAD
+
 <tags
     ms.service="remoteapp"
-    ms.workload="tbd"
+    ms.workload="compute"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2015" 
-=======
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/28/2015" 
->>>>>>> 1027d857ab887821da78f739f970417c421f6fa5
+    ms.date="04/28/2015"
     ms.author="elizapo" />
 
 
@@ -111,7 +102,7 @@ You can also configure [Multi-Factor Authentication (MFA)](http://technet.micros
 
 If you are having trouble configuring directory synchronization, check the following:
 
-- You are using the latest version of Azure Directory Sync tool 
+- You are using the latest version of Azure Directory Sync tool
 -	In the management portal, under **Active Directory->Default Directory->Domains**, you already added your custom domain (e.g mydomain.com) and made it the primary one.
 -	Under **Active Directory->Default Directory->Users**, you add a new user under that domain (e.g. myAzureSyncUser@mydomain.com).
 -	On your domain in Active Directory, you added a new domain user and made him a member of Enterprise Admins  (e.g. myDomainSyncUser@mydomain.com).
