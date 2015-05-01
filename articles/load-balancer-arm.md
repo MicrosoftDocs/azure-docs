@@ -54,11 +54,11 @@ Templates using Azure Load Balancer can be found in a [GitHub repository](https:
 
 Examples of templates:
 
-- [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544798)
+- [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544799)
 
-- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](../templates/201-2-vms-internal-load-balancer)
+- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](http://go.microsoft.com/fwlink/?LinkId=544800)
 
-- [2 VMs in a Load Balancer and configure NAT rules on the LB](../templates/201-2-vms-loadbalancer-natrules)
+- [2 VMs in a Load Balancer and configure NAT rules on the LB](http://go.microsoft.com/fwlink/?LinkId=544801)
 
 
 ## Setting up Azure Load Balancer with a PowerShell or CLI
