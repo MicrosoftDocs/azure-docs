@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="04/30/2015" 
 	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing app
@@ -26,58 +26,48 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 
 > [AZURE.IMPORTANT] This tutorial requires Visual Studio 2013.
 
-This tutorial walks you through these basic steps:
 
 
-1. [Create a new mobile service]
-2. [Download the service locally]
-3. [Test the mobile service]
-4. [Publish the mobile service to Azure]
-5. [Download the GetStartedWithData project]
-4. [Update the app to use the mobile service for data access]
-5. [Test the app against the published mobile service]
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
-
-
-<h2><a name="create-service"></a>Create a new mobile service</h2>
+## Create a new mobile service
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
+## Download the service to your local computer
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>Test the mobile service</h2>
+## Test the mobile service
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
+## Publish the mobile service to Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
+## Download the GetStartedWithData project
 
-###Get the sample code
+### Get the sample code
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code-EC.md)]
 
-###Verify Android SDK Version
+### Verify Android SDK Version
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-###Inspect and run the sample code
+### Inspect and run the sample code
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code-EC.md)]
 
-<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
+## Update t</h2>
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
-<h2><a name="test-app"></a>Test the app against the published mobile service</h2>
+## Test the app against the published mobile service
 
 
 Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
@@ -107,7 +97,7 @@ This concludes the **Get started with data** tutorial for Android.
 
 
 
-## <a name="next-steps"> </a>Next steps
+## Next steps
 
 This tutorial demonstrated the basics of enabling an Android app to work with data in Mobile Services. 
 
