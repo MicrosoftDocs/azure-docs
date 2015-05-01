@@ -34,39 +34,41 @@ Before you begin this article, you must have the following:
 1.	Create a Visual Studio C# .Net console application.
 2.	In the Package Manager Console, run the following commands to install the NuGet packages. The first one is the Azure Stream Analytics Management .NET SDK. The second one is the Azure Insights SDK which will be used to enable monitoring. The last one is the Azure Active Directory client that will be used for authentication.
 
-	`Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre`
-	`Install-Package Microsoft.Azure.Insights -Pre`
-	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
+    ```
+    Install-Package Microsoft.Azure.Management.StreamAnalytics –Pre
+    Install-Package Microsoft.Azure.Insights -Pre
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+    ```
+
 3.	Add the following appSettings section to the App.config file.
 
-
-```
-<appSettings>
-	<!--CSM Prod related values-->
-	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
-	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
-	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
-	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
-</appSettings>```
-
+    ```
+    <appSettings>
+    <!--CSM Prod related values-->
+    <add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
+    <add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+    <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+    <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+    <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+    </appSettings>
+    ```
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
-
-```Get-AzureAccount```
-
+    ```
+    Get-AzureAccount
+    ```
 4.	Add the following using statements to the source file (Program.cs) in the project.
 
-	>     using System;
-	>     using System.Configuration;
-	>     using System.Threading;
-	>     using Microsoft.Azure;
-	>     using Microsoft.Azure.Management.Insights;
-	>     using Microsoft.Azure.Management.Insights.Models;
-	>     using Microsoft.Azure.Management.StreamAnalytics;
-	>     using Microsoft.Azure.Management.StreamAnalytics.Models;
-	>     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+	     using System;
+	     using System.Configuration;
+	     using System.Threading;
+	     using Microsoft.Azure;
+	     using Microsoft.Azure.Management.Insights;
+	     using Microsoft.Azure.Management.Insights.Models;
+	     using Microsoft.Azure.Management.StreamAnalytics;
+	     using Microsoft.Azure.Management.StreamAnalytics.Models;
+	     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 5.	Add an authentication helper method.
 
