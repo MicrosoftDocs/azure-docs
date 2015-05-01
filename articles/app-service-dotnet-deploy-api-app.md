@@ -20,11 +20,11 @@
 
 ## Overview
 
-In this tutorial, you'll deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). You use Visual Studio's deployment features to create the API app resource in [Azure App Service](app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
+In this tutorial, you'll use Visual Studio to deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). As API apps are built on top of Web apps, all [Web app deployment options](./web-sites-deploy) are supported. You can learn about managing API apps in the topic, [Manage an API app](./app-service-api-manage-in-portal).  
 
-## Deploy the API app 
+## Deploy the API app from Visual Studio
 
-In this section, you'll see the steps required to deploy an API app to an Azure subscription. 
+In this section, you'll see how Visual Studio's deployment features can be used to create the API app resource in [Azure App Service](app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
 
 1. In **Solution Explorer**, right-click the project (not the solution) and click **Publish...**. 
 
@@ -69,7 +69,7 @@ The **Azure App Service Activity** window shows the deployment progress.
 
 In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app. With each deployment, the portal will reflect the changes you're making to your API app. 
 
-1. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
+1. In your browser, navigate to the [Azure portal](https://portal.azure.com). 
 
 2. Click the **Browse** button on the sidebar and select **API Apps**.
 
