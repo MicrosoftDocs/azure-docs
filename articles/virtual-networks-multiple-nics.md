@@ -19,7 +19,7 @@
 
 The Multi-NIC feature lets you create and manage multiple virtual network interface cards (NICs) on your Azure virtual machines (VMs). Multi-NIC is a requirement for many network virtual appliances, such as application delivery and WAN optimization solutions. Multi-NIC also provides more network traffic management functionality, including isolation of traffic between a frontend NIC and backend NIC(s), or separation of data plane traffic from management plane traffic. 
 
-![Multi-NIC for VM](./media/create-a-vm-with-multiple-nics/IC757773.png)
+![Multi-NIC for VM](./media/virtual-networks-multiple-nics/IC757773.png)
 
 The figure above shows a VM with three NICs, each connected to a different subnet.
 
@@ -90,7 +90,7 @@ If a subnet is associated with an NSG, and a NIC within that subnet is individua
 - **Incoming traffic **whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules. 
 - **Outgoing traffic** whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules. 
 
-![NSG flow](./media/create-a-vm-with-multiple-nics/Figure2.png)
+![NSG flow](./media/virtual-networks-multiple-nics/Figure2.png)
 
 The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).
 
