@@ -149,9 +149,9 @@ Configure storage classifications on the VMM servers before you begin Azure Site
 
 After reviewing these best practices you can start deploying Site Recovery:
 
-- [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure) 
+- [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md) 
 - [Set up protection between an on-premises Hyper-V site and Azure](https://msdn.microsoft.com/library/azure/dn879142.aspx) 
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm) 
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san) 
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md) 
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md) 
 
 

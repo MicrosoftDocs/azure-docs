@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -82,6 +82,11 @@ To get started with App Service Environments, see [Introduction to App Service E
 For details around controlling inbound traffic to your App Service Environment, see [Controlling inbound traffic to an App Service Environment][ControlInboundASE]
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 
 
 <!-- LINKS -->
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx

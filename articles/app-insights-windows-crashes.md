@@ -2,7 +2,7 @@
 	pageTitle="Detect and diagnose crashes in Windows Store and Phone apps with Application Insights" 
 	description="Analyze performance issues in your Windows device app with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="kamrani"/>
 

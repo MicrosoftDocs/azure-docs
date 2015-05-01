@@ -2,7 +2,7 @@
 	pageTitle="Diagnose failures and exceptions in ASP.NET apps with Application Insights" 
 	description="Configure your app to get a compelling diagnostic experience by capturing exceptions along with request telemetry." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
