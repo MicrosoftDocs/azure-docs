@@ -22,6 +22,12 @@
 
 #How to Integrate Engagement on iOS
 
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
+
 > [AZURE.IMPORTANT] The Engagement SDK requires iOS4+: the deployment target of your application must be at least iOS 4.
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.

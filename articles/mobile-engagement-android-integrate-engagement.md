@@ -21,6 +21,12 @@
 
 #How to Integrate Engagement on Android
 
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
+
 > [AZURE.IMPORTANT] Your minimum Android SDK API level must be 10 or higher (Android 2.3.3 or higher).
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Android application.
