@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Instance-level Public IP (ILIP)"
-   description="Instance-level Public IP (ILIP, PIP)"
+   pageTitle="Instance-level Public IP (IL-PIP)"
+   description="Instance-level Public IP (IL-PIP, PIP)"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"
@@ -16,28 +16,28 @@
    ms.author="telmos" />
 
 # Instance-Level Public IP Overview
-An Instance-Level Public IP (ILIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the Load Balanced Public IP (LBIP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
+An Instance-Level Public IP (IL-PIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (Virtual IP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
 
-[AZURE.NOTE] In the past, an ILIP was referred to as a ILIP, and an LBIP was referred to as a VIP.
+[AZURE.NOTE] In the past, an IL-PIP was referred to as a PIP, which stands for Public IP. 
 
-![Difference between ILIP and LBIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
+![Difference between IL-PIP and LBIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-As shown in Figure 1, the cloud service is accessed using a LBIP, while the individual VMs are normally accessed using LBIP:<port number>. By assigning an ILIP to a specific VM, that VM can be accessed directly using that ILIP.
+As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:<port number>. By assigning an IL-PIP to a specific VM, that VM can be accessed directly using that IP address.
 
-When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual LBIP. The same process happens for ILIP, allowing access to the VM or role instance by FQDN instead of the ILIP.  
+When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for IL-PIP, allowing access to the VM or role instance by FQDN instead of the IL-PIP.  
 
 
-[AZURE.NOTE] You can assign only one ILIP for each VM or role instance. You can use up to 5 ILIPs per subscription. At this time, ILIP is not supported for multi-NIC VMs.
+[AZURE.NOTE] You can assign only one IL-PIP for each VM or role instance. You can use up to 5 IL-PIP's per subscription. At this time, IL-PIP is not supported for multi-NIC VMs.
 
-## Why should I request an ILIP?
-If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service LBIP:<port number>, request an ILIP for your VM or your role instance.
-- **Passive FTP** - By having an ILIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
-- **Outbound IP** - Outbound traffic originating from the VM goes out with the ILIP as the source and this uniquely identifies the VM to external entities.
+## Why should I request an IL-PIP?
+If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:<port number>, request an IL-PIP for your VM or your role instance.
+- **Passive FTP** - By having an IL-PIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
+- **Outbound IP** - Outbound traffic originating from the VM goes out with the IL-PIP as the source and this uniquely identifies the VM to external entities.
 
-[AZURE.NOTE]The use of reserved ILIPs may incur an extra cost to your Azure subscription. For more information on ILIP pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
+[AZURE.NOTE]The use of reserved IL-PIPs may incur an extra cost to your Azure subscription. For more information on IL-PIP pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
-## How to request an ILIP during VM creation
-The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILIP, and adds the VM to the new service:
+## How to request an IL-PIP during VM creation
+The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an IL-PIP, and adds the VM to the new service:
 
 	New-AzureService -ServiceName FTPService -Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -45,8 +45,8 @@ The PowerShell script below creates a new cloud service named *FTPService*, then
 	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 
-## How to retrieve ILIP information for a VM
-To view the ILIP information for the VM created with the script above, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
+## How to retrieve IL-PIP information for a VM
+To view the IL-PIP information for the VM created with the script above, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
 
 	Get-AzureVM -Name FTPInstance -ServiceName FTPService
 
@@ -77,22 +77,22 @@ To view the ILIP information for the VM created with the script above, run the f
 	OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
 	OperationStatus             : OK
 
-## How to remove an ILIP from a VM
-To remove the ILIP added to the VM in the script above, run the following PowerShell command:
+## How to remove an IL-PIP from a VM
+To remove the IL-PIP added to the VM in the script above, run the following PowerShell command:
 	
 	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
 	| Remove-AzurePublicIP `
 	| Update-AzureVM
 
-## How to add an ILIP to an existing VM
-To add an ILIP to the VM created using the script above, runt he following command:
+## How to add an IL-PIP to an existing VM
+To add an IL-PIP to the VM created using the script above, runt he following command:
 
 	Get-AzureVM -ServiceName FTPService -Name FTPInstance `
 	| Set-AzurePublicIP -PublicIPName ftpip2 `
 	| Update-AzureVM
 
-## How to associate an ILIP to a VM by using a service configuration file
-You can also associate an ILIP to a VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved IP named *MyReservedIP* as an ILIP for a role instance: 
+## How to associate an IL-PIP to a VM by using a service configuration file
+You can also associate an IL-PIP to a VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use a reserved IP named *MyReservedIP* as an IL-PIP for a role instance: 
 	
 	<?xml version="1.0" encoding="utf-8"?>
 	<ServiceConfiguration serviceName="ReservedIPSample" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-01.2.3">
@@ -122,7 +122,7 @@ You can also associate an ILIP to a VM by using a service configuration (CSCFG) 
 
 [Reserved Private IP (DIP)](../virtual-networks-reserved-private-ip)
 
-[Reserved Public IP (LBIP)](../virtual-networks-reserved-public-ip)
+[Reserved Public IP](../virtual-networks-reserved-public-ip)
 
 [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
