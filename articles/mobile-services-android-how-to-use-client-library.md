@@ -96,7 +96,7 @@ The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when
 Since version 2.0 of the client library, mobile services table operations use the [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects in all of the asynchronous operations such as methods involving queries and operations like inserts, updates and deletes. This makes it easier to perform multiple operations (while on a background thread) without having to deal with multiple nested callbacks.
 
 
-<h2><a name="querying"></a>How to: Query data from a mobile service</h2>
+## How to: Query data from a mobile service
 
 This section describes how to issue queries to the mobile service. Subsections describe diffent aspects such as sorting, filtering, and paging. Finally, we discuss how you can concatenate these operations together.
 

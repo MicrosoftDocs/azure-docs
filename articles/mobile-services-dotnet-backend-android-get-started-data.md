@@ -33,7 +33,7 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 > [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started with data (Eclipse)].
 
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 
 ## Create a new mobile service

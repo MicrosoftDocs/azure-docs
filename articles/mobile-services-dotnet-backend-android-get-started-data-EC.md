@@ -28,7 +28,7 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 
 
 
-> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/). 
 
 
 ## Create a new mobile service
@@ -48,7 +48,7 @@ The mobile service that you create in this tutorial supports the .NET runtime in
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-<h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
+## Download the GetStartedWithData project
 
 ### Get the sample code
 
