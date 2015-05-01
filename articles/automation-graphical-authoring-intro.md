@@ -1,6 +1,7 @@
 <properties 
    pageTitle="Graphical Authoring in Azure Automation"
    description="Graphical Authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell Workflow code.  You add activities from the library to a canvas and link them together to form a workflow.  This article provides an introduction to graphical authoring and all the details needed to get you started in creating a graphical runbook."
+   services="automation"   
    documentationCenter=""
    authors="bwren"
    manager="stevenka"
