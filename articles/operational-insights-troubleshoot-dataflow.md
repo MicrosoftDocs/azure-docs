@@ -7,23 +7,13 @@
 	manager="jwhit"
 	editor=""/>
 
-<<<<<<< HEAD
 <tags
 	ms.service="operational-insights"
-	ms.workload="appservices"
+	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015" 
-=======
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
+	ms.date="04/30/2015"
 	ms.author="dmuscett"/>
 
 #Troubleshoot agents or Operations Manager data flow to Operational Insights
