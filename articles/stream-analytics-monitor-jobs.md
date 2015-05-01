@@ -38,20 +38,23 @@ Before you begin this article, you must have the following:
 	`Install-Package Microsoft.Azure.Insights -Pre`
 	`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
 3.	Add the following appSettings section to the App.config file.
->     <appSettings>
->       <!--CSM Prod related values-->
->       <add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
->       <add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
->       <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
->       <add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
->       <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
->       <add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
->       <add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
->     </appSettings>`
->     
+
+
+```
+<appSettings>
+	<!--CSM Prod related values-->
+	<add key="ActiveDirectoryEndpoint" value="https://login.windows-ppe.net/" />
+	<add key="ResourceManagerEndpoint" value="https://api-current.resources.windows-int.net/" />
+	<add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+	<add key="AsaClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
+	<add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
+	<add key="SubscriptionId" value="<YOUR AZURE SUBSCRIPTION ID>" />
+	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
+</appSettings>```
+
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
 
->     Get-AzureAccount
+```Get-AzureAccount```
 
 4.	Add the following using statements to the source file (Program.cs) in the project.
 
@@ -161,4 +164,3 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
 - [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-- 
