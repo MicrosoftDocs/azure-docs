@@ -96,3 +96,4 @@ Azure Resource Manager (ARM) is the new management framework for services in Azu
 
 [Get started - Internet facing load balancer](load-balancer-internet-getstarted.md)
 
+
