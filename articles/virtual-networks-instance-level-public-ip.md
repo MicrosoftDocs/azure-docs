@@ -18,7 +18,7 @@
 # Instance-Level Public IP Overview
 An Instance-Level Public IP (ILPIP) is an IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (Virtual IP) that is assigned to your cloud service. Rather, it’s additional IP address that you can use to connect directly to your VM or role instance.
 
-[AZURE.NOTE] In the past, an ILPIP was referred to as a PIP, which stands for Public IP. 
+>[AZURE.NOTE] In the past, an ILPIP was referred to as a PIP, which stands for Public IP. 
 
 ![Difference between ILPIP and VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -27,14 +27,14 @@ As shown in Figure 1, the cloud service is accessed using a VIP, while the indiv
 When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN) instead of using the actual VIP. The same process happens for ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP.  
 
 
-[AZURE.NOTE] You can assign only one ILPIP for each VM or role instance. You can use up to 5 ILPIP's per subscription. At this time, ILPIP is not supported for multi-NIC VMs.
+>[AZURE.NOTE] You can assign only one ILPIP for each VM or role instance. You can use up to 5 ILPIP's per subscription. At this time, ILPIP is not supported for multi-NIC VMs.
 
 ## Why should I request an ILPIP?
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:<port number>, request an ILPIP for your VM or your role instance.
 - **Passive FTP** - By having an ILPIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
 - **Outbound IP** - Outbound traffic originating from the VM goes out with the ILPIP as the source and this uniquely identifies the VM to external entities.
 
-[AZURE.NOTE]The use of reserved ILPIPs may incur an extra cost to your Azure subscription. For more information on ILPIP pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
+>[AZURE.NOTE] The use of reserved ILPIPs may incur an extra cost to your Azure subscription. For more information on ILPIP pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to request an ILPIP during VM creation
 The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILPIP, and adds the VM to the new service:
