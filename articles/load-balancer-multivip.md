@@ -24,11 +24,11 @@ However, there are scenarios in which you may need more than one VIP as an entry
 
 In the above scenario, all VIPs use the same public port (443) and traffic is redirected to one or more load balanced VMs on a unique private port for the internal IP address of the cloud service hosting all the websites. 
 
-[AZURE.NOTE]Another scenario for the use the multiple VIPs is hosting multiple SQL AlwaysOn availability group listeners on the same set of Virtual Machines.
+>[AZURE.NOTE] Another scenario for the use the multiple VIPs is hosting multiple SQL AlwaysOn availability group listeners on the same set of Virtual Machines.
 
 VIPs are dynamic by default, which means that the actual IP address assigned to the cloud service may change over time. TO prevent that from happening, you can reserve a VIP for your service. To learn more about reserved VIPs, see [Reserved Public IP](../virtual-networks-reserved-public-ip).
 
-[AZURE.NOTE] Please see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
+>[AZURE.NOTE] Please see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/) for information on pricing on VIPs and reserved IPs.
 
 You can use PowerShell to verify the VIPs used by your cloud services, as well as add and remove VIPs, associate a VIP to an endpoint, and configure load balancing on a specific VIP. 
 
@@ -48,7 +48,7 @@ To remove the VIP added to your service in the example above, run the following 
 
     Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
-[AZURE.IMPORTANT]You can only remove a VIP if it has no endpoints associated to it.
+>[AZURE.IMPORTANT] You can only remove a VIP if it has no endpoints associated to it.
 
 ## How to retrieve VIP information from a Cloud Service
 To retrieve the VIPs associated with a cloud service, run the following PowerShell script:
@@ -81,7 +81,7 @@ In this example, the cloud service has 3 VIPs:
 - **Vip1** is the default VIP, you know that because the value for IsDnsProgrammedName is set to true.
 - **Vip2** and **Vip3** are not used as they don’t have any IP addresses. They will only be used if you associate an endpoint to the VIP.
 
-[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see XXX.
+>[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see XXX.
 
 ## How to associate a VIP to an endpoint
 To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
