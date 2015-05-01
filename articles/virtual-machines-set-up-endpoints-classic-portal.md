@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor=""/>
+	editor=""/
+	tags="AZURE CLASSIC PORTAL"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,21 +14,21 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/27/2015" 
 	ms.author="kathydav"/>
 
 #How to Set Up Endpoints to a Virtual Machine
 
 All virtual machines that you create in Azure can automatically communicate using a private network channel with other virtual machines in the same cloud service or virtual network. However, computers on the Internet or other virtual networks require endpoints to direct the inbound network traffic to a virtual machine.
 
-When you create a virtual machine in the Azure Management Portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created. You can configure additional endpoints while creating the virtual machine or afterwards as needed. 
+When you create a virtual machine in the Azure classic portal, endpoints for Remote Desktop, Windows PowerShell Remoting, and Secure Shell (SSH) are automatically created. You can configure additional endpoints while creating the virtual machine or afterwards as needed. 
 
 Each endpoint has a public port and a private port:
 
 - The public port is used by the Azure load balancer to listen for incoming traffic to the virtual machine from the Internet. 
 - The private port is used by the virtual machine to listen for incoming traffic, typically destined to an application or service running on the virtual machine.
 
-Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the Management Portal. For custom endpoints, you must specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you must create a load-balanced set consisting of multiple endpoints.
+Default values for the IP protocol and TCP or UDP ports for well-known network protocols are provided when you create endpoints with the classic portal. For custom endpoints, you must specify the correct IP protocol (TCP or UDP) and the public and private ports. To distribute incoming traffic randomly across multiple virtual machines, you must create a load-balanced set consisting of multiple endpoints.
 
 After you create an endpoint, you can use an access control list (ACL) to define rules that permit or deny the incoming traffic to the public port of the endpoint based its source IP address. However, if the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
@@ -35,11 +36,11 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 ##Create an Endpoint
 
-1.	If you have not already done so, sign in to the [Azure Management Portal](http://manage.windowsazure.com/).
+1.	If you have not already done so, sign in to the [Azure classic portal](http://manage.windowsazure.com/).
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. The Endpoints page lists all the current endpoints for the virtual machine.
 
-	![Endpoints](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
+	![Endpoints](./media/virtual-machines-set-up-endpoints-classic-portal/endpointswindows.png)
  
 4.	In the taskbar, click **Add**. 
 5.	On the **Add an endpoint to a virtual machine** page, choose the type of endpoint. 
@@ -55,7 +56,7 @@ After you create an endpoint, you can use an access control list (ACL) to define
 
 You will now see the endpoint listed on the Endpoints page.
 
-![Endpoint creation successful](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
+![Endpoint creation successful](./media/virtual-machines-set-up-endpoints-classic-portal/endpointwindowsnew.png)
  
 For PowerShell configuration, see [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx).
 
@@ -68,16 +69,16 @@ To define the set of computers that can send traffic, the ACL on an endpoint can
 If the virtual machine is in an Azure virtual network, you should use Network Security Groups instead. For more information, see [About Network Security Groups](https://msdn.microsoft.com/library/azure/dn848316.aspx).
 
 
-1.	If you have not already done so, sign in to the Azure Management Portal.
+1.	If you have not already done so, sign in to the Azure classic portal
 2.	Click **Virtual Machines**, and then click the name of the virtual machine that you want to configure.
 3.	Click **Endpoints**. The Endpoints page lists all endpoints for the virtual machine.
 
-    ![ACL list](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
+    ![ACL list](./media/virtual-machines-set-up-endpoints-classic-portal/EndpointsShowsDefaultEndpointsForVM.png)
  
 4.	Select the appropriate endpoint from the list. 
 5.	In the task bar, click **Manage ACL**. The **Specify ACL details** dialog box appears.
 
-    ![Specify ACL details](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
+    ![Specify ACL details](./media/virtual-machines-set-up-endpoints-classic-portal/EndpointACLdetails.png)
  
 6.	Use rows in the list to add, delete, or edit rules for an ACL and change their order. The **Remote Subnet** value is an IP address range for incoming traffic from the Internet that the Azure load balancer will either permit or deny based on the traffic's source IP address. You must specify the IP address range in CIDR format, also known as address prefix format. An example is 131.107.0.0/16. 
 
