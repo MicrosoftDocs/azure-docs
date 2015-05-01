@@ -29,6 +29,8 @@ This page has links to overview and conceptual articles and tutorial to help you
 
 - [Get started with Reliable Actors](service-fabric-reliable-actors-get-started.md)
 - [Actor lifecycle and Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
+- [How Fabric Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
+- [Notes on Azure Service Fabric Actors type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 - [Actor Model Design Patterns](service-fabric-reliable-actors-patterns-introduction.md)  
 - [Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 - [Pattern: Distributed Networks and Graphs](service-fabric-reliable-actors-pattern-distributed-networks-and-graphs.md)
@@ -42,6 +44,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Actor Timers](service-fabric-reliable-actors-timers-reminders.md)
 - [Actor Diagnostics](service-fabric-reliable-actors-diagnostics.md) 
 - [KVSActorStateProvider Configuration](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)  
+- [Configuring Reliable Actors - ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ## Reliable Service programming model
 Reliable Services gives you a simple, powerful, top-level programming model to help you express what is important to your application. To learn more, read:
@@ -52,4 +55,6 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 - [Programming Model Overview](service-fabric-reliable-services-service-overview.md)  
 - [Architecture](service-fabric-reliable-services-platform-architecture.md)
 - [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
+- [Configuring Stateful Reliable Services](service-fabric-reliable-services-configuration.md)
+- [Default communication stack provided by Reliable Services Framework](service-fabric-reliable-services-communication-default.md)
 
