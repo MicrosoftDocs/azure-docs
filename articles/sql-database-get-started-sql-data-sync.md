@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties
 	pageTitle="Getting started with SQL Databases Data Sync"
 	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)."
@@ -15,33 +14,14 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="03/02/2015"
-=======
-<properties 
-	pageTitle="Getting started with SQL Databases Data Sync" 
-	description="This tutorial helps you get started with the Azure SQL Data Sync (Preview)." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor=""/>
-
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/02/2015" 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	ms.author="spelluru"/>
 
 
 # Getting Started with Azure SQL Data Sync (Preview)
-<<<<<<< HEAD
+
+
 In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal.
-=======
-In this tutorial, you learn the fundamentals of Azure SQL Data Sync using the Azure (Preview) portal. 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
+
 
 This tutorial assumes minimal prior experience with SQL Server and Azure SQL Database. In this tutorial, you create a hybrid (SQL Server and SQL Database instances) sync group fully configured and synchronizing on the schedule you set.
 
@@ -82,17 +62,14 @@ Be sure that you have the following installed on the computer you install the Cl
 
 
 <a id="InstallClient"></a>
-### Step 2b: Install a new Client Agent 
+### Step 2b: Install a new Client Agent
 
 Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/library/jj823137.aspx) to install the agent.
 
 
-<<<<<<< HEAD
-<h3><a id="RegisterSSDb"></a>Step 2c: Finish the New SQL Data Sync Agent wizard</h3>
-=======
+
 <a id="RegisterSSDb"></a>
-### Step 2c: Finish the New SQL Data Sync Agent wizard 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
+### Step 2c: Finish the New SQL Data Sync Agent wizard
 
 1. 	Return to the New SQL Data Sync Agent wizard.
 2.	Give the agent a meaningful name.
@@ -112,7 +89,7 @@ To register a database with the agent, follow the instructions at [Register a SQ
 ## Step 4: Create a sync group
 
 <a id="StartNewSGWizard"></a>
-### Step 4a: Start the New Sync Group wizard 
+### Step 4a: Start the New Sync Group wizard
 1.	Return to the [Management Portal](http://manage.windowsazure.com).
 2.	Click **SQL DATABASES**.
 3.	Click **ADD SYNC** at the bottom of the page then select New Sync Group from the drawer.
@@ -120,24 +97,19 @@ To register a database with the agent, follow the instructions at [Register a SQ
 	![Image2](./media/sql-database-get-started-data-sync/NewSyncGroup-Figure2.png)
 
 
-<<<<<<< HEAD
-<h3><a id=""></a>Step 4b: Enter the basic settings</h3>
-=======
+
 <a id=""></a>
-### Step 4b: Enter the basic settings 	
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
+### Step 4b: Enter the basic settings
+
 1.	Enter a meaningful name for the sync group.
 2.	From the dropdown, select the **REGION** (Data Center) to host this sync group.
 3. Click the right-arrow.
 
 	![Image3](./media/sql-database-get-started-data-sync/NewSyncGroupName-Figure3.PNG)
-<<<<<<< HEAD
 
-<h3><a id="DefineHubDB"></a>Step 4c: Define the sync hub</h3>
-=======
- 
-<a id="DefineHubDB"></a>### Step 4c: Define the sync hub 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
+
+<a id="DefineHubDB"></a>### Step 4c: Define the sync hub
+
 1. From the dropdown, select the SQL Database instance to serve as the sync group hub.
 2. Enter the credentials for this SQL Database instance - **HUB USERNAME** and **HUB PASSWORD**.
 3. Wait for SQL Data Sync to confirm the USERNAME and PASSWORD. A green check mark appears to the right of the PASSWORD when the credentials are confirmed.
@@ -153,7 +125,7 @@ To register a database with the agent, follow the instructions at [Register a SQ
 	![Image4](./media/sql-database-get-started-data-sync/NewSyncGroupHub-Figure4.PNG)
 
 <a id="AddRefDB"></a>
-### Step 4d: Add a reference database 
+### Step 4d: Add a reference database
 
 Repeat this step for each additional database you want to add to the sync group.
 
