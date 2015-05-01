@@ -63,10 +63,10 @@ Once your API app is created, you can now use the Dropbox connector as an action
 
 Configure the input properties for "Upload File" action as follows:
 
-- **File Path** - Specify the dropbox file path of the file to be uploaded
-- **Content** - Specifies the content of the file to be uploaded
-- **Content Transfer Encoding** - Specify none or base64
-- **Overwrite** - Specify "true" to overwrite the file if it already exists
+- **File Path** - Specify the destination Dropbox file path of the file to be uploaded. Example: Photos/image.png
+- **Content** - Specifies the content of the file to be uploaded. Often, this will come from a previous step in your Logic App.
+- **Content Transfer Encoding** - Specify none or base64.
+- **Overwrite** - Specify "true" to overwrite the file if it already exists.
 
 
 <!-- Image reference -->
