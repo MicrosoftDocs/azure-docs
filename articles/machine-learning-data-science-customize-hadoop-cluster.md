@@ -5,7 +5,7 @@
 	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
-	manager="jacob.spoelstra" 
+	manager="paulettm" 
 	editor="cgronlun"  />
 
 <tags 
@@ -22,6 +22,7 @@
 This article describes how to customize an HDInsight Hadoop cluster by installing 64-bit Anaconda (Python 2.7) on each node when the cluster is being provisioned in HDInsight service. It also shows how to access the headnode to submit custom jobs to the cluster.
 
 This customization makes many popular Python modules that are included in Anaconda conveniently available for use in user defined functions (UDFs) that are designed to process Hive records in the cluster. For instructions on the procedures used in this scenario, see [Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process](machine-learning-data-science-hive-queries.md).
+
 
 ## <a name="customize"></a>Customize Azure HDInsight Hadoop Cluster
 

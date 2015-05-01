@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/01/2015"
+   ms.date="04/28/2015"
    ms.author="v-sharos" />
 
 
-### To create a new service
+#### To create a new service
 
 1. Use your Microsoft account credentials to log on to the Microsoft Azure Management Portal here: [Azure Management Portal](https://manage.windowsazure.com/).
 

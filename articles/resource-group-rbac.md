@@ -1,24 +1,24 @@
 <properties
    pageTitle="Managing and Auditing Access to Resources"
    description="Use role-based access control (RBAC) to manage user permissions for resources deployed to Azure."
-   services="na"
+   services="azure-portal"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-portal"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz"/>
 
 # Managing and Auditing Access to Resources
 
-With Azure Resource Manager, you can make sure the users in your organization have the appropriate permissions to manage or access resources. Resource Manager takes advantage of role-based access control (RBAC) so you can easily apply security policies to individual resources or resource groups. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but not other resources.
+With Azure Resource Manager, you can make sure the users in your organization have the appropriate permissions to manage or access resources. Resource Manager takes advantage of role-based access control (RBAC) so you can easily apply security policies to individual resources or resource groups. For example, you can grant a user access to a specific virtual machine in a subscription, or give a user the ability to manage all websites in a subscription but no other resources.
 
 ## Concepts
 
@@ -56,7 +56,7 @@ In this topic, you will see how to perform the following common scenarios throug
 
 
 ## How to use PowerShell to manage access
-If you do not already have Azure PowerShell installed, see [Install and configure Azure PowerShell](./powershell-install-configure.md). Open the Azure PowerShell console. 
+If you do not already have the latest version of Azure PowerShell installed, see [Install and configure Azure PowerShell](./powershell-install-configure.md). Open the Azure PowerShell console. 
 
 1. Login to your Azure account with your credentials. The command returns information about your account.
 
@@ -124,6 +124,7 @@ To view all available roles for your subscription run the **Get-AzureRoleDefinit
 
         PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
+For a more thorough explanation of setting up an Azure Active Directory application and a service principal, see [Authenticating a Service Principal with Azure Resource Manager](./resource-group-authenticate-service-principal.md).
 
 ###Grant Owner permissions to a user for a resource.
 1. Review the **Owner** role definition by providing the role name when running the **Get-AzureRoleDefinition** command. Check that the allowed actions are what you intend to assign.
@@ -140,10 +141,9 @@ To get the auditing log for a resource group, run the **Get-AzureResourceGroupLo
 
       PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
-
 ## How to use Azure CLI for Mac, Linux and Windows
 
-If you do not have Azure CLI for Mac, Linux and Windows installed, see [Install and Configure the Azure Cross-Platform Command-Line Interface](./xplat-cli.md)
+If you do not have Azure CLI for Mac, Linux and Windows installed or you have not configured your organizational account for use with Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md).
 
 1. Login to your Azure account with your credentials. The command returns the result of your login.
 
@@ -265,4 +265,7 @@ Create the role assignment.
 
 ## Next steps
 
+- [Role-based access control in the Microsoft Azure portal](./role-based-access-control-configure.md)
+- [Create a new Azure Service Principal using the Azure classic portal](./resource-group-create-service-principal-portal.md)
+- [Authenticating a Service Principal through Azure Resource Manager](./resource-group-authenticate-service-principal.md)
 

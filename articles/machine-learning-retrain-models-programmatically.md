@@ -18,21 +18,22 @@
 
 
 #Retrain Machine Learning models programmatically  
-
-##Overview  
-As part of the process of Operationalization Machine Learning models in Azure ML, a model needs to be trained and saved, then used to create a Scoring Web Service. The Web Service can then be consumed in web sites, dashboards and mobile apps.  
-
-Frequently, however, there is a need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service, to use the newly trained model, programmatically using the Retraining APIs.  
-
-This document describes the above process, and shows how to use the Retraining APIs.   
  
-##Retraining Machine Learning models  
-###Why retrain: defining the problem  
+As part of the process of operationalization of machine learning models in Azure Machine Learning, a model needs to be trained and saved, then used to create a scoring web service. The web service can then be consumed in web sites, dashboards, and mobile apps.  
+
+Frequently, you need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service, to use the newly trained model, programmatically using the Retraining APIs.  
+
+This document describes the above process, and shows how to use the Retraining APIs. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
+ 
+
+##Why retrain: defining the problem  
 As part of the ML training process, a model is trained using a set of data. The models needs to be retrained in scenarios where new data becomes available, or when the consumer of the API has their own data to train the model, or when the data needs to be filtered and the model trained with the subset of data, etc.  
 
 In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web Service API to use the newly trained model.  
 
-###How to retrain: the end to end process  
+##How to retrain: the end to end process  
 To start, the process involves the following components: a Training Experiment and a Scoring Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
 
 ![][1]

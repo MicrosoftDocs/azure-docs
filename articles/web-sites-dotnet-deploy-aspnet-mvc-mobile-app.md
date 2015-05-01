@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="04/29/2015" 
 	ms.author="cephalin;riande"/>
 
 
@@ -54,12 +54,10 @@ Here's what you'll learn:
 
 ## Set up the development environment
 
-Set up your development environment by installing the Azure SDK for the .NET Framework. 
+Set up your development environment by installing the Azure SDK for .NET 2.5.1 or later. 
 
 1. To install the Azure SDK for .NET, click the link below. If you don't have Visual Studio 2013 installed yet, it will be installed by the link. This tutorial requires Visual Studio 2013. [Azure SDK for Visual Studio 2013][AzureSDKVs2013]
 1. In the Web Platform Installer window, click **Install** and proceed with the installation.
-
-	![Web Platform Installer - Azure SDK for .NET][WebPIAzureSdk23NetVS13]
 
 You will also need a mobile browser emulator. Any of the following will
 work:
@@ -97,31 +95,25 @@ unzip the file.
 
 7.	In Publish Web, click **Microsoft Azure Web Apps**.
 
-	<!--todo: ![][DeployClickWebSites] -->
+	![][DeployClickWebSites]
 
 8.	Click **Sign in**.
 
-	<!--todo: ![][DeploySignIn] -->
+	![][DeploySignIn]
 
-9.	Type your Azure account name and click **Continue**.
-
-	<!--todo: ![][DeployUsername] -->
-
-10.	Type your password and click **Sign in**.
-
-	<!--todo: ![][DeployPassword] -->
+9.	Follow the prompts to log into your Azure account.
 
 11. The Select Existing Web App dialog should now show you as signed in. Click **New**.
 
-	<!--todo: ![][DeployNewWebsite] -->  
+	![][DeployNewWebsite]  
 
-12. In the **Site name** field, specify a unique site name prefix. Your fully-qualified site name will be *&lt;prefix>*.azurewebsites.net. Also, in the **Region** field, select a region. Then, click **Create**.
+12. In the **Web App name** field, specify a unique app name prefix. Your fully-qualified web app name will be *&lt;prefix>*.azurewebsites.net. Also, configure the **App Service plan**, **Resource group**, and **Region** fields. Then, click **Create**.
 
-	<!--todo: ![][DeploySiteSettings] -->
+	![][DeploySiteSettings]
 
 13.	The Publish Web dialog will be filled with the settings for your new web app. Click **Publish**.
 
-	<!--todo: ![][DeployPublishSite] -->
+	![][DeployPublishSite]
 
 	Once Visual Studio finishes publishing the starter project to the Azure web app, the desktop browser opens to display the live web app.
 

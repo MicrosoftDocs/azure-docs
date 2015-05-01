@@ -1,4 +1,4 @@
-Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have several options for replicating the data in your storage account:
+Data in your storage account is replicated to ensure durability that is also highly available, meeting the [Azure Storage SLA ](http://azure.microsoft.com/support/legal/sla/) even in the face of transient hardware failures. Azure Storage is deployed in 15 regions around the world and also includes support for replicating data between regions. You have several options for replicating the data in your storage account:
 
 - *Locally redundant storage (LRS)* maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.
 
@@ -16,6 +16,6 @@ Data in your storage account is replicated to ensure durability that is also hig
 
 - *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region in the event that the primary region becomes unavailable. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
 
-For more details about replication options, see the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/) and [Azure Storage Redundancy Options](http://msdn.microsoft.com/library/azure/dn727290.aspx).
+For more details about replication options, see the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/) and [Azure Storage Redundancy Options](storage-redundancy.md).
 	
-The pricing differences between the various replication options can be found on the [Storage Pricing Details](/pricing/details/storage/) page.
+The pricing differences between the various replication options can be found on the [Storage Pricing Details](http://azure.microsoft.com/pricing/details/storage/)) page.

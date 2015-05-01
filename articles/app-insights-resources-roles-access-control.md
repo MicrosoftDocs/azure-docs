@@ -19,12 +19,34 @@
 
 You can control who has read and update access to your data in Visual Studio [Application Insights][start], by using [Role-based access control in Microsoft Azure](role-based-access-control-configure.md).
 
-> [AZURE.IMPORTANT] Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor ** role. This ensures uniform control of access to web tests and alerts along with your application resource. 
+> [AZURE.IMPORTANT] Assign access to users in the **resource group or subscription** to which your application resource belongs - not in the resource itself. Assign the **Application Insights component contributor** role. This ensures uniform control of access to web tests and alerts along with your application resource. [Learn more](#access).
 
 
-## Set access in the resource group
+## Resources, groups and subscriptions
 
-It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-groups) as your application. You might also have put other Azure services in there, such as websites or storage.
+First, some definitions:
+
+* **Resource** - An instance of a Microsoft Azure service. Your Application Insights resource collects, analyzes and displays the telemetry data sent from your application.  Other types of Azure resources include web apps, databases, and VMs. 
+
+    To see all your resources, go to the [Azure Portal][portal], sign in, and click Browse.
+
+    ![Choose Browse, then either Everything or Filter by Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
+
+<a name="resource-group"></a>
+
+* [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
+
+    
+    ![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
+
+
+* [**Subscription**](https://manage.windowsazure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions. 
+* [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
+
+
+## <a name="access"></a> Control access in the resource group
+
+It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your application. You might also have put other Azure services in there, such as websites or storage.
 
 ![Resources in Application Insights](./media/app-insights-resources-roles-access-control/00-resources.png)
 
@@ -37,7 +59,7 @@ To control access to these resources it's therefore recommended to:
 
 You must have Owner rights to the subscription or the resource group.
 
-The user must have a Windows Live ID. You can provide access to individuals, and also to user groups defined in Azure Active Directory.
+The user must have a [Microsoft Account][account]. You can provide access to individuals, and also to user groups defined in Azure Active Directory.
 
 #### Navigate to the resource group
 
@@ -80,72 +102,11 @@ If the user you want isn't in the directory, you can invite anyone with a Micros
 * [Role based access control in Azure](role-based-access-control-configure.md)
 
 
-## Resources, groups and subscriptions
-
-Some definitions:
-
-* **Resource** - An instance of a service you use in Microsoft Azure. When you configure Application Insights to monitor your application, you create a Microsoft Azure resource. Azure resources are services of different types, such as web apps, databases, VMs, or Application Insights monitors. Each resource has a unique ID.
-* **Resource group** - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, a group might contain a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
-* **Subscription** - To use Application Insights or other Azure resources, you login to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it’s an organization subscription, choose the members and their access permissions. 
-* **Microsoft account** - The username and password that you use to login to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
-
-
-#### How to find your resources
-
-Browse either everything (all your resources) or filter on your Application Insights resources, or other types.
-
-![Choose Browse, then either Everything or Filter by Application Insights](./media/app-insights-resources-roles-access-control/10-browse.png)
-
-The icons in the list show whether there are active [alerts][alerts].
-
-## Resource groups
-
-Use resource groups for related resources. For example, you could group together a web app hosted in Azure with an Application Insights resource that monitors it. If you have phone apps that wrap access to the web service, create Application Insights resources to monitor them in the same group.
-
-![Choose Browse, Resource groups, then choose a group](./media/app-insights-resources-roles-access-control/11-group.png)
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
-[azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[export]: app-insights-export-telemetry.md
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
+[account]: https://account.microsoft.com
+[group]: azure-preview-portal-using-resource-groups.md
 [portal]: http://portal.azure.com/
-[qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
 [start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
 

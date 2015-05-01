@@ -27,7 +27,7 @@ It's easy to create jobs and job collections on Azure Scheduler using the Azure 
 
 The first time you open the Azure Management Portal, you are automatically placed at the **ALL ITEMS** tab. The columns in the **ALL ITEMS** tab can be sorted. To view your Scheduler jobs and job collections, click the **SCHEDULER** tab.
 
-![1]
+![][1]
 
 ## Create a Job Collection and a Job
 
@@ -242,6 +242,7 @@ Finally, for all action types, you may change the schedule itself and its recurr
  [Scheduler Outbound Authentication](scheduler-outbound-authentication.md)
  
 
+ 
 [1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
 [2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
 [3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png

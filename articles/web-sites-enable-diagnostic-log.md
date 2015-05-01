@@ -22,7 +22,7 @@
 
 Azure provides built-in diagnostics to assist with debugging a web app hosted in an [App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In this article you'll learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-> [AZURE.NOTE] This article uses the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
+> [AZURE.NOTE] This article uses the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell, and the Azure Cross-Platform Command-Line Interface to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-web-sites-in-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
 
@@ -126,7 +126,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 2. Add the Trace Listener package to your project.
  * Right click your project and choose Manage NuGet Packages. Select `Microsoft.ApplicationInsights.TraceListener` [Learn more](app-insights-asp-net-trace-logs.md)
 3. Upload your project and run it to generate log data.
-4. In [the Azure portal](http://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](app-insights-diagnostic-search.md)
+4. In the [Azure preview portal](http://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](app-insights-diagnostic-search.md)
 
 [Learn more about performance tracking with Application Insights](insights-perf-analytics.md)
 

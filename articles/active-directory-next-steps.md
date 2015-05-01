@@ -13,10 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article" 
-	ms.date="04/20/2015" 
+	ms.date="04/28/2015" 
 	ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
+
 
 [What is Azure AD?](active-directory-whatis.md)<br>
 [How does it work?](active-directory-works.md)<br>

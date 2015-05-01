@@ -164,11 +164,11 @@ Don't forget that all the resources of a page must load correctly for the test t
 
 ### Plugging time and random numbers into your multi-step test
 
-Suppose you’re testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
+Suppose you're testing a tool that gets time-dependent data such as stocks from an external feed. When you record your web test, you have to use specific times, but you set them as parameters of the test, StartTime and EndTime.
 
 ![A web test with parameters.](./media/app-insights-web-tests-availability/appinsights-72webtest-parameters.png)
 
-When you run the test, you’d like EndTime always to be the present time, and StartTime should be 15 minutes ago.
+When you run the test, you'd like EndTime always to be the present time, and StartTime should be 15 minutes ago.
 
 Web Test Plug-ins provide the way to do this.
 
@@ -176,7 +176,7 @@ Web Test Plug-ins provide the way to do this.
 
     ![Choose Add Web Test Plugin and select a type.](./media/app-insights-web-tests-availability/appinsights-72webtest-plugins.png)
 
-    In this example, we’ll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now". 
+    In this example, we'll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now". 
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
@@ -211,46 +211,8 @@ You might want to disable web tests while you are performing maintenance on your
 
 <!--Link references-->
 
-[alerts]: app-insightss-alerts.md
-[android]: https://github.com/Microsoft/AppInsights-Android
-[api]: app-insights-custom-events-metrics-api.md
-[apiproperties]: app-insights-custom-events-metrics-api.md#properties
-[apiref]: http://msdn.microsoft.com/library/azure/dn887942.aspx
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: insights-perf-analytics.md
 [azure-availability]: insights-create-web-tests.md
-[azure-usage]: insights-usage-analytics.md
-[azurediagnostic]: insights-how-to-use-diagnostics.md
-[client]: app-insights-web-track-usage.md
-[config]: app-insights-configuration-with-applicationinsights-config.md
-[data]: app-insights-data-retention-privacy.md
-[desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
-[eclipse]: app-insights-java-eclipse.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[export]: app-insights-export-telemetry.md
-[exportcode]: app-insights-code-sample-export-telemetry-sql-database.md
-[greenbrown]: app-insights-start-monitoring-app-health-usage.md
-[java]: app-insights-java-get-started.md
-[javalogs]: app-insights-java-trace-logs.md
-[javareqs]: app-insights-java-track-http-requests.md
-[knowUsers]: app-insights-overview-usage.md
-[metrics]: app-insights-metrics-explorer.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[new]: app-insights-create-new-resource.md
-[older]: http://www.visualstudio.com/get-started/get-usage-data-vs
-[perf]: app-insights-web-monitor-performance.md
-[platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[roles]: app-insights-role-based-access-control.md
 [start]: app-insights-get-started.md
-[trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-custom-events-metrics-api.md
-[usage]: app-insights-web-track-usage.md
-[windows]: app-insights-windows-get-started.md
-[windowsCrash]: app-insights-windows-crashes.md
-[windowsUsage]: app-insights-windows-usage.md
 

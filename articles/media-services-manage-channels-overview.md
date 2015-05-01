@@ -13,20 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
 #Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders
 
 ##Overview
 
-In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Program** enables you to control the publishing and storage of segments in a live stream. Channels manage Programs. The Channel and Program relationship is very similar to traditional media where a Channel has a constant stream of content and a program is scoped to some timed event on that Channel. 
+In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in the following way:
 
-When working with Live Streaming, one of the components that is involved in the workflow is a live video encoder that converts signals from the camera to streams that are sent to a live streaming service. A **Channel** can receive live input streams from an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) stream. You can use the following live encoders that output Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. The live encoder can also ingest a single bitrate stream, but since the stream is not processed, the client applications will also receive a single bitrate stream (this option is not recommended). 
+- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. Your live encoder can lso send a single bitrate stream, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
-Once the received content is published, it can be streamed to client playback applications through one or more **Streaming Endpoint**s. The following adaptive streaming protocols can be used to play the stream: HLS,  MPEG DASH, Smooth Stream,HDS. Note that you should use [dynamic packaging](media-services-dynamic-packaging-overview.md) to re-package the ingested stream into the specified adaptive streaming protocols. 
-
-A **Streaming Endpoint** represents a streaming service that can deliver content directly to a client player application, or to a Content Delivery Network (CDN) for further distribution. The outbound stream from a streaming endpoint service can be a live stream, or a video on demand asset in your Media Services account. In addition, you can control the capacity of the Streaming Endpoint service to handle growing bandwidth needs by adjusting streaming reserved units. When using [dynamic packaging](media-services-dynamic-packaging-overview.md) you need to allocate at least one reserved unit. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
 
 The following diagram represents a live streaming workflow that uses an on-premises live encoder to output multi-bitrate RTMP or Fragmented MP4 (Smooth Streaming) streams. 
 
@@ -117,7 +114,7 @@ The following considerations apply:
 
 A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your channels.   
 
-You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the started state. When you are ready to start pushing data into the channel, the channel must be started. Once the channel starts ingesting data, you can preview your stream through the preview URL.
+You can get the ingest URLs when you create the channel. To get these URLs, the channel does not have to be in the **Running** state. When you are ready to start pushing data into the channel, the channel must be in the **Running** state. Once the channel starts ingesting data, you can preview your stream through the preview URL.
 
 You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, you cannot ingest RTMP over SSL. 
 
@@ -155,7 +152,7 @@ If no IP addresses are specified and there is no rule definition, then no IP add
 
 Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
-You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the started state. 
+You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state. 
 
 Once the Channel starts ingesting data, you can preview your stream.
 
@@ -191,15 +188,25 @@ Even after you stop and delete the program, the users would be able to stream yo
 
 If you do want to retain the archived content, but not have it available for streaming, delete the streaming locator.
 
-###Channel state
+##<a id="states"></a>Channel states and how states map to the billing mode 
 
-The current state of channel. Possible values include:
+The current state of a Channel. Possible values include:
 
-- Stopped. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- Starting. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
-- Running. The Channel is capable of processing live streams.
-- Stopping. The channel is being stopped. No updates or streaming is allowed during this state.
-- Deleting. The Channel is being deleted. No updates or streaming is allowed during this state. 
+- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams.
+- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+
+The following table shows how Channel states map to the billing mode. 
+ 
+<table border="1">
+<tr><th>Channel state</th><th>Portal UI Indicators</th><th>Billed?</th></tr>
+<tr><td>Starting</td><td>Starting</td><td>No (transient state)</td></tr>
+<tr><td>Running</td><td>Ready (no running programs)<br/>or<br/>Streaming (at least one running program)</td><td>Yes</td></tr>
+<tr><td>Stopping</td><td>Stopping</td><td>No (transient state)</td></tr>
+<tr><td>Stopped</td><td>Stopped</td><td>No</td></tr>
+</table>
 
 ###Closed Captioning and Ad Insertion 
 
@@ -225,11 +232,11 @@ When using an on-premises live encoder to send a multi-bitrate stream into a Cha
 
 Other considerations related to working with channels and related components:
 
-- You are only billed when your Channel is in running state.
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
 - By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
+- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-channels-overview.md#states) section.
 
 ##<a id="tasks"></a>Tasks related to Live Streaming
 
@@ -302,5 +309,7 @@ For information about scaling streaming units, see: [How to scale streaming unit
 ##Related topics
 
 [Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+
+[Media Services Concepts](media-services-concepts.md)
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-current.png

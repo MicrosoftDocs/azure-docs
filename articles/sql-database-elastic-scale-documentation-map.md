@@ -3,7 +3,7 @@
 	description="Documentation map, a visual table of contents for Elastic Scale feature of Azure SQL DB" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="jhubbard" 
+	manager="jeffreyg" 
 	authors="sidneyh" 
 	editor=""/>
 
@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="sidneyh@microsoft.com"/>
+	ms.date="04/24/2015" 
+	ms.author="sidneyh"/>
 
-# Azure SQL Database Elastic Scale Topics
-Azure SQL Database Elastic Scale (in preview) enables the data-tier of an application to scale out and in via industry-standard sharding practices, while significantly streamlining the development and management of your sharded cloud applications. Elastic Scale delivers both developer and management functionality which are provided through a set of .Net libraries and through Azure service templates that you can host in your own Azure subscription to manage your highly scalable applications. Azure DB Elastic Scale implements the infrastructure aspects of sharding and thus allows you to focus on the business logic of your application instead. 
+# Azure SQL Database elastic database tools topics
+
+The elastic database features of Azure SQL DB are designed to simplify data tier development and management especially for Software as a Service (SaaS) developers—where large numbers of databases are used to support a dynamic end-customer base.  
+
+**Elastic database tools** help you build and manage applications that utilize sharding patterns to scale-out across many databases. Included are the elastic database client library supporting shard management, data-dependent routing, and cross-shard query capabilities for ADO.Net. Also included is the split-merge tool that simplifies shard management by letting you move data (splitting) from one shard to another (merging).  These tools compliment Elastic database pools which enable predictable pricing with guaranteed performance characteristics for any number of databases. The associated job feature gives you an easy and reliable tool for upgrading and managing every database in the pool with T-SQL scripts.
 
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%">
 </object>

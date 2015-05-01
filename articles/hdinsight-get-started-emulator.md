@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="04/29/2015" 
 	ms.author="nitinme"/>
 
 # Get started with the HDInsight Emulator 
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md).
 
->[AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster.
+> [AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase.
 
 The HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
 
@@ -39,15 +39,6 @@ Before you begin this tutorial, you must have the following:
 
 - Install and configure Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](install-configure-powershell.md). 
 
-## In this tutorial
-
-* [Install the HDInsight Emulator](#install)
-* [Run a word-count MapReduce job](#runwordcount)
-* [Run the get-started samples](#rungetstartedsamples)
-* [Connect to Azure Blob storage](#blobstorage)
-* [Run Azure PowerShell](#powershell)
-* [Remove the HDInsight Emulator](#remove)
-* [Next steps](#nextsteps)
 
 ##<a name="install"></a>Install the HDInsight Emulator
 
@@ -85,9 +76,48 @@ The installation should have also installed several local services. The followin
 
 ![HDI.Emulator.Services][image-hdi-emulator-services]
 
-The services related to the HDInsight Emulator are not started by default. To start the services, from the Hadoop command line, run **start\_local\_hdp_services.cmd** under <system drive\>\hdp. To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
+The services related to the HDInsight Emulator are not started by default. To start the services, from the Hadoop command line, run **start\_local\_hdp_services.cmd** under C:\hdp (default location). To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
 
 For known issues with installing and running the HDInsight Emulator, see the [HDInsight Emulator Release Notes](hdinsight-emulator-release-notes.md). The installation log is located at **C:\HadoopFeaturePackSetup\HadoopFeaturePackSetupTools\gettingStarted.winpkg.install.log**.
+
+##<a name="vstools"></a>Use Emulator with HDInsight Tools for Visual Studio
+
+You can use HDInsight tools for Visual Studio to connect to the HDInsight Emulator. For information on how to use the Visual Studio tools with HDInsight clusters on Azure, see [Get started using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+
+### Install the HDInsight tools for Emulator
+
+For instructions on how to install the HDInsight Visual Studio tools, see [here](hdinsight-hadoop-visual-studio-tools-get-started.md#installation).
+
+### Connect to the HDInsight Emulator
+
+1. Open Visual Studio.
+2. From the **View** menu, click **Server Explorer** to open the Server Explorer window.
+3. Expand **Azure**, right-click **HDInsight**, and then click **Connect to HDInsight Emulator**.
+
+	 ![HDI.Emulator.Connect.VS](./media/hdinsight-get-started-emulator/hdi.emulator.connect.vs.png)
+
+4. In the Connect to HDInsight Emulator dialog box, verify the values for WebHCat, HiveServer2, and WebHDFS endpoints, and then click **Next**. The values populated by default should work if you did not make any changes to the default configuration of the Emulator. If you made any changes, update the values in the dialog box and then click Next.
+
+	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-get-started-emulator/hdi.emulator.connect.vs.dialog.png)
+
+5. Once the connection is successfully established, click **Finish**. You should now see the HDInsight Emulator in the Server Explorer.
+
+	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-get-started-emulator/hdi.emulator.vs.connected.png)
+
+Once the connection is successfully established, you can use the HDInsight VS tools with Emulator, just like you would use it with an Azure HDInsight cluster. For instructions on how to use VS tools with Azure HDInsight clusters, see [Using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
+
+### Troubleshoot: Connecting HDInsight Tools to the HDInsight Emulator
+
+1. While connecting to the HDInsight Emulator, even though the dialog box shows that HiveServer2 connected successfully, you must manually set **hive.security.authorization.enabled property** to **false** in the Hive configuration file at C:\hdp\hive-*version*\conf\hive-site.xml, and then restart the local Emulator. HDInsight Tools for Visual Studio connects to HiveServer2 only when you are previewing the top 100 rows of your table. If you do not intend to use such a query, you can leave hive configuration as-is.
+
+2. If you are using dynamic IP allocation (DHCP) on the computer running the HDInsight Emulator, you might need to update C:\hdp\hadoop-*version*\etc\hadoop\core-site.xml and change the value of property **hadoop.proxyuser.hadoop.hosts** to (*). This enables Hadoop user to connect from all hosts to impersonate the user you entered in Visual Studio.
+
+		<property>
+			<name>hadoop.proxyuser.hadoop.hosts</name>
+			<value>*</value>
+		</property>
+
+3. You might get an error when Visual Studio tries to connect to WebHCat service (“error”: “Could not find job job_XXXX_0001”). In this case, you must restart the WebHCat service and try again. To restart the WebHCat service, start the **Services** MMC, right-click **Apache Hadoop Templeton** (this is the old name for WebHCat service), and click **Restart**.
 
 ##<a name="runwordcount"></a>Run a word-count MapReduce job
 
@@ -278,6 +308,8 @@ The Hive query engine might feel familiar to analysts with strong Structured Que
 		hadoop fs -cp /w3c/input/small/data_w3c_small.txt /w3c/hive/input
 
 5. Run the following command to execute the **w3ccreate.hql** script file. The script creates a Hive table, and loads data to the Hive table:
+
+	> [AZURE.NOTE] At this stage, you can also use the HDInsight Visual Studio tools to run the Hive query. Open Visual Studio, create a new Project, and from the HDInsight template, select **Hive Application**. Once the project opens, add the query as a new item. The query is available at **C:/hdp/GettingStarted/Hive/w3c**. Once the query is added to the project, replace **${hiveconf:input}** with **/w3c/hive/input**, and then press **Submit**.
         
 		C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ccreate.hql -hiveconf "input=/w3c/hive/input/data_w3c_small.txt"
 
@@ -294,7 +326,9 @@ The Hive query engine might feel familiar to analysts with strong Structured Que
 		OK
 		Time taken: 2.881 seconds
 
-6. Run the following command to run the **w3ctotalhitsbypage.hql** HiveQL script file:  
+6. Run the following command to run the **w3ctotalhitsbypage.hql** HiveQL script file:
+
+	> [AZURE.NOTE] As explained earlier, you can run this query using the HDInsight Visual Studio Tools as well.  
 
         C:\hdp\hive-0.13.0.2.1.3.0-1981\bin\hive.cmd -f ./Hive/w3c/w3ctotalhitsbypage.hql
 
