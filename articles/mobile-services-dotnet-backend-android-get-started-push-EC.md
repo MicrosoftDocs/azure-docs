@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="04/30/2015" 
 	ms.author="ricksal"/>
 
 # Add push notifications to your Mobile Services app
@@ -22,14 +22,6 @@
 
 This topic shows how to use Azure Mobile Services to send push notifications to your Android app. In this tutorial you add push notifications using Google Cloud Messaging (GCM) to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted. 
 
-This tutorial walks you through these steps:
-
-1. [Enable Google Cloud Messaging](#register)
-2. [Configure mobile service to send push requests](#configure)
-5. [Update the server to send push notifications](#update-server)
-7. [Add push notifications to your app](#update-app)
-8. [Enable push notifications for local testing](#local-testing)
-9. [Test the app against the published mobile service](#test-app)
 
 
 This tutorial is based on the Mobile Services quickstart. Before you start this tutorial, you must first complete either [Get started with Mobile Services] or [Get started with data] to connect your project to the mobile service. As such, this tutorial also requires Visual Studio 2013. 
@@ -37,12 +29,12 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 >[AZURE.NOTE]To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure Free Trial</a>. 
 
 
-##<a id="register"></a>Enable Google Cloud Messaging
+## Enable Google Cloud Messaging
 
 [AZURE.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 
-##<a id="configure"></a>Configure Mobile Services to send push requests
+## Configure Mobile Services to send push requests
 
 1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
@@ -58,15 +50,15 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 Your mobile service is now configured to work with GCM and Notification Hubs.
 
 
-<h2><a name="download-the-service"></a>Download the service to your local computer</h2>
+## Download the service to your local computer
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
-<h2><a name="test-the-service"></a>Test the mobile service</h2>
+## Test the mobile service
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-##<a id="update-server"></a>Update the server to send push notifications
+## Update the server to send push notifications
 
 1. In Visual Studio Solution Explorer, expand the **Controllers** folder in the mobile service project. Open TodoItemController.cs. At the top of the file, add the following `using` statements:
 
@@ -101,14 +93,14 @@ Your mobile service is now configured to work with GCM and Notification Hubs.
     This code will send a push notification (with the text of the inserted item) after inserting a todo item. In the event of an error, the code will add an error log entry which is viewable on the **Logs** tab of the mobile service in the Management Portal.
 
 
-<h2><a name="publish-the-service"></a>Publish the mobile service to Azure</h2>
+## Publish the mobile service to Azure 
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
-##<a name="update-app"></a>Add push notifications to your app
+## <a name="update-app"></a>Add push notifications to your app
 
-###Verify Android SDK Version
+### Verify Android SDK Version
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
@@ -117,19 +109,19 @@ Your next step is to install Google Play services. Google Cloud Messaging has so
 
 If you will be testing with an older device, then consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
 
-###Add Google Play Services to the project
+### Add Google Play Services to the project
 
 [AZURE.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services-EC.md)]
 
-###Add code
+### Add code
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push-EC.md)]
 
-<h2><a name="test-app"></a>Test the app against the published mobile service</h2>
+## Test the app against the published mobile service
 
 You can test the app by directly attaching an Android phone with a USB cable, or by using a virtual device in the emulator.
 
-###If you are using the emulator for testing...
+### If you are using the emulator for testing...
 
 Make sure you use an Android Virtual Device (AVD) that supports Google APIs.
 
@@ -143,11 +135,11 @@ Make sure you use an Android Virtual Device (AVD) that supports Google APIs.
 
 	This targets the AVD to use Google APIs. If you have several versions of the Android SDK installed, make sure the API Level matches that which you set in the project properties earlier.
 
-###<a id="local-testing"></a> Enable push notifications for local testing
+### Enable push notifications for local testing
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-###Running the test
+### Running the test
 
 1. From the **Run** menu in Eclipse, then click **Run** to start the app.
 
@@ -161,7 +153,7 @@ Make sure you use an Android Virtual Device (AVD) that supports Google APIs.
 You have successfully completed this tutorial.
 
 
-## <a name="next-steps"> </a>Next steps
+## Next steps
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 

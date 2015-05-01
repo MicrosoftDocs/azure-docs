@@ -44,7 +44,7 @@ In Quick Start, get the script for web pages:
 
 Insert the script just before the &lt;/head&gt; tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
-* In an ASP.NET MVC project, you'd put it in View\Shared\_Layout.cshtml
+* In an ASP.NET MVC project, you'd put it in View\Shared\\_Layout.cshtml
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource.
