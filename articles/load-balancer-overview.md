@@ -33,7 +33,7 @@ It can be configured to:
 Azure Load Balancer uses a hash based distribution algorithm. By default it uses is a 5 tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or UDP session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client closes and re-opens the connection or starts a new session from the same source IP, the source port changes. This may cause the traffic to go to a different DIP endpoint.
 
 
-For more details on load balancing distribution [how to distribution load balancer]
+For more details on [Load Balancing distribution mode](load-balancer-distribution-mode.md)
 
 ![hash based load balancer](./media/load-balancer-overview/load-balancer-distribution.png)
 
@@ -86,4 +86,13 @@ Add link to multivip page
 
 **Template-based deployments using Azure Resource Manager (public preview)** 
 Azure Resource Manager (ARM) is the new management framework for services in Azure. Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Iaas just got easier with Azure Resource Manager](http://azure.microsoft.com/blog/2015/04/29/iaas-just-got-easier-again/)
+
+
+## Next Steps
+
+[Internet facing load balancer overview](load-balancer-internet-overview.md)
+
+[Internal load balancer overview](load-balancer-internal-overview.md)
+
+[Get started - Internet facing load balancer](load-balancer-internet-getstarted.md)
 

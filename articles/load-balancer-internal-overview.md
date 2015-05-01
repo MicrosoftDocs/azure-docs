@@ -80,3 +80,13 @@ Another scenario for the LOB is to have a site to site VPN to the virtual networ
 
 ![Internal load balancing using site to site VPN](./media/load-balancer-internal-overview/IC744150.png)
 
+
+## Next Steps
+
+[Get started configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+
+[Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)
+
+[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

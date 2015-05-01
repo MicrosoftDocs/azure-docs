@@ -28,13 +28,22 @@ By using ILB on the listener, the SQL server endpoint (e.g. Server=tcp:ListenerN
 Services and VMs in the same Virtual network
 Services and VMs from connected on-premises network
 Services and VMs from inter connected VNets
-ILB_SQLAO_NewPic 
-Internal Load balancer is still not exposed in the Azure portal and will need to be configured through powershell scripts as shown below:
 
-*In the example below, I’m using a Virtual network that contains a subnet ‘Subnet-1’
+![ILB_SQLAO_NewPic](./media/load-balancer-sqlao/sqlao1.jpg) 
+
+
+Internal Load balancer can only be configured through PowerShell.
+
 
 ## Add Internal Load Balancer to the service 
-Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
+
+### Step 1.
+
+In the following example, we will configure a Virtual network that contains a subnet  called ‘Subnet-1’:
+
+	Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
+
+Step 2.
 
 ## Add load balanced endpoints for ILB on each VM
 
@@ -42,4 +51,13 @@ Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName S
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
-For more information on ILB, please refer to the MSDN documentation or previous blog post on this topic.
+
+## See Also
+
+[Get started configuring an Internet facing load balancer](load-balancer-internet-getstarted.md)
+
+[Get started configuring an Internal load balancer](load-balancer-internal-getstarted.md)
+
+[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)

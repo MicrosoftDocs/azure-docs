@@ -60,9 +60,9 @@ Examples of templates:
 - [2 VMs in a Load Balancer and configure NAT rules on the LB](../templates/201-2-vms-loadbalancer-natrules)
 
 
-## Setting up Azure Load Balancer with a cmdlet
+## Setting up Azure Load Balancer with a PowerShell or CLI
 
-[Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be use to create a Load Balancer. Get started with ARM cmdlets and REST APIs
+[Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer. Get started with ARM cmdlets and REST APIs
 
 - [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 
@@ -71,6 +71,10 @@ Examples of templates:
 - [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
+## See Also
 
+[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
+
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
 

@@ -274,9 +274,7 @@ To obtain additional information about ILB cmdlets, run the following commands a
 
 ## See Also
 
-[Internal load balancing](https://msdn.microsoft.com/library/azure/dn690121.aspx)
+[Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
-[Azure Load Balancer](https://msdn.microsoft.com/library/azure/dn655058.aspx)
-
-[Configure a load-balanced set](https://msdn.microsoft.com/library/azure/dn655055.aspx)
+[Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
