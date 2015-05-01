@@ -22,7 +22,7 @@ Azure load balancer delivers high availability and network performance to your a
 It can be configured to:
 
 - Load balance incoming Internet traffic to virtual machines. We refer it as [public load balancing](load-balancer-overview.md).
-- Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](./load-balancer-internal-overview.md).
+- Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](load-balancer-internal-overview.md).
 - 	Forward external traffic to a specific Virtual Machine instance
 
 
@@ -60,7 +60,7 @@ There are three types of probes supported:
 
 - TCP custom probes. TCP probes rely on successful TCP session establishment to a defined probe port.
 
-For more information, see [load balancer health probe](https://msdn.microsoft.com/en-us/library/azure/jj151530.aspx).
+For more information, see [load balancer health probe](https://msdn.microsoft.com/library/azure/jj151530.aspx).
 
 ### Source NAT (SNAT)
 

@@ -17,7 +17,7 @@
 
 
 # Azure Resource Manager support for Azure Load Balancer Preview
-Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](./azure-preview-portal-using-resource-groups.md).
+Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
 >[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
 
@@ -45,30 +45,30 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.
 
-[Learn more about templates](http://azure.microsoft.com/en-us/documentation/templates/)
+[Learn more about templates](templates.md)
 
-[Learn more about Network Resources](http://azure.microsoft.com/en-us/documentation/articles/resource-groups-networking/)
+[Learn more about Network Resources](../resource-groups-networking)
 
 Templates using Azure Load Balancer can be found in a [GitHub repository](https://github.com/Azure/azure-quickstart-templates) hosting a set of community generated templates
 
 Examples of templates:
 
-- [2 VMs in a Load Balancer and load balancing rules](http://azure.microsoft.com/en-us/documentation/templates/201-2-vms-loadbalancer-lbrules/)
+- [2 VMs in a Load Balancer and load balancing rules](../templates/201-2-vms-loadbalancer-lbrules)
 
-- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](http://azure.microsoft.com/en-us/documentation/templates/201-2-vms-internal-load-balancer/)
+- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](../templates/201-2-vms-internal-load-balancer)
 
-- [2 VMs in a Load Balancer and configure NAT rules on the LB](http://azure.microsoft.com/en-us/documentation/templates/201-2-vms-loadbalancer-natrules/)
+- [2 VMs in a Load Balancer and configure NAT rules on the LB](../templates/201-2-vms-loadbalancer-natrules)
 
 
 ## Setting up Azure Load Balancer with a cmdlet
 
 [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be use to create a Load Balancer. Get started with ARM cmdlets and REST APIs
 
-- [Using Azure PowerShell with Azure Resource Manager](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/)
+- [Using Azure PowerShell with Azure Resource Manager](powershell-azure-resource-manager.md)
 
-- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](http://azure.microsoft.com/en-us/documentation/articles/xplat-cli-azure-resource-manager/)
+- [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](../xplat-cli-azure-resource-manager)
 
-- [Load Balancer REST APIs](https://msdn.microsoft.com/en-us/library/azure/mt163651.aspx)
+- [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 
 
