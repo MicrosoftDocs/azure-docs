@@ -1,6 +1,6 @@
 <properties 
    pageTitle="How to set a static internal private IP"
-   description="How to set a static internal private IP"
+   description="Understanding static internal IPs (DIPs) and how to manage them"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"
@@ -16,9 +16,9 @@
    ms.author="telmos" />
 
 # How to Set a Static Internal Private IP
-In most cases, you won’t need to specify a static internal IP address (DIP) for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. 
+In most cases, you won’t need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. 
 
-[AZURE.Note] A static DIP stays with the VM even through a stop/deprovision state. 
+[AZURE.Note] A static internal IP address stays with the VM even through a stop/deprovision state. 
 
 ## How to verify if a specific IP address is available
 To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*:
@@ -33,8 +33,8 @@ To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, 
 
 [AZURE.Note] If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](https://msdn.microsoft.com/library/azure/dn631643.aspx) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
 
-## How to specify a DIP when creating a VM
-The PowerShell script below creates a new cloud service named *TestService*, then retrieves an image from Azure, then creates a VM named *TestVM* in the new cloud service using the retrieved image, sets the VM to be in a subnet named *Subnet-1*, and sets *10.0.0.7* as a DIP for the VM:
+## How to specify a static internal IP when creating a VM
+The PowerShell script below creates a new cloud service named *TestService*, then retrieves an image from Azure, then creates a VM named *TestVM* in the new cloud service using the retrieved image, sets the VM to be in a subnet named *Subnet-1*, and sets *10.0.0.7* as a static internal IP for the VM:
 
 	New-AzureService -ServiceName TestService -Location "Central US"
 	$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
@@ -44,8 +44,8 @@ The PowerShell script below creates a new cloud service named *TestService*, the
 	| Set-AzureStaticVNetIP -IPAddress 10.0.0.7 `
 	| New-AzureVM -ServiceName "TestService" –VNetName TestVnet
 
-## How to retrieve DIP information for a VM
-To view the DIP information for the VM created with the script above, run the following PowerShell command and observe the values for *IpAddress*:
+## How to retrieve static internal IP information for a VM
+To view the static internal IP information for the VM created with the script above, run the following PowerShell command and observe the values for *IpAddress*:
 
 	Get-AzureVM -Name TestVM -ServiceName TestService
 
@@ -76,15 +76,15 @@ To view the DIP information for the VM created with the script above, run the fo
 	OperationId                 : 34c1560a62f0901ab75cde4fed8e8bd1
 	OperationStatus             : OK
 
-## How to remove a DIP from a VM
-To remove the DIP added to the VM in the script above, run the following PowerShell command:
+## How to remove a static internal IP from a VM
+To remove the static internal IP added to the VM in the script above, run the following PowerShell command:
 	
 	Get-AzureVM -ServiceName TestService -Name TestVM `
 	| Remove-AzureStaticVNetIP `
 	| Update-AzureVM
 
-## How to add a DIP to an existing VM
-To add a DIP to the VM created using the script above, runt he following command:
+## How to add a static internal IP to an existing VM
+To add a static internal IP to the VM created using the script above, runt he following command:
 
 	Get-AzureVM -ServiceName TestService000 -Name TestVM `
 	| Set-AzureStaticVNetIP -IPAddress 10.10.0.7 `
@@ -94,7 +94,7 @@ To add a DIP to the VM created using the script above, runt he following command
 
 [Reserved Public IP](../virtual-networks-reserved-public-ip)
 
-[Instance-Level Public IP (IL-PIP)](../virtual-networks-instance-level-public-ip)
+[Instance-Level Public IP (ILPIP)](../virtual-networks-instance-level-public-ip)
 
 [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 

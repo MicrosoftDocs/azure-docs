@@ -1,6 +1,6 @@
 <properties 
    pageTitle="User Defined Routes and IP Forwarding Overview"
-   description="User Defined Routes (UDR) and IP Forwarding Overview"
+   description="Understanding UDR and IP Forwarding"
    services="virtual-networks"
    documentationCenter="na"
    authors="telmosampaio"
