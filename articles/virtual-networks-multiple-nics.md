@@ -123,10 +123,8 @@ The instructions below will help you create a Multi-NIC VM containing 3 NICs: a 
 You need the following prerequisitesbefore trying to run the PowerShell commands in the example.
 
 - An Azure subscription.
-- A configured virtual network. See [Virtual Network Overview](https://msdn.microsoft.com/en-us/library/azure/jj156007.aspx) for more information about VNets.
-- The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell).
-
-Pretend there is a paragraph here, dude.
+- A configured virtual network. See [Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx) for more information about VNets.
+- The latest version of Azure PowerShell downloaded and installed. See [How to install and configure Azure PowerShell](../install-configure-powershell).
 
 1. Select a VM image from Azure VM image gallery. Note that images change frequently and are available by region. The image specified in the example below may change or might not be in your region, so be sure to specify the image you need. 
 
@@ -163,9 +161,9 @@ Pretend there is a paragraph here, dude.
 
 ## See Also
 
-[Virtual Network Overview](https://msdn.microsoft.com/en-us/library/azure/jj156007.aspx)
+[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
-[Virtual Network Configuration Tasks](https://msdn.microsoft.com/en-us/library/azure/jj156206.aspx)
+[Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
 [Blog Post - Multiple VM NICs and VNet Appliances in Azure](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
 
