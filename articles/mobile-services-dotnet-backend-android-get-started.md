@@ -86,7 +86,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 ## Run your Android app
 
-[WACOM.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
+[AZURE.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

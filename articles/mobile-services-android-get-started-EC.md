@@ -14,7 +14,7 @@
 	ms.devlang="java" 
 	ms.topic="hero-article" 
 	ms.date="04/30/2015" 
-	ms.author="ricksal;glenga"/>
+	ms.author="ricksal"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

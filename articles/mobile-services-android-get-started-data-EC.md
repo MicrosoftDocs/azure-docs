@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
-	ms.author="ricksal,glenga"/>
+	ms.date="04/30/2015" 
+	ms.author="ricksal"/>
 
 # Add Mobile Services to an existing app
 
@@ -34,14 +34,6 @@
 > If you would like to see the source code of the completed app, go [here](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData).
 
 
-This tutorial walks you through these basic steps:
-
-1. [Download the Android app project] 
-2. [Create the mobile service]
-3. [Add a data table for storage]
-4. [Update the app to use Mobile Services]
-5. [Test the app against Mobile Services]
-
 > [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank). 
 
 This tutorial requires the [Mobile Services Android SDK]; the <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">Android SDK</a>, which includes the Eclipse integrated development environment (IDE) and Android Developer Tools (ADT) plugin; and Android 4.2 or a later version. 
@@ -52,35 +44,35 @@ This tutorial requires the [Mobile Services Android SDK]; the <a href="https://g
 
 > [AZURE.NOTE] This tutorial uses the latest version of the Mobile Services SDK. You can find an earlier version of it <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126"> here</a> for backward compatibility purposes, but the code contained in these tutorials does not work with it.
 
-<h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
+## Download the GetStartedWithData project
 
-###Get the sample code
+### Get the sample code
 
 [AZURE.INCLUDE [download-android-sample-code](../includes/download-android-sample-code-EC.md)]
 
-###Verify Android SDK Version
+### Verify Android SDK Version
 
 [AZURE.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-###Inspect and run the sample code
+### Inspect and run the sample code
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code-EC.md)]
 
-<h2><a name="create-service"></a>Create a new mobile service in the Management Portal</h2>
+## Create a new mobile service in the Management Portal
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a>Add a new table to the mobile service</h2>
+## Add a new table to the mobile service
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
-<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
+## Update the app to use the mobile service for data access
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
 
-<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
+## Test the app against your new mobile service
 
 Now that the app has been updated to use Mobile Services for back end storage, you can test it against Mobile Services, using either the Android emulator or an Android phone.
 
@@ -102,7 +94,7 @@ Now that the app has been updated to use Mobile Services for back end storage, y
 
 This concludes the **Get started with data** tutorial for Android.
 
-## <a name="next-steps"> </a>Next steps
+## Next steps
 
 This tutorial demonstrated the basics of enabling an Android app to work with data in Mobile Services. 
 

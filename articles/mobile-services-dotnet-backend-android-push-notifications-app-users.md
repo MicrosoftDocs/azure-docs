@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="04/30/2015" 
 	ms.author="wesmc"/>
 
 # Send push notifications to authenticated users
