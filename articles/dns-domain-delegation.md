@@ -110,9 +110,9 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 
 ## Next Steps 
 
-[Perform operations on DNS zones](../dns-operations-dnszones)
+[Manage DNS zones](../dns-operations-dnszones)
 
-[Perform operations on DNS records](../dns-operations-recordsets)
+[Manage DNS records](../dns-operations-recordsets)
 
 [Traffic Manager Overview](../traffic-manmager-overview)
 

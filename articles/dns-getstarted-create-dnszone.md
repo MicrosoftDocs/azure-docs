@@ -154,6 +154,6 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 
 
 [Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
-[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
-[Perform operations on DNS records](../dns-operations-recordsets)<BR>
+[Manage  DNS zones](../dns-operations-dnszones)<BR>
+[Manage DNS records](../dns-operations-recordsets)<BR>
 [Automate Azure Operations with .NET SDK](../dns-sdk)
