@@ -46,7 +46,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.
 
-[Learn more about templates](templates.md)
+[Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
 
 [Learn more about Network Resources](../resource-groups-networking)
 
@@ -54,7 +54,7 @@ Templates using Azure Load Balancer can be found in a [GitHub repository](https:
 
 Examples of templates:
 
-- [2 VMs in a Load Balancer and load balancing rules](../templates/201-2-vms-loadbalancer-lbrules)
+- [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544798)
 
 - [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](../templates/201-2-vms-internal-load-balancer)
 

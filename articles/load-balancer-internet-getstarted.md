@@ -1,6 +1,6 @@
 
 <properties 
-   pageTitle="Get started on Internet facing load balancer"
+   pageTitle="Get started on Internet facing load balancer | Microsoft Azure"
    description="Get your first Internet facing load balancer set for your Virtual Machines or Cloud Services. "
    services="load-balancer"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 # Get started configuring your Internet facing load balancer
@@ -125,7 +125,3 @@ Check the service definition schema for the [health probe](https://msdn.microsof
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-
-
-
-

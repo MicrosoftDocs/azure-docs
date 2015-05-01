@@ -1,6 +1,6 @@
 
 <properties 
-   pageTitle="Internet facing load balancer overview "
+   pageTitle="Internet facing load balancer overview | Microsoft Azure "
    description="Overview for Internet facing load balancer and its features. How a load balancer works for Azure using virtual machines and cloud services."
    services="load-balancer"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 
@@ -45,3 +45,5 @@ When Internet clients send web page requests to the public IP address of the clo
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
+
+
