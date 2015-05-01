@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to Scale a Web App in an App Service Environment" 
 	description="Scaling a web app in an App Service Environment" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -63,6 +63,10 @@ Moving a web app from one worker pool will cause a restart of your web apps.  Th
 To get started with App Service Environments, see [How To Create An App Service Environment][HowtoCreateASE]
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/scaleasp.png
