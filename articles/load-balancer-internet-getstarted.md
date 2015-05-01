@@ -70,6 +70,7 @@ You can also configure endpoints with the following Windows PowerShell cmdlets:
 
 
 Cloud services are automatically configured with a Load Balancer and can customized via the service model
+
 You can leverage the Azure SDK for .NET 2.5 to update your Cloud Service. Endpoint settings for Cloud Services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 The following example shows how a servicedefinition.csdef file for a cloud deployment is configured:
