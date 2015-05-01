@@ -43,28 +43,25 @@ These articles provide developers with high-level information about the use, imp
 <a name='getting-started'></a>
 ## Getting Started
 
-These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory.
+These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
 
-- **[How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)**: An Azure Active Directory tenant is a prerequisite for the tutorials below.
+**Mobile or PC application quickstart guides**:
 
-- **Mobile or PC application quickstart guides**:
+- [iOS](active-directory-devquickstarts-ios.md)
+- [Android](active-directory-devquickstarts-android.md)
+- [.NET](active-directory-devquickstarts-dotnet.md)
+- [Windows Phone](active-directory-devquickstarts-windowsphone.md)
+- [Windows Store](active-directory-devquickstarts-windowsstore.md)
+- [Xamarin](active-directory-devquickstarts-xamarin.md)
+- [Cordova](active-directory-devquickstarts-cordova.md)
 
-  - [iOS](active-directory-devquickstarts-ios.md)
-  - [Android](active-directory-devquickstarts-android.md)
-  - [.NET](active-directory-devquickstarts-dotnet.md)
-  - [Windows Phone](active-directory-devquickstarts-windowsphone.md)
-  - [Windows Store](active-directory-devquickstarts-windowsstore.md)
-  - [Xamarin](active-directory-devquickstarts-xamarin.md)
-  - [Cordova](active-directory-devquickstarts-cordova.md)
 
-&nbsp;
+**Web Application or Web API quickstart guides**:
 
-- **Web Application or Web API quickstart guides**:
-
-  - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
-  - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
-  - [Javascript](active-directory-devquickstarts-angular.md)
-  - [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
+- [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
+- [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
+- [Javascript](active-directory-devquickstarts-angular.md)
+- [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 <!-- COMMENT
 
@@ -76,7 +73,7 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 
 These articles describe how to perform specific tasks using Azure Active Directory.
 
-- [How to get Azure Active Directory](active-directory-howto-tenant.md)
+- [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)
 
 <!--
 

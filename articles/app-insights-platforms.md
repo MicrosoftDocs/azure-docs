@@ -42,6 +42,7 @@
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [SharePoint](app-insights-sharepoint.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Windows desktop](app-insights-windows-desktop.md)
 

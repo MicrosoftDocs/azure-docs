@@ -15,7 +15,7 @@
    ms.date="04/01/2015"
    ms.author="v-sharos" />
 
-### To configure a new storage account
+#### To configure a new storage account
 
 1. On the StorSimple Manager service landing page, select your service and double-click it. This will take you to the **Quick Start** page. Select the **Configure** page.
 

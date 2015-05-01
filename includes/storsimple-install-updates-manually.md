@@ -15,7 +15,7 @@
    ms.date="04/27/2015"
    ms.author="v-sharos" />
 
-### To install regular updates via the Management Portal
+#### To install regular updates via the Management Portal
 
 1. On the **Devices** page, select the device on which you want to install updates.
 
