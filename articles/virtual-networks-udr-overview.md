@@ -17,7 +17,6 @@
 
 # User Defined Routes and IP Forwarding
 Azure uses a route table to decide how to forward IP traffic based on the destination of each packet. Although Azure provides a default route table based on your virtual network settings, you may need to add custom routes to that table. 
-
 The most common need for a custom entry in the route table is the use of a virtual appliance in your Azure environment. Take into account the scenario shown in the Figure below. Suppose you want to ensure that all traffic directed to the mid-tier and backed subnets initiated from the front end subnet go through a virtual firewall appliance. Simply adding the appliance to your virtual network and connecting it to the different subnets will not provide this functionality. You must also change the routing table applied to your subnet to ensure packets are forwarded to the virtual firewall appliance. 
 
 The same would be true if you implemented a virtual NAT appliance to control traffic between your Azure virtual network and the Internet. To ensure the virtual appliance is used you have to create a route specifying that all traffic destined to the Internet must be forwarded to the virtual appliance. 
@@ -33,8 +32,6 @@ Packets are routed over a TCP/IP network based on a route table defined at each 
 	- **Virtual Appliance**. Represents a virtual appliance you added to your Azure virtual network.
 	- **NULL**. Represents a black hole. Packets forwarded to a black hole will not be forwarded at all.
 - **Nexthop Value**. The next hop value contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is *Virtual Appliance*.
-
-![Routing tables in a simple virtual appliance deployment](./media/virtual-networks-udr-overview/Figure1.png)
 
 ## Default Routes
 Every subnet created in a virtual network is automatically associated with a route table that contains the following default route rules:
@@ -52,7 +49,7 @@ You cannot view the default routes specified above in your Azure environment, an
 
 - Force tunneling to the Internet via your on-premises network.
 - Use of virtual appliances in your Azure environment.
-
+- 
 In the scenarios above, you will have to create a route table and add user defined routes to it. You can have multiple route tables, and the same route table can be associated to one or more subnets. And each subnet can only be associated to a single route table. All VMs and cloud services in a subnet use the route table associated to that subnet.
 
 Subnets rely on default routes until a route table is associated to the subnet. Once an association exists, routing is done based on Longest Prefix Match (LPM) among both user defined routes and default routes. If there is more than one route with the same LPM match then a route is selected based on its origin in the following order:
