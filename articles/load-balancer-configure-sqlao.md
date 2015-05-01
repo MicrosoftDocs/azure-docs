@@ -33,10 +33,10 @@ Internal Load balancer is still not exposed in the Azure portal and will need to
 
 *In the example below, I’m using a Virtual network that contains a subnet ‘Subnet-1’
 
-# Add Internal Load Balancer to the service 
+## Add Internal Load Balancer to the service 
 Add-AzureInternalLoadBalancer -InternalLoadBalancerName ILB_SQL_AO -SubnetName Subnet-1 -ServiceName SqlSvc
 
-# Add load balanced endpoints for ILB on each VM
+## Add load balanced endpoints for ILB on each VM
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
 	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 

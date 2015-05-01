@@ -7,7 +7,7 @@
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="load balancer"
+   ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
