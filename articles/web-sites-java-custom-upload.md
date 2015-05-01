@@ -20,7 +20,7 @@
 
 This topic explains how to upload a custom Java web app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps. Included is information that applies to any Java website or web app, and also some examples for specific applications.
 
-Note that Azure provides a means for creating Java web apps using the Azure Portal's configuration UI, and the Azure Marketplace, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the Azure Portal configuration UI or the Azure Marketplace.  
+Note that Azure provides a means for creating Java web apps using the Azure preview portal's configuration UI, and the Azure Marketplace, as documented at [Create a Java web app in Azure App Service](web-sites-java-get-started.md). This tutorial is for scenarios in which you do not want to use the portal configuration UI or the Azure Marketplace.  
 
 ## Configuration guidelines
 
@@ -231,8 +231,7 @@ Once you make these changes, restart your web app running Liferay, Then, open ht
 
 For more information on Liferay, see [http://www.liferay.com](http://www.liferay.com).
 
-## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
-* For a guide to the change of the old portal to the new portal see: [Reference for navigating the preview portal](http://go.microsoft.com/fwlink/?LinkId=529715)
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 

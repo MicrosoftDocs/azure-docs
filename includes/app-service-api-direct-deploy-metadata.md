@@ -1,4 +1,8 @@
-Most of the properties in the *apiapp.json* file, and the files in the *Metadata* folder, affect the way an API app package is presented in the Azure Marketplace. The following sections explain which properties and files affect API apps when you deploy your code directly rather than install an API app from the Marketplace. 
+## API app metadata
+
+This section provides additional information about API app metadata that you can customize.
+
+Most of the properties in the *apiapp.json* file, and the files in the *Metadata* folder, affect the way an API app package is presented in the Azure Marketplace. The following sections explain which properties and files affect API apps when you deploy your code to an API app in your Azure subscription. 
 
 ### API app ID 
 

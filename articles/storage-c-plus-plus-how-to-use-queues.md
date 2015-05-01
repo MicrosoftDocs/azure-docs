@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
 ## Overview
-This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md).  The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.  
+This guide will show you how to perform common scenarios using the Azure Queue storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md).  The scenarios covered include **inserting**, **peeking**, **getting**, and **deleting** queue messages, as well as **creating and deleting queues**.  
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 0.5.0 and above. The recommended version is Storage Client Library 0.5.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
 -	**Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
 -	**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage 
  
 ## Configure your application to access Queue Storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access queues:  
@@ -119,7 +119,7 @@ You can peek at the message in the front of a queue without removing it from the
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## How to: Change the contents of a queued message
@@ -142,6 +142,8 @@ You can change the contents of a message in-place in the queue. If the message r
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## How to: De-queue the next message
@@ -161,8 +163,7 @@ Your code de-queues a message from a queue in two steps. When you call **get_mes
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## How to: Leverage additional options for de-queuing messages
 There are two ways you can customize message retrieval from a queue. First, you can get a batch of messages (up to 32). Second, you can set a longer or shorter invisibility timeout, allowing your code more or less time to fully process each message. The following code example uses the **get_messages** method to get 20 messages in one call. Then it processes each message using a **for** loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since the call to **get_messages**, any messages which have not been deleted will become visible again.  
@@ -184,12 +185,10 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## How to: Get the queue length
