@@ -112,7 +112,7 @@ The tags section uses this syntax:
 
 ![](./media/article-metadata/checkmark-small.png)**editor**: Not used. Do not use it for other purposes.
 
-![]![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the following approved values: mysql, billing, architecture. This value does not support free-form tags or hashtags.
+![](./media/article-metadata/checkmark-small.png)**tags**: Optional. Include only if you want to enable a link under the article breadcrumb to the article index page (http://azure.microsoft.com/documentation/articles/) to a prefiltered list of articles that match one of the following approved values: mysql, billing, architecture. This value does not support free-form tags or hashtags.
 
 ## Attributes and values for the tags section
 
