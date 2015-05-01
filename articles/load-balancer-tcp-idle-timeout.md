@@ -59,7 +59,7 @@ IdleTimeoutInMinutes is optional. If not set, the default timeout is 4 minutes.
 
 In order to change the timeout setting for an endpoint
 
-Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
+	Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
  
 Retrieve your idle timeout configuration
 

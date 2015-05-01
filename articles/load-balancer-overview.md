@@ -28,8 +28,10 @@ It can be configured to:
 
 ## Load Balancer features
 
-### Hash based load balancing 
-The distribution algorithm used is a 5 tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or UDP session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client closes and re-opens the connection or starts a new session from the same source IP, the source port changes and causes the traffic to go to a different DIP endpoint.
+### Layer-4 Load Balancer, Hash based distribution
+
+Azure Load Balancer uses a hash based distribution algorithm. By default it uses is a 5 tuple (source IP, source port, destination IP, destination port, protocol type) hash to map traffic to available servers. It provides stickiness only within a transport session. Packets in the same TCP or UDP session will be directed to the same datacenter IP (DIP) instance behind the load balanced endpoint. When the client closes and re-opens the connection or starts a new session from the same source IP, the source port changes. This may cause the traffic to go to a different DIP endpoint.
+
 
 For more details on load balancing distribution [how to distribution load balancer]
 
@@ -46,7 +48,7 @@ The default use and configuration of endpoints on a virtual machine that you cre
 
 ### Automatic reconfiguration on scale out/down
 
-Azure Load Balancer instantly reconfigures itself when you scale up or down instances (either due to increasing the instance count for web/worker role or due to putting additional virtual machines under the same load balanced set).
+Azure Load Balancer instantly reconfigure itself when you scale up or down instances (either due to increasing the instance count for web/worker role or due to putting additional virtual machines under the same load balanced set).
 
 
 ### Service Monitoring
@@ -71,7 +73,7 @@ All outbound traffic to Internet originating from your service is Source NATed (
 
 - It makes ACL management easier since the ACL can be expressed in terms of VIPs and hence do no change as services scale up or down or get redeployed
 
-Azure Load balancer configuration supports full cone NAT for UDP (also known as a one to one NAT). Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request)
+Azure Load balancer configuration supports full cone NAT for UDP. Full cone NAT is a type of NAT where the port allows inbound connections from any external host (in response to an outbound request).
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 

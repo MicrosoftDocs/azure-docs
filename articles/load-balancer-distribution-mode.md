@@ -35,7 +35,7 @@ The distribution algorithm used is a 5 tuple (source IP, source port, destinatio
 ![hash based load balancer](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 
-## Configuring idle timeout settings for load balancer
+## Configuring Source IP affinity settings for load balancer
  
 For virtual machines, you can use powershell to change timeout settings:
  

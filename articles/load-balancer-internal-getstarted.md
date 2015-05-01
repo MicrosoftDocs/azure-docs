@@ -39,6 +39,7 @@ For an existing cloud service or a cloud service deployed under a regional virtu
 	$ilb="<Name of your ILB instance>"
 	$subnet="<Name of the subnet within your virtual network-optional>"
 	$IP="<The IPv4 address to use on the subnet-optional>"
+	
 	Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
 
 
