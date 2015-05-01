@@ -78,5 +78,3 @@ Examples of templates:
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
-
-
