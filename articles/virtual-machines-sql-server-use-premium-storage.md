@@ -1119,7 +1119,7 @@ To add in IP Address, see the [Appendix](#Appendix:-Migrating-a-Multisite-Always
 	![Appendix15][25]
 
 ## Additional Resources
-- [Azure Premium Storage](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal)
+- [Azure Premium Storage](storage-premium-storage-preview-portal.md)
 - [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/)
 - [SQL Server in Azure Virtual Machines](virtual-machines-sql-server-infrastructure-services.md)
 
