@@ -1,22 +1,22 @@
 <properties
 	pageTitle="Redis Cluster Resource Manager Template"
 	description="Learn to easily deploy a new Redis cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
-	services="virtual-machines"
+	services="multiple"
 	documentationCenter=""
-	authors="timwieman"
+	authors="karthmut"
 	manager="timlt"
 	editor="tysonn"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="multiple"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="timwieman"/>
+	ms.author="karthmut"/>
 
-# Redis cluster with a Resource Manager template
+# Redis Cluster Resource Manager Template
 
 Redis is an open-source key-value cache and store, where keys can contain data structures such as strings, hashes, lists, sets and sorted sets. Redis supports a set of atomic operations on these data types.  With the release of Redis version 3.0, Redis Cluster is now available in the latest stable version of Redis.  Redis Cluster is a distributed implementation of Redis where data is automatically sharded across multiple Redis nodes, with the ability to continue operations when a subset of nodes are experiencing failures.
 
@@ -32,21 +32,21 @@ The Redis Cluster template for the “Medium” t-shirt size creates this config
 
 ![cluster-architecture](media/virtual-machines-redis-template/cluster-architecture.png)
 
-Before diving into more details related to the Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
+Before diving into more details related to Azure Resource Manager and the template we used for this deployment, make sure you have Azure, PowerShell, and Azure CLI configured and ready to go.
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../includes/xplat-getting-set-up-arm.md)]
 
-## Deploy a Redis cluster with a Resource Manager template
+## Create a Redis Cluster with a Resource Manager template using Azure PowerShell
 
-Follow these steps to create a Redis Cluster using a Resource Manager template from the Github template repository. Each step will include directions for both Azure PowerShell and the Azure CLI.
+Follow these steps to create a Redis Cluster using a Resource Manager template in the GitHub template repository with Azure PowerShell.
 
-### Step 1-a: Download the template files using PowerShell
+### Step 1: Download the JSON file for the template and other files.
 
-Create a local folder for the JSON template and other associated files (for example, C:\Azure\Templates\RedisCluster).
+Designate a local folder as the location for the JSON template and other files and create it (for example, C:\Azure\Templates\RedisCluster).
 
-Substitute in the folder name of your local folder and run these commands:
+Fill in the folder name and run these commands:
 
 	$folderName="<folder name, such as C:\Azure\Templates\RedisCluster>"
 	$webclient = New-Object System.Net.WebClient
@@ -86,15 +86,13 @@ Substitute in the folder name of your local folder and run these commands:
 	$filePath = $folderName + "\shared-resources.json"
 	$webclient.DownloadFile($url,$filePath)
 
-### Step 1-b: Download the template files using the Azure CLI
-
-Clone the entire template repository using a git client of your choice, for example:
+As an alternative, you can also clone the template repository using a git client of your choice, for example:
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-When completed, look for the **redis-high-availability** folder in your C:\Azure\Templates directory.
+When completed, look for redis-high-availability folder in your C:\Azure\Templates directory.
 
-### Step 2: (optional) Understand the template parameters 
+### Step 2: (optional) View the parameters of the template.
 
 When you create a Redis Cluster with a template, you must specify a set of configuration parameters. To see the parameters that you need to specify for the template in a local JSON file before running the command to create the Redis Cluster, open the JSON file in a tool or text editor of your choice.
 
@@ -200,12 +198,11 @@ Look for the **"parameters"** section at the top of the file, which lists the se
 		}
 	},
 
-Each parameter has details such as data type and allowed values. This allows for validation of parameters passed during template execution in an interactive mode (e.g. PowerShell or Azure CLI), as well as a self-discovery UI that could be dynamically-built by parsing the list of required parameters and their descriptions.
+By describing required parameters, including details like data types, allowed values and so on, it’s clear that this section will be really helpful for any validation task related to parameter values passed at template execution in an interactive mode (e.g. PowerShell or Azure CLI), but also to whatever self-discovery UI that could be dynamically built by parsing the list of required parameters and their description.
 
-### Step 3-a: Deploy a Redis cluster with a template using PowerShell
+### Step 3: Deploy a new Redis Cluster with the template.
 
-Prepare a parameters file for your deployment by creating a JSON file containing runtime values for all parameters. This file will then be passed as a single entity to the deployment command. If you do not include a parameters file, PowerShell will use any default values specified in the template, and then prompt you to fill in the remaining values.
-
+Prepare a parameter file for your deployment by creating a JSON file containing runtime values for all parameters, which will then be passed as a single entity to the deployment command.
 Here is an example you can find in the **azuredeploy-parameters.json** file.  Note that you will need to provide valid values for the parameters `storageAccountName`, `adminUsername`, and `adminPassword`, plus any customizations to the other parameters:
 
 	{
@@ -252,7 +249,7 @@ Here is an example you can find in the **azuredeploy-parameters.json** file.  No
 
 [AZURE.NOTE] The parameter `storageAccountName` must be a non-existent, unique storage account name that satisfies the naming requirements for a Microsoft Azure Storage account (lowercase letters and numbers only).  This storage account will be created as part of the deployment process.
 
-Fill in an Azure deployment name, resource group name, Azure location, and the folder of your saved JSON files. Then run these commands:
+Fill in an Azure deployment name, Resource Group name, Azure location, and the folder for your saved JSON files. Then run these commands:
 
 	$deployName="<deployment name>, such as TestDeployment"
 	$RGName="<resource group name>, such as TestRG"
@@ -269,7 +266,7 @@ Fill in an Azure deployment name, resource group name, Azure location, and the f
 
 When you run the **New-AzureResourceGroupDeployment** command, this will extract parameter values from the parameters JSON file (azuredeploy-parameters.json), and will start executing the template accordingly. Defining and using multiple parameter files with your different environments (e.g. Test, Production, etc.) will promote template reuse and simplify complex multi-environment solutions.
 
-When deploying, please keep in mind that a new Azure Storage Account needs to be created so the name you provide as the storage account parameter must be unique and meet all requirements for an Azure Storage Account (lowercase letters and numbers only)
+When deploying, please keep in mind that a new Azure Storage Account needs to be created so the name you provide as the storage account parameter needs to be unique and meet all requirements for an Azure Storage Account.
 
 During the deployment, you will see something like this:
 
@@ -345,21 +342,21 @@ After your tests, if you need to remove this resource group and all of its resou
 
 	Remove-AzureResourceGroup –Name "<resource group name>"
 
-### Step 3-b: Deploy a Redis cluster with a template using the Azure CLI
+### Step 3-b: Create a Redis Cluster with a Resource Manager template using Azure CLI
 
-To deploy a Redis cluster via the Azure CLI, first create a Resource Group by specifying a name and a location:
+Functionally equivalent with the PowerShell approach listed above, deploying a Redis Cluster via Azure CLI requires you to first create a Resource Group by specifying name and location:
 
 	azure group create TestRG "West US"
 
-Pass this Resource Group name, the location of the JSON template file, and the location of the parameters file (see the above PowerShell section for details) into the following command:
+And subsequently, invoking a deployment creation and passing Resource Group name, parameter file and the actual template as shown below:
 
 	azure group deployment create TestRG -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
-You can check the status of individual resources deployments with the following command:
+It is also possible to check status of individual deployments by invoking the following command:
 
 	azure group deployment list TestRG
 
-## A tour of the Redis cluster template structure and file organization 
+## A tour of template structure and file organization created to deploy Redis Cluster on Ubuntu
 
 In order to create a robust and reusable approach to Resource Manager template design, additional thinking is required to organize the series of complex and interrelated tasks required during deployment of a complex solution like Redis Cluster. By leveraging ARM **template linking** capabilities, **resource looping**, and script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 

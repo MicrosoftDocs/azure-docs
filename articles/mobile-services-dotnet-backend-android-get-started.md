@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="02/13/2015" 
 	ms.author="ricksal"/>
 
 
@@ -86,7 +86,7 @@ In this section you will create a new Android app that is connected to your mobi
 
 ## Run your Android app
 
-[AZURE.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
+[WACOM.INCLUDE [mobile-services-run-your-app](../includes/mobile-services-android-get-started.md)]
 
 ## <a name="next-steps"> </a>Next Steps
 Now that you have completed the quickstart, learn how to perform additional important tasks in Mobile Services: 

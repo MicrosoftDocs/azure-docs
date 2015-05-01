@@ -32,9 +32,12 @@ Click to see the [SDK Content](mobile-engagement-windows-store-sdk-content.md)
 
 ##Release notes
 
-###3.0.1 (04/29/2015)
+###3.0.0 (04/01/2015)
 
--   Fixed a bug affecting the SDK initialization on some Windows Phone WinRT apps.
+-   Introducing the Mobile Engagement SDK for Universal App (Windows and Windows Phone WinRT).
+-   Default notification icon updated.
+-   Send back system notification action feedback when a notification is clicked.
+-   Fixed system notification which is sometimes replayed in-app after being clicked.
 
 For earlier version please see the [complete release notes](mobile-engagement-windows-store-release-notes.md)
 
