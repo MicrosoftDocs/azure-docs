@@ -23,7 +23,7 @@ This means that if you have a period of inactivity on your tcp or http sessions 
 
 When the connection is closed, your client application will get an error message like “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.
 
-A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples [here](https://msdn.microsoft.com/en-us/library/system.net.servicepoint.settcpkeepalive.aspx)).
+A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples [here](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)).
 
 Packets are sent when no activity is detected on the connection. By keeping on-going network activity, the idle timeout value is never hit and the connection is maintained for a long period.
 
