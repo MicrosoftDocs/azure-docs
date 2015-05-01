@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Android Apps."
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="kapiteir" />
+	ms.date="05/01/2015" 
+	ms.author="piyushjo" />
 	
 # Get Started with Azure Mobile Engagement for Android Apps
 
@@ -153,7 +153,7 @@ Download and integrate the SDK library
 
 ###Add permissions & Service declaration
 
-1. Add these permissions to the Manifest.xml of your project immediately preceding the `<application>` tag:
+1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
 	
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -269,13 +269,14 @@ The following sections will setup your app to receive them.
 		![][24]
 
 ###Specify a default icon in notifications
-The following code will define the default icon that will display with notifications. Here we used the icon provided with the project created by Android Studio. This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags
+The following code will define the default icon that will display with notifications. Here we used the icon provided with the project created by Android Studio. This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags. 
+Make sure that ic_launcher exists in your app or use another icon file otherwise the notification will not be displayed.  
 
 		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
 
 ###Enable your app to receive GCM Push Notifications
 
-1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console.
+1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure you end the project number with it. 
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -296,7 +297,7 @@ The following code will define the default icon that will display with notificat
 			</intent-filter>
 		</receiver>
 
-3. Add the last set of permissions highlighted below before the < application> tag. Again we used this project package name that you'll have to replace in your production app.
+3. Add the last set of permissions highlighted below or after the < application> tag. Again we used this project package name that you'll have to replace in your production app.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
