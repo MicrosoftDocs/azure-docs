@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Try a Hadoop ecosystem with the HDInsight Emulator | Microsoft Azure" 
-	description="Use an emulator on a desktop computer and a MapReduce tutorial to learn the Hadoop ecosystem in HDInsight. The HDInsight emulator works like a Hadoop sandbox." 
+	pageTitle="Learn the Hadoop ecosystem with HDInsight Emulator | Microsoft Azure" 
+	description="Use an emulator on a desktop computer with a MapReduce tutorial and other samples to learn the Hadoop ecosystem. HDInsight emulator works like a Hadoop sandbox." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -16,11 +16,14 @@
 	ms.date="04/29/2015" 
 	ms.author="nitinme"/>
 
-# Get started with the HDInsight Emulator 
+# Get started in the Hadoop ecosystem with the HDInsight Emulator, a Hadoop sandbox 
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md).
 
+Once the emulator is installed, you follow a MapReduce tutorial for word count and then run samples.
+
 > [AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase or Storm.
+
 
 The HDInsight Emulator provides a local development environment much like a Hadoop sandbox. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
 
@@ -94,19 +97,19 @@ For instructions on how to install the HDInsight Visual Studio tools, see [here]
 2. From the **View** menu, click **Server Explorer** to open the Server Explorer window.
 3. Expand **Azure**, right-click **HDInsight**, and then click **Connect to HDInsight Emulator**.
 
-	 ![HDI.Emulator.Connect.VS](./media/hdinsight-get-started-emulator/hdi.emulator.connect.vs.png)
+	 ![HDI.Emulator.Connect.VS](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.png)
 
 4. In the Connect to HDInsight Emulator dialog box, verify the values for WebHCat, HiveServer2, and WebHDFS endpoints, and then click **Next**. The values populated by default should work if you did not make any changes to the default configuration of the Emulator. If you made any changes, update the values in the dialog box and then click Next.
 
-	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-get-started-emulator/hdi.emulator.connect.vs.dialog.png)
+	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.dialog.png)
 
 5. Once the connection is successfully established, click **Finish**. You should now see the HDInsight Emulator in the Server Explorer.
 
-	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-get-started-emulator/hdi.emulator.vs.connected.png)
+	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.vs.connected.png)
 
 Once the connection is successfully established, you can use the HDInsight VS tools with Emulator, just like you would use it with an Azure HDInsight cluster. For instructions on how to use VS tools with Azure HDInsight clusters, see [Using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-### Troubleshoot: Connecting HDInsight Tools to the HDInsight Emulator
+## Troubleshoot: Connecting HDInsight Tools to the HDInsight Emulator
 
 1. While connecting to the HDInsight Emulator, even though the dialog box shows that HiveServer2 connected successfully, you must manually set **hive.security.authorization.enabled property** to **false** in the Hive configuration file at C:\hdp\hive-*version*\conf\hive-site.xml, and then restart the local Emulator. HDInsight Tools for Visual Studio connects to HiveServer2 only when you are previewing the top 100 rows of your table. If you do not intend to use such a query, you can leave hive configuration as-is.
 
@@ -119,9 +122,9 @@ Once the connection is successfully established, you can use the HDInsight VS to
 
 3. You might get an error when Visual Studio tries to connect to WebHCat service (“error”: “Could not find job job_XXXX_0001”). In this case, you must restart the WebHCat service and try again. To restart the WebHCat service, start the **Services** MMC, right-click **Apache Hadoop Templeton** (this is the old name for WebHCat service), and click **Restart**.
 
-##<a name="runwordcount"></a>Run a word-count MapReduce job
+##<a name="runwordcount"></a>A word-count MapReduce tutorial 
 
-Now that you have the HDInsight Emulator configured on your workstation, you can run a MapReduce job to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files. 
+Now that you have the HDInsight Emulator configured on your workstation, try this MapReduce tutorial to test the installation. You will first upload some data files to HDFS, and then run a word count MapReduce job to count the frequency of specific words in those files. 
 
 The word-counting MapReduce program has been packaged into *hadoop-mapreduce-examples-2.4.0.2.1.3.0-1981.jar*. The jar file is located at the *C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\hadoop\mapreduce* folder.
 
@@ -179,11 +182,11 @@ The MapReduce job to count words takes two arguments:
 
 For more information on Hadoop commands, see [Hadoop commands manual][hadoop-commands-manual].
 
-##<a name="rungetstartedsamples"></a> Run the get-started sample
+##<a name="rungetstartedsamples"></a> Analyze sample web log data
 
-The HDInsight Emulator installation provides some samples to get users started with learning Apache Hadoop-based services on Windows. These samples cover some tasks that are typically needed when processing a big dataset. Going through the samples will help you become familiar with the concepts associated with the MapReduce programming model and its ecosystem.
+The HDInsight Emulator installation provides some samples to get users started with learning Apache Hadoop-based services on Windows. These samples cover some tasks that are typically needed when processing a big dataset. Building on the MapReduce tutorial above, the the samples will help you become more familiar with the MapReduce programming model and its ecosystem.
 
-The sample is organized around processing IIS World Wide Web Consortium (W3C) log data. A data generation tool is provided to create and import the datasets in various sizes to HDFS or Azure Blob storage. (See [Use Azure Blob storage for HDInsight](hdinsight-use-blob-storage.md) for more information). MapReduce, Pig, or Hive jobs can then be run on the pages of data generated by the Azure PowerShell script. Note that the Pig and Hive scripts are a layer of abstraction over MapReduce, and eventually compile to MapReduce programs. Users may run a series of jobs to observe the effects of using these different technologies and how the data size affects the execution of the processing tasks. 
+The sample data is organized around processing IIS World Wide Web Consortium (W3C) log data. A data generation tool is provided to create and import the datasets in various sizes to HDFS or Azure Blob storage. (See [Use Azure Blob storage for HDInsight](hdinsight-use-blob-storage.md) for more information). MapReduce, Pig, or Hive jobs can then be run on the pages of data generated by the Azure PowerShell script. Pig and Hive scripts are a layer of abstraction over MapReduce, and eventually compile to MapReduce programs. You can run a series of jobs to observe the effects of using these different technologies and how the data size affects the execution of the processing tasks. 
 
 ### In this section
 
@@ -496,11 +499,12 @@ On the computer where you have the emulator installed, open Control Panel and un
 
 
 ##<a name="nextsteps"></a> Next steps
-In this tutorial, you installed the HDInsight Emulator and ran some Hadoop jobs. To learn more, see the following articles:
+In this MapReduce tutorial, you installed the HDInsight Emulator, a Hadoop sandbox, and ran some Hadoop jobs. To learn more, see the following articles:
 
 - [Get started using Azure HDInsight](hdinsight-get-started.md)
 - [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Develop C# Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Develop C# 
+- Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator release notes](hdinsight-emulator-release-notes.md)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -527,4 +531,4 @@ In this tutorial, you installed the HDInsight Emulator and ran some Hadoop jobs.
 
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
-[image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
+[image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png 

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Introduction to Hadoop: Big data analysis | Microsoft Azure" 
-   description="An introduction to the Apache Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data." 
+   pageTitle="What is Hadoop in HDInsight: Cloud big data analysis | Microsoft Azure" 
+   description="An introduction to Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data." 
    services="hdinsight" 
    documentationCenter="" 
    authors="cjgronlund" 
@@ -17,9 +17,9 @@
    ms.author="cgronlun"/>
 
 
-# Introduction to Hadoop in HDInsight: Big-data processing and analysis in the cloud
+# Introduction to Hadoop in HDInsight: Big-data analysis and processing in the cloud
 
-Get an introduction to the Hadoop ecosystem in Azure HDInsight - components, common terminology, and solutions. Also, find out about documentation, tutorials, and resources for using Hadoop in HDInsight.
+Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop, its components, common terminology, and scenarios for big data analysis. Also, learn about documentation, tutorials, and resources for using Hadoop in HDInsight.
 
 ## What is Hadoop in HDInsight?
 
@@ -31,12 +31,12 @@ Big data refers to data being collected in ever-escalating volumes, at increasin
 
 Big data describes any large body of digital information, from the text in a Twitter feed, to the sensor information from industrial equipment, to information about customer browsing and purchases on an online catalog. Big data can be historical (meaning stored data) or real-time (meaning streamed directly from the source). 
 
-For big data to provide actionable intelligence or insight, not only must the right questions be asked and data be relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where Hadoop in HDInsight can help.
+For big data to provide actionable intelligence or insight, not only must the right questions be asked and data be relevant to the issues be collected, the data must be accessible, cleaned, analyzed, and then presented in a useful way. That's where big data analysis on Hadoop in HDInsight can help.
 
 
 ## <a name="overview"></a>Overview of the Hadoop ecosystem on HDInsight
 
-Apache Hadoop is the rapidly expanding technology stack that is the go-to solution for big-data analysis. HDInsight is framework for the Microsoft Azure cloud implementation of Hadoop. It includes implementations of Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
+HDInsight is a cloud implementation on Microsoft Azure of the rapidly exanding Apache Hadoop technology stack that is the go-to solution for big data analysis. It includes implementations of Storm, HBase, Pig, Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
 
 * Azure HDInsight deploys and provisions Hadoop clusters in the cloud, by using either **Linux** or **Windows** as the underlying OS.
@@ -60,11 +60,13 @@ Apache Hadoop is the rapidly expanding technology stack that is the go-to soluti
 
 * Apache Hadoop is a software framework for big-data management and analysis. HDInsight provides several configurations for specific workloads, or you can <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">customize clusters by using Script Actions</a>.
 
-	* **Hadoop for HDInsight** - The Apache Hadoop core provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
+	* **Hadoop**: Provides reliable data storage with [HDFS](#HDFS), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 	
-	* **HBase for HDInsight** - [HBase](#hbase) is an Apache open-source NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data.
+	* **<a target="_blank" href="http://hbase.apache.org/">HBase</a>**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
 	
-	* **Storm for HDInsight** - [Storm](#storm) is a distributed, fault-tolerant, open-source computation system that allows you to process data in real time.
+	* **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**: A distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
+
+## What are the Hadoop components?
 
 In addition to the previous overall configurations, the following individual components are also included on HDInsight clusters.
 
@@ -97,9 +99,6 @@ Apache Ambari is for provisioning, managing and monitoring Apache Hadoop cluster
 The Microsoft .NET Library for Avro implements the Apache Avro compact binary data interchange format for serialization for the Microsoft .NET environment. It uses <a target="_blank" href="http://www.json.org/">JavaScript Object Notation (JSON)</a> to define a language-agnostic schema that underwrites language interoperability, meaning data serialized in one language can be read in another. Detailed information on the format can be found in the <a target=_"blank" href="http://avro.apache.org/docs/current/spec.html">Apache Avro Specification</a>. 
 The format of Avro files supports the distributed MapReduce programming model. Files are “splittable”, meaning you can seek any point in a file and start reading from a particular block. To find out how, see [Serialize data with the Microsoft .NET Library for Avro](hdinsight-dotnet-avro-serialization.md).
 
-### <a name="hbase"></a>HBase
-
-<a target="_blank" href="http://hbase.apache.org/">Apache HBase</a> is a non-relational database built on Hadoop and designed for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. HBase clusters on HDInsight are configured to store data directly in Azure Blob storage, with low latency and increased elasticity. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
 
 ### <a name="hdfs"></a>HDFS
 
@@ -130,8 +129,6 @@ For more information on MapReduce, see <a target="_blank" href="http://wiki.apac
 ### <a name="sqoop"></a>Sqoop
 <a  target="_blank" href="http://sqoop.apache.org/">Apache Sqoop</a> is tool that transfers bulk data between Hadoop and relational databases such a SQL, or other structured data stores, as efficiently as possible. See [Use Sqoop with Hadoop](hdinsight-use-sqoop.md).
 
-### <a name="storm"></a>Storm
-<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a> is a distributed, real-time computation system for processing large streams of data fast. Storm is offered as a managed cluster in HDInsight. See [Analyze real-time sensor data using Storm and Hadoop](hdinsight-storm-sensor-data-analysis.md).
 
 ### <a name="zookeeper"></a>ZooKeeper
 <a  target="_blank" href="http://zookeeper.apache.org/">Apache ZooKeeper</a> coordinates processes in large distributed systems by means of a shared hierarchical namespace of data registers (znodes). Znodes contain small amounts of meta information needed to coordinate processes: status, location, configuration, and so on. 
@@ -142,7 +139,8 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Automatic provisioning of Hadoop clusters. HDInsight clusters are much easier to create than manually configuring Hadoop clusters. For details, see [Provision Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
 
-* State-of-the-art Hadoop components. For details, see [What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning].
+* State-of-the-art Hadoop components. For details, see [
+* What's new in the Hadoop cluster versions provided by HDInsight?][component-versioning].
 
 * High availability and reliability of clusters. See [Availability and reliability of Hadoop clusters in HDInsight](hdinsight-high-availability.md) for details.
 
@@ -157,6 +155,8 @@ To read more about the advantages on Hadoop in HDInsight, see the [Azure feature
 
 
 ## <a id="resources"></a>Resources for learning more about big-data analysis, Hadoop, and HDInsight
+
+Build on this introduction to Hadoop on HDInsight and big data analysis with the resources below.
 
 
 ### HDInsight on Linux (Preview)
@@ -225,8 +225,6 @@ Analyze data from your organization to gain insights into your business. Here ar
 * [Use Hive with HDInsight to analyze website logs](hdinsight-hive-analyze-website-log.md) - Learn how to use HiveQL in HDInsight to analyze website logs to get insight into the frequency of visits in a day from external websites, and a summary of website errors that the users experience.
 
 * [Analyze sensor data in real-time with Storm and HBase in HDInsight (Hadoop)](hdinsight-storm-sensor-data-analysis.md) - Learn how to build a solution that uses a Storm cluster in HDInsight to process sensor data from Azure Event Hubs, and then displays the processed sensor data as near-real-time information on a web-based dashboard.
-
-To try Hadoop on HDInsight, see "Get started" articles in the Explore section on the [HDInsight documentation page](../documentation/services/hdinsight/). To try more advanced examples, scroll down to the Analyze section.
 
 
 [marketing-page]: ../services/hdinsight/
