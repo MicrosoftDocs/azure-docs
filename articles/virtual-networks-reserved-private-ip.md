@@ -18,7 +18,7 @@
 # How to Set a Static Internal Private IP
 In most cases, you won’t need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. 
 
->[AZURE.Note] A static internal IP address stays with the VM even through a stop/deprovision state. 
+>[AZURE.NOTE] A static internal IP address stays with the VM even through a stop/deprovision state. 
 
 ## How to verify if a specific IP address is available
 To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*:
