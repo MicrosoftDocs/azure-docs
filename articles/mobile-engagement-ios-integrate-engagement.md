@@ -24,9 +24,9 @@
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 
 
-> [AZURE.IMPORTANT] The Engagement SDK requires iOS4+: the deployment target of your application must be at least iOS 4.
-
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
+
+> [AZURE.IMPORTANT] The Engagement SDK requires iOS4+: the deployment target of your application must be at least iOS 4.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see ios-sdk-engagement-advanced) since these statistics are application dependent.
 
