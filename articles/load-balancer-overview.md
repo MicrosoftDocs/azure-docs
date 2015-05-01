@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Azure Load balancer overview"
-   description="Overview of load balancer features and their implementation"
+   pageTitle="Azure Load Balancer overview"
+   description="Overview of Azure load balancer features, architecture and implementation. It helps to understand how load balancer works and leverage it for the cloud"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"

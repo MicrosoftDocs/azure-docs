@@ -1,7 +1,7 @@
 
 <properties 
    pageTitle="Get started on Internet facing load balancer"
-   description="Get your first external load balancer set for your Virtual Machines or Cloud Services. How to setup load balancer for public virtual IP addresses"
+   description="Get your first Internet facing load balancer set for your Virtual Machines or Cloud Services. "
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"

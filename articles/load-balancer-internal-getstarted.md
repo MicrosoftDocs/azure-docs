@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Gettting started - Internal load balancer"
-   description="Configure Failover Load Balancing"
+   pageTitle="Gettting started with Internal load balancer"
+   description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"

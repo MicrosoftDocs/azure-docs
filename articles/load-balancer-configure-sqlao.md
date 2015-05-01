@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure Load balancer for SQ:"
-   description="Configure Load balancer TCP idle timeout"
+   pageTitle="Configure Load balancer for SQL always on"
+   description="Configure Load balancer to work with SQL always on and how to leverage powershell to create load balancer for the SQL implementation"
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
