@@ -33,7 +33,7 @@ While TCP Keep-alive works well for scenarios where battery is not a constraint,
 
 To support such scenarios, we have added support for a configurable idle timeout. You can now set it for a duration between 4 and 30 minutes. This setting works for inbound connections only.
 
-![tcp Idle timeout](./media/load-balancer-tcp-idle-timeout/tcp-idle-timeout.png)
+![tcptimeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 
 ## How to change idle timeout settings in Virtual Machines and cloud services
