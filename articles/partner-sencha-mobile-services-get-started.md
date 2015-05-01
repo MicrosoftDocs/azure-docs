@@ -8,16 +8,6 @@
 	manager="dwrede"
 	editor=""/>
 
-<<<<<<< HEAD
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-sencha"
-	ms.devlang="multiple"
-	ms.topic="hero-article"
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
-=======
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
@@ -26,7 +16,7 @@
 	ms.topic="hero-article" 
 	ms.date="04/24/2015" 
 	ms.author="glenga"/>
->>>>>>> 1027d857ab887821da78f739f970417c421f6fa5
+
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
