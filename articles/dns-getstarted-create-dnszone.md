@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Get started with Azure DNS" 
    description="Learn how to create DNS zones for Azure DNS - Step by step to get your first DNS zone created to start hosting your DNS domain on Microsoft Azure" 
-   services="virtual-network" 
+   services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
    manager="adinah" 
    editor=""/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="dns"
    ms.devlang="en-us"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -16,7 +16,7 @@
    ms.date="04/29/2015"
    ms.author="joaoma"/>
 
-# Get Started With Azure DNS
+# Get started with Azure DNS
 The domain ‘contoso.com’ may contain a number of DNS records, such as ‘mail.contoso.com’ (for a mail server) and ‘www.contoso.com’ (for a web site).  A DNS zone is used to host the DNS records for a particular domain.<BR><BR>
 To start hosting your domain we need to first create a DNS zone. Any DNS record created for a particular domain will be inside a DNS zone for the domain.<BR><BR>
 These instructions use Microsoft Azure PowerShell.  Be sure to update to the latest Azure PowerShell to use the Azure DNS cmdlets. The same steps can also be executed using the Microsoft Azure Command Line Interface, REST API or SDK.<BR><BR>
@@ -26,7 +26,7 @@ These instructions use Microsoft Azure PowerShell.  Be sure to update to the lat
 The following steps need to be completed before you can manage Azure DNS using Azure PowerShell.
 
 ### Step 1
- Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](./powershell-azure-resource-manager.md).<BR><BR>
+ Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](../powershell-azure-resource-manager).<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -63,6 +63,7 @@ Azure DNS uses Etags to handle concurrent changes to the same resource safely. E
 
 By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets.  The optional ‘-Overwrite’ switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten.<BR><BR>
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
+
 |Header|Behavior|
 |------|--------|
 |None|PUT always succeeds (no Etag checks)|
@@ -90,7 +91,7 @@ Your DNS zone has now been created in Azure DNS.  Creating a DNS zone also creat
 
 
 - The ‘Start of Authority’ (SOA) record.  This is present at the root of every DNS zone.
-- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](./dns-domain-delegation.md) for more information.<BR>
+- The authoritative name server (NS) records.  These show which name servers are hosting the zone.  Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS.  See [delegate a domain to Azure DNS](../dns-domain-delegation) for more information.<BR>
 
 To view these records, use Get-AzureDnsRecordSet:
 
@@ -140,7 +141,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](./dns-getstarted-create-record.md)<BR>
-[Perform operations on DNS zones](./dns-operations-dnszones.md)<BR>
-[Perform operations on DNS records](./dns-operations-recordsets.md)<BR>
-[Automate Azure Operations with .NET SDK](./dns-sdk.md)
+[Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
+[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
+[Perform operations on DNS records](../dns-operations-recordsets)<BR>
+[Automate Azure Operations with .NET SDK](../dns-sdk)
