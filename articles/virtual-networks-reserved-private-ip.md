@@ -18,7 +18,7 @@
 # How to Set a Static Internal Private IP
 In most cases, you won’t need to specify a static internal IP address for your virtual machine. VMs in a virtual network will automatically receive an internal IP address from a range that you specify. But in certain cases, specifying a static IP address for a particular VM makes sense. For example, if your VM is going to run DNS or will be a domain controller. 
 
-[AZURE.Note] A static internal IP address stays with the VM even through a stop/deprovision state. 
+>[AZURE.Note] A static internal IP address stays with the VM even through a stop/deprovision state. 
 
 ## How to verify if a specific IP address is available
 To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, run the following PowerShell command and verify the value for *IsAvailable*:
@@ -31,7 +31,7 @@ To verify if the IP address *10.0.0.7* is available in a vnet named *TestVnet*, 
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
-[AZURE.Note] If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](https://msdn.microsoft.com/library/azure/dn631643.aspx) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
+>[AZURE.NOTE] If you want to test the command above in a safe environment follow the guidelines in [Create a Virtual Network](https://msdn.microsoft.com/library/azure/dn631643.aspx) to create a vnet named *TestVnet* and ensure it uses the *10.0.0.0/8* address space.
 
 ## How to specify a static internal IP when creating a VM
 The PowerShell script below creates a new cloud service named *TestService*, then retrieves an image from Azure, then creates a VM named *TestVM* in the new cloud service using the retrieved image, sets the VM to be in a subnet named *Subnet-1*, and sets *10.0.0.7* as a static internal IP for the VM:
