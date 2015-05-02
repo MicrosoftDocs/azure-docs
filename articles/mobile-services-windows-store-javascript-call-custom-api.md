@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="04/24/2015" 
 	ms.author="glenga"/>
 
 # Call a custom API from the client
@@ -58,10 +58,10 @@ Now that you have created a custom API and called it from your Windows Store app
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
+[Get started with push notifications]: mobile-services-windows-store-javascript-get-started-push.md
 
-[Define a custom API that supports periodic notifications]: /documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications
-[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control
+[Define a custom API that supports periodic notifications]: mobile-services-windows-store-javascript-create-pull-notifications.md
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

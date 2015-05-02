@@ -26,15 +26,15 @@ Microsoft Azure Media Services is introducing the public preview of **Media Enco
 
 The following topics outline details related to **Media Encoder Premium Workflow**: 
 
-- [Formats Supported by the Media Encoder Premium Workflow](../media-services-premium-workflow-encoder-formats) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
+- [Formats Supported by the Media Encoder Premium Workflow](media-services-premium-workflow-encoder-formats.md) – Discusses the file formats and codecs supported by **Media Encoder Premium Workflow**.
 
-- The [compare encoders](../media-services-encode-asset#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Azure Media Encoder**.
+- The [compare encoders](media-services-encode-asset.md#compare_encoders) section compares the encoding capabilities of **Media Encoder Premium Workflow** and **Azure Media Encoder**.
 
 This topic demonstrates how to encode with **Media Encoder Premium Workflow** using .NET.
 
 ##Encode
 
-Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](../media-services-workflow-designer) tool.
+Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
 You can also get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
 
@@ -59,7 +59,7 @@ The configuration string for this task should be empty.
 
 6. Submit the encoding job.
 
-The following is a complete example. For information on how to set up with Media Services .NET development, see [Media Services development with .NET](../media-services-dotnet-how-to-use).
+The following is a complete example. For information on how to set up with Media Services .NET development, see [Media Services development with .NET](media-services-dotnet-how-to-use.md).
 
 
  	using System; 

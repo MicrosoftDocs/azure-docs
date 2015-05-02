@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Windows Phone SDK Integration" 
-	description="How to Use the Engagement API on Windows Phone" 					
+	pageTitle="How to Use the Engagement API on Windows Phone Silverlight" 
+	description="How to Use the Engagement API on Windows Phone Silverlight"	
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="lalathie" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" /> 
 
@@ -11,14 +11,14 @@
 	ms.service="mobile-engagement" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="" 
+	ms.devlang="C#" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kapiteir" />
+	ms.date="04/07/2015" 
+	ms.author="piyushjo" />
 
-#How to Use the Engagement API on Windows Phone
+#How to Use the Engagement API on Windows Phone Silverlight
 
-This document is an add-on to the document [How to integrate Mobile Engagement in your Windows Phone app](../mobile-engagement-windows-phone-integrate-engagement/). It provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to integrate Mobile Engagement in your Windows Phone Silverlight app](../mobile-engagement-windows-phone-integrate-engagement/). It provides in depth details about how to use the Engagement API to report your application statistics.
 
 If you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `PhoneApplicationPage` sub-classes inherit from the `EngagementPage` class.
 
@@ -48,7 +48,7 @@ But *activities* can also be controlled manually by using the Engagement API. Th
 
 You need to call `StartActivity()` each time the user activity changes. The first call to this function starts a new user session.
 
-> [AZURE.IMPORTANT] The Windows Phone SDK automatically call the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
+> [AZURE.IMPORTANT] The SDK automatically call the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
 
 #### Example
 
@@ -60,7 +60,7 @@ You need to call `StartActivity()` each time the user activity changes. The firs
 
 			void EndActivity()
 
-This ends the activity and the session. You should not call this method unless you really know what you're doing.
+You need to call `EndActivity()` at least once when the user finishes his last activity. This informs the Engagement SDK that the user is currently idle, and that the user session need to be closed once the session timeout will expire (if you call `StartActivity()` before the session timeout expires, the session is simply continued).
 
 #### Example
 

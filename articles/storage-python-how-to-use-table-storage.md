@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use table storage (Python) | Microsoft Azure" 
+	pageTitle="How to use Table storage from Python | Microsoft Azure" 
 	description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="python" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/11/2015" 
 	ms.author="huvalo"/>
 
 
+# How to use Table storage from Python
 
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
+## Overview
 
-# How to Use the Table Storage Service from Python
 This guide shows you how to perform common scenarios using the Azure Table storage service. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating and deleting a
 table, inserting and querying entities in a table**.
 
@@ -28,7 +30,7 @@ table, inserting and querying entities in a table**.
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](../python-how-to-install/).
+[AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
 
 ## How to Create a Table

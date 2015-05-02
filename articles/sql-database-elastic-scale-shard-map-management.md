@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Shard Map Management" 
-	description="How to use the ShardMapManager, Elastic Scale API for .NET" 
+	pageTitle="Shard map management" 
+	description="How to use the ShardMapManager, elastic database client library" 
 	services="sql-database" 
 	documentationCenter="" 
-	manager="stuartozer" 
-	authors="Joseidz" 
+	manager="jeffreyg" 
+	authors="sidneyh" 
 	editor=""/>
 
 <tags 
@@ -13,25 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2015" 
-	ms.author="Joseidz@microsoft.com"/>
+	ms.date="04/17/2015" 
+	ms.author="sidneyh"/>
 
-# Shard Map Management 
-In a sharded database environment, a **shard map** maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is crucial to managing shards in the Elastic Scale preview.
+# Shard map management
+In a sharded database environment, a **shard map** maintains information allowing an application to connect to the correct database based upon the value of the **sharding key**. Understanding how these maps are constructed is crucial to managing shards with the elastic database client library.
 
-## Shard Maps and Shard Mappings 
-### Supported .Net Types for Sharding Keys
+## Shard maps and shard mappings
+ 
+### Supported .Net types for sharding keys
+
 Elastic Scale support the following .Net Framework types as sharding keys:
 
 * integer
 * long
 * guid
 * byte[]  
+* datetime
+* timespan
+* datetimeoffset
 
-### List and Range Shard Maps
+### List and range shard maps
 Shard maps can be constructed using **lists of individual sharding key values**, or they can be constructed using **ranges of sharding key values**. 
 
-###List Shard Maps
+###List shard maps
 **Shards** contain **shardlets** and the mapping of shardlets to shards is maintained by a shard map. A **list shard map** is an association between the individual key values that identify the shardlets and the databases that serve as shards.  **List mappings** are explicit (for example, key 1 maps to Database A) and different key values can be mapped to the same database (key values 3 and 6 both reference Database B).
 <table>
    <tr>
@@ -60,7 +65,7 @@ Shard maps can be constructed using **lists of individual sharding key values**,
    </tr>
 </table> 
 
-### Range Shard Maps 
+### Range shard maps 
 In a **range shard map**, the key range is described by a pair **[Low Value, High Value)** where the *Low Value* is the minimum key in the range, and the *High Value* is the first value higher than the range. 
 
 For example, **[0, 100)** includes all integers greater than or equal 0 and less than 100. Note that multiple ranges can point to the same database, and disjoint ranges are supported (e.g., [100,200) and [400,600) both point to Database C in the example below.)
@@ -93,9 +98,9 @@ For example, **[0, 100)** includes all integers greater than or equal 0 and less
 
 Each of the tables shown above is a conceptual example of a **ShardMap** object.  Each row is a simplified example of an individual **PointMapping** (for the list shard map) or **RangeMapping** (for the range shard map) object.
 
-## Shard Map Manager 
+## Shard map manager 
 
-In the Elastic Scale APIs, the Shard Map Manager is a collection of shard maps. The data managed by a **ShardMapManager** .Net object is kept in three places: 
+In the client library, the Shard Map Manager is a collection of shard maps. The data managed by a **ShardMapManager** .Net object is kept in three places: 
 
 1. **Global Shard Map (GSM)**: When you create a **ShardMapManager**, you specify a database to serve as the repository for all of its shard maps and mappings. Special tables and stored procedures are automatically created to manage the information. This is typically a small database and lightly accessed, but it should not be used for other needs of the application. The tables are in a special schema named **__ShardManagement**. 
 
@@ -137,17 +142,18 @@ In this code, an application tries to open an existing **ShardMapManager**.  If 
     } 
  
 
-### Shard Map Administration Credentials
+### Shard map administration credentials
 
 Typically, applications that administer and manipulate shard maps are different from those that use the shard maps to route connections. 
 
 For applications that administer shard maps (adding or changing shards, shard maps, shard mappings, etc.) you must instantiate the **ShardMapManager** using **credentials that have read/write privileges on both the GSM database and on each database that serves as a shard**. The credentials must allow for writes against the tables in both the GSM and LSM as shard map information is entered or changed, as well as for creating LSM tables on new shards.  
 
-### Only Metadata Affected 
+### Only metadata affected 
 
-Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only, they do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **Split/Merge** service included with Elastic Scale preview makes use of these APIs along with orchestrating actual data movement between shards.) 
+Methods used for populating or changing the **ShardMapManager** data do not alter the user data stored in the shards themselves. For example, methods such as **CreateShard**, **DeleteShard**, **UpdateMapping**, etc. affect the shard map metadata only. They do not remove, add, or alter user data contained in the shards. Instead, these methods are designed to be used in conjunction with separate operations you perform to create or remove actual databases, or that move rows from one shard to another to rebalance a sharded environment.  (The **split-merge** tool included with elastic database tools makes use of these APIs along with orchestrating actual data movement between shards.) 
 
-## Populating a Shard Map: Example 
+## Populating a shard map: example
+ 
 An example sequence of operations to populate a specific shard map is shown below. The code performs these steps: 
 
 1. A new shard map is created within a shard map manager. 
@@ -232,15 +238,15 @@ As an alternative you can use PowerShell scripts to achieve the same result.
 
 Once shard maps have been populated, data access applications can be created or adapted to work with the maps. Populating or manipulating the maps need not occur again until **map layout** needs to change.  
 
-## Data Dependent Routing 
+## Data dependent routing 
 
 Most use of the shard map manager will come from the applications that require database connections to perform the app-specific data operations. In a sharded application, those connections now must be associated with the correct target database. This is known as **Data Dependent Routing**.  For these applications, instantiate a shard map manager object from the factory using credentials that have read-only access on the GSM database. Individual requests for connections will later supply credentials necessary for connecting to the appropriate shard database.
 
 Note that these applications (using **ShardMapManager** opened with read-only credentials) will be unable to make changes to the maps or mappings.  For those needs, create administrative-specific applications or PowerShell scripts that supply higher-privileged credentials as discussed earlier.   
 
-For more details, see [Data Dependent Routing](./sql-database-elastic-scale-data-dependent-routing.md). 
+For more details, see [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md). 
 
-## Modifying a Shard Map 
+## Modifying a shard map 
 
 A shard map can be changed in different ways. All of the following methods modify the metadata describing the shards and their mappings, but they do not physically modify data within the shards, nor do they create or delete the actual databases.  Some of the operations on the shard map described below may need to be coordinated with administrative actions that physically move data or that add and remove databases serving as shards.
 
@@ -256,7 +262,7 @@ These methods work together as the building blocks available for modifying the o
 
 * To split existing ranges into two, or merge adjacent ranges into one: use **SplitMapping** and **MergeMappings**.  
 
-    Note that split and merge operations **do not change the shard to which key values are mapped**. A split breaks an existing range into two parts, but leaves both as mapped to the same shard. A merge operates on two adjacent ranges that are already mapped to the same shard, coalescing them into a single range.  The movement of points or ranges themselves between shards needs to be coordinated by using **UpdateMapping** in conjunction with actual data movement.  You can use the **Split/Merge** service that is part of Elastic Scale Preview to coordinate shard map changes with data movement, when movement is needed. 
+    Note that split and merge operations **do not change the shard to which key values are mapped**. A split breaks an existing range into two parts, but leaves both as mapped to the same shard. A merge operates on two adjacent ranges that are already mapped to the same shard, coalescing them into a single range.  The movement of points or ranges themselves between shards needs to be coordinated by using **UpdateMapping** in conjunction with actual data movement.  You can use the **Split/Merge** service that is part of elastic database tools to coordinate shard map changes with data movement, when movement is needed. 
 
 * To re-map (or move) individual points or ranges to different shards: use **UpdateMapping**.  
 
@@ -266,12 +272,12 @@ These methods work together as the building blocks available for modifying the o
 
     Certain operations on shard mappings are only allowed when a mapping is in an “offline” state, including UpdateMapping and DeleteMapping. When a mapping is offline, a data-dependent request based on a key included in that mapping will return an error. In addition, when a range is first taken offline, all connections to the affected shard are automatically killed in order to prevent inconsistent or incomplete results for queries directed against ranges being changed. 
 
-## Adding a Shard 
+## Adding a shard 
 
 Applications often need to simply add new shards to handle data that is expected from new keys or key ranges, for a shard map that already exists. For example, an application sharded by Tenant ID may need to provision a new shard for a new tenant, or data sharded monthly may need a new shard provisioned before the start of each new month. 
 
-If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is very simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new Shard](./sql-database-elastic-scale-add-a-shard.md).
+If the new range of key values is not already part of an existing mapping and no data movement is necessary, it is very simple to add the new shard and associate the new key or range to that shard. For details on adding new shards, see [Adding a new shard](sql-database-elastic-scale-add-a-shard.md).
 
-For scenarios that require data movement, however, the Split-Merge service is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the Split-Merge service, see [Overview of Split-Merge](./sql-database-elastic-scale-overview-split-and-merge.md) 
+For scenarios that require data movement, however, the split-merge tool is needed to orchestrate the data movement between shards in combination with the necessary shard map updates. For details on using the split-merge yool, see [Overview of split-merge](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]

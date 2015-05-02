@@ -54,7 +54,7 @@ The first time you run the storage emulator, the local storage environment is in
 
 How you address a resource in the Azure storage services differs depending on whether the resource resides in Azure or in the storage emulator services. One URI scheme is used to address a storage resource in Azure, and another URI scheme is used to address a storage resource in the storage emulator. The difference is due to the fact that the local computer does not perform domain name resolution. Both URI schemes always include the account name and the address of the resource being requested.
 
-## Addressing Azure Storage Resources in the Cloud
+### Addressing Azure Storage Resources in the Cloud
 
 In the URI scheme for addressing storage resources in Azure, the account name is part of the URI host name, and the resource being addressed is part of the URI path. The following basic addressing scheme is used to access storage resources:
 
@@ -73,7 +73,7 @@ For example, the following address might be used for accessing a blob in the clo
 
 > [AZURE.NOTE] You can also associate a custom domain name with a Blob storage endpoint in the cloud, and use that custom domain name to address blobs and containers. See 
  
-## Addressing Local Azure Storage Resources in the Storage Emulator
+### Addressing Local Azure Storage Resources in the Storage Emulator
 
 In the storage emulator, because the local computer does not perform domain name resolution, the account name is part of the URI path. The URI scheme for a resource running in the storage emulator follows this format:
 
@@ -91,7 +91,7 @@ For example, the following address might be used for accessing a blob in the sto
 
 > [AZURE.NOTE] HTTPS is not a permitted protocol for addressing local storage resources.
  
-## Addressing the Account Secondary with RA-GRS
+### Addressing the Account Secondary with RA-GRS
 Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). For storage resources both in the cloud and in the local emulator, you can access the secondary location by appending -secondary to the account name. For example, the following address might be used for accessing a blob using the read-only secondary in the storage emulator:
 
     http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt 
@@ -134,7 +134,74 @@ Starting in version 3.0, when you launch the Storage Emulator you will see a com
 
 To view the list of options, type `/help` at the command prompt.
 
+| Option | Description                                                    | Command                                                                                                 | Arguments                                                                                                         |
+|--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| **Start**  | Starts up the storage emulator.                                | `WAStorageEmulator start [-inprocess]`                                                                    | *-inprocess*: Start the emulator in the current process instead of creating a new process.                          |
+| **Stop**   | Stops the storage emulator.                                    | `WAStorageEmulator stop`                                                                                  |                                                                                                                   |
+| **Status** | Prints the status of the storage emulator.                     | `WAStorageEmulator status`                                                                                |                                                                                                                   |
+| **Clear**  | Clears the data in all services specified on the command line. | `WAStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: Clears blob data. <br/>*queue*: Clears queue data. <br/>*table*: Clears table data. <br/>*all*: Clears all data in all services. |
+| **Init**   | Performs one-time initialization to set up the emulator.       | `WAStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. This requires the current process to have been launched with elevated permissions.                                               |
+                                                                                                                  
+## Differences Between the Storage Emulator and Azure Storage Services
+
+The following general differences apply to storage services:
+
+- The storage emulator supports only a single fixed account and a well-known authentication key. This account and key are the only credentials permitted for use with the emulated storage services. They are:
+
+	Account name: devstoreaccount1
+	Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+
+>[AZURE.IMPORTANT] The authentication key supported by the storage emulator is intended only for testing the functionality of your client authentication code. It does not serve any security purpose. You cannot use your production storage account and key with the storage emulator. You should not use the emulated storage account with production data.
+
+- The storage emulator is not a scalable storage service and will not support a large number of concurrent clients.
+
+- The URI scheme supported by the storage emulator differs from the URI scheme supported by the cloud storage services. The development URI scheme specifies the account name as part of the hierarchical path of the URI, rather than as part of the domain name. This difference is due to the fact that domain name resolution is available in the cloud but not on the local computer.
+
+- Beginning with version 3.1, the storage emulator account supports read-access geo-redundant replication (RA-GRS). In the emulator, all accounts have RA-GRS enabled, and there is never any lag between the primary and secondary replicas. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats operations are supported on the account secondary and will always return the value of the `LastSyncTime` response element as the current time according to the underlying SQL database.
+
+	For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the [Storage Client Library Reference](https://msdn.microsoft.com/en-us/library/azure/dn261237.aspx) for details.
+
+- The File service and SMB protocol service endpoints are not supported in the storage emulator.
+
+### Differences for the Blob service 
+
+The following differences apply to the Blob service:
+
+- The Blob service emulator only supports blob sizes up to 2 GB.
+
+- A Put Blob operation may succeed against a blob that exists in the storage emulator and has an active lease, even if the lease ID has not been specified as part of the request. 
+
+### Differences for the Table service 
+
+The following differences apply to the Table service:
+
+- Date properties in the Table service in the storage emulator support only the range supported by SQL Server 2005 (For example, they are required to be later than January 1, 1753). All dates before January 1, 1753 are changed to this value. The precision of dates is limited to the precision of SQL Server 2005, meaning that dates are precise to 1/300th of a second.
+
+- The storage emulator supports partition key and row key property values of less than 512 bytes each. Additionally, the total size of the account name, table name, and key property names together cannot exceed 900 bytes.
+
+- The total size of a row in a table in the storage emulator is limited to less than 1 MB.
+
+- In the storage emulator, properties of data type `Edm.Guid` or `Edm.Binary` support only the `Equal (eq)` and `NotEqual (ne)` comparison operators in query filter strings.
+
+### Differences for the Queue service 
+
+There are no differences specific to the Queue service.
+
+## Storage Emulator Release Notes
+
+### Version 3.2
+- The storage emulator now supports version 2014-02-14 of the storage services on Blob, Queue, and Table service endpoints. Note that File service endpoints are not currently supported in the storage emulator. See Versioning for the Azure Storage Services for details about version 2014-02-14.
+
+### Version 3.1
+- Read-access geo-redundant storage (RA-GRS) is now supported in the storage emulator. The Get Blob Service Stats, Get Queue Service Stats, and Get Table Service Stats APIs are supported for the account secondary and will always return the value of the LastSyncTime response element as the current time according to the underlying SQL database. For programmatic access to the secondary with the storage emulator, use the Storage Client Library for .NET version 3.2 or later. See the Storage Client Library Reference for details.
+
+### Version 3.0
+- The Azure storage emulator is no longer shipped in the same package as the Compute Emulator.
+
+- The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
+
+- Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
+
 ## Next Steps
-- [Storage Emulator Command-Line Tool Reference](https://msdn.microsoft.com/library/azure/gg433005.aspx)
-- [Differences Between the Storage Emulator and Azure Storage Services](https://msdn.microsoft.com/library/azure/gg433135.aspx)
+
 - [Storage Emulator Release Notes](https://msdn.microsoft.com/library/azure/dn683879.aspx) 

@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Intro to Azure - Azure fundamentals" 
 	description="Learn how to develop,,deploy,,and manage applications on Azure,,Microsoft's cloud computing platform for IaaS,,PaaS,,and websites." 
-	services="web-sites, virtual-machines, mobile-services, cloud-services" 
+	services=" " 
 	documentationCenter=".net" 
 	authors="Rboucher" 
 	manager="jwhit" 

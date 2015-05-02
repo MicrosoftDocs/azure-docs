@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="11/22/2014" 
+	ms.date="04/14/2015" 
 	ms.author="glenga"/>
 
 # Define a custom API that supports periodic notifications
@@ -100,7 +100,7 @@ This tutorial is based on the Mobile Services quickstart. Before you start this 
 
 Next, you will modify the quickstart app to start periodic notifications that update the live tile by requesting the new custom API.
 
-<h2><a name="update-app"></a>Update the app to turn on period notifications</h2>
+##<a name="update-app"></a>Update the app to turn on period notifications
 
 1. In Visual Studio, press the F5 key to run the quickstart app from the previous tutorial.
 
@@ -159,12 +159,12 @@ Now that you have created a periodic notification, consider finding out more abo
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started
-[Add Mobile Services to an existing app]: /documentation/articles/mobile-services-windows-store-dotnet-get-started
-[Get started with push notifications]: /documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
+[Get started with Mobile Services]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
+[Add Mobile Services to an existing app]: mobile-services-windows-store-dotnet-get-started.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Periodic notifications]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
-[Mobile Services .NET How-to Conceptual Reference]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 

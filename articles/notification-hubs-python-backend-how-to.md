@@ -3,17 +3,17 @@
 	description="Learn how to use Azure Notification Hubs from a Python back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="python" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from Python
@@ -33,7 +33,7 @@ In this topic we show how to:
 * Send notifications using the Python interface to the Notification Hub REST APIs. 
 * Get a dump of the HTTP REST request/response for debugging/educational purpose. 
 
-You can follow the [Get started tutorial](http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/) for your mobile platform of choice, implementing the back-end portion in Python.
+You can follow the [Get started tutorial](notification-hubs-windows-store-dotnet-get-started.md) for your mobile platform of choice, implementing the back-end portion in Python.
 
 > [AZURE.NOTE] The scope of the sample is only limited to send notifications and it doesn't do any registration management.
 

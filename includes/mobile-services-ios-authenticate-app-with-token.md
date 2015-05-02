@@ -23,10 +23,10 @@ A better approach is to cache the authorization token returned by Azure Mobile S
 		    }
 		}
 
-3. At the end of the **viewDidAppear** method in **QSTodoListViewController.m**, add a call to **saveAuthInfo** right before the line `[self refresh]`. With this call, we simply store the user ID and token properties:
+3. In the `loginAndGetData` method, modify the `loginWithProvider:controller:animated:completion:` call's completion block by adding a call to `saveAuthInfo` right before the line `[self refresh]`. With this call, we simply store the user ID and token properties:
 
 				[self saveAuthInfo];
 
-4. Let's also load the user ID and token when the app starts. In the **viewDidLoad** method in **QSTodoListViewController.m**, add a call to loadAuthInfo right after **self.todoService** has been initialized.
+4. Let's also load the user ID and token when the app starts. In the `viewDidLoad` method in **QSTodoListViewController.m**, add a call to loadAuthInfo right after `self.todoService` has been initialized.
 
 				[self loadAuthInfo];

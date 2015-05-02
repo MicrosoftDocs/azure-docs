@@ -22,6 +22,7 @@
 
 For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. This document describes how to build partitioned table(s) for fast parallel bluk importing of data to a SQL Server database.
 
+
 ## Create a new database and a set of filegroups
 
 - [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if not exists)
@@ -182,4 +183,4 @@ or,
 
 ### Azure Data Science in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](http://azure.microsoft.com/documentation/articles/machine-learning-data-science-process-sql-walkthrough/).
+For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).

@@ -40,7 +40,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
-[Traffic Manager Overview](../traffic-manager)
+[Traffic Manager Overview](traffic-manager.md)
 
 [Cloud Services](http://go.microsoft.com/fwlink/?LinkId=314074)
 

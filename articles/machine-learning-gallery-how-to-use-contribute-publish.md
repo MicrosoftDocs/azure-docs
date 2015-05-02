@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure Machine Learning Gallery | Azure" 
+	pageTitle="Azure Machine Learning Gallery | Microsoft Azure" 
 	description="Description of the Azure Machine Learning Gallery site for community published Machine Learning experiment." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="chhavib" 
+	authors="cjgronlund" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="02/16/2015" 
-	ms.author="chhavib,garye"/>
+	ms.author="chhavib;garye"/>
 
 
 # **Machine Learning Gallery** #
@@ -23,6 +23,8 @@ The Azure Machine Learning Gallery is a community driven site for discovering ex
 The Gallery also enables users to browse and copy experiments contributed by Microsoft Azure Machine Learning Team.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.azureml.net)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 ## Benefits ##
 Start using the Gallery to enjoy these benefits:

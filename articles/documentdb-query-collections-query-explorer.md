@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/13/2015" 
+	ms.date="04/29/2015" 
 	ms.author="stbaro"/>
 
 # Create, edit, and run SQL queries against a DocumentDB collection using Query Explorer #
 
-This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Query Explorer, an Azure Preview portal tool that enables you to create, edit, and run queries against a DocumentDB collection. 
+This article provides an overview of the [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/) Query Explorer, a Microsoft Azure Preview portal tool that enables you to create, edit, and run queries against a DocumentDB collection. 
 
 By completing this tutorial, you'll be able to answer the following questions:  
 
@@ -44,7 +44,7 @@ Query Explorer can be launched from any of the DocumentDB account, database, and
 
 Query Explorer allows you to easily create, edit, and run queries against a DocumentDB collection, and includes basic keyword and value highlighting to improve the query authoring experience.  
 
-- When initially opening Query Explorer, a default query of SELECT * FROM c is provided.  You can accept the default query or construct your own and then click the **Run query** button to view the results. Query Explorer supports the DocumentDB SQL query language as described in [Query DocumentDB](../documentdb-sql-query/).
+- When initially opening Query Explorer, a default query of SELECT * FROM c is provided.  You can accept the default query or construct your own and then click the **Run query** button to view the results. Query Explorer supports the DocumentDB SQL query language as described in [Query DocumentDB](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -63,4 +63,4 @@ Query Explorer allows you to easily create, edit, and run queries against a Docu
 ##<a name="NextSteps"></a>Next steps
 
 - To learn more about DocumentDB, click [here](http://azure.com/docdb).
-- To learn more about the DocumentDB SQL grammar supported in Query Explorer, click [here](../documentdb-sql-query/).
+- To learn more about the DocumentDB SQL grammar supported in Query Explorer, click [here](documentdb-sql-query.md).

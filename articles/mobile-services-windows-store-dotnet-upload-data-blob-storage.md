@@ -94,10 +94,10 @@ Now that you have been able to securely upload images by integrating your mobile
 
 <!-- URLs. -->
 [Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
-[Schedule backend jobs in Mobile Services]: /documentation/articles/mobile-services-schedule-recurring-tasks
+[Schedule backend jobs in Mobile Services]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account

@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="NA" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="04/30/2015" 
 	ms.author="alfran"/>
 
 # Intelligence Packs
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Intelligence Packs are powered by Operational Insights Search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing. 
 
 This guide walks you through the various Intelligence Packs available and what they are used for.
 
->[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](../operational-insights-add-intelligence-pack.md)
+>[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](operational-insights-add-intelligence-pack.md)
 
 ## SQL Assessment
 
@@ -50,7 +52,7 @@ Configuration data is gathered from monitored servers and then sent to the Opera
 - **Current Snapshot:** Shows the most recent information about servers that reported data to the Operational Insights service
 - **Change History:** Shows a list of configuration changes made to your monitored servers
 
-> [AZURE.IMPORTANT] Configuration Assessment can only be enabled for computers managed by **Operations Manager**.  For additional information, see [Connect Operations Manager](../operational-insights-connect-scom.md)
+> [AZURE.IMPORTANT] Configuration Assessment can only be enabled for computers managed by **Operations Manager**.  For additional information, see [Connect Operations Manager](operational-insights-connect-scom.md)
 
 
 ## Malware Assessment
@@ -73,7 +75,7 @@ You can get insights into key scenarios, including:
 - Top active critical and warning alerts that are raised within a specified time frame.
 - Ability to search through all alerts and view every alert in detail
 
-> [AZURE.IMPORTANT] Alert Management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**. This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use Search. For additional information, see [Connect Operations Manager](../operational-insights-connect-scom)
+> [AZURE.IMPORTANT] Alert Management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**. This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use Search. For additional information, see [Connect Operations Manager](operational-insights-connect-scom.md)
 
 
 ## Capacity Planning

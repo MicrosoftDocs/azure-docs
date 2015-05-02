@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2015" 
+	ms.date="04/21/2015" 
 	ms.author="garye"/>
 
 #Manage experiment iterations in Azure Machine Learning Studio 
 
 Developing a predictive analysis model is an iterative process - as you modify the various functions and parameters of your experiment, your results converge until you are satisfied that you have a trained, effective model. Key to this process is tracking the various iterations of your experiment parameters and configurations.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
 You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions. When you run an experiment, ML Studio keeps a history of the run, including dataset, module, and port connections and parameters. This history also captures results, runtime information such as start and stop times, log messages, and execution status. You can look back at any of these runs at any time to review the chronology of your experiment and intermediate results. You can even use a previous run of your experiment to launch into a new phase of inquiry and discovery on your path to creating simple, complex, or even ensemble modeling solutions. 
 
@@ -34,7 +36,7 @@ For example, suppose you create an experiment and run versions of it at 11:23, 1
 
 You can view all the previous runs of an experiment by clicking **View Run History** in an open experiment. 
 
-For example, suppose you create an experiment with the **Linear Regression** module and you want to observe the effect of changing the value of **Learning rate** on your experiment results. You run the experiment multiple times with different values for this parameter, as follows: 
+For example, suppose you create an experiment with the [Linear Regression][linear-regression] module and you want to observe the effect of changing the value of **Learning rate** on your experiment results. You run the experiment multiple times with different values for this parameter, as follows: 
 
 | Learning Rate value | Run start time |
 | ------------------- | -------------- |
@@ -49,7 +51,7 @@ If you click **VIEW RUN HISTORY**, you see a list of all these runs:
 
 Click any of these runs to view a snapshot of the experiment at the time you ran it. The configuration, parameter values, comments, and results are all preserved to give you a complete record of that run of your experiment. 
 
-> [AZURE.TIP] To document your iterations of the experiment, you can modify the title each time you run it, and you can add or update comments on individual modules to record your changes. The title and module comments are saved with each run of the experiment. 
+> [AZURE.TIP] To document your iterations of the experiment, you can modify the title each time you run it, you can update the **Summary** of the experiment in the properties pane, and you can add or update comments on individual modules to record your changes. The title, summary, and module comments are saved with each run of the experiment. 
 
 The list of experiments in the **EXPERIMENTS** tab in ML Studio always displays the latest version of an experiment. If you open a previous run of the experiment (using **Prior Run** or **VIEW RUN HISTORY**), you can return to the draft version by clicking **VIEW RUN HISTORY** and selecting the iteration that has a **STATE** of **Editable**. 
 
@@ -77,3 +79,7 @@ You can now continue to modify and run this version of your experiment, building
 
 <!-- Images -->
 [runhistory]:./media/machine-learning-manage-experiment-iterations/viewrunhistory.jpg
+
+
+<!-- Module References -->
+[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/

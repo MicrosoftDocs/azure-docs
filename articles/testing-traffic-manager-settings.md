@@ -70,6 +70,6 @@ There are free web-based DNS lookup and dig services available. Some of these gi
 
 ## See Also
 
-[About Traffic Manager Load Balancing Methods](../about-traffic-manager-balancing-methods)
+[About Traffic Manager Load Balancing Methods](about-traffic-manager-balancing-methods.md)
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-[Traffic Manager](../traffic-manager)
+[Traffic Manager](traffic-manager.md)

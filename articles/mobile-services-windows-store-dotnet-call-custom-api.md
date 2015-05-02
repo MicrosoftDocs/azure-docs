@@ -57,10 +57,10 @@ Now that you have created a custom API and called it from your Windows Store app
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Get started with Mobile Services]: /documentation/articles/mobile-services-windows-store-get-started/
-[Get started with data]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-[Get started with authentication]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
-[Get started with push notifications]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
+[Get started with data]: mobile-services-windows-store-dotnet-get-started-data.md
+[Get started with authentication]: mobile-services-windows-store-dotnet-get-started-users.md
+[Get started with push notifications]: mobile-services-windows-store-dotnet-get-started-push.md
 
-[Define a custom API that supports periodic notifications]: /documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications
-[Store server scripts in source control]: /documentation/articles/mobile-services-store-scripts-source-control
+[Define a custom API that supports periodic notifications]: mobile-services-windows-store-dotnet-create-pull-notifications.md
+[Store server scripts in source control]: mobile-services-store-scripts-source-control.md

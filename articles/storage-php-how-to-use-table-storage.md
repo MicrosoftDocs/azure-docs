@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to use table storage (PHP) | Microsoft Azure" 
+	pageTitle="How to use Table storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
 	services="storage" 
 	documentationCenter="php" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="adinah" 
 	editor=""/>
 
@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
-# How to use the Table service from PHP
+
+# How to use Table storage from PHP
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview
 

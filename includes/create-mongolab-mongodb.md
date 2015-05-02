@@ -31,5 +31,5 @@ To create a MongoDB database from the [Azure Store], do the following:
 
 [MongoLab]: https://mongolab.com/home
 [waws]: /manage/services/web-sites/
-[Azure Store]: /store/overview/
+[Azure Store]: ../articles/overview.md
 [portal]: http://windows.azure.com/

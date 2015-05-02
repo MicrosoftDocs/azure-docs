@@ -13,32 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/06/2014" 
+	ms.date="04/22/2015" 
 	ms.author="garye"/>
 
 
-This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML][develop]:
+# Walkthrough Step 6: Access the Azure Machine Learning web service
 
-[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
+This is the last step of the walkthrough, [Developing a Predictive Solution with Azure ML](machine-learning-walkthrough-develop-predictive-solution.md)
 
 
-1.	[Create an ML workspace][create-workspace]
-2.	[Upload existing data][upload-data]
-3.	[Create a new experiment][create-new]
-4.	[Train and evaluate the models][train-models]
-5.	[Publish the web service][publish]
+1.	[Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
+2.	[Upload existing data](machine-learning-walkthrough-2-upload-data.md)
+3.	[Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
+4.	[Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5.	[Publish the web service](machine-learning-walkthrough-5-publish-web-service.md)
 6.	**Access the web service**
 
-[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
-[upload-data]: ../machine-learning-walkthrough-2-upload-data/
-[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
-[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-[publish]: ../machine-learning-walkthrough-5-publish-web-service/
-[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
-
 ----------
-
-# Step 6: Access the Azure Machine Learning web service
 
 For a web service to be useful, users need to be able to send data to it and receive results. The web service is an Azure web service that can receive and return data in one of two ways:  
 

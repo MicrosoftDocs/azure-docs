@@ -43,16 +43,22 @@ You can audit the following activities and events:
 - **Accounts, roles, and permissions (DCL)**
 - **Security exceptions**
 
-For further detail about the the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
+For further detail about the activities and events logged, see the <a href="http://go.microsoft.com/fwlink/?LinkId=506733" target="_blank">Audit Log Format Reference (doc file download)</a>. 
 
 You also choose the storage account where audit logs will be saved.
 
-###Security-enabled connection string
-When you set up auditing, Azure provides you with a security-enabled connection string for the database. Only client applications that use this connection string will have their activity and events logged, so you need to update existing client applications to use the new string format.
+###Security-enabled access
+There are two methods to get auditing for your connection:
+
+1. For clients which are using TDS version 7.4 and above switch the **SECURITY ENABLED ACCESS** to **REQUIRED**.
+
+2. For "Downlevel clients" which are using TDS version 7.3 and below there is a need to configure a security enabled connection string:
 
 Traditional connection string format: <*server name*>.database.windows.net
 
 Security-enabled connection string: <*server name*>.database.**secure**.windows.net
+
+**Remark:** a partial list of "Downlevel clients" includes: .NET 4.0 and below, and ODBC 10.0 and below. Regarding JDBC: While 4.0 does support TDS version 7.4, please use JDBC 4.1 and above due to a bug in JDBC 4.0.
 
 
 ##<a id="subheading-2"></a>Set up auditing for your database
@@ -172,7 +178,7 @@ There are several PowerShell cmdlets you can use to configure auditing in Azure 
 
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
-[Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name/
-[Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account/
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
+[Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
+[Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 

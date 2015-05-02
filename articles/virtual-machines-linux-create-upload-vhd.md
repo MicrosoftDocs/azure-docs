@@ -24,9 +24,9 @@ This article shows you how to create and upload a virtual hard disk (VHD) so you
 
 A virtual machine in Azure runs the operating system that's based on the image you choose when you create the virtual machine. Your images are stored in VHD format, in .vhd files in a storage account. For details, see [About Disks and Images in Azure](https://msdn.microsoft.com/library/azure/jj672979.aspx).
 
-When you create the virtual machine, you can customize some of the operating system settings so they're appropriate for the application you want to run. For instructions, see [How to Create a Custom Virtual Machine](../virtual-machines-create-custom/).
+When you create the virtual machine, you can customize some of the operating system settings so they're appropriate for the application you want to run. For instructions, see [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md).
 
-**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](../virtual-machines-linux-endorsed-distributions/). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
+**Important**: The Azure platform SLA applies to virtual machines running the Linux OS only when one of the endorsed distributions is used with the configuration details as specified under 'Supported Versions' in [Linux on Azure-Endorsed Distributions](virtual-machines-linux-endorsed-distributions.md). All Linux distributions in the Azure image gallery are endorsed distributions with the required configuration.
 
 
 ##Prerequisites##
@@ -38,23 +38,23 @@ This article assumes that you have the following items:
 
 	**Important**: The newer VHDX format is not supported in Azure. You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](../linux-endorsed-distributions). Alternatively, see the section at the end of this article for [Information for Non-Endorsed Distributions](../virtual-machines-linux-create-upload-vhd-generic).
+	For a list of endorsed distributions, see [Linux on Azure-Endorsed Distributions](linux-endorsed-distributions.md). Alternatively, see the section at the end of this article for [Information for Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md).
 
-- **Linux Azure command-line tool** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Tools for Linux and Mac](../virtual-machines-command-line-tools/) to upload the VHD.
+- **Linux Azure command-line tool** - if you are using a Linux operating system to create your image, you use the [Azure Command-Line Tools for Linux and Mac](virtual-machines-command-line-tools.md) to upload the VHD.
 
 - **Azure Powershell tools** - the `Add-AzureVhd` cmdlet can also be used to upload the VHD. See [Azure Downloads](http://azure.microsoft.com/downloads/) to download the Azure Powershell cmdlets. For reference information, see [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx).
 
 ## <a id="prepimage"> </a>Step 1: Prepare the image to be uploaded ##
 
-Azure supports a variety of Linux distributions (see [Endorsed Distributions](../linux-endorsed-distributions)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
+Azure supports a variety of Linux distributions (see [Endorsed Distributions](linux-endorsed-distributions.md)). The following articles will guide you through how to prepare the various Linux distributions that are supported on Azure:
 
-- **[CentOS-based Distributions](../virtual-machines-linux-create-upload-vhd-centos)**
-- **[Oracle Linux](../virtual-machines-linux-create-upload-vhd-oracle)**
+- **[CentOS-based Distributions](virtual-machines-linux-create-upload-vhd-centos.md)**
+- **[Oracle Linux](virtual-machines-linux-create-upload-vhd-oracle.md)**
 - **[SLES & openSUSE](../virtual-machines-linux-create-upload-vhd-suse)**
-- **[Ubuntu](../virtual-machines-linux-create-upload-vhd-ubuntu)**
-- **[Other - Non-Endorsed Distributions](../virtual-machines-linux-create-upload-vhd-generic)**
+- **[Ubuntu](virtual-machines-linux-create-upload-vhd-ubuntu.md)**
+- **[Other - Non-Endorsed Distributions](virtual-machines-linux-create-upload-vhd-generic.md)**
 
-Also see the **[Linux Installation Notes](../virtual-machines-linux-create-upload-vhd-generic/#linuxinstall)** for more tips on preparing Linux images for Azure.
+Also see the **[Linux Installation Notes](virtual-machines-linux-create-upload-vhd-generic.md#linuxinstall)** for more tips on preparing Linux images for Azure.
 
 After following the steps in the guides above you should have a VHD file that is ready to upload into Azure.
 
@@ -92,7 +92,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
 	Where `<PathToFile>` is the full path to the .publishsettings file. 
 
-	For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure/) 
+	For more information, see [How to install and configure Azure PowerShell](powershell-install-configure.md) 
 
 
 ## <a id="upload"> </a>Step 3: Upload the image to Azure ##
@@ -105,7 +105,7 @@ Use the Linux command-line tool to upload the image. You can upload an image by 
 
 ### If using PowerShell
 
-You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](../storage-create-storage-account/)
+You will need a storage account to upload your VHD file to. You can either pick an existing one or create a new one. To create a storage account please refer to [Create a Storage Account](storage-create-storage-account.md)
 
 When you upload the .vhd file, you can place the .vhd file anywhere within your blob storage. In the following command examples, **BlobStorageURL** is the URL for the storage account you plan to use, **YourImagesFolder** is the container within blob storage where you want to store your images. **VHDName** is the label that appears in the Management Portal to identify the virtual hard disk. **PathToVHDFile** is the full path and name of the .vhd file. 
 

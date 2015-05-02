@@ -55,9 +55,9 @@ In API Management, a product contains one or more APIs as well as a usage quota 
 
 [api-management-]: ./media/
 
-[How to create APIs]: ../api-management-howto-create-apis
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to add and publish a product]: ../api-management-howto-add-products
-[Monitoring and analytics]: ../api-management-monitoring
-[How to import the definition of an API with operations]: ../api-management-howto-import-api
-[How create and configure advanced product settings]: ../api-management-howto-product-with-rules
+[How to create APIs]: api-management-howto-create-apis.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to add and publish a product]: api-management-howto-add-products.md
+[Monitoring and analytics]: api-management-monitoring.md
+[How to import the definition of an API with operations]: api-management-howto-import-api.md
+[How create and configure advanced product settings]: api-management-howto-product-with-rules.md

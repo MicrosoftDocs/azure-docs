@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2/10/2015" 
+	ms.date="04/17/2015" 
 	ms.author="spelluru"/>
 
 # Monitor Azure Data Factory using Azure Preview Portal
@@ -76,13 +76,44 @@ Click the dataset from the list of datasets on the DATASETS blade to see details
 
 ![Table Blade][image-data-factory-table]
 
-In the **TABLE** blade above, you see **Recent slices** as well as **Problem slices**. You click **... (Ellipses)** to see all the slices. 
+In the **TABLE** blade above, both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.
+
+-  You update the status of the slice manually, for example, by using the **Set-AzureDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+-  The slice changes status due to an execution (e.g. a run started, a run ended and failed, a run ended and succeeded, etc).
+ 
+	
+To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
+ 
+![Data Slices by Slice Time][DataSlicesBySliceTime]
+
+Click on the title of the lists or **... (ellipses)** to see the larger list of slices. 
 
 ![All Slices of a Table][image-data-factory-all-slices]
 
-On the **Data Slices** blade, click the Filter button to see the Filter blade that lets you **filter** slices to see the specific slices that you want to review.
+On the **Data Slices** blade, click the **Filter** button to see the **Filter** blade that lets you **filter** slices to see the specific slices that you want to review. You will see the blade similar to the following one when you click **Filter** on the **Data Slices** blade with slices **sorted by update time**. 
 
 ![Filter Blade][image-data-factory-filter-blade]
+
+The **Filter** blade allows you to filter based on **last updated time** and **slice status**. The following table describes all slice statuses and their description.
+ 
+Slice status | Description
+------------ | ------------
+PendingExecution | Data processing has not started yet.
+InProgress | Data processing is in-progress.
+Ready | Data processing has completed and the data slice is ready.
+Failed | Execution of the run that produces the slice failed.
+Skip | Skip processing of the slice.
+Retry | Retrying the run that produces the slice.
+Timed Out | Data processing of the slice has timed out.
+PendingValidation | Data slice is waiting for validation against validation policies before being processed.
+RetryValidation | Retrying the validation of the slice.
+FailedValidation | Validation of the slice failed.
+LongRetry | A slice will be in this status if LongRetry is specified in the table JSON, and regular retries for the slice have failed.
+ValidationInProgress | Validation of the slice (based on the policies defined in the table JSON) is being performed.
+
+When you click **Filter** on on the **Data Slices** blade with slices **sorted by the slice time**, you will see a different type of **Filter** blade. 
+
+![Filter Blade 2][image-data-factory-filter-blade-2] 
 
 
 When you launch the **Filter** blade, the **To** field is automatically set to the most recent time (rounded) to limit the number of records returned. The **From** field is automatically set as well. You can change the **From** date by clicking the **Calendar** button. The **To** date is automatically changed when you change the **From** date. 
@@ -108,22 +139,6 @@ Month | any | 10 years
  
 For example, if you define **frequency** as **Hour** and **interval** of **2**, clicking the **Next**/**Previous** buttons move the time range **7 days** in either direction. This logic applies to the Filter blade whether you are viewing all slices/recent slices/problem slices.
 
-The **Filter** blade allows you to filter slices based on their **statuses**.The following table describes all slice statuses and their description.
- 
-Slice status | Description
------------- | ------------
-PendingExecution | Data processing has not started yet.
-InProgress | Data processing is in-progress.
-Ready | Data processing has completed and the data slice is ready.
-Failed | Execution of the run that produces the slice failed.
-Skip | Skip processing of the slice.
-Retry | Retrying the run that produces the slice.
-Timed Out | Data processing of the slice has timed out.
-PendingValidation | Data slice is waiting for validation against validation policies before being processed.
-RetryValidation | Retrying the validation of the slice.
-FailedValidation | Validation of the slice failed.
-LongRetry | A slice will be in this status if LongRetry is specified in the table JSON, and regular retries for the slice have failed.
-ValidationInProgress | Validation of the slice (based on the policies defined in the table JSON) is being performed.
 
 
 
@@ -132,6 +147,7 @@ Click on a slice in the list of slices either on the **TABLE** blade or **Data S
 
 ![Data Slice][image-data-factory-dataslice]
 
+If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
 
 ### <a name="DataFactoryActivtyRuns"></a> View all activity runs for a slice
 For a slice, there can be more than one run. For example, when a slice fails, the service may retry for a few time. You can also rerun a slice that has failed all the retries. You can see all the activity runs on the** Data Slice** blade in the list at the bottom. 
@@ -152,27 +168,23 @@ In the **DATA FACTORY** blade (or home page) for the data factory, click **Event
 Article | Description
 ------ | ---------------
 [Monitor and Manage Azure Data Factory using PowerShell][monitor-manage-using-powershell] | This article describes how to monitor an Azure Data Factory using Azure PowerShell cmdlets. 
-[Enable your pipelines to work with on-premises data][use-onpremises-datasources] | This article has a walkthrough that shows how to copy data from an on-premises SQL Server database to an Azure blob.
-[Use Pig and Hive with Data Factory][use-pig-and-hive-with-data-factory] | This article has a walkthrough that shows how to use HDInsight Activity to run a hive/pig script to process input data to produce output data. 
-[Tutorial: Move and process log files using Data Factory][adf-tutorial] | This article provides an end-to-end walkthrough that shows how to implement a near real world scenario using Azure Data Factory to transform data from log files into insights.
-[Use custom activities in a Data Factory][use-custom-activities] | This article provides a walkthrough with step-by-step instructions for creating a custom activity and using it in a pipeline. 
-[Troubleshoot Data Factory issues][troubleshoot] | This article describes how to troubleshoot Azure Data Factory issue.
-[Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
-[Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 
 
-[use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
-[use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
-[adf-tutorial]: ../data-factory-tutorial
-[use-custom-activities]: ../data-factory-use-custom-activities
-[monitor-manage-using-powershell]: ../data-factory-monitor-manage-using-powershell
-[troubleshoot]: ../data-factory-troubleshoot
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
+[troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 [azure-preview-portal]: http://portal.azure.com/
 
 [image-data-factory-filter-blade]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade.png
+
+[image-data-factory-filter-blade-2]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade2.png
+
 
 [image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
 
@@ -203,3 +215,4 @@ Article | Description
 [image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
 
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
+[DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png

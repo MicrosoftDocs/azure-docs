@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="2/12/2015" 
+	ms.date="03/25/2015" 
 	ms.author="tomfitz"/>
 
 #How to Access Azure SQL Database from PHP 
@@ -39,7 +39,7 @@ Alternatively, you can set up your environment manually:
 
 * Install PHP and configure IIS: [http://php.net/manual/en/install.windows.iis7.php][manual-config].
 * Download and install SQL Server Express: [http://www.microsoft.com/download/details.aspx?id=29062][install-sql-express]
-* Download and install the Microsoft Drivers for PHP for SQL Server: [http://php.net/manual/en/sqlsrv.requirements.php][install-drivers].
+* Download and install the [Microsoft Drivers for PHP for SQL Server][download-drivers].
 
 ##<a id="CreateServer"></a>How to: Create a SQL Database
 

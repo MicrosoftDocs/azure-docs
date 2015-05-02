@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to consume a Machine Learning web service that has been published from a Machine Learning experiment | Azure" 
-	description="required" 
+	description="Once a machine learning service is published, the RESTFul web service that is made available can be consumed either as request-response service or as a batch execution service." 
 	services="machine-learning" 
 	solutions="big-data" 
 	documentationCenter="" 
@@ -28,7 +28,9 @@ When published as a web service, Azure Machine Learning experiments provide a RE
 * Has SSL capabilities to perform HTTPS requests
 * Has the ability to parse JSON (by hand or support libraries)
 
-This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel!  
+This means the services can be consumed from web applications, mobile applications, custom desktop applications and even from within Excel.
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]  
 
 An Azure Machine Learning web service can be consumed in two different ways, either as a request-response service or as a batch execution service. In each scenario the functionality is provided through the RESTFul web service that is made available for consumption once the experiment has been published. Deploying a Machine Learning web service in Azure with an Azure web service end-point, where the service is automatically scaled based on usage, you can avoid upfront and ongoing costs for hardware resources.
 
@@ -39,8 +41,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 For information about how to create and publish an Azure Machine Learning web service, 
 see [Publish an Azure Machine Learning web service][publish]. For a step-by-step walkthrough of creating a Machine Learning experiment and publishing it, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
 
-[publish]: ../machine-learning-publish-a-machine-learning-web-service/
-[walkthrough]: ../machine-learning-walkthrough-develop-predictive-solution/
+[publish]: machine-learning-publish-a-machine-learning-web-service.md
+[walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
 
 ## Request-Response Service (RRS)

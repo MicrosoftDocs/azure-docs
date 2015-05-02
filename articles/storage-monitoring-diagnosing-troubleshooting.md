@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/16/2015" 
+	ms.date="04/10/2015" 
 	ms.author="v-dobett"/>
 
 # Monitor, diagnose, and troubleshoot Microsoft Azure Storage 

@@ -3,18 +3,18 @@
 	description="Follow this tutorial to get started developing with Mobile Services and the Sencha HTML5 mobile app framework." 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-sencha" 
 	ms.devlang="multiple" 
 	ms.topic="hero-article" 
-	ms.date="11/22/2014" 
-	ms.author="sencha"/>
+	ms.date="04/24/2015" 
+	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services and Sencha Touch
 
@@ -35,9 +35,9 @@ A screenshot from the completed app is shown below:
 
 ##Requirements
 
-- Download and install <a href="http://wwww.sencha.com/products/touch/download" target="_blank">Sencha Touch</a>.
+- Download and install [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank").
 
-- Download and install <a href="http://www.sencha.com/products/sencha-cmd/download" target="_blank">Sencha Cmd Tool</a>.
+- Download and install [Sencha Cmd Tool](http://www.sencha.com/products/sencha-cmd/download" target="_blank").
 
 - Java Runtime Environment (JRE), or Java Development Kit (if you are creating Android apps)
 

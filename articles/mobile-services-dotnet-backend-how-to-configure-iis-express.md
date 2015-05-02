@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="11/20/2014" 
+	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
 # Configure the local web server to allow connections to a local mobile service 

@@ -56,7 +56,7 @@ A screenshot of the completed application is below:
 
 ## <a id="setup"> </a>Setting up the development environment
 
-**Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](../python-how-to-install/).
+**Note:** If you need to install Python or would like to use the Client Libraries, please see the [Python Installation Guide](python-how-to-install.md).
 
 The Ubuntu Linux VM already comes with Python 2.7 pre-installed, but it doesn't have Apache or django installed.  Follow these steps to connect to your VM and install Apache and django.
 

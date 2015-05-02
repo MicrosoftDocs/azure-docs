@@ -25,9 +25,9 @@ The tutorial includes two main scenarios for a quick ramp up on Azure Storage:
 - Run your first Azure Storage application on Azure Storage Emulator
 - Run your first Azure Storage application on Azure Storage Service
 
-If you want to learn about Azure Storage before diving into the code, see [Next Steps][].
+If you want to learn about Azure Storage before diving into the code, see [Next Steps](#next-steps).
 
-## Run your first Azure Storage application on Azure Storage Emulator
+## Run your first Azure Storage application on the Azure Storage Emulator
 
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing [Azure Storage Emulator](https://msdn.microsoft.com/library/azure/hh403989.aspx). The Microsoft Azure storage emulator provides a local environment that emulates the Azure Blob, Queue, and Table services for development purposes. Using the storage emulator, you can test your application against the storage services locally, without incurring any cost.
 
@@ -56,7 +56,7 @@ Now, run the sample application by using the [Azure Storage Emulator](https://ms
 2.	In Visual Studio, click **Build Solution** on the **Build** menu. 
 3.	On the **Debug** menu, Press **F11** to run the solution step by step or press **F5** to run the solution.
 
-## Run your first Azure Storage application on Azure Storage Service
+## Run your first Azure Storage application on Azure Storage in the cloud
 This section demonstrates how to program against **Azure Storage Blobs**, **Tables**, and **Queues** by developing a sample application accessing the [Azure Storage Service](http://azure.microsoft.com/documentation/services/storage/).
 
 To complete this section, make sure to perform the following prerequisite tasks first:
@@ -88,7 +88,7 @@ Now, run the sample application:
 2.	Uncomment the connection string for the Azure Storage Service and provide the storage account name and access key in the App.config file:
 	`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"` 
 
-	To find the storage account name and access key, see [What is a Storage Account](./storage-whatis-account.md). 
+	To find the storage account name and access key, see [What is a Storage Account](storage-whatis-account.md). 
 
 3.	After you provide the storage account name and access key in the App.config file, on the **File** menu, click **Save All** to save all the project files. 
 4.	On the **Build** menu, click **Build Solution**. 
@@ -100,10 +100,10 @@ In this tutorial, you've learned how to program against Azure Blob Storage, Azur
 
 If you want to learn more about them, follow these links:
 
-* [Introduction to Microsoft Azure Storage](./storage-introduction.md)
-* [How to use Blob Storage from .NET](./storage-dotnet-how-to-use-blobs.md)
-* [How to use Table Storage from .NET](./storage-dotnet-how-to-use-tables.md)
-* [How to use Queue Storage from .NET](./storage-dotnet-how-to-use-queues.md)
+* [Introduction to Microsoft Azure Storage](storage-introduction.md)
+* [How to use Blob Storage from .NET](storage-dotnet-how-to-use-blobs.md)
+* [How to use Table Storage from .NET](storage-dotnet-how-to-use-tables.md)
+* [How to use Queue Storage from .NET](storage-dotnet-how-to-use-queues.md)
 * [Azure Storage Documentation](http://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage MSDN Reference](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 * [Azure Storage Client Library](https://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

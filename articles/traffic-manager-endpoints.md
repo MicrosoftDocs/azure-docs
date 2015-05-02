@@ -36,7 +36,7 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. Note that you can only select a single website per Azure datacenter (also known as a region). If you select a website in a datacenter that hosts multiple websites, when you select the first website, the others in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
 7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
 
->[AZURE.NOTE] If you are using the *Failover* load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover Load Balancing](../traffic-manager-configure-failover-load-balancing).
+>[AZURE.NOTE] If you are using the *Failover* load balancing method, after you add or remove an endpoint, be sure to adjust the Failover Priority List on the Configuration page to reflect the failover order you want for your configuration. For more information, see [Configure Failover Load Balancing](traffic-manager-configure-failover-load-balancing.md).
 
 ## To disable an endpoint
 
@@ -64,9 +64,9 @@ You can also disable individual endpoints that are part of a Traffic Manager pro
 
 ## See Also
 
-[Traffic Manager Overview](../traffic-manager-overview)
+[Traffic Manager Overview](traffic-manager-overview.md)
 
-[About Traffic Manager Monitoring](../traffic-manager-monitoring)
+[About Traffic Manager Monitoring](traffic-manager-monitoring.md)
 
 [Traffic Manager Configuration Tasks](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 

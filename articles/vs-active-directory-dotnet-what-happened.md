@@ -16,9 +16,11 @@
 	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
+# What happened to my project?
+
 > [AZURE.SELECTOR]
-> - [Getting Started](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [What Happened](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+> - [Getting Started](vs-active-directory-dotnet-getting-started.md)
+> - [What Happened](vs-active-directory-dotnet-what-happened.md)
 
 ###<span id="whathappened">What happened to my project?</span>
  
@@ -44,9 +46,6 @@ References have been added.
 - `Microsoft.Owin.Security.Cookies`
 - `Microsoft.Owin.Security.OpenIdConnect`
 - `Owin`
-- `System`
-- `System.Data`
-- `System.Drawing`
 - `System.IdentityModel`
 - `System.IdentityModel.Tokens.Jwt`
 - `System.Runtime.Serialization`
@@ -57,7 +56,7 @@ An authentication startup class, `App_Start/Startup.Auth.cs` was added to your p
 
 #####Startup code was added to your project
  
-If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)` was added to that method. Otherwise, a Startup class was added to your project. 
+If you already had a Startup class in your project, the **Configuration** method was updated to include a call to `ConfigureAuth(app)`. Otherwise, a Startup class was added to your project. 
 
 #####Your app.config or web.config has new configuration values 
 
@@ -65,8 +64,9 @@ The following configuration entries have been added.
 	<pre>
 	`<appSettings>
 	    <add key="ida:ClientId" value="ClientId from the new Azure AD App" /> 
-	    <add key="ida:Tenant" value="Your selected Azure AD Tenant" /> 
-	    <add key="ida:AADInstance" value="https://login.windows.net/{0}" /> 
+	    <add key="ida:AADInstance" value="https://login.windows.net/" /> 
+	    <add key="ida:Domain" value="The selected Azure AD Domain" />
+	    <add key="ida:TenantId" value="The Id of your selected Azure AD Tenant" />
 	    <add key="Ida:PostLogoutRedirectURI" value="Your project start page" /> 
 	</appSettings>` </pre>
 

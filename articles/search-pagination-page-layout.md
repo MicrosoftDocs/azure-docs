@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 #How to page search results in Azure Search#
@@ -86,7 +86,7 @@ You would create a method that accepts the selected sort option as input, and re
 
 ## Faceted navigation ##
 
-Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](../search-faceted-navigation/) for details.
+Search navigation is common on a results page, often located at the side or top of a page. In Azure Search, faceted navigation provides self-directed search based on predefined filters. See [Faceted navigation in Azure Search](search-faceted-navigation.md) for details.
 
 ## Filters at the page level ##
 
@@ -103,8 +103,8 @@ See [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azur
 - [Azure Search Service REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [Index Operations](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [Document Operations](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Learning Roadmap](http://msdn.microsoft.com/library/azure/dn818681.aspx)
-- [Faceted Navigation in Azure Search](../search-faceted-navigation/)
+- [Video and tutorials about Azure Search](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Faceted Navigation in Azure Search](search-faceted-navigation.md)
 
 
 <!--Image references-->

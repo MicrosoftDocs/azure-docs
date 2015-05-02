@@ -22,7 +22,7 @@
 
 #<a id="monitormediaservicesaccount"></a>How to Monitor a Media Services Account
 
-This article is part of the [Media Services Video on Demand workflow](../media-services-video-on-demand-workflow) and [Media Services Live Streaming workflow](../media-services-live-streaming-workflow) series. 
+This article is part of the [Media Services Video on Demand workflow](media-services-video-on-demand-workflow.md) and [Media Services Live Streaming workflow](media-services-live-streaming-workflow.md) series. 
 
 The Azure Media Services dashboard presents usage metrics and account information that you can use to manage your Media Services account.
 

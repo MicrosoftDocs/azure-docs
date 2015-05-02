@@ -25,7 +25,7 @@ The Azure Media Encoder supports **Dolby® Digital Plus** encoding. Dolby® Digi
 
 ###Get Azure Media Encoder Processor 
 
-Dolby Digital Plus is supported by the Azure Media Encoder. To get a reference to the **Azure Media Encoder**, see the [Get media processors](../media-services-get-media-processor) topic.
+Dolby Digital Plus is supported by the Azure Media Encoder. To get a reference to the **Azure Media Encoder**, see the [Get media processors](media-services-get-media-processor.md) topic.
 
 ###<a id="configure_preset"></a>Configure Azure Media Encoder settings
 
@@ -46,7 +46,7 @@ To encode to Dolby Digital Plus 5.1 Multichannel, set Codec and EncoderMode attr
 
 The following XML preset contains a complete Azure Media Encoder XML preset that produces an MP4 file with H264 Broadband 1080p video and Dolby Digital Plus 5.1 Multichannel audio. This preset also specifies to encode a Low Frequency Effects (LFE) channel, which is specified by setting the LFEOn attribute to true. Any attributes not specified will have their default values.
 
-This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](../media-services-dotnet-encode-asset) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
+This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](media-services-dotnet-encode-asset.md) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -129,7 +129,7 @@ This XML preset should be passed to the **Azure Media Encoder** to create an enc
 
 To encode to Dolby Digital Plus stereo, set the Codec and EncoderMode attributes to “DolbyDigitalPlus”. The number of channels encoded is specified using the AudioCodingMode attribute. For a stereo encoding set AudioCodingMode to “Mode20”. The following XML preset example shows the <DolbyDigitalPlusAudioProfile> used to encode to 5.1 audio. Any attributes not specified will have their default values.
 
-This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](../media-services-dotnet-encode-asset) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
+This XML preset should be passed to the **Azure Media Encoder** to create an encoding job as described in [this](media-services-dotnet-encode-asset.md) topic (only instead of a predefined preset string you will pass the whole XML preset, as described [here](#configure_preset)).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<!--Created for Azure Media Encoder, May 26 2013 -->

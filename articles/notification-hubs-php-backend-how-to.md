@@ -3,17 +3,17 @@
 	description="Learn how to use Azure Notification Hubs from a PHP back-end." 
 	services="notification-hubs" 
 	documentationCenter="" 
-	authors="yuaxu" 
+	authors="ysxu" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="04/14/2015" 
 	ms.author="yuaxu"/>
 
 # How to use Notification Hubs from PHP
@@ -26,7 +26,7 @@ You can access all Notification Hubs features from a Java/PHP/Ruby back-end usin
 In this topic we show how to:
 
 * Build a REST client for Notification Hubs features in PHP;
-* Follow the [Get started tutorial](http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/) for your mobile platform of choice, implementing the back-end portion in PHP.
+* Follow the [Get started tutorial](notification-hubs-ios-get-started.md) for your mobile platform of choice, implementing the back-end portion in PHP.
 
 ## Client interface
 The main client interface can provide the same methods that are available in the [.NET Notification Hubs SDK](http://msdn.microsoft.com/library/jj933431.aspx), this will allow you to directly translate all the tutorials and samples currently available on this site, and contributed by the community on the internet.

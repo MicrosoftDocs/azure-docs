@@ -2,8 +2,9 @@
 	pageTitle="Monitor your app's health and usage with Application Insights" 
 	description="Get started with Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications." 
 	services="application-insights" 
+    documentationCenter=""
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="keboyd"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="2014-12-11" 
+	ms.date="04/02/2015" 
 	ms.author="awills"/>
  
 # Monitor performance in web applications
@@ -30,7 +31,7 @@ If you haven't yet added Application Insights to your project (that is, if it do
 
 * [Add Application Insights to your project in Visual Studio][greenbrown] - Recommended. As well as passive performance monitoring, you can insert diagnostic logging and track usage.
 * [Monitor performance of a live website now][redfield] - This way, you don't need to update the application project or redeploy the website.
-* [For a Microsoft Azure website](../insights-how-to-customize-monitoring/)  you can already see metrics on the website's Monitoring lens. 
+* [For a Microsoft Azure website](insights-how-to-customize-monitoring.md)  you can already see metrics on the website's Monitoring lens. 
 
 Using either of these methods, you'll quickly see data on the overview blade in Application Insights.
 
@@ -101,6 +102,36 @@ To see what other metrics you can display, click a graph, and then deselect all 
 
 Selecting any metric will disable the others that can't appear on the same chart.
 
+## Collect more performance counters
+
+Some of the metrics you can choose from are [performance counters](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters). Windows provides a wide variety of them, and you can also define your own.
+
+If the counters you want aren't on the list, you can add them to the set that the SDK collects. Open ApplicationInsights.config and edit the performance collector directive:
+
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
+      <Counters>
+        <Add PerformanceCounter="\Objects\Processes"/>
+        <Add PerformanceCounter="\Sales(electronics)\# Items Sold" ReportAs="Item sales"/>
+      </Counters>
+    </Add>
+
+The format is `\Category(instance)\Counter"` or for categories that don't have instances, just `\Category\Counter`. 
+
+`ReportAs` is required for counter names that contain characters other than these: letters, round brackets, forward slahes, hyphens, underscores, spaces and dots.
+
+If you specify an instance, it will be collected as a property "CounterInstanceName" of the reported metric.
+
+If you prefer, you can write code to have the same effect:
+
+    var perfCollector = new PerformanceCollectorModule();
+    perfCollector.Counters = new List<CustomPerformanceCounterCollectionRquest>();
+    perfCollector.Counters.Add(new CustomPerformanceCounterCollectionRquest(
+      @"\Sales(electronics)\# Items Sold", "Items sold"));
+    perfCollector.Initialize(TelemetryConfiguration.Active);
+    TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
+
+
+
 ## Set alerts
 
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
@@ -135,7 +166,13 @@ Here are a few tips for finding and diagnosing performance issues:
 
 [AZURE.VIDEO app-insights-performance-monitoring]
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[usage]: app-insights-web-track-usage.md
 

@@ -140,4 +140,4 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 	>[AZURE.NOTE] Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that will allow a system to boot even if the disk fails to mount at boot time. Please consult your distribution's documentation for more information on these parameters.
 
-[logonlinux]: ../virtual-machines-linux-how-to-log-on/
+[logonlinux]: virtual-machines-linux-how-to-log-on.md

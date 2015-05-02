@@ -13,14 +13,14 @@
     ms.topic="article" 
     ms.tgt_pltfrm="NA" 
     ms.workload="data-services" 
-    ms.date="03/02/2015" 
+    ms.date="03/19/2015" 
     ms.author="andrl"/>
 
 #Connecting DocumentDB with Azure Search using indexers
 
 If you're looking to implement great search experiences over your DocumentDB data, use Azure Search indexer for DocumentDB! In this article, we will show you how to integrate Azure DocumentDB with Azure Search without having to write any code to maintain indexing infrastructure!
 
-To set this up, you have to [setup an Azure Search account](/documentation/articles/search-get-started/#start-with-the-free-service) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
+To set this up, you have to [setup an Azure Search account](search-get-started.md#start-with-the-free-service) (you don't need to upgrade to standard search), and then call the [Azure Search REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) to create a DocumentDB **data source** and an **indexer** for that data source.
 
 ##<a id="Concepts"></a>Azure Search indexer concepts
 
@@ -95,7 +95,7 @@ When rows are deleted from the source table, you should delete those rows from t
 The following example creates a data source with a custom query and policy hints:
 
     {
-        "name": "myDocDbDataSource",
+        "name": "mydocdbdatasource",
         "type": "documentdb",
         "credentials": {
             "connectionString": "AccountEndpoint=https://myDocDbEndpoint.documents.azure.com;AccountKey=myDocDbAuthKey;Database=myDocDbDatabaseId"
@@ -121,7 +121,7 @@ You will receive an HTTP 201 Created response if the data source was successfull
 
 ##<a id="CreateIndex"></a>Step 2: Create an index
 
-Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](/documentation/articles/search-get-started/#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Create a target Azure Search index if you don’t have one already. You can do this from the [Azure Portal UI](search-get-started.md#test-service-operations) or by using the [Create Index API](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 	POST https://[Search service name].search.windows.net/indexes?api-version=[api-version]
 	Content-Type: application/json
@@ -154,7 +154,10 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.String</td>
     </tr>
     <tr>
-        <td>Arrays of primitive types, e.g. [ "a", "b", "c" ]</td>
+        <td>
+            Arrays of primitive types<br/>
+            e.g. [ "a", "b", "c" ]
+        </td>
         <td>Collection(Edm.String)</td>
     </tr>
     <tr>
@@ -162,7 +165,14 @@ Ensure that the schema of your target index is compatible with the schema of the
         <td>Edm.DateTimeOffset, Edm.String</td>
     </tr>
     <tr>
-        <td>JSON objects</td>
+        <td>
+            GeoJSON objects<br/>
+            e.g. { "type": "Point", "coordinates": [ long, lat ] }
+        </td>
+        <td>Edm.GeographyPoint</td>
+    </tr>
+    <tr>
+        <td>Other JSON objects</td>
         <td>N/A</td>
     </tr>
 </table>
@@ -172,7 +182,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 The following example creates an index with an id and description field:
 
     {
-       "name": "mySearchIndex",
+       "name": "mysearchindex",
        "fields": [{
          "name": "id",
          "type": "Edm.String",
@@ -196,7 +206,7 @@ You will receive an HTTP 201 Created response if the index was successfully crea
 
 You can create a new indexer within an Azure Search service by using an HTTP POST request with the following headers.
     
-    POST https://[Search service name].search.windows.net/datasources?api-version=[api-version]
+    POST https://[Search service name].search.windows.net/indexers?api-version=[api-version]
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -214,7 +224,7 @@ The body of the request contains the indexer definition, which should include th
 
 An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. Schedule has the following attributes:
 
-- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P[nD][T[nH][nM]]`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
+- **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours. 
 
 - **startTime**: Required. An UTC datetime that specifies when the indexer should start running. 
 
@@ -223,9 +233,9 @@ An indexer can optionally specify a schedule. If a schedule is present, the inde
 The following example creates an indexer that copies data from the collection referenced by the `myDocDbDataSource` data source to the `mySearchIndex` index on a schedule that starts on Jan 1, 2015 UTC and runs hourly.
 
     {
-        "name" : "mySearchIndexer",
-        "dataSourceName" : "myDocDbDataSource",
-        "targetIndexName" : "mySearchIndex",
+        "name" : "mysearchindexer",
+        "dataSourceName" : "mydocdbdatasource",
+        "targetIndexName" : "mysearchindex",
         "schedule" : { "interval" : "PT1H", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
