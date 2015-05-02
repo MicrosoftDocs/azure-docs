@@ -64,7 +64,7 @@ PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureNa
 
 	FeatureName                       ProviderName                      RegistrationState                                                            
 	-----------                       ------------                      -----------------                                                            
-	azurednspreview                   Microsoft.Network                        Registered                                                 	                 
+	azurednspreview                   Microsoft.Network                                                    Registered         
 
 Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
