@@ -26,9 +26,9 @@ Desired State Configuration (DSC) is a new management platform in Windows PowerS
 DSC provides a set of Windows PowerShell language extensions, new Windows PowerShell cmdlets, and resources that you can use to declaratively specify how you want your software environment to be configured. It also provides a means to maintain and manage existing configurations.
 
 ##What is Azure Automation DSC?##
-Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://technet.microsoft.com/en-us/library/dn249912.aspx) <link> as Azure Automation offers for PowerShell scripting today.
+Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx) <link> as Azure Automation offers for PowerShell scripting today.
 
-Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/en-us/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/en-us/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items will be placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/en-us/library/dn249913.aspx) so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.
+Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items will be placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/library/dn249913.aspx) so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.
 
 For more details on PowerShell DSC, see: [Configuration in a DevOps world - Windows PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx)
 
@@ -144,7 +144,7 @@ A DSC node is any computer that's configuration is managed by DSC. This could be
 
 Azure Automation DSC makes onboarding of nodes for management by Azure Automation DSC easy, and allows changing of the node configuration assigned to each node server-side, so next time a node checks the server for instructions it will assume a different role and change how it is configured to match. Nodes also report their status and configuration compliance to Azure Automation DSC.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/) for management of DSC nodes:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of DSC nodes:
 
 -	`Get-AzureAutomationDscNode`  
 -	`Register-AzureAutomationDscNode` (used to onboard Azure VMs as Nodes)
@@ -212,13 +212,13 @@ PowerShell:
  
 
 ###Resource###
-DSC resources are building blocks that you can use to define a Windows PowerShell Desired State Configuration (DSC) configuration. DSC comes with a set of built-in functionality for configuring resources such as files and folders, server features and roles, registry settings, environment variables, and services and processes. To learn about the full list of built-in DSC resources and how to use them, see [Built-In Windows PowerShell Desired State Configuration Resources](https://technet.microsoft.com/en-us/library/dn249921.aspx).
+DSC resources are building blocks that you can use to define a Windows PowerShell Desired State Configuration (DSC) configuration. DSC comes with a set of built-in functionality for configuring resources such as files and folders, server features and roles, registry settings, environment variables, and services and processes. To learn about the full list of built-in DSC resources and how to use them, see [Built-In Windows PowerShell Desired State Configuration Resources](https://technet.microsoft.com/library/dn249921.aspx).
 
-DSC resources can also be imported as part of PowerShell Modules to extend the set of built-in DSC resources. Non-default resources will be pulled down by DSC nodes from the DSC pull server, if a node configuration the node is meant to enact contains references to those resources. To learn how to create custom resources, see [Build Custom Windows PowerShell Desired State Configuration Resources](https://technet.microsoft.com/en-us/library/dn249927.aspx).
+DSC resources can also be imported as part of PowerShell Modules to extend the set of built-in DSC resources. Non-default resources will be pulled down by DSC nodes from the DSC pull server, if a node configuration the node is meant to enact contains references to those resources. To learn how to create custom resources, see [Build Custom Windows PowerShell Desired State Configuration Resources](https://technet.microsoft.com/library/dn249927.aspx).
 
 Azure Automation DSC ships with all the same built-in DSC resources as does PS DSC. Additional resources can be added to Azure Automation DSC by importing PowerShell modules containing the resources into Azure Automation.
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/) for management of DSC Nodes:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of DSC Nodes:
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -230,9 +230,9 @@ A compilation job in Azure Automation DSC is an instance of compilation of a con
 
 ![alt text](./media/automation-dsc-overview/AADSC_5.png)
 
->[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs DSC items to be placed on the pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/en-us/library/dn903765.aspx).
+>[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs DSC items to be placed on the pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
 
-Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/) for management of compilation jobs:
+Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of compilation jobs:
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
