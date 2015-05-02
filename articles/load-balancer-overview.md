@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure Load Balancer overview"
+   pageTitle="Azure Load Balancer overview | Microsoft Azure"
    description="Overview of Azure load balancer features, architecture and implementation. It helps to understand how load balancer works and leverage it for the cloud"
    services="load-balancer"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 
@@ -21,7 +21,7 @@ Azure load balancer delivers high availability and network performance to your a
  
 It can be configured to:
 
-- Load balance incoming Internet traffic to virtual machines. We refer it as [public load balancing](load-balancer-overview.md).
+- Load balance incoming Internet traffic to virtual machines. We refer it as [Internet facing load balancing](load-balancer-overview.md).
 - Load balance traffic between virtual machines in a Virtual Network, between virtual machines in cloud services or between on-premises computers and virtual machines in a cross-premises virtual network. We refer it as [internal load balancing (ILB)](load-balancer-internal-overview.md).
 - 	Forward external traffic to a specific Virtual Machine instance
 
@@ -95,5 +95,3 @@ Azure Resource Manager (ARM) is the new management framework for services in Azu
 [Internal load balancer overview](load-balancer-internal-overview.md)
 
 [Get started - Internet facing load balancer](load-balancer-internet-getstarted.md)
-
-
