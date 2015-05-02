@@ -121,7 +121,9 @@ Now you are ready! Next you can [connect to your Azure subscription from the Azu
 ## Using Docker Container 
 
 In a Docker host, run:
+```
 	docker run -it kmouss/azure-cli
+```
 
 <a id="additional-resources"></a>
 ## Additional resources
