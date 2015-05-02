@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Automation Hybrid Runbook Workers"
-   description="Hybrid Runbook Worker is a feature of Azure Automation that allows you to run runbooks on machines located in your data center in order to manage local resources.  This topic provides information on how to install Hybrid Runbook Worker and how to run runbooks on local agents."
+   description="This article provides information on installing and using Hybrid Runbook Worker which is a feature of Azure Automation that allows you to run runbooks on machines in your local data center."
    services="automation"
    documentationCenter=""
    authors="bwren"
@@ -15,7 +15,7 @@
    ms.date="05/04/2015"
    ms.author="bwren" />
 
-# Hybrid Runbook Workers
+# Azure Automation Hybrid Runbook Workers
 
 Runbooks in Azure Automation cannot access resources in your local data center since they run in the Azure cloud.  The Hybrid Runbook Worker feature of Azure Automation allows you to run runbooks on machines located in your data center in order to manage local resources. The runbooks are stored and managed in Azure Automation and then delivered to one or more on-premise machines where they are run.  
 
@@ -41,10 +41,10 @@ When you start a runbook on a Hybrid Runbook Worker, you specify the group that 
 
 Complete the following steps to prepare your Azure Automation environment for Hybrid Runbook Workers.
 
-#### 1. Create Azure Operational Insights Workspace
+#### 1. Create Azure Operational Insights workspace
 If you do not already have an Operational Insights workspace in your Azure account, then create one using instructions at  [Set up your Operational Insights workspace](../operational-insights-setup-workspace). You can use an existing workspace if you already have one.
 
-#### 2. Deploy Automation Intelligence Pack
+#### 2. Deploy Automation intelligence pack
 The Automation Intelligence Pack in Operational Insights pushes down components required to configure and support the runbook environment.  Follow the instructions at [Operational Insights intelligence packs](../operational-insights-add-intelligence-pack) to install the **Azure Automation** pack.
 
 ### Configure on-premise machines
