@@ -1,26 +1,26 @@
 <properties 
 	pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" 
 	description="Managing role-based access control with cross-platform command-line interface" 
-	services="" 
-	documentationCenter="" 
-	authors="guangyang" 
+	services="azure-portal" 
+	documentationCenter="na" 
+	authors="Justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="command-line-interface" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/03/2014" 
-	ms.author="guayan"/>
+	ms.author="justinha"/>
 
 # Managing Role-Based Access Control with Cross-Platform Command-Line Interface #
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
-Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based access control (RBAC) in Azure Portal and Azure Resource Manager API allows you to manage access to your subscription and resources at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use Azure Cross-Platform Command-Line Interface (xplat-cli) to manage role based access control. It walks you through the process of creating and checking role assignments.
 
@@ -139,10 +139,10 @@ Then when you try to run other cmdlets like `azure group create`, you will get a
 
 To learn more about managing role-based access control with xplat-cli and related topics:
 
-- [Role based access control in Windows Azure](role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md)
 - [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md)
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Configure role based access control using Windows PowerShell](role-based-access-control-powershell.md)
 - [Troubleshooting role based access control](role-based-access-control-troubleshooting.md)

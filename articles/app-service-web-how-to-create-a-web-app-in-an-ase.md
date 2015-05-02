@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to Create a Web App in an App Service Environment" 
 	description="Creation flow for web apps and app service plans examined for an app service environment" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -73,6 +73,10 @@ As noted earlier, the owner of the ASE is responsible for the size of the system
 
 After creating your web app and ASP it is a good idea to scale it up.  In an ASE you always need to have at least 2 instances of your ASP to provide fault tolerance for your apps.  Scaling an ASP in an ASE is the same as normal through the ASP UI.  For more details around scaling read the document here [How to scale a web app in an App Service Environment][HowtoScale]
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspnewwebapp.png
 [2]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createasplocation.png
@@ -80,7 +84,7 @@ After creating your web app and ASP it is a good idea to scale it up.  In an ASE
 [4]: ./media/app-service-web-how-to-create-a-web-app-in-an-ase/createaspworkerpool.png
 
 <!--Links-->
-[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
+[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
 [HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
 [HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment

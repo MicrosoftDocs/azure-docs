@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
 ## Overview  
-This guide will show you how to perform common scenarios using the Azure Table Storage Service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). The scenarios covered include **creating and deleting a table**, as well as **working with table entities**.
+This guide will show you how to perform common scenarios using the Azure Table Storage Service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). The scenarios covered include **creating and deleting a table**, as well as **working with table entities**.
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 0.5.0 and above. The recommended version is Storage Client Library 0.5.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
@@ -37,12 +37,12 @@ To install the Azure Storage Client Library for C++, you can use the following m
 -	**Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
 -	**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage
 
 ## Configure your application to access Table Storage  
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
-	#include "was/storage_account.h"  
+	#include "was/storage_account.h"
 	#include "was/table.h"
 
 ## Setup an Azure storage connection string  
@@ -80,6 +80,7 @@ A **cloud_table_client** object lets you get reference objects for tables and en
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
+	// Retrieve a reference to a table.
 	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 	// Create the table if it doesn't exist.
@@ -95,19 +96,21 @@ The following code creates a new instance of **table_entity** with some customer
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+
+	// Retrieve a reference to a table.
 	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 	// Create the table if it doesn't exist.
 	table.create_if_not_exists();
 
 	// Create a new customer entity.
-	azure::storage::table_entity customer1(utility::string_t(U("Harp")), utility::string_t(U("Walter")));
+	azure::storage::table_entity customer1(U("Harp"), U("Walter"));
 
 	azure::storage::table_entity::properties_type& properties = customer1.properties();
 	properties.reserve(2);
-	properties[U("Email")] = azure::storage::entity_property(utility::string_t(U("Walter@contoso.com")));
+	properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com"));
 
-	properties[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0101")));
+	properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
 
 	// Create the table operation that inserts the customer entity.
 	azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
@@ -131,28 +134,28 @@ You can insert a batch of entities to the table service in one write operation. 
 	azure::storage::table_batch_operation batch_operation;
 
 	// Create a customer entity and add it to the table.
-	azure::storage::table_entity customer1(utility::string_t(U("Smith")), utility::string_t(U("Jeff")));
+	azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
 
 	azure::storage::table_entity::properties_type& properties1 = customer1.properties();
 	properties1.reserve(2);
-	properties1[U("Email")] = azure::storage::entity_property(utility::string_t(U("Jeff@contoso.com")));
-	properties1[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0104")));
+	properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
+	properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
 
 	// Create another customer entity and add it to the table.
-	azure::storage::table_entity customer2(utility::string_t(U("Smith")), utility::string_t(U("Ben")));
+	azure::storage::table_entity customer2(U("Smith"), U("Ben"));
 
 	azure::storage::table_entity::properties_type& properties2 = customer2.properties();
 	properties2.reserve(2);
-	properties2[U("Email")] = azure::storage::entity_property(utility::string_t(U("Ben@contoso.com")));
-	properties2[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0102")));
+	properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
+	properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
 
 	// Create a third customer entity to add to the table.
-	azure::storage::table_entity customer3(utility::string_t(U("Smith")), utility::string_t(U("Denise")));
+	azure::storage::table_entity customer3(U("Smith"), U("Denise"));
 
 	azure::storage::table_entity::properties_type& properties3 = customer3.properties();
 	properties3.reserve(2);
-	properties3[U("Email")] = azure::storage::entity_property(utility::string_t(U("Denise@contoso.com")));
-	properties3[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0103")));
+	properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
+	properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
 		
 	// Add customer entities to the batch insert operation.
 	batch_operation.insert_or_replace_entity(customer1);
@@ -186,16 +189,18 @@ To query a table for all entities in a partition, use a **table_query** object. 
 
 	query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
 
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+	// Execute the query.
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Print the fields for each customer.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
-  		const azure::storage::table_entity::properties_type& properties = it->properties();
+		const azure::storage::table_entity::properties_type& properties = it->properties();
 
-   		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key() 							
-			<< U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value())
-			<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;
+		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()		
+			<< U(", Property1: ") << properties.at(U("Email")).string_value()
+			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 	}  
 
 The query in this example brings all the entities that match the filter criteria. If you have large tables and need to download the table entities so often, we recommend that you store your data in Azure Storage Blobs instead.
@@ -222,16 +227,17 @@ If you don't want to query all the entities in a partition, you can specify a ra
 		azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
 
 	// Execute the query.
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Loop through the results, displaying information about the entity.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
 		const azure::storage::table_entity::properties_type& properties = it->properties();
 
 		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
-		<< U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value())
-				<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;
+			<< U(", Property1: ") << properties.at(U("Email")).string_value()
+			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 	}  
 
 ## How to: Retrieve a single entity
@@ -253,8 +259,9 @@ You can write a query to retrieve a single, specific entity. The following code 
 	azure::storage::table_entity entity = retrieve_result.entity();
 	const azure::storage::table_entity::properties_type& properties = entity.properties();
 
-	std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key() << U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value())
-	<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;  
+	std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key()
+		<< U(", Property1: ") << properties.at(U("Email")).string_value()
+		<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 
 ## How to: Replace an entity
 To replace an entity, retrieve it from the table service, modify the entity object, and then save the changes back to the table service. The following code changes an existing customer's phone number and email address. Instead of calling **table_operation::insert_entity**, this code uses **table_operation::replace_entity**. This causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved, in which case the operation will fail. This failure is to prevent your application from inadvertently overwriting a change made between the retrieval and update by another component of your application. The proper handling of this failure is to retrieve the entity again, make your changes (if still valid), and then perform another **table_operation::replace_entity** operation. The next section will show you how to override this behavior.  
@@ -274,10 +281,10 @@ To replace an entity, retrieve it from the table service, modify the entity obje
 	properties_to_replace.reserve(2);
 
 	// Specify a new phone number.
-	properties_to_replace[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0106")));
+	properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0106"));
 
 	// Specify a new email address.
-	properties_to_replace[U("Email")] = azure::storage::entity_property(utility::string_t(U("JeffS@contoso.com")));
+	properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
 
 	// Create an operation to replace the entity.
 	azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
@@ -304,10 +311,10 @@ To replace an entity, retrieve it from the table service, modify the entity obje
 	properties_to_insert_or_replace.reserve(2);
 
 	// Specify a phone number.
-	properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0107")));
+	properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0107"));
 
 	// Specify an email address.
-	properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(utility::string_t(U("Jeffsm@contoso.com")));
+	properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
 
 	// Create an operation to insert or replace the entity.
 	azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
@@ -333,20 +340,24 @@ A query to a table can retrieve just a few properties from an entity. The query 
 
 	columns.push_back(U("Email"));
 	query.set_select_columns(columns);
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+
+	// Execute the query.
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Display the results.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
-    	const azure::storage::table_entity::properties_type& properties = it->properties();
-    	std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
-			
-   		for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it)
-   		{
+		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
+
+		const azure::storage::table_entity::properties_type& properties = it->properties();
+		for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it)
+		{
 			std::wcout << ", " << prop_it->first << ": " << prop_it->second.str();
-   		}
-   		std::wcout << std::endl;
-	}  
+		}
+
+		std::wcout << std::endl;
+	}
 
 **Note:** Querying a few properties from an entity is more efficient operation than retrieving all properties. 
 

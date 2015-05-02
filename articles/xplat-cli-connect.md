@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/22/2015"
+	ms.date="04/29/2015"
 	ms.author="dkshir"/>
 
 # Connect to an Azure subscription from the Azure CLI for Mac, Linux, and Windows
@@ -43,7 +43,7 @@ The login method only works with a work or school account. This account is manag
 
 > [AZURE.NOTE] If you do not currently have a work or school account, and are using a personal account to log in to your Azure subscription, you can easily create one using the following steps.
 >
-> 1. Login to the [Azure Classic Portal][portal], and select **Active Directory**.
+> 1. Login to the [Azure Portal][portal], and select **Active Directory**.
 >
 > 2. If no directory exists, select **Create your directory** and provide the requested information.
 >
@@ -81,11 +81,11 @@ To download the publish settings for your account, use the following command:
 
 	azure account download
 
-This will open your default browser and prompt you to sign in to the [Azure Classic Portal][portal]. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
+This will open your default browser and prompt you to sign in to the [Azure Portal][portal]. After signing in, a `.publishsettings` file will be downloaded. Make note of where this file is saved.
 
 > [AZURE.NOTE] If your account is associated with multiple Azure Active Directory tenants, you may be prompted to select which Active Directory you wish to download a publish settings file for.
 >
-> Once selected using the download page, or by visiting the Azure Classic Portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
+> Once selected using the download page, or by visiting the Azure Portal, the selected Active Directory becomes the default used by the portal and download page. Once a default has been established, you will see the text '__click here to return to the selection page__' at the top of the download page. Use the provided link to return to the selection page.
 
 Next, import the `.publishsettings` file by running the following command:
 

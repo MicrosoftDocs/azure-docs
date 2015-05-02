@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="What's Machine Learning?" 
+    pageTitle="What is Azure Machine Learning? | Microsoft Azure" 
     description="Overview of the Azure Machine Learning service." 
     services="machine-learning" 
     documentationCenter="" 

@@ -26,6 +26,8 @@ From a high-level point-of-view, this is done in three steps:
 - **[Convert it to a scoring experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for scoring.
 - **[Publish it as a web service]** - With just a click, you can publish your scoring experiment as an Azure web service. Users can send data to your model and receive your model's predictions.
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 Once you've published the web service, you can:
 
 - **[Access]** it through the web service API

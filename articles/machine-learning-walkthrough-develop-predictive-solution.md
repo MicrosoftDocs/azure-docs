@@ -23,7 +23,9 @@ Suppose you need to predict an individual's credit risk based on the information
 
 That's a complex problem, of course, but let's simplify the parameters of the question a bit and use it as an example of how you might be able to use Microsoft Azure Machine Learning with Machine Learning Studio and the Machine Learning web service to create such a predictive analytics solution.  
 
-In this walkthrough, we'll follow the process of developing a predictive analytics model in Machine Learning Studio and then publishing it as an Azure Machine Learning web service. We'll start with publicly available credit risk data, develop and train a predictive model based on that data, and then publish the model as a web service that can be used by others.  
+In this walkthrough, we'll follow the process of developing a predictive analytics model in Machine Learning Studio and then publishing it as an Azure Machine Learning web service. We'll start with publicly available credit risk data, develop and train a predictive model based on that data, and then publish the model as a web service that can be used by others. 
+
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)] 
 
 To open Machine Learning Studio, click this link: [https://studio.azureml.net/Home](https://studio.azureml.net/Home). For more information about getting started with Machine Learning Studio, see [Microsoft Azure Machine Learning Studio Home](https://studio.azureml.net/).
 

@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Steps to failback from Azure to VMware
@@ -23,6 +23,8 @@ This document will walk you through the steps you need to failback from Azure ba
 After a successful failover to Azure, the virtual machines will be
 available in the virtual machines tab. When you decide to failback –
 below are the steps you need to follow.
+
+Note that when you failback from Azure back to your VMware site, the recovery can only be to a virtual machine. Even if your initial source on VMware was a physical machine, failover to Azure followed by a failback to VMware will convert it into a virtual machine.
 
 ## Overview
 

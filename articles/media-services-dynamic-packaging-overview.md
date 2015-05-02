@@ -25,8 +25,11 @@ Microsoft Azure Media Services can be used to deliver many media source file for
 
 With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
+The following diagram shows the traditional encoding and static packaging workflow.
 
 ![Static Encoding](./media/media-services-dynamic-packaging/media-services-static-packaging.png)
+
+The following diagram shows the dynamic packaging workflow.
 
 ![Dynamic Encoding](./media/media-services-dynamic-packaging/media-services-dynamic-packaging.png)
 

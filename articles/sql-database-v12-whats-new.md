@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="04/30/2015" 
 	ms.author="genemi"/>
 
 
@@ -33,11 +33,11 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 ## Highlights
 
 
-- **Microsoft Azure portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure portal you specify your SQL Database database, and then proceed to specify a SQL Database server to host it.
- - As of April 2015, the [Microsoft Azure classic portal](http://manage.windowsazure.com/) is still supported also.
+- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure preview portal you specify your SQL Database database, and then proceed to specify a SQL Database server to host it.
+ - As of April 2015, the [older Azure portal](http://manage.windowsazure.com/) is still supported also.
 
 
-- **Choose a version** of SQL Database server when you use the Azure portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
+- **Choose a version** of SQL Database server when you use the Azure preview portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
 
 
 - **Security** enjoys the new feature of [users in contained databases](sql-database-v12-whats-new.md#UsersInContainedDatabases). Two other features are [row-level security](sql-database-v12-whats-new.md#RowLevelSecurity) and [dynamic data masking](sql-database-v12-whats-new.md#DynamicDataMasking), although these are still at preview and are not yet at GA.
@@ -58,10 +58,10 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
-## V12 enhancements
+The next sections describe the enhancements in Azure SQL Database V12.
 
 
-### Expanded database management
+## Expanded database management
 
 
 | Feature | Description |
@@ -70,7 +70,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | TDE | Transparent Data Encryption (preview) helps protect against malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest. TDE does not require changes to your application.<br/><br/>For details see:<br/>- [Transparent Data Encryption with Azure SQL Database](http://msdn.microsoft.com/library/dn948096.aspx) - step-by-step instructions.<br/>- [Transparent Data Encryption (TDE)](http://msdn.microsoft.com/library/bb934049.aspx) - general description. |
 | Transact-SQL certificates, keys, and cryptographic functions | Certificates, symmetric keys, and asymmetric keys can now be created in Azure SQL Database V12. Most cryptographic functions are now supported.<br/><br/>For more information, see:<br/>- [CREATE CERTIFICATE (Transact-SQL)](http://msdn.microsoft.com/library/ms187798.aspx)<br/>- [CREATE SYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms188357.aspx)<br/>- [CREATE ASYMMETRIC KEY (Transact-SQL)](http://msdn.microsoft.com/library/ms174430.aspx)<br/>- [Cryptographic Functions (Transact-SQL)](http://msdn.microsoft.com/library/ms173744.aspx) |
 | SQL Database elastic pool | Simple tasks become complicated when you scale to thousands of databases, and that's the downside of explosive growth. SaaS developers spend countless hours writing complex logic to handle schema changes and other administrative operations as the business grows.<br/><br/>With [elastic databases](sql-database-elastic-pool.md), life becomes easier. You take a script, submit it as a job, and Azure SQL Database does the rest. |
-| Pricing tier recommendations and the STA | When moving your database from Web or Business editions to one of the new Basic, Standard, or Premium service tiers, you can now get pricing tier recommendations directly from the Microsoft Azure portal.<br/><br/>The Azure SQL Database service analyzes the performance and feature requirements for existing databases. The [Service Tier Advisor (STA)](sql-database-service-tier-advisor.md) reads the performance data to recommend the optimal service tier for your database. |
+| Pricing tier recommendations and the STA | When moving your database from Web or Business editions to one of the new Basic, Standard, or Premium service tiers, you can now get pricing tier recommendations directly from the Azure preview portal.<br/><br/>The Azure SQL Database service analyzes the performance and feature requirements for existing databases. The [Service Tier Advisor (STA)](sql-database-service-tier-advisor.md) reads the performance data to recommend the optimal service tier for your database. |
 | DMV permissions | For several dynamic management views (DMVs), their execution previously required the VIEW SERVER STATE permission. Now in Azure SQL Database V12, in many cases the DMVs can be executed by the SQL Database administrator account in databases that are at the Basic or Standard service tier.<br/><br/>On the Premium tier, access to the DMVs can be granted to additional users by using the VIEW DATABASE STATE permission in the database.<br/><br/>For details see the Permissions section for a given individual [DMV](http://msdn.microsoft.com/library/ms188754.aspx). |
 | DBCC SQLPERF | The [DBCC SQLPERF](http://msdn.microsoft.com/library/ms189768.aspx) command is now available in Azure SQL Database V12. The *reset wait* and *latch statistics* options are not supported on SQL Database V12. |
 | . | ***December 2014:*** |
@@ -85,7 +85,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | More DBCC commands | Several more [DBCC](http://msdn.microsoft.com/library/ms188796.aspx) commands are now available in V12. For details see [Azure SQL Database Transact-SQL Reference](http://msdn.microsoft.com/library/azure/ee336281.aspx). |
 
 
-### Programming and application support
+## Programming and application support
 
 
 | Feature | Description |
@@ -105,7 +105,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Application roles | For security and permissions control, V12 enables you to issue [GRANT](http://msdn.microsoft.com/library/ms187965.aspx) - [DENY](http://msdn.microsoft.com/library/ms188338.aspx) - [REVOKE](http://msdn.microsoft.com/library/ms187728.aspx) commands against [application roles](http://msdn.microsoft.com/library/ms190998.aspx). |
 
 
-### Better customer insights
+## Better customer insights
 
 
 | Feature | Description |
@@ -116,7 +116,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 | Columnstore indexes | A columnstore index improves system performance for data warehouses when an indexed column contains repetitions of the same value. The [columnstore index compresses](http://msdn.microsoft.com/library/gg492088.aspx) the duplicate values to reduce the number of physical rows that must be accessed during queries. |
 
 
-### Performance improvements at the Premium service tier
+## Performance improvements at the Premium service tier
 
 
 These performance enhancements apply to the P2 and P3 levels within the Premium service tier.
@@ -131,7 +131,17 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Log rate | V12 can log more data changes per second. |
 
 
-### Summary of enhancements
+## V12 to become API default beginning August 1, 2015  
+
+
+| Feature | Description |
+| :--- | :--- |
+| . | ***August 2015:*** |
+| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |
+| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |
+
+
+## Summary of enhancements
 
 
 V12 elevates our SQL Database close to full feature compatibility with our SQL Server product. V12 focuses on the most popular features, and on programmability support. This makes your development more efficient and more enjoyable.  It is now even easier to move your SQL database applications to the cloud.
