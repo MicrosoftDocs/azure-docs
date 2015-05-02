@@ -62,9 +62,10 @@ You can check your registration status as follows:
 
 PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
 
-	FeatureName                       ProviderName                      RegistrationState                                                            
-	-----------                       ------------                      -----------------                                                            
-	azurednspreview                   Microsoft.Network                                                    Registered         
+	FeatureName                       ProviderName                      RegistrationState
+
+	-----------                       ------------                      -----------------
+	azurednspreview                   Microsoft.Network                     Registered
 
 Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
