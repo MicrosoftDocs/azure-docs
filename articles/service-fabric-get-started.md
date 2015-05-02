@@ -26,7 +26,6 @@ Alternatively, you can [set up an Azure virtual machine](http://blogs.msdn.com/b
 
 ## Install the runtime, SDK, and tools
 Installation of the Service Fabric components is handled by the Web Platform Installer. Follow these instructions to install:
-
 1. Launch the Web Platform Installer by clicking [here](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric).
 
 2. Click Install to begin the install process.
