@@ -20,7 +20,7 @@
 
 This guide will show how to manage record sets and records for your DNS zone.
 
-It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-record#Understanding-record-sets-and-records)
+It is important to understand the distinction between DNS record sets and individual DNS records.  A record set is the collection of records in a zone with the same name and the same type.  For more details, see [Understanding record sets and records](../dns-getstarted-create-recordset#Understanding-record-sets-and-records).
 
 ## Create a record set
 
