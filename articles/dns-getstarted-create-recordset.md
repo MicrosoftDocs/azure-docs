@@ -114,3 +114,4 @@ You can also use nslookup or other DNS tools to query the new record set.
 [Performing operations with Record sets and records](../dns-operations-recordsets)<BR>
 
 [Automate Azure Operations with .NET SDK](../dns-sdk)
+
