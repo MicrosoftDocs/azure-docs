@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="mobile-html" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="05/01/2015" 
@@ -296,7 +296,7 @@ String IDs provide you with the following benefits:
 + Records are easier to merge from different tables or databases.
 + IDs values can integrate better with an application's logic.
 
-When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](/documentation/articles/mobile-services-how-to-use-server-scripts/#generate-guids). 
+When a string ID value is not already set on an inserted record, Mobile Services generates a unique value for the ID. For more information on how to generate your own ID values, either on the client or in a .NET backend, see [How to: Generate unique ID values](mobile-services-how-to-use-server-scripts.md#generate-guids). 
 
 You can also use integer IDs for your tables. To use an integer ID, you must create your table with the `mobile table create` command using the `--integerId` option. This command is used with the Command-line Interface (CLI) for Azure. For more information on using the CLI, see [CLI to manage Mobile Services tables](virtual-machines-command-line-tools.md#Mobile_Tables).
 
@@ -342,7 +342,7 @@ You can also specify a callback function to be invoked when the delete is comple
 	   alert("Error: " + err);
 	});
 
-<h2><a name="binding"></a>How to: Display data in the user interface</h2>
+##<a name="binding"></a>How to: Display data in the user interface
 
 This section shows how to display returned data objects using UI elements. To query items in `todoItemTable` and display it in a very simple list, you can run the following example code. No selection, filtering or sorting of any kind is done.
 
@@ -513,7 +513,7 @@ To tease this out even further, you pass in the error handler as the second argu
 	client.getTable("tablename").read()
 		.then(function (data) { /* do something */ }, handleError);
 
-<h2><a name="promises"></a>How to: Use promises</h2>
+##<a name="promises"></a>How to: Use promises
 
 Promises provide a mechanism to schedule work to be done on a value that has not yet been computed. It is an abstraction for managing interactions with asynchronous APIs.
 
@@ -554,7 +554,7 @@ You can use promises in a number of different ways. You can chain promise operat
 	   alert(JSON.stringify(insertedAndUpdated));
 	})
 
-<h2><a name="customizing"></a>How to: Customize client request headers</h2>
+##<a name="customizing"></a>How to: Customize client request headers
 
 You can send custom request headers using the `withFilter` function, reading and writing arbitrary properties of the request about to be sent within the filter. You may want to add such a custom HTTP header if a server-side script needs it or may be enhanced by it.
 
@@ -566,7 +566,7 @@ You can send custom request headers using the `withFilter` function, reading and
 
 Filters are used for a lot more than customizing request headers. They can be used to examine or change requests, examine or change  responses, bypass networking calls, send multiple calls, etc.
 
-<h2><a name="hostnames"></a>How to: Use cross-origin resource sharing</h2>
+##<a name="hostnames"></a>How to: Use cross-origin resource sharing
 
 To control which websites are allowed to interact with and send requests to your mobile service, make sure to add the host name of the website you use to host it to the Cross-Origin Resource Sharing (CORS) whitelist. For a JavaScript backend mobile service, you can configure the whitelist on the Configure tab in the [Azure Management portal](https://manage.windowsazure.com). You can use wildcards if required. By default, new Mobile Services instruct browsers to permit access only from `localhost`, and Cross-Origin Resource Sharing (CORS) allows JavaScript code running in a browser on an external hostname to interact with your Mobile Service.  This configuration is not necessary for WinJS applications. 
 
