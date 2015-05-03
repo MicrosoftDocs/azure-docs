@@ -230,36 +230,36 @@ You can enable and update the Agent using the following PowerShell script. You c
 
 Review the following script sample, copy it, modify it as needed, save the sample as a PowerShell script file, and then run the script.
 
-```powershell
-# Connect to Azure
-Add-AzureAccount 
 
-# settings to change:
-$wad_storage_account_name = "myStorageAccount"
-$service_name = "myService"
-$vm_name = "myVM"
+    #Connect to Azure
+    Add-AzureAccount 
+    
+    # settings to change:
+    $wad_storage_account_name = "myStorageAccount"
+    $service_name = "myService"
+    $vm_name = "myVM"
+    
+    #Construct Azure Diagnostics public config and convert to config format 
+    
+    # Collect just system error events:
+    $wad_xml_config = "<WadCfg><DiagnosticMonitorConfiguration><WindowsEventLog scheduledTransferPeriod=""PT1M""><DataSource name=""System!* "" /></WindowsEventLog></DiagnosticMonitorConfiguration></WadCfg>"
+    
+    $wad_b64_config = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($wad_xml_config))
+    $wad_public_config = [string]::Format("{{""xmlCfg"":""{0}""}}",$wad_b64_config)
+    
+    #Construct Azure diagnostics private config
+    
+    $wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
+    $wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
+    
+    #Enable Diagnostics Extension for Virtual Machine
+    
+    $wad_extension_name = "IaaSDiagnostics"
+    $wad_publisher = "Microsoft.Azure.Diagnostics"
+    $wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName         $wad_extension_name).Version # Gets latest version of the extension
+    
+    (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 
-#Construct Azure Diagnostics public config and convert to config format 
-
-# Collect just system error events:
-$wad_xml_config = "<WadCfg><DiagnosticMonitorConfiguration><WindowsEventLog scheduledTransferPeriod=""PT1M""><DataSource name=""System!* "" /></WindowsEventLog></DiagnosticMonitorConfiguration></WadCfg>"
-
-$wad_b64_config = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($wad_xml_config))
-$wad_public_config = [string]::Format("{{""xmlCfg"":""{0}""}}",$wad_b64_config)
-
-#Construct Azure diagnostics private config
-
-$wad_storage_account_key = (Get-AzureStorageKey $wad_storage_account_name).Primary
-$wad_private_config = [string]::Format("{{""storageAccountName"":""{0}"",""storageAccountKey"":""{1}""}}",$wad_storage_account_name,$wad_storage_account_key)
-
-#Enable Diagnostics Extension for Virtual Machine
-
-$wad_extension_name = "IaaSDiagnostics"
-$wad_publisher = "Microsoft.Azure.Diagnostics"
-$wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of the extension
-
-(Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
-```
 
 ## Enable Azure Storage analysis by Operational Insights
 
