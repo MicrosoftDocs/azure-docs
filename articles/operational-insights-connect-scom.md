@@ -18,13 +18,6 @@
 
 # Connect to Operational Insights from System Center Operations Manager 
 
-<<<<<<< HEAD
-=======
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
-
-You can connect Operational Insights to an existing System Center Operations Manager environment. This will allow you to use existing Operations Manager agents as Operational Insights agents.
->>>>>>> e47aec5... Op Insights - added include to all articles
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
