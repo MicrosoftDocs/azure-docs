@@ -31,13 +31,13 @@ You can set up replication using a single VMM server in a couple of ways:
 
 Deploy a standalone VMM server as a virtual machine in a primary site, and replicate this virtual machine to a secondary site with Site Recovery and Hyper-V Replica. To reduce downtime the SQL Server can be installed on the VMM virtual machine. If VMM is using a remote SQL Server you'll need to recover that first before recovering the VMM server.
 
-![Standalone virtual VMM server](./media/site-recovery-single-vmm-to-azure/SingleVMMStandalone.png)
+![Standalone virtual VMM server](./media/site-recovery-single-vmm/SingleVMMStandalone.png)
 
 ### Cluster deployment
 
 To make VMM highly available it can be deployed as a virtual machine in a Windows failover cluster. This is useful if critical workloads are being managed by VMM because it ensures workload availability and protects against hardware failover of the host on which VMM is running. To deploy a single VMM server with Site Recovery the VMM virtual machine should be deployed over a stretch cluster across geographically separate sites. The SQL Server database used by VMM should be protected with SQL Server AlwaysOn availability groups with a replica on the secondary site. If disaster occurs the VMM server and it's corresponding SQL Server database are failed over and accessed from the secondary site.
 
-![Clustered virtual VMM server](./media/site-recovery-single-vmm-to-azure/SingleVMMCluster.png)
+![Clustered virtual VMM server](./media/site-recovery-single-vmm/SingleVMMCluster.png)
 
 
 ## Before you start
