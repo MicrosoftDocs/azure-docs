@@ -12,12 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="03/30/2015"
    ms.author="banders" />
 
 # Supported configurations for Operational Insights
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 What do you need to use Operational Insights? Check out the following information to prepare for Operational Insights.
 

@@ -1,7 +1,7 @@
 <properties 
 	writer="ricksal" 
 	pageTitle="Call a custom API from an Android client | Mobile Dev Center" 
-	description="Learn how to define a custom API and then call it from an Android app that uses Microsoft Azure Mobile Services." 
+	description="Learn how to define a custom API and then call it from an Android app that uses Windows Azure Mobile Services." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
-	ms.author="ricksal"/>
+	ms.date="02/16/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Call a custom API from the client
 

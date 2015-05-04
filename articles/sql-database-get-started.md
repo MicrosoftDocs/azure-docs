@@ -3,9 +3,9 @@
 	description="Create your first cloud database in minutes with Azure SQL Database, Microsoft's relational database management service (RDBMS) in the cloud, using the Azure Portal and the AdventureWorks sample database."
 	services="sql-database"
 	documentationCenter=""
-	authors="Ckarst"
+	authors="MightyPen"
 	manager="jeffreyg"
-	editor="genemi"/>
+	editor=""/>
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/30/2015"
-	ms.author="cakarst"/>
+	ms.date="04/14/2015"
+	ms.author="genemi"/>
 
 
 # Create your first Azure SQL Database
