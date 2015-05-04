@@ -3,7 +3,7 @@
 	description="Learn how to deploy an API app project to your Azure subscription." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
