@@ -41,7 +41,7 @@ This topic will demonstrate how to perform common scenarios using the Azure Blob
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
-    using Microsoft.WindowsAzure;
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Blob;
