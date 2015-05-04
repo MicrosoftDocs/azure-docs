@@ -45,7 +45,7 @@ These articles provide developers with high-level information about the use, imp
 
 These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
 
-**Mobile or PC application quickstart guides**:
+###Mobile or PC application quickstart guides
 
 - [iOS](active-directory-devquickstarts-ios.md)
 - [Android](active-directory-devquickstarts-android.md)
@@ -56,18 +56,14 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 - [Cordova](active-directory-devquickstarts-cordova.md)
 
 
-**Web Application or Web API quickstart guides**:
+###Web Application or Web API quickstart guides
 
 - [.NET Web App](active-directory-devquickstarts-webapp-dotnet.md)
 - [.NET Web API](active-directory-devquickstarts-webapi-dotnet.md)
 - [Javascript](active-directory-devquickstarts-angular.md)
 - [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
-<!-- COMMENT
 
-* [Daemon or Device](http://www.azure.com)
-
--->
 <a name='howtos'></a>
 ## How Tos
 
@@ -76,77 +72,6 @@ These articles describe how to perform specific tasks using Azure Active Directo
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 
-<!--
-
-* [Call Office 365 APIs]()
-
-
-* [Use Azure AD for Authorization]()
-
-
-* [Manage Session Lifetime]()
-
-
-* [Build Automated Tests]()
-
-
-* [Use Direct Name/Password Sign-In]()
-
-
-
-<a name='scenarios'></a>
-## Scenarios
-
-Each of the scenarios below can be developed using various languages and platforms, and there are complete code samples available on GitHub for each. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API.
-
-The following diagram illustrates these scenarios and application types, and how different components can be added:
-
-![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
-
-These are the five primary application scenarios supported by Azure AD:
-
-- [Web Browser to Web Application][]: A user needs to sign in to a web application that is secured by Azure AD.
-
-- [Single Page Application (SPA)][]: A user needs to sign in to a single page application that is secured by Azure AD.
-
-- [Native Application to Web API][]: A native application that runs on a phone, tablet, or PC needs to authenticate a user to get resources from a web API that is secured by Azure AD.
-
-- [Web Application to Web API][]: A web application needs to get resources from a web API secured by Azure AD.
-
-- [Daemon or Server Application to Web API][]: A daemon application or a server application with no web user interface needs to get resources from a web API secured by Azure AD.
-
-
-* [Integrate Azure AD with an Existing SaaS Application]()
-
-
-* [Using Azure AD for Sign-In and Directory Services with a Multi-Tenant SaaS Application]()
-
-
-* [Building Management Services for Microsoft Azure - Delegated Access using Azure AD]()
-
-
-<a name='troubleshooting'></a>
-## Troubleshooting
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in felis eu justo scelerisque eleifend. Vestibulum a dui sit amet nisi ornare tempus. Vivamus mattis tristique tellus, in faucibus quam. Proin pellentesque nisi interdum orci lobortis, ac posuere est facilisis. Curabitur in dapibus tortor.
-
-
-* [Where to get support]()
-
-
-* [ADAL Diagnostic Logging]()
-
-
-* [Authentication Error Codes]()
-
-
-* [Graph API Error Codes](https://msdn.microsoft.com/library/azure/hh974480.aspx)
-
-
-* [Common configuration issues]()
-
-
-COMMENT -->
 <a name='reference'></a>
 ## Reference
 
@@ -184,18 +109,18 @@ These articles provide foundation reference for REST and authentication library 
 
 - **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
-## Videos & Presentations
+## Videos
 
 ### Build 2015
-- **[[Video] Azure Active Directory: Identity Management as a Service for Modern Applications](http://channel9.msdn.com/events/Build/2015/2-738)**
-- **[[Video] Develop Modern Web Applications with Azure Active Directory](http://channel9.msdn.com/events/Build/2015/2-753)**
-- **[[Video] Develop Modern Native Applications with Azure Active Directory](http://channel9.msdn.com/events/Build/2015/2-769)**
+- **[Azure Active Directory: Identity Management as a Service for Modern Applications](/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Develop Modern Web Applications with Azure Active Directory](/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Develop Modern Native Applications with Azure Active Directory](/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 
 ### Azure Friday
-- **[[Video] Azure Identity 101](../videos/azure-identity-basics/)**
-- **[[Video] Azure Identity 102](../videos/azure-identity-creating-active-directory/)**
-- **[[Video] Azure Identity 103](../videos/azure-identity-application-to-authenticate/)**
+- **[Azure Identity 101](/documentation/videos/azure-identity-basics/)**
+- **[Azure Identity 102](/documentation/videos/azure-identity-creating-active-directory/)**
+- **[Azure Identity 103](/documentation/videos/azure-identity-application-to-authenticate/)**
 
 
 ## Social
