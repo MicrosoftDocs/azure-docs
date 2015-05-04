@@ -40,12 +40,12 @@ In this section, you'll see how Visual Studio's deployment features can be used 
 
 4. In the **Create an API App** dialog, enter the following:
 
-	- Under **API App Name**, enter a name for the app. 
+	- For **API App Name**, enter ContactsList. 
 	- If you have multiple Azure subscriptions, select the one you want to use.
-	- Under **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
-	- Under **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
-	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure preview portal.
-	- Under **Region**, select a region close to you.  
+	- For **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
+	- For **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
+	- For **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure preview portal.
+	- For **Region**, select a region close to you.  
 
 	![Configure Microsoft Azure Web App dialog](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog-v3.png)
 
