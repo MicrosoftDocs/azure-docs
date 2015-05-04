@@ -54,6 +54,7 @@ A point-to-site connection requires a virtual network with a dynamic routing gat
 ### Create a dynamic routing gateway
 
 1. In the **Management Portal**, on the **Networks** page, click the virtual network that you just created, and navigate to the **Dashboard** page.
+
 1. Click **Create Gateway**, located at the bottom of the Dashboard page. A message will appear asking **Do you want to create a gateway for virtual network ‘yournetwork’**. Click **Yes** to begin creating the gateway. It can take around 15 minutes for the gateway to create.
 
 ## Create your certificates
