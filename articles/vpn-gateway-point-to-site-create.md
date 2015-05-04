@@ -2,14 +2,14 @@
    pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network"
    description="Connect to your virtual network security by creating a point-to-site vpn connection."
    services="vpn-gateway"
-   documentationCenter=""
+   documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
@@ -53,9 +53,8 @@ A point-to-site connection requires a virtual network with a dynamic routing gat
 
 ### Create a dynamic routing gateway
 
-1.In the **Management Portal**, on the **Networks** page, click the virtual network that you just created, and navigate to the **Dashboard** page.
-
-2.Click **Create Gateway**, located at the bottom of the Dashboard page. A message will appear asking **Do you want to create a gateway for virtual network ‘yournetwork’**. Click **Yes** to begin creating the gateway. It can take around 15 minutes for the gateway to create.
+1. In the **Management Portal**, on the **Networks** page, click the virtual network that you just created, and navigate to the **Dashboard** page.
+1. Click **Create Gateway**, located at the bottom of the Dashboard page. A message will appear asking **Do you want to create a gateway for virtual network ‘yournetwork’**. Click **Yes** to begin creating the gateway. It can take around 15 minutes for the gateway to create.
 
 ## Create your certificates
 
