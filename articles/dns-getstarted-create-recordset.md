@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Create a record set and records for a DNS Zone" 
+   pageTitle="Create a record set and records for a DNS Zone | Microsoft Azure" 
    description="How to create host records for Azure DNS.Setting up record sets and records using PowerShell" 
    services="dns" 
    documentationCenter="na" 
@@ -9,11 +9,11 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma"/>
 
 
@@ -114,3 +114,4 @@ You can also use nslookup or other DNS tools to query the new record set.
 [Performing operations with Record sets and records](../dns-operations-recordsets)<BR>
 
 [Automate Azure Operations with .NET SDK](../dns-sdk)
+

@@ -19,10 +19,11 @@
 # Get Started with Azure Mobile Engagement for Android Apps
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS](mobile-engagement-ios-get-started.md)
-- [Android](mobile-engagement-android-get-started.md)
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
+- [Android](mobile-engagement-android-get-started.md) 
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of an Android application. 
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -33,7 +34,7 @@ This tutorial requires the following:
 + The Android SDK (it is assumed you will be using Android Studio), which you can download [here](http://go.microsoft.com/fwlink/?LinkId=389797)
 + The [Mobile Engagement Android SDK]
 
-> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
+> [AZURE.IMPORTANT] Completing this tutorial is a prerequisite for all other Mobile Engagement tutorials for Android apps, and to complete it, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Free Trial</a>.
 
 <!--
 ##<a id="register"></a>Enable Google Cloud Messaging

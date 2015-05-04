@@ -1,19 +1,19 @@
 <properties
    pageTitle="Configure a VNet to VNet Connection"
-   description="VNet to VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services NOT in a virtual network."
-   services="virtual-network"
+   description="VNet to VNet is used to connect virtual networks to each other."
+   services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn"/>
 
 <tags
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
+   ms.date="04/30/2015"
    ms.author="cherylmc"/>
 
 
@@ -56,11 +56,13 @@ This procedure primarily uses the Management Portal, however, you must use Micro
 ![Connecting VNet to VNet](./media/virtual-networks-configure-vnet-to-vnet-connection/IC727361.png)
 
 There are 5 sections to plan and configure. Configure each section in the order listed below:
-  1. [Plan your IP address ranges](#plan-your-ip-address-ranges)
-  2. [Create your virtual networks](#create-your-virtual-networks)
-  3. [Add local networks](#add-local-networks)
-  4. [Create the dynamic routing gateways for each VNet](#create-the-dynamic-routing-gateways-for-each-vnet)
-  5. [Connect the VPN gateways](#connect-the-vpn-gateways)
+
+1. [Plan your IP address ranges](#plan-your-ip-address-ranges)
+2. [Create your virtual networks](#create-your-virtual-networks)
+3. [Add local networks](#add-local-networks)
+4. [Create the dynamic routing gateways for each VNet](#create-the-dynamic-routing-gateways-for-each-vnet)
+5. [Connect the VPN gateways](#connect-the-vpn-gateways)
+
 
 ## Plan your IP address ranges
 
@@ -87,32 +89,34 @@ VNet2: Address Space = 10.2.0.0/16; Region=Japan East
 
 2. In the lower left-hand corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
-3. On the **Virtual Network Details** page, enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
+**On the Virtual Network Details page**, enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 
   ![Virtual Network Details](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736055.png)
 
   - **Name** - Name your virtual network. For example, VNet1.
   - **Location** – When you create a virtual network, you associate it with an Azure location (region). For example, if you want your VMs that are deployed to your virtual network to be physically located in West US, select that location. You can’t change the location associated with your virtual network after you create it.
 
-4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right. For more information about the settings on this page, see the [DNS Servers and VPN Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
+
+
+**On the DNS Servers and VPN Connectivity page**, enter the following information, and then click the next arrow on the lower right. For more information about the settings on this page, see the [DNS Servers and VPN Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
   ![DNS Servers and VPN Connectivity](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736056.jpg)  
   - **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network. If you want to have name resolution between your virtual networks, you’ll have to configure your own DNS server, rather than using the name resolution that is provided by Azure.
 
   - Don’t select any of the checkboxes. Just click the arrow on the lower right to move to the next screen.
 
-5. On the **Virtual Network Address Spaces** page, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. There are quite a few rules regarding virtual network address space, so you will want to see the [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) page for more information. It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+**On the Virtual Network Address Spaces page**, specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. There are quite a few rules regarding virtual network address space, so you will want to see the [Virtual Network Address Spaces](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) page for more information. It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator, who may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
-  Enter the following information, and then click the checkmark on the lower right to configure your network.
+  **Enter the following information**, and then click the checkmark on the lower right to configure your network.
 
   ![Virtual Network Address Spaces page](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736057.jpg)
 
   - **Address Space** - including Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network. For this example, we’ll use 10.1.0.0/16 for VNet1.
   - **Add subnet** - including Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 
-6. Click the checkmark on the lower right of the page and your virtual network will begin to create. When it completes, you will see Created listed under **Status** on the **Networks** page in the Management Portal.
+**Click the checkmark** on the lower right of the page and your virtual network will begin to create. When it completes, you will see *Created* listed under *Status* on the *Networks* page in the Management Portal.
 
-7. Create another virtual network. For the purposes of this tutorial, use these values: **VNet2**: Address Space = 10.2.0.0/16; Region=Japan East
+**Next, create another virtual network**. For the purposes of this tutorial, use these values: **VNet2**: Address Space = 10.2.0.0/16; Region=Japan East
 
 ## Add local networks
 
