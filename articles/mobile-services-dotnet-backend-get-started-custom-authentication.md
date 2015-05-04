@@ -46,7 +46,7 @@ Because you are using custom authentication and not relying on another identity 
 	        public byte[] SaltedAndHashedPassword { get; set; }
 	    }
     
-    This represents a row in a new Account table, which contains the user name, that user's salt, and the securly stored password.
+    This represents a row in a new Account table, which contains the username, that user's salt, and the securly stored password.
 
 2. Under the **Models** folder, you will find a **DbContext** derived class named after your mobile service. Open your context and add the accounts table to your data model by including the following:
 
@@ -95,7 +95,7 @@ Because you are using custom authentication and not relying on another identity 
 
 ## Create the registration endpoint
 
-At this point, you have everything you need to begin creating user accounts. In this section, you will set up a registration endpoint to handle new registration requests. This is where you will enforce new user name and password policies and ensure that the user name is not taken. Then you will safely store the user information in your database.
+At this point, you have everything you need to begin creating user accounts. In this section, you will set up a registration endpoint to handle new registration requests. This is where you will enforce new username and password policies and ensure that the username is not taken. Then you will safely store the user information in your database.
 
 1. Create the following new class to represent an incoming registration attempt:
 
@@ -139,7 +139,7 @@ At this point, you have everything you need to begin creating user accounts. In 
 	            Account account = context.Accounts.Where(a => a.Username == registrationRequest.username).SingleOrDefault();
 	            if (account != null)
 	            {
-	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "User name already exists");
+	                return this.Request.CreateResponse(HttpStatusCode.BadRequest, "That username already exists.");
 	            }
 	            else
 	            {
@@ -254,7 +254,7 @@ One of the fundamental constructs in the Mobile Services authentication pipeline
 
 ## Create the sign-in endpoint
 
-Next, you create an endpoint for your users to sign-in. The user name and password that you receive is checked against the database by first applying the user's salt, hashing the password, and making sure that the incoming value matches that of the database. If it does, then you can create a [ClaimsIdentity] and pass it to the **CustomLoginProvider**. The client app receives a user ID and an authentication token for further access to your mobile service.
+Next, you create an endpoint for your users to sign-in. The username and password that you receive is checked against the database by first applying the user's salt, hashing the password, and making sure that the incoming value matches that of the database. If it does, then you can create a [ClaimsIdentity] and pass it to the **CustomLoginProvider**. The client app receives a user ID and an authentication token for further access to your mobile service.
 
 1. In your mobile service backend project, create the following new `LoginRequest` class:
 
@@ -266,6 +266,17 @@ Next, you create an endpoint for your users to sign-in. The user name and passwo
 
 	This class represents an incoming sign-in attempt.
 
+2. Create the following new `CustomLoginResult` class:
+
+	    public class CustomLoginResult
+	    {
+	        public string UserId { get; set; }
+	        public string MobileServiceAuthenticationToken { get; set; }
+	
+	    }
+
+	This class represents a successfully login with the user ID and the authentication token. Note that this class has the same shape as the MobileServiceUser class on the client, which makes it easier to hand the login response on a strongly-typed client.
+
 2. Right-click **Controllers**, click **Add** and **Controller**, create a new **Microsoft Azure Mobile Services Custom Controller** named `CustomLoginController`, then add the following `using` statements:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
@@ -274,33 +285,42 @@ Next, you create an endpoint for your users to sign-in. The user name and passwo
 		using <my_project_namespace>.Models;
 
 3. Replace the **CustomLoginController** class definition with following code:
-
-        [AuthorizeLevel(AuthorizationLevel.Anonymous)]
-        public class CustomLoginController : ApiController
-        {
-            public ApiServices Services { get; set; }
-            public IServiceTokenHandler handler { get; set; }
-
-            // POST api/CustomLogin
-            public HttpResponseMessage Post(LoginRequest loginRequest)
-            {
-                todoContext context = new todoContext();
-                Account account = context.Accounts.Where(a => a.Username == loginRequest.username).SingleOrDefault();
-                if (account != null)
-                {
-                    byte[] incoming = CustomLoginProviderUtils.hash(loginRequest.password, account.Salt);
-
-                    if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
-                    {
-                        ClaimsIdentity claimsIdentity = new ClaimsIdentity();
-                        claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, loginRequest.username));
-                        LoginResult loginResult = new CustomLoginProvider(handler).CreateLoginResult(claimsIdentity, Services.Settings.MasterKey);
-                        return this.Request.CreateResponse(HttpStatusCode.OK, loginResult);
-                    }
-                }
-                return this.Request.CreateResponse(HttpStatusCode.Unauthorized, "Invalid user name or password");
-            }
-        }
+ 
+	    [AuthorizeLevel(AuthorizationLevel.Anonymous)]
+	    public class CustomLoginController : ApiController
+	    {
+	        public ApiServices Services { get; set; }
+	        public IServiceTokenHandler handler { get; set; }
+	
+	        // POST api/CustomLogin
+	        public HttpResponseMessage Post(LoginRequest loginRequest)
+	        {
+	            todoContext context = new todoContext();
+	            Account account = context.Accounts
+	                .Where(a => a.Username == loginRequest.username).SingleOrDefault();
+	            if (account != null)
+	            {
+	                byte[] incoming = CustomLoginProviderUtils
+	                    .hash(loginRequest.password, account.Salt);
+	
+	                if (CustomLoginProviderUtils.slowEquals(incoming, account.SaltedAndHashedPassword))
+	                {
+	                    ClaimsIdentity claimsIdentity = new ClaimsIdentity();
+	                    claimsIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier, loginRequest.username));
+	                    LoginResult loginResult = new CustomLoginProvider(handler)
+	                        .CreateLoginResult(claimsIdentity, Services.Settings.MasterKey);
+	                    var customLoginResult = new CustomLoginResult()
+	                    {
+	                        UserId = loginResult.User.UserId,
+	                        MobileServiceAuthenticationToken = loginResult.AuthenticationToken
+	                    };
+	                    return this.Request.CreateResponse(HttpStatusCode.OK, customLoginResult);
+	                }
+	            }
+	            return this.Request.CreateResponse(HttpStatusCode.Unauthorized,
+	                "Invalid username or password");
+	        }
+	    }
 
        Remember to replace the *todoContext* variable with the name of your project's **DbContext**. Note that this controller uses the following attribute to allow all traffic to this endpoint:
 
@@ -315,21 +335,19 @@ Next, you create an endpoint for your users to sign-in. The user name and passwo
 
 ## Test the sign-in flow using the test client
 
-In your client app, you must develop a custom sign-in screen which takes user names and passwords and sends them as a JSON payload to your registration and sign-in endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
-
->[AZURE.NOTE] The Mobile Services client libraries communicate with the service over HTTPS. If you plan to access this endpoint via a direct REST call, you must make sure that you use HTTPS to call your mobile service, as  passwords are being sent as plaintext.
+In your client app, you must develop a custom sign-in screen which takes usernames and passwords and sends them as a JSON payload to your registration and sign-in endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
 
 1. In Visual Studio, right-click the mobile service project, then click **Debug** and **Start New Instance**.  
 
 	This starts a new debugging instance of your mobile service backend project. After the service starts successfully, you will see a start page that says **This mobile service is up and running**.
 
-2. On the service start page, click **Try it out**, then type the password that you set for the **MS_ApplicationKey** app setting in the web.config file with a blank user name into the authentication dialog.
+2. On the service start page, click **Try it out**, then type the password that you set for the **MS_ApplicationKey** app setting in the web.config file with a blank username into the authentication dialog.
 
 3. In the help page, click the **CustomRegistration** endpoint, then click **Try this out**.
 
     ![][2]
 
-4. In the body, replace the sample strings with a user name and password, which meet the criteria you specified before, then click **Send**. 
+4. In the body, replace the sample strings with a username and password, which meet the criteria you specified before, then click **Send**. 
 
     ![][3]
 
@@ -359,9 +377,11 @@ In your client app, you must develop a custom sign-in screen which takes user na
 
 This section describes the steps needed to access the custom authentication endpoints from the client to obtain the authentication token needed to access the mobile service. Because the specific client code you need depends on your client, the guidance provided here is platform agnostic.
 
+>[AZURE.NOTE] The Mobile Services client libraries communicate with the service over HTTPS. Because this solution requires you to send passwords as plaintext, you must make sure that you use HTTPS when you call these endpoint using direct REST requests.
+
 1. Create the required UI elements in your client app to allow users to enter a username and password.
 
-2. (Optional) Use the appropriate **invokeApi** method on the **MobileServiceClient** in the client library to call the **CustomRegistration** endpoint, passing the runtime-supplied username and password in the message body. 
+2. Use the appropriate **invokeApi** method on the **MobileServiceClient** in the client library to call the **CustomRegistration** endpoint, passing the runtime-supplied username and password in the message body. 
 
 	For examples of how to call a custom API on the various supported client platforms, see the article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
 	
@@ -373,7 +393,7 @@ This section describes the steps needed to access the custom authentication endp
 
 	This time, you must capture the *userId* and *authenticationToken* values returned in the response object after a successful login. 
 	
-4. Use the returned *userId* and *authenticationToken* values to create a new **MobileServiceUser** object and set it as the current user for your **MobileServiceClient** instance, as shown in the topic [Add authentication to existing app](mobile-services-dotnet-backend-ios-get-started-users.md).
+4. Use the returned *userId* and *authenticationToken* values to create a new **MobileServiceUser** object and set it as the current user for your **MobileServiceClient** instance, as shown in the topic [Add authentication to existing app](mobile-services-dotnet-backend-ios-get-started-users.md). Because the CustomLogin result is the same shape as the **MobileServiceUser** object, you should be able to make a direct cast of the result. 
 
 This completes this tutorial. 
 
