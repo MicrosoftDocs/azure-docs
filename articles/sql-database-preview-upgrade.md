@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Upgrade to SQL Database V12" 
-	description="Explains how to upgrade to SQL Database V12." 
+	description="Explains how to upgrade to Azure SQL Database V12." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="sonalmm" 
@@ -17,13 +17,13 @@
 	ms.author="sonalm"/>
 
 
-## Upgrade to SQL Database V12 in place
+# Upgrade to SQL Database V12 in place
 
 
 [Sign up](https://portal.azure.com) for SQL Database V12 to take advantage of the next generation of  SQL Database on Microsoft Azure. First, you need a subscription to Microsoft Azure. Sign up for a [free Azure trial](http://azure.microsoft.com/pricing/free-trial) and review [pricing](http://azure.microsoft.com/pricing/details/sql-database) information. 
 
 
-### Steps
+## Steps to upgrade to SQL Database V12
 
 
 | Upgrade step  | Screen shot |
