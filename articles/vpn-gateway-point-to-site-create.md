@@ -170,5 +170,5 @@ PPP adapter VNetEast:
 
 - [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
 - [Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
-- [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx)
+- [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx)
 - [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx)
