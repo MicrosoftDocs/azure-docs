@@ -95,9 +95,11 @@ In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx)
 This code example demonstrates the use of transactions in which you:
 
 
-- Begin a transaction.
-- Insert a row of data.
-- Rollback your transaction to undo the insert.
+-Begin a transaction
+
+-Insert a row of data
+
+-Rollback your transaction to undo the insert
 
 
 	import pymssql

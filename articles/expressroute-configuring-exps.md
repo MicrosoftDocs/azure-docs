@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Configuring ExpressRoute through an exchange provider."
-   description="This article walks you through setting up ExpressRoute through an exchange provider (EXP)."
-   services="expressroute"
+<properties 
+   pageTitle="Configuring ExpressRoute through an Exchange Provider"
+   description="This tutorial walks you through setting up ExpressRoute through exchange providers (EXPs)."
    documentationCenter="na"
+   services="expressroute"
    authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
 <tags 
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
-   
-#  Configure an ExpressRoute Connection through an exchange provider
+   ms.workload="infrastructure-services" 
+   ms.date="04/29/2015"
+   ms.author="cherylmc"/>
+
+#  Configure an ExpressRoute Connection through an Exchange Provider
 
 To configure your ExpressRoute connection through an exchange provider, you’ll need to complete multiple steps in the proper order. These instructions will help you do the following:
 
@@ -35,7 +35,7 @@ Before you begin configuration, verify that you have met the following prerequis
 	- A set of IP prefixes on-premises (can contain public IP addresses)
 	- The Virtual Network Gateway must be created with a /28 subnet.
 	- Additional set of IP prefixes (/28) that is outside of the virtual network. This will be used for configuring BGP peering.
-	- AS number for your network. For more information about AS numbers, see Autonomous System (AS) Numbers.
+	- AS number for your network. For more information about AS numbers, see [Autonomous System (AS) Numbers](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml).
 	- MD5 hash if you need an authenticated BGP session
 	- VLAN IDs on which traffic will be sent. You will need 2 VLAN IDs for each circuit: one for virtual networks and the other for services hosted on public IP addresses.
 	- [Autonomous System (AS) Numbers](http://www.iana.org/assignments/as-numbers/as-numbers.xhtml) for your network.
@@ -49,31 +49,19 @@ Before you begin configuration, verify that you have met the following prerequis
 
 ##  Configuring Settings using PowerShell
 
-
 Windows PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For more information please refer to the PowerShell documentation in [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx).
 
 1. **Import the PowerShell module for ExpressRoute.**
 
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1' 
+	
+2. **Get the list of providers, locations, and bandwidths supported.**
 
-	The package contains the following cmdlets:
-	- Get-AzureDedicatedCircuitServiceProvider – lists all connectivity services providers, their locations and supported bandwidth
-	- Get-AzureDedicatedCircuit – lists all circuits created in this subscription and their properties 
-	- Get-AzureDedicatedCircuitLink – lists all circuit links for a particular circuit
-	- New-AzureDedicatedCircuit – to create a new dedicated circuit
-	- New-AzureDedicatedCircuitLink – to link a circuit to a vnet
-	- Remove-AzureDedicatedCircuit – to delete a circuit
-	- Remove-AzureDedicatedCircuitLink – to unlink a vnet from a circuit
-	- Get-AzureBGPPeering – to list details of the bgp session (Only for ExpressRoute-Direct circuits)
-	- New-AzureBGPPeering – to create a new bgp session for a circuit (Only for ExpressRoute-Direct circuits)
-	- Remove-AzureBGPPeering – to delete a bgp session for a circuit (Only for ExpressRoute-Direct circuits)
-	- Set-AzureBGPPeering – to update bgp parameters for a circuit (Only for ExpressRoute-Direct circuits)
-1. **Get the list of providers, locations, and bandwidths supported.**
 	Before creating a circuit you will need a list of service providers, supported locations, and bandwidth options for each location. The following PowerShell cmdlet returns this information which you’ll use in later steps.
 
     	PS C:\> Get-AzureDedicatedCircuitServiceProvider
-		*The information returned will look similar to the example below:*
+		**The information returned will look similar to the example below:**
 		
 		
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
@@ -100,7 +88,9 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		Telstra Corporation  Sydney                         10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000                                                                                                                                                   
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
  
-1. **Make a request for a service key and pass it to your exchange provider.** You will use a PowerShell cmdlet to make this request. For this example we’ll use Equinix as the exchange service provider and will specify a 1Gbps ExpressRoute circuit in Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request. 
+3. **Create a Dedicated Circuit**
+ 
+	The example below shows how to create a 200 Mbps ExpressRoute circuit through Equinix Silicon Valley. If you are using a different provider and different settings, substitute that information when making your request. 
 
 	Below is an example request for a new service key:
       
@@ -132,27 +122,36 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
 		Location                         : Silicon Valley
-		ServiceKey                       : 00-0000-0000-0000-0000000000
+		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : NotProvisioned
 		Status                           : Enabled
-1. **Send the Service Key to your exchange provider.** Your service provider will use the Service Key to enable their end of the connection.
-1. **Periodically check the status and the state of the circuit key.** This will allow you to know when your provider has enabled your circuit. Once the circuit has been enabled, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
+
+
+4. **Send the Service Key to your exchange provider.** 
+
+	Your exchange provider will use the Service Key to enable their end of the connection. You will have to provide the connectivity provider with additional information to enable connectivity.
+
+5. **Periodically check the status and the state of the circuit key.** 
+
+	This will allow you to know when your provider has enabled your circuit. Once the circuit has been enabled, the *ServiceProviderProvisioningState* will display as *Provisioned* as shown in the example below.
 
 		PS C:\> Get-AzureDedicatedCircuit
 				 
 		Bandwidth                        : 200
 		CircuitName                      : EquinixSVTest
 		Location                         : Silicon Valley
-		ServiceKey                       : 00-0000-0000-0000-0000000000
+		ServiceKey                       : *********************************
 		ServiceProviderName              : equinix
 		ServiceProviderProvisioningState : Provisioned
 		Status                           : Enabled
  
-1. **Configure routing for virtual network.** We use BGP sessions to exchange routes and also make sure that we have high availability. Use the example below to create a BGP session for your circuit. Substitute your own values when creating your session.
+6. **Configure routing for virtual network.** 
+
+	We use BGP sessions to exchange routes and also make sure that we have high availability. Use the example below to create a BGP session for your circuit. Substitute your own values when creating your session.
+
 		#Setting up a bgp session
 		$ServiceKey = "<your key>"
-		 
 		$PriSN = "<subnet/30 you use IP #1 and Azure uses IP #2>"
 		$SecSN = "<subnet/30 use IP #1 and Azure uses IP #2>"
 		$ASN = <your ASN>
@@ -182,11 +181,12 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		State               : Enabled
 		VlanId              : 100
 
-1. **Configure routing for services hosted on public IP addresses.** We use BGP sessions to exchange routes and also make sure that we have high availability. Use the example below to create a BGP session for your circuit. Substitute your own values when creating your session.
+7. **Configure routing for services hosted on public IP addresses.** 
+	
+	We use BGP sessions to exchange routes and also make sure that we have high availability. Use the example below to create a BGP session for your circuit. Substitute your own values when creating your session.
 
 		#Setting up a bgp session
 		$ServiceKey = "<your key>"
-		 
 		$PriSN = "<subnet/30 subnet you use IP #1 and Azure uses IP #2>"
 		$SecSN = "< subnet/30 subnet you use IP #1 and Azure uses IP #2>"
 		$ASN = <your ASN> 
@@ -216,9 +216,11 @@ Windows PowerShell is a powerful scripting environment that you can use to contr
 		State               : Enabled
 		VlanId              : 101
  
-1. **Configure your Virtual Network and Gateway.** See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
+8. **Configure your Virtual Network and Gateway.** 
 
-1. **Link your network to a circuit.** Proceed with the following instructions only after you have confirmed that your circuit has moved to the following state and status: 
+	See [Configure a Virtual Network and Gateway for ExpressRoute](https://msdn.microsoft.com/library/azure/dn643737.aspx). Note that the gateway subnet must be /28 in order to work with an ExpressRoute connection.
+
+9. **Link your network to a circuit.** Proceed with the following instructions only after you have confirmed that your circuit has moved to the following state and status: 
 	- ServiceProviderProvisioningState: Provisioned
 	- Status: Enabled
 	 

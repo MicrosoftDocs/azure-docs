@@ -13,15 +13,16 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/23/2015" 
+	ms.date="04/30/2015" 
 	ms.author="piyushjo" />
 	
 # Get Started with Azure Mobile Engagement for Windows Universal Apps
 
-> [AZURE.SELECTOR] 
+> [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS](mobile-engagement-ios-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md) 
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of a Windows Universal application. 
@@ -47,7 +48,7 @@ This tutorial requires the following:
    	![][8]
 
 	- **Application Name**: type the name of your application. Feel free to use any character.
-	- **Platform**: Select the target platform (**Windows**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform). 
+	- **Platform**: Select the target platform (**Windows Universal**) for the app (if your app targets multiple platforms, repeat this tutorial for each platform). 
 	- **Application Resource Name**: This is the name by which this application will be accessible via APIs and URLs. You must only use conventional URL characters. The auto generated name should provide you a strong basis. You should also append the platform name to avoid any name clash as this name must be unique.
 	- **Location**: Select the data center where this app (and more importantly its Collection) will be hosted.
 	- **Collection**: If you have already created an application, select a previously created Collection, otherwise select New Collection.

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/01/2015" 
 	ms.author="genemi"/>
 
 
@@ -67,4 +67,5 @@ This section provides links to code sample topics for client programs that run o
 - [Azure SQL Database Development: How-to Topics](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [Connecting to SQL Database: Links, Best Practices and Design Guidelines](sql-database-connect-central-recommendations.md)
 - [Create your first Azure SQL Database](sql-database-get-started.md)
+- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
 

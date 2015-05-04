@@ -30,13 +30,13 @@ You have to have the Azure SDK 2.6 installed in order to follow the steps below.
 1. Go to the **File** menu and select **New** >  **Project** (or, you can go to **Add** and then select **New project** to add it to an existing solution)
     ![File menu](./media/app-service-logic-deploy-from-vs/filemenu.png)
 
-2. In the dialog find **Cloud** and then select **Azure Resource Group**. Type a **Name** and then click **OK*.
+2. In the dialog find **Cloud** and then select **Azure Resource Group**. Type a **Name** and then click **OK**.
     ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 
 3. You now need to select if you want an **Logic app** or **Logic app + API app**. Selecting **Logic app** requires you to point to existing API's. If you select **Logic app + API app** then you can also create an new, empty, API app at the same time.
     ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
 
-4. Once you have selected your **Template** hit **OK*.
+4. Once you have selected your **Template** hit **OK**.
 
 Now your Logic app project will be added to your solution. You should see the deployment in the Solution Explorer:
 ![Deployment](./media/app-service-logic-deploy-from-vs/deployment.png)
@@ -65,6 +65,7 @@ Finally, after you have configured your app you can deploy directly from Visual 
 
 3. Now you need to choose the details of the resource group that you want to deploy the Logic app to. 
     ![Deploy to resource group](./media/app-service-logic-deploy-from-vs/deploytoresourcegroup.png)
+
     Be sure to select the right template and parameters files for the resource group (for example if you are deploying to a production environment you'll want to choose the production parameters file). 
     
 4. The status of the deployment will appear in the **Output** window (you may need to choose **Azure Provisioning**. 
