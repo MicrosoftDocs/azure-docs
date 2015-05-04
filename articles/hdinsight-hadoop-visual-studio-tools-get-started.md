@@ -33,7 +33,7 @@ To work through this tutorial, you'll need the following:
 	- Visual Studio (one of the following versions):
 		- Visual Studio 2012 Professional/Premium/Ultimate with [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate with [Update 4](https://www.microsoft.com/download/details.aspx?id=44921)
-		- Visual Studio 2015 Preview
+		- Visual Studio 2015 RC (Community/Enterprise)
 
 	>[AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio only come with the English version. 
 
@@ -45,10 +45,15 @@ HDInsight Tools for Visual Studio is packaged with Microsoft Azure SDK for .NET 
 ![HDinsight Tools for Visual Studio Web Platform installer][1]
 
 
->[AZURE.NOTE] If you have Visual Studio 2015 or 2012, and you have the older version of Azure SDK installed, you must manually remove the older version before installing the latest version. Visual Studio 2013 supports a direct update.
+>[AZURE.NOTE] If you have Visual Studio 2015 or 2012, and you have installed Azure SDK 2.5, you must manually remove the older version before installing the latest version. Visual Studio 2013 supports a direct update.
 
 ## Connect to your Azure subscription
 The HDInsight Tools for Visual Studio allows you to connect to your HDInsight clusters, perform some basic management operations, and run Hive queries.
+
+>[AZURE.NOTE] For information on connecting to HDInsight Emulator, see [Get started with the HDInsight Emulator](hdinsight-get-started-emulator.md/#vstools).
+
+>[AZURE.NOTE] For information on connecting to a generic Hadoop cluster (preview), see [Write and submit Hive queries using Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+
 
 **To connect to your Azure subscription**
 
@@ -124,7 +129,13 @@ There are two ways to create and run Hive queries:
 
 1. From **Server Explorer**, expand **Azure**, and then expand **HDInsight Clusters**.
 2. Right-click the cluster where you want to run the query, and then click **Write a Hive Query**. 
-3. Enter the Hive queries. Notice the Hive editor supports IntelliSense.
+3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your hive script. For example, when you type "SELECT * FROM", the intellisense will list all the suggested table names. When a table name is specified, the column names will be listed by the intellisense. 
+
+	![HDInsight Visual Studio Tools Intellisense][13]
+
+	![HDInsight Visual Studio Tools Intellisense][14]
+
+	> [AZURE.NOTE] Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.
 4. (Optional): Click **Validate Script** to check the script syntax errors.
 
 	![hdinsight tools for Visual Studio local validation][10]
@@ -190,6 +201,9 @@ In this article, you have learned how to connect to HDInsight clusters from Visu
 [10]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.validate.hive.script.png
 [11]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png
 [12]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png
+[13]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png
+[14]: ./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.column.names.png
+
 <!--Link references-->
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight.introduction]: hdinsight-introduction.md
