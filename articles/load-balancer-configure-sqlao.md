@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Configure Load balancer for SQL always on"
+   pageTitle="Configure Load balancer for SQL always on | Microsoft Azure"
    description="Configure Load balancer to work with SQL always on and how to leverage powershell to create load balancer for the SQL implementation"
    services="load-balancer"
    documentationCenter="na"
@@ -12,10 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 # SQL Always on
+
 SQL Server AlwaysOn Availability Groups can now be run with ILB. Availability Group is SQL Server’s flagship solution for high availability and disaster recovery. The Availability Group Listener allows client applications to seamlessly connect to the primary replica, irrespective of the number of the replicas in the configuration.
 
 The listener (DNS) name is mapped to a load-balanced IP address and Azure’s load balancer directs the incoming traffic to only the primary server in the replica set. 
@@ -61,4 +62,3 @@ Step 2.
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-

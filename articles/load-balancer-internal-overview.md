@@ -1,6 +1,6 @@
 
 <properties 
-   pageTitle="Internal load balancer Overview"
+   pageTitle="Internal load balancer Overview | Microsoft Azure"
    description="Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints"
    services="load-balancer"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 

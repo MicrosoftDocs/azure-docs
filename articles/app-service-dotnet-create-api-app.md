@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to create an ASP.NET Web API project that is configured for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
+This tutorial shows how to create an ASP.NET Web API project from scratch and configure it for deployment to the cloud as an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](app-service-value-prop-what-is.md). If you have an existing Web API project that you want to convert to an API app, refer to the article, [Configure a Web API project as an API app](./app-service-dotnet-create-api-app-visual-studio). Subsequent tutorials in the series show how to [deploy](app-service-dotnet-deploy-api-app.md) and [debug](app-service-dotnet-remotely-debug-api-app.md) the API app project that you create in this tutorial.
 
 For information about API apps, see [What are API apps?](app-service-api-apps-why-best-platform.md).
 
