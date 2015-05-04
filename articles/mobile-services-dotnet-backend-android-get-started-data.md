@@ -24,7 +24,6 @@ This topic shows you how to use Azure Mobile Services as a backend datasource fo
 
 The mobile service that you create in this tutorial supports the .NET runtime in the Mobile Service. This allows you to use .NET languages and Visual Studio for server-side business logic in the mobile service. To create a mobile service that lets you write your server-side business logic in JavaScript, see the [JavaScript backend version](mobile-services-android-get-started-data.md) of this topic.
 
-
 > [AZURE.NOTE] If you would like to see the Eclipse version of this tutorial, go to : [Get started with data (Eclipse)].
 
 To complete this tutorial, you need the following:
