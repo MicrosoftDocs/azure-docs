@@ -55,7 +55,10 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 - Navigate to the Applications tab.
 - Navigate to your newly created application.
 - Navigate to the Configure tab.
-- In the "Permissions to Other Applications" section, give your application access to the "Windows Azure Service Management API" with Delegated Permissions: 1.
+- In the "Permissions to Other Applications" section:
+	- Add application > Windows Azure Active Directory 
+	- Delegated Permissions: Read directory data.
+- Click "Save" on the bottom bar.
 
 
 ### Get your directory ID, client ID, and OAuth 2.0 endpoints
