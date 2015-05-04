@@ -16,7 +16,7 @@
    ms.date="05/04/2015"
    ms.author="coreyp"/>
 
-# Azure Auatomation DSC Overview #
+# Azure Automation DSC Overview #
 
 >[AZURE.IMPORTANT] **Azure Automation DSC is currently in limited preview**, and is not supported for production workloads. It its purely cmdlet-based for now, and has no graphical user interface. By signing up for Azure Automation DSC’s preview, you acknowledge that this feature is in Preview and subject to reduced or different service terms, as set forth in the service agreement, and that you agree to the preview supplemental terms. While the service is currently free to use, pricing will be introduced in the future.
 
