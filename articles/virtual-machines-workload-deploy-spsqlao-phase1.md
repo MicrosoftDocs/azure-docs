@@ -37,11 +37,10 @@ Item | Configuration element | Description | Value
 1. | VNet name | A name to assign to the Azure Virtual Network (example SPFarmNet). | __________________
 2. | VNet location | The Azure datacenter that will contain the virtual network. | __________________
 3. | Local network name | A name to assign to your organization network. | __________________
-4. | VPN device IP address | The public IPv4 address of your VPN device's interface on the Internet.
-Work with your IT department to determine this address. | __________________
+4. | VPN device IP address | The public IPv4 address of your VPN device's interface on the Internet. Work with your IT department to determine this address. | __________________
 5. | VNet address space | The address space (defined in a single private address prefix) for the virtual network. Work with your IT department to determine this address space. | __________________
 6. | First final DNS server | The fourth possible IP address for the address space of the subnet of the virtual network (see Table S). Work with your IT department to determine these addresses. | __________________
-7. | Second final DNS servers | The fifth possible IP address for the address space of the subnet of the virtual network (see Table S). Work with your IT department to determine these addresses. | __________________
+7. | Second final DNS server | The fifth possible IP address for the address space of the subnet of the virtual network (see Table S). Work with your IT department to determine these addresses. | __________________
 
 **Table V: Cross-premises virtual network configuration**
 
@@ -49,7 +48,7 @@ Fill in Table S for the subnet of this solution. Give the subnet a friendly name
 
 Item | Subnet name | Subnet address space | Purpose 
 --- | --- | --- | --- 
-1. | __________________ | __________________  	 		
+1. | __________________ | _______________________ | _________________________
 
 **Table S: Subnets in the virtual network**
 
@@ -59,8 +58,8 @@ For the two on-premises DNS servers that you want to use when initially setting 
 
 Item | DNS server friendly name | DNS server IP address 
 --- | --- | ---
-1. | __________________ | __________________
-2. | __________________ | __________________ 
+1. | ______________________ | ______________________
+2. | ______________________ | ______________________ 
 
 **Table D: On-premises DNS servers**
 
@@ -70,9 +69,9 @@ For the set of local network address spaces, fill in Table L. Note that three bl
 
 Item | Local network address space 
 --- | ---
-1. | __________________
-2. | __________________
-3. | __________________
+1. | ___________________________
+2. | ___________________________
+3. | ___________________________
 
 **Table L: Address prefixes for the local network**
 
@@ -106,9 +105,9 @@ Next, create the three cloud services needed for this SharePoint farm. Fill out 
 
 Item | Purpose | Cloud service name 
 --- | --- | ---
-1. | Domain controllers | __________________
-2. | SQL servers | __________________
-3. | SharePoint servers | __________________
+1. | Domain controllers | ___________________________
+2. | SQL servers | ___________________________
+3. | SharePoint servers | ___________________________
 
 **Table C: Cloud service names**
 
@@ -140,10 +139,10 @@ Next, define the names of four availability sets. Fill out Table A.
 
 Item | Purpose | Availability set name 
 --- | --- | --- 
-1. | Domain controllers | __________________
-2. | SQL servers | __________________
-3. | SharePoint application servers | __________________
-4. | SharePoint front-end web servers | __________________
+1. | Domain controllers | ___________________________
+2. | SQL servers | ___________________________
+3. | SharePoint application servers | ___________________________
+4. | SharePoint front-end web servers | ___________________________
 
 **Table A: Availability set names**
 

@@ -174,13 +174,13 @@ This is the configuration resulting from the successful completion of this phase
 
 ![](./media/virtual-machines-workload-deploy-spsqlao-phase4/workload-spsqlao_04.png)
 
-You can now proceed to [Phase 5: Enable AlwaysOn Availability Groups](virtual-machines-workload-deploy-spsqlao-phase5.md).
+You can now proceed to [Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-deploy-spsqlao-phase5.md).
 
 ## Additional Resources
 
 [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
 
-[Phase 5: Enable AlwaysOn Availability Groups](virtual-machines-workload-deploy-spsqlao-phase5.md)
+[Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-deploy-spsqlao-phase5.md)
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 

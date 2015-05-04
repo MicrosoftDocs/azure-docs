@@ -38,7 +38,7 @@ You deploy this configuration in the following phases:
 - [Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md). Create and configure replica Active Directory Domain Services (AD DS) domain controllers.
 - [Phase 3: Configure SQL Server Infrastructure](virtual-machines-workload-deploy-spsqlao-phase3.md). Create and configure the SQL Server virtual machines, prepare them for use with SharePoint, and create the cluster.
 - [Phase 4: Configure SharePoint Servers](virtual-machines-workload-deploy-spsqlao-phase4.md). Create and configure the four SharePoint virtual machines.
-- [Phase 5: Create an Availability Group](virtual-machines-workload-deploy-spsqlao-phase5.md). Prepare databases and create a SQL Server AlwaysOn Availability Group.
+- [Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-deploy-spsqlao-phase5.md). Prepare databases and create a SQL Server AlwaysOn Availability Group.
 
 This deployment of SharePoint with SQL Server AlwaysOn is designed to accompany the [SharePoint with SQL Server AlwaysOn Infographic](http://go.microsoft.com/fwlink/?LinkId=394788) and incorporate the latest recommendations.
 
