@@ -3,7 +3,7 @@
    description="Azure Automation DSC Overview" 
    services="automation" 
    documentationCenter="dev-center-name" 
-   authors="coreyp_at_msft" 
+   authors="coreyp-at-msft" 
    manager="stevenka" 
    editor="tysonn"/>
 
