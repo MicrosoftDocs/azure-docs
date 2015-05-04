@@ -12,13 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="03/20/2015"
    ms.author="banders" />
 
 #Troubleshoot issues with Operational Insights
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
-
 You can use the information in the following sections to help you troubleshoot problems. If the issue you're having isn't in this article, you can try the [Operational Insights team blog](http://blogs.technet.com/b/momteam/archive/2014/05/29/advisor-error-3000-unable-to-register-to-the-advisor-service-amp-onboarding-troubleshooting-steps.aspx).
 
 ## Diagnose connection issues for Operational Insights

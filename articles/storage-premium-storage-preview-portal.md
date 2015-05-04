@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="05/01/2015"
 	ms.author="selcint"/>
 
 
@@ -262,7 +262,7 @@ Please refer to important instructions below for configuring your Linux VMs on P
 
 - For Premium Storage disks with cache setting “ReadWrite”, barriers should be enabled for durability of writes.
 
-Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to one of these for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
+Following are the Linux Distributions that we validated with Premium Storage. We recommend that you upgrade your VMs to at least one of these versions (or later) for better performance and stability with Premium Storage. Also, some of the versions require the latest LIS (Linux Integration Services v4.0 for Microsoft Azure). Please follow the link provided below for download and installation. We will continue to add more images to the list as we complete additional validations. Please note, our validations showed that performance varies for these images, and it also depends on workload characteristics and settings on the images. Different images are tuned for different kinds of workload.
 <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
 <tbody>
 <tr>
@@ -272,7 +272,7 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td><strong>Supported Image</strong></td>
 </tr>
 <tr>
-	<td rowspan="3"><strong>Ubuntu</strong></td>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
 	<td>12.04</td>
 	<td>3.2.0-75.110</td>
 	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB</td>
@@ -286,6 +286,11 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td>14.10</td>
 	<td>3.16.0-29.39</td>
 	<td>Ubuntu-14_10-amd64-server-20150202-en-us-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-en-us-30GB</td>
 </tr>
 <tr>
 	<td><strong>SUSE</strong></td>
@@ -303,16 +308,21 @@ Following are the Linux Distributions that we validated with Premium Storage. We
 	<td rowspan="2"><strong>CentOS</strong></td>
 	<td>6.5, 6.6, 7.0</td>
 	<td></td>
-	<td><a href="http://www.microsoft.com/download/details.aspx?id=46405"> LIS 4.0 Required </a></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
 </tr>
 <tr>
 	<td>7.1</td>
 	<td>3.10.0-229.1.2.el7</td>
-	<td>Coming Soon</td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Recommended </a></td>
 </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
+	<td>6.4</td>
+	<td></td>
+	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 Required </a></td>
+</tr>
+<tr>
 	<td>7.0</td>
 	<td></td>
 	<td>Contact Support for details</td>
