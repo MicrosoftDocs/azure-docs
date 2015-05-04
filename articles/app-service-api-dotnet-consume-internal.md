@@ -22,11 +22,11 @@
 
 This tutorial shows how to write code for an ASP.NET [API app](app-service-api-apps-why-best-platform.md) that calls another API app configured for **Internal** access level. Both API apps must be in the same resource group.
 
-For information about how to call API apps that are configured for **Public (anonymous)** or **Public (authenticated)** access levels, see [Consume an API app from a .NET client in Azure App Service](app-service-api-dotnet-consume.md).
-
 You'll build a ContactNames Web API. The Web API's Get method calls a ContactsList API app and returns just the names out of the contact information provided by the ContactsList API app. Here's the Swagger UI screen for a successful call to the ContactNames Get method.
 
 ![](./media/app-service-api-dotnet-consume-internal/tryitout.png)
+
+For information about how to call API apps that are configured for **Public (anonymous)** or **Public (authenticated)** access levels, see [Consume an API app from a .NET client in Azure App Service](app-service-api-dotnet-consume.md).
 
 ## Prerequisites
 
