@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Developer's Guides"
+   pageTitle="Azure Active Directory Developer's Guide"
    description="A comprehensive guide to developer-oriented resources for Azure Active Directory"
    services="active-directory"
    documentationCenter="dev-center-name"
