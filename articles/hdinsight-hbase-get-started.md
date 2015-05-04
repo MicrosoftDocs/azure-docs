@@ -1,6 +1,6 @@
 <properties
-	pageTitle="HBase tutorial: Query HBase tables using Hive | Microsoft Azure"
-	description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Learn how to create tables from the HBase shell and query them using Hive."
+	pageTitle="Set up and query HBase tables using Hive in HDInsight | Azure"
+	description="Get started using HBase with Hadoop in HDInsight. Learn how to create HBase tables and query them using Hive."
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -18,9 +18,9 @@
 
 
 
-# HBase tutorial: Learn to query Apache HBase tables with Hive in HDInsight
+# Get started with Apache HBase in HDInsight
 
-Learn how to create HBase tables from the HBase shell and query HBase tables by using Hive in HDInsight.
+Learn how to create HBase tables and query HBase tables by using Hive in HDInsight.
 
 HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster that is integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance and cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information about HBase and the scenarios it can be used for, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
@@ -28,7 +28,7 @@ HBase is a low-latency NoSQL database that allows online transactional processin
 
 ## Prerequisites
 
-Before you begin this HBase tutorial, you must have the following:
+Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**: For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 - **An Azure storage account**: For instructions, see [How To Create a Storage Account][azure-create-storageaccount].
@@ -283,7 +283,7 @@ You must download the HBase REST API client library for .NET from GitHub and bui
 
 
 ## What's next?
-In this HBase tutorial for HDInsight, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use a Hive query on data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
+In this tutorial, you learned how to provision an HBase cluster and how to create tables and view the data in those tables from the HBase shell. You also learned how use Hive to query the data in HBase tables and how to use the HBase C# REST APIs to create an HBase table and retrieve data from the table.
 
 To learn more, see:
 
