@@ -162,6 +162,8 @@ At this point, you have everything you need to begin creating user accounts. In 
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
+>[AZURE.IMPORTANT]This registration endpoint can be accessed by any client via HTTP. Before you publish this 
+
 ## Create the LoginProvider
 
 One of the fundamental constructs in the Mobile Services authentication pipeline is the **LoginProvider**. In this section, you will create your own `CustomLoginProvider`. It will not be plugged into the pipeline like the built-in providers, but it will provide you with some convenient functionality.
@@ -313,7 +315,7 @@ Next, you create an endpoint for your users to sign-in. The user name and passwo
 
 ## Test the sign-in flow using the test client
 
-In your client application, you will need to develop a custom sign-in screen which takes user names and passwords and sends them as a JSON payload to your registration and sign-in endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
+In your client app, you must develop a custom sign-in screen which takes user names and passwords and sends them as a JSON payload to your registration and sign-in endpoints. To complete this tutorial, you will instead just use the built-in test client for the Mobile Services .NET backend.
 
 >[AZURE.NOTE] The Mobile Services client libraries communicate with the service over HTTPS. If you plan to access this endpoint via a direct REST call, you must make sure that you use HTTPS to call your mobile service, as  passwords are being sent as plaintext.
 
@@ -351,9 +353,30 @@ In your client application, you will need to develop a custom sign-in screen whi
 
  	![](./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-access-success.png) 
 
-This completes this tutorial. For more information on adding authentication to your client apps, see [Add authentication to your app].
-
 >[AZURE.IMPORTANT] If you choose to also publish this mobile service project to Azure for testing, remember that your sign-in and authentication providers will be vulnerable to attack. Make sure that they are either hardened appropriately or that the test data being protected is not important to you. Take great caution before using a custom authentication scheme to secure a production service.
+
+## Sign in using custom authentication from the client
+
+This section describes the steps needed to access the custom authentication endpoints from the client to obtain the authentication token needed to access the mobile service. Because the specific client code you need depends on your client, the guidance provided here is platform agnostic.
+
+1. Create the required UI elements in your client app to allow users to enter a username and password.
+
+2. (Optional) Use the appropriate **invokeApi** method on the **MobileServiceClient** in the client library to call the **CustomRegistration** endpoint, passing the runtime-supplied username and password in the message body. 
+
+	For examples of how to call a custom API on the various supported client platforms, see the article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+	
+	>[AZURE.NOTE] You only need to call the **CustomRegistration** endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table. Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion. 
+	>
+	>You should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts. You can use Twilio to send SMS messages from Mobile services. For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). You can also use SendGrid to send emails from Mobile Services. For more inforation, see [Send email from Mobile Services with SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	
+3. Use the appropriate **invokeApi** method again, this time to call the **CustomLogin** endpoint, passing the runtime-supplied username and password in the message body. 
+
+	This time, you must capture the *userId* and *authenticationToken* values returned in the response object after a successful login. 
+	
+4. Use the returned *userId* and *authenticationToken* values to create a new **MobileServiceUser** object and set it as the current user for your **MobileServiceClient** instance, as shown in the topic [Add authentication to existing app](mobile-services-dotnet-backend-ios-get-started-users.md).
+
+This completes this tutorial. 
+
 
 <!-- Anchors. -->
 
