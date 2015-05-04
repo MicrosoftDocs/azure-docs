@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/01/2015" 
+	ms.date="05/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -54,23 +54,23 @@ Before you begin this article, you must have the following:
     	<add key="ActiveDirectoryTenantId" value="YOUR TENANT ID" />
     </appSettings>
 	```
-
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
     ```
     Get-AzureAccount
     ```
-4.	Add the following using statements to the source file (Program.cs) in the project.
+4.	Add the following using statements to the source file (Program.cs) in the project. 
 
-	     using System;
-	     using System.Configuration;
-	     using System.Threading;
-	     using Microsoft.Azure;
-	     using Microsoft.Azure.Management.Insights;
-	     using Microsoft.Azure.Management.Insights.Models;
-	     using Microsoft.Azure.Management.StreamAnalytics;
-	     using Microsoft.Azure.Management.StreamAnalytics.Models;
-	     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
+    ```
+        using System;
+        using System.Configuration;
+        using System.Threading;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Management.Insights;
+        using Microsoft.Azure.Management.Insights.Models;
+        using Microsoft.Azure.Management.StreamAnalytics;
+        using Microsoft.Azure.Management.StreamAnalytics.Models;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 5.	Add an authentication helper method.
 
         public static string GetAuthorizationHeader()
@@ -144,13 +144,15 @@ The storage account is linked to the region you created your Stream Analytics jo
     	PropertiesToExpand = "inputs,transformation,outputs"
     };
     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+
     // Enable monitoring
+
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
     {
     		Properties = new ServiceDiagnosticSettings()
-    	{
-        	StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
-    	}
+    		{
+        		StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
+    		}
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
 
