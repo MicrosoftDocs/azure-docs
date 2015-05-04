@@ -51,6 +51,11 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 	- **Redirect URI**: ```http://localhost```
 	- Click the checkmark to finish adding the application.
 
+### Give your application permission to use the API
+- Navigate to the Applications tab.
+- Navigate to your newly created application.
+- Navigate to the Configure tab.
+- In the "Permissions to Other Applications" section, give your application access to the "Windows Azure Service Management API" with Delegated Permissions: 1.
 
 
 ### Get your directory ID, client ID, and OAuth 2.0 endpoints
