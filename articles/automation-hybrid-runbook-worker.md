@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/05/2015"
    ms.author="bwren" />
 
 # Azure Automation Hybrid Runbook Workers
@@ -63,12 +63,11 @@ Open a PowerShell session in Administrator mode and run the following command to
 
    Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
-	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -AccountId <GUID> -Token <String>
+	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
 
 - **Name** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
 - **EndPoint** is the URL of the Agent service. You can obtain this from the Azure portal on the **Manage Keys** blade.  
-- **AccountId** is the ID of the Automation account. { Is this new?  Don't see a GUID now. Where do we get it? }
 - **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br>![Hybrid Runbook Worker Overview](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
