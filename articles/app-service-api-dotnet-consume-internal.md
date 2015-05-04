@@ -49,7 +49,7 @@ This tutorial requires version 2.6 or later of the Azure SDK for .NET.
 
 	![](./media/app-service-api-dotnet-consume-internal/setinternal.png)
  
-## Create the API app project that will call the existing API app
+## Create a new API app that will call the existing API app
 
 - In Visual Studio, create an API app project named ContactNames by using the Azure API app project template.
 
