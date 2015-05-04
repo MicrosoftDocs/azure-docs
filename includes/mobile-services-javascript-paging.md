@@ -46,9 +46,7 @@
 
    	This query skips the first three results and returns the next three after that. This is effectively the second "page" of data, where the page size is three items.
 
-    <div class="dev-callout"><b>Note</b>
-    <p>This tutorial uses a simplified scenario by passing hard-coded paging values to the <strong>Take</strong> and <strong>Skip</strong> methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.  You can also call the  <strong>includeTotalCount</strong> method to get the total count of items available on the server, along with the paged data.</p>
-    </div>
+    > [AZURE.NOTE] This tutorial uses a simplified scenario by passing hard-coded paging values to the **Take** and **Skip** methods. In a real-world app, you can use queries similar to the above with a pager control or comparable UI to let users navigate to previous and next pages.  You can also call the  **includeTotalCount** method to get the total count of items available on the server, along with the paged data.
 
 6. (Optional) Again view the URI of the request sent to the mobile service. 
 

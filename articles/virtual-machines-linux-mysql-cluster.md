@@ -1,4 +1,20 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Using load-balanced sets to clusterize MySQL on Linux" 
+	description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="bureado" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="4/14/2015" 
+	ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux
 
@@ -60,7 +76,7 @@ On each VM we proceed to create a new partition using `cfdisk` (primary, Linux p
 
 In both Ubuntu VMs, we need to use APT to install Corosync, Pacemaker and DRBD. Using `apt-get`:
 
-    sudo apt-get install corosync pacemaker drbd8utils.
+    sudo apt-get install corosync pacemaker drbd8-utils.
 
 **Do not install MySQL at this time** . Debian and Ubuntu installation scripts will initialize a MySQL data directory on `/var/lib/mysql`, but since the directory will be superseded by a DRBD filesystem, we need to do this later.
 
@@ -152,7 +168,7 @@ At this moment we have everything we need for a manual operation of the cluster.
 
 ### Testing the load balanced set
 
-Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Web Site) In this case we used MySQL's command line tool on another Linux box:
+Tests can be performed from an outside machine, by using any MySQL client, as well as applications (for example, phpMyAdmin running as an Azure Website) In this case we used MySQL's command line tool on another Linux box:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 

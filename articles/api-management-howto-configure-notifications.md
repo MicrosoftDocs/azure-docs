@@ -1,21 +1,32 @@
-<properties pageTitle="How to configure notifications and email templates in Azure API Management" metaKeywords="" description="Learn how to configure notifications and email templates in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to configure notifications and email templates in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to configure notifications and email templates in Azure API Management" 
+	description="Learn how to configure notifications and email templates in Azure API Management." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="sdanie"/>
 
 # How to configure notifications and email templates in Azure API Management
 
-API Management (Preview) provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
-
-## In this topic
-
--   [Configure publisher notifications][]
--   [Configure email templates][]
+API Management provides the ability to configure notifications for specific events, and to configure the email templates that are used to communicate with the administrators and developers of an API Management instance. This topic shows how to configure notifications for the available events, and provides an overview of configuring the email templates used for these events.
 
 ## <a name="publisher-notifications"> </a>Configure publisher notifications
 
-To configure notifications, click **Management Console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+To configure notifications, click **Manage** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![API Management console][api-management-management-console]
 
 Click **Notifications** from the **API Management** menu on the left to view the available notifications.
 
@@ -87,18 +98,18 @@ Click **Preview** or **Send a test** to see how the email will look or send a te
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
 [api-management-email-addresses]: ./media/api-management-howto-configure-notifications/api-management-email-addresses.png
-[api-management-add-recipient]: ./media/api-management-howto-configure-notifications/api-management-add-recipient.png
-[api-management-recipient-list]: ./media/api-management-howto-configure-notifications/api-management-recipient-list.png
+
+
 [api-management-email-templates]: ./media/api-management-howto-configure-notifications/api-management-email-templates.png
 [api-management-email-templates-list]: ./media/api-management-howto-configure-notifications/api-management-email-templates-list.png
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
-[api-management-publisher-notifications-save]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications-save.png
+
 
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How to create and use groups]: ../api-management-howto-create-groups
-[How to associate groups with developers]: ../api-management-howto-create-groups/#associate-group-developer
+[How to create and use groups]: api-management-howto-create-groups.md
+[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance

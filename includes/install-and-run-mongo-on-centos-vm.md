@@ -1,9 +1,6 @@
 Follow these steps to install and run MongoDB on a virtual machine running CentOS Linux.
 
-<div class="dev-callout">
-<b>Warning</b>
-<p>MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  See <a href="http://www.mongodb.org/display/DOCS/Security+and+Authentication">Security and Authentication</a> for more information.</p>
-</div>
+> [AZURE.WARNING] MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment.  See [Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication) for more information.
 
 1. Configure the Package Management System (YUM) so that you can install MongoDB. Create a */etc/yum.repos.d/10gen.repo* file to hold information about your repository and add the following:
 
@@ -58,9 +55,15 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 	
 	![Endpoints][Image8]
 
-9. Add an endpoint with name "Mongo", protocol **TCP**, and both **Public** and **Private** ports set to "27017". This will allow MongoDB to be accessed remotely.
-	
-	![Endpoints][Image9]
+9. Add an endpoint with the following settings:
+
+ - **Name**: Mongo
+ - **Protocol**: TCP
+ - **Public Port**: 27017
+ - **Private Port**: 27017
+ 
+ This will allow MongoDB to be accessed remotely.
+
 
 
 [QuickStartUnix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
@@ -68,4 +71,3 @@ Follow these steps to install and run MongoDB on a virtual machine running CentO
 
 [Image7]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
 [Image8]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png
-[Image9]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint3.png

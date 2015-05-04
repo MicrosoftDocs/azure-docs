@@ -1,4 +1,21 @@
-<properties linkid="mobile-services-dotnet-backend-hybrid-connections-get-started" urlDisplayName="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" metaKeywords="" description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" metaCanonical="" services="" documentationCenter="Mobile" title="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" authors="yavorg" solutions="" manager="" editor="mollybos" />
+<properties 
+	pageTitle="Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections - Azure Mobile Services" 
+	description="Learn how to connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="04/24/2015" 
+	ms.author="glenga"/>
+
   
 # Connect to an on-premises SQL Server from an Azure mobile service using Hybrid Connections 
 
@@ -32,7 +49,7 @@ You will also need an on-premises machine that will connect to Azure using Hybri
 
 To use an on-premises SQL Server or SQL Server Express database with a hybrid connection, TCP/IP needs to be enabled on a static port. Default instances on SQL Server use static port 1433, whereas named instances do not. 
 
-For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](/en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](/en-us/documentation/articles/web-sites-hybrid-connection-connect-on-premises-sql-server#CreateSQLDB). 
+For detailed instructions on how to configure SQL Server so it meets the conditions described above, see [Install SQL Server Express, enable TCP/IP, and create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#InstallSQL). If you already have SQL Server installed in a configuration and in an environment that meets the conditions described above, you can skip ahead and start with [Create a SQL Server database on-premises](web-sites-hybrid-connection-connect-on-premises-sql-server.md#CreateSQLDB). 
 
 For the purposes of this tutorial, we will assume the database name is **OnPremisesDB**, it is running on port **1433** and the hostname of the machine is **onPremisesServer**.
 
@@ -98,7 +115,7 @@ The Hybrid Connection Manager enables your on-premises machine to connect to Azu
 ### Associate hybrid connection with service
 1. In the **Mobile Services** tab of the portal, select an existing mobile services or create a new one. 
 
-	>[WACOM.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) 
+	>[AZURE.NOTE]Be sure to either select a service that was created using the .NET Backend or create a new .NET backend mobile service. To learn how to create a new .NET backend mobile service, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 
 
 2. On the **Configure** tab for your mobile service, find the **Hybrid Connections** section and select **Add Hybrid Connection**.
 
@@ -113,17 +130,17 @@ The mobile service is now associated with the new hybrid connection.
 ### Update the service to use the on-premises connection string
 Finally, we need to create an app setting to store the value of the connection string to our on-premises SQL Server. We then need to modify the mobile service to use the new connection string. 
 
-1. On the **Configure** tab in **App Settings**, add an new app setting named `onPremisesDatabase` with a value like `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
+1. On the **Configure** tab in **Connection Strings**, add an new connection string named `OnPremisesDatabase` with a value like `Server=onPremisesServer,1433;Database=OnPremisesDB;User ID=sa;Password={password}`.
 
-	![App setting for connection string][AppSetting]
+	![Connection string for on-premises database][ConnectionString]
 
 	Replace `{password}` with the secure password for your on-premises database.
 
-2. Press **Save** to save the hybrid connection and app setting we just created.
+2. Press **Save** to save the hybrid connection and connection string we just created.
 
 3. In Visual Studio 2013, open the project that defines your .NET-based mobile service. 
 
-	To learn how to download your .NET backend project, see [Get started with Mobile Services](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) .
+	To learn how to download your .NET backend project, see [Get started with Mobile Services](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) .
  
 4. In Solution Explorer, expand the **Models** folder and open the data model file, which ends in *Context.cs*.
 
@@ -132,14 +149,14 @@ Finally, we need to create an app setting to store the value of the connection s
         public class hybridService1Context : DbContext
         {
             public hybridService1Context()
-                : base(ConfigurationManager.AppSettings["onPremisesDatabase"])
+                : base("OnPremisesDatabase")
             {
             }
         
             // snipped
         }
 
-	The service will now use the new hybrid connection string defines in the app settings in Azure.
+	The service will now use the new hybrid connection string defined in Azure.
 
 5. Publish your changes and use a client app connected to your mobile service to invoke some operations to generate database changes.
 
@@ -153,9 +170,9 @@ Changes generated in your app have been pushed by your mobile service to your on
 
 ##See Also##
  
-+ [Hybrid Connections web site](http://azure.microsoft.com/en-us/services/biztalk-services/)
++ [Hybrid Connections web site](http://azure.microsoft.com/services/biztalk-services/)
 + [Hybrid Connections overview](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs)
 
 <!-- IMAGES -->
  
@@ -169,6 +186,6 @@ Changes generated in your app have been pushed by your mobile service to your on
 [HCConnected]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/8.png
 [AssociateHC]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/9.png
 [PickHC]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/10.png
-[AppSetting]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
+[ConnectionString]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/11.png
 [SMS]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/12.png
 [DownloadHCM]:./media/mobile-services-dotnet-backend-hybrid-connections-get-started/5-1.png

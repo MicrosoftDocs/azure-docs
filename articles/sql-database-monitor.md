@@ -1,4 +1,20 @@
-<properties linkid="manage-services-how-to-monitor-a-sqldb" urlDisplayName="How to monitor" pageTitle="How to monitor a SQL Database - Azure service management" metaKeywords="" description="Learn how to monitor a SQL Database using the Azure Management Portal." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to monitor a SQL Database - Azure service management" 
+	description="Learn how to monitor a SQL Database using the Azure Management Portal." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="jeffgoll" 
+	manager="jeffreyg" 
+	editor=""/>
+
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="jeffreyg"/>
 
 
 
@@ -10,4 +26,4 @@ Monitoring tools and techniques that you might be accustomed to using on an on-p
 
 For more information, see [Monitoring SQL Database Using Dynamic Management Views][].
 
-[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx
+[Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx

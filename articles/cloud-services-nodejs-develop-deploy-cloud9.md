@@ -1,4 +1,20 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="Node.js" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Node.js deploying with Cloud9 - Azure tutorial" 
+	description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="mwasson"/>
 
 
 
@@ -30,7 +46,7 @@ are demonstrated using Google Chrome on a Mac.
 
 ## Signup
 
-To use Cloud9, you first need to visit their web site and [register for a
+To use Cloud9, you first need to visit their website and [register for a
 subscription][Cloud9 IDE]. You can sign in with either an existing
 GitHub or BitBucket account, or create a Cloud9 account. A free
 subscription offering is available, as well as a paid offering which
@@ -48,14 +64,9 @@ provides more features. For more information, see [Cloud9 IDE][].
 
 	![create new project dialog Cloud9](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_project.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Some options require a paid Cloud9 plan.</p>
-	</div>
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>The project name of your Cloud9 project is not used when deploying to Azure.</p>
-	</div>
+	> [AZURE.NOTE] Some options require a paid Cloud9 plan.
+	   
+	> [AZURE.NOTE] The project name of your Cloud9 project is not used when deploying to Azure.
 
 3.  After the project has been created, click **Start Editing**. If this is the first time you have used the Cloud9 IDE, you will be offered the option to take a tour of the service. If you wish to skip the tour and view it at a later date, select **Just the editor,please**.
 
@@ -77,29 +88,21 @@ provides more features. For more information, see [Cloud9 IDE][].
             res.end('hello azure\n');
         }).listen(port);
 	
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Using process.env.PORT ensures that the application picks up the correct port whether ran in the Cloud9 debugger or when deployed to Azure.</p>
-	</div>
+	> [AZURE.NOTE] Using process.env.PORT ensures that the application picks up the correct port whether ran in the Cloud9 debugger or when deployed to Azure.
 
 6.  To save the code, select **File** and then **Save as**. In the
     **Save As** dialog, enter **server.js** as the file name, and then
     click **Save**.
 
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>You may notice a warning symbol indicating that the req variable is unused. You may safely ignore this warning.</p>
-	</div>
+	> [AZURE.NOTE] You may notice a warning symbol indicating that the req variable is unused. You may safely ignore this warning.
 
 	![save the server.js file](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_saveas.png)
 
 ## Run the Application
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>While the steps provided in this section are sufficient for a Hello World application, for applications that use external modules you may need to select a specific version of Node.js for the debug environment. To do this, select <strong>Configure...</strong> from the debug dropdown, and then select the specific version of Node.js. For example, you may receive authentication errors when using the 'azure' module if you do not have Node.js 0.6.x selected.</p>
-</div>
+> [AZURE.NOTE] While the steps provided in this section are sufficient for a Hello World application, for applications that use external modules you may need to select a specific version of Node.js for the debug environment. To do this, select **Configure...** from the debug dropdown, and then select the specific version of Node.js. For example, you may receive authentication errors when using the 'azure' module if you do not have Node.js 0.6.x selected.
+
 
 1.  Click **Debug** to run the application in the Cloud9 debugger.
 	
@@ -122,7 +125,7 @@ To deploy your application to Azure, you need an account. If you
 do not already have an Azure account, you can sign up for a free
 trial by following these steps:
 
-[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
+[AZURE.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 
 ## Create a Deployment
@@ -156,15 +159,9 @@ trial by following these steps:
 	
 	![create a new hosted service](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_new_hosted_service_settings.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>In the <strong>Add a deploy target</strong> dialog, any existing Azure hosted services will be listed under the <strong>Choose existing deployment</strong> section; selecting an existing hosted service will result in this project being deployed to that service.</p>
-	</div>
+	> [AZURE.NOTE] In the **Add a deploy target** dialog, any existing Azure hosted services will be listed under the **Choose existing deployment** section; selecting an existing hosted service will result in this project being deployed to that service.
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Selecting <strong>Enable RDP</strong> and providing a username and password will enable remote desktop for your deployment.</p>
-	</div>
+	> [AZURE.NOTE] Selecting **Enable RDP** and providing a username and password will enable remote desktop for your deployment.
 
 
 ## Deploy to the Azure Production Environment
@@ -194,10 +191,7 @@ trial by following these steps:
 
 	![deployment status](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_deployment_status.png)
 
-	<div class="dev-callout">
-	<strong>Note</strong>
-	<p>Projects deployed through the Cloud 9 IDE are assigned a GUID as the deployment name in Azure.</p>
-	</div>
+	> [AZURE.NOTE] Projects deployed through the Cloud 9 IDE are assigned a GUID as the deployment name in Azure.
 
 8.  The deployment dialog includes a link to the production URL. When the deployment is complete, click the URL to browse to your application running in Azure.
 
@@ -275,11 +269,8 @@ the ribbon.
 When you click Connect, you will be prompted to open or download a .RDP file. This file contains the information required to connect to your remote desktop session. Running this file on a Windows system will prompt you for the username and password you entered when creating your deployment, and will then connect you to the desktop of the selected
 instance.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>The .RDP file to connect to the hosted instance of your application will only work with the Remote Desktop application on
-WIndows.</p>
-</div>
+> [AZURE.NOTE] The .RDP file to connect to the hosted instance of your application will only work with the Remote Desktop application on
+WIndows.
 
 ## Stop and Delete the Application
 
@@ -308,7 +299,7 @@ Cloud9 focuses on providing an IDE and does not provide a direct method of stopp
 
 
   [Cloud9 IDE]: http://cloud9ide.com/ 
-  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx
-  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx
-  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx
+  [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+  [How to Configure Virtual Machine Sizes]: http://msdn.microsoft.com/library/windowsazure/ee814754.aspx
+  [Overview of Managing Deployments in Azure.]: http://msdn.microsoft.com/library/windowsazure/gg433027.aspx
   [Cloud9 documentation]: http://go.microsoft.com/fwlink/?LinkId=241421&clcid=0x409

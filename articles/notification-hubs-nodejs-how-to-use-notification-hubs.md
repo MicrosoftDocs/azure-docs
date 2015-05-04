@@ -1,36 +1,44 @@
-<properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Service Bus Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Service Bus Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to use Notification Hubs with Node.js" 
+	description="Learn how to use Notification Hubs to send push notifications from a Node.js application." 
+	services="notification-hubs" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="02/26/2015" 
+	ms.author="mwasson"/>
 
+# How to use Notification Hubs from Node.js
+<div class="dev-center-tutorial-selector sublanding"> 
+    	<a href="/documentation/articles/notification-hubs-java-backend-how-to/" title="Java">Java</a><a href="/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a><a href="/documentation/articles/notification-hubs-python-backend-how-to/" title="Python">Python</a><a href="/documentation/articles/notification-hubs-nodejs-how-to-use-notification-hubs/" title="Node.js" class="current">Node.js</a>
+</div>
 
+##Overview
 
-
-
-# How to Use Service Bus Notification Hubs
-
-This guide will show you how to use Service Bus Notification Hubs
+This guide will show you how to use Notification Hubs
 from Node.js applications. The scenarios covered include **sending notifications to Android, iOS, Windows Phone and Windows Store applications**. For more information on notification hubs, see the [Next Steps](#next) section.
 
-## Table of Contents
+##What are Notification Hubs?
 
--   [What is are Service Bus Notification Hubs?](#hub)
--   [Create a Node.js application](#create)
--   [Configure the application to use Service Bus](#config)
--   [How to: Send notifications](#send)
--   [Next Steps](#next)
+Azure Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx).
 
-##<a id="hub"></a> What are Service Bus Notification Hubs? 
+##Create a Node.js Application
 
-Azure Service Bus Notification Hubs provide an easy-to-use, multiplatform, scalable infrastructure for sending push notifications to mobile devices. For more information, see [Azure Service Bus Notification Hubs](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-##<a id="create"></a> Create a Node.js Application
+##Configure Your Application to Use Notification Hub
 
-Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
-
-##<a id="config"></a> Configure Your Application to Use Service Bus
-
-To use Azure Service Bus, you need to download and use the
+To use Azure Notification Hub, you need to download and use the
 Node.js azure package. This includes a set of convenience libraries that
-communicate with the Service Bus REST services.
+communicate with the REST services.
 
 ### Use Node Package Manager (NPM) to obtain the package
 
@@ -54,7 +62,7 @@ communicate with the Service Bus REST services.
 3.  You can manually run the **ls** or **dir** command to verify that a
     **node\_modules** folder was created. Inside that folder find the
     **azure** package, which contains the libraries you need to access
-    Service Bus notification hubs.
+    Notification Hub.
 
 ### Import the module
 
@@ -63,7 +71,7 @@ the **server.js** file of the application:
 
     var azure = require('azure');
 
-### Setup an Azure Service Bus connection
+### Setup an Azure Notification Hub connection
 
 The **NotificationHubService** object lets you work with notification hubs. The
 following code creates a **NotificationHubService** object for the nofication hub named **hubname**. Add it near the
@@ -80,13 +88,11 @@ The connection **connectionstring** value can be obtained from the Azure Managem
 
 3. Select **View Connection String** from the **quick glance** section, and copy the connection string value.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>You can also retrieve the connection string using the <b>Get-AzureSbNamespace</b> cmdlet provided by Azure PowerShell or the <b>azure sb namespace show</b> command with the Azure Command-Line Tools.</p>
+> [AZURE.NOTE] You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by Azure PowerShell or the **azure sb namespace show** command with the Azure Command-Line Tools.
 
 </div>
 
-##<a id="send"></a> How to send notifications
+##How to send notifications
 
 The **NotificationHubService** object exposes the following object instances for sending notifications to specific devices and applications:
 
@@ -130,7 +136,7 @@ For more information the payload format, see The Notification Payload section of
 
 The following code uses the **ApnsService** instance exposed by the **NotificationHubService** to send an alert message to all clients:
 
-	var payload={ 
+	var payload={
 	    alert: 'Hello!'
 	  };
 	notificationHubService.apns.send(null, payload, function(error){
@@ -146,11 +152,11 @@ The **MpnsService** object provides a **send** method that can be used to send n
 * Tags - the tag identifier. If no tag is provided, the notification will be sent to all clients
 * Payload - the message's XML payload
 * TargetName - 'toast' for toast notifications. 'token' for tile notifications.
-* NotificationClass - The priority of the notification. See the HTTP Header Elements section of [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx) for valid values.
+* NotificationClass - The priority of the notification. See the HTTP Header Elements section of [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx) for valid values.
 * Options - optional request headers
 * Callback - the callback function
 
-For a list of valid TargetName, NotificationClass, and header options, see [Push notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+For a list of valid TargetName, NotificationClass, and header options, see [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx).
 
 The following code uses the **MpnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
@@ -171,7 +177,7 @@ The **WnsService** object provides a **send** method that can be used to send no
 * Options - optional request headers
 * Callback - the callback function
 
-For a list of valid Types and request headers, see [Push notification service request and response headers](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+For a list of valid Types and request headers, see [Push notification service request and response headers](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 The following code uses the **WnsService** instance exposed by the **NotificationHubService** to send a toast alert:
 
@@ -182,12 +188,12 @@ The following code uses the **WnsService** instance exposed by the **Notificatio
 	  }
 	});
 
-##<a id="next"></a> Next Steps
+## Next Steps
 
-Now that you've learned the basics of Service Bus topics, follow these
+Now that you've learned the basics of using Notification Hub, follow these
 links to learn more.
 
--   See the MSDN Reference: [Azure Service Bus Notification Hubs][].
+-   See the MSDN Reference: [Azure Notification Hubs][].
 -   Visit the [Azure SDK for Node] repository on GitHub.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
@@ -211,12 +217,13 @@ links to learn more.
   [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
   [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
   [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-  [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx
-  [SqlFilter]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png
-  [Create and deploy a Node.js application to Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [nodejswebsite]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
+

@@ -1,178 +1,136 @@
-<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
+<properties 
+	pageTitle="How to create a hybrid collection for RemoteApp" 
+	description="Learn how to create a deployment of RemoteApp that connects to your internal network." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-#How to create a hybrid deployment of RemoteApp
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/28/2015" 
+	ms.author="elizapo"/>
 
-There are two kinds of RemoteApp deployment: 
+# How to create a hybrid collection for RemoteApp
+
+There are two kinds of RemoteApp collections: 
 
 - Cloud: resides completely in Azure and is created using the **Quick create** option in the Azure management portal.  
-- Hybrid: includes a virtual network for on-premises access and is created using the **Create with VPN** option in the management portal.
+- Hybrid: includes a virtual network for on-premises access and is created using the **Create with VNET** option in the management portal.
 
-This tutorial walks you through the process of creating a hybrid deployment. There are seven steps: 
+This tutorial walks you through the process of creating a hybrid collection. There are seven steps: 
 
-1.	Create a RemoteApp template image.
-2.	Create a RemoteApp service.
-2.	Link to a virtual network.
-3.	Link a template image.
-4.	Configure directory synchronization. RemoteApp requires this to synchronize users, groups, contacts, and passwords from your on-premises Active Directory to your Azure Active Directory tenant.
-5.	Publish RemoteApp programs.
+1.	Create a [custom image for RemoteApp](remoteapp-imageoptions.md) or pick one of the images included with your subscription.
+2. Set up your virtual network.
+2.	Create a RemoteApp collection.
+2.	Link your collection to your virtual network.
+3.	Add a template image to your collection.
+4.	Configure directory synchronization. RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. Check out the [configuration info for Active Directory with RemoteApp](remoteapp-ad.md).
+5.	Publish RemoteApp apps.
 6.	Configure user access.
 
 **Before you begin**
 
-You need to do the following before creating the service:
+You need to do the following before creating the collection:
 
+- [Sign up](http://azure.microsoft.com/services/remoteapp/) for RemoteApp. 
 - Create a user account in Active Directory to use as the RemoteApp service account. Restrict the permissions for this account so that it can only join machines to the domain.
 - Gather information about your on-premises network: IP address information and VPN device details.
-- Install the [Azure PowerShell](http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) module.
-- Gather information about the users and groups that you want to grant access to. This can be either Microsoft account information or Active Directory organizational account information for users or groups.
+- Install the [Azure PowerShell](install-configure-powershell.md) module.
+- Gather information about the users that you want to grant access to. This can be either Microsoft account information or Active Directory work account information.
+- Create your template image. A RemoteApp template image contains the apps and programs that you want to publish for your users. See [Create a RemoteApp image](remoteapp-imageoptions.md) for more information. 
+- [Configure Active Directory for RemoteApp](remoteapp-ad.md).
 
 
 
-## **Step 1: Create a template image**##
-Azure RemoteApp uses a Windows Server 2012 R2 template image to host all the programs that you want to share with your users. To create a custom RemoteApp template image, you can start with an existing image or create a new one. The requirements for the image that can be uploaded for use with Azure RemoteApp are:
+## Step 1: Set up your virtual network
+You can deploy a hybrid RemoteApp collection that uses an existing Azure virtual network, or you can create a new virtual network. A virtual network lets your users access data on your local network through RemoteApp remote resources. Using an Azure virtual network gives your collection direct network access to other Azure services and virtual machines deployed to that virtual network.
 
-- It must be on a fixed-size VHD (VHDX files are not currently supported).
-- The disk must contain a single NTFS volume.
-- The operating system must be Windows Server 2012 R2.
-- The Remote Desktop Session Host (RDSH) role and the Desktop Experience feature must be installed.
-- The image must be SYSPREPed using the parameters **/oobe /generalize /shutdown** (DO NOT use the **/mode:vm** parameter).
+### Create an Azure VNET and join it to your Active Directory deployment
 
-To create a new template image from scratch:
+Start by creating a [virtual network](https://msdn.microsoft.com/library/azure/dn631643.aspx). This is done on the **Network** tab in the Azure Management portal. You need to connect your virtual network to the Active Directory deployment that is synchronized to your Azure Active Directory tenant.
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image
-2.	Create a fixed-size VHD file
-3.	Create a single NTFS volume
-4.	Install Windows Server 2012 R2
-5.	Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature
-6.	Install additional features required by your applications
-7.	Install and configure your applications
-8.	Perform any additional Windows configurations required by your applications
-9.	SYSPREP the image
+See [About Virtual Network Settings in the Management Portal](https://msdn.microsoft.com/library/azure/jj156074.aspx) for more information.
 
-The detailed steps for creating a new image are:
+### Make sure your virtual network is ready for RemoteApp
+Before you create your RemoteApp collection, let's make sure that your new virtual network is ready. You can validate this by doing the following:
 
-1.	Locate a Windows Server 2012 R2 DVD or ISO image. Use a DVD or ISO image preferred by your organization or download one from [here](http://technet.microsoft.com/evalcenter/dn205286.aspx).
-2.	Create a fixed-size VHD file:
-	1.	Launch Disk Management (diskmgmt.msc). 
-	2.	Create a fix-sized VHD of 40 GB or more in size. (Estimate the amount of space needed for Windows, your applications, and customizations. Windows Server with the RDSH role and Desktop Experience feature installed will require about 10 GB of space).
-		1.	Click **Action > Create VHD**.
-		2.	Specify the location, size, VHD format, and fixed size, then click **OK**.
+1. Create an Azure virtual machine inside the subnet of the virtual network you just created for RemoteApp.
+2. Use Remote Desktop to connect to the virtual machine. (Click **Connect**.)
+3. Join it to the same Active Directory deployment that you want to use for RemoteApp.
 
-			This will run for several minutes. When the VHD creation is complete, you should see a new disk without any drive letter and in “Not initialized" state in the Disk Management console.
+Did that work? Your virtual network and subnet are ready for RemoteApp!
 
-		- Right-click the disk (not the unallocated space), and then click Initialize Disk. Select **MBR** (Master Boot Record) as the partition style, and then click **OK**.
+You can find more information about creating Azure virtual machines and connecting to them with Remote Desktop [here](https://msdn.microsoft.com/library/azure/jj156003.aspx).
 
-
-1. Create a single NTFS volume:
-	1.  Right-click the unallocated space on the disk, and then click **New Simple Volume**.
-	2.  Complete the steps in the wizard, accepting the default values. On the Format Partition page, be sure it will be formatted as NTFS and that **Perform a quick format** is selected. 
-
-		After the volume is formatted, you should see a drive letter assigned to it.
-
-		Detach this VHD for use in the next step. (Right-click the disk, then select Detach VHD, and click OK at the prompt).
-1. Install Windows Server 2012 R2:
-	1. Create a new virtual machine. Use the New Virtual Machine Wizard in Hyper-V Manager or Client Hyper-V. On the Connect Virtual Hard Disk page, select **Use an existing virtual hard disk** and browse to the VHD you created in step 2.
-	2.  After the wizard finishes, edit the settings of the VM. Under **Hardware** click **DVD Drive** (usually under one of the IDE Controllers). In the right pane under Media, click **Image file** and browse to the Windows Server® 2012 R2 ISO from step 1, or select the physical DVD drive if you are using physical installation media.
-	3.  Make any other changes in VM settings necessary to install Windows and programs to be published, and then click **OK**.
-	4.  Connect to the VM and install Windows Server 2012 R2.
-1. Install the Remote Desktop Session Host (RDSH) role and the Desktop Experience feature:
-	1. Launch Server Manager.
-	2. Click **Add Roles and features** on the Welcome screen or from the **Manage** menu.
-	3. Click **Next** on the Before You Begin page.
-	4. Select **Role-based or feature-based installation**, and then click **Next**.
-	5. Select the local machine from the list, and then click **Next**.
-	6. Select **Remote Desktop Services**, and then click **Next**.
-	7. Expand **User Interfaces and Infrastructure** and select **Desktop Experience**.
-	8. Click **Add Features**, and then click **Next**.
-	9. On the Remote Desktop Services page, click **Next**.
-	10. Click **Remote Desktop Session Host**.
-	11. Click **Add Features**, and then click **Next**.
-	12. On the Confirm installation selections page, select **Restart the destination server automatically if required**, then click **Yes** on the restart warning.
-	13. Click **Install**. The computer will restart.
-1.	Install additional features required by your applications, such as the .NET Framework 3.5. To install the features, run the Add Roles and Features Wizard.
-7.	Install and configure the programs and applications you want to publish through RemoteApp.
-
- 	**Important:** Microsoft recommends that you install the RDSH role before installing applications to ensure that any issues with application compatibility are discovered before the image is uploaded to RemoteApp.
-
-8.	Perform any additional Windows configurations required by your applications.
-9.	SYSPREP the image. At an elevated command prompt, run the following command: 
-
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
-	
-	**Note:** Do not use the **/mode:vm** switch of the SYSPREP command even though this is a virtual machine. 
-
-
-## **Step 2: Create a RemoteApp service** ##
+## Step 2: Create a RemoteApp collection ##
 
 
 
 1. In the [Azure Management Portal](http://manage.windowsazure.com), go to the RemoteApp page.
-2. Click **New > Create with VPN**.
-3. Enter a name for your service, and click **Create RemoteApp service**.
+2. Click **New > Create with VNET**.
+3. Enter a name for your collection.
+4. Choose the plan that you want to use - standard or basic.
+5. Click **Create RemoteApp collection**.
 
-After your RemoteApp service has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
+After your RemoteApp collection has been created, go to the RemoteApp **Quick Start** page to continue with the set up steps.
 
-## **Step 3: Link to a virtual network** ##
+## Step 3: Link your collection to the virtual network ##
 
-A virtual network lets your users access data on your local network through RemoteApp remote resources. There are four steps to configure your virtual network link:
+ 
+1. On the **Quick Start** page, click **link a virtual network**.
+2. Choose the virtual network you want to use from the drop-down list.
+3. Choose the region you want to use, and make sure the correct subscription shows up in the field. 
+5. Back on the **Quick Start** page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password. 
 
-1. On the Quick Start page, click **link a remoteapp virtual network**. 
-2. Choose whether to create a new virtual network or use an existing. For this tutorial, we'll create a new network.
-3. Provide the following information for your new network:  
-      - Name
-      - Virtual network address space
-      - Local address space
-      - DNS server IP address
-      - VPN IP address
-
-	See [Configure a Site-to-Site VPN in the the Management Portal](http://msdn.microsoft.com/library/azure/dn133795.aspx) for more information.
-
-4. Next, back on the Quick Start page, click **get script** to download a script to configure your VPN device to connect to the virtual network you just created. You'll need the following information about the VPN device: 
-	- Vendor
-	- Platform
-	- Operating system
-
-	Save the script and run it on the VPN device. 
-
-	**Note:** After you run this script, the virtual network will move to the Ready state - this may take 5-7 minutes. Until the network is ready, you won't be able to use it.
-
-5. Finally, again on the Quick Start page, click **join local domain**. Add the RemoteApp service account to your local Active Directory domain. You will need the domain name, organizational unit, service account user name and password.
+	This is the information you gathered if you followed the steps in [Configure Active Directory for Azure RemoteApp](remoteapp-ad.md).
 
 
-## **Step 4: Link to a RemoteApp template image** ##
+## Step 4: Link to a RemoteApp image ##
 
-A RemoteApp template image contains the programs that you want to share with users. You can either upload the new template image you created in Step 1 or link to an existing image (one already uploaded to Azure).
+A RemoteApp template image contains the programs that you want to share with users. You can either create a new [template image](remoteapp-imageoptions.md) or link to an existing image (one already imported or uploaded to Azure RemoteApp). You can also link to one of the RemoteApp [template images](remoteapp-images.md) that contain Office 365 or Office 2013 (for trial use) programs. 
 
-If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Azure PowerShell prompt to upload the specified image.
+If you are uploading the new image, you need to enter the name and choose the location for the image. On the next page of the wizard, you'll see a set of PowerShell cmdlets - copy and run these cmdlets from an elevated Windows PowerShell prompt to upload the specified image.
 
 If you are linking to an existing template image, simply specify the image name, location, and associated Azure subscription.
 
 
-## **Step 5: Configure Active Directory directory synchronization** ##
 
-RemoteApp requires directory synchronization between Azure Active Directory and your on-premise Active Directory to synchronize users, groups, contacts, and passwords to your Azure Active Directory tenant. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
+## Step 5: Configure Active Directory directory synchronization ##
 
-## **Step 6: Publish RemoteApp programs** ##
+RemoteApp requires that you integrate with Azure Active Directory by either 1) configuring Azure Active Directory Sync with the Password Sync option, or 2) configuring Azure Active Directory Sync without the Password Sync option but using a domain that is federated to AD FS. See [Directory synchronization roadmap](http://msdn.microsoft.com//library/azure/hh967642.aspx) for planning information and detailed steps.
 
-A RemoteApp program is the app or program that you provide to your users. It is located in the template image you uploaded for the service. When a user accesses a RemoteApp program, the program appears to run in their local environment, but it is really running in Azure. 
+## Step 6: Publish RemoteApp apps ##
 
-Before your users can access RemoteApp programs, you need to publish them to the end-user feed – a list of available programs that your users access through the Azure portal.
+A RemoteApp app is the app or program that you provide to your users. It is located in the template image you uploaded for the collection. When a user accesses an app, it appears to run in their local environment, but it is really running in Azure. 
+
+Before your users can access RemoteApp apps, you need to publish them to the end-user feed – a list of available apps that your users access through the Remote Desktop client.
  
-You can publish multiple programs to your RemoteApp service. From the RemoteApp programs page, click **Publish** to add a program. You can either publish from the Start menu of the template image or by specifying the path on the template image for the program. If you choose to add from the Start menu, choose the program to publish. If you choose to provide the path to the program, provide a name for the program and the path to where the program is installed on the template image.
+You can publish multiple apps to your RemoteApp collection. From the RemoteApp publishing page, click **Publish** to add an app. You can either publish from the Start menu of the template image or by specifying the path on the template image for the app. If you choose to add from the Start menu, choose the program to app. If you choose to provide the path to the app, provide a name for the app and the path to where it is installed on the template image.
 
-## **Step 8: Configure user access** ##
+## Step 7: Configure user access ##
 
-Now that you have created your RemoteApp service, you need to add the users and groups that you want to be able to use your remote resources. The users or groups that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp service.
+Now that you have created your RemoteApp collection, you need to add the users that you want to be able to use your remote resources. The users that you provide access to need to exist in the Active Directory tenant associated with the subscription you used to create this RemoteApp collection.
 
 1.	From the Quick Start page, click **Configure user access**. 
-2.	Enter the organizational account or group name (from Active Directory) or Microsoft account that you want to grant access for.
+2.	Enter the work account (from Active Directory) or Microsoft account that you want to grant access for.
 
-	For users, make sure that you use the “user@domain.com” format. For groups, enter the group name.
+	**Notes:** 
 
-3.	Once the users or groups are validated, click **Save**.
+	Make sure that you use the “user@domain.com” format.
+
+	If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
+
+
+3.	Once the users are validated, click **Save**.
 
 
 ## Next steps ##
-That's it - you have successfully created and deployed your RemoteApp hybrid deployment. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into Azure and access the RemoteApp programs you published.
+That's it - you have successfully created and deployed your RemoteApp hybrid collection. The next step is to have your users download and install the Remote Desktop client. You can find the URL for the client on the RemoteApp Quick Start page. Then, have users log into the client and access the apps you published.
 
 

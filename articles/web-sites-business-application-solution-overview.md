@@ -1,212 +1,125 @@
-<properties linkid="websites-business-application" urlDisplayName="Create a Line-of-Business Application on Azure Web Sites" pageTitle="Create a Line-of-Business Application on Azure Web Sites" metaKeywords="Web Sites" description="This guide provides a technical overview of how to use Azure Web Sites to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" title="Create a Line-of-Business Application on Azure Web Sites" authors="jroth" />
+<properties 
+	pageTitle="Create a line-of-business web app on Azure App Service" 
+	description="This guide provides a technical overview of how to use Azure App Service Web Apps to create intranet, line-of-business applications. This includes authentication strategies, service bus relay, and monitoring." 
+	editor="jimbe" 
+	manager="wpickett" 
+	authors="cephalin" 
+	services="app-service\web" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/08/2015" 
+	ms.author="cephalin"/>
 
 
 
-# Create a Line-of-Business Application on Azure Web Sites
+# Create a line-of-business web app on Azure App Service
 
-This guide provides a technical overview of how to use Azure Web Sites to create line-of-business applications. For the purposes of this document, these applications are assumed to be intranet applications that should be secured for internal business use. There are two distinctive characteristics of business applications. These applications require authentication, typically against a corporate directory. And they normally require some access or integration with on-premises data and services. This guide focuses on building business applications on [Azure Web Sites][websitesoverview]. However, there are situations where [Azure Cloud Services][csoverview] or [Azure Virtual Machines][vmoverview] would be a better fit for your requirements. It is important to review the differences between these options in the topic [Azure Web Sites, Cloud Services, and VMs: When to use which?][chooseservice]. 
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Web Apps is a great choice for line-of-business applications. These applications are intranet applications that should be secured for internal business use. They usually require authentication, typically against a corporate directory, and some access to or integration with on-premises data and services. 
 
-The following areas are addressed in this guide:
+There are major benefits of moving line-of-business applications to App Service Web Apps, such as:
 
-- [Consider the Benefits](#benefits)
-- [Choose an Authentication Strategy](#authentication)
-- [Create an Azure Web Site that Supports Authentication](#createintranetsite)
-- [Use Service Bus to Integrate with On-Premises Resources](#servicebusrelay)
-- [Monitor the Application](#monitor)
+-  scale up and down with dynamic workloads, such as an application that handles annual performance reviews. During the review period, traffic would spike to high levels for a large company. Azure provides scaling options that enable the company to scale out to handle the load during the high-traffic review period while saving money by scaling back for the rest of the year. 
+-  focus more on application development and less on infrastructure acquisition and management
+-  greater support for employees and partners to use the application from anywhere. Users do not need to be connected to the corporate network through in order to use the application, and the IT group avoids complex reverse proxy solutions. There are several authentication options to make sure that access to company applications are protected.
 
-<div class="dev-callout">
-<strong>Note</strong>
-<p>This guide presents some of the most common areas and tasks that are aligned with public-facing .COM site development. However, there are other capabilities of Azure Web Sites that you can use in your specific implementation. To review these capabilities, also see the other guides on <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">Global Web Presence</a> and <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">Digital Marketing Campaigns</a>.</p>
-</div>
+Below is an example of a line-of-business application running on App Service Web Apps. It demonstrates what you can do simply by composing Web Apps together with other services with minimal technical investments. **Click on an element in the topography to read more about it.** 
 
-##<a name="benefits"></a>Consider the Benefits
-Because line-of-business applications typically target corporate users, you should consider the reasons to use the Cloud versus on-premises corporate resources and infrastructure. First, there are some of the typical benefits of moving to the Cloud, such as the ability to scale up and down with dynamic workloads. For example, consider an application that handles annual performance reviews. For most of the year, this type of application would handle very little traffic. But during the review period, traffic would spike to high levels for a large company. Azure provides scaling options that enable the company to scale out to handle the load during the high-traffic review period while saving money by scaling back for the rest of the year. Another benefit of the Cloud is the ability to focus more on application development and less on infrastructure acquisition and management.
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
-In addition to these standard advantages, placing a business application in the Cloud provides greater support for employees and partners to use the application from anywhere. Users do not need to be connected to the corporate network through in order to use the application, and the IT group avoids complex reverse proxy solutions. There are several authentication options to make sure that access to company applications are protected. These options are discussed in the following sections of this guide.
+> [AZURE.NOTE]
+> This guide presents some of the most common areas and tasks that are aligned with line-of-business applications. However, there are other capabilities of Azure App Service Web Apps that you can use in your specific implementation. To review these capabilities, also see the other guides on [Global Web Presence](web-sites-global-web-presence-solution-overview.md) and [Digital Marketing Campaigns](web-sites-digital-marketing-application-solution-overview.md).
 
-##<a name="authentication"></a>Choose an Authentication Strategy
-For the business application scenario, your authentication strategy is one of the most important decisions. There are several options:
+## Bring existing assets
 
-- Use the [Azure Active Directory service][adoverview]. You can use this as a stand-alone directory, or you can synchronize it with an on-premises Active Directory. Applications then interact with the Azure Active Directory to authenticate users. For an overview of this approach, see [Using Azure Active Directory][adusing].
-- Use Azure Virtual Machines and Virtual Network to install Active Directory. This gives you the option of extending an on-premises Active Directory installation to the Cloud. You can also choose to use Active Directory Federation Services (ADFS) to federate identity requests back to the on-premises AD. Then authentication for the Azure application goes through ADFS to the on-premises Active Directory. For more information about this approach, see [Running Windows Server Active Directory in VMs][adwithvm] and [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][addeployguidelines]. 
-- Use an intermediary service, such as [Azure Access Control Service][acs2] (ACS), to use multiple identity services to authenticate users. This provides an abstraction to authenticate either through Active Directory or through a different identity provider. For more information, see [Using Azure Active Directory Access Control][acsusing].
+Bring your existing web assets to App Service Web Apps from a variety of languages and frameworks.
 
-For this business application scenario, the first scenario using Azure Active Directory provides the fastest path for implementing an authentication strategy for your application. The remainder of this guide focuses on Azure Active Directory. However, depending on your business requirements, you might find that one of the other two solutions is a better fit. For example, if you are not permitted to synchronize identity information to the Cloud, then the ADFS solution might be the better option. Or if you must support other identity providers, like Facebook, then an ACS solution would fit better.
+Your existing web assets can run on App Service Web Apps, whether they are .NET, PHP, Java, Node.js, or Python. You can move them to Web Apps using your familiar [FTP] tools or your source control management system. Web Apps supports direct publishing from popular source control options, such as [Visual Studio], [Visual Studio Online], and [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-Before you begin to setup a new Azure Active Directory, you should note that existing services, such as Office 365 or Windows Intune, already use Azure Active Directory. In that case, you would associate your existing subscription with you Azure subscription. For more details, see [What is an Azure AD tenant?][adtenant].
+## Secure your assets
 
-If you do not currently have a service that already uses Azure Active Directory, you can create a new directory in the Management Portal. Use the **Active Directory** section of the Management Portal to create a new directory.
+Secure assets by encryption, authenticate corporate users whether they are on-site or remote, and authorize their use of assets. 
 
-![BusinessApplicationsAzureAD][BusinessApplicationsAzureAD]
+Protect internal assets against eavesdroppers with [HTTPS]. The **\*.azurewebsites.net** domain name already comes with an SSL certificate, and if you use your custom domain, you can bring your SSL certificate for it to App Service Web Apps. There is a monthly charge (prorated hourly) associated with each SSL certificate. For more information, see [App Service Pricing Details].
 
-Once created, you have the option to create and manage users, integrated applications, and domains.
+[Authenticate users] against the corporate directory. App Service Web Apps can authenticate users with on-premises identity providers, such as Active Directory Federation Services (AD FS), or with an Azure Active Directory tenant that has been synchronized with your corporate Active Directory deployment. Users can access your web properties in Web Apps through single sign-on when they are on-site and when they are in the field. Existing services, such as Office 365 or Windows Intune, already use Azure Active Directory. Through [Easy Auth], turning on authentication with the same Azure Active Directory tenant for your web app is very easy. 
 
-![BusinessApplicationsADUsers][BusinessApplicationsADUsers]
+[Authorize users] for their use of web properties. With minimal additional code, you can bring the same on-premises ASP.NET coding pattern to App Service Web Apps using the `[Authorize]` decoration, for example. You retain the same flexibility for fine-grain access control as the applications you maintain on-premises.
 
-For a full walkthrough of these steps, see [Adding Sign-On to Your Web Application Using Azure AD][adsso]. If you are using this new directory as a standalone resource, then the next step is to develop applications that integrate with the directory. However, if you have on-premises Active Directory identities, you typically want to synchronize those with the new Azure Active Directory. For more information on how to do this, see [Directory integration][dirintegration].
+## Connect to on-premises resources ##
 
-Once the directory is created and populated, you must create web applications that require authentication and then integrate them with the directory. These steps are covered in the following two sections.
+Connect to your web app data or resources, whether it's in the cloud for performance or on-premises for compliance. For more information on keeping data in Azure, see [Azure Trust Center]. 
 
-##<a name="createintranetsite"></a>Create an Azure Web Site that Supports Authentication
-In the Global Web Presence scenario, we discussed various options for creating and deploying a new web site. If you are new to Azure Web Sites, it is a good idea to [review that information][scenarioglobalweb]. An ASP.NET application in Visual Studio is a common choice for an intranet web application that uses window authentication. One of the reasons for this is the tight integration and support for this scenario provided by ASP.NET and Visual Studio.
+You can choose from various database backends in Azure to meet the needs of your web app, including [Azure SQL Database] and [MySQL]. Keeping your data securely in Azure makes data close to your web app geographically and optimizes its performance.
 
-For example, when creating an ASP.NET MVC 4 project in Visual Studio, you have the option to create an **Intranet Application** in the project creation dialog.
+However, your business may require its data to be kept on-premises. App Service Web Apps lets you easily set up a [hybrid connection] to your on-premise resource such as a database backend. If you want unified management of your on-premises connections, you integrate many web apps with one [Azure Virtual Network] that has a site-to-site VPN. You can then access on-premises resources as if your web apps are on-premises.
 
-![BusinessApplicationsVSIntranetApp][BusinessApplicationsVSIntranetApp]
+## Optimize
 
-This makes changes to the project settings to support Windows Authentication. Specifically, the web.config file has the **authentication** element's **mode** attribute set to **Windows**. You must make this change manually if you create a different ASP.NET project, such as a Web Forms project, or if you are working with an existing project.
+Optimize your line-of-business application by scaling automatically with Autoscale, caching with Azure Redis Cache, running background tasks with WebJobs, and maintaining high availability with Azure Traffic Manager.
 
-For an MVC project, you must also change two values in the project properties window. Set **Windows Authentication** to **Enabled** and **Anonymous Authentication** to **Disabled**.
+The ability of App Service Web Apps to [scale up and out] meets the need of your line-of-business application, regardless of the size of your workload. Scale out your web app manually through the [Azure Management Portal], programmatically through the [Service Management API] or [PowerShell scripting], or automatically through the Autoscale feature. In the **Standard** tier, Autoscale enables you to scale out a web app automatically based on CPU utilization. For best practices, see [Troy Hunt]'s [10 things I learned about rapidly scaling web apps with Azure].
 
-![BusinessApplicationsVSProperties][BusinessApplicationsVSProperties]
+Make your web app more responsive with the [Azure Redis Cache]. Use it to cache data from backend databases and other things such as the [ASP.NET session state] and [output cache].
 
-In order to authenticate with Azure Active Directory, you have to register this application with the directory, and you must then modify that application configuration to connect. This can be done in two ways in Visual Studio:
+Maintain high availability of your web app using [Azure Traffic Manager]. Using the **Failover** method, Traffic Manager automatically routes traffic to a secondary site if there is a problem on the primary site.
 
-- [Identity and Access Tool for Visual Studio](#identityandaccessforvs)
-- [Microsoft ASP.NET Tools for Azure Active Directory](#aspnettoolsforwaad)
+## Monitor and analyze
 
-###<a name="identityandaccessforvs"></a>Identity and Access Tool for Visual Studio:
-One method is to use the [Identity and Access Tool][identityandaccess] (which you can download and install). This tool integrates with Visual Studio on the project context menu. The following instructions and screenshots are from Visual Studio 2012. Right-click the project, and select **Identity and Access**. There are three things that must be configured. On the **Providers** tab, you must provide the **path to the STS metadata document** and the **APP ID URI** (to obtain these values, see the section on [Registering Applications in Azure Active Directory](#registerwaadapp)).
+Stay up-to-date on your web app's performance with Azure or third-party tools. Receive alerts on critical web app events. Gain user insight easily with Application Insight or with web log analytics from HDInsight. 
 
-![BusinessApplicationsVSIdentityAndAccess][BusinessApplicationsVSIdentityAndAccess]
+Get a [quick glance] of the web app's current performance metrics and resource quotas in the web app's blade in the [Azure preview portal](http://go.microsoft.com/fwlink/?LinkId=529715). For a 360° view of your application across availability, performance and usage, use [Azure Application Insights] to give you fast & powerful troubleshooting, diagnostics and usage insights. Or, use a third-party tool like [New Relic] to provide advanced monitoring data for your web apps.
 
-The final configuration change that must be made is on the **Configuration** tab of the **Identity and Access** dialog. You must select the **Enable web farm cookies** checkbox. For a detailed walkthrough of these steps, see [Adding Sign-On to Your Web Application Using Azure AD][adsso].
+In the **Standard** tier, monitor app responsiveness receive email notifications whenever your app becomes unresponsive. For more information, see [How to: Receive Alert Notifications and Manage Alert Rules in Azure].
 
-####<a name="registerwaadapp"></a>Registering Applications in Azure Active Directory:
-In order to fill out the **Providers** tab, you need to register your application with Azure Active Directory. On the Azure Management Portal, in the **Active Directory** section, select your directory and then go to the **Applications** tab. This provides an option to add your Azure Web Site by URL. Note that when you go through these steps, you initially set the URL to the localhost address provided for local debugging in Visual Studio. Later you change this to the actual URL of your web site when you deploy.
+## More Resources
 
-![BusinessApplicationsADIntegratedApps][BusinessApplicationsADIntegratedApps]
+- [App Service Web Apps Documentation](/services/app-service/web/)
+- [Learning Map for Azure App Service Web Apps](websites-learning-map.md)
+- [Azure Web Blog](/blog/topics/web/)
 
-Once added, the portal provides both the STS metadata document path (the **Federation Metadata Document URL**) and the **APP ID URI**. These values are used on the **Providers** tab of the **Identity and Access** dialog in Visual Studio. 
+>[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 
-![BusinessApplicationsADAppAdded][BusinessApplicationsADAppAdded]
-
-###<a name="aspnettoolsforwaad"></a>Microsoft ASP.NET Tools for Azure Active Directory:
-An alternate method to accomplish the previous steps is to use the [Microsoft ASP.NET Tools for Azure Active Directory][aspnettools]. To use this, click the **Enable Azure Authentication** item from the **Project** menu in Visual Studio. This brings up a simple dialog that asks for the address of your Azure Active Directory domain (not the URL for your application).
-
-![BusinessApplicationsVSEnableAuth][BusinessApplicationsVSEnableAuth]
-
-If you are the administrator of that Active Directory domain, then select the **Provision this application in the Azure AD** checkbox. This will do the work of registering the application with Active Directory. If you are not the administrator, then uncheck that box and provide the information displayed to an administrator. That administrator can use the Management Portal to create an integrated application using the previous steps on the Identity and Access tool. For detailed steps on how to use the ASP.NET Tools for Azure Active Directory, see [Azure Authentication][azureauthtutorial].
-
-When managing your line-of-business application, you have the ability to use any of the supported source code control systems for deployment. However, because of the high level of Visual Studio integration in this scenario, it is more likely that Team Foundation Service (TFS) is your source control system of choice. If so, you should note that Azure Web Sites provides integration with TFS. In the Management Portal, go to the **Dashboard** tab of your web site. Then select **Set up deployment from source control**. Follow the instructions for using TFS. 
-
-![BusinessApplicationsDeploy][BusinessApplicationsDeploy]
-
-##<a name="servicebusrelay"></a>Use Service Bus to Integrate with On-Premises Resources
-Many line-of-business applications must integrate with on-premises data and services. There are multiple reasons why certain types of data cannot be moved to the Cloud. These reasons can be practical or regulatory. If you are in the planning stages of deciding what data to host in Azure and what data should remain on-premises, it is important to review the resources on the [Azure Trust Center][trustcenter]. Hybrid web applications run in Azure and access resources that must remain on-premises.
-
-When using Virtual Machines or Cloud Services, you can use a Virtual Network to connect applications in Azure with a corporate network. However, Web Sites does not support Virtual Networks, so the best way to perform this type of integration with Web Sites is through the use of the [Azure Service Bus Relay Service][sbrelay]. The Service Bus Relay service allows applications in the cloud to securely connect to WCF services running on a corporate network. Service Bus allows for this communication without opening firewall ports. 
-
-In the diagram below, both the cloud application and the on-premises WCF service communicate with Service Bus through a previously created namespace. The on-premises WCF service has access to internal data and services that cannot be moved to the Cloud. The WCF service registers an endpoint in the namespace. The web site running in Azure connects to this endpoint in Service Bus as well. They only need to be able to make outgoing public HTTP requests to complete this step.
-
-![BusinessApplicationsServiceBusRelay][BusinessApplicationsServiceBusRelay]
-
-Service Bus then connects the cloud application to the on-premises WCF service. This provides a basic architecture for creating hybrid applications that use services and resources on both Azure and on-premises. For more information, see [How to Use the Service Bus Relay Service][sbrelayhowto] and the tutorial [Service Bus Relayed Messaging Tutorial][sbrelaytutorial]. For a sample that demonstrates this technique, see [Enterprise Pizza - Connecting Web Sites to On-premise Using Service Bus][enterprisepizza].
-
-##<a name="monitor"></a>Monitor the Application
-Business applications benefit from the standard Web Site capabilities, such as scaling and monitoring. For a business application that experiences variable load during specific days or hours, the Autoscale (Preview) feature can assist with scaling the site out and back to efficiently use resources. Monitoring options include endpoint monitoring and quota monitoring. All of these scenarios were covered in more detail in the [Global Web Presence][scenarioglobalweb] and [Digital Marketing Campaign][scenariodigitalmarketing] scenarios.
-
-Monitoring needs can vary between different line-of-business applications that have different levels of importance to the business. For the more mission critical applications, consider investing in a third-party monitoring solution, such as [New Relic][newrelic].
-
-Line-of-business applications are typically managed by IT staff. In the event of unexpected errors or behavior, IT workers can enable more detailed logging and then analyze the resulting data to determine problems. In the Management Portal, go to the **Configure** tab, and review the options in the **application diagnostics** and **site diagnostics** sections. 
-
-![BusinessApplicationsDiagnostics][BusinessApplicationsDiagnostics]
-
-Use the various application and site logs to troubleshoot problems with the web site. Note that some of the options specify **File System**, which places the log files on the file system for your site. These can be accessed through FTP, Azure PowerShell, or the Azure Command-Line tools. Other options specify **Storage**. This sends the information to the Azure storage account that you specify. For **Web Server Logging**, you also have an option of specifying a disk quota for the file system or a retention policy for the storage option. This prevents you from storing a indefinitely increasing the amount of stored logging data.
-
-![BusinessApplicationsDiagRetention][BusinessApplicationsDiagRetention]
-
-For more information on these logging settings, see [How to: Configure diagnostics and download logs for a web site][configurediagnostics].
-
-In addition to viewing the raw logs through FTP or storage utilities, such as Azure Storage Explorer, you can also view log information in Visual Studio. For detailed information on using these logs in troubleshooting scenarios, see [Troubleshooting Azure Web Sites in Visual Studio][troubleshootwebsites].
-
-##<a name="summary"></a>Summary
-Azure enables you to host secure intranet applications in the Cloud. Azure Active Directory provides the ability to authenticate users, in order that only members of your organization can access the applications. The Service Bus Relay Service provides a mechanism for web applications to communicate with on-premises services and data. This hybrid application approach makes it easier to publish a business application to the Cloud without migrating all dependent data and services as well. Once deployed, business applications benefit from the standard scaling and monitoring capabilities provided by Azure Web Sites. For more information, see the following technical articles.
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Area</th>
-   <th align="left" valign="top">Resources</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>Plan</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Azure Web Sites, Cloud Services, and VMs: When to use which?</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Create and Deploy</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Web Site</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Deploy a Secure ASP.NET MVC Application to Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Authentication</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/">Understand Azure Identity Options</a><br/>- <a href="http://www.windowsazure.com/en-us/documentation/services/active-directory/">Azure Active Directory service</a><br/>- <a href="http://technet.microsoft.com/en-us/library/jj573650.aspx">What is an Azure AD tenant?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Adding Sign-On to Your Web Application Using Azure AD</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Azure Authentication Tutorial</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Service Bus Relay</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">How to Use the Service Bus Relay Service</a><br/>- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx">Service Bus Relayed Messaging Tutorial</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Monitor</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">How to Monitor Web Sites</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">How to: Receive Alert Notifications and Manage Alert Rules in Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">How to: Configure diagnostics and download logs for a web site</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Troubleshooting Azure Web Sites in Visual Studio</a></td>
-</tr>
-</table>
-
-  [websitesoverview]:/en-us/documentation/services/web-sites/
-  [csoverview]:/en-us/documentation/services/cloud-services/
-  [vmoverview]:/en-us/documentation/services/virtual-machines/
-  [chooseservice]:/en-us/manage/services/web-sites/choose-web-app-service
-  [scenarioglobalweb]:/en-us/manage/services/web-sites/global-web-presence-solution-overview/
-  [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [adoverview]:/en-us/documentation/services/active-directory/
-  [adusing]:/en-us/manage/windows/fundamentals/identity/#ad
-  [adwithvm]:/en-us/manage/windows/fundamentals/identity/#adinvm
-  [addeployguidelines]:http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
-  [acs2]:http://msdn.microsoft.com/library/windowsazure/hh147631.aspx
-  [acsusing]:/en-us/manage/windows/fundamentals/identity/#ac
-  [adtenant]:http://technet.microsoft.com/en-us/library/jj573650.aspx
-  [adsso]:http://msdn.microsoft.com/library/windowsazure/dn151790.aspx
-  [dirintegration]:http://technet.microsoft.com/en-us/library/jj573653.aspx
-  [identityandaccess]:http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
-  [aspnettools]:http://go.microsoft.com/fwlink/?LinkID=282306
-  [azureauthtutorial]:http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication
-  [trustcenter]:/en-us/support/trust-center/
-  [sbrelay]:http://msdn.microsoft.com/en-us/library/windowsazure/jj860549.aspx
-  [sbrelayhowto]:/en-us/develop/net/how-to-guides/service-bus-relay/
-  [sbrelaytutorial]:http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx
-  [enterprisepizza]:http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa
-  [newrelic]:http://newrelic.com/azure
-  [configurediagnostics]:/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  [troubleshootwebsites]:/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
-  [BusinessApplicationsADUsers]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_Users.png
-  [BusinessApplicationsVSIntranetApp]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_IntranetApp.png
-  [BusinessApplicationsVSProperties]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_Properties.png
-  [BusinessApplicationsVSIdentityAndAccess]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_IdentityAndAccess.png
-  [BusinessApplicationsADIntegratedApps]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_IntegratedApps.png
-  [BusinessApplicationsADAppAdded]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_AppAdded.png
-  [BusinessApplicationsVSEnableAuth]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_EnableAuth.png
-  [BusinessApplicationsDeploy]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Deploy.png
-  [BusinessApplicationsServiceBusRelay]: ./media/web-sites-business-application-solution-overview/BusinessApplications_ServiceBusRelay.png
-  [BusinessApplicationsDiagnostics]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diagnostics.png
-  [BusinessApplicationsDiagRetention]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diag_Retention.png
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
 
 
+[Azure App Service]: /services/app-service/web/
 
-  
+[FTP]:web-sites-deploy.md#ftp
+[Visual Studio]:web-sites-dotnet-get-started.md
+[Visual Studio Online]:cloud-services-continuous-delivery-use-vso.md
+[Git]:web-sites-publish-source-control.md
 
+[HTTPS]:web-sites-configure-ssl-certificate.md
+[App Service Pricing Details]: /pricing/details/app-service/#ssl-connections
+[Authenticate users]:web-sites-authentication-authorization.md
+[Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
+[Authorize users]:web-sites-authentication-authorization.md
 
+[Azure Trust Center]:/support/trust-center/
+[MySQL]:web-sites-php-mysql-deploy-use-git.md
+[Azure SQL Database]:web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md
+[hybrid connection]:web-sites-hybrid-connection-get-started.md
+[Azure Virtual Network]:web-sites-integrate-with-vnet.md
+
+[scale up and out]:web-sites-scale.md
+[Azure Management Portal]:http://manage.windowsazure.com/
+[Service Management API]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[PowerShell scripting]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+[Troy Hunt]:https://twitter.com/troyhunt
+[10 things I learned about rapidly scaling web apps with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Azure Redis Cache]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[ASP.NET session state]:https://msdn.microsoft.com/library/azure/dn690522.aspx
+[output cache]:https://msdn.microsoft.com/library/azure/dn798898.aspx
+
+[quick glance]:web-sites-monitor.md
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:store-new-relic-cloud-services-dotnet-application-performance-management.md
+[How to: Receive Alert Notifications and Manage Alert Rules in Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 

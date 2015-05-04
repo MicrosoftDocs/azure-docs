@@ -1,13 +1,30 @@
-<properties pageTitle="Service-side authorization (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Service-side authorization (Android) | Mobile Dev Center" 
+	description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="04/13/2015" 
+	ms.author="glenga"/>
 
 # Service-side authorization of Mobile Services users
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-authorize-users-in-scripts" title="iOS">iOS</a><a href="/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/mobile-services-html-authorize-users-in-scripts" title="HTML">HTML</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts" title="Xamarin.Android">Xamarin.Android</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-android-authorize-users-in-scripts/"  title="JavaScript backend" class="current">JavaScript backend</a></div>	
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]	
 
 This topic shows you how to use server scripts to authorize authenticated users for accessing data in Azure Mobile Services from an Android app.  In this tutorial you register scripts with Mobile Services to filter queries based on the userId of an authenticated user, ensuring that each user can see only their own data.
 
-This tutorial is based on the Mobile Services quickstart and builds on the previous tutorial [Get started with authentication]. Before you start this tutorial, you must first complete [Get started with authentication].  
+##Prerequisites
+
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]  
 
 ## <a name="register-scripts"></a>Register scripts
 Because the quickstart app reads and inserts data, you need to register scripts for these operations against the TodoItem table.
@@ -33,9 +50,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
     This script adds a userId value to the item, which is the user ID of the authenticated user, before it is inserted into the TodoItem table. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>userId</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.</p>
-    </div>
+    > [AZURE.NOTE] Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the **userId** column to the **TodoItem** table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published to the Windows Store.
 
 
 5. Repeat steps 3 and 4 to replace the existing **Read** operation with the following function:
@@ -49,7 +64,7 @@ Because the quickstart app reads and inserts data, you need to register scripts 
 
 ## Test the app
 
-1. In Eclipse, open the project that you modified when you completed the tutorial [Get started with authentication].
+1. In Android Studio, open the project that you modified when you completed the tutorial [Get started with authentication].
 
 2. From the **Run** menu, then click **Run** to start the app and sign in with your chosen identity provider. 
 
@@ -89,9 +104,9 @@ This concludes the tutorials that demonstrate the basics of working with authent
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/

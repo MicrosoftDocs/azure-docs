@@ -1,4 +1,20 @@
-<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Use the autoscaling application block (.NET) - Azure" 
+	description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." 
+	services="cloud-services" 
+	documentationCenter=".net" 
+	authors="squillace" 
+	manager="timlt" 
+	editor=""/>
+
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="rasquill"/>
 
 
 
@@ -124,7 +140,7 @@ and tools in Visual Studio and Visual Web Developer. The Autoscaling
 Application Block NuGet package is the easiest way to get the Autscaling
 Application Block APIs. For more information about **NuGet**, and how to
 install and use the **NuGet** Visual Studio extension, see the [NuGet][]
-web site.
+website.
 
 Once you have the NuGet Package Manager installed, to install the Autoscaling NuGet
 package in your application, do the following:
@@ -545,18 +561,18 @@ autoscaling scenarios:
   [How To: Define your Service Model]: #DefineServiceModel
   [How To: Define your Autoscaling Rules]: #DefineAutoscalingRules
   [How To: Configure the Autoscaling Application Block]: #Configure
-  [Using performance counters in Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/
+  [Using performance counters in Azure]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Storing Your Service Information Data]: http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx		
-  [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx
-  [Implementing Throttling Behavior]: http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx
-  [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx
-  [Extending and Modifying the Autoscaling Application Block]: http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx
-  [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs]: http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx
-  [Using Notifications and Manual Scaling]: http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-  [Defining Scale Groups]: http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx
-  [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx
-  [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-  [How Sage Reduces Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+  [Storing Your Service Information Data]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx		
+  [Hosting the Autoscaling Application Block in a Worker Role]: http://msdn.microsoft.com/library/hh680914(PandP.50).aspx
+  [Implementing Throttling Behavior]: http://msdn.microsoft.com/library/hh680896(PandP.50).aspx
+  [Understanding Rule Ranks and Reconciliation]: http://msdn.microsoft.com/library/hh680923(PandP.50).aspx
+  [Extending and Modifying the Autoscaling Application Block]: http://msdn.microsoft.com/library/hh680889(PandP.50).aspx
+  [Using the Optimizing Stabilizer to prevent high frequency oscillation and to optimize costs]: http://msdn.microsoft.com/library/hh680951(PandP.50).aspx
+  [Using Notifications and Manual Scaling]: http://msdn.microsoft.com/library/hh680885(PandP.50).aspx
+  [Defining Scale Groups]: http://msdn.microsoft.com/library/hh680902(PandP.50).aspx
+  [Using the WASABiCmdlets for manipulating the block via Windows PowerShell]: http://msdn.microsoft.com/library/hh680938(PandP.50).aspx
+  [Developer's Guide to the Enterprise Library 5.0 Integration Pack for Azure]: http://msdn.microsoft.com/library/hh680949(PandP.50).aspx
+  [How Sage Reduces Azure Hosting Costs Using Autoscaling]: http://msdn.microsoft.com/library/jj838716(PandP.50).aspx
+  [Reducing TechNet and MSDN hosting costs and environmental impact with autoscaling on Azure]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx

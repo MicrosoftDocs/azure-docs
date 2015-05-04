@@ -1,4 +1,4 @@
-<h2><a name="setupdevenv"></a><span class="short-header">Set up environment</span>Set up the development environment</h2>
+<h2><a name="setupdevenv"></a>Set up the development environment</h2>
 
 To start, set up your development environment by installing the Azure SDK for .NET.
 

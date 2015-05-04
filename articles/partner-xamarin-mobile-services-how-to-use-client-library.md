@@ -1,40 +1,29 @@
-<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="" />
+<properties 
+	pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" 
+	description="Learn how to use the Xamarin Component client for Azure Mobile Services." 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services" 
+	documentationCenter="xamarin"/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="04/24/2015" 
+	ms.author="lindydonna"/>
 
 # How to use the Xamarin Component client for Azure Mobile Services
-
-<div class="dev-center-tutorial-selector sublanding"> 
-  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
-  	<a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
-</div>
-
+[AZURE.INCLUDE [mobile-services-selector-client-library](../includes/mobile-services-selector-client-library.md)]
 
 This guide shows you how to perform common scenarios using the Xamarin Component client for Azure Mobile Services, in Xamarin apps for iOS and Android. The scenarios covered include querying for data, inserting, updating, and deleting data, authenticating users, and handling errors. If you are new to Mobile Services, you should consider first completing the "Mobile Services quickstart" tutorial ([Xamarin.iOS][Xamarin.iOS quickstart tutorial]/[Xamarin.Android][Xamarin.Android quickstart tutorial]) and the "Getting Started with Data in .NET" tutorial ([Xamarin.iOS][Xamarin.iOS data tutorial]/[Xamarin.Android][Xamarin.Android data tutorial]). The quickstart tutorial requires [Xamarin][Xamarin download] the [Mobile Services SDK] and helps you configure your account and create your first mobile service.
 
+[AZURE.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
-## Table of Contents
-
-- [What is Mobile Services]
-- [Concepts]
-- [How to: Create the Mobile Services client]
-- [How to: Create a table reference]
-- [How to: Query data from a mobile service]
-	- [Filter returned data]
-    - [Sort returned data]
-	- [Return data in pages]
-	- [Select specific columns]
-	- [Look up data by ID]
-- [How to: Insert data into a mobile service]
-- [How to: Modify data in a mobile service]
-- [How to: Delete data in a mobile service]
-- [How to: Authenticate users]
-- [How to: Handle errors]
-- [How to: Work with untyped data]
-- [How to: Design unit tests]
-- [Next steps]
-	
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
-
-<h2><a name="setup"></a><span class="short-header">Setup</span>Setup and Prerequisites</h2>
+## <a name="setup"></a>Setup and Prerequisites
 
 We assume that you have created a mobile service and a table. For more information see [Create a table](http://go.microsoft.com/fwlink/?LinkId=298592). In the code used in this topic, the table is named `TodoItem` and it will have the following columns: `id`, `Text`, and `Complete`.
 
@@ -54,7 +43,7 @@ The corresponding typed client-side .NET type is the following:
 	
 When dynamic schema is enabled, Azure Mobile Services automatically generates new columns based on the object in insert or update requests. For more information, see [Dynamic schema](http://go.microsoft.com/fwlink/?LinkId=296271).
 
-<h2><a name="create-client"></a><span class="short-header">Create the Mobile Services client</span>How to: Create the Mobile Services client</h2>
+## <a name="create-client"></a>How to: Create the Mobile Services client
 
 The following code creates the `MobileServiceClient` object that is used to access your mobile service. 
 			
@@ -65,16 +54,16 @@ The following code creates the `MobileServiceClient` object that is used to acce
 
 In the code above, replace `AppUrl` and `AppKey` with the mobile service URL and application key, in that order. Both of these are available on the Azure Management Portal, by selecting your mobile service and then clicking on "Dashboard".
 
-<h2><a name="instantiating"></a><span class="short-header">Creating a table reference</span>How to: Create a table reference</h2>
+## <a name="instantiating"></a>How to: Create a table reference
 
-All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`. 
+All of the code that accesses or modifies data in the Mobile Services table calls functions on the `MobileServiceTable` object. You get a reference to the table by calling the [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) function on an instance of the `MobileServiceClient`. 
 
     IMobileServiceTable<TodoItem> todoTable = 
 		client.GetTable<TodoItem>();
 
 This is the typed serialization model; see discussion of <a href="#untyped">the untyped serialization model</a> below.
 			
-<h2><a name="querying"></a><span class="short-header">Querying data</span>How to: Query data from a mobile service</h2>
+## <a name="querying"></a>How to: Query data from a mobile service 
 
 This section describes how to issue queries to the mobile service. Subsections describe different aspects such as sorting, filtering, and paging. 
 			
@@ -130,7 +119,7 @@ The `where` clause supports operations that be translated into the Mobile Servic
 
 The following code illustrates how to sort data by including an `OrderBy` or `OrderByDescending` function in the query. It returns items from `todoTable` sorted ascending by the `Text` field. By default, the server returns only the first 50 elements. 
 
-<div class="dev-callout"><strong>Note</strong> <p>A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service. </p> </div>
+> [AZURE.NOTE] A server-driven page size is used by default to prevent all elements from being returned. This keeps default requests for large data sets from negatively impacting the service.
 
 You may increase the number of items to be returned by calling `Take` as described in the next section.
 
@@ -161,7 +150,7 @@ The following revised query skips the first three results and returns the next t
 					.Take(3);                              
 	List<TodoItem> items = await query.ToListAsync();
 			
-You can also use the [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
+You can also use the [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) method to ensure that the query will get the total count for <i>all</i> the records that would have been returned, ignoring any take paging/limit clause specified:
 
 	query = query.IncludeTotalCount();
 
@@ -197,9 +186,9 @@ The `LookupAsync` function can be used to look up objects from the database with
 	// This query filters out the item with the ID of 25
 	TodoItem item25 = await todoTable.LookupAsync(25);
 
-<h2><a name="inserting"></a><span class="short-header">Inserting data</span>How to: Insert data into a mobile service</h2>
+## <a name="inserting"></a>How to: Insert data into a mobile service
 
-<div class="dev-callout"><strong>Note</strong> <p>If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called <strong>Id</strong> (regardless of case). This is why the example class <strong>TodoItem</strong> has a member of name <strong>Id</strong>. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.</p> </div>
+> [AZURE.NOTE] If you want to perform insert, lookup, delete, or update operations on a type, then you need to create a member called **Id** (regardless of case). This is why the example class **TodoItem** has a member of name **Id**. An ID value must not be set to anything other than the default value during insert operations; by contrast, the ID value should always be set to a non-default value and present in update and delete operations.
 
 The following code illustrates how to insert new rows into a table. The parameter contains the data to be inserted as a .NET object.
 
@@ -216,7 +205,7 @@ To insert untyped data, you may take advantage of Json.NET as shown below. Again
 
 If you attempt to insert an item with the "Id" field already set, you will get back a `MobileServiceInvalidOperationException` from the service. 
 
-<h2><a name="modifying"></a><span class="short-header">Modifying data</span>How to: Modify data in a mobile service</h2>
+## <a name="modifying"></a>How to: Modify data in a mobile service
 
 The following code illustrates how to update an existing instance with the same ID with new information. The parameter contains the data to be updated as a .NET object.
 
@@ -234,7 +223,7 @@ To insert untyped data, you may take advantage of Json.NET like so. Note that wh
 If you attempt to update an item without the "Id" field already set, there is no way for the service to tell which instance to update, so you will get back a `MobileServiceInvalidOperationException` from the service. Similarly, if you attempt to update an untyped item without the "Id" field already set, you will again get back a `MobileServiceInvalidOperationException` from the service. 
 			
 			
-<h2><a name="deleting"></a><span class="short-header">Deleting data</span>How to: Delete data in a mobile service</h2>
+## <a name="deleting"></a>How to: Delete data in a mobile service
 
 The following code illustrates how to delete an existing instance. The instance is identified by the "Id" field set on the `todoItem`.
 
@@ -250,13 +239,13 @@ If you attempt to delete an item without the "Id" field already set, there is no
 		
 
 
-<h2><a name="authentication"></a><span class="short-header">Authentication</span>How to: Authenticate users</h2>
+## <a name="authentication"></a>How to: Authenticate users
 
 Mobile Services supports authenticating and authorizing app users using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in server scripts. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
 Two authentication flows are supported: a _server flow_ and a _client flow_. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities as it relies on provider-specific device-specific SDKs.
 
-<h3>Server flow</h3>
+### Server flow
 To have Mobile Services manage the authentication process in your Windows Store or Windows Phone app, 
 you must register your app with your identity provider. Then in your mobile service, you need to configure the application ID and secret provided by your provider. For more information, see the "Get started with authentication" tutorial ([Xamarin.iOS][Xamarin.iOS authentication]/[Xamarin.Android][Xamarin.Android authentication]).
 
@@ -290,7 +279,7 @@ If you are using an identity provider other than Facebook, change the value of [
 
 In this case, Mobile Services manages the OAuth 2.0 authentication flow by displaying the login page of the selected provider and generating a Mobile Services authentication token after successful login with the identity provider. The [LoginAsync method] returns a [MobileServiceUser], which provides both the [userId] of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be cached and re-used until it expires. For more information, see [Caching the authentication token].
 
-<h3>Client flow</h3>
+### Client flow
 
 Your app can also independently contact the identity provider and then provide the returned token to Mobile Services for authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional user data from the identity provider. 
 
@@ -327,7 +316,7 @@ In the most simplified form, you can use the client flow as shown in this snippe
 		}
 	}
 
-<h3><a name="caching"></a>Caching the authentication token</h3>
+### <a name="caching"></a>Caching the authentication token
 In some cases, the call to the login method can be avoided after the first time the user authenticates. You can use a local secure store (such as [Xamarin.Auth][Xamarin.Auth component]) to cache the current user identity the first time they log in and every subsequent time you check whether you already have the user identity in our cache. When the cache is empty, you still need to send the user through the login process. 
 
 	using Xamarin.Auth;
@@ -360,7 +349,7 @@ In some cases, the call to the login method can be avoided after the first time 
 	accountStore.Delete(account, "Facebook");
 
 
-<h2><a name="errors"></a><span class="short-header">Error handling</span>How to: Handle errors</h2>
+## <a name="errors"></a>How to: Handle errors
 
 There are several ways to encounter, validate, and work around errors in Mobile Services. 
 
@@ -394,7 +383,7 @@ Now that the mobile service is validating data and sending error responses on th
 		}
 	}
 
-<h2><a name="untyped"></a><span class="short-header">Working with untyped data</span>How to: Work with untyped data</h2>
+## <a name="untyped"></a>How to: Work with untyped data
 
 The Xamarin Component client is designed for strongly typed scenarios. However, sometimes, a more loosely typed experience is convenient; for example, this could be when dealing with objects with open schema. That scenario is enabled as follows. In queries, you forego LINQ and use the wire format.
 
@@ -406,11 +395,11 @@ The Xamarin Component client is designed for strongly typed scenarios. However, 
 
 You get back JSON values that you can use like a property bag. For more information on JToken and Json.NET, see [Json.NET](http://json.codeplex.com/)
 
-<h2><a name="unit-testing"></a><span class="short-header">Designing tests</span>How to: Design unit tests</h2>
+## <a name="unit-testing"></a>How to: Design unit tests
 
 The value returned by `MobileServiceClient.GetTable` and the queries are interfaces. That makes them easily "mockable" for testing purposes, so you could create a `MyMockTable : IMobileServiceTable<TodoItem>` that implements your testing logic.
 
-<h2><a name="nextsteps"></a>Next steps</h2>
+## <a name="nextsteps"></a>Next steps
 
 Now that you have completed this how-to conceptual reference topic, learn how to perform important tasks in Mobile Services in detail:
 
@@ -423,7 +412,7 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 * Get started with authentication ([Xamarin.iOS][Get started with authentication iOS]/[Xamarin.Android][Get started with authentication Android])
   <br/>Learn how to authenticate users of your app with an identity provider.
 
-* Validate and modify data with scripts ([Xamarin.iOS][Validate and modify data with scripts iOS]/[Xamarin.Android][Validate and modify data with scripts Android])
+* Validate and modify data with scripts ([Xamarin.iOS][Validate and modify data with scripts ios]/[Xamarin.Android][Validate and modify data with scripts android])
   <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
 * Refine queries with paging ([Xamarin.iOS][Refine queries with paging iOS]/[Xamarin.Android][Refine queries with paging Android])
@@ -459,32 +448,32 @@ Now that you have completed this how-to conceptual reference topic, learn how to
 [Caching the authentication token]: #caching
 
 <!-- URLs. -->
-[Get started with Mobile Services iOS]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with Mobile Services Android]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
+[Get started with Mobile Services iOS]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with Mobile Services Android]: /develop/mobile/tutorials/get-started-xamarin-android
 [Xamarin download]: http://xamarin.com/download/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Xamarin.iOS quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios/
-[Xamarin.Android quickstart tutorial]: /en-us/develop/mobile/tutorials/get-started-xamarin-android/
-[Xamarin.iOS data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
-[Xamarin.Android data tutorial]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/
-[Xamarin.iOS authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
-[Xamarin.Android authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/
+[Xamarin.iOS quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-ios/
+[Xamarin.Android quickstart tutorial]: /develop/mobile/tutorials/get-started-xamarin-android/
+[Xamarin.iOS data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+[Xamarin.Android data tutorial]: /develop/mobile/tutorials/get-started-with-data-xamarin-android/
+[Xamarin.iOS authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+[Xamarin.Android authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Xamarin.Auth component]: https://components.xamarin.com/view/xamarin.auth
 
 [Mobile Services SDK]: http://nuget.org/packages/WindowsAzure.MobileServices/
-[Get started with data iOS]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with data Android]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication iOS]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with authentication Android]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Validate and modify data with scripts ios]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
-[Validate and modify data with scripts android]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-[Refine queries with paging iOS]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
-[Refine queries with paging Android]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-[Authorize users with scripts iOS]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
-[Authorize users with scripts Android]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
-[LoginAsync method]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
-[MobileServiceUser]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
-[UserID]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
-[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+[Get started with data iOS]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with data Android]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication iOS]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with authentication Android]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Validate and modify data with scripts ios]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+[Validate and modify data with scripts android]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+[Refine queries with paging iOS]: /develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+[Refine queries with paging Android]: /develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Authorize users with scripts iOS]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Authorize users with scripts Android]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[LoginAsync method]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+[MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+[UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+[MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx

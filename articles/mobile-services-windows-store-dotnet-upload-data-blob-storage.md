@@ -1,9 +1,24 @@
-<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." metaCanonical="" services="" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="" editor="" />
+<properties 
+	pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" 
+	description="Learn how to use Mobile Services to upload images to Azure Blob Storage and access the images from your Windows Store app." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/22/2015" 
+	ms.author="glenga"/>
 
 # Upload images to Azure Storage by using Mobile Services
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#" class="current">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone">Windows Phone</a></div>
-<div class="dev-center-tutorial-subselector"><a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title=".NET backend" >.NET backend</a> | <a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="JavaScript backend" class="current">JavaScript backend</a></div>
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 This topic shows you how to use Azure Mobile Services to enable your app to upload and store user-generated images in Azure Storage. Mobile Services uses a SQL Database to store data. However, binary large object (BLOB) data is more efficiently stored in Azure Blob storage service. 
 
@@ -40,9 +55,9 @@ Next, you will update the quickstart app to capture and upload images.
 
 ##<a name="update-scripts"></a>Update the registered insert script in the Management Portal
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Next steps
 
@@ -78,14 +93,14 @@ Now that you have been able to securely upload images by integrating your mobile
 
 
 <!-- URLs. -->
-[Send email from Mobile Services with SendGrid]: /en-us/develop/mobile/tutorials/send-email-with-sendgrid/
-[Schedule backend jobs in Mobile Services]: /en-us/documentation/articles/mobile-services-schedule-recurring-tasks
+[Send email from Mobile Services with SendGrid]: /develop/mobile/tutorials/send-email-with-sendgrid/
+[Schedule backend jobs in Mobile Services]: mobile-services-schedule-recurring-tasks.md
 [Send push notifications to Windows Store apps using Service Bus from a .NET back-end]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started
+[Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[How To Create a Storage Account]: /en-us/manage/services/storage/how-to-create-a-storage-account
+[How To Create a Storage Account]: /manage/services/storage/how-to-create-a-storage-account
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
+[App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

@@ -1,10 +1,24 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-xamarin-ios" urlDisplayName="Get Started with Authentication (Xamarin.iOS)" pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services" metaKeywords="Azure registering application, Azure authentication, application authenticate, authenticate mobile services, Mobile Services Xamarin.iOS" description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" 
-title="Get started with authentication in Mobile Services" />
+<properties
+	pageTitle="Get started with authentication (Xamarin.iOS) - Mobile Services"
+	description="Learn how to use authentication in your Azure Mobile Services app for Xamarin.iOS."
+	documentationCenter="xamarin"
+	services="mobile-services"
+	manager="dwrede"
+	authors="lindydonna"
+	editor=""/>
 
-# Get started with authentication in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/23/2014"
+	ms.author="donnam"/>
+
+# Add authentication to your Mobile Services app
+
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
 This topic shows you how to authenticate users in Azure Mobile Services from your app.  In this tutorial, you add authentication to the quickstart project using an identity provider that is supported by Mobile Services. After being successfully authenticated and authorized by Mobile Services, the user ID value is displayed.  
 
@@ -14,69 +28,34 @@ This tutorial walks you through these basic steps to enable authentication in yo
 2. [Restrict table permissions to authenticated users]
 3. [Add authentication to the app]
 
-This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services]. 
+This tutorial is based on the Mobile Services quickstart. You must also first complete the tutorial [Get started with Mobile Services].
 
-Completing this tutorial requires [Xamarin.iOS], XCode 5.0 and iOS 5.0 or later versions.
+Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later versions.
 
-<h2><a name="register"></a><span class="short-header">Register your app</span>Register your app for authentication and configure Mobile Services</h2>
+<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
 
-To be able to authenticate users, you must register your app with an identity provider. You must then register the provider-generated client secret with Mobile Services.
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-1. Log on to the [Azure Management Portal], click **Mobile Services**, and then click your mobile service.
-
-   	![][4]
-
-2. Click the **Dashboard** tab and make a note of the **Site URL** value.
-
-   	![][5]
-
-	You may need to provide this value to the identity provider when you register your app.
-
-3. Choose a supported identity provider from the list below and follow the steps to register your app with that provider:
-
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/" target="_blank">Microsoft Account</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Facebook login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Twitter login</a>
- - <a href="/en-us/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Google login</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
 
 
-    Remember to make a note of the client identity and secret values generated by the provider.
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-    <div class="dev-callout"><b>Security Note</b>
-	<p>The provider-generated secret is an important security credential. Do not share this secret with anyone or distribute it with your app.</p>
-    </div>
 
-4. Back in the Management Portal, click the **Identity** tab, enter the app identifier and shared secret values obtained from your identity provider, and click **Save**.
+3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services].
 
-   	![][13]
+4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-Both your mobile service and your app are now configured to work with your chosen authentication provider.
-
-<h2><a name="permissions"></a><span class="short-header">Restrict permissions</span>Restrict permissions to authenticated users</h2>
-
-1. In the Management Portal, click the **Data** tab, and then click the **TodoItem** table. 
-
-   	![][14]
-
-2. Click the **Permissions** tab, set all permissions to **Only authenticated users**, and then click **Save**. This will ensure that all operations against the **TodoItem** table require an authenticated user. This also simplifies the scripts in the next tutorial because they will not have to allow for the possibility of anonymous users.
-
-   	![][15]
-
-3. In Xcode, open the project that you created when you completed the tutorial [Get started with Mobile Services]. 
-
-4. Press the **Run** button to build the project and start the app in the iPhone emulator; verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts. 
-   
    	This happens because the app attempts to access Mobile Services as an unauthenticated user, but the _TodoItem_ table now requires authentication.
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a><span class="short-header">Add authentication</span>Add authentication to the app</h2>
+<h2><a name="add-authentication"></a>Add authentication to the app</h2>
 
 1. Open the **TodoService** project file and add the following variables
 
 		// Mobile Service logged in user
-		private MobileServiceUser user; 
+		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
 2. Then add a new method named **Authenticate** to **TodoService** defined as:
@@ -93,9 +72,7 @@ Next, you will update the app to authenticate users before requesting resources 
             }
         }
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you are using an identity provider other than a Microsoft Account, change the value passed to <strong>LoginAsync</strong> above to one of the following: <i>Facebook</i>, <i>Twitter</i>, <i>Google</i>, or <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
 3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
 
@@ -104,7 +81,7 @@ Next, you will update the app to authenticate users before requesting resources 
             // Create an MSTable instance to allow us to work with the TodoItem table
             todoTable = client.GetTable<TodoItem>();
         }
-	
+
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
 
         public async Task LoginAndGetData(UIViewController view)
@@ -128,22 +105,22 @@ Next, you will update the app to authenticate users before requesting resources 
             {
                 // TODO:: show error
                 return;
-            } 
-                
+            }
+
             RefreshAsync();
         }
 6. Remove the original call to **RefreshAsync** from **TodoListViewController.ViewDidLoad**.
-		
+
 7. Press the **Run** button to build the project, start the app in the iPhone emulator, then log-on with your chosen identity provider.
 
    	When you are successfully logged-in, the app should run without errors, and you should be able to query Mobile Services and make updates to data.
 
 ## Get completed example
-Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings. 
+Download the [completed example project]. Be sure to update the **applicationURL** and **applicationKey** variables with your own Azure settings.
 
 ## <a name="next-steps"></a>Next steps
 
-In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
+In the next tutorial, [Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -163,11 +140,12 @@ In the next tutorial, [Authorize users with scripts], you will take the user ID 
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/-get-started-with-push-xamarin-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /develop/mobile/tutorials/-get-started-with-push-xamarin-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+[Xamarin.iOS]: http://xamarin.com/download

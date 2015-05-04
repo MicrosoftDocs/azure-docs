@@ -1,34 +1,20 @@
-<properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" 
+	description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/en-us/develop/net/compute/">Compute</a></li>
-<li class="menu-nodejs-data"><a href="/en-us/develop/net/data/">Data Services</a></li>
-<li class="menu-nodejs-appservices"><a href="/en-us/develop/net/app-services/">App Services</a></li>
-<li><a href="/en-us/develop/net/reference/">Reference</a></li>
-<li><a href="/en-us/develop/net/guidance/">Guidance</a></li>
-<li><a href="/en-us/develop/net/architecture/">Architecture</a></li>
-<li><a href="/en-us/develop/net/samples/">Samples</a></li>
-<li><a href="/en-us/develop/net/end-to-end-Apps/">Scenario-Based Tutorials</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/en-us/support/forums/">Forums</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>In this section (jump to):</li>
-<li><a href="/en-us/develop/net/architecture/#overviews">Application architecture overviews</a></li>
-<li><strong>Application pattern: Multitenant apps</strong></li>
-<li><a href="/en-us/develop/net/architecture/load-testing-pattern/">Application pattern: Load testing</a></li>
-<li><a href="/en-us/develop/net/architecture/#designpatterns">Design patterns</a></li>
-</ul>
-</div>
-</div>
-</div>
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 # Multitenant Applications in Azure
 
@@ -58,8 +44,8 @@ Azure provides many features that allow you to address the key problems encounte
 
 **Isolation** 
 
-- Segment Web site Tenants by Host Headers with or without SSL communication
-- Segment Web site Tenants by Query Parameters
+- Segment Website Tenants by Host Headers with or without SSL communication
+- Segment Website Tenants by Query Parameters
 - Web Services in Worker Roles
 	- Worker Roles. that typically process data on the backend of an application.
 	- Web Roles that typically act as the frontend for applications.
@@ -68,7 +54,7 @@ Azure provides many features that allow you to address the key problems encounte
 
 Data management such as SQL Azure Database or Azure Storage services such as the Table service which provides services for storage of large amounts of unstructured data and the Blob service which provides services to store large amounts of unstructured text or binary data such as video, audio and images.
 
-- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins, 
+- Securing Multitenant Data in SQL Database appropriate per-tenant SQL Server logins. 
 - Using Azure Tables for Application Resources By specifying a container level access policy, you can the ability to adjust permissions without having to issue new URL's for the resources protected with shared access signatures. 
 - Azure Queues for Application Resources Azure queues are commonly used to drive processing on behalf of tenants, but may also be used to distribute work required for provisioning or management. 
 - Service Bus Queues for Application Resources that pushes work to a shared a service, you can use a single queue where each tenant sender only has permissions (as derived from claims issued from ACS) to push to that queue, while only the receivers from the service have permission to pull from the queue the data coming from multiple tenants. 
@@ -102,11 +88,11 @@ Azure provides a number of ways provision new tenants for the application. For m
 	- 	Copying from a master reference database 
 	- 	Using database Import and Export to provision new databases from a file. 
 
-][].
+
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/en-us/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 

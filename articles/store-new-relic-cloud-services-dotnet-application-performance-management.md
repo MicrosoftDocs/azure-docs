@@ -1,4 +1,20 @@
-<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Using New Relic with Azure - Azure feature guides" 
+	description="Learn how to use the New Relic service to manage and monitor your Azure application." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
+
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="03/16/2015" 
+	ms.author="stepsic"/>
 
 
 
@@ -28,12 +44,9 @@ New Relic special pricing through the Azure Store
 New Relic Standard is free to Azure users
 New Relic Pro is offered based on instance size for Azure Cloud Services
 
-For pricing information see the [New Relic page in the Azure Store](http://www.windowsazure.com/en-us/gallery/store/new-relic/new-relic/).
+For pricing information see the [New Relic page in the Azure Store](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic).
 
-<div class="dev-callout"> 
-<strong>Note:</strong>
-<p>Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.</p>
-</div>
+> [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
 
 Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
@@ -102,7 +115,7 @@ To sign up for New Relic directly from the Azure Store, follow these three easy 
 
 
 **Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
-Azure credentials. For more information, see <a href="/en-us/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Web Site</a>.
+Azure credentials. For more information, see <a href="/develop/net/tutorials/get-started/">Deploying an ASP.NET Web Application to an Azure Website</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 

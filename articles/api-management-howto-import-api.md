@@ -1,8 +1,24 @@
-<properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="API Management key concepts" 
+	description="Learn about APIs, products, roles, groups, and other API Management key concepts." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
+
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/10/2015" 
+	ms.author="sdanie"/>
 
 # How to import the definition of an API with operations in Azure API Management
 
-In API Management (Preview), new APIs can be created and the operations added manually, or the API can be imported along with the operations in one step.
+In API Management, new APIs can be created and the operations added manually, or the API can be imported along with the operations in one step.
 
 APIs and their operations can be imported using the following formats.
 
@@ -13,19 +29,13 @@ This guide shows how create a new API and import its operations in one step.
 
 >For information on manually creating an API and adding operations, see [How to create APIs][] and [How to add operations to an API][].
 
-## In this topic
-
--   [Import an API][]
--   [Export an API][]
--   [Next Steps][]
-
 ## <a name="import-api"> </a>Import an API
 
-To create and configure APIs, click **Management console** in the Azure Portal for your API Management service. This takes you to the API Management administrative portal.
+APIs are created and configured in the publisher portal. To access the publisher portal, click **Manage** in the Azure Portal for your API Management service.
+
+![Publisher portal][api-management-management-console]
 
 >If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
-
-![Management console][api-management-management-console]
 
 Click **APIs** from the **API Management** menu on the left, and then click **import API**.
 
@@ -50,7 +60,7 @@ Once all values are entered, click **Save** to create the API and the associated
 
 ## <a name="export-api"> </a> Export an API
 
-In addition to importing new APIs, you can export the definitions of your APIs from the management console. To do so, click **Export API** from the **Summary tab** of your **API**.
+In addition to importing new APIs, you can export the definitions of your APIs from the publisher portal. To do so, click **Export API** from the **Summary tab** of your **API**.
 
 ![Export API][api-management-export-api]
 
@@ -71,11 +81,6 @@ Once an API is created and the operations imported, you can review and configure
 [api-management-management-console]: ./media/api-management-howto-import-api/api-management-management-console.png
 [api-management-import-apis]: ./media/api-management-howto-import-api/api-management-api-import-apis.png
 [api-management-import-api-clipboard]: ./media/api-management-howto-import-api/api-management-import-api-wizard.png
-[api-management-add-new-api]: ./media/api-management-howto-import-api/api-management-add-new-api.png
-[api-management-api-settings]: ./media/api-management-howto-import-api/api-management-api-settings.png
-[api-management-api-settings-credentials]: ./media/api-management-howto-import-api/api-management-api-settings-credentials.png
-[api-management-api-summary]: ./media/api-management-howto-import-api/api-management-api-summary.png
-[api-management-echo-operations]: ./media/api-management-howto-import-api/api-management-echo-operations.png
 [api-management-export-api]: ./media/api-management-howto-import-api/api-management-export-api.png
 [api-management-export-api-format]: ./media/api-management-howto-import-api/api-management-export-api-format.png
 
@@ -84,10 +89,10 @@ Once an API is created and the operations imported, you can review and configure
 [Configure API settings]: #configure-api-settings
 [Next steps]: #next-steps
 
-[Get started with Azure API Management]: ../api-management-get-started
-[Create an API Management service instance]: ../api-management-get-started/#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How to add operations to an API]: ../api-management-howto-add-operations
-[How to create and publish a product]: ../api-management-howto-add-products
-[How to create APIs]: ../api-management-howto-create-apis
-[How to configure API settings]: ../api-management-howto-create-apis/#configure-api-settings
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to create APIs]: api-management-howto-create-apis.md
+[How to configure API settings]: api-management-howto-create-apis.md#configure-api-settings

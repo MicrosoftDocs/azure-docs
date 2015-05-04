@@ -1,4 +1,20 @@
-<properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Compute-intensive Java application on a VM - Azure" 
+	description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." 
+	services="virtual-machines" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="robmcm"/>
 
 # How to run a compute-intensive task in Java on a virtual machine
 
@@ -24,7 +40,7 @@ The following is an example of the Java application monitoring the compute-inten
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## To create a virtual machine
 
@@ -106,7 +122,7 @@ namespace.
 
 ## How to create a Java application that performs a compute-intensive task
 
-1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for Java](http://www.windowsazure.com/en-us/develop/java/).
+1. On your development machine (which does not have to be the virtual machine that you created), download the [Azure SDK for Java](http://www.windowsazure.com/develop/java/).
 2. Create a Java console application using the example code at the end of this section. For purposes of this tutorial, we'll use **TSPSolver.java** as the Java file name. Modify the **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, and **your\_service\_bus\_key** placeholders to use your service bus **namespace**, **Default Issuer** and **Default Key** values, respectively.
 3. After coding, export the application to a runnable Java archive (JAR), and package the required libraries into the generated JAR. For purposes of this tutorial, we'll use **TSPSolver.jar** as the generated JAR name.
 
@@ -485,7 +501,7 @@ Run the compute-intensive application, first to create the queue, then to solve 
 
  If you don't specify a number, it will run for 10 cities. As the solver finds current shortest routes, it will add them to the queue.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > The larger the number that you specify, the longer the solver will run. For example, running for 14 cities could take several minutes, and running for 15 cities could take several hours. Increasing to 16 or more cities could result in days of runtime (eventually weeks, months, and years). This is due to the rapid increase in the number of permutations evaluated by the solver as the number of cities increases.
  
 ### How to run the monitoring client application
@@ -520,6 +536,6 @@ For both the solver and client applications, you can press **Ctrl+C** to exit if
 [namespace_list]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_05_NamespaceList.jpg
 [properties_pane]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_06_PropertiesPane.jpg
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
-[add_ca_cert]: ../java-add-certificate-ca-store
+[add_ca_cert]: java-add-certificate-ca-store.md
 
 

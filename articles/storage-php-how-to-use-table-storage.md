@@ -1,45 +1,45 @@
-<properties linkid="develop-php-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (PHP) | Microsoft Azure" metaKeywords="Azure Table service PHP, Azure creating table, Azure deleting table, Azure insert table, Azure query table" description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="PHP" title="How to use the Table service from PHP" authors="" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to use Table storage from PHP | Microsoft Azure" 
+	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
+	services="storage" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="adinah" 
+	editor=""/>
 
-# How to use the Table service from PHP
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="tomfitz"/>
+
+
+# How to use Table storage from PHP
+
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
+
+## Overview
 
 This guide will show you how to perform common scenarios using the Azure Table service. The samples are written in PHP and use the [Azure SDK for PHP][download]. The scenarios covered include **creating and deleting a table, and inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next Steps](#NextSteps) section.
 
-##Table of contents
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-* [What is the Table Service](#what-is)
-* [Concepts](#concepts)
-* [Create an Azure storage account](#CreateAccount)
-* [Create a PHP application](#CreateApplication)
-* [Configure your application to access the Table service](#ConfigureStorage)
-* [Setup an Azure storage connection](#ConnectionString)
-* [How to: Create a table](#CreateTable)
-* [How to: Add an entity to a table](#AddEntity)
-* [How to: Retrieve a single entity](#RetrieveEntity)
-* [How to: Retrieve all entities in a partition](#RetEntitiesInPartition)
-* [How to: Retrieve a subset of entities in a partition](#RetrieveSubset)
-* [How to: Retrieve a subset of entity properties](#RetPropertiesSubset)
-* [How to: Update an entity](#UpdateEntity)
-* [How to: Batch table operations](#BatchOperations)
-* [How to: Delete a table](#DeleteTable)
-* [Next Steps](#NextSteps)
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
-
-##<a id="CreateAccount"></a>Create an Azure storage account
-
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-##<a id="CreateApplication"></a>Create a PHP application
+## Create a PHP application
 
 The only requirement for creating a PHP application that accesses the Azure Table service is the referencing of classes in the Azure SDK for PHP from within your code. You can use any development tools to create your application, including Notepad.
 
-In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or web site.
+In this guide, you will use Table service features which can be called from within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
-##<a id="GetClientLibrary"></a>Get the Azure Client Libraries
+## Get the Azure Client Libraries
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="ConfigureStorage"></a>Configure your application to access the Table service
+## Configure your application to access the Table service
 
 To use the Azure Table service APIs, you need to:
 
@@ -48,8 +48,7 @@ To use the Azure Table service APIs, you need to:
 
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
-> [WACOM.NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
+> [AZURE.NOTE] This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually or as a PEAR package, you will need to reference the <code>WindowsAzure.php</code> autoloader file.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -57,7 +56,7 @@ The following example shows how to include the autoloader file and reference the
 
 In the examples below, the `require_once` statement will be shown always, but only the classes necessary for the example to execute will be referenced.
 
-##<a id="ConnectionString"></a>Setup an Azure storage connection
+## Setup an Azure storage connection
 
 To instantiate an Azure Table service client you must first have a valid connection string. The format for the table service connection string is:
 
@@ -86,7 +85,7 @@ For the examples outlined here, the connection string will be passed directly.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
 
 
-##<a id="CreateTable"></a>How to: create a table
+## How to: create a table
 
 A **TableRestProxy** object lets you create a table with the **createTable** method. When creating a table, you can set the Table Service timeout. (For more information about the table service timeout, see [Setting Timeouts for Table Service Operations][table-service-timeouts].)
 
@@ -107,12 +106,12 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
 		// Error codes and messages can be found here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
 For information about restrictions on Table names, see [Understanding the Table Service Data Model][table-data-model].
 
-##<a id="AddEntity"></a>How to: Add an entity to a table
+## How to: Add an entity to a table
 
 To add an entity to a table, create a new **Entity** object and pass it to **TableRestProxy->insertEntity**. Note that when you create an entity you must specify a `PartitionKey` and `RowKey`. These are the unique identifiers for an entity and are values that can be queried much faster than other entity properties. The system uses `PartitionKey` to automatically distribute the table’s entities over many storage nodes. Entities with the same `PartitionKey` are stored on the same node. (Operations on multiple entities stored on the same node will perform better than on entities stored across different nodes.) The `RowKey` is the unique ID of an entity within a partition.
 
@@ -141,7 +140,7 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 	}
@@ -182,14 +181,14 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 	   
 
-##<a id="RetrieveEntity"></a>How to: Retrieve a single entity
+## How to: Retrieve a single entity
 
 The **TableRestProxy->getEntity** method allows you to retrieve a single entity by querying for its `PartitionKey` and `RowKey`. In the example below, the partition key `tasksSeattle` and row key `1` are passed to the **getEntity** method.
 
@@ -207,7 +206,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -217,7 +216,7 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
 
-##<a id="RetEntitiesInPartition"></a>How to: Retrieve all entities in a partition
+## How to: Retrieve all entities in a partition
 
 Entity queries are constructed using filters (for more information, see [Querying Tables and Entities][filters]). To retrieve all entities in partition, use the filter "PartitionKey eq *partition_name*". The following example shows how to retrieve all entities in the `tasksSeattle` partition by passing a filter to the **queryEntities** method.
 
@@ -237,7 +236,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -249,7 +248,7 @@ Entity queries are constructed using filters (for more information, see [Queryin
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-##<a id="RetrieveSubset"></a>How to: Retrieve a subset of entities in a partition
+## How to: Retrieve a subset of entities in a partition
 
 The same pattern used in the previous example can be used to retrieve any subset of entities in a partition. The subset of entities you retrieve will be determined by the filter you use (for more information, see [Querying Tables and Entities][filters]).The following example shows how to use a filter to retrieve all entities with a specific `Location` and a `DueDate` less than a specified date.
 
@@ -269,7 +268,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -281,7 +280,7 @@ The same pattern used in the previous example can be used to retrieve any subset
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
 
-##<a id="RetPropertiesSubset"></a>How to: Retrieve a subset of entity properties
+## How to: Retrieve a subset of entity properties
 
 A query can retrieve a subset of entity properties. This technique, called *projection*, reduces bandwidth and can improve query performance, especially for large entities. To specify a property to be retrieved, pass the name of the property to the **Query->addSelectField** method. You can call this method multiple times to add more properties. After executing **TableRestProxy->queryEntities**, the returned entities will only have the selected properties. (If you want to return a subset of Table entities, use a filter as shown in the queries above.)
 
@@ -303,7 +302,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -319,7 +318,7 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 		echo $description."<br />";
 	}
 
-##<a id="UpdateEntity"></a>How to: Update an entity
+## How to: Update an entity
 
 An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**. 
 
@@ -349,13 +348,13 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteEntity"></a>How to: Delete an entity
+## How to: Delete an entity
 
 To delete an entity, pass the table name, and the entity's `PartitionKey` and `RowKey` to the **TableRestProxy->deleteEntity** method.
 
@@ -374,7 +373,7 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -382,7 +381,7 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 
 Note that for concurrency checks, you can set the Etag for an entity to be deleted by using the **DeleteEntityOptions->setEtag** method and passing the **DeleteEntityOptions** object to **deleteEntity** as a fourth parameter.
 
-##<a id="BatchOperations"></a>How to: Batch table operations
+## How to: Batch table operations
 
 The **TableRestProxy->batch** method allows you to execute multiple operations in a single request. The pattern here involves adding operations to **BatchRequest** object and then passing the **BatchRequest** object to the **TableRestProxy->batch** method. To add an operation to a **BatchRequest** object, you can call any of the following methods multiple times:
 
@@ -430,7 +429,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -438,7 +437,7 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 
 For more information about batching Table operations, see [Performing Entity Group Transactions][entity-group-transactions].
 
-##<a id="DeleteTable"></a>How to: Delete a table
+## How to: Delete a table
 
 Finally, to delete a table, pass the table name to the **TableRestProxy->deleteTable** method.
 
@@ -457,24 +456,24 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="NextSteps"></a>Next steps
+## Next steps
 
-Now that you’ve learned the basics of the Azure Table Service, follow these links to learn how to do more complex storage tasks.
+Now that you’ve learned the basics of the Azure Table Service, follow these links to learn about more complex storage tasks.
 
-- See the MSDN Reference: [Storing and Accessing Data in Azure] []
-- Visit the Azure Storage Team Blog: <http://blogs.msdn.com/b/windowsazurestorage/>
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [require_once]: http://php.net/require_once
-[table-service-timeouts]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx
+[table-service-timeouts]: http://msdn.microsoft.com/library/azure/dd894042.aspx
 
-[table-data-model]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx
-[filters]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx
-[entity-group-transactions]: http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx
+[table-data-model]: http://msdn.microsoft.com/library/azure/dd179338.aspx
+[filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
+[entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx

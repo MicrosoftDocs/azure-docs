@@ -1,38 +1,41 @@
-<properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="Node.js" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to use Service Bus queues (Node.js) - Azure" 
+	description="Learn how to use Service Bus queues in Azure from a Node.js app." 
+	services="service-bus" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="mwasson"/>
 
 
 
 
 
 
-# How to Use Service Bus Queues
+# How to use Service Bus queues
 
-This guide will show you how to use Service Bus queues. The samples are
+This guide describes how to use Service Bus queues. The samples are
 written in JavaScript and use the Node.js Azure module. The scenarios
 covered include **creating queues, sending and receiving messages**, and
 **deleting queues**. For more information on queues, see the [Next
 Steps] section.
 
-## Table of Contents
+[AZURE.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
--   [What are Service Bus Queues?][]
--   [Create a Service Namespace][]
--   [Obtain the Default Management Credentials for the Namespace][]
--   [Create a Node.js Application](#create-app)
--   [Configure Your Application to Use Service Bus](#configure-app)
--   [How to: Create a Queue](#create-queue)
--   [How to: Send Messages to a Queue](#send-messages)
--   [How to: Receive Messages from a Queue](#receive-messages)
--   [How to: Handle Application Crashes and Unreadable Messages](#handle-crashes)
--   [Next Steps](#next-steps)
-
-[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
-
-## <a name="create-app"> </a>Create a Node.js Application
+## Create a Node.js application
 
 Create a blank Node.js application. For instructions creating a Node.js application, see [Create and deploy a Node.js application to an Azure Web Site], [Node.js Cloud Service][Node.js Cloud Service] (using Windows PowerShell), or [Web Site with WebMatrix].
 
-## <a name="configure-app"> </a>Configure Your Application to Use Service Bus
+## Configure your application to use Service Bus
 
 To use Azure Service Bus, you need to download and use the
 Node.js azure package. This includes a set of convenience libraries that
@@ -71,15 +74,15 @@ the **server.js** file of the application:
 
     var azure = require('azure');
 
-### Setup an Azure Service Bus Connection
+### Set up an Azure Service Bus connection
 
 The azure module will read the environment variables AZURE\_SERVICEBUS\_NAMESPACE and AZURE\_SERVICEBUS\_ACCESS\_KEY for information required to connect to your Azure Service Bus. If these environment variables are not set, you must specify the account information when calling **createServiceBusService**.
 
 For an example of setting the environment variables in a configuration file for an Azure Cloud Service, see [Node.js Cloud Service with Storage].
 
-For an example of setting the environment variables in the management portal for an Azure Web Site, see [Node.js Web Application with Storage]
+For an example of setting the environment variables in the management portal for an Azure Website, see [Node.js Web Application with Storage]
 
-## <a name="create-queue"> </a>How to Create a Queue
+## How to create a queue
 
 The **ServiceBusService** object lets you work with queues. The
 following code creates a **ServiceBusService** object. Add it near the
@@ -116,7 +119,7 @@ maximum queue size to 5GB a time to live of 1 minute:
         }
     });
 
-###Filters
+### Filters
 
 Optional filtering operations can be applied to operations performed using **ServiceBusService**. Filtering operations can include logging, automatically retrying, etc. Filters are objects that implement a method with the signature:
 
@@ -133,7 +136,7 @@ Two filters that implement retry logic are included with the Azure SDK for Node.
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var serviceBusService = azure.createServiceBusService().withFilter(retryOperations);
 
-## <a name="send-messages"> </a>How to Send Messages to a Queue
+## How to send messages to a queue
 
 To send a message to a Service Bus queue, your application will call the
 **sendQueueMessage** method on the **ServiceBusService** object.
@@ -152,7 +155,7 @@ queue named 'myqueue' using **sendQueueMessage**:
         body: 'Test message',
         customProperties: {
             testproperty: 'TestValue'
-        };
+        }};
     serviceBusService.sendQueueMessage('myqueue', message, function(error){
         if(!error){
             // message sent
@@ -166,7 +169,7 @@ held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an
 upper limit of 5 GB.
 
-## <a name="receive-messages"> </a>How to Receive Messages from a Queue
+## How to receive messages from a queue
 
 Messages are received from a queue using the **receiveQueueMessage**
 method on the **ServiceBusService** object. By default, messages are
@@ -199,23 +202,23 @@ processed using **receiveQueueMessage**. The example first receives and
 deletes a message, and then receives a message using **isPeekLock** set
 to true, then deletes the message using **deleteMessage**:
 
-    serviceBusService.receiveQueueMessage('taskqueue', function(error, receivedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
         if(!error){
             // Message received and deleted
         }
     });
-    serviceBusService.receiveQueueMessage(queueName, { isPeekLock: true }, function(error, lockedMessage){
+    serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(error, lockedMessage){
         if(!error){
             // Message received and locked
             serviceBusService.deleteMessage(lockedMessage, function (deleteError){
                 if(!deleteError){
                     // Message deleted
                 }
-            }
+            });
         }
     });
 
-## <a name="handle-crashes"> </a>How to Handle Application Crashes and Unreadable Messages
+## How to handle application crashes and unreadable messages
 
 Service Bus provides functionality to help you gracefully recover from
 errors in your application or difficulties processing a message. If a
@@ -243,7 +246,7 @@ to handle duplicate message delivery. This is often achieved using the
 **MessageId** property of the message, which will remain constant across
 delivery attempts.
 
-## <a name="next-steps"> </a>Next Steps
+## Next Steps
 
 Now that you've learned the basics of Service Bus queues, follow these
 links to learn more.
@@ -269,10 +272,10 @@ links to learn more.
   
   
   
-  [Node.js Cloud Service]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-  [Web Site with WebMatrix]: /en-us/develop/nodejs/tutorials/web-site-with-webmatrix/
+  [Node.js Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
+  [Queues, Topics, and Subscriptions.]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
+  [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Previous Management Portal]: ../../Shared/Media/previous-portal.png
-  [Create and deploy a Node.js application to an Azure Web Site]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Node.js Cloud Service with Storage]: /en-us/develop/nodejs/tutorials/web-app-with-storage/
-  [Node.js Web Application with Storage]: /en-us/develop/nodejs/tutorials/web-site-with-storage/
+  [Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
+  [Node.js Cloud Service with Storage]: /develop/nodejs/tutorials/web-app-with-storage/
+  [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/

@@ -1,15 +1,28 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-xamarin-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Xamarin.Android) - Azure Mobile Services" metaKeywords="Azure Xamarin.Android data, Azure mobile services data" description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services" documentationCenter="Mobile" authors="" />
+<properties 
+	pageTitle="Add Mobile Services to an existing app (Xamarin.Android) - Azure Mobile Services" 
+	description="Learn how to store and access data from your Azure Mobile Services Xamarin.Android app." 
+	documentationCenter="xamarin" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-# Get started with data in Mobile Services
-<div class="dev-center-tutorial-selector sublanding">    
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
-</div>	
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
 
-<p>This topic shows you how to use Azure Mobile Services to leverage data in a Xamarin.Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
+# Add Mobile Services to an existing app
 
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from a Xamarin.Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-xamarin-android">Get started with Mobile Services</a>.</p>
-</div>
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]	
+
+This topic shows you how to use Azure Mobile Services to leverage data in a Xamarin.Android app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
+
+> [AZURE.NOTE] This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from a Xamarin.Android app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial [Get started with Mobile Services](/develop/mobile/tutorials/get-started-xamarin-android).
 
 This tutorial walks you through these basic steps:
 
@@ -19,15 +32,13 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A9C9624B5" target="_blank">Azure Free Trial</a>.</p></div> 
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 This tutorial requires the [Azure Mobile Services Component], [Xamarin.Android], and Android SDK 4.2 or a later version. 
 
-<div class="dev-callout"><b>Note</b>
-<p>The downloaded GetStartedWithData project requires targetting Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.</p>
-</div>
+> [AZURE.NOTE] The downloaded GetStartedWithData project requires targetting Android 4.2 or a later version. However, the Mobile Services SDK requires only Android 2.2 or a later version.
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+## <a name="download-app"></a>Download the GetStartedWithData project
 
 This tutorial is built on the [GetStartedWithData app][GitHub], which is a Xamarin.Android app. The UI for this app is identical to the app generated by the Mobile Services Android quickstart, except that added items are stored locally in memory. 
 
@@ -41,7 +52,9 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is a Xamar
 
 5. From the **Run** menu, click **Start Without Debugging**, you will then be asked to pick an emulator or attached USB Android device.
 
-	<div class="dev-callout"><strong>Note</strong> <p>You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.</p> <p>To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.</p></div>
+	> [AZURE.IMPORTANT] You can run this project using an Android phone, or using the Android emulator. Running with an Android phone  requires you to download a phone-specific USB driver.
+	> 
+	> To run the project in the Android emulator, you must define a least one Android Virtual Device (AVD). Use the AVD Manager to create and manage these devices.
 
 6. In the app, type meaningful text, such as _Complete the tutorial_, and then click **Add**.
 
@@ -49,11 +62,11 @@ This tutorial is built on the [GetStartedWithData app][GitHub], which is a Xamar
 
    	Notice that the saved text is stored in an in-memory collection and displayed in the list below.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+## <a name="create-service"></a>Create a new mobile service in the Management Portal
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+## <a name="add-table"></a>Add a new table to the mobile service
 
 To be able to store app data in the new mobile service, you must first create a new table.  
 
@@ -71,10 +84,7 @@ To be able to store app data in the new mobile service, you must first create a 
 
   	This creates a new storage table **TodoItem** with the default permissions set, which means that any user of the app can access and change data in the table. 
 
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.</p> 
-	</div>
+    > [AZURE.NOTE] The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
@@ -82,13 +92,11 @@ To be able to store app data in the new mobile service, you must first create a 
 
   	This is the minimum requirement for a table in Mobile Services. 
 
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
-    </div>
+    > [AZURE.NOTE] When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.
 
 You are now ready to use the new mobile service as data storage for the app.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+## <a name="update-app"></a>Update the app to use the mobile service for data access
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
@@ -197,7 +205,7 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+## <a name="test-app"></a>Test the app against your new mobile service
 
 1. From the **Run** menu, click **Start Without Debugging** to start the project. You will be asked to pick an existing emulator image or an attached USB Android device.
 
@@ -227,18 +235,18 @@ This tutorial demonstrated the basics of enabling a Xamarin.Android app to work 
 Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
 * [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
+  Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
 * [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
+  Learn how to use paging in queries to control the amount of data handled in a single request.
 
 Once you have completed the data series, try these other Xamarin.Android tutorials:
 
 * [Get started with authentication] 
-	<br/>Learn how to authenticate users of your app.
+	Learn how to authenticate users of your app.
 
 * [Get started with push notifications] 
-  <br/>Learn how to send a very basic push notification to your app with Mobile Services.
+  Learn how to send a very basic push notification to your app with Mobile Services.
 
 <!-- Anchors. -->
 
@@ -262,12 +270,12 @@ Once you have completed the data series, try these other Xamarin.Android tutoria
 [13]: ./media/partner-xamarin-mobile-services-android-get-started-data/mobile-quickstart-startup-android.png
 
 <!-- URLs. TODO:: update 'Download the Android app project' download link, 'GitHub', completed project, etc. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-xamarin-android
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

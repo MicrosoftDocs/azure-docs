@@ -1,23 +1,39 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties 
+	pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" 
+	description="Explore generating and using shared access signatures with the Blob service" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="03/06/2015" 
+	ms.author="tamram"/>
 
 
 # Shared Access Signatures, Part 2: Create and Use a SAS with the Blob Service
 
-[Part 1](../storage-dotnet-shared-access-signature-part-1/) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
+## Overview
+
+[Part 1](storage-dotnet-shared-access-signature-part-1.md) of this tutorial explored shared access signatures (SAS) and explained best practices for using them. Part 2 shows you how to generate and then use shared access signatures with the Azure Blob service. The examples are written in C# and use the Azure Storage Client Library for .NET. The scenarios covered include these aspects of working with shared access signatures:
 
 - Generating a shared access signature on a container
 - Generating a shared access signature on a blob
 - Creating a stored access policy to manage signatures on a container's resources
 - Testing the shared access signatures from a client application
 
-# About this Tutorial #
+## About this Tutorial
 In this tutorial, we'll focus on creating shared access signatures for containers and blobs by creating two console applications. The first console application generates shared access signatures on a container and on a blob. This application has knowledge of the storage account keys. The second console application, which will act as a client application, accesses container and blob resources using the shared access signatures created with the first application. This application uses the shared access signatures only to authenticate its access to the container and blob resources - it does not have knowledge of the account keys.
 
-# Part 1: Create a Console Application to Generate Shared Access Signatures #
+## Part 1: Create a Console Application to Generate Shared Access Signatures
 
-First, ensure that you have the Azure Storage Client Library for .NET (Version 2.0) installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://www.windowsazure.com/en-us/downloads/).
+First, ensure that you have the Azure Storage Client Library for .NET installed. You can install the [NuGet package](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") containing the most up-to-date assemblies for the client library; this is the recommended method for ensuring that you have the most recent fixes. You can also download the client library as part of the most recent version of the [Azure SDK for .NET](http://azure.microsoft.com/downloads/).
 
 In Visual Studio, create a new Windows console application and name it **GenerateSharedAccessSignatures**. Add references to  **Microsoft.WindowsAzure.Configuration.dll** and **Microsoft.WindowsAzure.Storage.dll**, using either of the following approaches:
 
@@ -42,7 +58,7 @@ Edit the app.config file so that it contains a configuration setting with a conn
       </appSettings> 
     </configuration>
 
-## Generate a Shared Access Signature URI for a Container ##
+### Generate a Shared Access Signature URI for a Container
 
 To begin with, we'll add a method to generate a shared access signature on a new container. In this case the signature is not associated with a stored access policy, so it carries on the URI the information indicating its expiry time and the permissions that it grants.
 
@@ -95,7 +111,7 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-
 
 Once you have run the code, the shared access signature that you created on the container will be valid for the next four hours. The signature grants a client permission to list blobs in the container and to write a new blob to the container.
 
-## Generate a Shared Access Signature URI for a Blob ##
+### Generate a Shared Access Signature URI for a Blob
 
 Next, we'll write similar code to create a new blob within the container and generate a shared access signature for it. This shared access signature is not associated with a stored access policy, so it includes the start time, expiry time, and permission information on the URI.
 
@@ -142,7 +158,7 @@ Compile and run to output the shared access signature URI for the new blob. The 
 
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
-## Create a Stored Access Policy on the Container ##
+### Create a Stored Access Policy on the Container
 
 Now let's create a stored access policy on the container, which will define the constraints for any shared access signatures that are associated with it.
 
@@ -177,7 +193,7 @@ At the bottom of the **Main()** method, before the call to **Console.ReadLine()*
     string sharedAccessPolicyName = "tutorialpolicy";
     CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 
-## Generate a Shared Access Signature URI on the Container That Uses an Access Policy ##
+### Generate a Shared Access Signature URI on the Container That Uses an Access Policy
 
 Next, we'll create another shared access signature on the container that we created earlier, but this time we'll associate the signature with the access policy that we created in the previous example.
 
@@ -199,7 +215,7 @@ At the bottom of the **Main()** method, before the call to **Console.ReadLine()*
     Console.WriteLine("Container SAS URI using stored access policy: " + GetContainerSasUriWithPolicy(container, sharedAccessPolicyName));
     Console.WriteLine();
 
-## Generate a Shared Access Signature URI on the Blob That Uses an Access Policy ##
+### Generate a Shared Access Signature URI on the Blob That Uses an Access Policy
 
 Finally, we'll add a similar method to create another blob and generate a shared access signature that's associated with an access policy.
 
@@ -276,7 +292,7 @@ When you run the GenerateSharedAccessSignatures console application, you'll see 
 
 ![sas-console-output-1][sas-console-output-1]
 
-# Part 2: Create a Console Application to Test the Shared Access Signatures #
+## Part 2: Create a Console Application to Test the Shared Access Signatures
 
 To test the shared access signatures created in the previous examples, we'll create a second console application that uses the signatures to perform operations on the container and on a blob.
 
@@ -300,7 +316,7 @@ In the body of the **Main()** method, add the following constants, and update th
 	    string blobSASWithAccessPolicy = "<your blob SAS with access policy>";
     }
     
-## Add a Method to Try Container Operations Using a Shared Access Signature ##
+### Add a Method to Try Container Operations Using a Shared Access Signature
 
 Next, we'll add a method that tests some representative container operations using a shared access signature on the container. Note that the shared access signature is used to return a reference to the container, authenticating access to the container based on the signature alone.
 
@@ -416,7 +432,7 @@ Update the **Main()** method to call **UseContainerSAS()** with both of the shar
 	}
 
 
-## Add a Method to Try Blob Operations Using a Shared Access Signature ##
+### Add a Method to Try Blob Operations Using a Shared Access Signature
 
 Finally, we'll add a method that tests some representative blob operations using a shared access signature on the blob. In this case we use the constructor **CloudBlockBlob(String)**, passing in the shared access signature, to return a reference to the blob. No other authentication is required; it's based on the signature alone.
 
@@ -517,13 +533,13 @@ Run the console application and observe the output to see which operations are p
 
 ![sas-console-output-2][sas-console-output-2]
 
-# Next Steps #
+## Next Steps
 
 [Shared Access Signatures, Part 1: Understanding the SAS Model](../storage-dotnet-shared-access-signature-part-1/)
 
-[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Manage Access to Azure Storage Resources](http://msdn.microsoft.com/library/azure/ee393343.aspx)
 
-[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delegating Access with a Shared Access Signature (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
 
 [Introducing Table and Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

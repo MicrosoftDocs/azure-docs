@@ -26,7 +26,7 @@ In this section you will update the project from the [Get started with Mobile Se
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Enter some text below, click Capture Image to add a captured image. Then click Save to insert a new TodoItem item into your database" TextWrapping="Wrap" Margin="12"/>
-            <TextBox Grid.Row="1" Grid.ColumnSpan="2" Name="TodoInput" Text="" />
+            <TextBox Grid.Row="1" Grid.ColumnSpan="2" Name="TextInput" Text="" />
             <Button Name="ButtonCaptureImage" Grid.Row="2" Click="ButtonCaptureImage_Click">Capture Image</Button>
             <Button Grid.Row ="2" Grid.Column="1" Name="ButtonSave" Click="ButtonSave_Click">Save</Button>
             <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Text="Click refresh below to load the unfinished TodoItems from your database. Use the checkbox to complete and update your TodoItems" TextWrapping="Wrap" Margin="12" />
@@ -142,7 +142,7 @@ In this section you will update the project from the [Get started with Mobile Se
 			
             // Add the new item to the collection.
             items.Add(todoItem);
-            TodoInput.Text = "";
+            TextInput.Text = "";
         }
 
 
@@ -176,9 +176,9 @@ The final step is to test the app and validate that uploads succeed.
 
 	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-view-final-wp8.png)
 
-   >[WACOM.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
+   >[AZURE.NOTE]The image is downloaded automatically from the Blob Storage service when the <code>imageUri</code> property of the new item is bound to the <strong>Image</strong> control.
 
 
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-phone-get-started
-[CameraCaptureTask]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
-[PhotoCamera]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+[Get started with Mobile Services]: ../articles/mobile-services-windows-phone-get-started.md
+[CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
+[PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx

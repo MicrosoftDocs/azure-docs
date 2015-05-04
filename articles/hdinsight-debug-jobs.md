@@ -1,4 +1,20 @@
-<properties linkid="manage-services-hdinsight-debug-error-messages" urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+<properties 
+	pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" 
+	description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Debug Hadoop in HDInsight: Error messages
 
@@ -16,7 +32,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 ###HDInsight Errors
 
-[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)	
+[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 [AzureRegionNotSupported](#AzureRegionNotSupported)		
 [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound)	 
 [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord)		
@@ -252,7 +268,7 @@ The errors a user can encounter in Azure PowerShell or in the Azure Portal are l
 
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 

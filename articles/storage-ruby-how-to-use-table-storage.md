@@ -1,48 +1,43 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
+
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
+	ms.author="tomfitz"/>
 
 
+# How to use Table storage from Ruby
 
+[AZURE.INCLUDE [storage-selector-table-include](../includes/storage-selector-table-include.md)]
 
+## Overview
 
-# How to Use the Table Service from Ruby
-
-This guide shows you how to perform common scenarios using the Windows
+This guide shows you how to perform common scenarios using the Microsoft
 Azure Table service. The samples are written written using the
 Ruby API. The scenarios covered include **creating and deleting a
-table, inserting and querying entities in a table**. For more
-information on tables, see the [Next Steps](#next-steps) section.
+table, inserting and querying entities in a table**.
 
-## Table of Contents
+[AZURE.INCLUDE [storage-table-concepts-include](../includes/storage-table-concepts-include.md)]
 
-* [What is the Table Service?](#what-is)
-* [Concepts](#concepts)
-* [Create an Azure Storage Account](#create-a-windows-azure-storage-account)
-* [Create a Ruby application](#create-a-ruby-application)
-* [Configure your Application to Access Storage](#configure-your-application-to-access-storage)
-* [Setup an Azure Storage Connection](#setup-a-windows-azure-storage-connection)
-* [How to: Create a Table](#how-to-create-a-table)
-* [How to: Add an Entity to a Table](#how-to-add-an-entity-to-a-table)
-* [How To: Update an Entity](#how-to-update-an-entity)
-* [How to: Work with Groups of Entities](#how-to-work-with-groups-of-entities)
-* [How to: Query for an Entity](#how-to-query-for-an-entity)
-* [How to: Query a Set of Entities](#how-to-query-a-set-of-entities)
-* [How To: Query a Subset of Entity Properties](#how-to-query-a-subset-of-entity-properties)
-* [How To: Delete an Entity](#how-to-delete-an-entity)
-* [How to: Delete a Table](#how-to-delete-a-table)
-* [Next Steps](#next-steps)
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
-
-## <a id="create-a-windows-azure-storage-account"></a>Create an Azure Storage Account
-
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
-
-## <a id="create-a-ruby-application"></a>Create a Ruby Application
+## Create a Ruby Application
 
 Create a Ruby application. For instructions, 
-see [Create a Ruby Application on Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
-## <a id="configure-your-application-to-access-storage"></a>Configure Your Application to Access Storage
+## Configure Your Application to Access Storage
 
 To use Azure storage, you need to download and use the Ruby azure package, 
 which includes a set of convenience libraries that communicate with the storage REST services.
@@ -59,7 +54,7 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 	require "azure"
 
-## <a id="setup-a-windows-azure-storage-connection"></a>Setup an Azure Storage Connection
+## Setup an Azure Storage Connection
 
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** 
 for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
@@ -77,7 +72,7 @@ To obtain these values:
 
 4. In the pop up dialog, you will see the storage account name, primary access key and secondary access key. For access key, you can either the primary one or the secondary one.
 
-## <a id="how-to-create-a-table"></a>How to Create a Table
+## How to Create a Table
 
 The **Azure::TableService** object lets you work with tabls and entities. To create a table, use the **create\_table()** method. The following example creates a table or print out the error if there is any.
 
@@ -88,7 +83,7 @@ The **Azure::TableService** object lets you work with tabls and entities. To cre
 	  puts $!
 	end
 
-## <a id="how-to-add-an-entity-to-a-table"></a>How to Add an Entity to a Table
+## How to Add an Entity to a Table
 
 To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Azure Storage Service uses **PartitionKey** to automatically distribute the table's entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
 
@@ -96,7 +91,7 @@ To add an entity, first create a hash object that defines your entity properties
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.insert_entity("testtable", entity)
 
-## <a id="how-to-update-an-entity"></a>How To: Update an Entity
+## How To: Update an Entity
 
 There are multiple methods available to update an existing entity:
 
@@ -113,7 +108,7 @@ The following example demonstrates updating an entity using **update\_entity()**
 
 With **update\_entity()** and **merge\_entity()**, if the entity that is being updated doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insert\_or\_replace\_entity()** or **insert\_or\_merge\_entity()**.
 
-## <a id="how-to-work-with-groups-of-entities"></a>How to: Work with Groups of Entities
+## How to: Work with Groups of Entities
 
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute\_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
 
@@ -125,14 +120,14 @@ Sometimes it makes sense to submit multiple operations together in a batch to en
 	end
 	results = azure_table_service.execute_batch(batch)
 
-## <a id="how-to-query-for-an-entity"></a>How to: Query for an Entity
+## How to: Query for an Entity
 
 To query an entity in a table, use the **get\_entity()** method, by passing the table name, **PartitionKey** and **RowKey**.
 
 	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
-## <a id="how-to-query-a-set-of-entities"></a>How to: Query a Set of Entities
+## How to: Query a Set of Entities
 
 To query a set of entities in a table, create a query hash object and use the **query\_entities()** method. The following example demonstrates getting all the entities with the same **PartitionKey**:
 
@@ -141,7 +136,7 @@ To query a set of entities in a table, create a query hash object and use the **
 
 **Notice** that if the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.
 
-## <a id="how-to-query-a-subset-of-entity-properties"></a>How To: Query a Subset of Entity Properties
+## How To: Query a Subset of Entity Properties
 
 A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
 
@@ -149,22 +144,22 @@ A query to a table can retrieve just a few properties from an entity. This techn
 	  :select => ["content"] }
 	result, token = azure_table_service.query_entities("testtable", query)
 
-## <a id="how-to-delete-an-entity"></a>How To: Delete an Entity
+## How To: Delete an Entity
 
 To delete an entity, use the **delete\_entity()** method. You need to pas in the name of the table which contains the entity, the PartitionKey and RowKey of the entity.
 
 		azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
-## <a id="how-to-delete-a-table"></a>How to: Delete a Table
+## How to: Delete a Table
 
 To delete a table, use the **delete\_table()** method and pass in the name of the table you want to delete.
 
 		azure_table_service.delete_table("testtable")
 
-## <a id="next-steps"></a>Next Steps
+## Next Steps
 
-Now that you've learned the basics of table storage, follow these links to learn how to do more complex storage tasks.
+Now that you've learned the basics of table storage, follow these links to learn about more complex storage tasks.
 
-* See the MSDN Reference: [Storing and Accessing Data in Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
-* Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
-* Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+- See the MSDN Reference: [Azure Storage](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- Visit the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+- Visit the [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub

@@ -1,20 +1,28 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-html" urlDisplayName="Get Started with Data (HTML5)" pageTitle="Get started with data (HTML 5) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your HTML app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties 
+	pageTitle="Add Mobile Services to an existing app (HTML 5) | Mobile Dev Center" 
+	description="Learn how to get started using Mobile Services in an existing HTML app." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="02/25/2015" 
+	ms.author="glenga"/>
 
+# Add Mobile Services to an existing app
 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
-# Get started with data in Mobile Services
-<div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML" class="current">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a> 
-</div>	
+This topic shows you how to use Azure Mobile Services to leverage data in an HTML app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.
 
-
-<p>This topic shows you how to use Azure Mobile Services to leverage data in an HTML app. In this tutorial, you will download an app that stores data in memory, create a new mobile service, integrate the mobile service with the app, and then login to the Azure Management Portal to view changes to data made when running the app.</p>
-
-
-<div class="dev-callout"><b>Note</b>
-<p>This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an HTML app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/en-us/develop/mobile/tutorials/get-started-html">Get started with Mobile Services</a>.</p>
-</div>
+>[AZURE.NOTE]This tutorial is intended to help you better understand how Mobile Services enables you to use Azure to store and retrieve data from an HTML app. As such, this topic walks you through many of the steps that are completed for you in the Mobile Services quickstart. If this is your first experience with Mobile Services, consider first completing the tutorial <a href="/develop/mobile/tutorials/get-started-html">Get started with Mobile Services</a>.
 
 This tutorial walks you through these basic steps:
 
@@ -24,7 +32,7 @@ This tutorial walks you through these basic steps:
 4. [Update the app to use Mobile Services]
 5. [Test the app against Mobile Services]
 
-<div class="dev-callout"><strong>Note</strong> <p>To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F" target="_blank">Azure Free Trial</a>.</p></div> 
+> [AZURE.IMPORTANT] To complete this tutorial, you need an Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Additional requirements
 
@@ -40,7 +48,7 @@ You can host the GetStartedWithData app on any web server. However, for your con
 
 + A web browser that supports HTML5.
 
-<h2><a name="download-app"></a><span class="short-header">Download the project</span>Download the GetStartedWithData project</h2>
+<h2><a name="download-app"></a>Download the GetStartedWithData project</h2>
 
 This tutorial is built on the [GetStartedWithData app], which is an HTML5 app. The UI for this app is identical to the app generated by the Mobile Services quickstart, except that added items are stored locally in memory. 
 
@@ -56,9 +64,7 @@ This tutorial is built on the [GetStartedWithData app], which is an HTML5 app. T
 	+ **launch-mac.command** (Mac OS X computers)
 	+ **launch-linux.sh** (Linux computers)
 
-	<div class="dev-callout"><b>Note</b>
-		<p>On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script.</p>
-	</div>
+	> [AZURE.NOTE] On a Windows computer, type `R` when PowerShell asks you to confirm that you want to run the script. Your web browser might warn you to not run the script because it was downloaded from the internet. When this happens, you must request that the browser proceed to load the script
 	
 	This starts a web server on your local computer to host the new app.
 
@@ -70,11 +76,11 @@ This tutorial is built on the [GetStartedWithData app], which is an HTML5 app. T
 
    	Notice that the saved text is added to the **staticItems** array, and the page is refreshed to display the new item.
 
-<h2><a name="create-service"></a><span class="short-header">Create mobile service</span>Create a new mobile service in the Management Portal</h2>
+<h2><a name="create-service"></a>Create a new mobile service in the Management Portal</h2>
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-<h2><a name="add-table"></a><span class="short-header">Add a new table</span>Add a new table to the mobile service</h2>
+<h2><a name="add-table"></a>Add a new table to the mobile service</h2>
 
 To be able to store app data in the new mobile service, you must first create a new table in the associated SQL Database instance.
 
@@ -82,84 +88,36 @@ To be able to store app data in the new mobile service, you must first create a 
 
 2. Click the **Data** tab, then click **+Create**.
 
-   	![][5]
-
    	This displays the **Create new table** dialog.
 
 3. In **Table name** type _TodoItem_, then click the check button.
 
-  	![][6]
-
-  	This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table.
-
-    <div class="dev-callout"> 
-	<b>Note</b> 
-	<p>The same table name is used in Mobile Services quickstart. However, each table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.</p> 
-	</div>
+  	This creates a new storage table **TodoItem** with the default permissions set. This means that anyone with the application key, which is distributed with your app, can access and change data in the table. The table is created in a schema that is specific to a given mobile service. This is to prevent data collisions when multiple mobile services use the same database.
 
 4. Click the new **TodoItem** table and verify that there are no data rows.
 
-5. Click the **Columns** tab. Verify that the following default columns are automatically created for you: 
-	
-	<table border="1" cellpadding="10">
- 	<tr>
- 	<th>Column Name</th>
- 	<th>Type</th>
- 	<th>Index</th>
- 	</tr>
- 	<tr>
- 	<td>id</td>
- 	<td>string</td>
- 	<td>Indexed</td>
- 	</tr>
- 	<tr>
- 	<td>__createdAt</td>
- 	<td>date</td>
- 	<td>Indexed</td>
- 	</tr>
- 	<tr>
- 	<td>__updatedAt</td>
- 	<td>date</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr>
- 	<tr>
- 	<td>__version</td>
- 	<td>timestamp (MSSQL)</td>
- 	<td><font color="transparent">-</font></td>
- 	</tr> 	
- 	</table> 
-
-  	This is the minimum requirement for a table in Mobile Services. 
-
-    <div class="dev-callout"><b>Note</b>
-	<p>When dynamic schema is enabled on your mobile service, new columns are created automatically when JSON objects are sent to the mobile service by an insert or update operation.</p>
-    </div>
+	>[AZURE.NOTE]New tables are created with the Id, __createdAt, __updatedAt, and __version columns. When dynamic schema is enabled, Mobile Services automatically generates new columns based on the JSON object in the insert or update request. For more information, see [Dynamic schema](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 6. In the **Configure** tab, verify that `localhost` is already listed in the **Allow requests from host names** list under **Cross-Origin Resource Sharing (CORS)**. If it's not, type `localhost` in the **Host name** field and then click **Save**.
 
-  	![][11]
 
-	<div class="dev-callout"><b>Note</b>
-		<p>If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the <strong>Allow requests from host names</strong> list. For more information, see <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Cross-origin resource sharing</a>.</p>
-	</div>
+	> [AZURE.IMPORTANT] If you deploy the quickstart app to a web server other than localhost, you must add the host name of the web server to the **Allow requests from host names** list. For more information, see [Cross-origin resource sharing](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 You are now ready to use the new mobile service as data storage for the app.
 
-<h2><a name="update-app"></a><span class="short-header">Update the app</span>Update the app to use the mobile service for data access</h2>
+<h2><a name="update-app"></a>Update the app to use the mobile service for data access</h2>
 
 Now that your mobile service is ready, you can update the app to store items in Mobile Services instead of the local collection. 
 
 3. In the Management Portal, click **Mobile Services**, and then click the mobile service you just created.
 
-4. Click the **Dashboard** tab and make a note of the **Site URL**, then click **Manage keys** and make a note of the **Application key**.
-
-   	![][8]
+4. Click the **Dashboard** tab and make a note of the **Mobile Service URL**, then click **Manage keys** and make a note of the **Application key**.
 
   	You will need these values when accessing the mobile service from your app code.
 
 1. In your web editor, open the index.html project file and add the following to the script references for the page:
 
-        <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.2.min.js'></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
 
 5. In the editor, open the file app.js, uncomment the following code that defines the **MobileServiceClient** variable, and supply the URL and application key from the mobile service in the **MobileServiceClient** constructor, in that order:
 
@@ -245,13 +203,11 @@ Now that your mobile service is ready, you can update the app to store items in 
 
 Now that the app has been updated to use Mobile Services for backend storage, it's time to test the app against Mobile Services.
 
-<h2><a name="test-app"></a><span class="short-header">Test the app</span>Test the app against your new mobile service</h2>
+<h2><a name="test-app"></a>Test the app against your new mobile service</h2>
 
 4. Reload the URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in a web browser start the app.
 
-    <div class="dev-callout"><b>Note</b>
-	<p>If you need to restart the web server, repeat the steps in the first section.</p>
-    </div>
+    > [AZURE.NOTE] If you need to restart the web server, repeat the steps in the first section.
 
 2. As before, type text in **Enter new task**, and then click **Add**. 
 
@@ -260,8 +216,6 @@ Now that the app has been updated to use Mobile Services for backend storage, it
 3. In the [Management Portal], click **Mobile Services**, and then click your mobile service.
 
 4. Click the **Data** tab, then click **Browse**.
-
-   	![][9]
   
    	Notice that the **TodoItem** table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
 
@@ -281,15 +235,7 @@ This concludes the **Get started with data** tutorial.
 
 ## <a name="next-steps"> </a>Next steps
 
-This tutorial demonstrated the basics of enabling an HTML app to work with data in Mobile Services. Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
-
-* [Validate and modify data with scripts]
-  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
-
-* [Refine queries with paging]
-  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
- 
-Once you have completed the data series, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication].
+This tutorial demonstrated the basics of enabling an HTML app to work with data in Mobile Services. Next, learn how to authenticate users of your app try one of these other tutorials by completing [Get started with authentication]. If you are working with a Cordova or PhoneGap app project, learn more about push notifications in [Push Notifications to Cordova Apps with Microsoft Azure](https://msdn.microsoft.com/magazine/dn879353.aspx).
 
 <!-- Anchors. -->
 [Download the HTML app project]: #download-app
@@ -314,16 +260,16 @@ Once you have completed the data series, learn how to authenticate users of your
 [11]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-html
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-html
+[Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-html
+[Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-html
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-html
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [GetStartedWithData app]:  http://go.microsoft.com/fwlink/?LinkID=286345
 
-[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-html-js-client
+[Mobile Services HTML/JavaScript How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-html-js-client
 
-[Cross-origin resource sharing]: http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
