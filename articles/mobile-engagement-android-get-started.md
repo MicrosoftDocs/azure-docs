@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Mobile Engagement with Analytics and Push Notifications for Android Apps."
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/11/2015" 
-	ms.author="kapiteir" />
+	ms.date="05/01/2015" 
+	ms.author="piyushjo" />
 	
 # Get Started with Azure Mobile Engagement for Android Apps
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
 - [iOS - Obj C](mobile-engagement-ios-get-started.md) 
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
 
 This topic shows you how to use Azure Mobile Engagement to understand your app usage and send push notifications to segmented users of an Android application. 
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM). When complete, you will be able to broadcast push notifications to all the devices or target specific users based on their devices properties. Be sure to follow along with the next tutorial to see how to use Mobile Engagement to address specific users and groups of devices.
@@ -154,7 +154,7 @@ Download and integrate the SDK library
 
 ###Add permissions & Service declaration
 
-1. Add these permissions to the Manifest.xml of your project immediately preceding the `<application>` tag:
+1. Add these permissions to the Manifest.xml of your project immediately before or after the `<application>` tag:
 	
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -270,13 +270,14 @@ The following sections will setup your app to receive them.
 		![][24]
 
 ###Specify a default icon in notifications
-The following code will define the default icon that will display with notifications. Here we used the icon provided with the project created by Android Studio. This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags
+The following code will define the default icon that will display with notifications. Here we used the icon provided with the project created by Android Studio. This xml snippet is to be pasted into your Manifest.xml between the < application > and </application > tags. 
+Make sure that ic_launcher exists in your app or use another icon file otherwise the notification will not be displayed.  
 
 		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
 
 ###Enable your app to receive GCM Push Notifications
 
-1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console.
+1. Enter your gcm:sender metadata by copy-pasting the following into your Manifest.xml between the < application > and </application > tags. The hidden value below (with stars) is the `project number` obtained from your Google Play console. The \n is intentional so make sure you end the project number with it. 
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -297,7 +298,7 @@ The following code will define the default icon that will display with notificat
 			</intent-filter>
 		</receiver>
 
-3. Add the last set of permissions highlighted below before the < application> tag. Again we used this project package name that you'll have to replace in your production app.
+3. Add the last set of permissions highlighted below or after the < application> tag. Again we used this project package name that you'll have to replace in your production app.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />

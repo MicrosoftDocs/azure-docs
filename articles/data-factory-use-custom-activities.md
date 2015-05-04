@@ -480,7 +480,9 @@ Here are the high-level steps for using the Azure Batch Linked Service in the wa
 
 	![Azure Batch tasks][image-data-factory-azure-batch-tasks]
 
+## See Also
 
+[Azure Data Factory Updates: Execute ADF Custom .NET activities using Azure Batch](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/). 
 
 [batch-net-library]: batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer

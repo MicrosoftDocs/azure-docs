@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/01/2015" 
 	ms.author="rasquill"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
@@ -105,7 +105,9 @@ First, create your resource group.
 
 Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md). But for this quickstart, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
-| Publisher                        | ImageOffer                                 | ImageSku                         | ComputeImageVersion |
+> [AZURE.NOTE] For the ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template langauge and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modidfy your scripts or templates. This is shown below. 
+
+| PublisherName                        | Offer                                 | Sku                         | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
 | OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
@@ -117,8 +119,10 @@ Second, you'll need an image. To find an image with the Azure CLI, see [Navigati
 | msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical                        | UbuntuServer                               | 14.04.1-LTS                      | 14.04.201501230     |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      | 12.04.201504230     |
 | Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  | 3.0.201503          |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               | 4.0.201503          |
 | MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
 | MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
@@ -131,7 +135,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
