@@ -30,14 +30,14 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 ## News Updates
 
 ###### **April 17 2015**
-Guest OS versions 4.19, 3.26, 2.38 were released today.
+Guest OS versions 4.19, 3.26, 2.38 were released today. SOME NEW STUFF
 
 This release contains [MS15-034](https://technet.microsoft.com/library/security/MS15-034), a **critical** patch for Windows HTTP Servers.
 
 Guest OS versions 4.17, 3.24, 2.36 will be disabled on May 17 2015.
 
 ###### **April 6 2015**
-Guest OS versions 4.18, 3.25, 2.37 were released on April 2 2015.
+Guest OS versions 4.18, 3.25, 2.37 were released on April 2 2015. SOME NEW STUFF
 
 Guest OS versions 4.16, 3.23, 2.35 will be disabled on May 2 2015.
 
@@ -53,7 +53,7 @@ Guest OS versions 4.14, 4.13, 3.21, 3.20, 2.33, 2.32 (released in November) have
 
 
 ###### **Jan 13 2015, Updated Jan 15 2015**
-The December Guest OS was released on Jan 14 2015.
+The December Guest OS was released on Jan 14 2015. SOME NEW STUFF
 
 
 ###### **Jan 13 2015**
