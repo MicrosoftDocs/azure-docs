@@ -12,12 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="04/30/2015"
+   ms.date="04/21/2015"
    ms.author="banders" />
 
-# Search for data in Operational Insights
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+#Search for data in Operational Insights
 
 At the core of Microsoft Azure Operational Insights is the search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Intelligence Packs are also powered by search to bring you metrics pivoted around a particular problem area. 
 
