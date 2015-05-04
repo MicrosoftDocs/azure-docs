@@ -19,7 +19,6 @@
 
 # Azure Active Directory Developer's Guide
 
-<a name='overview'></a>
 ## Overview
 
 _Read these overview topics to learn the basics of Azure Active Directory, or jump to [getting started](#getting-started)._
@@ -40,7 +39,6 @@ These articles provide developers with high-level information about the use, imp
 1. **[Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
 
 
-<a name='getting-started'></a>
 ## Getting Started
 
 These tutorials are tailored for multiple platforms, and allow you to quickly start developing with Azure Active Directory. As a prerequisite you must [get an Azure Active Directory tenant](active-directory-howto-tenant.md).
@@ -64,7 +62,6 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 - [Node.js](active-directory-devquickstarts-webapi-nodejs.md)
 
 
-<a name='howtos'></a>
 ## How Tos
 
 These articles describe how to perform specific tasks using Azure Active Directory (AD).
@@ -72,7 +69,7 @@ These articles describe how to perform specific tasks using Azure Active Directo
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 
-<a name='reference'></a>
+
 ## Reference
 
 These articles provide foundation reference for REST and authentication library APIs, protocols, errors, code samples, and endpoints.  
