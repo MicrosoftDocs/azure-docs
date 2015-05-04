@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/04/2015" 
 	ms.author="Justinha"/>
 
 # Azure Active Directory Editions
@@ -63,7 +63,7 @@ Active Directory Premium edition is a paid offering of Azure Active Directory an
 
 - **Microsoft Identity Manager (MIM)** - Premium comes with the option to grant rights to use a MIM server (and CALs) in your on-premises network to support any combination of Hybrid Identity solutions. This is a great option if you have a variation of on-premises directories and databases that you want to sync directly to Azure Active Directory. There is no limit on the number of FIM servers you can use, however, MIM CALs are granted based on the allocation of an Azure Active Directory premium user license.
 
-    For more information, see {Deploy MIM 2010 R2](https://www.microsoft.com/en-us/server-cloud/products/forefront-identity-manager/features.aspx).
+    For more information, see [Deploy MIM 2010 R2](https://www.microsoft.com/en-us/server-cloud/products/forefront-identity-manager/features.aspx).
 
 - **Enterprise SLA of 99.9%** - We guarantee at least 99.9% availability of the Azure Active Directory Premium service.
 
