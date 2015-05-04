@@ -55,6 +55,7 @@ Before you begin this article, you must have the following:
     </appSettings>
 	```
 Replace values for *SubscriptionId* and *ActiveDirectoryTenantId* with your Azure subscription and tenant IDs. You can get these values by running the following PowerShell cmdlet:
+
     ```
     Get-AzureAccount
     ```
