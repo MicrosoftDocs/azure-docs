@@ -49,7 +49,7 @@ The agent is automatically installed and configured for your Operational Insight
 
 ![Image of Operational Insights Servers page](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE] The [Azure VM agent](https://msdn.microsoft.com/en-us/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights.
+ >[AZURE.NOTE] The [Azure VM agent](https://msdn.microsoft.com/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights.
 
 
 
