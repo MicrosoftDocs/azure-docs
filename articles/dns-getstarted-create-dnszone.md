@@ -56,11 +56,11 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 To register your subscription to use the Azure DNS Public Preview, please execute the following PowerShell command:
 
-PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+	PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
 
 You can check your registration status as follows:
 
-PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
 
 	FeatureName                       ProviderName                      RegistrationState
 
