@@ -1,13 +1,13 @@
 <properties 
    pageTitle="How to Create Routes and Enable IP Forwarding in Azure"
    description="Learn how to manage UDRs and IP forwarding"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
