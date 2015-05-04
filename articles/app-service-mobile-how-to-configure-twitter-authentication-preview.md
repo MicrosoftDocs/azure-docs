@@ -64,4 +64,4 @@ You are now ready to use Twitter for authentication in your app.
 
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Azure Management Portal]: https://portal.azure.com/
-[xamarin]: /en-us/documentation/articles/app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview/
+[xamarin]: app-services-mobile-app-dotnet-backend-xamarin-ios-get-started-users-preview.md

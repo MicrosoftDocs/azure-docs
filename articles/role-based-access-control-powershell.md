@@ -1,26 +1,26 @@
 <properties 
 	pageTitle="Managing Role-Based Access Control with Windows PowerShell" 
 	description="Managing role-based access control with Windows PowerShell" 
-	services="" 
-	documentationCenter="" 
-	authors="guangyang" 
+	services="azure-portal" 
+	documentationCenter="na" 
+	authors="Justinha" 
 	manager="terrylan" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-portal" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="11/03/2014" 
-	ms.author="guayan"/>
+	ms.author="justinha"/>
 
 # Managing Role-Based Access Control with Windows PowerShell #
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/role-based-access-control-powershell.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/role-based-access-control-xplat-cli.md" title="Cross-Platform CLI">Cross-Platform CLI</a></div>
 
-Role-Based access control (RBAC) in Azure preview portal and Azure Resource Manager API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
+Role-Based access control (RBAC) in the Azure Portal and Azure Resource Management API allows you to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 In this tutorial, you'll learn how to use Windows PowerShell to manage RBAC. It walks you through the process of creating and checking role assignments.
 
@@ -32,7 +32,7 @@ Before you can use Windows PowerShell to manage RBAC, you must have the followin
 
 - Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify that the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0 ](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Windows Azure PowerShell](install-configure-powershell.md).
+- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](install-configure-powershell.md).
 
 This tutorial is designed for Windows PowerShell beginners, but it assumes that you understand the basic concepts, such as modules, cmdlets, and sessions. For more information about Windows PowerShell, see [Getting Started with Windows PowerShell](http://technet.microsoft.com/library/hh857337.aspx).
 
@@ -153,9 +153,9 @@ Then when you try to run other cmdlet like `New-AzureResourceGroup`, you will ge
 
 To learn more about managing role-based access control with Windows PowerShell, and related topics:
  
-- [Role based access control in Windows Azure](role-based-access-control-configure.md)
+- [Role based access control in Azure](role-based-access-control-configure.md)
 - [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): Learn to use the cmdlets in the AzureResourceManager module.
-- [Using Resource groups to manage your Azure resources](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Learn how to create and manage resource groups in the Azure Management Portal.
+- [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md): Learn how to create and manage resource groups in the Azure Management Portal.
 - [Azure blog](http://blogs.msdn.com/windowsazure): Learn about new features in Azure.
 - [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 - ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.

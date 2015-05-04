@@ -166,4 +166,4 @@ In less than 5 minutes you were able to set up a simple logic app running in the
 
 <!-- Shared links -->
 [Azure portal]: https://portal.azure.com
-[Use logic app features]: ./app-service-logic-use-logic-app-features.md
+[Use logic app features]: app-service-logic-use-logic-app-features.md

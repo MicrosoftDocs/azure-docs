@@ -16,7 +16,7 @@ ms.author="mahender" />
 
 # Add Azure Active Directory single sign-on to your iOS app
 
-[WACOM.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../includes/app-service-mobile-selector-aad-sso.md)]
 
 In this tutorial, you add authentication to the quickstart project using the Active Directory Authentication Library.
 
@@ -31,7 +31,7 @@ This tutorial requires the following:
 
 ## <a name="register-application"></a>Register your application with the Azure Active Directory
 
-[WACOM.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
+[AZURE.INCLUDE [app-service-mobile-adal-register-app](../includes/app-service-mobile-adal-register-app.md)]
 
 ## <a name="require-authentication"></a>Configure the application to require authentication
 
@@ -100,7 +100,7 @@ You will now be able to reference the Active Directory Authentication Library in
 
 7. In the code for the `loginAndGetData` method above, replace **INSERT-REDIRECT-URI-HERE** with the /login/done endpoint for your App Service Gateway. This should be similar to https://contosogateway.azurewebsites.net/login/done.
 
-8. In the QSTodoListViewController, modify `ViewDidLoad` by replacing `[self refresh]` with the following:
+8. In the QSTodoListViewController, modify `viewDidLoad` by replacing `[self refresh]` with the following:
 
         [self loginAndGetData];
 
@@ -111,7 +111,7 @@ You will now be able to reference the Active Directory Authentication Library in
 3. The app authenticates and returns the todo items.
 
 <!-- URLs. -->
-[How to configure your Mobile App with Azure Active Directory]: /en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication-preview/
+[How to configure your Mobile App with Azure Active Directory]: app-service-mobile-how-to-configure-active-directory-authentication-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Active Directory Authentication Library for iOS]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- [Get started with Mobile Apps]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-ios-get-started-preview/
+ [Get started with Mobile Apps]: app-service-mobile-dotnet-backend-ios-get-started-preview.md

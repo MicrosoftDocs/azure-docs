@@ -2,40 +2,26 @@
    pageTitle="Azure Mobile Engagement User Interface - Introduction" 
    description="User Interface Overview for Azure Mobile Engagement" 
    services="mobile-engagement" 
-   documentationCenter="mobile" 
-   authors="v-micada" 
+   documentationCenter="" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
 <tags
    ms.service="mobile-engagement"
-   ms.devlang="Java"
+   ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="mobile"
+   ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
    ms.date="02/17/2015"
-   ms.author="v-micada"/>
+   ms.author="piyushjo"/>
 
-# Azure Mobile Engagement - User Interface
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" class="current" title="Introduction">Introduction</a>
-<a href="../mobile-engagement-user-interface-navigation" title="Navigation">Navigation</a>
-<a href="mobile-engagement-user-interface-home.md" title="Home">Home</a>
-<a href="../mobile-engagement-user-interface-my-account" title="My Account">My Account</a>
-<a href="../mobile-engagement-user-interface-analytics" title="Analytics">Analytics</a>
-<a href="../mobile-engagement-user-interface-monitor" title="Monitor">Monitor</a>
-<a href="../mobile-engagement-user-interface-reach" title="Reach">Reach</a>
-<a href="../mobile-engagement-user-interface-segments" title="Segments">Segments</a>
-<a href="../mobile-engagement-user-interface-dashboard" title="Dashboard">Dashboard</a>
-<a href="../mobile-engagement-user-interface-settings" title="Settings">Settings</a>
-</div>
-
-# Introduction
+# How to use the Azure Mobile Engagement User Interface (UI)
  
-Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can use the HTTP REST based [APIs][Link 4]. For a walkthrough of common activities please see the [How To Guides][Link 3]. If you have any difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
+## Introduction:
+Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your application and you understand the basic Azure Mobile Engagement [Concepts][Link 6], there are two ways to interact with Azure Mobile Engagement for your app: standard users can use the [User Interface][Link 1] and developer users can use the HTTP REST based [APIs][Link 4]. If you have any difficulty please consult the Azure Mobile Engagement [Troubleshooting Guides][Link 2].
 
-## User Interface:
+## User Interface Articles:
 
 - [Navigation][Link 12]
 - [Home][Link 13]
@@ -43,6 +29,10 @@ Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your app
 - [Analytics][Link 15]
 - [Monitor][Link 16]
 - [Reach][Link 17]
+	- [Reach - Campaign][Link 27]
+	- [Reach - Criterion][Link 28]
+	- [Reach - Content][Link 29]
+	- [Reach - How To][Link 3]
 - [Segments][Link 18]
 - [Dashboard][Link 19]
 - [Settings][Link 20]
@@ -67,20 +57,20 @@ Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your app
 [17]: ./media/mobile-engagement-user-interface-monitor/monitor4.png
 [18]: ./media/mobile-engagement-user-interface-reach/reach1.png
 [19]: ./media/mobile-engagement-user-interface-reach/reach2.png
-[20]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign1.png
-[21]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign2.png
-[22]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign3.png
-[23]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign4.png
-[24]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign5.png
-[25]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign6.png
-[26]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign7.png
-[27]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign8.png
-[28]: ./media/mobile-engagement-user-interface-reach/Reach-Campaign9.png
-[29]: ./media/mobile-engagement-user-interface-reach/Reach-Criterion1.png
-[30]: ./media/mobile-engagement-user-interface-reach/Reach-Content1.png
-[31]: ./media/mobile-engagement-user-interface-reach/Reach-Content2.png
-[32]: ./media/mobile-engagement-user-interface-reach/Reach-Content3.png
-[33]: ./media/mobile-engagement-user-interface-reach/Reach-Content4.png
+[20]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign1.png
+[21]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign2.png
+[22]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign3.png
+[23]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign4.png
+[24]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign5.png
+[25]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign6.png
+[26]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign7.png
+[27]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign8.png
+[28]: ./media/mobile-engagement-user-interface-reach-campaign/Reach-Campaign9.png
+[29]: ./media/mobile-engagement-user-interface-reach-criterion/Reach-Criterion1.png
+[30]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content1.png
+[31]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content2.png
+[32]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content3.png
+[33]: ./media/mobile-engagement-user-interface-reach-content/Reach-Content4.png
 [34]: ./media/mobile-engagement-user-interface-dashboard/dashboard1.png
 [35]: ./media/mobile-engagement-user-interface-segments/segments1.png
 [36]: ./media/mobile-engagement-user-interface-segments/segments2.png
@@ -120,7 +110,7 @@ Once you have integrated the Azure Mobile Engagement [SDK][Link 5] into your app
 [Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
 [Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
 [Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: ../mobile-engagement-user-interface-home/
+[Link 13]: mobile-engagement-user-interface-home.md
 [Link 14]: mobile-engagement-user-interface-my-account.md
 [Link 15]: mobile-engagement-user-interface-analytics.md
 [Link 16]: mobile-engagement-user-interface-monitor.md

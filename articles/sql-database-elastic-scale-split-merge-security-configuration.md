@@ -5,13 +5,15 @@
     metaKeywords="Elastic Scale Security Configurations, Azure SQL Database sharding, elastic scale " 
     services="sql-database" documentationCenter="" 
     manager="jhubbard" 
-    authors="torsteng@microsoft.com"/>
+    authors="sidneyh"/>
 
 <tags 
     ms.service="sql-database" 
     ms.workload="sql-database" 
     ms.tgt_pltfrm="na" 
-    ms.devlang="na" ms.topic="article" ms.date="03/20/2015" 
+    ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="04/01/2015" 
     ms.author="sidneyh" />
 
 # Split-Merge security configuration  

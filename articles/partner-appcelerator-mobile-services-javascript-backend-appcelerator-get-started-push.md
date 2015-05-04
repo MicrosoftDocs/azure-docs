@@ -477,7 +477,7 @@ This registers a new insert script, which uses the [Mobile Services push object]
 [Insert data to receive notifications]: #test
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Get started with Mobile Services]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [Using Titanium Modules]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services push object]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409

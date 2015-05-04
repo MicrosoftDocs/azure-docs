@@ -44,7 +44,7 @@ The downloaded quickstart project contains the Mobile Services SDK for Android. 
 
 [AZURE.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## <h2>Create a new Android app</h2>
+## Create a new Android app
 
 Once you have created your mobile service, you can follow an easy quickstart in the Management Portal to either create a new app or modify an existing app to connect to your mobile service. 
 
@@ -152,7 +152,7 @@ Now that you have completed the quickstart, learn how to perform additional impo
 [15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
-[Get started with data]: /documentation/articles/mobile-services-android-get-started-data/
+[Get started with data]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125

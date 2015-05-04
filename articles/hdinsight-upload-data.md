@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
+	ms.date="03/31/2015" 
 	ms.author="jgao"/>
 
 
@@ -24,7 +24,7 @@ Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) o
 
 Azure HDInsight clusters are typically deployed to run MapReduce jobs, and the clusters are dropped after these jobs complete. Keeping the data in the HDFS clusters after computations are complete would be an expensive way to store this data. Azure Blob storage is a highly available, highly scalable, high capacity, low cost, and shareable storage option for data that is to be processed using HDInsight. Storing data in a blob enables the HDInsight clusters that are used for computation to be safely released without losing data. 
 
-Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Cross-Platform Command-Line Interface][xplatcli], or through explorer tools. Here are some of the available tools:
+Azure Blob storage can be accessed through [AzCopy][azure-azcopy], [Azure PowerShell][azure-powershell], [Azure Storage Client Library for .NET][azure-storage-client-library], [Azure Command-Line Interface for Mac, Linux, and Windows][xplatcli], or through explorer tools. Here are some of the available tools:
 
 * [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/)
 * [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/)
@@ -51,11 +51,11 @@ For more information, see [AzCopy - Uploading/Downloading files for Azure Blobs]
 
 ##<a id="powershell"></a>Upload data to Azure Blob storage by using Azure PowerShell##
 
-Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. You can use Azure PowerShell to upload data to Azure Blob storage, so the data can be processed by MapReduce jobs. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell][powershell-install-configure].
+Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. You can use Azure PowerShell to upload data to Azure Blob storage, so the data can be processed by MapReduce jobs. For information about configuring your workstation to run Azure PowerShell, see [Install and configure Azure PowerShell](powershell-install-configure.md).
 
 **To upload a local file to Azure Blob storage**
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](powershell-install-configure.md).
 2. Set the values of the first five variables in the following script:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -85,11 +85,11 @@ If you use Azure Explorer tools, you may notice some 0 byte files. These files s
 - They hold special metadata that is needed by the Hadoop file system, notably the permissions and owners for the folders.
 
 
-##<a id="xplatcli"></a>Upload data to Azure Blob storage by using the Azure Cross-Platform Command-Line Interface
+##<a id="xplatcli"></a>Upload data to Azure Blob storage by using the Azure CLI
 
-The Azure Cross-Platform Command-Line Interface (xplat-cli) is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
+The Azure CLI for Mac, Linux and Windows is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Blob storage:
 
-1. <a href="../xplat-cli" target="_blank">Install and configure the xplat-cli</a>.
+1. [Install and configure the Azure CLI for Mac, Linux and Windows](xplat-cli.md).
 
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
 
@@ -131,7 +131,7 @@ The Azure Cross-Platform Command-Line Interface (xplat-cli) is a cross-platform 
 
 *Azure Storage Explorer* is a useful tool for inspecting and altering the data in Azure Storage. It is a free tool that can be downloaded from CodePlex: [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storageaccount].  
+Before using the tool, you must know your Azure storage account name and account key. For instructions about getting this information, see the "How to: View, copy and regenerate storage access keys" section of [Create, manage, or delete a storage account][azure-create-storage-account].  
 
 1. Run Azure Storage Explorer.
 
@@ -268,7 +268,7 @@ The following procedure uses Azure PowerShell to submit a Sqoop job.
 
 **To import data to HDInsight by using Sqoop and Azure PowerShell**
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](powershell-install-configure.md).
 2. Set the values of the first eight variables in the following script:
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -313,8 +313,8 @@ Now that you understand how to get data into HDInsight, read the following artic
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: storage-create-storage-account.md
-[azure-azcopy-download]: http://aka.ms/WaCopy
-[azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
+[azure-azcopy-download]: storage-use-azcopy.md
+[azure-azcopy]: storage-use-azcopy.md
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 
@@ -326,11 +326,11 @@ Now that you understand how to get data into HDInsight, read the following artic
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-[sqldatabase-create-configue]: sql-database-create-configure.md
+[sqldatabase-create-configure]: sql-database-create-configure.md
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: install-configure-powershell.md
+[Powershell-install-configure]: powershell-install-configure.md
 
 [xplatcli]: xplat-cli.md
 

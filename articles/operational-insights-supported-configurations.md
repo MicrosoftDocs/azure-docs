@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Supported configurations"
+   pageTitle="Supported configurations for Operational Insights"
    description="Learn about the configurations needed for Operational Insights"
    services="operational-insights"
    documentationCenter=""
@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="03/30/2015"
    ms.author="banders" />
 
-# Supported configurations
+# Supported configurations for Operational Insights
 
 What do you need to use Operational Insights? Check out the following information to prepare for Operational Insights.
 

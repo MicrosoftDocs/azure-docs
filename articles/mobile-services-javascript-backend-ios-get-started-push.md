@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/24/2015" 
 	ms.author="krisragh"/>
 
 # Add push notifications to your Mobile Services app
@@ -238,7 +238,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /documentation/articles/mobile-services-ios-get-started
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Azure Management Portal]: https://manage.windowsazure.com/
@@ -248,7 +248,7 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [Send push notifications to authenticated users]: mobile-services-javascript-backend-ios-push-notifications-app-users.md
 
-[What are Notification Hubs?]: /documentation/articles/notification-hubs-overview/
+[What are Notification Hubs?]: notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: notification-hubs-ios-send-breaking-news.md
 [Send template-based notifications to subscribers]: notification-hubs-ios-send-localized-breaking-news.md
 

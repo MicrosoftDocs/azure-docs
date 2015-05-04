@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="03/29/2015" 
 	ms.author="jaymathe"/>
 
 # Quick start guide for the Machine Learning Recommendations API
@@ -507,7 +507,7 @@ OData XML
 |	Parameter Name	|	Valid Values						|
 |:--------			|:--------								|
 | modelId | Unique identifier of the model (case sensitive) |
-| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 200 |
+| itemIds | Comma-separated list of the items to recommend for.<br>Max length: 1024 |
 | numberOfResults | Number of required results |
 | includeMetatadata | Future use, always false |
 | apiVersion | 1.0 |

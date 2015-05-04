@@ -82,7 +82,7 @@ Now that the mobile app backend is published and the client is connected to the 
 
 
 <!-- URLs. -->
-[Get started with authentication]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview
+[Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure Portal]: https://portal.azure.com/

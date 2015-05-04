@@ -19,11 +19,11 @@
 
 # Restore a web app in Azure App Service
 
-This article shows you how to restore a web app that you have previously backed up by using the [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) Backup feature. For more information, see [App Service Web Apps Backups](../web-sites-backup/). 
+This article shows you how to restore a web app that you have previously backed up by using the [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) Backup feature. For more information, see [App Service Web Apps Backups](web-sites-backup.md). 
 
 The Web Apps Restore feature lets you restore your web app on-demand to a previous state, or create a new web app based on one of your original web app's backups. Creating a new web app that runs in parallel to the latest version can be useful for A/B testing.
 
-The Web Apps Restore feature, available on the **Backups** blade in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), is available only in Standard and Premium modes. For information about scaling your app use  Standard or Premium mode, see [Scale a web app in Azure App Service](../web-sites-scale/). 
+The Web Apps Restore feature, available on the **Backups** blade in the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), is available only in Standard and Premium modes. For information about scaling your app use  Standard or Premium mode, see [Scale a web app in Azure App Service](web-sites-scale.md). 
 Note that the Premium mode allows a greater number of daily backups to be performed over the Standard mode.
 
 <a name="PreviousBackup"></a>

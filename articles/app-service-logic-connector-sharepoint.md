@@ -3,7 +3,7 @@
    description="Using the SharePoint Connector in your logic app" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -79,8 +79,7 @@ To use the SharePoint Server Connector, you need to first create an instance of 
 	    <td>Authentication Mode</td>
 	    <td>Yes</td>
 	    <td>Specify the authentication mode to connect to SharePoint Site. The allowed Values are:<br><br>
-			Default<br>
-			OAuth2<br>
+			Default<br>			
 			WindowsAuthentication<br>
 			FormBasedAuthentication.<br><br>
 	
@@ -89,12 +88,12 @@ To use the SharePoint Server Connector, you need to first create an instance of 
 	  <tr>
 	    <td>User Name</td>
 	    <td>No</td>
-	    <td>Specify a valid user name to connect to SharePoint site, if Authentication mode is not Default/OAuth2.</td>
+	    <td>Specify a valid user name to connect to SharePoint site, if Authentication mode is not Default.</td>
 	  </tr>
 	  <tr>
 	    <td>Password</td>
 	    <td>No</td>
-	    <td>Specify a valid password to connect to SharePoint site, if Authentication mode is not Default/OAuth2.</td>
+	    <td>Specify a valid password to connect to SharePoint site, if Authentication mode is not Default.</td>
 	  </tr>
 	  <tr>
 	    <td>Document Library / List Relative URLs</td>
@@ -126,7 +125,7 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 3. If SharePoint connector is selected at the start of the logic app it acts like trigger else actions could be taken on SharePoint account using the connector. 
 
-4. You would have to authenticate and authorize logic apps to perform operations on your behalf if SharePoint Online Connector is used or if the authentication is OAuth2 in SharePoint Server Connector. To start the authorization click Authorize on SharePoint Connector. 
+4. You would have to authenticate and authorize logic apps to perform operations on your behalf if SharePoint Online Connector is used. To start the authorization click Authorize on SharePoint Connector. 
 
 	![][3]
 
@@ -151,6 +150,8 @@ Once your API app is created, you can now use the SharePoint Connector as a trig
 
 ##  Triggers
 Use triggers if you want to initiate a logic app 
+
+**NOTE**: Triggers will delete the files after reading them. To preserve these files, please provide a value for the archive location. 
 
 ### 1.	New Document In Shared Documents (JSON)
 This trigger is fired when a new document is available in 'Shared Documents'. 

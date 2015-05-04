@@ -3,7 +3,7 @@
 	description="This topic gives an overview of Azure Media Services Concepts" 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako" 
+	authors="Juliako" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2015"
+	ms.date="04/15/2015"
 	ms.author="juliako"/>
 
 #Azure Media Services Concepts 
@@ -52,9 +52,9 @@ If you plan to deliver an MP4 using progressive download, use this option to upl
 
 In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, PlayReady, or no encryption). 
 
-**CommonEncryption** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
+**CommonEncryptionProtected** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption or PlayReady DRM (for example, Smooth Streaming protected with PlayReady DRM).
 
-**EnvelopeEncrypted** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
+**EnvelopeEncryptionProtected** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
 
 ###Access policy 
 
@@ -160,6 +160,7 @@ Licenses contain the rights and restrictions that you want for the PlayReady DRM
 ###Token restriction
 
 The content key authorization policy could have one or more authorization restrictions: open, token restriction, or IP restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
+
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 ##Delivering

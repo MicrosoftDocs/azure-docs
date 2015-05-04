@@ -10,11 +10,11 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="11/20/2014" 
-	ms.author="glenga"/>
+	ms.date="04/24/2015" 
+	ms.author="ggailey777"/>
 
 # <a name="getting-started"> </a>Get started with Mobile Services
 

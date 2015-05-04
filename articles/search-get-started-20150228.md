@@ -18,19 +18,19 @@
 
 #Create your first Azure Search application in .NET#
 
-This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](search-howto-dotnet-sdk.md) to build classes for the objects and operations used in the sample.
+This tutorial builds a custom Web search application in Visual Studio 2013 or later that uses Azure Search for its search experience. The tutorial utilizes the [Azure Search .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) to build classes for the objects and operations used in the sample.
 
 You can download the sample from codeplex at [Azure Search Demo Using USGS Data](https://azsearchdemos.codeplex.com/SourceControl/latest) to follow the steps in this tutorial. The sample application uses data from the [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Washington. We'll use this data to build a search application based on data about landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure management portal](https://portal.azure.com). 
+To run this sample, you must have an Azure Search service, which you can sign up for in the [Azure portal](https://portal.azure.com). 
 
-You can begin with [Get started with Azure Search](search-get-started.md) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
+You can begin with [Create a service in the portal](../search-create-service-portal/) if you need help provisioning and verifying service availability. The article also explains how to find the service name and admin-keys used in every tutorial and solution that includes Azure Search.
 
 > [AZURE.TIP] We recommend updating NuGet packages before building any projects to avoid build errors. Right-click the solution and choose **Manage NuGet Packages**. Update all of the packages used in this solution.
 
 ##Build the index##
 
-1. Copy the service name and admin-key from the [Azure management portal](https://portal.azure.com) and paste it into **DataIndexer** | **App.config**.
+1. Copy the service name and admin-key from the [Azure portal](https://portal.azure.com) and paste it into **DataIndexer** | **App.config**.
 1. Right-click the **DataIndexer** project to set it as the start-up project.
 1. Build and run the project.
 
@@ -45,7 +45,7 @@ In the portal, you should see a new features index with xx and xx.  It can take 
 ##Build the application##
 
 
-1. Copy the service name and admin-key from the [Azure management portal](https://portal.azure.com) and paste it into **SimpleSearchMVCApp** | **Web.config**.
+1. Copy the service name and admin-key from the [Azure portal](https://portal.azure.com) and paste it into **SimpleSearchMVCApp** | **Web.config**.
 1. Right-click the **SimpleSearchMVCApp** project to set it as the start-up project.
 1. Build and run the project.
 
@@ -70,7 +70,7 @@ You could also try any of these terms:
 
 ##Explore the code##
 
-To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](search-howto-dotnet-sdk.md) for an explanation of the most commonly used classes in the client library.
+To learn the basics of the .NET SDK, take a look at [How to use Azure Search in .NET](../search-howto-dotnet-sdk/) for an explanation of the most commonly used classes in the client library.
 
 The remainder of this section covers a few points about each project. Where appropriate, we'll point you towards some alternative approaches that use more advanced features.
 

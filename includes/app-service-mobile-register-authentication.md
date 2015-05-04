@@ -18,5 +18,7 @@ To be able to authenticate users, you must register your app with an identity pr
 
 	Your application is now configured to work with your chosen authentication provider.
 
+4. (Optional) Repeat the previous step to configure any other identity provider that you want your app to support. 
+
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/

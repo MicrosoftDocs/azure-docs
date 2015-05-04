@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="04/20/2015" 
 	ms.author="kempb"/>
 
 # What happened to my project?
@@ -21,6 +21,11 @@
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet5-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet5-what-happened.md)
+
+> [AZURE.SELECTOR]
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Queues](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
 ###<span id="whathappened">What happened to my project?</span>
 

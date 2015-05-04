@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="How to use Azure Service Bus with the WebJobs SDK" 
 	description="Learn how to use Azure Service Bus queues and topics with the WebJobs SDK." 
-	services="web-sites, service-bus" 
+	services="app-service\web, service-bus" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="12/15/2014" 
+	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
 # How to use Azure Service Bus with the WebJobs SDK
