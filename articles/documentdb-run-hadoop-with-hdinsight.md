@@ -90,7 +90,7 @@ When you provision an HDInsight cluster, you specify an Azure Storage account. A
 4. Wait until the **STATUS** of the new storage account is changed to **Online**.
 
 ## <a name="ProvisionHDInsight"></a>Step 2: Create a customized HDInsight cluster
-This tutorial uses Script Action from the Azure classic portal to customize your HDInsight cluster. In this tutorial we will use the Azure classic portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
+This tutorial uses Script Action from the Azure management portal to customize your HDInsight cluster. In this tutorial we will use the Azure management portal to create your customized cluster. For instructions on how to use PowerShell cmdlets or the HDInsight .NET SDK, check out the [Customize HDInsight clusters using Script Action][hdinsight-custom-provision] article.
 
 1. Sign in to the [Azure management portal][azure-classic-portal]. You may be already signed in from the previous step.
 
