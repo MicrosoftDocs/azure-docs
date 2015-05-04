@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="05/04/2015" 
+	ms.date="05/04/2015"
 	ms.author="yidingz, kabatta"/>
 
 #Getting Started with the Azure Batch Library for .NET  
@@ -31,7 +31,7 @@ For background information and scenarios for Azure Batch, see [Azure Batch techn
 This tutorial will show you how to create a console application that sets up distributed computation among a pool of virtual machines by using the Azure Batch service. The tasks that are created in this tutorial evaluate text from files in Azure storage and return the words that are most commonly used. The samples are written in C# code and use the Azure Batch Library for .NET.
 
 
->[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://www.windowsazure.com/pricing/free-trial/).
+>[AZURE.NOTE] To complete this tutorial, you need an Azure account. You can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
 >
 >You need to use NuGet to obtain the **Microsoft.Azure.Batch.dll** assembly. After you create your project in Visual Studio, right-click the project in **Solution Explorer** and choose **Manage NuGet Packages**. Search online for **Azure.Batch** and then click Install to install the Azure Batch package and dependencies.
 >
@@ -420,7 +420,7 @@ Before you can run the code in this tutorial, you must have access to a storage 
 6.	Optionally, you can enable geo-replication.
 7.	Click **CREATE STORAGE ACCOUNT**.  
 
-For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://www.windowsazure.com/develop/net/how-to-guides/blob-storage/).  
+For more information about Azure Storage, see [How to use the Azure Blob Storage Service in .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).  
 
 
 ##<a name="tutorial2"></a>Tutorial 2: Azure Batch Apps Library for .NET
