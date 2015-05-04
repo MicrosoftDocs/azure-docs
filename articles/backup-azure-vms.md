@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure virtual machine backup - Backup"
-   description="Learn how to backup an Azure virtual machine after registration"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Azure virtual machine backup - Backup"
+	description="Learn how to backup an Azure virtual machine after registration"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
 
 <tags 
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="04/30/2015"
-	 ms.author="aashishr"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/30/2015"
+	ms.author="aashishr"/>
 
 
 # Backup the Azure virtual machine

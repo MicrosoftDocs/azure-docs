@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure virtual machine backup - Introduction"
-   description="An introduction to backing up virtual machines in Azure using the Azure Backup service"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Introduction to Azure machine virtual backup"
+	description="An introduction to backing up virtual machines in Azure using the Azure Backup service"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="04/30/2015"
-	 ms.author="aashishr"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/30/2015"
+	ms.author="aashishr"/>
 
 # Azure virtual machine backup - Introduction
 

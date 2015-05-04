@@ -1,21 +1,21 @@
 
 <properties
-   pageTitle="Azure virtual machine backup - Backup"
-   description="Learn how to backup an Azure virtual machine after registration"
-   services="backup"
-   documentationCenter=""
-   authors="aashishr"
-   manager="shreeshd"
-   editor=""/>
+	pageTitle="Azure Backup - restore a virtual machine"
+	description="Learn how to restore an Azure virtual machine"
+	services="backup"
+	documentationCenter=""
+	authors="aashishr"
+	manager="shreeshd"
+	editor=""/>
 
 <tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="04/30/2015"
-	 ms.author="aashishr"/>
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/30/2015"
+	ms.author="aashishr"/>
 
 # Restore a virtual machine
 
@@ -24,7 +24,7 @@
 You can restore a virtual machine to a new VM from the backups stored in Azure backup vault using restore action.
 
 1. To restore a virtual machine from the backup on the **Protected Items** page click **Restore** to open the **Restore an Item** wizard.
-  	>[Azure.Note] The recovery point column in Protected Items page will tell you the number of recovery points you have for the virtual machine. Newest recovery point column tells you the latest snapshot time to which you can restore a virtual machine.
+	>[AZURE.NOTE] The recovery point column in Protected Items page will tell you the number of recovery points you have for the virtual machine. Newest recovery point column tells you the latest snapshot time to which you can restore a virtual machine.
 
 2. On the **Select a recovery point** page you can restore from the newest recovery point, or from a previous point in time. Available recovery points are highlighted on the calendar.
 
@@ -62,8 +62,5 @@ After restore you'll need to reconfigure the extensions and recreate the endpoin
 
 On the Dashboard page you can review information about Azure virtual machines, their storage, and jobs associated with them in the last 24 hours. You can view backup status and any associated backup errors. 
 
-## Next steps
-To get started with virtual machine backup, learn how to:
 
-+ Monitor the backup jobs
 
