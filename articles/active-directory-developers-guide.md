@@ -112,15 +112,15 @@ These articles provide foundation reference for REST and authentication library 
 ## Videos
 
 ### Build 2015
-- **[Azure Active Directory: Identity Management as a Service for Modern Applications](/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[Develop Modern Web Applications with Azure Active Directory](/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[Develop Modern Native Applications with Azure Active Directory](/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
 
 
 ### Azure Friday
-- **[Azure Identity 101](/documentation/videos/azure-identity-basics/)**
-- **[Azure Identity 102](/documentation/videos/azure-identity-creating-active-directory/)**
-- **[Azure Identity 103](/documentation/videos/azure-identity-application-to-authenticate/)**
+- **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
+- **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
+- **[Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
 
 
 ## Social
