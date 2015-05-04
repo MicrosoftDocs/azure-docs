@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Gettting started with Internal load balancer"
+   pageTitle="Gettting started with Internal load balancer | Microsoft Azure "
    description="Configure Internal Load balancer and how to implement them for Virtual Machines and Cloud deployments"
    services="load-balancer"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 # Configure an internal load balancer set 
@@ -277,5 +277,4 @@ To obtain additional information about ILB cmdlets, run the following commands a
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-
 

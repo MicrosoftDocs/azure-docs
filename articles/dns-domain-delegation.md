@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Delegate your domain to Azure DNS" 
-   description="using delegation to change the name servers from your registrar to point to Azure DNS" 
+   pageTitle="Delegate your domain to Azure DNS | Microsoft Azure" 
+   description="Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting" 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="dns"
-   ms.devlang="en"
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
@@ -110,9 +110,9 @@ Note that you do not have to specify the Azure DNS name servers, since the norma
 
 ## Next Steps 
 
-[Perform operations on DNS zones](../dns-operations-dnszones)
+[Manage DNS zones](../dns-operations-dnszones)
 
-[Perform operations on DNS records](../dns-operations-recordsets)
+[Manage DNS records](../dns-operations-recordsets)
 
 [Traffic Manager Overview](../traffic-manmager-overview)
 

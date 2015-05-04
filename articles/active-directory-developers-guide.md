@@ -71,9 +71,10 @@ These tutorials are tailored for multiple platforms, and allow you to quickly st
 <a name='howtos'></a>
 ## How Tos
 
-These articles describe how to perform specific tasks using Azure Active Directory.
+These articles describe how to perform specific tasks using Azure Active Directory (AD).
 
-- [How to get an Azure Active Directory tenant](active-directory-howto-tenant.md)
+- [How to get an Azure AD tenant](active-directory-howto-tenant.md)
+- [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
 
 <!--
 

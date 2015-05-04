@@ -12,11 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 
-# Azure Resource Manager support for Azure Load Balancer Preview
+# Overview 
+
 Azure Resource Manager (ARM) is the new management framework for services in Azure.  Azure Load Balancer can now be managed using Azure Resource Manager-based APIs and tools. To learn more about Azure Resource Manager, see [Using Resource groups to manage your Azure resources](azure-preview-portal-using-resource-groups.md).
 
 >[AZURE.NOTE] ARM support for Load Balancer is currently in Preview, including REST API, PowerShell cmdlets, cross-platform command line interface and .NET SDK.
@@ -45,7 +46,7 @@ Azure Resource Manager allows you to provision your applications using a declara
 
 Templates include Virtual Machines, Virtual Networks, Availability Sets, Network Interfaces (NICs), Storage Accounts, Load Balancers, Network Security Groups, and Public IPs. With templates you can create everything you need for a complex application using a simple file that you can check-in and collaborate on.
 
-[Learn more about templates](templates.md)
+[Learn more about templates](http://go.microsoft.com/fwlink/?LinkId=544798)
 
 [Learn more about Network Resources](../resource-groups-networking)
 
@@ -53,11 +54,11 @@ Templates using Azure Load Balancer can be found in a [GitHub repository](https:
 
 Examples of templates:
 
-- [2 VMs in a Load Balancer and load balancing rules](../templates/201-2-vms-loadbalancer-lbrules)
+- [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544799)
 
-- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](../templates/201-2-vms-internal-load-balancer)
+- [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](http://go.microsoft.com/fwlink/?LinkId=544800)
 
-- [2 VMs in a Load Balancer and configure NAT rules on the LB](../templates/201-2-vms-loadbalancer-natrules)
+- [2 VMs in a Load Balancer and configure NAT rules on the LB](http://go.microsoft.com/fwlink/?LinkId=544801)
 
 
 ## Setting up Azure Load Balancer with a PowerShell or CLI
@@ -76,6 +77,4 @@ Examples of templates:
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-
-
 

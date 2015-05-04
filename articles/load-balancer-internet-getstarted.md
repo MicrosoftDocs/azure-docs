@@ -1,6 +1,6 @@
 
 <properties 
-   pageTitle="Get started on Internet facing load balancer"
+   pageTitle="Get started on Internet facing load balancer | Microsoft Azure"
    description="Get your first Internet facing load balancer set for your Virtual Machines or Cloud Services. "
    services="load-balancer"
    documentationCenter="na"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="05/01/2015"
    ms.author="joaoma" />
 
 # Get started configuring your Internet facing load balancer
@@ -70,6 +70,7 @@ You can also configure endpoints with the following Windows PowerShell cmdlets:
 
 
 Cloud services are automatically configured with a Load Balancer and can customized via the service model
+
 You can leverage the Azure SDK for .NET 2.5 to update your Cloud Service. Endpoint settings for Cloud Services are made in the [service definition](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 The following example shows how a servicedefinition.csdef file for a cloud deployment is configured:
@@ -124,7 +125,3 @@ Check the service definition schema for the [health probe](https://msdn.microsof
 [Configure a Load balancer distribution mode](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
-
-
-
-

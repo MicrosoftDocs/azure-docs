@@ -18,6 +18,12 @@
 
 #Windows Universal Apps Engagement SDK Integration
 
+> [AZURE.SELECTOR] 
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+- [iOS](mobile-engagement-ios-integrate-engagement.md) 
+- [Android](mobile-engagement-android-integrate-engagement.md) 
+
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your Windows Universal application.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API (see [How to use the advanced Mobile Engagement tagging API in your Windows Universal app](../mobile-engagement-windows-store-use-engagement-api/)) since these statistics are application dependent.
