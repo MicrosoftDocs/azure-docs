@@ -13,12 +13,10 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/30/2015" 
+    ms.date="04/07/2015" 
     ms.author="banders"/>
 
 # Set up your workspace and manage settings 
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 To create a new Microsoft Azure Operational Insights workspace, you choose a workspace name, associate it with your account, and you choose a geographical location. An Operational Insights workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple Operational Insights workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 

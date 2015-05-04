@@ -12,12 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="03/20/2015"
    ms.author="banders" />
 
 # Operations Manager considerations with Operational Insights
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 If you use Microsoft Azure Operational Insights with Operations Manager, then your configuration relies on a distribution of Operations Manager agents and management groups  to collect and send data to the Operational Insights service for analysis. However, if you use agents that connect directly to the web service, then you do not need Operations Manager. Consider the following issues when your use Operational Insights with Operations Manager.
 

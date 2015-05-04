@@ -5,19 +5,17 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="" />
+   editor="tysonn" />
 <tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="03/20/2015"
    ms.author="banders" />
 
 # Manage infrastructure capacity
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can use the Capacity Planning intelligence pack in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. You install the intelligence pack to update the Operations Manager agent and the base configuration module in Operational Insights. The intelligence pack reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 

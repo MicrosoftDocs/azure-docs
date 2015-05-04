@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	editor="LisaToft"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/29/2015" 
 	ms.author="Justinha"/>
 
 # View your access and usage reports
 
-You can use Azure Active Directory ‘s access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
+You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
 In the Azure classic portal, reports are categorized in the following ways:
 
@@ -31,186 +30,274 @@ In the Azure classic portal, reports are categorized in the following ways:
 
 > [AZURE.NOTE]
 > 
-- Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory editions](active-directory-editions.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
+- Some advanced anomaly and resource usage reports are only available when you enable [Azure Active Directory Premium](active-directory-get-started-premium.md). Advanced reports help you improve access security, respond to potential threats and get access to analytics on device access and application usage.
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](http://feedback.azure.com/forums/169401-azure-active-directory).
 
 
 ## Anomaly reports
 
-### Sign ins from unknown sources
+Report name  | Available in this edition    	
+------------- | -------------  
+[Sign ins from unknown sources](#SignInsFromUnknownSources) | Free and Premium
+[Sign ins after multiple failures](#SignInsAfterMultipleFailures) | Free and Premium
+[Sign ins from multiple geographies](#SignInsFromMultipleGeographies) | Free and Premium
+[Sign ins from IP addresses with suspicious activity](#SignInsFromIPAddressesWithSuspiciousActivity) | Premium
+[Anomalous sign in activity](#AnamolousSignInActivity) | Premium
+[Sign ins from possibly infected devices](#SignInsFromPossiblyInfectedDevices) | Premium
+[Users with anomalous sign in activity](#UsersWithAnomalousSignInActivity) | Premium
+[Application usage: summary](#AppUsageSummary) | Premium
+[Application usage: detailed](#AppUsageDetailed) | Premium
+[Application dashboard](#AppDashboard) | Free and Premium
+[Account provisioning errors](#AccountProvisioningErrors) | Free and Premium
+[Devices](#Devices) | Premium
+[Activity](#Activity) | Free and Premium
+[Audit report](#AuditReport) | Free and Premium
+[Groups activity report](#GroupsActivityReport) | Premium
+[Password Reset Registration Activity Report](#PasswordResetRegistrationActivityReport) | Premium
+[Password reset activity](#PasswordResetActivity) | Premium
+ 
 
-This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address. These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent – sometimes hackers use these proxies. 
+<h3><a id="SignInsFromUnknownSources"></a>Sign ins from unknown sources</h3>
 
-Results from this report will show the number of times a user successfully signed in to your directory from that address and the proxy’s IP address.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>This report indicates users who have successfully signed in to your directory while assigned a client IP address that has been recognized by Microsoft as an anonymous proxy IP address. These proxies are often used by users that want to hide their computer’s IP address, and may be used for malicious intent – sometimes hackers use these proxies.</p><p>Results from this report will show the number of times a user successfully signed in to your directory from that address and the proxy’s IP address.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-This report is found under the **Directory** > **Reports** tab.
+<h3><a id="SignInsAfterMultipleFailures"></a>Sign ins after multiple failures</h3>
 
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include: <ul><li>User had forgotten their password</li><li>User is the victim of a successful password guessing brute force attack</li></ul><p>Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.</p><p><b>Report Settings</b>: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-### Sign ins after multiple failures
+<h3><a id="SignInsFromMultipleGeographies"></a>Sign ins from multiple geographies</h3>
 
-This report indicates users who have successfully signed in after multiple consecutive failed sign in attempts. Possible causes include:
 
-- User had forgotten their password
-- User is the victim of a successful password guessing brute force attack
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:</p>
+<ul><li>User is sharing their password</li><li>User is using a remote desktop to launch a web browser for sign in</li><li>A hacker has signed in to the account of a user from a different country.</li></ul><p>Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.</p><p>The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-Results from this report will show you the number of consecutive failed sign in attempts made prior to the successful sign in and a timestamp associated with the first successful sign in.
 
-**Report Settings**: You can configure the minimum number of consecutive failed sign in attempts that must occur before it can be displayed in the report. When you make changes to this setting it is important to note that these changes will not be applied to any existing failed sign ins that currently show up in your existing report. However, they will be applied to all future sign ins. Changes to this report can only be made by licensed admins.
+<h3><a id="SignInsFromIPAddressesWithSuspiciousActivity"></a>Sign ins from IP addresses with suspicious activity</h3>
 
-This report is found under the **Directory** > **Reports** tab.
 
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.</p><p>Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-### Sign ins from multiple geographies
+<h3><a id="AnamolousSignInActivity"></a>Anomalous sign in activity</h3>
 
-This report includes successful sign in activities from a user where two sign ins appeared to originate from different regions and the time between the sign ins makes it impossible for the user to have travelled between those regions. Possible causes include:
 
-User is sharing their password
-User is using a remote desktop to launch a web browser for sign in
-A hacker has signed in to the account of a user from a different country.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.</p><p>Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.</p><p>We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-Results from this report will show you the successful sign in events, together with the time between the sign ins, the regions where the sign ins appeared to originate from and the estimated travel time between those regions.
+<h3><a id="SignInsFromPossiblyInfectedDevices"></a>Sign ins from possibly infected devices</h3>
 
-> [AZURE.NOTE]
-> The travel time shown is only an estimate and may be different from the actual travel time between the locations. Also, no events are generated for sign ins between neighboring regions.
 
-This report is found under the **Directory** > **Reports** tab.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.</p><p>Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.</p><p>For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). </p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<h3><a id="UsersWithAnomalousSignInActivity"></a>Users with anomalous sign in activity</h3>
 
-### Sign ins from IP addresses with suspicious activity
-
-This report includes sign in attempts that have been executed from IP addresses where suspicious activity has been noted. Suspicious activity includes many failed sign in attempts from the same IP address over a short period of time, and other activity that was deemed suspicious. This may indicate that a hacker has been trying to sign in from this IP address.
-
-Results from this report will show you sign in attempts that were originated from an IP address where suspicious activity was noted, together with the timestamp associated with the sign in.
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
-
-### Anomalous sign in activity
-
-This report includes sign ins that have been identified as “anomalous” by our machine learning algorithms. Reasons for marking a sign in attempt as irregular include unexpected sign in locations, time of day and locations or a combination of these. This may indicate that a hacker has been trying to sign in using this account. The machine learning algorithm classifies events as “anomalous” or “suspicious”, where “suspicious” indicates a higher likelihood of a security breach.
-
-Results from this report will show you these sign ins, together with the classification, location and a timestamp associated with each sign in.
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
-
-> [AZURE.NOTE]
-> We will send an email notification to the global admins if we encounter 10 or more anomalous sign in events within a span of 30 days or less. Please be sure to include aad-alerts-noreply@mail.windowsazure.com in your safe senders list.
-
-### Sign ins from possibly infected devices
-
-Use this report when you want to see sign ins from devices on which some malware (malicious software) may be running. We correlate IP addresses of sign ins against IP addresses from which an attempt was made to contact a malware server.
-
-Recommendation: Since this report assumes an IP address was associated with the same device in both cases, we recommend that you contact the user and scan the user's device to be certain.
-
-For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773). 
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
-
-### Users with anomalous sign in activity
-
-Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>Use this report when you want to view all user accounts for which anomalous sign in activity has been identified. This report includes data from all other anomalous activity reports. Results from this report will show you details about the user, the reason why the sign in event was identified as anomalous, the date and time, and other relevant information about the event.</p></td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
 ## Integrated Application reports
 
-### Application usage: summary
+<h3><a id="AppUsageSummary"></a>Application usage: summary</h3>
 
-Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. 
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Use this report when you want to see usage for all the SaaS applications in your directory. This report is based on the number of times users have clicked on the application in the Access Panel. </td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-This report is found under the **Directory** > **Reports** tab.
 
-It is available only with Azure AD Premium.
+<h3><a id="AppUsageDetailed"></a>Application usage: detailed</h3>
 
-### Application usage: detailed
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Use this report when you want to see how much a specific SaaS application is being used. This report is based on the number of times users have clicked on the application in the Access Panel.</td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-Use this report when you want to see how much a specific SaaS application is being used. This report is based on the number of times users have clicked on the application in the Access Panel.
+<h3><a id="AppDashboard"></a>Application dashboard</h3>
 
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
-
-### Application dashboard
-
-This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval. The chart on the dashboard page will help you identify trends for all usage of that application.
-
-This report is found under the **Directory** > **Application** > **Dashboard** tab.
-
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>This report indicates cumulative sign ins to the application by users in your organization, over a selected time interval. The chart on the dashboard page will help you identify trends for all usage of that application.</td>
+<td>Directory > Application > Dashboard tab</td>
+</tr>
+</table>
 
 ## Error reports
 
-### Account provisioning errors
+<h3><a id="AccountProvisioningErrors"></a>Account provisioning errors</h3>
 
-Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. 
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Use this to monitor errors that occur during the synchronization of accounts from SaaS applications to Azure Active Directory. </td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
 ## User-specific reports
 
-### Devices
+<h3><a id="Devices"></a>Devices</h3>
 
-Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Use this report when you want to see the IP address and geographical location of devices that a specific user has used to access Azure Active Directory.</td>
+<td>Directory > Users > <i>User</i> > Devices tab</td>
+</tr>
+</table>
 
-This report is found under the **Directory** > **User** > **Devices** tab.
 
-It is available only with Azure AD Premium.
+<h3><a id="Activity"></a>Activity</h3>
 
-### Activity
-
-Use this report when you want to see the sign in activity for a user. The report includes information like the application signed into, device used, IP address, and location. We do not collect the history for users that sign in with a Microsoft account.
-
-This report is found under the **Directory** > **User** > **Devices** tab.
-
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Shows the sign in activity for a user. The report includes information like the application signed into, device used, IP address, and location. We do not collect the history for users that sign in with a Microsoft account.
+</td>
+<td>Directory > Users > <i>User</i> > Devices tab</td>
+</tr>
+</table>
 
 ## Activity logs
 
-### Audit report
+<h3><a id="AuditReport"></a>Audit report</h3>
 
-Use this report when you want to see a record of all audited events within the last 24 hours, last 7 days, or last 30 days. 
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td><p>Shows a record of all audited events within the last 24 hours, last 7 days, or last 30 days. </p><p>For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md)</p>
+</td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-This report is found under the **Directory** > **Reports** tab.
 
-It is available with the free edition of Azure AD and with Azure AD Premium.
+<h3><a id="GroupsActivityReport"></a>Groups activity report</h3>
 
-For more information, see [Azure Active Directory Audit Report Events](active-directory-reporting-audit-events.md)
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Shows all activity for the self-service managed groups in your directory. </td>
+<td>Directory > Users > <i>User</i> > Devices tab</td>
+</tr>
+</table>
 
-### Groups activity report
 
-Use this report to see all activity for the self-service managed groups in your directory. 
+<h3><a id="PasswordResetRegistrationActivityReport"></a>Password reset registration activity report</h3>
 
-This report is found under the **Directory** > **User** > **Devices** tab.
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Shows all password reset registrations that have occurred in your organization</td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-It is available only with Azure AD Premium.
+<h3><a id="PasswordResetActivity"></a>Password reset activity</h3>
 
-### Password reset registration activity report
+<table style=width:100%">
+<tr>
+<td>Description</td>
+<td>Report location</td>
+</tr>
+<tr>
+<td>Shows all password reset attempts that have occurred in your organization.</td>
+<td>Directory > Reports tab</td>
+</tr>
+</table>
 
-shows all password reset registrations that have occurred in your organization
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
-
-### Password reset activity
-
-shows all password reset attempts that have occurred in your organization.
-
-This report is found under the **Directory** > **Reports** tab.
-
-It is available only with Azure AD Premium.
 
 ## Things to consider if you suspect security breach
 
