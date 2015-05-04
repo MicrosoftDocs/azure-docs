@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties 
    pageTitle="Analyze data from servers in Microsoft Azure" 
    description="Search event and IIS logs for cloud services and virtual machines by enabling Azure diagnostics." 
@@ -577,3 +576,4 @@ In approximately 1 hour you will begin to see data from the storage account avai
 
 [Configure Proxy and Firewall settings (Optional)](operational-insights-proxy-filewall.md)
 >>>>>>> de62100... Op Insights - adding 2 new articles
+
