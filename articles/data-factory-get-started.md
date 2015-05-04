@@ -18,8 +18,8 @@
 
 # Get started with Azure Data Factory
 > [AZURE.SELECTOR]
-- [Using Data Factory Editor](../data-factory-get-started-using-editor.md)
-- [Using PowerShell](../articles/data-factory-monitor-manage-using-powershell.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 The tutorial in this article helps you quickly get started with using the Azure Data Factory service. In this tutorial, you will create an Azure data factory and create a pipeline in the data factory to copy data from an Azure blob storage to an Azure SQL database.
 

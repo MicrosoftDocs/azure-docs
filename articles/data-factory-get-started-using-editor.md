@@ -18,8 +18,8 @@
 
 # Get started with Azure Data Factory
 > [AZURE.SELECTOR]
-- [Tutorial Overview](../data-factory-get-started.md)
-- [Using PowerShell](../articles/data-factory-monitor-manage-using-powershell.md)
+- [Tutorial Overview](data-factory-get-started.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
 ##In This Tutorial
