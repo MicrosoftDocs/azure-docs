@@ -52,7 +52,7 @@ Once you click the **UPGRADE THIS SERVER** option, the blade that opens shows a 
 | 8. The upgrade process is initiated. Upgrade can take up to 24 hours. During this time all databases on this server will remain online but server and database management actions will be restricted. Once the process is complete, the status **Enabled** is displayed on the server blade. | ![Confirms preview features are enabled][8] |
  
 
-## Related Links  #
+# Related Links  #
 
 -  [What's new in the SQL Database Update V12 (preview)](http://azure.microsoft.com/documentation/articles/sql-database-preview-whats-new/)
 - [Plan and prepare to upgrade to the Latest SQL Database Update V12 (preview)](sql-database-preview-plan-prepare-upgrade.md)
