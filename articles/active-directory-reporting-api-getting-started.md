@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/27/2015"
+   ms.date="05/04/2015"
    ms.author="kenhoff"/>
 
 
@@ -140,7 +140,7 @@ curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>
 - Finally, replace ```YOUR-ACCESS-TOKEN``` with your access token in the curl request below.
 
 ```
-curl -v https://graph.windows.net//reports/?api-version=1.5/audit \
+curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/audit?api-version=beta \
   -H "x-ms-version: 2013-08-01" \
   -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
 ```
