@@ -90,6 +90,6 @@ This is configurable from the Azure Management Portal, not the Operational Insig
 4. You can perform additional searches from the initial results and then analyze and correlate logs.
 
  
-# Additional resources
+## Additional resources
 - [IIS Log Format Requirements in Azure Operational Insights](http://blogs.technet.com/b/momteam/archive/2014/09/19/iis-log-format-requirements-in-system-center-advisor.aspx)
 - See what other data sources and types of logs the community is asking us to implement in our [Feedback forum](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy).

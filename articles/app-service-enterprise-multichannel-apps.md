@@ -90,9 +90,9 @@ For more information, see [Azure Application Services][AzureApplicationServices]
  
 [AASIntegrationwithAAD]:http://azure.microsoft.com/blog/2014/11/13/azure-websites-authentication-authorization/
 [VNETIntegration]:http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/ 
-[Office365Integration]: ../app-service-cloud-app-platform/
-[SaaSIntegration]: ../app-service-cloud-app-platform/
-[AzureApplicationServices]: ../app-service-cloud-app-platform/
+[Office365Integration]: app-service-cloud-app-platform.md
+[SaaSIntegration]: app-service-cloud-app-platform.md
+[AzureApplicationServices]: app-service-cloud-app-platform.md
 
 [AADLogin]: ./media/app-service-enterprise-multichannel-apps/01aAADLogin.png
 [DatafromOnpremisesSqlServer]: ./media/app-service-enterprise-multichannel-apps/02aDatafromOnpremisesSqlServer.png

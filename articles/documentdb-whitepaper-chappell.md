@@ -3,7 +3,7 @@
 	description="Download a whitepaper by David Chappell about DocumentDB, a managed NoSQL database on Azure." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/04/2015" 
 	ms.author="adlevin"/>
 
 # DocumentDB whitepaper by David Chappell 
@@ -31,7 +31,7 @@ This whitepaper also covers the following fundamental concepts:
 * Options applications have for balancing performance with consistency.
 
 
-**Published:** 10 September 2014
+**Published:** 09 April 2015
 
 **Download:** [Introducing DocumentDB - A NoSQL Database for Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 

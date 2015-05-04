@@ -37,6 +37,7 @@ The following file types are accepted:
 * .php (using php)
 * .py (using python)
 * .js (using node)
+* .jar (using java)
 
 ## <a name="CreateOnDemand"></a>Create an on demand WebJob in the portal
 
@@ -70,7 +71,7 @@ The following file types are accepted:
 	
 > [AZURE.NOTE] If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.
 	
-> [AZURE.NOTE] For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
+> For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
 
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Using the Azure Cross-Platform Command-Line Interface"
-	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure."
+	pageTitle="Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management"
+	description="Learn about using the command-line tools for Mac, Linux, and Windows to manage Azure using the Azure CLI asm mode."
 	services="web-sites, virtual-machines, mobile-services, cloud-services"
 	documentationCenter=""
 	authors="squillace"
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2015" 
+	ms.date="04/23/2015" 
 	ms.author="rasquill"/>
 
-#Using the Azure Cross-Platform Command-Line Interface
+# Using the Azure CLI for Mac, Linux, and Windows with Azure Service Management
 
-This tool provides functionality for creating, deploying, and managing virtual machines, websites, Azure Mobile Services, and many other Azure services from Mac, Linux, and Windows desktops. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
+This topic describes how to use the Azure CLI in the **asm** mode to create, manage, and delete services on the command line of Mac, Linux, and Windows computers. This functionality is similar to that provided by the Windows PowerShell cmdlets that are installed with the Azure SDKs for .NET, Node.JS, and PHP.
 
-For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli.md).
+> [AZURE.NOTE] Using Azure services with the **asm** mode is conceptually similar to thinking of individual Azure concepts and services like Websites, Virtual Machines, Virtual Networks, Storage, and so on. Richer functionality with a logically grouped and hierarchical model of resources is available on the command line using the **arm** mode. To switch to that mode, see [Using the Azure Cross-Platform Command-Line Interface with the Resource Manager](xplat-cli-azure-resource-manager.md).
+
+For installation instructions, see [Install and Configure the Azure Cross-Platform Command-Line Interface](xplat-cli-install.md).
 
 Optional parameters are shown in square brackets (for example, [parameter]). All other parameters are required.
 
@@ -227,7 +229,7 @@ This command creates a new Azure virtual machine from a JSON role file.
 
 **vm list [options]**
 
-This command lists Azure virtual machines. The -json option specifies that the results are returned in raw JSON format.
+This command lists Azure virtual machines. The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm list
 	info:   Executing command vm list
@@ -370,7 +372,7 @@ This command deletes a virtual machine endpoint.
 
 **vm endpoint list &lt;vm-name>**
 
-This command lists all virtual machine endpoints. The -json option specifies that the results are returned in raw JSON format.
+This command lists all virtual machine endpoints. The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm endpoint list my-linux-vm
 	data:   Name  External Port  Local Port
@@ -419,7 +421,7 @@ Virtual machine images are captures of already configured virtual machines that 
 **vm image list [options]**
 
 This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
-The -json option specifies that the results are returned in raw JSON format.
+The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
@@ -1450,7 +1452,7 @@ This commands removes all rows of data from the table.
 
 ###<a name="Mobile_Scripts"></a>Commands to manage scripts
 
-Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](../mobile-services-how-to-use-server-scripts/).
+Commands in this section are used to manage the server scripts that belong to a mobile service. For more information, see [Work with server scripts in Mobile Services](mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 

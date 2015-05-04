@@ -52,7 +52,7 @@
 
             // Hide the login button and load items from the mobile service.
             this.ButtonLogin.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            RefreshTodoItems();
+            await RefreshTodoItems();
         }
 		
 5. In the Windows Store app project, open the MainPage.xaml project file and add the following **Button** element just before the element that defines the **Save** button:

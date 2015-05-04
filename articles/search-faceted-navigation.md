@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/16/2015" 
+	ms.date="04/16/2015" 
 	ms.author="heidist"/>
 
 #How to implement faceted navigation in Azure Search#
@@ -31,7 +31,7 @@ In Azure Search, faceted navigation is built at query time, using attributed fie
 
 In terms of application development, writing code that constructs queries constitutes the bulk of the work. Many of the application behaviors that you would want from faceted navigation is provided by the service, including built-in support for setting up ranges and getting counts for facet results. The service also includes sensible defaults that help you avoid unwieldy navigation structures. 
 
-For a hands-on experience, we recommend this sample on CodePlex:  [Azure Search AdventureWorks Catalog](search-create-first-solution.md)
+For a hands-on experience, we recommend this sample on CodePlex: [Azure Search AdventureWorks Catalog](https://azuresearchadventureworksdemo.codeplex.com/)
 
 You can also watch [Azure Search Deep Dive](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). At 45:25, there is a demo on how to implement facets.
 

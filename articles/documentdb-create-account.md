@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/05/2015" 
+	ms.date="04/29/2015" 
 	ms.author="mimig"/>
 
 #Create a database account
-To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Azure Preview portal.  
+To use Microsoft Azure DocumentDB, you must create a DocumentDB account.  This topic describes how to create a DocumentDB account in the Microsoft Azure Preview portal.  
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 

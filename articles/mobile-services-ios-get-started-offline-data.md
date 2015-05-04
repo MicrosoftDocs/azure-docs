@@ -38,28 +38,28 @@ This tutorial is based on the [Mobile Services Quick Start tutorial], which you 
 
 Azure Mobile Services offline sync allows end users to interact with a local database when the network is not accessible. To use these features in your app, you initialize the sync context of `MSClient` and reference a local store. Then reference your table through the `MSSyncTable` interface.
 
-1. In **QSTodoService.m**, notice the type of member `syncTable` is `MSSyncTable`. Offline sync uses this instead of `MSTable`. When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.
+* In **QSTodoService.m**, notice the type of member `syncTable` is `MSSyncTable`. Offline sync uses this instead of `MSTable`. When a sync table is used, all operations go to the local store and are synchronized with the remote service only with explicit push and pull operations.
 
 ```
 		@property (nonatomic, strong)   MSSyncTable *syncTable;
 ```
 
-    To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
+To get a reference to a sync table, use the method `syncTableWithName`. To remove offline sync functionality, use `tableWithName` instead.
 
-2. In **QSTodoService.m**, before table operations are performed, the local store is initialized in `QSTodoService.init`:
+* In **QSTodoService.m**, before table operations are performed, the local store is initialized in `QSTodoService.init`:
 
 ```
 		MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 		self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
 ```
 
-    This creates a local store using the `MSCoreDataStore` interface. You may provide a different local store by implementing the `MSSyncContextDataSource` protocol.
+This creates a local store using the `MSCoreDataStore` interface. You may provide a different local store by implementing the `MSSyncContextDataSource` protocol.
 
-    The first parameter of `initWithDelegate` specifies a conflict handler, but since we've passed `nil`, we get the default conflict handler which fails on any conflict. For details on how to implement a custom conflict handler, see [Handling Conflicts with Offline Support for Mobile Services].
+The first parameter of `initWithDelegate` specifies a conflict handler, but since we've passed `nil`, we get the default conflict handler which fails on any conflict. For details on how to implement a custom conflict handler, see [Handling Conflicts with Offline Support for Mobile Services].
 
-3. In **QSTodoService.m**, `syncData` first pushes new changes, and then calls `pullData` to get data from the remote service.     In `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` -- rather than the sync table itself -- because it pushes changes across all tables. Only records that are modified in some way locally -- through creation, update, or delete operations -- are sent to the server. At the end of `syncData`, we call the helper `pullData`.
+* In **QSTodoService.m**, `syncData` first pushes new changes, and then calls `pullData` to get data from the remote service.     In `syncData`, we first call `pushWithCompletion` on the sync context. This method is a member of `MSSyncContext` -- rather than the sync table itself -- because it pushes changes across all tables. Only records that are modified in some way locally -- through creation, update, or delete operations -- are sent to the server. At the end of `syncData`, we call the helper `pullData`.
 
-		In this example, the push operation is not strictly necessary. If there are changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, call push explicitly to have consistency across tables.
+In this example, the push operation is not strictly necessary. If there are changes pending in the sync context for the table that is doing a push operation, pull always issues a push first. However, if you have more than one sync table, call push explicitly to have consistency across tables.
 
 ```
       -(void)syncData:(QSCompletionBlock)completion
@@ -73,9 +73,9 @@ Azure Mobile Services offline sync allows end users to interact with a local dat
 
 ```
 
-4. Next in **QSTodoService.m**, `pullData` gets new data that matches a query. `pullData` calls `MSSyncTable.pullWithQuery` to retrieve remote data and store it locally. `pullWithQuery` also allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
+* Next in **QSTodoService.m**, `pullData` gets new data that matches a query. `pullData` calls `MSSyncTable.pullWithQuery` to retrieve remote data and store it locally. `pullWithQuery` also allows you to specify a query to filter the records you wish to retrieve. In this example, the query just retrieves all records in the remote `TodoItem` table.
 
-		The second parameter to `pullWithQuery` is a query ID for _incremental sync_. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp, called `ms_updatedAt` in the local store. The query ID is descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. This is inefficient since it will retrieve all records on every pull operation.
+The second parameter to `pullWithQuery` is a query ID for _incremental sync_. Incremental sync retrieves only those records modified since the last sync, using the record's `UpdatedAt` timestamp, called `ms_updatedAt` in the local store. The query ID is descriptive string that is unique for each logical query in your app. To opt-out of incremental sync, pass `nil` as the query ID. This is inefficient since it will retrieve all records on every pull operation.
 
 ```
       -(void)pullData:(QSCompletionBlock)completion
@@ -97,12 +97,12 @@ Azure Mobile Services offline sync allows end users to interact with a local dat
 ```
 
 
-    >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+>[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
 
 
-5. In **QSTodoService.m**, the methods `addItem` and `completeItem` invoke `syncData` after modifying data. In **QSTodoListViewController.m**, the method `refresh` also invokes `syncData` so that the UI displays the latest data on every refresh and at launch (`init` calls `refresh`.)
+* In **QSTodoService.m**, the methods `addItem` and `completeItem` invoke `syncData` after modifying data. In **QSTodoListViewController.m**, the method `refresh` also invokes `syncData` so that the UI displays the latest data on every refresh and at launch (`init` calls `refresh`.)
 
-    Because the app calls `syncData` whenever you modify data, the app assumes you are online whenever you edit data in the app.
+Because the app calls `syncData` whenever you modify data, the app assumes you are online whenever you edit data in the app.
 
 ## <a name="review-core-data"></a>Review Core Data Model
 
@@ -169,9 +169,9 @@ When using the Core Data offline store, you need to define particular tables and
 
 In this section, you modify the app so that it does not sync on app start, or when inserting and updating items, but only when the refresh gesture  is performed.
 
-1. In **QSTodoListViewController.m**, change `viewDidLoad` to remove the call to `[self refresh]` at the end of the method. Now, the data will not be synced with the server on app start, but instead will be only stored locally.
+* In **QSTodoListViewController.m**, change `viewDidLoad` to remove the call to `[self refresh]` at the end of the method. Now, the data will not be synced with the server on app start, but instead will be only stored locally.
 
-2. In **QSTodoService.m**, modify `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace it with the following:
+* In **QSTodoService.m**, modify `addItem` so that it doesn't sync after the item is inserted. Remove the `self syncData` block and replace it with the following:
 
 ```
         if (completion != nil) {
@@ -179,7 +179,7 @@ In this section, you modify the app so that it does not sync on app start, or wh
         }
 ```
 
-3. Similarly, again in **QSTodoService.m**, in `completeItem`, remove the block for `self syncData` and replace with the following:
+* Similarly, again in **QSTodoService.m**, in `completeItem`, remove the block for `self syncData` and replace with the following:
 
 ```
         if (completion != nil) {

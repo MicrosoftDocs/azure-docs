@@ -82,7 +82,7 @@ This quite general approach to cloud computing can be used to address many diffe
 
 1.	**Dev/Test** - You might use them to create an inexpensive development and test platform that you can shut down when you've finished using it. You might also create and run applications that use whatever languages and libraries you like. Those applications can use any of the data management options that Azure provides, and you can also choose to use SQL Server or another DBMS running in one or more virtual machines. 
 2.	**Move Applications to Azure (Lift-and-shift)** - "Lift-and-shift" refers to moving you application much like you'd use a forklift to move a large object.  You "lift" the VHD from your local datacenter, and "shift" it to Azure and run it there.  You will typically have to do some work to remove dependencies on other systems. If there are too many, you may choose option 3 instead.  
-3.	**Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie you local network and your network in Azure together.
+3.	**Extend your Datacenter** - Use Azure VMs as an extension of your on-premises datacenter, running SharePoint or other applications. To support this, it's possible to create Windows domains in the cloud by running Active Directory in Azure VMs. You can use Azure Virtual Network (mentioned later) to tie your local network and your network in Azure together.
  
 
 
@@ -141,7 +141,7 @@ Again, the state of the Virtual Machine and any additional data disk you create 
 ![Azure Storage SQL Database](./media/intro-to-azure/StorageAzureSQLDatabaseIntroNew.png)   
 **Figure: Azure SQL Database provides a managed relational database service in the cloud.** 
 
-For relational storage, Azure provides the feature SQL Database. Don't let the naming fool you. This is different than an typical SQL Database provided by SQL Server running on top of Windows Server.  
+For relational storage, Azure provides the feature SQL Database. Don't let the naming fool you. This is different than a typical SQL Database provided by SQL Server running on top of Windows Server.  
 
 Formerly called SQL Azure, Azure SQL Database provides all of the key features of a relational database management system, including atomic transactions, concurrent data access by multiple users with data integrity, ANSI SQL queries, and a familiar programming model. Like SQL Server, SQL Database can be accessed using Entity Framework, ADO.NET, JDBC, and other familiar data access technologies. It also supports most of the T-SQL language, along with SQL Server tools such as SQL Server Management Studio. For anybody familiar with SQL Server (or another relational database), using SQL Database is straightforward.
 
@@ -197,7 +197,7 @@ Sometimes you want to move a lot of data into Azure. That would take a long time
 ![Azure File Service](./media/intro-to-azure/FileServiceIntroNew.png)    
 **Figure: Azure File Services provides SMB \\\\server\share paths for applications running in the cloud.** 
 
-On-premises, it’s common to use have large amounts of file storage accessible through the Server Message Block (SMB) protocol using a \\\\Server\share format. Azure now has a service that allows you to use this protocol in the cloud. Applications running in Azure can use it to share files between VMs using familiar file system APIs like ReadFile and WriteFile. In addition, the files can also be accessed at the same time via a REST interface, which allows you to access the shares from on-premises when you also set up a virtual network. Azure Files is built on top of the blob service, so it inherits the same availability, durability, scalability, and geo-redundancy built into Azure Storage. 
+On-premises, it’s common to have large amounts of file storage accessible through the Server Message Block (SMB) protocol using a \\\\Server\share format. Azure now has a service that allows you to use this protocol in the cloud. Applications running in Azure can use it to share files between VMs using familiar file system APIs like ReadFile and WriteFile. In addition, the files can also be accessed at the same time via a REST interface, which allows you to access the shares from on-premises when you also set up a virtual network. Azure Files is built on top of the blob service, so it inherits the same availability, durability, scalability, and geo-redundancy built into Azure Storage. 
 
 **Scenarios for Azure Files**
 
@@ -205,7 +205,7 @@ On-premises, it’s common to use have large amounts of file storage accessible 
 
 - **Shared Application Settings** - A common pattern for distributed applications is to have configuration files in a centralized location where they can be accessed from many different virtual machines. These configuration files can be stored in an Azure File share, and read by all application instances. The settings can also be managed via the REST interface, which allows worldwide access to the configuration files.
 
-- **Diagnostic Share** - You can share can save and share diagnostic files like logs, metrics, and crash dumps. Having these files available through both the SMB and REST interface allows applications to use a variety of analysis tools for processing and analyzing the diagnostic data. 
+- **Diagnostic Share** - You can save and share diagnostic files like logs, metrics, and crash dumps. Having these files available through both the SMB and REST interface allows applications to use a variety of analysis tools for processing and analyzing the diagnostic data. 
 
 - **Dev/Test/Debug** - When developers or administrators are working on virtual machines in the cloud, they often need a set of tools or utilities. Installing and distributing these utilities on each virtual machine is time consuming. With Azure Files, a developer or administrator can store their favorite tools on a file share and connect to them from any virtual machine.
 
@@ -389,7 +389,7 @@ While you can write code to do notifications in Azure Mobile Services, Notificat
 Notification Hubs is designed to work with any backend. You can use Azure Mobile Services, a custom backend in the cloud running on any provider or an on-premises backend. 
 
 **Notification Hub Scenarios**
-If you were writing a mobile game where players took turns, you may need to notify player 2 that player 1 finished her turn. If that's all you need to do, you could just use Mobile Services. But if you had 100,000 users player your game and you want to send a time sensitive free offer to everyone, Notification Hubs is the better choice.
+If you were writing a mobile game where players took turns, you may need to notify player 2 that player 1 finished her turn. If that's all you need to do, you could just use Mobile Services. But if you had 100,000 users play your game and you want to send a time sensitive free offer to everyone, Notification Hubs is the better choice.
 
 You can send breaking news, sporting events, and product announcement notifications to millions of users with low latency. Enterprises can notify their employees about new time sensitive communications, such as sales leads, so employees don’t have to constantly check email or other applications to stay informed. You can also send one-time-passwords required for multi-factor authentication.
    
@@ -479,7 +479,7 @@ Sometimes you need connect systems which communicate using different messaging f
  
 
 **BizTalk Services Scenarios**
-Business-to-Business (B2B) interactions commonly require this type of translation.  For example, an company building airplanes needs to order parts from it's various parts suppliers. It will have many parts suppliers.  Those orders should be automated to go directly from the airplane builders systems into the suppliers systems.  Neither business wants to change their core systems and message formats, and it's very unlikely that those formats are the same. BizTalk Services can take messages and translate between the new formats both ways. Either the airplane supplier can do the work to translate or the various suppliers can, depending on who wants more control and the amount of translation needed.     
+Business-to-Business (B2B) interactions commonly require this type of translation.  For example, a company building airplanes needs to order parts from it's various parts suppliers. It will have many parts suppliers.  Those orders should be automated to go directly from the airplane builders systems into the suppliers systems.  Neither business wants to change their core systems and message formats, and it's very unlikely that those formats are the same. BizTalk Services can take messages and translate between the new formats both ways. Either the airplane supplier can do the work to translate or the various suppliers can, depending on who wants more control and the amount of translation needed.     
 
 
 <h2><a id="ComputeAssist"></a>Compute Assistance</h2>
@@ -490,9 +490,9 @@ Azure provides assistance for services that do not need to run all the time.
 ![Azure Scheduler](./media/intro-to-azure/SchedulerIntroNew.png)   
 **Figure: Azure Scheduler provides a way to schedule jobs at a specific time for a specific duration.**
 
-Sometimes applications only need to run at a certain time. On Azure, you can save money with this type of app instead of letting an application just keep running 24x7 waiting for data to process. Azure Scheduler allows you to schedule when an application should run on based on in interval of time or a calendar. It’s reliable and will verify that a process runs even if there are network, machine, and data center failures. You use the Scheduler REST API to manage these actions. 
+Sometimes applications only need to run at a certain time. On Azure, you can save money with this type of app instead of letting an application just keep running 24x7 waiting for data to process. Azure Scheduler allows you to schedule when an application should run based on interval of time or a calendar. It’s reliable and will verify that a process runs even if there are network, machine, and data center failures. You use the Scheduler REST API to manage these actions. 
 
-When an scheduled alarm occurs, Scheduler sends HTTP or HTTPS messages to a specific endpoint or can put a message in a Storage Queue.  So you need to have your application either have an accessible endpoint or have it monitor a storage queue. Then once it gets the message, it can perform whatever action it's programmed to. 
+When a scheduled alarm occurs, Scheduler sends HTTP or HTTPS messages to a specific endpoint or can put a message in a Storage Queue.  So you need to have your application either have an accessible endpoint or have it monitor a storage queue. Then once it gets the message, it can perform whatever action it's programmed to. 
 
 **Scheduler Scenarios**
 

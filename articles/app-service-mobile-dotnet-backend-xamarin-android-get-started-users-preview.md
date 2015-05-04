@@ -84,6 +84,6 @@ Next, you will update the app to authenticate users before requesting resources 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
-[Create a Xamarin.Android app]: /en-us/documentation/articles/app-service-mobile-dotnet-backend-xamarin-android-get-started-preview/
+[Create a Xamarin.Android app]: app-service-mobile-dotnet-backend-xamarin-android-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com

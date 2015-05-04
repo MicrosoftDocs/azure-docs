@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Using load-balanced sets to clusterize MySQL on Linux" 
 	description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/23/2014" 
+	ms.date="4/14/2015" 
 	ms.author="jparrel"/>
 
 # Using load-balanced sets to clusterize MySQL on Linux

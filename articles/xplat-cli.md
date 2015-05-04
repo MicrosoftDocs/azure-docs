@@ -116,7 +116,7 @@ To help you choose the authentication method that's appropriate for your needs, 
 
 *  The log in method can make it easier to manage access to subscription, but may disrupt automation, as the credentials may time out and require you to log in again.
 
-	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organizations Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
+	> [AZURE.NOTE] The login method only works with organizational account.  An organizational account is a user that is managed by your organization, and defined in your organization's Azure Active Directory tenant. If you do not currently have an organizational account, and are using a Microsoft account to log in to your Azure subscription, you can easily create one using the following steps.
 	> 
 	> 1. Login to the [Azure Management Portal][portal], and click on **Active Directory**.
 	> 
@@ -419,6 +419,10 @@ Some of the xplat-cli commands do not return a non-zero exit status if required 
 If you are writing a script that relies on the exit status, please verify that the xplat-cli commands you are using do not prompt for user input.
 
 <h2><a id="additional-resources"></a>Additional resources</h2>
+
+* [List of detailed Service Management commands][Using the Azure Cross-Platform Command Line Interface]
+
+* [Using the Azure Cross-platform command line interface with the Resource Manager][xplatarm]
 
 * For more information on the xplat-cli, to download source code, report problems, or contribute to the project, visit the [GitHub repository for the Azure Cross-Platform Command-Line Interface](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 

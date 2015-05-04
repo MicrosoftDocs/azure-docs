@@ -3,7 +3,7 @@
 	description="With C# or Python, connect to an Azure Machine Learning web service using an authorization key." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
 # Connect to an Azure Machine Learning Web Service 
-The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode. You use the Azure Machine Learning Studio (ML Studio) to create predictions and publish an Azure ML web service. 
+The Azure Machine Learning developer experience is a web service API to make predictions from input data in real time or in batch mode. You use the Azure Machine Learning Studio to create predictions and publish an Azure Machine Learning web service. 
 
-To learn about how to create and publish an Azure Machine Learning web service using ML Studio:
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
-- [Overview of Azure ML Process](machine-learning-overview-of-azure-ml-process.md)
+To learn about how to create and publish an Azure Machine Learning web service using Studio:
+
+- [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
 - [Getting Started with ML Studio](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure Machine Learning Preview](https://studio.azureml.net/)
 - [Machine Learning Documentation Center](http://azure.microsoft.com/documentation/services/machine-learning/)
@@ -36,7 +38,7 @@ Azure Machine Learning has two types of services:
 - Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and published from the ML Studio.
 - Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
 
-For more information about Azure Machine Learning web services, see [Overview of Azure ML Process](machine-learning-overview-of-azure-ml-process.md).
+For more information about Azure Machine Learning web services, see [Publish a Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 ## Get an Azure Machine Learning authorization key ##
 You get a web service API key from an ML web service. You can get it from Microsoft Azure Machine Learning studio or the Azure Management Portal.

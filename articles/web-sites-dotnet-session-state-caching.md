@@ -25,7 +25,7 @@ This topic explains how to use the Azure Redis Cache Service for session state.
 If your ASP.NET web app uses session state, you will need to configure an external session state provider (either the Redis Cache Service or a SQL Server session state provider). If you use session state, and don't use an external provider, you will be limited to one instance of your web app. The Redis Cache Service is the fastest and simplest to enable.
 
 <h2><a id="createcache"></a>Create the Cache</h2>
-Follow [these directions](../cache-dotnet-how-to-use-azure-redis-cache/#create-cache) to create the cache.
+Follow [these directions](cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) to create the cache.
 
 <h2><a id="configureproject"></a>Add the RedisSessionStateProvider NuGet package to your web app</h2>
 Install the NuGet `RedisSessionStateProvider` package.  Use the following command to install from the package manager console (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
@@ -34,14 +34,14 @@ Install the NuGet `RedisSessionStateProvider` package.  Use the following comman
   
 To install from **Tools** > **NuGet Package Manager** > **Manage NugGet Packages for Solution**, search for `RedisSessionStateProvider`.
 
-For more information see the [NuGet RedisSessionStateProvider page](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) and [Configure the cache client](../cache-dotnet-how-to-use-azure-redis-cache/#NuGet).
+For more information see the [NuGet RedisSessionStateProvider page](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/ ) and [Configure the cache client](cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
 <h2><a id="configurewebconfig"></a>Modify the Web.Config File</h2>
 In addition to making assembly references for Cache, the NuGet package adds stub entries in the *web.config* file. 
 
 1. Open the *web.config* and find the the **sessionState** element.
 
-1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) blade for your cache instance. For more information, see [Connect to the cache](../cache-dotnet-how-to-use-azure-redis-cache/#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file.
+1. Enter the values for `host`, `accessKey`, `port` (the SSL port should be 6380), and set `SSL` to `true`. These values can be obtained from the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) blade for your cache instance. For more information, see [Connect to the cache](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Note that the non-SSL port is disabled by default for new caches. For more information about enabling the non-SSL port, see the [Access Ports](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) section in the [Configure a cache in Azure Redis Cache](https://msdn.microsoft.com/library/azure/dn793612.aspx) topic. The following markup shows the changes to the *web.config* file.
 
 
   <pre class="prettyprint">  

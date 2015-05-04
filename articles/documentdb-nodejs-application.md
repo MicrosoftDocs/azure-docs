@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="03/20/2015" 
+	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 
 This tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
 
-We recommend getting started by watching the following video, where Andrew Liu shows you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
+We recommend getting started by watching the following video, where we show you how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
@@ -154,8 +154,8 @@ That takes care of all the initial setup and configuration, now let’s get down
 		                name: '@id',
 		                value: collectionId
 		            }]
-		        };
-		        
+		        };		       
+				
 		        client.queryCollections(databaseLink, querySpec).toArray(function (err, results) {
 		            if (err) {
 		                callback(err);
@@ -165,8 +165,12 @@ That takes care of all the initial setup and configuration, now let’s get down
 		                    var collectionSpec = {
 		                        id: collectionId
 		                    };
-		
-		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
+							
+				 			var requestOptions = {
+								offerType: 'S1'
+							};
+							
+		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -179,6 +183,9 @@ That takes care of all the initial setup and configuration, now let’s get down
 		};
 				
 		module.exports = DocDBUtils;
+
+> [AZURE.TIP] createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
+> For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
 		
 3. Save and close the **docdbUtils.js** file.
 
@@ -377,10 +384,10 @@ That takes care of all the initial setup and configuration, now let’s get down
 
 4. Save and close the **tasklist.js** file.
  
-### Add config.json
+### Add config.js
 
 1. In your project directory create a new file named **config.js**.
-2. Add the following to **config.json**. This defines configuration settings and values needed for our application.
+2. Add the following to **config.js**. This defines configuration settings and values needed for our application.
 
 		var config = {}
 		
@@ -391,7 +398,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		
 		module.exports = config;
 
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Azure Preview portal](http://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Preview portal](http://portal.azure.com):
 
 4. Save and close the **config.js** file.
  
@@ -568,4 +575,3 @@ The source code for the complete reference application can be downloaded [here](
 
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Azure Management Portal]: http://portal.azure.com

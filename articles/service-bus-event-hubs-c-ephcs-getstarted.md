@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Get Started with Event Hubs" 
 	description="Follow this tutorial to get started using Azure Event Hubs sending events with C and receiving in C# using EventProcessorHost" 
-	services="service-bus" 
+	services="event-hubs,service-bus" 
 	documentationCenter="" 
 	authors="fsautomata" 
 	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
+	ms.service="event-hubs" 
 	ms.workload="core" 
 	ms.tgt_pltfrm="c" 
 	ms.devlang="csharp" 
 	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+	ms.date="04/22/2015" 
 	ms.author="sethm"/>
 
 # Get started with Event Hubs

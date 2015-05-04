@@ -13,45 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="04/29/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
 
 <div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/web-sites-custom-domain-name" title="Custom Domain" class="current">Custom Domain</a>
-  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
-  <a href="/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a>
-  <a href="/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a>
-  <a href="/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a>
-  <a href="/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a>
-  <a href="/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a>
-  <a href="/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a>
-  <a href="/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a>
-</div>
-<div class="dev-center-tutorial-subselector">
-  <a href="/documentation/articles/web-sites-custom-domain-name/" title="Websites" class="current">Web Apps</a> | <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps using Traffic Manager">Web Apps using Traffic Manager</a>
+  <a href="/documentation/articles/web-sites-custom-domain-name" title="Web Apps" class="current">Web Apps</a>
+  <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Web Apps with Traffic Manager">Web Apps with Traffic Manager</a>  <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+
 </div>
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
-<!--todo:![contoso.azurewebsites.net subdomain][subdomain]-->
-
 For a production web app, you probably want users to see a custom domain name. This article explains how to configure a custom domain with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714). (This article provides generic instructions for any domain registrar. The tabs at the top of this article link to some articles for specific registrars.)
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
-
-In this article:
-
-
--   [Overview]
--   [DNS record types]
--   [Find the virtual IP address]
--   [Create the DNS records]
--   [Create an “awverify” record (A records only)](#awverify)
--   [Enable the domain name on your web app]
 
 
 ## Overview
@@ -87,7 +66,7 @@ If the IP address changes, a CNAME entry is still valid, whereas an A record mus
 
 Skip this step if you are creating a CNAME record. To create an A record, you need the virtual IP address of your web app. To get the IP address:
 
-1.	In your browser, open the [Azure Management Portal](https://portal.azure.com).
+1.	In your browser, open the [Azure Portal](https://portal.azure.com).
 2.	Click the **Browse** option on the left side of the page.
 3.	Click the **Web Apps** blade.
 4.	Click the name of your web app.
@@ -130,8 +109,8 @@ Assuming the custom domain name is ‘contoso.com’, this would create the foll
 - **contoso.com** mapped to 127.0.0.1.
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
-
-<h2 id="awverify">Create an “awverify” record (A records only)</h2>
+<a name="awverify" />
+## Create an “awverify” record (A records only)
 
 If you create an A record, web app also requires a special CNAME record, which is used to verify that you own the domain you are attempting to use. This CNAME record must have the following form.
 

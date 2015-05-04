@@ -24,9 +24,9 @@ If you're actively developing your own API app using Visual Studio and need to t
 
 This is the second tutorial in a series of three:
 
-1. In [Create an API App](../app-service-dotnet-create-api-app/) you created an API App project. 
+1. In [Create an API App](app-service-dotnet-create-api-app.md) you created an API App project. 
 * In this tutorial, you will deploy the API app to your Azure subscription.
-* In [Debug an API App](../app-service-dotnet-remotely-debug-api-app/), you will use Visual Studio to remotely debug the code while it runs in Azure.
+* In [Debug an API App](app-service-dotnet-remotely-debug-api-app.md), you will use Visual Studio to remotely debug the code while it runs in Azure.
 
 ## Deploy the API app 
 
@@ -118,6 +118,6 @@ Once the publish process has completed, go back to the portal, and close and reo
 
 ## Next steps
 
-You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly. In the [next tutorial](../app-service-dotnet-remotely-debug-api-app/), you'll see how to debug your API app while it runs in Azure.
+You've seen how the direct deployment capabilities in Visual Studio make it easy to iterate and deploy rapidly and test that your API works correctly. In the [next tutorial](app-service-dotnet-remotely-debug-api-app.md), you'll see how to debug your API app while it runs in Azure.
 
 

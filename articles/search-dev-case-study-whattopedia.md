@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="01/13/2015" 
+	ms.date="04/13/2015" 
 	ms.author="heidist"/>
 
 <h1>Azure Search Developer Case Study</h1>

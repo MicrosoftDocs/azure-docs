@@ -4,7 +4,8 @@
 	services="batch" 
 	documentationCenter="" 
 	authors="dlepow" 
-	manager="timlt"/>
+	manager="timlt"
+	editor="yidingz"/>
 
 <tags 
 	ms.service="batch" 
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/29/2015" 
+	ms.date="04/27/2015" 
 	ms.author="danlep"/>
 
 
