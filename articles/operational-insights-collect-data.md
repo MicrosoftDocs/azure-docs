@@ -13,11 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders"/>
+
 #Collect machine data
 
 Operational Insights uses data from servers in your on-premises or cloud infrastructure. You can collect machine data from the following sources:
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+
+Operational Insights uses data from servers in your on-premise or cloud infrastructure. You can collect machine data from the following sources:
 
 - Microsoft System Center Operations Manager agents
 - Computers connected directly to Operational Insights
@@ -111,7 +116,7 @@ If you have proxy servers or firewalls in your environment that restrict access 
 
 
 
-- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-filewall.md) 
+- [Configure proxy and firewall settings (Optional)](operational-insights-proxy-firewall.md) 
 
 ## Analyze data from servers in Microsoft Azure
 
@@ -137,7 +142,7 @@ To install the agent for Operational Insights from the [Azure portal](https://ma
 
 The agent is automatically installed and configured for your Operational Insights workspace.
 
->[AZURE.NOTE] The [Azure VM agent] (https://msdn.microsoft.com/en-us/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights.
+>[AZURE.NOTE] The [Azure VM agent] (https://msdn.microsoft.com/library/azure/dn832621.aspx) must be installed to automatically install the agent for Operational Insights.
 
 ![Image of Operational Insights Servers page](./media/operational-insights-collect-data/servers.png)
 
@@ -372,6 +377,6 @@ In approximately 1 hour you will begin to see data from the storage account avai
 
 ## Next steps
 
-[Configure Proxy and Firewall settings (Optional)](operational-insights-proxy-filewall.md)
+[Configure Proxy and Firewall settings (Optional)](operational-insights-proxy-firewall.md)
 
 
