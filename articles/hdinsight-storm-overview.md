@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Learn about Apache Storm on HDInsight | Azure"
-   description="Learn how you can use Apache Storm on HDInsight to build real-time data analytics in the Azure cloud."
+   pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
+   description="Learn how you can use Apache Storm on HDInsight to build real-time data analytics solutions in the Azure cloud."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,9 +16,9 @@
    ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-#Storm on HDInsight overview
+#Introduction to Apache Storm on HDInsight: Real-time analytics for Hadoop
 
-Apache Storm on HDInsight allows you to create distributed, real-time data processing solutions in the Azure environment by using [Apache Hadoop](http://hadoop.apache.org).
+Apache Storm on HDInsight allows you to create distributed, real-time analytics solutions in the Azure environment by using [Apache Hadoop](http://hadoop.apache.org).
 
 ##What is Apache Storm?
 
@@ -42,7 +42,7 @@ Apache Storm on HDInsight is a managed cluster integrated into the Azure environ
 
 	* Combine the capabilities of multiple HDInsight clusters by using Azure Virtual Network: Create analytic pipelines that use HDInsight, HBase, or Hadoop clusters
 
-For a list of companies that are using Apache Storm, see [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
+For a list of companies that are using Apache Storm for their real-time analytics solutions, see [Companies Using Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
 To get started using Storm, see [Get started with Storm on HDInsight][gettingstarted].
 
@@ -98,7 +98,7 @@ Although you can specify the number of nodes in your cluster during creation, yo
 
 Storm on HDInsight comes with full enterprise-level 24/7 support. Storm on HDInsight also has an SLA of 99.9%. That means we guarantee that the cluster will have external connectivity at least 99.9% of the time.
 
-##Common scenarios for real-time analytics
+##Common use cases for real-time analytics
 
 The following are some common scenarios for which you might use Apache storm on HDInsight. For information about real-world scenarios, read [How companies are using Storm](https://storm.incubator.apache.org/documentation/Powered-By.html).
 
@@ -196,6 +196,8 @@ When your topology depends on calculating a "top N" value, such as the top 5 tre
 For an example of this, see the [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) example.
 
 ##Next steps
+
+Learn more about real-time analytics solutions with Apache Storm in HDInsight:
 
 * [Getting Started with Storm on HDInsight][gettingstarted]
 
