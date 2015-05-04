@@ -5,19 +5,17 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="" />
+   editor="tysonn" />
 <tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="03/20/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can use the Configuration Change Tracking intelligence pack in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
 
