@@ -24,7 +24,7 @@
 - [Windows](hdinsight-get-started.md)
 - [Linux](hdinsight-hadoop-linux-get-started.md)
 
-To help you learn Hadoop and start using HDInsight quickly, this tutorial shows you how to run a Hive query on unstructured data in a Hadoop cluster. You'll extract meaningful information about mobile handset use, and then you’ll analyze the results in Microsoft Excel.
+To help you learn Hadoop on Windows and start using HDInsight quickly, this tutorial shows you how to run a Hive query on unstructured data in a Hadoop cluster. You'll extract meaningful information about mobile handset use, and then you’ll analyze the results in Microsoft Excel.
 
 
 > [AZURE.NOTE] If you are new to Hadoop and Big Data, you can read more about the terms [Apache Hadoop][apache-hadoop], [MapReduce][apache-mapreduce], [HDFS][apache-hdfs], and  [Hive][apache-hive]. To lunderstand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight][hadoop-hdinsight-intro].
@@ -37,7 +37,7 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 
 Assume you have a large unstructured data set and you want to run Hive queries on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
 
-   !["Steps for a first Hadoop tutorial: Create an account; provision a Hadoop cluster; submit a Hive query; analyze data in Excel.][image-hdi-getstarted-flow]
+   !["Steps the Hadoop tutorial: Create an account; provision a Hadoop cluster; submit a Hive query; analyze data in Excel.][image-hdi-getstarted-flow]
 
 Watch a demo video of this tutorial to learn Hadoop on HDInsight:
 
@@ -48,7 +48,7 @@ Watch a demo video of this tutorial to learn Hadoop on HDInsight:
 
 ## Prerequisites
 
-Before you begin this tutorial, you must have the following:
+Before you begin this tutorial for Hadoop on Windows, you must have the following:
 
 
 - An Azure subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
@@ -228,7 +228,7 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 
 
 ##<a name="nextsteps"></a>Next steps
-In this tutorial, you learned how to provision a Hadoop cluster in HDInsight, run a Hive Query on data, and import the results into Excel, where they can be further processed and graphically displayed by using business intelligence tools. To learn more, see the following articles:
+In this tutorial, you learned how to provision a Hadoop cluster on Windows in HDInsight, run a Hive Query on data, and import the results into Excel, where they can be further processed and graphically displayed by using business intelligence tools. To learn more, see the following articles:
 
 - [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]

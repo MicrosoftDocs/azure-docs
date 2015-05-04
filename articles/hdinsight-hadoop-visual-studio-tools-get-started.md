@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started using HDInsight Tools for Visual Studio | Azure" 
-	description="Learn how to install and use HDInsight Tools for Visual Studio to connect to HDInsight and run Hive queries." 
+	pageTitle="Learn to use Visual Studio Hadoop tools for HDInsight | Microsoft Azure" 
+	description="Learn how to install and use Visual Studio Hadoop tools for HDInsight to connect to a Hadoop cluster and run a Hive query." 
 	services="HDInsight" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -16,16 +16,16 @@
 	ms.date="04/08/2015" 
 	ms.author="jgao"/>
 
-# Get started using HDInsight Hadoop Tools for Visual Studio
+# Get started using Visual Studio Hadoop tools for HDInsight to run a Hive query
 
 Learn how to use HDInsight Tools for Visual Studio to connect to HDInsight clusters and submit Hive queries. For more information about using HDInsight, see [Introduction to HDInsight][hdinsight.introduction] and [Get started with HDInsight][hdinsight.get.started]. For more information about connecting to a Storm cluster, see [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][hdinsight.storm.visual.studio.tools]. 
 
 >[AZURE.NOTE] The most recent release introduced some new features, such as Hive editor IntelliSense support, Hive script local validation, and YARN log access.
 
 
-##Prerequisites
+## Prerequisites
 
-To work through this tutorial, you'll need the following:
+To complete this tutorial and use the Hadoop tools in Visual Studio, you'll need the following:
 
 - A workstation with the following software:
 
@@ -38,11 +38,11 @@ To work through this tutorial, you'll need the following:
 	>[AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio only come with the English version. 
 
 
-## Installation
+## Install Hadoop tools for Visual Studio
 
-HDInsight Tools for Visual Studio is packaged with Microsoft Azure SDK for .NET version 2.5.1 or later. It can be installed by using the [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). You must choose the one that matches your version of Visual Studio. The package also installs the Microsoft Hive ODBC Driver (32-bit and 64-bit).
+HDInsight Tools for Visual Studio is packaged with Microsoft Azure SDK for .NET version 2.5.1 or later. It can be installed by using the [Web Platform Installer](http://go.microsoft.com/fwlink/?LinkId=255386). You must choose the one that matches your version of Visual Studio. This Hadoop tools package also installs the Microsoft Hive ODBC Driver (32-bit and 64-bit).
 
-![HDinsight Tools for Visual Studio Web Platform installer][1]
+![Hadoop tools: HDinsight Tools for Visual Studio Web Platform installer.][1]
 
 
 >[AZURE.NOTE] If you have Visual Studio 2015 or 2012, and you have installed Azure SDK 2.5, you must manually remove the older version before installing the latest version. Visual Studio 2013 supports a direct update.
@@ -65,7 +65,7 @@ The HDInsight Tools for Visual Studio allows you to connect to your HDInsight cl
 4.	Enter your Azure subscription credentials, and then click **Sign In**. This is only required if you have never connected to the Azure subscription from Visual Studio on this workstation.
 5.	In Server Explorer, you will see a list of existing HDInsight clusters. If you do not have any clusters, you can provision one by using the Azure portal, Azure PowerShell, or the HDInsight SDK. For more information, see [Provision HDInsight clusters][hdinsight-provision].
 
-	![HDInsight Tools for visual studio server explorer cluster list][5]
+	![Hadoop tools: HDInsight Tools for Visual Studio Server Explorer cluster list][5]
 6.	Expand an HDInsight cluster. You will see **Hive Databases**, a default storage account, linked storage accounts, and **Hadoop Service log**. You can further expand the entities. 
 
 After you have connected to your Azure subscription, you will be able to do the following:
@@ -82,7 +82,7 @@ After you have connected to your Azure subscription, you will be able to do the 
 
 From Server Explorer, you can see the default storage account and any linked storage accounts. If you expand the default storage account, you can see the containers on the storage account. The default storage account and the default container are marked. You can also right-click any of the containers to view the contents.
 
-![HDInsight Tools for visual studio server explorer cluster list][2]
+![HDInsight Tools for Visual Studio server explorer cluster list][2]
 
 ## Run Hive queries
 [Apache Hive][apache.hive] is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis. HDInsight Tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight][hdinsight.hive].
@@ -105,7 +105,7 @@ All HDInsight clusters come with a sample Hive table called *hivesampletable*. W
 
 	You can customize the row count. 
  
-	![HDinsight Hive Visual Studio schema query][6]
+	![Hadoop tools: HDinsight Hive Visual Studio schema query][6]
 
 ###Create Hive tables
 
@@ -173,7 +173,7 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 2. Right-click an HDInsight cluster, and then click **View Hive Jobs**. You will see a list of the Hive jobs that ran on the cluster. 
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, **Job Log**, or **Yarn log**.
 
-	![hdinsight visual studio tools view hive jobs][12]
+	![HDInsight Visual Studio Tools view Hive jobs][12]
 ## Next steps
 In this article, you have learned how to connect to HDInsight clusters from Visual Studio and how to run Hive queries. For more information, see:
 

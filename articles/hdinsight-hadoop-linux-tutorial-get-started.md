@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Get started using Hadoop with Hive in HDInsight on Linux| Azure" 
-   description="Get started using Hadoop in HDInsight on Linux. Learn how to provision HDInsight Hadoop clusters running on Linux, and query data with Hive" 
+   pageTitle="Linux tutorial: Learn Hadoop with Hive | Microsoft Azure" 
+   description="Follow this Linux tutorial to get started using Hadoop in HDInsight. Learn how to provision Linux clusters, and query data with Hive." 
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 
@@ -16,28 +16,28 @@
    ms.date="03/13/2015"
    ms.author="nitinme"/>
 
-# Get started using Hadoop with Hive in HDInsight on Linux (preview)
+# Hadoop tutorial: Get started using Hadoop with Hive in HDInsight on Linux (preview)
 
 > [AZURE.SELECTOR]
-- [Windows](hdinsight-hadoop-tutorial-get-started.md)
+- [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-This tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an HDInsight Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
+This Hadoop tutorial gets you started quickly with Azure HDInsight on Linux by showing you how to provision an Hadoop cluster on Linux and run a Hive query to extract meaningful information from unstructured data.
 
 
 > [AZURE.NOTE] If you are new to Hadoop and big data, you can read more about the terms <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">Hadoop Distributed File System (HDFS)</a>, and <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. To understand how HDInsight enables Hadoop in Azure, see [Introduction to Hadoop in HDInsight](hdinsight-hadoop-introduction.md).
 
 
-## What does this tutorial achieve? ##
+## What does this tutorial accomplish? ##
 
 Assume you have a large unstructured data set and you want to run queries on it to extract some meaningful information. Here's how you achieve this:
 
-   !["Get started using Hadoop with Hive in HDInsight" tutorial steps illustrated: create an account; provision a cluster; query data; and analyze in Tableau.](./media/hdinsight-hadoop-linux-get-started/HDI.Linux.GetStartedFlow.png)
+   ![Hadoop tutorial steps: Create a Storage account; provision a Hadoop cluster; query data with Hive.](./media/hdinsight-hadoop-linux-get-started/HDI.Linux.GetStartedFlow.png)
 
 
-**Prerequisites:**
+## Prerequisites
 
-Before you begin this tutorial, you must have the following:
+Before you begin this Linux tutorial, you must have the following:
 
 
 - An Azure subscription. For more information about obtaining a subscription, see <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Purchase Options</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Member Offers</a>, or <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Free Trial</a>.
@@ -242,7 +242,7 @@ Once you are connected to the cluster via SSH, use the following commands to run
 
 
 ## <a name="nextsteps"></a>Next steps
-In this tutorial, you have learned how to provision a Hadoop Linux cluster with HDInsight and run a Hive query on it by using SSH. To learn more, see the following articles:
+In this Linux tutorial, you have learned how to provision a Hadoop cluster on Linux with HDInsight and run a Hive query on it by using SSH. To learn more, see the following articles:
 
 - [Provision HDInsight on Linux using custom options](hdinsight-hadoop-provision-linux-clusters.md)
 - [Working with HDInsight on Linux](hdinsight-hadoop-linux-information.md)
