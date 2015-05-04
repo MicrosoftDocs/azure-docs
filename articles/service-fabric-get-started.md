@@ -20,9 +20,18 @@
  This article covers everything you need to start building [Service Fabric][1] apps, including installing the runtime, SDK, and tools and setting up a local cluster.
 
 ## Prerequisites
+### Supported Operating System Versions
+The following operating system versions are supported:
+
+- Windows 8/8.1
+- Windows Server 2012 R2
+- Windows 10 Technical Preview
+
+### Visual Studio 2015
+
 The tools for Service Fabric Preview 1 depend on Visual Studio 2015 RC, which you can find [here][2].
 
-Alternatively, you can [set up an Azure virtual machine][3] with Visual Studio pre-installed using an image from the VM Gallery.
+> [AZURE.NOTE] If you aren't running one of the supported OS versions or would prefer not to install Visual Studio 2015 RC on your PC, you can [set up an Azure virtual machine][3] with Windows Server 2012 R2 and Visual Studio 2015 pre-installed using an image from the VM Gallery.
 
 ## Install the runtime, SDK, and tools
 
