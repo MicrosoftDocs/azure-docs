@@ -13,12 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="operational-insights" 
-   ms.date="04/30/2015"
+   ms.date="03/20/2015"
    ms.author="banders"/>
 
-# Use Log Management
-
-[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
+# Use Log Management 
 
 Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. Since this pack must be configured and does not collect anything by default, it is enabled by default in every new workspace. If you have removed it, you can add it again from the Intelligence Packs Gallery, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). 
 
@@ -50,7 +48,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 > [AZURE.TIP] For the best search experience, we recommend selecting all logging fields for each website using **Logging** in IIS. We also recommend changing the **Log File Rollover** schedule for new logs to **Hourly** - so smaller files will be uploaded to the cloud, saving bandwidth.
 
 
-### To collect Windows event logs from Operations Manager or directly-connected agents
+## Collect Windows event logs from Operations Manager or directly-connected agents
 
 1. On the **Overview** page, click the **Log Management** tile. 
 
@@ -68,7 +66,7 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 
 
 
-### To collect IIS logs from Operations Manager or directly-connected agents
+## To collect IIS logs from Operations Manager or directly-connected agents
 
 1. On the **Overview** page, click the **Log Management** tile. 
 
@@ -77,11 +75,11 @@ The only IIS log format supported at the moment is W3C. Don't worry - it's the m
 3. Under **IIS LOGS**, select **Collect logs from Operations Manager**.
 
 
-### To collect IIS logs and/or Windows Events from Azure Diagnostics
+## Collect IIS logs and/or Windows Events from Azure Diagnostics
 This is configurable from the Azure Management Portal, not the Operational Insights portal, under your workspace, go to the **Storage** tab and you can enable log collection from that storage account.
 
 
-### To work with log files
+## Work with log files
  
 1. On the **Overview** page, click the **Log Management** tile.
 
