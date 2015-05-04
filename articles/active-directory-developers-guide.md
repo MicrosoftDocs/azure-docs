@@ -184,8 +184,24 @@ These articles provide foundation reference for REST and authentication library 
 
 - **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
 
-### Social
+## Videos & Presentations
+
+### Build 2015
+- **[[Video] Azure Active Directory: Identity Management as a Service for Modern Applications](http://channel9.msdn.com/events/Build/2015/2-738)**
+- **[[Video] Develop Modern Web Applications with Azure Active Directory](http://channel9.msdn.com/events/Build/2015/2-753)**
+- **[[Video] Develop Modern Native Applications with Azure Active Directory](http://channel9.msdn.com/events/Build/2015/2-769)**
+
+
+### Azure Friday
+- **[[Video] Azure Identity 101](../videos/azure-identity-basics/)**
+- **[[Video] Azure Identity 102](../videos/azure-identity-creating-active-directory/)**
+- **[[Video] Azure Identity 103](../videos/azure-identity-application-to-authenticate/)**
+
+
+## Social
 
 - **[Active Directory Team Blog](http://blogs.technet.com/b/ad/)**: Keep abreast of the latest developments in the world of Azure AD.
+
+- **[Cloud Identity](http://www.cloudidentity.net)**: Thoughts on Identity Management as a Service, from a Principle Azure Active Directory PM.  
 
 - **[Azure AD on Twitter](https://twitter.com/azuread)**: Azure AD announcements in 140 characters or less.
