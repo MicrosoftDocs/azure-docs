@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="05/05/2015"
 	ms.author="dkshir;rasquill"/>
 
 # Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management
