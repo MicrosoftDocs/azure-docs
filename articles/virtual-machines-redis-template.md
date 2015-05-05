@@ -123,7 +123,7 @@ Look for the **"parameters"** section at the top of the file, which lists the se
 				"Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed"
 			}
 		},
-		"region": {
+		"location": {
 			"type": "string",
 			"metadata": {
 				"Description": "Location where resources will be provisioned"
@@ -222,7 +222,7 @@ Here is an example you can find in the **azuredeploy-parameters.json** file.  No
 		"adminPassword": {
 			"value": ""
 		},
-		"region": {
+		"location": {
 			"value": "West US"
 		},
 		"virtualNetworkName": {
@@ -319,7 +319,7 @@ During the deployment, you will see something like this:
                     adminUsername    String                     myadmin
                     adminPassword    SecureString
                     storageAccountName  String                     myuniqstgacct87
-                    region           String                     West US
+                    location         String                     West US
                     virtualNetworkName  String                     redisClustVnet
                     addressPrefix    String                     10.0.0.0/16
                     subnetName       String                     Subnet1
@@ -631,7 +631,7 @@ Another interesting fragment to explore, is the one related to the `CustomScript
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "[concat('vmMember', parameters('machineSettings').machineIndex, '/installscript')]",
     "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('commonSettings').region]",
+    "location": "[parameters('commonSettings').location]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', 'vmMember', parameters('machineSettings').machineIndex)]"
     ],
