@@ -20,10 +20,11 @@
 
 If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a **Microsoft account** identity to create it. Many great features of Azure -- [resource group templates](resource-group-overview.md) and [role-based access](resource-group-rbac.md) are two examples -- require a work or school account (an identity managed by Azure Active Directory) to work. 
 
-Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain you may not know about, but you can use it to create a new work or school account that you can use with Azure features that require it.
+Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 
 > [AZURE.NOTE] If you were given a username and password by an administrator, there's a good chance that you already have an work or school ID (also called an organizational ID). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this topic.
 
+The steps are simple. You need to locate your signed on identity in the portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator. Here we go.
 
 ## Locate your default directory in the Azure Portal
 
