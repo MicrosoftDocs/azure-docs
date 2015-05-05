@@ -38,7 +38,7 @@ With the [SharePoint intranet farm in a hybrid cloud dev/test environment](virtu
 
 ## Highly-available, intranet SharePoint production farm
 
-With [Deploying SharePoint 2013 with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md), you build out a production-ready, highly-available, intranet SharePoint Server 2013 farm in Azure.
+With [Deploying SharePoint 2013 with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md), you build out a production-ready, highly-available, intranet SharePoint Server 2013 farm in Azure.
 
 ## Additional Resources
 
