@@ -66,34 +66,55 @@ Click the **create** button to generate and display a temporary password for `ah
 
 ![](./media/resource-groups-create-aad-id-from-personal/gettemporarypasswordforuser.png)
 
+Either copy down the username email address, or enter an email address to send the information to. In either case, you'll need the information to log on shortly.
+
 ![](./media/resource-groups-create-aad-id-from-personal/receivedtemporarypassworddialog.png)
+
+Now you should see the new user, in this case `Ahmet the Developer`, sourced from Azure Active Directory. You've created the new work or school identity with Azure Active Directory. However, this identity does not yet have permissions to use Azure resources.
 
 ![](./media/resource-groups-create-aad-id-from-personal/defaultdirectoryusersaftercreate.png)
 
+If you send an email with the information, it might look something like this:
+
 ![](./media/resource-groups-create-aad-id-from-personal/emailreceivedfromnewusercreation.png)
 
-![](./media/resource-groups-create-aad-id-from-personal/addingnewuserascoadmin.png)
+## Adding Azure co-administrator rights for subscriptions
 
-![](./media/resource-groups-create-aad-id-from-personal/newuseraddedascoadministrator.png)
+Now you need to give your new user rights to manage services in your subscriptions. To do this, find the Settings icon in the lower left panel and click it. 
 
 ![](./media/resource-groups-create-aad-id-from-personal/thesettingswidget.png)
 
+In the main settings area, click **ADMINISTRATORS** at the top and you should see only your personal Microsoft account identity. At the bottom of the page, click **+ADD** to specify a co-administrator. Here, enter the email address of the new user you had created, including your default domain. As below, you should see a green check appear next to the user for the default directory. Remember to select all the subscriptions that you would like this user to be able to administer.
+
+![](./media/resource-groups-create-aad-id-from-personal/addingnewuserascoadmin.png)
+
+When you are done, you should now see two users, including your new co-administrator identity. Log out of the portal.
+
+![](./media/resource-groups-create-aad-id-from-personal/newuseraddedascoadministrator.png)
+
+## Logging in and changing the new user's password
+
+Log in as the new user you created.
+
 ![](./media/resource-groups-create-aad-id-from-personal/signinginwithnewuser.png)
 
+You will immediately be prompted to create a new password. However, once you finish...
+
 ![](./media/resource-groups-create-aad-id-from-personal/mustupdateyourpassword.png)
+
+You should be rewarded with success that looks like the following.
 
 ![](./media/resource-groups-create-aad-id-from-personal/successtourdialog.png)
 
 
+## Next steps
 
-## Logging in and changing the new user's password
-
-Now you can go have fun. For example, you can now use your new Azure Active Directory identity to use Azure resource group templates.
+Now you can go have fun. For example, you can now use your new Azure Active Directory identity to use [Azure resource group templates](xplat-cli-azure-resource-manager.md).
 
      azure login
     info:    Executing command login
     warn:    Please note that currently you can login only via Microsoft organizational account or service principal. For instructions on how to set them up, please read http://aka.ms/Dhf67j.
-    Username: ahmet@aztrainpass02735outlook.onmicrosoft.com
+    Username: ahmet@aztrainpassxxxxxoutlook.onmicrosoft.com
     Password: *********
     /info:    Added subscription Azure Pass                                        
     info:    Setting subscription Azure Pass as default
@@ -120,17 +141,3 @@ Now you can go have fun. For example, you can now use your new Azure Active Dire
     info:    group create command OK
 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Next steps
-
-
-<!--Image references-->
-[5]: ./media/markdown-template-for-new-articles/octocats.png
-[6]: ./media/markdown-template-for-new-articles/pretty49.png
-[7]: ./media/markdown-template-for-new-articles/channel-9.png
-[8]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
