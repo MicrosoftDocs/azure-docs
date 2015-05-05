@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure"
-   ms.date="05/04/2015"
+   ms.date="05/05/2015"
    ms.author="rasquill"/>
 
 # Creating a Work or School identity in Azure Active Directory
@@ -33,28 +33,32 @@ Start by logging into the [Azure portal](https://manage.windowsazure.com) using 
 ![Azure Active Directory](./media/resource-groups-create-aad-id-from-personal/azureactivedirectorywidget.png)
 
 Let's start by finding some information about your identity in Azure. You should see something like the following in the main pane, showing that you have one default directory. 
+
 ![](./media/resource-groups-create-aad-id-from-personal/defaultaadlisting.png)
 
-Let's find out some more information. Click the default directory row, which brings you into the default directory properties.  
+Let's find out some more information about it. Click the default directory row, which brings you into the default directory properties.  
 
 ![](./media/resource-groups-create-aad-id-from-personal/defaultdirectorypage.png)
 
-Great. Let's see what our "default" domain is... click **DOMAINS**.
+Great. Now let's see what our "default" domain is... click **DOMAINS**.
 
 ![](./media/resource-groups-create-aad-id-from-personal/domainclicktoseeyourdefaultdomain.png)
 
-Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash of your personal id used as a subdomain of **onmicrosoft.com**. This is very useful, because that's the domain to which you will add a new user now.
+Here you should be able to see that when the Azure account was created, Azure Active Directory created a personal default domain that is a hash of your personal id used as a subdomain of **onmicrosoft.com**. That's the domain to which you will now add a new user.
 
 ## Creating a new user in the default domain
 
-Click **USERS** and look for your single personal account there. You should see in the **SOURCED FROM** column that it is a `Microsoft account`. We want to create a user in your default **.onmicrosoft.com** Azure Active Directory. 
+Click **USERS** and look for your single personal account there. You should see in the **SOURCED FROM** column that it is a `Microsoft account`. We want to create a user in your default **.onmicrosoft.com** Azure Active Directory domain. 
 
 ![](./media/resource-groups-create-aad-id-from-personal/defaultdirectoryuserslisting.png)
 
 We're going to follow [these instructions](https://technet.microsoft.com/en-us/library/hh967632.aspx#BKMK_1) in the next few steps, but using a specific example.
-At the bottom of the page, click **+ADD USER**. In the dialog that appears, type the new user name, and make the **Type of User** a **New user in your organization**.
+
+At the bottom of the page, click **+ADD USER**. In the dialog that appears, type the new user name, and make the **Type of User** a **New user in your organization**. In this example, the new user name is `ahmet`. Make sure to select the default domain that you discovered above as the domain for `ahmet`'s email address. Click the next arrow when finished.
 
 ![](./media/resource-groups-create-aad-id-from-personal/addingauserwithdirectorydropdown.png)
+
+Here enter more details for `ahmet`, but make sure to select the appropriate **ROLE** value here. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role.
 
 ![](./media/resource-groups-create-aad-id-from-personal/userprofileuseradmin.png)
 
