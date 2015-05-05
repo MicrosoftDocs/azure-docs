@@ -20,6 +20,7 @@
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
+- [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 The [Get started with Azure Data Factory][adf-get-started] tutorial shows you how to create and monitor an Azure data factory using the [Azure Preview Portal][azure-preview-portal]. 
 In this tutorial, you will create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial copies data from an Azure blob to an Azure SQL database.       

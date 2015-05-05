@@ -19,6 +19,7 @@
 # Tutorial: Create and monitor a data factory using Data Factory Editor
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
+- [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
 
 
