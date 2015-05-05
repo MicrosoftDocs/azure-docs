@@ -22,6 +22,8 @@ In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server
 
 You must complete this phase before moving on to [Phase 4](virtual-machines-workload-intranet-sharepoint-phase4.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
+## Create the SQL Server cluster virtual machines in Azure
+
 There are two SQL server virtual machines. One SQL server contains the primary database replica of an availability group. The second SQL server contains the secondary backup replica. The backup is provided to ensure high-availability. An additional virtual machine is for the cluster majority node.
 
 Use the following block of PowerShell commands to create the virtual machines for the three servers. Specify the values for the variables, removing the < and > characters. Note that this PowerShell command set uses values from the following tables:

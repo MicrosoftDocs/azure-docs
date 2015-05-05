@@ -61,7 +61,7 @@ For instance, here are two possible names for a cloud service the hosts a calcul
 Affixes can refer to different aspects that describe the particular resources. The following table shows some examples typically used.
 
 Aspect | Examples | Notes
-
+--- | --- | ---
 Environment | dev, stg, prod | Depending on the purpose and name of each environment.
 Location | usw (West US), use (East US 2) | Depending on the region of the datacenter or the region of the organization.
 Azure component, service, or product | Svc for cloud service, VNet for virtual network | Depending on the product for which the resource provides support.

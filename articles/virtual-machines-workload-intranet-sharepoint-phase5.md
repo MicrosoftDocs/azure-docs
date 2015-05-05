@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Phase 5: Create the Availability Group and add the SharePoint databases" 
 	description="In this fifth and final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create an Availability Group and add your SharePoint databases to it." 
 	documentationCenter=""
@@ -22,7 +22,7 @@ In this final phase of deploying an intranet-only SharePoint 2013 farm with SQL 
 
 See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
-## Create the Availability Group and Add Databases
+## Create the Availability Group and add databases
 
 SharePoint creates several databases as part of the initial configuration. Those databases must be prepared with these steps:
 
@@ -31,7 +31,7 @@ SharePoint creates several databases as part of the initial configuration. Those
 
 Once the databases have been both backed up and restored, they can be added to the availability group. SQL Server only allows databases that have been backed up (at least once), and restored on another machine, to be in the group.
 
-### Share the Backup Folders
+### Share the backup folders
 
 To enable backup and restore, the backup files (.bak) must be accessible from the secondary SQL Server VM. Use the following procedure:
 
@@ -44,7 +44,7 @@ To enable backup and restore, the backup files (.bak) must be accessible from th
 
 Perform the above procedure on the secondary SQL Server host, except give the sqlservice account **Read** permission for the F:\Backup folder in step 5.
 
-### Backing Up and Restoring a Database
+### Backing up and restoring a database
 
 The following procedures must be repeated for every database that needs to be added to the availability group. Some SharePoint 2013 databases do not support SQL Server AlwaysOn Availability Groups. For more information, see [Supported high availability and disaster recovery options for SharePoint databases](http://technet.microsoft.com/library/jj841106.aspx).
 

@@ -48,7 +48,7 @@ Fill in Table S for the subnet of this solution. Give the subnet a friendly name
 
 Item | Subnet name | Subnet address space | Purpose 
 --- | --- | --- | --- 
-1. | __________________ | _______________________ | _________________________
+1. | _______________ | _____________________________ | _________________________
 
 **Table S: Subnets in the virtual network**
 
@@ -58,8 +58,8 @@ For the two on-premises DNS servers that you want to use when initially setting 
 
 Item | DNS server friendly name | DNS server IP address 
 --- | --- | ---
-1. | ______________________ | ______________________
-2. | ______________________ | ______________________ 
+1. | ___________________________ | ___________________________
+2. | ___________________________ | ___________________________ 
 
 **Table D: On-premises DNS servers**
 
@@ -69,9 +69,9 @@ For the set of local network address spaces, fill in Table L. Note that three bl
 
 Item | Local network address space 
 --- | ---
-1. | ___________________________
-2. | ___________________________
-3. | ___________________________
+1. | ___________________________________
+2. | ___________________________________
+3. | ___________________________________
 
 **Table L: Address prefixes for the local network**
 
