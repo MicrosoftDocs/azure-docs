@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/04/2015"
 	ms.author="twieman"/>
 
 # Redis cluster with a Resource Manager template
