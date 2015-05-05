@@ -17,7 +17,7 @@
 	ms.author="josephd"/>
 
 # Azure Infrastructure Services Implementation Guidelines
-
+ 
 These guidelines focus on the key design decisions and tasks to determine the variety of resources that are involved in most Azure infrastructure services implementations.
 
 Azure is an excellent platform to implement proof-of-concept configuration, since it requires very little investment to test a particular approach to implementation of solutions. However, you must be able to distinguish the easy practices for a proof-of-concept from the more difficult, detailed practices for a fully functional, production-ready implementation of an IT workload.
