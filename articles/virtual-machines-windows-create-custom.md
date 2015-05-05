@@ -5,9 +5,8 @@
 	documentationCenter="" 
 	authors="KBDAzure" 
 	manager="timlt" 
-	editor="tysonn"
-	tags="AZURE CLASSIC PORTAL"/>
-	
+	editor=""/>
+
 
 <tags 
 	ms.service="virtual-machines" 
@@ -15,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/29/2015" 
 	ms.author="kathydav"/>
 
 #How to Create a Custom Virtual Machine Running Windows

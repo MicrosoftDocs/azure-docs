@@ -20,7 +20,7 @@
 
 ## Manual Upgrade Mode
 
-[AZURE.NOTE] Only for a failed or suspended upgrade, should the Unmonitored Manual mode be even considered. The Monitored mode is the upgrade mode recommended for Service Fabric applications.
+> [AZURE.NOTE] Only for a failed or suspended upgrade, should the Unmonitored Manual mode be even considered. The Monitored mode is the upgrade mode recommended for Service Fabric applications.
 
 Service Fabric provides multiple upgrade mode to support development and production cluster. Each of the deployment options are ideal for different environments. Monitored Rolling Application Upgrade is the most typical upgrade to be used in production. When the upgrade policy is specified, Service Fabric ensures that the application is healthy before the upgrade proceeds. In certain situation, where there are more customize or complex health evaluation policy is required or a non-conventional upgrade (application is already in data loss or etc.), the application administrator can use the Manual Rolling Application Upgrade mode to have total control over the progress of upgrade through the various upgrade domains. Finally, the Automated Rolling Application Upgrade is useful for development or testing environment to provide a fast iteration cycle during service development.
 
