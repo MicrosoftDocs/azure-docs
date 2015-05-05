@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.date="05/04/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -186,27 +186,29 @@ ExpressRoute premium is a collection of features listed below.
  - Global connectivity over the Microsoft core network. You will now be able to link an vnet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a vnet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-The table below provides the increased limits for the number of vnets you can link to an ExpressRoute circuit. Default limit is 10.
-
+The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
 
 **Limits for circuits created through NSPs**
+| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links for ExpressRoute Premium** |
+|--------------|----------------------------------------|-----------------------------------------------|
+| 10 Mbps      | 10                                     | Not Supported                                 |
+| 50 Mbps      | 10                                     | 20                                            |
+| 100 Mbps     | 10                                     | 25                                            |
+| 500 Mbps     | 10                                     | 40                                            |
+| 1Gbp         | 10                                     | 50                                                                                     
+|
 
-|**Circuit Size**|**Number of VNet links for default setup**|**Number of VNet links for ExpressRoute Premium**| 
-|---|---|---| 
-|10 Mbps|10|Not Supported|
-|50 Mbps|10|20|
-|100 Mbps|10|25|
-|500 Mbps|10|40|
-|1 Gbp|10|50|
 
 **Limits for circuits created through EXPs**
 
-|**Circuit Size**|**Number of VNet links for default setup**|**Number of VNet links with ExpressRoute Premium**| 
-|---|---|---| 
-|200 Mbps|10|25|
-|500 Mbps|10|40|
-|1 Gbps|10|50|
-|10 Gbps|10|100|
+| **Circuit Size** | **Number of VNets for default setup** | **Number of VNet links with ExpressRoute Premium** |
+|--------------|-----------------------------------|------------------------------------------------|
+| 200 Mbps     | 10                                | 25                                             |
+| 500 Mbps     | 10                                | 40                                             |
+| 1 Gbps       | 10                                | 50                                             |
+| 10 Gbps      | 10                                |  100                                              |
+
+
 
 ### How do I enable ExpressRoute premium?
 ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the update dedicated circuit API / PowerShell cmdlet to enable ExpressRoute premium.
