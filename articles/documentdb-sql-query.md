@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="05/04/2015" 
 	ms.author="mimig"/>
 
 #Query DocumentDB
@@ -570,7 +570,6 @@ For faster query execution times, remember to create an indexing policy that use
 
 The main difference between using BETWEEN in DocumentDB and ANSI SQL is that you can express range queries against properties of mixed types – for example, you might have "grade" be a number (5) in some documents and strings in others ("grade4"). In these cases, like in JavaScript, a comparison between two different types results in "undefined", and the document will be skipped.
 
-
 ###Logical (AND, OR and NOT) operators
 Logical operators operate on Boolean values. The logical truth tables for these operators are shown in the following tables.
 
@@ -812,6 +811,21 @@ Logical operators operate on Boolean values. The logical truth tables for these 
         </tr>
     </tbody>
 </table>
+
+###IN keyword
+The IN keyword can be used to check whether a specified value matches any value in a list. For example, this query returns all family documents where the id is one of "WakefieldFamily" or "AndersenFamily". 
+ 
+    SELECT *
+    FROM Families 
+    WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+
+This example returns all documents where the state is any of the specified values.
+
+    SELECT *
+    FROM Families 
+    WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+
+IN is equivalent to chaining multiple OR clauses, however since it can be served using a single index, DocumentDB supports a higher [limit](documentdb-limits.md) for the number of arguments specified within an IN clause.  
 
 ###Ternary (?) and Coalesce (??) operators:
 The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
@@ -1476,11 +1490,18 @@ DocumentDB also supports a number of built-in functions for common operations, t
 <table>
 <tr>
 <td>Mathematical Functions</td>	
-<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, and TRUNC</td>
+<td>ABS, CEILING, EXP, FLOOR, LOG, LOG10, POWER, ROUND, SIGN, SQRT, SQUARE, TRUNC, ACOS, ASIN, ATAN, ATN2, COS, COT, DEGREES, PI, RADIANS, SIN, and TAN</td>
 </tr>
 <tr>
 <td>Type checking functions</td>	
-<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, and IS_STRING</td>
+<td>IS_ARRAY, IS_BOOL, IS_NULL, IS_NUMBER, IS_OBJECT, IS_STRING, IS_DEFINED, and IS_PRIMITIVE</td>
+</tr>
+<tr>
+<td>String functions</td>	
+<td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, and UPPER</td>
+</tr>
+<td>Array functions</td>	
+<td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, and ARRAY_SLICE</td>
 </tr>
 </table>  
 
@@ -1542,6 +1563,51 @@ The mathematical functions each perform a calculation, usually based on input va
 <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_sign">SIGN (num_expr)</a></td>	
 <td>Returns the sign value (-1, 0, 1) of the specified numeric expression.</td>
 </tr>
+<tr>
+<td>ACOS (num_expr)</td>	
+<td>Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.</td>
+</tr>
+<tr>
+<td>ASIN (num_expr)</td>	
+<td>Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.</td>
+</tr>
+<tr>
+<td>ATAN (num_expr)</td>	
+<td>Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent.</td>
+</tr>
+<tr>
+<td>ATN2 (num_expr)</td>	
+<td>Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions.</td>
+</tr>
+<tr>
+<td>COS (num_expr)</td>	
+<td>Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.</td>
+</tr>
+<tr>
+<td>COT (num_expr)</td>	
+<td>Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.</td>
+</tr>
+<tr>
+<td>DEGREES (num_expr)</td>	
+<td>Returns the corresponding angle in degrees for an angle specified in radians.</td>
+</tr>
+<tr>
+<td>PI ()</td>	
+<td>Returns the constant value of PI.</td>
+</tr>
+<tr>
+<td>RADIANS (num_expr)</td>	
+<td>Returns radians when a numeric expression, in degrees, is entered.</td>
+</tr>
+<tr>
+<td>SIN (num_expr)</td>	
+<td>Returns the trigonometric sine of the specified angle, in radians, in the specified expression.</td>
+</tr>
+<tr>
+<td>TAN (num_expr)</td>	
+<td>Returns the tangent of the input expression, in the specified expression.</td>
+</tr>
+
 </table> 
 
 For example, you can now run queries like the following:
@@ -1588,6 +1654,15 @@ The type checking functions allow you to check the type of an expression within 
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (expr)</a></td>
   <td>Returns a Boolean indicating if the type of the value is a string.</td>
 </tr>
+<tr>
+  <td>IS_DEFINED (expr)</td>
+  <td>Returns a Boolean indicating if the property has been assigned a value.</td>
+</tr>
+<tr>
+  <td>IS_PRIMITIVE (expr)</td>
+  <td>Returns a Boolean indicating if the type of the value is a string, number, Boolean or null.</td>
+</tr>
+
 </table>
 
 Using these functions, you can now run queries like the following:
@@ -1599,6 +1674,188 @@ Using these functions, you can now run queries like the following:
 **Results**
 
     [true]
+
+###String Functions
+The following scalar functions perform an operation on a string input value and return a string, numeric or Boolean value. Here's a table of built-in string functions:
+
+<table>
+<tr>
+  <td><strong>Usage</strong></td>
+  <td><strong>Description</strong></td>
+</tr>
+<tr>
+  <td>LENGTH (str_expr)</a></td>
+  <td>Returns the number of characters of the specified string expression.</td>
+</tr>
+<tr>
+  <td>CONCAT (str_expr, str_expr [, str_expr])</a></td>
+  <td>Returns a string that is the result of concatenating two or more string values.</td>
+</tr>
+<tr>
+  <td>SUBSTRING (str_expr, num_expr, num_expr)</a></td>
+  <td>Returns part of a string expression.</td>
+</tr>
+<tr>
+  <td>STARTSWITH (str_expr, str_expr)</a></td>
+  <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
+</tr>
+<tr>
+  <td>ENDSWITH (str_expr, str_expr)</a></td>
+  <td>Returns a Boolean indicating whether the first string expression ends with the second</td>
+</tr>
+<tr>
+  <td>CONTAINS (str_expr, str_expr)</a></td>
+  <td>Returns a Boolean indicating whether the first string expression contains the second.</td>
+</tr>
+<tr>
+  <td>INDEX_OF (str_expr, str_expr)</a></td>
+  <td>Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.</td>
+</tr>
+<tr>
+  <td>LEFT (str_expr, num_expr)</a></td>
+  <td>Returns the left part of a string with the specified number of characters.</td>
+</tr>
+<tr>
+  <td>RIGHT (str_expr, num_expr)</a></td>
+  <td>Returns the right part of a string with the specified number of characters.</td>
+</tr>
+<tr>
+  <td>LTRIM (str_expr)</a></td>
+  <td>Returns a string expression after it removes leading blanks.</td>
+</tr>
+<tr>
+  <td>RTRIM (str_expr)</a></td>
+  <td>Returns a string expression after truncating all trailing blanks.</td>
+</tr>
+<tr>
+  <td>LOWER (str_expr)</a></td>
+  <td>Returns a string expression after converting uppercase character data to lowercase.</td>
+</tr>
+<tr>
+  <td>UPPER (str_expr)</a></td>
+  <td>Returns a string expression after converting lowercase character data to uppercase.</td>
+</tr>
+<tr>
+  <td>REPLACE (str_expr, str_expr, str_expr)</a></td>
+  <td>Replaces all occurrences of a specified string value with another string value.</td>
+</tr>
+<tr>
+  <td>REPLICATE (str_expr, num_expr)</a></td>
+  <td>Repeats a string value a specified number of times.</td>
+</tr>
+<tr>
+  <td>REVERSE (str_expr)</a></td>
+  <td>Returns the reverse order of a string value.</td>
+</tr>
+</table>
+
+Using these functions, you can now run queries like the following. For example, you can return the family name in uppercase as follows:
+
+**Query**
+
+    SELECT VALUE UPPER(Families.id)
+    FROM Families
+
+**Results**
+
+    [
+        "WAKEFIELDFAMILY", 
+        "ANDERSENFAMILY"
+    ]
+
+Or concatenate strings like in this example:
+
+**Query**
+
+    SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
+    FROM Families
+
+**Results**
+
+    [{
+      "id": "WakefieldFamily",
+      "location": "NY,NY"
+    },
+    {
+      "id": "AndersenFamily",
+      "location": "seattle,WA"
+    }]
+
+
+String functions can also be used in the WHERE clause to filter results, like in the following example:
+
+**Query**
+
+    SELECT Families.id, Families.address.city
+    FROM Families
+    WHERE STARTSWITH(Families.id, "Wakefield")
+
+**Results**
+
+    [{
+      "id": "WakefieldFamily",
+      "city": "NY"
+    }]
+
+###Array Functions
+The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value. Here's a table of built-in array functions:
+
+<table>
+<tr>
+  <td><strong>Usage</strong></td>
+  <td><strong>Description</strong></td>
+</tr>
+<tr>
+  <td>ARRAY_LENGTH (arr_expr)</a></td>
+  <td>Returns the number of elements of the specified array expression.</td>
+</tr>
+<tr>
+  <td>ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
+  <td>Returns an array that is the result of concatenating two or more array values.</td>
+</tr>
+<tr>
+  <td>ARRAY_CONTAINS (arr_expr, expr)</a></td>
+  <td>Returns a Boolean indicating whether the array contains the specified value.</td>
+</tr>
+<tr>
+  <td>ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
+  <td>Returns part of an array expression.</td>
+</tr>
+</table>
+
+Array functions can be used to manipulate arrays within JSON. For example, here's a query that returns all documents where one of the parents is "Robin Wakefield". 
+
+**Query**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+
+**Results**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+Here's another example that uses ARRAY_LENGTH to get the number of children per family.
+
+**Query**
+
+    SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
+    FROM Families 
+
+**Results**
+
+    [{
+      "id": "WakefieldFamily",
+      "numberOfChildren": 2
+    },
+    {
+      "id": "AndersenFamily",
+      "numberOfChildren": 1
+    }]
+
+That wraps up built-in functions, and the SQL grammar for DocumentDB. Now let's take a look at how LINQ querying works and how it interacts with the grammar we've seen so far.
 
 
 ##LINQ to DocumentDB SQL
