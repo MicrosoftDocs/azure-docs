@@ -18,7 +18,9 @@
 
 # Using Azure PowerShell with Azure Resource Manager
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Azure PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Azure CLI</a></div>
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
 ## Introduction
 
@@ -68,7 +70,7 @@ The output will look similar to the following excerpt:
 	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
 	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
 	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or impopowershell-azure-resource-manager.mdrts a key into a vault.
+	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
         ...
 
 To get full help for a cmdlet, type a command with the format:
