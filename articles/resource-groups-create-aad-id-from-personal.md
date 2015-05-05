@@ -22,7 +22,7 @@ If you created a personal Azure account or have a personal MSDN subscription and
 
 Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 
-> [AZURE.NOTE] If you were given a username and password by an administrator, there's a good chance that you already have an work or school ID (also called an organizational ID). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this topic.
+> [AZURE.NOTE] If you were given a username and password by an administrator, there's a good chance that you already have an work or school ID (also called an organizational ID). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this topic. For lots more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir) for even more.
 
 The steps are simple. You need to locate your signed on identity in the portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator. Here we go.
 
@@ -52,15 +52,17 @@ Click **USERS** and look for your single personal account there. You should see 
 
 ![](./media/resource-groups-create-aad-id-from-personal/defaultdirectoryuserslisting.png)
 
-We're going to follow [these instructions](https://technet.microsoft.com/en-us/library/hh967632.aspx#BKMK_1) in the next few steps, but using a specific example.
+We're going to follow [these instructions](https://technet.microsoft.com/library/hh967632.aspx#BKMK_1) in the next few steps, but using a specific example.
 
 At the bottom of the page, click **+ADD USER**. In the dialog that appears, type the new user name, and make the **Type of User** a **New user in your organization**. In this example, the new user name is `ahmet`. Make sure to select the default domain that you discovered above as the domain for `ahmet`'s email address. Click the next arrow when finished.
 
 ![](./media/resource-groups-create-aad-id-from-personal/addingauserwithdirectorydropdown.png)
 
-Here enter more details for `ahmet`, but make sure to select the appropriate **ROLE** value here. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role.
+Here enter more details for `ahmet`, but make sure to select the appropriate **ROLE** value here. It's easy to use **Global Admin** to make sure things are working, but if you can use a lesser role, that's a good idea. This example uses the **User** role. (Find out more about these roles [here](https://msdn.microsoft.com/library/azure/dn468213.aspx#BKMK_1).) Do NOT enable multi-factor authentication unless you want to use multifactor authentication for each log in operation. Click the next arrow when you're finished.
 
 ![](./media/resource-groups-create-aad-id-from-personal/userprofileuseradmin.png)
+
+Click the **create** button to generate and display a temporary password for `ahmet`.
 
 ![](./media/resource-groups-create-aad-id-from-personal/gettemporarypasswordforuser.png)
 
