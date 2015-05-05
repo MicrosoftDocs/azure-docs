@@ -46,7 +46,7 @@ For more information on ASP.NET projects, see [ASP.NET](http://www.asp.net).
 Add the following namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
-    using Microsoft.WindowsAzure;
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Blob;
