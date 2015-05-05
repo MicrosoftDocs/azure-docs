@@ -23,7 +23,7 @@
 [Get started](active-directory-get-started.md)<br>
 [Next steps](active-directory-next-steps.md)
 
-I already have an Azure subscription. How is Azure AD related to that? [Learn more](http://azure.microsoft.com/en-us/documentation/articles/active-directory-how-subscriptions-associated-directory)
+I already have an Azure subscription. How is Azure AD related to that? [Learn more](active-directory-how-subscriptions-associated-directory.md)
 
 For Azure AD administrative tasks such as user management, domain management, or configuring single sign-on, use the Azure Active Directory Module for Windows PowerShell cmdlets. [Manage Azure AD using Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
