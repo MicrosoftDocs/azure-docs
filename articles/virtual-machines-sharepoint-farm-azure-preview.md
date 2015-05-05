@@ -35,7 +35,7 @@ You can use this farm configuration to test higher client loads, high availabili
 For the configuration details of both of these farms, see [SharePoint Server Farm Configuration Details](virtual-machines-sharepoint-farm-config-azure-preview.md).
 
 ## Stepping through configuration
-
+ 
 To create your SharePoint farm with the SharePoint Server Farm template, do the following:
 
 1. In the [Microsoft Azure Preview Portal](https://portal.azure.com/), click  **New** > **Compute** > **SharePoint Server Farm**.
