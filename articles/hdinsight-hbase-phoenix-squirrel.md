@@ -256,8 +256,8 @@ You need to copy it to your workstation under the [SQuirrel installation folder]
 	- **Name**: The name of the HBase cluster or any name you prefer.
 	- **Driver**: Phoenix.  This must match the driver name you created in the last procedure.
 	- **URL**: The URL is copied from your driver configuration. Make sure to user all lower case.
-	- **User name**: HBase cluster HTTP user name
-	- **Password**: HBase cluster HTTP user password
+	- **User name**: It can be any text.  Because you use VPN connectivity here, the user name is not used at all.
+	- **Password**: It can be any text.
 
 	![HDInsight HBase Phoenix SQuirrel driver][img-squirrel-alias]
 4. Click **Test**. 
