@@ -3,7 +3,7 @@
 	description="Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="chrande"
+	authors="chrisanderson"
 	manager="dwrede"
 	editor="mollybos"/>
 
