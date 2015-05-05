@@ -27,7 +27,7 @@ You can view your usage by using the **Servers and Usage** tile on the **Overvie
 
 ![image of Servers and Usage tile](./media/operational-insights-usage/overview-servers-usage.png)
 
-If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove an intelligence pack to reduce the amount of data that you send to the Operational Insights service. For more information about removing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md).
+If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove an intelligence pack to reduce the amount of data that you send to the Operational Insights service. For more information about removing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md).
 
 If an Operations Manager management group is having problems sending data to the Operational Insights service, you can troubleshoot the issue, or you can remove the group from Operational Insights, if needed.
 
