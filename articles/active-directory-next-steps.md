@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/28/2015"
+	ms.date="05/05/2015"
 	ms.author="curtand"/>
 
 # What are the next steps I can take using Azure AD?
@@ -34,7 +34,7 @@ Sync user passwords so that your users can sign into Microsoft cloud services (s
 Use groups to assign a common set of permissions and rights to many accounts at once, instead of to each account individually. You can also sync groups from your local on-premises Windows Server Active Directory. Learn more about managing groups in Azure Active Directory. [Learn more about managing groups](active-directory-manage-groups.md).
 
 ## Enforce conditional access policies for registered mobile devices
-Azure AD Device Registration provisions devices with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises. [Learn more about Azure AD Device Registration](active-directory-conditional-access.md). 
+Azure AD Device Registration provisions devices with an identity that is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises. [Learn more about Azure AD Device Registration](active-directory-conditional-access.md).
 
 
 ## Additional Resources
