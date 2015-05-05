@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/05/2015" 
 	ms.author="tomfitz"/>
 
-#Using Azure PowerShell with Azure Resource Manager #
+# Using Azure PowerShell with Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-azure-resource-manager.md)
