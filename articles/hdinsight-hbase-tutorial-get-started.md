@@ -20,7 +20,7 @@
 
 # HBase tutorial: Learn to query Apache HBase tables with Hive in HDInsight
 
-Learn how to create HBase tables from the HBase shell and query HBase tables by using Hive in HDInsight.
+In this HBase tutorial, you'll learn how to create HBase tables from the HBase shell and query the tables by using Hive in HDInsight.
 
 HBase is a low-latency NoSQL database that allows online transactional processing of big data. HBase is offered as a managed cluster that is integrated into the Azure environment. The clusters are configured to store data directly in Azure Blob storage, which provides low latency and increased elasticity in performance and cost choices. This enables customers to build interactive websites that work with large datasets, to build services that store sensor and telemetry data from millions of end points, and to analyze this data with Hadoop jobs. For more information about HBase and the scenarios it can be used for, see [HDInsight HBase overview][hdinsight-hbase-overview].
 
@@ -61,7 +61,7 @@ Before you begin this HBase tutorial, you must have the following:
 This section describes how to use the HBase shell to create HBase tables, add rows, and list rows. To access the HBase shell, you must first enable Remote Desktop Protocol (RDP), and then make an RDP connection to the HBase cluster. For instructions, see [Manage Hadoop clusters in HDInsight using the Azure Portal][hdinsight-manage-portal].
 
 
-**To use the HBase shell**
+### To use the HBase shell
 
 1. Within your RDP session, click the **Hadoop Command Line** shortcut located on the desktop.
 2. Change the folder to the HBase home directory:
@@ -82,7 +82,7 @@ This section describes how to use the HBase shell to create HBase tables, add ro
 
 		list
 
-**Check cluster status in the HBase WebUI**
+### Check cluster status in the HBase WebUI
 
 HBase also ships with a WebUI that you can use to help monitor your cluster. For example, you could request statistics or information about regions. On the HBase cluster, you can find the WebUI under the address of the zookeepernode:
 
@@ -91,7 +91,7 @@ HBase also ships with a WebUI that you can use to help monitor your cluster. For
 
 In a high availability cluster, you will find a link to the current active HBase master node that is hosting the WebUI.
 
-**Bulk load a sample table**
+### Bulk load a sample table
 
 1. From the HBase shell, create an HBase table with two column families:
 

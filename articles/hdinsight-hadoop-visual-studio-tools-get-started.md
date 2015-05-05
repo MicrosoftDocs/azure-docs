@@ -84,7 +84,7 @@ From Server Explorer, you can see the default storage account and any linked sto
 
 ![HDInsight Tools for Visual Studio server explorer cluster list][2]
 
-## Run Hive queries
+## Run a Hive query
 [Apache Hive][apache.hive] is a data warehouse infrastructure built on Hadoop for providing data summarization, queries, and analysis. HDInsight Tools for Visual Studio supports running Hive queries from Visual Studio. For more information about Hive, see [Use Hive with HDInsight][hdinsight.hive].
 
 It is time consuming to test Hive script against an HDInsight cluster. It could take several minutes or more. HDInsight Tools for Visual Studio is capable of validating Hive script locally without connecting to a live cluster.
@@ -117,7 +117,7 @@ You can use the GUI to create a Hive table or use Hive queries. For information 
 2. Configure the table.
 3. Click **Create Table** to submit the job to create the new Hive table.
 
-	![hdinsight visual studio tools create hive table][7]
+	![Hadoop tools: hdinsight visual studio tools create hive table][7]
 
 ###<a name="run.queries"></a>Validate and run Hive queries
 There are two ways to create and run Hive queries:
@@ -131,14 +131,14 @@ There are two ways to create and run Hive queries:
 2. Right-click the cluster where you want to run the query, and then click **Write a Hive Query**. 
 3. Enter the Hive queries. Notice the Hive editor supports IntelliSense. HDInsight Tools for Visual Studio supports loading the remote metadata when you are editing your hive script. For example, when you type "SELECT * FROM", the intellisense will list all the suggested table names. When a table name is specified, the column names will be listed by the intellisense. 
 
-	![HDInsight Visual Studio Tools Intellisense][13]
+	![Hadoop tools: HDInsight Visual Studio Tools Intellisense][13]
 
-	![HDInsight Visual Studio Tools Intellisense][14]
+	![Hadoop tools: HDInsight Visual Studio Tools Intellisense][14]
 
 	> [AZURE.NOTE] Only the metadata of the clusters that is selected in HDInsight Toolbar will be suggested.
 4. (Optional): Click **Validate Script** to check the script syntax errors.
 
-	![hdinsight tools for Visual Studio local validation][10]
+	![Hadoop tools: hdinsight tools for Visual Studio local validation][10]
 
 4. Click **Submit** or **Submit (Advanced)**. With the advanced submit option, you will configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** for the script:
 
@@ -146,7 +146,7 @@ There are two ways to create and run Hive queries:
 
 	After you submit the job, you can see a **Hive Job Summary** window.
 
-	![hdinsight hadoop hive query][8]
+	![Summary of an HDInsight Hadoop Hive query][8]
 5. Use the **Refresh** button to update the status until the job status changes to **Completed**.
 6. Click the links at the bottom to see the following: **Job Query**, **Job Output**, **Job log**, or **Yarn log**.
 
@@ -157,7 +157,7 @@ There are two ways to create and run Hive queries:
 1. From the **FILE** menu, click **New**, and then click **Project**.
 2. Select **HDInsight** from the left pane, select **Hive Application** in the middle pane, enter the properties, and then click **OK**.
 
-	![hdinsight visual studio tools new hive project][11]
+	![Hadoop tools: hdinsight visual studio tools new hive project][11]
 3. From **Solution Explorer**, double-click **Script.hql** to open it. 
 4. To validate the Hive script, you can click the **Validate Script** button, or right-click the script in the Hive editor, and then click **Validate Script** from the context menu.
 
@@ -173,9 +173,9 @@ The most recent release of the tool allows you to see what’s inside your Hive 
 2. Right-click an HDInsight cluster, and then click **View Hive Jobs**. You will see a list of the Hive jobs that ran on the cluster. 
 3. Click a job in the job list to select it, and then use the **Hive Job Summary** window to open **Job Query**, **Job Output**, **Job Log**, or **Yarn log**.
 
-	![HDInsight Visual Studio Tools view Hive jobs][12]
+	![Hadoop tools: HDInsight Visual Studio Tools view Hive jobs][12]
 ## Next steps
-In this article, you have learned how to connect to HDInsight clusters from Visual Studio and how to run Hive queries. For more information, see:
+In this article, you have learned how to connect to HDInsight clusters from Visual Studio, using the Hadoop tools package, and how to run a Hive query. For more information, see:
 
 - [Use Hadoop Hive in HDInsight][hdinsight.hive]
 - [Get started using Hadoop in HDInsight][hdinsight.get.started]

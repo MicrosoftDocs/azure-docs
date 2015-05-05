@@ -35,7 +35,7 @@ Storm on HDInsight uses Azure Blob storage for storing log files and topologies 
 
 2. Click **NEW** in the lower-left corner, point to **DATA SERVICES**, point to **STORAGE**, and then click **QUICK CREATE**.
 
-	![Azure portal where you can use Quick Create to set up a new Storage account.](./media/hdinsight-storm-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
+	![Azure portal where you can use Quick Create to set up a new Storage account.](./media/hdinsight-apache-storm-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
 
 3. Enter information for **URL**, **LOCATION** and **REPLICATION**, and then click **CREATE STORAGE ACCOUNT**. Do not select an affinity group when creating storage for HDInsight. You will see the new Storage account in the storage list.
 
@@ -58,7 +58,7 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 3. Click the HDInsight icon in the second column, and then select **STORM**.
 
-	![quick create](./media/hdinsight-storm-tutorial-get-started/quickcreate.png)
+	![quick create](./media/hdinsight-apache-storm-tutorial-get-started/quickcreate.png)
 
 4. Enter a unique cluster name, and enter a unique password for the admin account. For **STORAGE ACCOUNT**, select the Storage account created previously.
 
@@ -80,13 +80,13 @@ Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be use
 
 The dashboard is located at **https://&lt;clustername>.azurehdinsight.net//**, where **clustername** is the name of the cluster. You can also find a link to the dashboard at the bottom of the Azure portal page for your cluster.
 
-![Azure portal with Storm Dashboard link](./media/hdinsight-storm-tutorial-get-started/dashboard-link.png)
+![Azure portal with Storm Dashboard link](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
 
 > [AZURE.NOTE] When connecting to the dashboard, you will be prompted to enter a user name and password. This is the administrator name (**admin**) and password used when you created the cluster.
 
 Once the Storm Dashboard has loaded, you will see the **Submit Topology** form.
 
-![Submit your Storm Starter topology with the Storm Dashboard.](./media/hdinsight-storm-tutorial-get-started/submit.png)
+![Submit your Storm Starter topology with the Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
 The **Submit Topology** form can be used to upload and run .jar files containing Storm topologies. It also includes several basic samples that are provided with the cluster.
 
@@ -98,14 +98,14 @@ Perform the following steps to run a Storm Starter sample:
 
 1. Select **StormStarter - WordCount** from the **Jar File** drop-down. This should populate the **Class Name** and **Additional Parameters** fields with the parameters for this sample.
 
-	![Storm Starter WordCount selected on Storm Dashboard.](./media/hdinsight-storm-tutorial-get-started/submit.png)
+	![Storm Starter WordCount selected on Storm Dashboard.](./media/hdinsight-apache-storm-tutorial-get-started/submit.png)
 
 	* **Class Name** - The class in the .jar file that submits the topology.
 	* **Additional Parameters** - Any parameters required by the topology. In this example, the field is used to provide a friendly name for the submitted topology.
 
 2. Click the **Submit** button. After a moment, the **Result** field will display the command used to submit the job, as well as the results of the command. The **Error** field will display any errors that occur in submitting the topology.
 
-	![Submit button and results of Storm Starter WordCount.](./media/hdinsight-storm-tutorial-get-started/submit-results.png)
+	![Submit button and results of Storm Starter WordCount.](./media/hdinsight-apache-storm-tutorial-get-started/submit-results.png)
 
 	> [AZURE.NOTE] The results do not indicate that the topology has finished - **a Storm topology, once started, runs until you stop it.** The word-count topology will generate random sentences, and keep a count of how many times it encounters each word, until you stop it.
 
@@ -115,7 +115,7 @@ The Storm UI can be used to monitor the topology.
 
 1. Select **Storm UI** from the top of the Storm Dashboard. This will display summary information for the cluster and all running topologies.
 
-	![Storm dashboard showing the Storm Starter WordCount topology summary.](./media/hdinsight-storm-tutorial-get-started/stormui.png)
+	![Storm dashboard showing the Storm Starter WordCount topology summary.](./media/hdinsight-apache-storm-tutorial-get-started/stormui.png)
 
 	From the page above, you can see the time the topology has been active, as well as the number of workers, executors, and tasks being used.
 
@@ -123,7 +123,7 @@ The Storm UI can be used to monitor the topology.
 
 4. Under **Topology summary**, select the **wordcount** entry in the **Name** column. This will display more information about the topology.
 
-	![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-storm-tutorial-get-started/topology-summary.png)
+	![Storm Dashboard with Storm Starter WordCount topology information.](./media/hdinsight-apache-storm-tutorial-get-started/topology-summary.png)
 
 	This page provides the following information:
 
@@ -149,7 +149,7 @@ The Storm UI can be used to monitor the topology.
 
 5. From this page, select an entry from the **Spouts** or **Bolts** section. This will display information about the selected component.
 
-	![Storm Dachborad with information about selected components.](./media/hdinsight-storm-tutorial-get-started/component-summary.png)
+	![Storm Dachborad with information about selected components.](./media/hdinsight-apache-storm-tutorial-get-started/component-summary.png)
 
 	This page displays the following information:
 

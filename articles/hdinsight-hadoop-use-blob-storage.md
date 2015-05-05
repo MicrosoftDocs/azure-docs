@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Query big data from HDFS-compatible Blob storage | Microsoft Azure" 
+	pageTitle="Query data from HDFS-compatible Blob storage | Microsoft Azure" 
 	description="HDInsight uses Blob storage as the big data store for HDFS. Learn how to query structured and unstructured data from Blob storage and store results of your analysis." 
 	services="hdinsight,storage" 
 	documentationCenter="" 
@@ -17,11 +17,13 @@
 	ms.author="jgao"/>
 
 
-#Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight for structured and unstructured data
+#Use HDFS-compatible Azure Blob storage with Hadoop in HDInsight 
 
-Low-cost Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on data in Azure Blob storage. In this tutorial, learn how to set up a container for blob storage, and then address the structured or unstructured data inside.
+In this tutorial, learn how to use low-cost Azure Blob storage with HDInsight, set up a container for Blob storage, and then address the data inside.
 
-Storing data in Azure Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data. 
+Azure Blob storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on structured or unstructured data in Blob storage. 
+
+Storing data in Blob storage enables you to safely delete the HDInsight clusters that are used for computation without losing user data. 
 
 > [AZURE.NOTE]	The *asv://* syntax is not supported in HDInsight version 3.0 clusters. This means that any jobs submitted to an HDInsight version 3.0 cluster that explicitly use the “asv://” syntax will fail. The *wasb://* syntax should be used instead. Also, jobs submitted to any HDInsight version 3.0 clusters that are created with an existing metastore that contains explicit references to resources that use the asv:// syntax will fail. These metastores need to be re-created using the wasb:// syntax to address resources.
 
@@ -35,7 +37,7 @@ For information about provisioning an HDInsight cluster, see [Get Started with H
 ##<a id="architecture"></a>HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture:
 
-![Hadoop clusters in HDInsight access and store big data in cost-effective, scalable Hadoop-compatible Azure Blob storage in the cloud.](./media/hdinsight-hadoop-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
+![Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage.](./media/hdinsight-hadoop-use-blob-storage/HDI.ASVArch.png "HDInsight Storage Architecture")
   
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example: 
 
@@ -63,18 +65,9 @@ The storage accounts that are defined in the provisioning process and their keys
 
 Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This currently works for Pig with storage accounts, but not for metadata.) In the [Access blob by using Azure PowerShell](#powershell) section of this article, there is a sample of this feature. For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
+Blob storage can be used for structured and unstructured data. Blob storage containers store data as key/value pairs, and there is no directory hierarchy. However the slash character ( / ) can be used within the key name to make it appear as if a file is stored within a directory structure. For example, a blob's key may be *input/log1.txt*. No actual *input* directory exists, but due to the presence of the slash character in the key name, it has the appearance of a file path.
 
-
-
-
-
-
-
-
-
-
-##<a id="benefits"></a>Benefits of Azure Blob storage
+##<a id="benefits"></a>Benefits of Blob storage
 The implied performance cost of not co-locating compute clusters and storage resources is mitigated by the way the compute clusters are provisioned close to the storage account resources inside the Azure datacenter, where the high-speed network makes it very efficient for the compute nodes to access the data inside Azure Blob storage.
 
 There are several benefits associated with storing the data in Azure Blob storage instead of HDFS:
@@ -91,7 +84,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 
 
-##<a id="preparingblobstorage"></a>Prepare a container for Azure Blob storage
+##<a id="preparingblobstorage"></a>Prepare a container for Blob storage
 To use blobs, you first create an [Azure Storage account][azure-storage-create]. As part of this, you specify an Azure datacenter that will store the objects you create using this account. The cluster and the storage account must be hosted in the same datacenter. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same datacenter. 
 
 Wherever it lives, each blob you create belongs to a container in your Azure Storage account. This container may be an existing blob that was created outside of HDInsight, or it may be a container that is created for an HDInsight cluster. 
@@ -140,9 +133,9 @@ You also have the option to create your own container or use an existing one.
 	New-AzureStorageContainer -Name $containerName -Context $destContext 
 
 
-##<a id="addressing"></a>Address files in Azure Blob storage
+##<a id="addressing"></a>Address files in Blob storage
 
-The URI scheme for accessing files in Azure Blob storage is: 
+The URI scheme for accessing files in Blob storage is: 
 
 	wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
@@ -275,7 +268,7 @@ This example shows how to list a folder from storage account that is not defined
  
 ##<a id="nextsteps"></a>Next steps
 
-In this article, you learned how to use Azure Blob storage with HDInsight, and you learned that Azure Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions with Azure Blob storage and use HDInsight to unlock the information inside the stored data.
+In this article, you learned how to use HDFS-compatible Azure Blob storage with HDInsight, and you learned that Azure Blob storage is a fundamental component of HDInsight. This allows you to build scalable, long-term, archiving data acquisition solutions with Azure Blob storage and use HDInsight to unlock the information inside the stored  structured and unstructured data.
 
 To learn more, see the following articles:
 
@@ -286,7 +279,7 @@ To learn more, see the following articles:
 
 [Powershell-install]: install-configure-powershell.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-get-started]: hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-hadoop-tutorial-get-started-windows.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
