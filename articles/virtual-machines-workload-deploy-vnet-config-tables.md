@@ -25,7 +25,7 @@ This topic steps you through the creation of a cross-premises virtual network us
 - Table D: On-premises DNS servers
 - Table L: Address prefixes for the local network
 
-These tables are typically filled out in a topic that describes the configuration of an IT workload in Azure and includes a cross-premises virtual network. See [Phase 1: Configure Azure](virtual-machines-workload-deploy-spsqlao-phase1.md) for an example.
+These tables are typically filled out in a topic that describes the configuration of an IT workload in Azure and includes a cross-premises virtual network. See [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md) for an example.
 
 The following procedure references the information in these tables to guide you through the virtual network configuration process. If you have not already specified the settings in these tables in another topic, but you still want to configure a cross-premises virtual network, see [Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network](https://msdn.microsoft.com/library/dn133795.aspx).
 

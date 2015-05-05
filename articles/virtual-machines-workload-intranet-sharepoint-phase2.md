@@ -20,7 +20,7 @@
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure Virtual Network so that client web requests for SharePoint farm resources can be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or ExpressRoute connection to your on-premises network. 
 
-You must complete this phase before moving on to [Phase 3](virtual-machines-workload-deploy-spsqlao-phase3.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 3](virtual-machines-workload-intranet-sharepoint-phase3.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
 ## Create the domain controller virtual machines in Azure
 
@@ -50,7 +50,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table A, for your availability sets
 - Table C, for your cloud services
 
-Recall that you defined Tables V, S, A, and C in [Phase 1: Configure Azure](virtual-machines-workload-deploy-spsqlao-phase1.md).
+Recall that you defined Tables V, S, A, and C in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
@@ -226,15 +226,15 @@ Next, we need to create an AD replication site to ensure that servers in the Azu
 
 This shows the configuration resulting from the successful completion of this phase, with placeholder computer names.
 
-![](./media/virtual-machines-workload-deploy-spsqlao-phase2/workload-spsqlao_02.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-phase2/workload-spsqlao_02.png)
 
-You can now proceed to [Phase 3: Configure SQL Server Infrastructure](virtual-machines-workload-deploy-spsqlao-phase3.md).
+## Next Step
+
+To continue with the configuration of this workload, go to [Phase 3: Configure SQL Server Infrastructure](virtual-machines-workload-intranet-sharepoint-phase3.md).
 
 ## Additional Resources
 
-[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
-
-[Phase 3: Configure SQL Server Infrastructure](virtual-machines-workload-deploy-spsqlao-phase3.md)
+[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 

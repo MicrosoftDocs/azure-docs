@@ -20,7 +20,7 @@
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the application and web tiers of the SharePoint farm and create the farm with the SharePoint Configuration Wizard. 
 
-You must complete this phase before moving on to [Phase 5](virtual-machines-workload-deploy-spsqlao-phase5.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md) for all of the phases.
+You must complete this phase before moving on to [Phase 5](virtual-machines-workload-intranet-sharepoint-phase5.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
 ## Create the SharePoint server virtual machines in Azure
 
@@ -34,7 +34,7 @@ Use the following block of PowerShell commands to create the virtual machines fo
 - Table A, for your availability sets
 - Table C, for your cloud services
 
-Recall that you defined Table M in [Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md) and Tables V, S, A, and C in [Phase 1: Configure Azure](virtual-machines-workload-deploy-spsqlao-phase1.md).
+Recall that you defined Table M in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md) and Tables V, S, A, and C in [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
 
 When you have supplied all the proper values, run the resulting block at the Azure PowerShell command prompt.
 
@@ -95,9 +95,9 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-deploy-spsqlao-phase1.md#logon) four times, once for each SharePoint server, to log on using the [Domain]\sp_farm_db account credentials, as created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md).
+Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#logon) four times, once for each SharePoint server, to log on using the [Domain]\sp_farm_db account credentials, as created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-Use the [To test connectivity procedure](virtual-machines-workload-deploy-spsqlao-phase1.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
+Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
 
 ## Configure the SharePoint farm
 
@@ -109,7 +109,7 @@ Use these steps to configure the first SharePoint server in the farm.
 4.	On the Connect to a server farm page, select **Create a new server farm**, and then click **Next**.
 5.	On the Specify Configuration Database Settings page:
 - In **Database server**, type the name of the primary SQL server. 
-- In **Username**, type [Domain]**\sp_farm_db** (created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md)). Recall that the sp_farm_db account has sysadmin privileges on the SQL server. 
+- In **Username**, type [Domain]**\sp_farm_db** (created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md)). Recall that the sp_farm_db account has sysadmin privileges on the SQL server. 
 - In **Password**, type the sp_farm_db account password.
 6.	Click **Next**.
 7.	On the Specify Farm Security Settings page, type a passphrase twice. Record the passphrase and store it in a secure location for future reference. Click **Next**.
@@ -172,15 +172,15 @@ Next, add a DNS address record to your organization's DNS infrastructure that re
 
 This is the configuration resulting from the successful completion of this phase.
 
-![](./media/virtual-machines-workload-deploy-spsqlao-phase4/workload-spsqlao_04.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-phase4/workload-spsqlao_04.png)
 
-You can now proceed to [Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-deploy-spsqlao-phase5.md).
+## Next Step
+
+To continue with the configuration of this workload, go to [Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-intranet-sharepoint-phase5.md).
 
 ## Additional Resources
 
-[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
-
-[Phase 5: Create the Availability Group and add the SharePoint databases](virtual-machines-workload-deploy-spsqlao-phase5.md)
+[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 

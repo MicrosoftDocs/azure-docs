@@ -18,7 +18,7 @@
 
 # Phase 1: Configure Azure
 
-In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-deploy-spsqlao-phase2.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md) for all of the phases.
+In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 
 Azure must be provisioned with these basic network components:
 
@@ -150,15 +150,15 @@ You will need these names when you create the virtual machines in phases 2, 3, a
 
 This is the configuration resulting from the successful completion of this phase.
 
-![](./media/virtual-machines-workload-deploy-spsqlao-phase1/workload-spsqlao_01.png)
+![](./media/virtual-machines-workload-intranet-sharepoint-phase1/workload-spsqlao_01.png)
 
-You can now proceed to [Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md).
+## Next Step
+
+To continue with the configuration of this workload, go to [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
 ## Additional Resources
 
-[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-deploy-spsqlao-overview.md)
-
-[Phase 2: Configure Domain Controllers](virtual-machines-workload-deploy-spsqlao-phase2.md)
+[Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md)
 
 [SharePoint farms hosted in Azure infrastructure services](virtual-machines-sharepoint-infrastructure-services.md)
 
