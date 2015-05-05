@@ -404,6 +404,14 @@ Article | Description
 [Azure Data Factory Cmdlet Reference][cmdlet-reference] | This reference content has details about all the **Data Factory cmdlets**.
 [Azure Data Factory Developer Reference][developer-reference] | The Developer Reference has the comprehensive reference content for cmdlets, JSON script, functions, etc… 
 
+[copy-activity]: data-factory-copy-activity.md
+[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
+[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
+[adf-tutorial]: data-factory-tutorial.md
+[use-custom-activities]: data-factory-use-custom-activities.md
+[troubleshoot]: data-factory-troubleshoot.md
+[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
+
 [cmdlet-reference]: https://msdn.microsoft.com/library/dn820234.aspx
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [data-factory-create-storage]: storage-create-storage-account.md
