@@ -16,7 +16,7 @@
 	ms.date="04/28/2015" 
 	ms.author="tomfitz"/>
 
-# Using Azure PowerShell with Azure Resource Manager
+#Using Azure PowerShell with Azure Resource Manager #
 
 > [AZURE.SELECTOR]
 - [Azure PowerShell](powershell-azure-resource-manager.md)
