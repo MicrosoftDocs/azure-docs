@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Get started with Azure DNS | Microsoft Azure" 
-   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain." 
+   description="Learn how to create DNS zones for Azure DNS .Thisis a Step by step to get your first DNS zone created to start hosting your DNS domain." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -56,17 +56,18 @@ Azure Resource Manager requires that all resource groups specify a location. Thi
 
 To register your subscription to use the Azure DNS Public Preview, please execute the following PowerShell command:
 
-PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+	PS C:\> Register-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
 
 You can check your registration status as follows:
 
-PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
+<BR>
 
-	FeatureName                       ProviderName                      RegistrationState
+	FeatureName                       ProviderName                RegistrationState  
+	-----------                       ------------             -----------------  
 
-	-----------                       ------------                      -----------------
-	
-	azurednspreview                   Microsoft.Network                     Registered
+	azurednspreview              Microsoft.Network                  Registered 
+
 
 Your RegistrationState may show as ‘Pending’, in which case please check back later.
 
@@ -155,7 +156,7 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 ## Next Steps
 
 
-[Get started creating Record Sets and records](../dns-getstarted-create-recordset)<BR>
-[Manage  DNS zones](../dns-operations-dnszones)<BR>
-[Manage DNS records](../dns-operations-recordsets)<BR>
+[Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
+[Perform operations on DNS zones](../dns-operations-dnszones)<BR>
+[Perform operations on DNS records](../dns-operations-recordsets)<BR>
 [Automate Azure Operations with .NET SDK](../dns-sdk)

@@ -41,7 +41,7 @@ The following installer packages are available:
 
 * [Windows installer][windows-installer]
 
-* [OS X installer][mac-installer]
+* [OS X installer](http://go.microsoft.com/fwlink/?LinkId=252249)
 
 * [Linux installer][linux-installer]
 
