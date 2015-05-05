@@ -45,9 +45,12 @@ Replace the folder name, then copy and run these commands.
 
 ### Step 2: Gather the details for required parameters
 
-When you use a template, you'll need to provide details such as location, set name, and so on. To find out what parameters are required for a template, you open the JSON file in a tool or text editor of your choice. Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the virtual machine. 
+When you use a template, you'll need to provide details such as location, set name, and so on. To find out what parameters are required for a template, do one of the following:
 
-http://azure.microsoft.com/en-us/documentation/templates/201-2-vms-2-FDs-no-resource-loops/
+- Review the list of parameters [here](http://azure.microsoft.com/en-us/documentation/templates/201-2-vms-2-FDs-no-resource-loops/).
+- Open the JSON file in a tool or text editor of your choice. Look for the "parameters" section at the top of the file, which lists the set of parameters that are needed by the template to configure the virtual machine. 
+
+Gather the required information so you'll have it ready to enter. When you run the command to deploy the template, you'll be prompted for the information.
 
 ### Step 3: Create the availability set
 
@@ -65,7 +68,7 @@ Fill in an Azure deployment name, Resource Group name, Azure location, the folde
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile $templateFile
 
-When you run the **New-AzureResourceGroupDeployment** command, you will be prompted to supply the values for parameters in the **"parameters"** section of the JSON file. After you've done this, the command creates the resource group and the availability set. 
+When you run the **New-AzureResourceGroupDeployment** command, you'll be prompted to supply the values for parameters in the **"parameters"** section of the JSON file. After you've done this, the command creates the resource group and the availability set. 
 
 Here is an example of the PowerShell command set for the template.
 
