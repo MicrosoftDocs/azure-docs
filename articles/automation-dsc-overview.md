@@ -41,6 +41,7 @@ Following are some example scenarios where you can use built-in DSC resources to
 
 In addition, you can create custom resources to configure the state of any application or system setting.
 
+
 For more details on PowerShell DSC, see: [Configuration in a DevOps world - Windows PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx)
 
 ##What is Azure Automation DSC?##
@@ -83,6 +84,7 @@ PS DSC nodes become aware of node configurations they should enact via either DS
 
 Azure Automation DSC currently provides the following cmdlets in the **Azure Resource Manager PowerShell module** for management of DSC node configurations: `Get-AzureAutomationDscNodeConfiguration`
 
+
 ###Node###
 
 A DSC node is any computer that's configuration is managed by DSC. This could be an Azure VM or on-premises VM / physical host. Nodes enact node configurations to become and maintain compliance with the desired state they define, and also can report back to a reporting server on their configuration status and compliance.
@@ -101,9 +103,11 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 The `Get-AzureAutomationRegistrationInfo` cmdlet can be used to get the registration URL and key needed to onboard Azure Classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.
 
+
 Azure Automation DSC VM extension:
 
 ![alt text](./media/automation-dsc-overview/AADSC_4.png)
+
 
 PowerShell:
 
@@ -174,9 +178,12 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 ###Compilation Job###
 A compilation job in Azure Automation DSC is an instance of compilation of a configuration, to create one or more node configurations. They are similar to Azure Automation runbook jobs, except that they do not actually perform any task except to create node configurations. Any node configurations created by a compilation job are automatically placed on the Azure Automation DSC pull server, and overwrite previous versions of node Configurations, if they existed for this Configuration. The name of a node configuration produced by a compilation job takes the form of “<Configuration-name>.<Node configuration-block-name>”. For example, compiling the below configuration would produce a single node configuration called “MyConfiguration.webserver”
 
+
 ![alt text](./media/automation-dsc-overview/AADSC_5.png)
 
+
 >[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
+
 
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of compilation jobs:
 
