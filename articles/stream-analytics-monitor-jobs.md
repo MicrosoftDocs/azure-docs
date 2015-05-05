@@ -141,7 +141,7 @@ The storage account is linked to the region you created your Stream Analytics jo
 ``
 ``
 
-> [AZURE.WARNING] ```The storage account name used to replace “<YOUR STORAGE ACCOUNT NAME>” below should be a storage account that is in the same subscription as the Stream Analytics job you are enabling monitoring for?```
+> [AZURE.WARNING] The storage account name used to replace ```“<YOUR STORAGE ACCOUNT NAME>”``` below should be a storage account that is in the same subscription as the Stream Analytics job you are enabling monitoring for?
 
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
