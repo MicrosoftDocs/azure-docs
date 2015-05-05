@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content." 
 	services="cdn" 
 	documentationCenter=".net" 
-	authors="" 
+	authors="zhangmanling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/25/2014" 
-	ms.author="akucer"/>
+	ms.date="05/05/2015" 
+	ms.author="mazha"/>
 
 
 
