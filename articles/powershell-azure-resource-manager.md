@@ -114,7 +114,7 @@ To see all of the templates in the Azure resource group template gallery, use th
 
 At the Powershell prompt, type:
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoftpowershell-azure-resource-manager.md
+    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
 
 The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
 
