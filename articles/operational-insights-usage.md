@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="05/05/2015"
    ms.author="banders" />
 
 # Manage servers and usage data
