@@ -26,9 +26,7 @@ The API Apps part of this suite provides a rich platform and ecosystem for build
 
 ## Why API Apps?
 
-An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.   
-
->[AZURE.NOTE] API Apps is currently in public preview. It's built on top of the strong foundation of [App Service Web Apps](app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing Web apps and leveraging features of API Apps.
+An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.
 
 That means API apps share with web apps all the web hosting features of the Azure App Service platform:
 
@@ -64,6 +62,8 @@ In the near future, the API Apps platform will also create a rich ecosystem of A
 - **Automatic updates** - When you update the code for one of your API app packages that you've shared, you'll be able to push the update out to everyone who has installed and is running your API app. This will work for non-breaking changes and users who have opted-in to receiving updates.
 
 Many of these features, such the public marketplace and automatic updates, are already available for API apps provided by Microsoft.
+
+>[AZURE.NOTE] API Apps is currently in public preview. It's built on top of [App Service Web Apps](app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing Web apps and leveraging features of API Apps.
 
 ## API Apps concepts ##
 
