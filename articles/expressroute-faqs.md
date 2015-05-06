@@ -189,6 +189,7 @@ ExpressRoute premium is a collection of features listed below.
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
 
 **Limits for circuits created through NSPs**
+
 | **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links for ExpressRoute Premium** |
 |--------------|----------------------------------------|-----------------------------------------------|
 | 10 Mbps      | 10                                     | Not Supported                                 |
