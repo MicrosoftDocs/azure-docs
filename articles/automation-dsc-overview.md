@@ -193,6 +193,10 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 
 ##Gotchas / Known Issues:##
 
+- Since the Azure Automation DSC feature is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets. You can sign up by calling the following two cmdlets:
+ - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
+ - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation`
+
 - Azure Automation DSC does not support partial or composite DSC configurations at this time.
 
 - The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time. This should be updated soon.

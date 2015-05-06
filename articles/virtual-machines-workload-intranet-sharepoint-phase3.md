@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Phase 3: Configure SQL Server Infrastructure" 
+	pageTitle="SharePoint Intranet Farm Workload Phase 3: Configure SQL Server Infrastructure" 
 	description="In this third phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the SQL Server cluster computers and the cluster itself." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="05/05/2015" 
 	ms.author="josephd"/>
 
-# Phase 3: Configure SQL Server Infrastructure
+# SharePoint Intranet Farm Workload Phase 3: Configure SQL Server Infrastructure
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure the two SQL Server computers and the cluster majority node computer, and then combine them into a Windows Server cluster. 
 
@@ -98,9 +98,9 @@ When you have supplied all the proper values, run the resulting block at the Azu
 
 For each SQL server, do the following:
 
-1. Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#logon) to log on using the credentials of the local administrator account.
+1. Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) to log on using the credentials of the local administrator account.
 
-2. Use the [To initialize an empty disk procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#datadisk) twice, once for each SQL server, to add the extra data disk.
+2. Use the [To initialize an empty disk procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#datadisk) twice, once for each SQL server, to add the extra data disk.
 
 3. Run the following commands from a Windows PowerShell command prompt:
 
@@ -108,7 +108,7 @@ For each SQL server, do the following:
 		md f:\Log
 		md f:\Backup
 
-4. Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#testconn) to test connectivity to locations on your organization network. This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with DNS servers in the virtual network) and that packets can be sent to and from the cross-premises virtual network.
+4. Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) to test connectivity to locations on your organization network. This procedure ensures that DNS name resolution is working correctly (that the virtual machine is correctly configured with DNS servers in the virtual network) and that packets can be sent to and from the cross-premises virtual network.
 
 Use the following procedure twice, once for each SQL server, to configure the SQL server to use the F: drive for new databases and for accounts and permissions.
 
@@ -146,9 +146,9 @@ For information about optimizing SQL Server performance in Azure, see [Performan
 
 ## Configure the cluster majority node server
 
-Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#logon) for the cluster majority node to log on using the credentials of a domain account.
+Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) for the cluster majority node to log on using the credentials of a domain account.
 
-On the cluster majority node, use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#testconn) to test connectivity to locations on your organization network.
+On the cluster majority node, use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) to test connectivity to locations on your organization network.
 
 ## Create the Windows server cluster
 

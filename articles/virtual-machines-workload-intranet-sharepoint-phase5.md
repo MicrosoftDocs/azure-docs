@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Phase 5: Create the Availability Group and add the SharePoint databases" 
-	description="In this fifth and final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create an Availability Group and add your SharePoint databases to it." 
+	pageTitle="SharePoint Intranet Farm Workload Phase 5: Create the Availability Group and add the SharePoint databases" 
+	description="In this final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create an Availability Group and add your SharePoint databases to it." 
 	documentationCenter=""
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
@@ -16,7 +16,7 @@
 	ms.date="05/05/2015" 
 	ms.author="josephd"/>
 
-# Phase 5: Create the Availability Group and add the SharePoint databases
+# SharePoint Intranet Farm Workload Phase 5: Create the Availability Group and add the SharePoint databases
 
 In this final phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create a new AlwaysOn Availability Group and add the databases of the SharePoint farm.
 
