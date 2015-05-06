@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Phase 4: Configure SharePoint Servers" 
+	pageTitle="SharePoint Intranet Farm Workload Phase 4: Configure SharePoint Servers" 
 	description="In this fourth phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the SharePoint server virtual machines and a new SharePoint farm." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="05/05/2015" 
 	ms.author="josephd"/>
 
-# Phase 4: Configure SharePoint Servers
+# SharePoint Intranet Farm Workload Phase 4: Configure SharePoint Servers
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the application and web tiers of the SharePoint farm and create the farm with the SharePoint Configuration Wizard. 
 
@@ -95,9 +95,9 @@ When you have supplied all the proper values, run the resulting block at the Azu
 	
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#logon) four times, once for each SharePoint server, to log on using the [Domain]\sp_farm_db account credentials, as created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
+Use the [Logging on to a virtual machine with a Remote Desktop connection procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) four times, once for each SharePoint server, to log on using the [Domain]\sp_farm_db account credentials, as created in [Phase 2: Configure Domain Controllers](virtual-machines-workload-intranet-sharepoint-phase2.md).
 
-Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase1.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
+Use the [To test connectivity procedure](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) four times, once for each SharePoint server, to test connectivity to locations on your organization network.
 
 ## Configure the SharePoint farm
 
