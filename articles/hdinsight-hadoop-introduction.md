@@ -195,7 +195,7 @@ Build on this introduction to Hadoop on HDInsight and big data analysis with the
 		
 * [Azure SQL Database](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx) - MSDN documentation for SQL Database.
 	
-* [Management Portal for SQL Database](https://msdn.microsoft.com/en-us/library/azure/dn771027.aspx) - A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
+* [Management Portal for SQL Database](https://msdn.microsoft.com/library/azure/dn771027.aspx) - A lightweight and easy-to-use database management tool for managing SQL Database in the cloud.
 
 * [Adventure Works for SQL Database](http://msftdbprodsamples.codeplex.com/releases/view/37304) - Download page for a SQL Database sample database.	
 
@@ -211,7 +211,7 @@ These BI tools can help in your big-data analysis:
 
 * [Microsoft Cloud Platform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx) - Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
 
-* <a target="_blank" https://msdn.microsoft.com/en-us/library/hh231701.aspx">Learn more about SQL Server Analysis Services</a>.
+* <a target="_blank" https://msdn.microsoft.com/library/hh231701.aspx">Learn more about SQL Server Analysis Services</a>.
 
 * <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>.
 

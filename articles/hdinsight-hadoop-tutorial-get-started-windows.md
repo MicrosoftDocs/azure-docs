@@ -1,7 +1,7 @@
 <properties 
    pageTitle="Hadoop tutorial: Learn Hadoop on Windows | Microsoft Azure" 
    description="Get started with a Hadoop tutorial using HDInsight in the cloud. Learn how to provision Hadoop clusters on Windows, run a Hive query on data, and analyze output in Excel." 
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 
