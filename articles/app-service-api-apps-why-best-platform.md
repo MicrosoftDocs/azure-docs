@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="05/05/2015" 
 	ms.author="tdykstra"/>
 
 # What are API Apps?
@@ -27,6 +27,8 @@ The API Apps part of this suite provides a rich platform and ecosystem for build
 ## Why API Apps?
 
 An API app is an [App Service web app](app-service-web-overview.md) with additional features that enhance the experience of developing, deploying, publishing, consuming, managing, and monetizing RESTful web APIs.   
+
+>[AZURE.NOTE] API app is current in public preview. It's built on top of the strong foundation of [App Service web app](app-service-web-overview.md), which is in GA already. If you are looking for a GA service for building your API, web app is a great option. When API app goes GA, we'll provide the ability to migrate exiting web apps into API apps.
 
 That means API apps share with web apps all the web hosting features of the Azure App Service platform:
 
@@ -72,6 +74,8 @@ Many of these features, such the public marketplace and automatic updates, are a
 ## Getting started
 
 To get started with API apps, follow the [Create an API app tutorial](app-service-dotnet-create-api-app.md).
+
+To see a list of known issues with API apps, please refer to [this MSDN forum post](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps).
 
 For more information about the Azure App Service platform, see [Azure App Service](app-service-value-prop-what-is.md).
 
