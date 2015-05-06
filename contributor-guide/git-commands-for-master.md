@@ -2,7 +2,7 @@
 
 <tags ms.service="contributor-guide" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="01/16/2015" ms.author="tysonn" />
 
-#Git commands for creating a new article or updating an existing article
+# Git commands for creating a new article or updating an existing article
 Follow the steps in this article to create a local working branch on your computer so that you can create a new article for the technical documentation section of azure.microsoft.com or update an existing article.
 
 ![](./media/git-commands-for-master/githubcommands1.png)
@@ -54,11 +54,11 @@ Follow the steps in this article to create a local working branch on your comput
 
 13. The pull request acceptor reviews your pull request, provides feedback, and/or accepts your pull request. 
 
-14. Review your content at
+14. Verify your published article or changes at
 
  http://azure.microsoft.com/documentation/articles/*name-of-your-article-without-the-MD-extension*
 
-Notes:
+## Notes:
 
 - At this time, technical articles are published once daily around 10 AM Pacific Standard Time (PST), Monday-Friday. Remember, your pull request has to be accepted before changes are included in the next scheduled publishing run.
 - If you are an employee working in the private repository, all pull requests are subject to validation rules that need to be addressed before the pull request can be accepted. 
