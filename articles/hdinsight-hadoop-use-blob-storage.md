@@ -115,7 +115,8 @@ You also have the option to create your own container or use an existing one.
 
 
 ### Create a container by using Azure PowerShell
-[Azure PowerShell][powershell-install] can be used to create containers. The following PowerShell script shows how to create a Blob container on an existing Azure storage account:
+
+[Azure PowerShell][powershell-install]  can be used to create containers. The following PowerShell script shows how to create a Blob container on an existing Azure storage account:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create

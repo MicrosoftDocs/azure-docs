@@ -150,7 +150,8 @@ As part of the Azure cloud ecosystem, Hadoop in HDInsight offers a number of ben
 
 * Low entry cost. Start a [free trial](/pricing/free-trial/), or consult [HDInsight pricing details](/pricing/details/hdinsight/).
 
-To read more about the advantages on Hadoop in HDInsight, see the [Azure features page for HDInsight][marketing-page].
+
+To read more about the advantages on Hadoop in HDInsight, see the  [Azure features page for HDInsight][marketing-page].
 
 
 
