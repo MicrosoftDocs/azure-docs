@@ -360,7 +360,7 @@ Provide a cluster name and press ENTER to provision a cluster with Solr installe
 
 
 
-
+[powershell-install-configure]: install-configure-powershell.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
