@@ -95,33 +95,28 @@ This step involves setting up a backup and retention policy for the virtual mach
 3. Click on the **Protect** button at the bottom of the page.
 
 4. This will bring up a **Protect Items** wizard where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
+	The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
 
- The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
+	> [AZURE.NOTE] Only the virtual machines that have been registered correctly with the Azure Backup service, and are in the same region as the backup vault, will show up here.
 
- > [AZURE.NOTE] Only the virtual machines that have been registered correctly with the Azure Backup service, and are in the same region as the backup vault, will show up here.
-
- ![Select items to protect][protect-wizard1]
+	![Select items to protect][protect-wizard1]
 
 5. In the second screen of the **Protect Items** wizard, choose a backup and retention policy to back up the selected virtual machines. Pick from an existing set of policies or define a new one.
 
- > [AZURE.NOTE] For preview, up to 30 days of retention and a maximum of once-a-day backup is supported.
+	> [AZURE.NOTE] For preview, up to 30 days of retention and a maximum of once-a-day backup is supported.
 
- ![Select protection policy][protect-wizard2]
-
- In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00PM, while another backup policy could be for weekly backup at 6:00AM. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
-
- Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
+	![Select protection policy][protect-wizard2]
+ 	In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00PM, while another backup policy could be for weekly backup at 6:00AM. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
+	 Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
 
 6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click on the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
  ![Configure protection job][protect-configure]
 
 7. Once completed, the virtual machines are protected with a policy and must wait until the scheduled backup time for the initial backup to be completed. The virtual machine will now appear under the **Protected Items** tab and will have a Protected Status of *Protected* (pending initial backup).
-
- > [AZURE.NOTE] Starting the initial backup immediately after configuring protection is not available as an option today.
+	> [AZURE.NOTE] Starting the initial backup immediately after configuring protection is not available as an option today.
 
 8. At the scheduled time, the Azure Backup service creates a backup job for each virtual machine that needs to be backed up. Click on the **Jobs** tab to view the list of **Backup** jobs. As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machines to flush all writes and take a consistent snapshot.
  ![Backup in progress][protect-inprogress]
-
 
 9. Once completed, the Protection Status of the virtual machine in the **Protected Items** tab will show as *Protected*.
  ![Virtual machine is backed up with recovery point][protect-backedup]
