@@ -36,7 +36,7 @@ If your cache has a high throughput, choose the 1 GB size or larger so that the 
 
 **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but **larger VM sizes typically have more bandwidth than smaller sizes**. If the cache server or client reaches the bandwidth limits, then you will receive timeouts on the client side.
 
-The following table shows the maximum bandwidth values observed while testing various sizes of Azure Redis Cache using redis-benchmark.exe from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these number, but should be typical. You should load test your own application to determine the right cache size for your application.
+The following table shows the maximum bandwidth values observed while testing various sizes of Azure Redis Cache using `redis-benchmark.exe` from an Iaas VM against the Azure Redis Cache endpoint. Note that these values are not guaranteed and there is no SLA for these number, but should be typical. You should load test your own application to determine the right cache size for your application.
 
 <table>
   <tr>
@@ -89,6 +89,7 @@ The following table shows the maximum bandwidth values observed while testing va
   </tr>
 </table>
 
+For instructions on downloading the Redis tools such as `redis-benchmark.exe`, see the [How can I run Redis commands?](#cache-commands) section.
 
 <a name="cache-region"></a>
 ## In what region should I locate my cache?
@@ -113,7 +114,7 @@ The following are some common reason for a cache disconnect.
 -	Client-side causes
 	-	The client application was redeployed.
 	-	The client application performed a scaling operation.
-		-	In the case of Cloud Services or Web Apps, this may be due to auto-scaling
+		-	In the case of Cloud Services or Web Apps, this may be due to auto-scaling.
 	-	The networking layer on the client side changed.
 	-	Transient errors occurred in the client or in the network nodes between the client and the server.
 	-	The bandwidth threshold limits were reached.
@@ -160,15 +161,15 @@ In most cases the default values of the client are sufficient. You can fine tune
 -	Timeout values
 	-	Consider your workload and set the values accordingly. If you are storing large values, set the timeout to a higher value.
 		-	Set ABortOnConnectFail to false and let StackExchange.Redis reconnect for you.
--	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in the [Connect to the cache using the ConnectionMultiplexer class](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect).
+-	Use a single ConnectionMultiplexer instance for the application. You can use a LazyConnection to create a single instance that is returned by a Connection property, as shown in [Connect to the cache using the ConnectionMultiplexer class](https://msdn.microsoft.com/library/azure/dn690521.aspx#Connect).
 -	Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
--	Use multiple `ConnectionMultiplexer` instances for custom workloads
+-	Use multiple `ConnectionMultiplexer` instances for custom workloads.
 	-	You can follow this model if you have varying load in your application. For example:
 		-	You can have one multiplexer for dealing with large keys. 
 		-	You can have one multiplexer for dealing with small keys. 
 		-	You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
 		-	Set the `ClientName` property on each multiplexer to help with diagnostics. 
-		-	This will lead to more streamlined latency per `ConnectionMultiplexer`
+		-	This will lead to more streamlined latency per `ConnectionMultiplexer`.
 
 <a name="cache-redis-commands"></a>
 ## What are some of the considerations when using common Redis commands?
@@ -206,7 +207,9 @@ For instructions on downloading the Redis tools, see the [How can I run Redis co
 You can use any of the commands listed at [Redis commands](http://redis.io/commands#). To run these commands you can use the following tools.
 
 -	Download the [Redis command line tools](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip).
--	Note that Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+-	Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example.
+	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+-	Note that the Redis command line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 <a name="cache-common-patterns"></a>
 ## What are some common cache patterns and considerations?
