@@ -38,7 +38,8 @@ Much additional documentation exists on the web for Hadoop-related technologies,
 
 - You must have provisioned an HDInsight cluster. For instructions about the various ways in which such clusters can be created, see [Provision Hadoop clusters in HDInsight by using custom options](hdinsight-provision-clusters.md)
 
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see [How to install and configure Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions about how to do this, see  [How to install and configure Azure PowerShell] [powershell-install-configure].
+
 
 ## The samples ##
 
