@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="05/05/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -174,7 +174,7 @@ The following steps will help Azure recognize the activation request:
 Yes. You can increase the bandwidth of an ExpressRoute circuit without having to tear it down. You will have to follow up with your connectivity provider to ensure that they update the throttles within their networks to support the bandwidth increase. You will however not be able to reduce the bandwidth of an ExpressRoute circuit. Having to lower the bandwidth will mean a tear down and recreation of an ExpressRoute circuit.
 
 ### How can I change the bandwidth of an ExpressRoute circuit? 
-You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell commandlet.
+You can update the bandwidth of the ExpressRoute circuit using the update dedicated circuit API and PowerShell cmdlet.
 
 ## ExpressRoute Premium
 
@@ -186,32 +186,36 @@ ExpressRoute premium is a collection of features listed below.
  - Global connectivity over the Microsoft core network. You will now be able to link an vnet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a vnet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-The table below provides the increased limits for the number of vnets you can link to an ExpressRoute circuit. Default limit is 10.
+The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
 
 **Limits for circuits created through NSPs**
 
-|**Circuit Size**|**# VNet links for default setup**|**# VNet links with ExpressRoute Premium**| 
-|---|---|---| 
-|10 Mbps|10|Not Supported|
-|50 mbps|10|20|
-|100 Mbps|10|25|
-|500 Mbps|10|40|
-|1 Gbps|10|50|
+| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
+|--------------|----------------------------------------|-----------------------------------------------|
+| 10 Mbps      | 10                                     | Not Supported                                 |
+| 50 Mbps      | 10                                     | 20                                            |
+| 100 Mbps     | 10                                     | 25                                            |
+| 500 Mbps     | 10                                     | 40                                            |
+| 1Gbps         | 10                                     | 50                                                                                     
+|
+
 
 **Limits for circuits created through EXPs**
 
-|**Circuit Size**|**# VNet links for default setup**|**# VNet links with ExpressRoute Premium**| 
-|---|---|---| 
-|200 Mbps|10|25|
-|500 mbps|10|40|
-|1 Gbps|10|50|
-|10 Gbps|10|100|
+| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet links with ExpressRoute Premium** |
+|--------------|-----------------------------------|------------------------------------------------|
+| 200 Mbps     | 10                                | 25                                             |
+| 500 Mbps     | 10                                | 40                                             |
+| 1 Gbps       | 10                                | 50                                             |
+| 10 Gbps      | 10                                |  100                                              |
+
+
 
 ### How do I enable ExpressRoute premium?
-ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. YOu can enable ExpressRoute premium at circuit creation time or can call the update dedicated circuit API / PowerShell commandlet to enable ExpressRoute premium.
+ExpressRoute premium features can be enabled when the feature is enabled and can be shut down by updating the circuit state. You can enable ExpressRoute premium at circuit creation time or can call the update dedicated circuit API / PowerShell cmdlet to enable ExpressRoute premium.
 
 ### How do I disable ExpressRoute premium?
-You can disable ExpressRoute premium by calling the update dedicated circuit API / PowerShell commandlet. You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
+You can disable ExpressRoute premium by calling the update dedicated circuit API / PowerShell cmdlet You must ensure that you have scaled your connectivity needs to meet the default limits before you disable ExpressRoute premium. We will fail request to disable ExpressRoute premium if your utilization scales beyond the default limits.
 
 ### Can I pick and choose the features I want from the premium feature set?
 No. You will not be able to pick the features you need. We enable all features when you turn on ExpressRoute premium. 
@@ -277,7 +281,7 @@ There is no additional cost for connecting to Office 365 over ExpressRoute.  The
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.
 
 ### Can I use NSPs and EXPs to connect to Office 365 services?
-WE support connectivity to Office 365 services through both NSPs and EXPs. Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of supported partners and locations.
+We support connectivity to Office 365 services through both NSPs and EXPs. Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of supported partners and locations.
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.

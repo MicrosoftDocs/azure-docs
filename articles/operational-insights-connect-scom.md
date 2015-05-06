@@ -5,7 +5,7 @@
    documentationCenter="" 
    authors="lauracr" 
    manager="jwhit" 
-   editor="bandersmsft"/>
+   editor=""/>
 
 <tags
    ms.service="operational-insights"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/20/2015"
+   ms.date="04/30/2015"
    ms.author="lauracr"/>
 
 # Connect to Operational Insights from System Center Operations Manager 

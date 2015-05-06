@@ -12,10 +12,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="05/05/2015"
    ms.author="banders" />
 
 # Manage servers and usage data
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 Operational Insights collects data and sends it to the Operational Insights service periodically.  You can use the **Usage** dashboard to view how much data is being sent to the Operational Insights service. The **Usage** dashboard also shows you how much data is being sent daily by intelligence packs and how often your management groups are sending data.
 
@@ -25,7 +27,7 @@ You can view your usage by using the **Servers and Usage** tile on the **Overvie
 
 ![image of Servers and Usage tile](./media/operational-insights-usage/overview-servers-usage.png)
 
-If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove an intelligence pack to reduce the amount of data that you send to the Operational Insights service. For more information about removing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md).
+If you have exceeded your daily usage limit, or if you are near your limit, you can optionally remove an intelligence pack to reduce the amount of data that you send to the Operational Insights service. For more information about removing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md).
 
 If an Operations Manager management group is having problems sending data to the Operational Insights service, you can troubleshoot the issue, or you can remove the group from Operational Insights, if needed.
 

@@ -5,17 +5,19 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders" />
 
 # Identify differences with Change Tracking
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can use the Configuration Change Tracking intelligence pack in Microsoft Azure Operational Insights to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues.
 
@@ -23,7 +25,7 @@ You install the intelligence pack to update the Operations Manager agent and bas
 
 ## Use Change Tracking
 
-Before you can use Change Tracking in Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). 
+Before you can use Change Tracking in Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md). 
 
 After it is installed, you can view the summary of changes for your monitored servers by using the **Change Tracking** tile on the **Overview** page in Operational Insights. 
 

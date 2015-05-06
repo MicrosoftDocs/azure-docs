@@ -4,7 +4,7 @@
 - [(Windows universal C# | .NET)](../articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md)
 - [(Windows universal C# | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md)
 - [(Windows Phone | .NET)](../articles/mobile-services-dotnet-backend-windows-phone-get-started-data.md)
-- [(Windows Phone | Javascript)](../articles/mobile-services-javascript-backend-windows-phone-get-started-data.md)
+- [(Windows Phone | Javascript)](../articles/mobile-services-windows-phone-get-started-data.md)
 - [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-data.md)
 - [(Android | Javascript)](../articles/mobile-services-android-get-started-data.md)
 - [(Xamarin iOS | Javascript)](../articles/partner-xamarin-mobile-services-ios-get-started-data.md)
