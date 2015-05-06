@@ -116,7 +116,7 @@ You also have the option to create your own container or use an existing one.
 
 ### Create a container by using Azure PowerShell
 
-[Azure PowerShell][powershell-install]  can be used to create containers. The following PowerShell script shows how to create a Blob container on an existing Azure storage account:
+[Azure PowerShell] [powershell-install] can be used to create containers. The following PowerShell script shows how to create a Blob container on an existing Azure storage account:
 
 	$subscriptionName = "<SubscriptionName>"	# Azure subscription name
 	$storageAccountName = "<AzureStorageAccountName>" # The storage account that you will create
@@ -166,7 +166,7 @@ The &lt;path&gt; is the file or directory HDFS path name. Because containers in 
 
 ##<a id="powershell"></a>Access blob by using Azure PowerShell
 
-See [Install and configure Azure PowerShell][powershell-install] for information about installing and configuring Azure PowerShell on your workstation. You can use the Windows PowerShell console or Windows PowerShell ISE to run Azure PowerShell cmdlets. 
+See [Install and configure Azure PowerShell] [powershell-install] for information about installing and configuring Azure PowerShell on your workstation. You can use the Windows PowerShell console or Windows PowerShell ISE to run Azure PowerShell cmdlets. 
 
 Use the following command to list the blob-related cmdlets:
 
