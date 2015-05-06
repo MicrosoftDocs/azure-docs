@@ -18,11 +18,11 @@
 
 # Creating a Work or School identity in Azure Active Directory
 
-If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a **Microsoft account** identity to create it. Many great features of Azure -- [resource group templates](resource-group-overview.md) and [role-based access](resource-group-rbac.md) are two examples -- require a work or school account (an identity managed by Azure Active Directory) to work. 
+If you created a personal Azure account or have a personal MSDN subscription and created the Azure account to take advantage of the MSDN Azure credits -- you used a **Microsoft account** identity to create it. Many great features of Azure -- [resource group templates](resource-group-overview.md) is one example -- require a work or school account (an identity managed by Azure Active Directory) to work. 
 
 Fortunately, one of the best things about your personal Azure account is that it comes with a default Azure Active Directory domain that you can use to create a new work or school account that you can use with Azure features that require it.
 
-> [AZURE.NOTE] If you were given a username and password by an administrator, there's a good chance that you already have an work or school ID (also called an organizational ID). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this topic. For lots more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir) for even more.
+> [AZURE.NOTE] If you were given a username and password by an administrator, there's a good chance that you already have an work or school ID (also sometimes called an *organizational ID*). If so, you can immediately begin to use your Azure account to access Azure resources that require one. If you find that you cannot use those resources, you may need to return to this topic. For lots more information, see [Accounts that you can use for sign in](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SignInAccounts) and [How an Azure subscription is related to Azure AD](https://msdn.microsoft.com/library/azure/dn629581.aspx#BKMK_SubRelationToDir) for even more.
 
 The steps are simple. You need to locate your signed on identity in the portal, discover your default Azure Active Directory domain, and add a new user to it as an Azure co-administrator. Here we go.
 
@@ -80,7 +80,7 @@ If you send an email with the information, it might look something like this:
 
 ## Adding Azure co-administrator rights for subscriptions
 
-Now you need to give your new user rights to manage services in your subscriptions. To do this, find the Settings icon in the lower left panel and click it. 
+Now you need to add the new user as a co-administrator of your subscription so the new user can sign in to the Management Portal. To do this, find the **Settings** icon in the lower left panel and click it. 
 
 ![](./media/resource-group-create-work-id-from-personal/thesettingswidget.png)
 
