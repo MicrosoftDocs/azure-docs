@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
 # View your access and usage reports
 
 You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure classic portal, reports are categorized in the following ways:
+In the Azure Management Portal, reports are categorized in the following ways:
 
 - Anomaly reports – Contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to make a determination about whether an event is suspicious. 
 - Integrated Application reports – Provides insights into how cloud applications are being used in your organization. Azure Active Directory offers integration with thousands of cloud applications. 
@@ -38,26 +38,26 @@ In the Azure classic portal, reports are categorized in the following ways:
 
 Report name  | Available in this edition    	
 ------------- | -------------  
-[Sign ins from unknown sources](#SignInsFromUnknownSources) | Free and Premium
-[Sign ins after multiple failures](#SignInsAfterMultipleFailures) | Free and Premium
-[Sign ins from multiple geographies](#SignInsFromMultipleGeographies) | Free and Premium
-[Sign ins from IP addresses with suspicious activity](#SignInsFromIPAddressesWithSuspiciousActivity) | Premium
-[Anomalous sign in activity](#AnamolousSignInActivity) | Premium
-[Sign ins from possibly infected devices](#SignInsFromPossiblyInfectedDevices) | Premium
-[Users with anomalous sign in activity](#UsersWithAnomalousSignInActivity) | Premium
-[Application usage: summary](#AppUsageSummary) | Premium
-[Application usage: detailed](#AppUsageDetailed) | Premium
-[Application dashboard](#AppDashboard) | Free and Premium
-[Account provisioning errors](#AccountProvisioningErrors) | Free and Premium
-[Devices](#Devices) | Premium
-[Activity](#Activity) | Free and Premium
-[Audit report](#AuditReport) | Free and Premium
-[Groups activity report](#GroupsActivityReport) | Premium
-[Password Reset Registration Activity Report](#PasswordResetRegistrationActivityReport) | Premium
-[Password reset activity](#PasswordResetActivity) | Premium
+[Sign ins from unknown sources](#sign-ins-from-unknown-sources) | Free and Premium
+[Sign ins after multiple failures](#sign-ins-after-multiple-failures) | Free and Premium
+[Sign ins from multiple geographies](sign-ins-from-multiple-geographies) | Free and Premium
+[Sign ins from IP addresses with suspicious activity](#sign-ins-from-ip-addresses-with-suspicious-activity) | Premium
+[Anomalous sign in activity](#anamolous-sign-in-activity) | Premium
+[Sign ins from possibly infected devices](#sign-ins-from-possibly-infected-devices) | Premium
+[Users with anomalous sign in activity](#users-with-anomalous-sign-in-activity) | Premium
+[Application usage: summary](#application-usage-summary) | Premium
+[Application usage: detailed](#application-usage-detailed) | Premium
+[Application dashboard](#application-dashboard) | Free and Premium
+[Account provisioning errors](#account-provisioning-errors) | Free and Premium
+[Devices](#devices) | Premium
+[Activity](#activity) | Free and Premium
+[Audit report](#audit-report) | Free and Premium
+[Groups activity report](#groups-activity-report) | Premium
+[Password Reset Registration Activity Report](#password-reset-registration-activity-report) | Premium
+[Password reset activity](#password-reset-activity) | Premium
  
 
-<h3><a id="SignInsFromUnknownSources"></a>Sign ins from unknown sources</h3>
+### Sign ins from unknown sources
 
 <table style=width:100%">
 <tr>
@@ -70,7 +70,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="SignInsAfterMultipleFailures"></a>Sign ins after multiple failures</h3>
+### Sign ins after multiple failures
 
 <table style=width:100%">
 <tr>
@@ -83,8 +83,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="SignInsFromMultipleGeographies"></a>Sign ins from multiple geographies</h3>
-
+### Sign ins from multiple geographies
 
 <table style=width:100%">
 <tr>
@@ -98,9 +97,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
-<h3><a id="SignInsFromIPAddressesWithSuspiciousActivity"></a>Sign ins from IP addresses with suspicious activity</h3>
-
+### Sign ins from IP addresses with suspicious activity
 
 <table style=width:100%">
 <tr>
@@ -113,8 +110,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="AnamolousSignInActivity"></a>Anomalous sign in activity</h3>
-
+### Anomalous sign in activity
 
 <table style=width:100%">
 <tr>
@@ -127,8 +123,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="SignInsFromPossiblyInfectedDevices"></a>Sign ins from possibly infected devices</h3>
-
+### Sign ins from possibly infected devices
 
 <table style=width:100%">
 <tr>
@@ -141,7 +136,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="UsersWithAnomalousSignInActivity"></a>Users with anomalous sign in activity</h3>
+### Users with anomalous sign in activity
 
 <table style=width:100%">
 <tr>
@@ -156,7 +151,7 @@ Report name  | Available in this edition
 
 ## Integrated Application reports
 
-<h3><a id="AppUsageSummary"></a>Application usage: summary</h3>
+### Application usage: summary
 
 <table style=width:100%">
 <tr>
@@ -169,8 +164,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
-<h3><a id="AppUsageDetailed"></a>Application usage: detailed</h3>
+### Application usage: detailed
 
 <table style=width:100%">
 <tr>
@@ -183,7 +177,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="AppDashboard"></a>Application dashboard</h3>
+### Application dashboard
 
 <table style=width:100%">
 <tr>
@@ -198,7 +192,7 @@ Report name  | Available in this edition
 
 ## Error reports
 
-<h3><a id="AccountProvisioningErrors"></a>Account provisioning errors</h3>
+### Account provisioning errors
 
 <table style=width:100%">
 <tr>
@@ -213,7 +207,7 @@ Report name  | Available in this edition
 
 ## User-specific reports
 
-<h3><a id="Devices"></a>Devices</h3>
+### Devices
 
 <table style=width:100%">
 <tr>
@@ -226,8 +220,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
-<h3><a id="Activity"></a>Activity</h3>
+### Activity
 
 <table style=width:100%">
 <tr>
@@ -243,7 +236,7 @@ Report name  | Available in this edition
 
 ## Activity logs
 
-<h3><a id="AuditReport"></a>Audit report</h3>
+### Audit report
 
 <table style=width:100%">
 <tr>
@@ -257,8 +250,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
-<h3><a id="GroupsActivityReport"></a>Groups activity report</h3>
+### Groups activity report
 
 <table style=width:100%">
 <tr>
@@ -271,8 +263,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
-<h3><a id="PasswordResetRegistrationActivityReport"></a>Password reset registration activity report</h3>
+### Password reset registration activity report
 
 <table style=width:100%">
 <tr>
@@ -285,7 +276,7 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-<h3><a id="PasswordResetActivity"></a>Password reset activity</h3>
+### Password reset activity
 
 <table style=width:100%">
 <tr>
@@ -298,7 +289,6 @@ Report name  | Available in this edition
 </tr>
 </table>
 
-
 ## Things to consider if you suspect security breach
 
 If you suspect that a user account may be compromised or any kind of suspicious user activity that may lead to a security breach of your directory data in the cloud, you may want to consider one or more of the following actions:
@@ -309,7 +299,7 @@ If you suspect that a user account may be compromised or any kind of suspicious 
 
 ## View or download a report
 
-1. In the Azure classic portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
+1. In the Azure Management Portal, click **Active Directory**, click the name of your organization’s directory, and then click **Reports**.
 2. On the Reports page, click the report you want to view and/or download.
     > [AZURE.NOTE] If this is the first time you have used the reporting feature of Azure Active Directory, you will see a message to Opt In. If you agree, click the check mark icon to continue.
 3. Click the drop-down menu next to Interval, and then select one of the following time ranges that should be used when generating this report:
@@ -360,14 +350,14 @@ The email is sent to all global admins who have been assigned an Active Director
 
 Once an email is sent, the next one will be sent only when 10 or more new Anomalous Sign In events are encountered within 30 days of sending that email. How do I access the report mentioned in the email? 
 
-When you click on the link, you will be redirected to the report page within the Azure classic portal. In order to access the report, you need to be both:
+When you click on the link, you will be redirected to the report page within the Azure Management Portal. In order to access the report, you need to be both:
 
 - An admin or co-admin of your Azure subscription
 - A global administrator in the directory, and assigned an Active Directory Premium license. For more information, see Azure Active Directory editions. 
 
 ### Can I turn off these emails?
 
-Yes, to turn off notifications related to anomalous sign ins within the Azure classic portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
+Yes, to turn off notifications related to anomalous sign ins within the Azure Management Portal, click **Configure**, and then select **Disabled** under the **Notifications** section.
 
 ## What's next
 

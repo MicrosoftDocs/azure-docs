@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. Since this pack must be configured and does not collect anything by default, it is enabled by default in every new workspace. If you have removed it, you can add it again from the Intelligence Packs Gallery, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). 
+Before you can use Log Management in Microsoft Azure Operational Insights, you must have the intelligence pack installed. Since this pack must be configured and does not collect anything by default, it is enabled by default in every new workspace. If you have removed it, you can add it again from the Intelligence Packs Gallery, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md). 
 
 You can add new logs to collect events and choose which event levels or severity that you want to collect for the logs.
 After Log Management is configured, it will then push your collection policy down and start collecting events.

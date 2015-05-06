@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Automation DSC Overview" 
-   description="Azure Automation DSC Overview" 
+   description="An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues" 
    services="automation" 
    documentationCenter="dev-center-name" 
    authors="coreyp-at-msft" 
@@ -18,21 +18,12 @@
 
 # Azure Automation DSC Overview #
 
->[AZURE.IMPORTANT] **Azure Automation DSC is currently in limited preview**, and is not supported for production workloads. It is only cmdlet-based for now, and has no graphical user interface. By signing up for Azure Automation DSC’s preview, you acknowledge that this feature is in Preview and subject to reduced or different service terms, as set forth in the service agreement, and that you agree to the preview supplemental terms. While the service is currently free to use, pricing will be introduced in the future.
+>[AZURE.IMPORTANT] **Azure Automation DSC is currently in limited preview**, and is not supported for production workloads. It is only cmdlet-based for now, and has no graphical user interface. By signing up for Azure Automation DSC’s preview, you acknowledge that this feature is in Preview and subject to reduced or different service terms, as set forth in the [service agreement](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409), and that you agree to the [preview supplemental terms](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409). While the service is currently free to use, pricing will be introduced in the future.
 
 ## What is PowerShell DSC? ##
 Desired State Configuration (DSC) is a new management platform in Windows PowerShell that enables management of configuration for physical hosts and virtual machines using a declarative PowerShell syntax.
 
 DSC provides a set of Windows PowerShell language extensions, new Windows PowerShell cmdlets, and resources that you can use to declaratively specify how you want your software environment to be configured. It also provides a means to maintain and manage existing configurations.
-
-##What is Azure Automation DSC?##
-Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx) <link> as Azure Automation offers for PowerShell scripting today.
-
-Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items will be placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/library/dn249913.aspx) so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.
-
-For more details on PowerShell DSC, see: [Configuration in a DevOps world - Windows PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx)
-
-
 
 ### Practical applications ###
 Following are some example scenarios where you can use built-in DSC resources to configure and manage a set of computers (also known as target nodes) in an automated way:
@@ -50,9 +41,17 @@ Following are some example scenarios where you can use built-in DSC resources to
 
 In addition, you can create custom resources to configure the state of any application or system setting.
 
+
+For more details on PowerShell DSC, see: [Configuration in a DevOps world - Windows PowerShell Desired State Configuration](http://blogs.msdn.com/b/powershell/archive/2013/11/01/configuration-in-a-devops-world-windows-powershell-desired-state-configuration.aspx)
+
+##What is Azure Automation DSC?##
+Azure Automation DSC builds on top of the fundamentals introduced in PowerShell DSC to provide an even easier configuration management experience. Azure Automation DSC brings the same management layer to [PowerShell Desired State Configuration](https://technet.microsoft.com/library/dn249912.aspx) <link> as Azure Automation offers for PowerShell scripting today.
+
+Azure Automation DSC allows you to [author and manage PowerShell Desired State Configurations](https://technet.microsoft.com/library/dn249918.aspx), import [DSC Resources](https://technet.microsoft.com/library/dn282125.aspx), and generate DSC Node Configurations (MOF documents), all in the cloud. These DSC items will be placed on the Azure Automation [DSC pull server](https://technet.microsoft.com/library/dn249913.aspx) so that target nodes (such as physical and virtual machines) in the cloud or on-premises can pick them up, automatically conform to the desired state they specify, and report back on their compliance with the desired state to Azure Automation.
+
 ## Azure Automation DSC Terms ##
 ### Configuration ###
-PS DSC introduced a new concept called configurations. Configurations allow you to define, via PowerShell syntax, the desired state of your environment. To use DSC to configure your environment, first define a Windows PowerShell script block using the configuration keyword, then follow it with an identifier, then with braces ({}) to delimit the block.
+PowerShell DSC introduced a new concept called configurations. Configurations allow you to define, via PowerShell syntax, the desired state of your environment. To use DSC to configure your environment, first define a Windows PowerShell script block using the configuration keyword, then follow it with an identifier, then with braces ({}) to delimit the block.
 
 ![alt text](./media/automation-dsc-overview/AADSC_1.png)
 
@@ -77,66 +76,14 @@ Azure Automation DSC currently provides the following cmdlets in the **Azure Res
 
 >[AZURE.IMPORTANT] A configuration should contain only one configuration block, with the same name as the configuration, in Azure Automation DSC. 
 
-####Script example####
-The following example uses DSC to ensure that the Web Server (IIS) role is installed on a target computer called **Server001**, and that the **wwwroot** folder on **Server001** contains a specified set of files. This is accomplished using two built-in DSC resources: the Role resource (with the friendly type name WindowsFeature) and the **File resource** (with the friendly type name File).
-
-#####To define the example configuration#####
-
-1.	Start **Windows PowerShell ISE** as an Administrator.
-2.	In the **View** menu, select **Show Script Pane**.
-3.	In the **script pane**, define a variable called `$WebsiteFilePath`. Assign to it the path of a folder that contains website files. The content or type of files does not matter for the purpose of this example.
-4.	Copy the script below and paste it into the script pane below the definition of the variable.
-    
-        Configuration MyWebConfig
-        {
-        # A Configuration block can have zero or more Node blocks
-        Node "Server001"
-        {
-          # Next, specify one or more resource blocks
-
-          # WindowsFeature is one of the built-in resources you can use in a Node block
-          # This example ensures the Web Server (IIS) role is installed
-         WindowsFeature MyRoleExample
-          {
-              Ensure = "Present" # To uninstall the role, set Ensure to "Absent"
-              Name = "Web-Server"  
-          }
-
-          # File is a built-in resource you can use to manage files and directories
-          # This example ensures files from the source directory are present in the destination directory
-          File MyFileExample
-          {
-             Ensure = "Present"  # You can also set Ensure to "Absent"
-             Type = "Directory“ # Default is “File”
-             Recurse = $true
-             SourcePath = $WebsiteFilePath # This is a path that has web files
-             DestinationPath = "C:\inetpub\wwwroot" # The path where we want to ensure the web files are present
-             DependsOn = "[WindowsFeature]MyRoleExample"  # This ensures that MyRoleExample completes successfully before this block runs
-                 }   
-               }
-           }
-    
-5.	Change the name of the node block from **Server001** to the name of a server on which you want to ensure the Windows features are installed and the **C:\inetpub\wwwroot**  folder contains the appropriate content from the source directory. Alternatively, you can set the name of the node to **localhost**. This will allow the configuration to be applied locally.
-6.	Run the example script. You will see the script appear in the console pane.
-You have now defined the example configuration. Next, you will need to enact this configuration. Do so by invoking the configuration. For example:
-
-        PS C:\Scripts> MyWebConfig
-
-Invoking the configuration creates MOF files and places them in a new directory with the same name as the configuration block. The new directory is a child of the current directory. (To specify a different directory for the MOF files, use the **OutputPath** parameter when invoking the configuration.) The new MOF files contain the configuration information for the target nodes. To enact the configuration, run the following command.
-
-    Start-DscConfiguration -Wait -Verbose -Path .\MyWebConfig
-
-This cmdlet is part of the DSC system. The **Wait** parameter is optional and makes the cmdlet run interactively. Without this parameter, the cmdlet will create and return a job. If you use the **OutputPath** parameter when invoking the configuration, you must specify the same path using the **Path** parameter of the `Start-DscConfiguration` cmdlet.
-
 ###Node Configuration###
 
 When a DSC Configuration is compiled, one or more node configurations are produced depending on the Node blocks in the configuration. A node configuration is the same as a “MOF,” or “configuration document” (if you are familiar with those PS DSC terms) and represents a “role,” such as webserver or worker, which desired state one or more nodes should assume.
 
 PS DSC nodes become aware of node configurations they should enact via either DSC push, or pull methods. Azure Automation DSC relies on the DSC pull method, where nodes request node configurations they should apply from Azure Automation DSC pull servers. Because the nodes make the request to Azure Automation DSC, they nodes can be behind firewalls, have all inbound ports closed, etc. They only need outbound access to the Internet.
 
-Azure Automation DSC currently provides the following cmdlets in the **Azure Resource Manager PowerShell module** for management of DSC node configurations:
-         
-    Get-AzureAutomationDscNodeConfiguration
+Azure Automation DSC currently provides the following cmdlets in the **Azure Resource Manager PowerShell module** for management of DSC node configurations: `Get-AzureAutomationDscNodeConfiguration`
+
 
 ###Node###
 
@@ -147,17 +94,20 @@ Azure Automation DSC makes onboarding of nodes for management by Azure Automatio
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of DSC nodes:
 
 -	`Get-AzureAutomationDscNode`  
--	`Register-AzureAutomationDscNode` (used to onboard Azure VMs as Nodes)
+-	`Register-AzureAutomationDscNode` (used to onboard Azure v2 VMs as nodes)
 -	`Get-AzureAutomationDscOnboardingMetaconfig` (used to onboard Nodes)
 -	`Set-AzureAutomationDscNode`  (used to set/update Node to Node Configuration mappings)
 -	`Unregister-AzureAutomationDscNode`
 -	`Get-AzureAutomationDscNodeReport`
 -	`Export-AzureAutomationDscNodeReportContent`
 
-The `Get-AzureAutomationRegistrationInfo` cmdlet can be used to get the registration URL and key needed to onboard Azure Classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell:
+The `Get-AzureAutomationRegistrationInfo` cmdlet can be used to get the registration URL and key needed to onboard Azure Classic VMs to an Azure Automation account, either via the Azure Automation DSC VM extension in the Azure portal, or via PowerShell.
+
+
 Azure Automation DSC VM extension:
 
 ![alt text](./media/automation-dsc-overview/AADSC_4.png)
+
 
 PowerShell:
 
@@ -228,12 +178,42 @@ Azure Automation DSC currently provides the following cmdlets in the [Azure Reso
 ###Compilation Job###
 A compilation job in Azure Automation DSC is an instance of compilation of a configuration, to create one or more node configurations. They are similar to Azure Automation runbook jobs, except that they do not actually perform any task except to create node configurations. Any node configurations created by a compilation job are automatically placed on the Azure Automation DSC pull server, and overwrite previous versions of node Configurations, if they existed for this Configuration. The name of a node configuration produced by a compilation job takes the form of “<Configuration-name>.<Node configuration-block-name>”. For example, compiling the below configuration would produce a single node configuration called “MyConfiguration.webserver”
 
+
 ![alt text](./media/automation-dsc-overview/AADSC_5.png)
 
->[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs DSC items to be placed on the pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
+
+>[AZURE.NOTE] Just like runbooks, configurations can be published. This is not related to putting DSC items onto the Azure Automation DSC pull server. Compilation jobs cause DSC items to be placed on the Azure Automation DSC pull server. For more information on “publishing” in Azure Automation, see [Publishing a Runbook](https://msdn.microsoft.com/library/dn903765.aspx).
+
 
 Azure Automation DSC currently provides the following cmdlets in the [Azure Resource Manager PowerShell module](powershell-azure-resource-manager.md) for management of compilation jobs:
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
+
+##Gotchas / Known Issues:##
+
+- Since the Azure Automation DSC feature is in preview, the first time you use this feature you will need to sign up for it using the Azure PowerShell cmdlets. You can sign up by calling the following two cmdlets:
+ - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
+ - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation`
+
+- Azure Automation DSC does not support partial or composite DSC configurations at this time.
+
+- The PowerShell DSC agent for Linux does not support communicating with Azure Automation at this time. This should be updated soon.
+
+- Azure Automation does not support side by side use of PowerShell modules. This means all configurations within an Automation account must work with the last version of a PowerShell module imported into that Automation account, and with any PowerShell DSC resources that module contains that the configuration uses.
+
+- The traditional PowerShell DSC pull server expects module zips to be placed on the pull server in the format **ModuleName_Version.zip”**. Azure Automation expects PowerShell modules to be imported with names in the form of **ModuleName.zip**. See [this blog post](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/) for more info on the Integration Module format needed to import the module into Azure Automation. 
+
+- PowerShell modules that specify DSC resources side by side within the module, using the “version per folder” format, will not work in Azure Automation right now.
+
+- When importing a PowerShell modules into Azure Automation using the `New-AzureAutomationModule` or `Set-AzureAutomationModule` cmdlets, the module import is asynchronous. Even if the cmdlet returns successfully, that does not mean module import has succeeded. To check if import has succeeded, use `Get-AzureAutomationModule –Name <ModuleName>` (make sure to get just this module, not all modules) and check that the **ProvisioningState** field of the module says succeeded.
+
+- PowerShell modules imported into Azure Automation cannot contain .doc or .docx files. Some PowerShell modules containing DSC resources contain these files, for help purposes. These files should be removed from modules, prior to import into Azure Automation.
+
+- Configurations in Azure Automation currently only support strings for parameter values. If you want to pass something other than a string for the value of a parameter, pass the parameter value as a JSON string, and within the configuration use ConvertFrom-Json to convert the JSON string back to a non-string value.
+
+- When a node is first registered with an Azure Automation account, or the node is changed to be mapped to a different node configuration server-side, it’s status will be compliant, even if the node’s status is not actually compliant with the node configuration it is now mapped to. After the node sends its first report after registration or a node configuration mapping change, the node status can be trusted.
+
+- When onboarding an Azure VM for management with Azure Automation DSC using `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension`, or the Azure Automation DSC VM extension in the Azure preview portal, if registration fails with **The computer name was not specified and the configuration directory does not have any configuration files**, this is a false alarm and the VM registration actually succeeded. Successful registration can be verified using the `Get-AzureAutomationDscNode` cmdlet.
+

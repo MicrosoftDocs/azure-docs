@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	editor="LisaToft"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,84 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="04/30/2015" 
 	ms.author="Justinha"/>
 
 # Add your own domain name to Azure AD
 
 When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com. You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service. This topic explains how to add your own domain name and related information.
 
-## Background information about DNS and domain name services
-
-Domains are managed by using a worldwide system of domain registrars and databases. The Domain Name System (DNS) provides a mapping between human-readable computer hostnames and the IP addresses used by networking equipment. An understanding of DNS and domain registrar basics will help administrators manage domains in your Microsoft Azure AD tenant. For more information about your Microsoft Azure AD tenant, see What is an Azure AD directory?
-
-### Domain names 
-
-Domain names are used in URLs and email addresses associated with one or more IP addresses. Domain names are constructed in levels. For example, mail.contoso.com is a domain name with the following three levels:
-
-- .com is the top-level domain
-- contoso is the second-level domain
-- mail is the third-level domain
-
-Sometimes third-level domains are used to designate webpages that serve specific functions, such as blog.contoso.com.
-
-### Understand DNS record types and functions 
-
-DNS records are used to direct traffic to and from your domain. These records associate a domain name with a specific IP address. The following table lists frequently used DNS records and their functions.
-
-Record  | Description
-	------------- | -------------
-NS (name server) record | Identifies which name servers are the authoritative name servers for a specific domain. DNS information can be cached in several name servers for a period of time, but when the cache expires, non-authoritative name servers contact the authoritative name server for updated information about a domain. 
-A or address record | Associates a domain name with an IP address.
-CNAME (alias or canonical name) record | Specifies that the domain name is an alias of another canonical domain name. When a name server looks up a domain and finds a CNAME record, it replaces the first domain name with the CNAME and then looks up the new name.
-MX (mail exchanger) record | Identifies the server to which email is directed. It also contains a priority field so that mail can be directed to multiple servers in a prescribed order.
-SPF (sender policy framework) | An email validation system designed to help prevent email spoofing and phishing. 
-SRV (service record) | Specifies information about available services. SRV records are used by some Microsoft cloud services such as Lync Online and Exchange Online to coordinate the flow of information between services. 
-TTL (time-to-live) | The amount of time that a DNS record is retained or cached by a name server or other servers before the server does another lookup on the authoritative name server. You use this to control the number of queries made to a given name server. 
-
-### About your onmicrosoft.com domain
+## About your onmicrosoft.com domain
 
 You can use your onmicrosoft.com domain with other services. For example, you can use the domain with Exchange Online and Lync Online to create distribution lists and sign-in accounts so users can access SharePoint Online and site collections.
-
-You cannot, however, host SharePoint Online on a onmicrosoft.com domain. SharePoint Online can only be hosted on your SharePoint domain, such as contoso.sharepoint.com, or with a custom domain, such as www.contoso.com, that you add to the cloud service.
 
 If you add your own domain names to your directory, you can continue to use your onmicrosoft.com domain.
 
 After you choose the name to use with the cloud service during signup, such as contoso.onmicrosoft.com, you cannot change the name. 
-
-### How can I buy a domain name?
-
-To add your own domain name to Azure AD, you, as an administrator, must own a domain and change some of the DNS records for your domain. If you don’t already own a domain name, you can purchase one from a domain name registrar. 
-
-The following are some common domain registrars:
-
-- [Go Daddy](http://go.microsoft.com/fwlink/?linkid=235592) 
-- [Melbourne IT](http://go.microsoft.com/fwlink/?linkid=235593) 
-- [Network Solutions](http://go.microsoft.com/fwlink/?linkid=235594)
-- [Hover](http://go.microsoft.com/fwlink/?linkid=235595)
-- [eNom Central](http://go.microsoft.com/fwlink/?linkid=235596)
-- [1&1 Internet](http://go.microsoft.com/fwlink/?linkid=235597)
-- [Register.com](http://go.microsoft.com/fwlink/?linkid=235598)
-
-After you register your domain name, you can sign in to the cloud service and add the domain name.
-
-### How can I find my domain name registrar?
-
-Your domain name registrar usually, but not always, manages the DNS records for your domain. If your registrar does not manage your DNS records, you’ll need to locate your DNS service provider. If you don’t recall the domain name registrar where you registered your domain, follow the steps provided here to locate the correct registrar.
-
-1. Open a browser, and then go to the [InterNIC](http://www.internic.com/whois.html) search page. 
-2. In the **Whois Search** box, type your domain name; for example, contoso.com. 
-3. Select the **Domain** option, and then click **Submit**.
-4. On the **Whois Search Results** page, locate the **Registrar** entry. This entry lists the name of the organization that provides registrar service for the domain name that you entered.
-
-### How can I find my DNS service provider?
-
-1. Open a browser, and then go to the [InterNIC](http://www.internic.com/whois.html) search page. 
-2. In the **Whois Search** box, type your domain name; for example, contoso.com. 
-3. Select the **Domain** option, and then click **Submit**.
-4. On the **Whois Search Results** page, locate the first **Name Server** entry.
-5. Copy the name server information that appears after the colon (:), and then paste it into the **Search** box at the top of the page. Select **Nameserver**, and then click **Submit**.
-6. On the **Whois Search Results** page, locate the **Registrar** entry. This entry lists the DNS service provider who owns the name server.
 
 ## How can I add my own domain?
 
@@ -99,7 +34,7 @@ If your organization already has a custom domain name, as an administrator, you 
 
 You can add up to 900 domain names to your Azure AD tenant by using, either: 
 
-- The Azure classic portal, the Office 365 portal, or the Microsoft Intune portal.
+- The Azure Management Portal, the Office 365 portal, or the Microsoft Intune portal.
 - The Azure Active Directory Module for Windows PowerShell. For more information about which cmdlet you can use for this, see [Manage domains](https://msdn.microsoft.com/library/azure/dn919677.aspx).
 
 You must have already registered a domain name and have the sign-in credentials needed for your domain name registrar (for example, Go Daddy or Register.com). 
@@ -111,14 +46,14 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 > [AZURE.NOTE]
 > Using Office 365? Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name. You can also use your domain name for a public-facing website hosted on SharePoint Online.
 
-- Add and verify a domain using the Azure classic portal 
+- Add and verify a domain using the Azure Management Portal 
 - Specify the services you’ll use with your domain 
 - Edit DNS records for your cloud services
 - Verify a domain at any domain name registrar 
 - Check domain status
 - For Office 365 Customers: Host a public-facing website with your domain name together with Exchange Online or Lync Online
 
-### Add and verify a domain using the Azure classic portal
+### Add and verify a domain using the Azure Management Portal
 
 1. In the portal, click **Active Directory**, and then click on the name of your organization’s directory.You can do one of the following:
     1. On the default directory page, click **Add Domain** in the **Improve user sign-in experience **section. 
@@ -203,7 +138,7 @@ If you are using Microsoft Intune or the Azure Account Portal:
     If your DNS hosting provider allows you create TXT records, we recommend you use a TXT record for verification. Why? TXT records are straightforward to create and don’t introduce the possibility of interfering with email delivery if an incorrect value is accidentally entered.
 4. From the table, copy or record the **Destination or Points to Address** information.
 
-If you are using the classic portal:
+If you are using the Management Portal:
 
 1. In the portal, click **Active Directory**, click the name of your directory, click **Domains**. 
 2. On the **Domains** page, in the list of domain names, click the domain that you want to verify, and then click **Verify**.
@@ -293,7 +228,7 @@ Before you remove a domain name, we recommend that you read the following inform
 - The original contoso.onmicrosoft.com domain name that was provided for your directory when you signed up cannot be removed. 
 - Any top-level domain that has subdomains associated with it cannot be removed until the subdomains have been removed. For example, you can’t remove adatum.com if you have corp.adatum.com or another subdomain that uses the top-level domain name. For more information, see this [Support article](https://support.microsoft.com/kb/2787792/).
 - Have you activated directory synchronization? If so, a domain was automatically added to your account that looks similar to this: contoso.mail.onmicrosoft.com. This domain name can’t be removed.
-- Before you can remove a domain name, you must first remove the domain name from all user or email accounts associated with the domain. You can remove all of the accounts, or you can bulk edit user accounts to change their domain name information and email addresses. For more information, see [Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx).
+- Before you can remove a domain name, you must first remove the domain name from all user or email accounts associated with the domain. You can remove all of the accounts, or you can bulk edit user accounts to change their domain name information and email addresses. For more information, see [Create or edit users in Azure AD](active-directory-create-users.md).
 - If you are hosting a SharePoint Online site on a domain name that is being used for a SharePoint Online site collection, you must delete the site collection before you can remove the domain name.
 
 To remove a domain name:
