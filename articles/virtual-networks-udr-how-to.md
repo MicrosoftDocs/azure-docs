@@ -28,6 +28,15 @@ To create a route table named *FrontEndSubnetRouteTable*, run the following Powe
 	-Location usnorth `
 	-Label "Route table for frontend subnet"
 
+The output of the command above should look like the following:
+
+	Error          :
+	HttpStatusCode : OK
+	Id             : 085ac8bf-26c3-9c4c-b3ae-ebe880108c70
+	Status         : Succeeded
+	StatusCode     : OK
+	RequestId      : a8cc03ca42d39f27adeaa9c1986c14f7
+
 ### How to add a route to a route table
 To add a route that sets *10.1.1.10* as the next hop for the *10.2.0.0/16* subnet in the route table created above, run the following PowerShell command:
 

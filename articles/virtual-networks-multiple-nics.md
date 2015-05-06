@@ -28,14 +28,13 @@ The figure above shows a VM with three NICs, each connected to a different subne
 At this time, Multi-NIC has the following requirements and constraints: 
 
 - Multi-NIC VMs must be created in Azure virtual networks (VNets). Non-VNet VMs are not supported. 
-- Multi-NIC is an all-or-nothing feature in the context of VMs in a cloud service. Within a single cloud service, only two states are allowed: 
+- Within a single cloud service, only the following settings are allowed: 
 	- All VMs in that cloud service must be Multi-NIC enabled, or 
 	- All VMs in that cloud service must each have a single NIC 
 
 >[AZURE.IMPORTANT] If you try to add a Multi-NIC VM to a deployment (cloud service) that already contains a single-NIC VM (or vice-versa), you will receive the following error: 
 Virtual machines with secondary network interfaces and virtual machines with no secondary network interfaces are not supported in the same deployment, also a virtual machine having no secondary network interfaces cannot be updated to have secondary network interfaces and vice-versa.
  
-- Multi-NIC VMs cannot forward traffic acting as Layer 3 (IP) gateways or routers. The packets MUST be destined to or sourced from one of the VNet IP addresses on the VM. 
 - Internet-facing VIP is only supported on the “default” NIC. There is only one VIP to the IP of the default NIC. 
 - At this time, Instance-Level Public IP addresses are not supported for Multi-NIC VMs. 
 - The order of the NICs from inside the VM will be random, and could also change across Azure infrastructure updates. However, the IP addresses, and the corresponding ethernet MAC addresses will remain the same. For example, assume **Eth1** has IP address 10.1.0.100 and MAC address 00-0D-3A-B0-39-0D; after an Azure infrastructure update and reboot, it could be changed to Eth2, but the IP and MAC pairing will remain the same. When a restart is customer-initiated, the NIC order will remain the same. 
@@ -81,16 +80,12 @@ Virtual machines with secondary network interfaces and virtual machines with no 
 |All Other Sizes|1|
 
 ## Network Security Groups
-Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has Multi-NIC enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. 
-
-In addition to associating subnets with NSGs, any individual NIC can also be associated with an NSG, regardless of whether the subnet containing the NIC’s IP address is associated with the same NSG. 
+Any NIC on a VM may be associated with a Network Security Group (NSG), including any NICs on a VM that has Multi-NIC enabled. If a NIC is assigned an address within a subnet where the subnet is associated with an NSG, then the rules in the subnet’s NSG also apply to that NIC. In addition to associating subnets with NSGs, you can also associate a NIC with an NSG. 
 
 If a subnet is associated with an NSG, and a NIC within that subnet is individually associated with an NSG, the associated NSG rules are applied in “**flow order**” according to the direction of the traffic being passed into or out of the NIC: 
 
 - **Incoming traffic **whose destination is the NIC in question flows first through the subnet, triggering the subnet’s NSG rules, before passing into the NIC, then triggering the NIC’s NSG rules. 
 - **Outgoing traffic** whose source is the NIC in question flows first out from the NIC, triggering the NIC’s NSG rules, before passing through the subnet, then triggering the subnet’s NSG rules. 
-
-![NSG flow](./media/virtual-networks-multiple-nics/Figure2.png)
 
 The figure above represents how NSG rules application is done based on traffice flow (from VM to subnet, or from subnet to VM).
 
