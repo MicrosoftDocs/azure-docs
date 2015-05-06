@@ -87,7 +87,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with Mobile Services]: mobile-services-windows-store-get-started.md
 [Get started with data]: mobile-services-windows-store-javascript-get-started-data.md
 [Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-windows-store-javascript-get-started-push.md
+[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Authorize users with scripts]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/

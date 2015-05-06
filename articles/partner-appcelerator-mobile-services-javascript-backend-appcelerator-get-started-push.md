@@ -19,7 +19,7 @@
 # Get started with push notifications in Mobile Services (legacy push)
 <div class="dev-center-tutorial-selector sublanding">
 	<a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
 	<a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
 	<a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
 	<a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
