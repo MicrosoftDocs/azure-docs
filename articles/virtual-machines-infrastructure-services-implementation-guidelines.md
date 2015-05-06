@@ -360,11 +360,11 @@ The resulting design must incorporate:
 All of the above will follow these Contoso naming conventions:
 
 - Contoso uses [IT workload]-[location]-[Azure resource] as a prefix. For this example, "azfae" (Azure Financial Analysis Engine) is the IT workload name and "use" (East US 2) is the location, because most of Contoso's initial customers are on the East Coast of the United States.
-- Storage accounts use contosoazfaeusesa[description] (contoso was added to the prefix to provide uniqueness and storage account names do not support the use of hyphens)
-- Cloud services use contoso-azfae-use-cs-[description] (contoso was added to the prefix to provide uniqueness)
-- Virtual networks use AZFAE-USE-VN[number]
-- Availability sets use azfae-use-as-[role]
-- Virtual machine names use azfae-use-vm-[vmname]
+- Storage accounts use contosoazfaeusesa[description] Note that contoso was added to the prefix to provide uniqueness and storage account names do not support the use of hyphens.
+- Cloud services use contoso-azfae-use-cs-[description] Note that ccontoso was added to the prefix to provide uniqueness.
+- Virtual networks use AZFAE-USE-VN[number].
+- Availability sets use azfae-use-as-[role].
+- Virtual machine names use azfae-use-vm-[vmname].
 
 ### Azure subscriptions and accounts
 
