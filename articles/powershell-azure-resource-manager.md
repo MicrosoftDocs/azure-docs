@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="multiple" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/05/2015" 
 	ms.author="tomfitz"/>
 
 # Using Azure PowerShell with Azure Resource Manager
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell" class="current">Azure PowerShell</a><a href="/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI">Azure CLI</a></div>
-
-## Introduction
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
 
 Azure Resource Manager introduces an entirely new way of thinking about your Azure resources. Instead of creating and managing individual resources, you begin by imagining a complex service, such as a blog, a photo gallery, a SharePoint portal, or a wiki. You use a template -- a resource model of the service --  to create a resource group with the resources that you need to support the service. Then, you can manage and deploy that resource group as a logical unit. 
 
@@ -68,7 +68,7 @@ The output will look similar to the following excerpt:
 	Add-AlertRule                          Adds or updates an alert rule of either metric, event, o...
 	Add-AzureAccount                       Adds the Azure account to Windows PowerShell
 	Add-AzureEnvironment                   Creates an Azure environment
-	Add-AzureKeyVaultKey                   Creates a key in a vault or impopowershell-azure-resource-manager.mdrts a key into a vault.
+	Add-AzureKeyVaultKey                   Creates a key in a vault or imports a key into a vault.
         ...
 
 To get full help for a cmdlet, type a command with the format:
@@ -114,7 +114,7 @@ To see all of the templates in the Azure resource group template gallery, use th
 
 At the Powershell prompt, type:
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoftpowershell-azure-resource-manager.md
+    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
 
 The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
 
