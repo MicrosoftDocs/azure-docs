@@ -87,14 +87,13 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 7. Name the controller **ContactNamesController**, and click **Add**. 
 
-## Add code to call the internal API app
+### Add code to call the API app by using HttpClient
 
 To call an API app that has been protected by setting its access level to **Internal**, you have to add 
 internal authentication headers to requests. These headers inform the target API app that the source of the call is a peer API app calling from within the same resource group. 
 
 You can use HttpClient or the typed client that the App Service SDK generates for you. Either way, the easiest way to add the authentication headers is to call the `SignHttpRequest` method provided by the App Service SDK.
 
-### Call the API app using HttpClient
  
 1. In *ContactNamesController.cs*, replace the template code with the following code.
 
@@ -151,7 +150,7 @@ You can use HttpClient or the typed client that the App Service SDK generates fo
 
 	httpRequest.RequestUri = new Uri("https://microsoft-apiappd99e684d99e684d99e684d99e684.azurewebsites.net/api/contacts");
 
-## Deploy the HttpClient code
+### Deploy the HttpClient code
 
 You can't test by running locally.  You have to deploy the code and run it in an Azure API app; otherwise you won't be able to add the right authentication headers, and the calls will be rejected.
 
@@ -175,7 +174,7 @@ The following deployment steps are explained in more detail in [Deploy an API ap
 
 8. In the **Publish Web** dialog, click **Publish** to begin the deployment process. 
 
-## Test the HttpClient code
+### Test the HttpClient code
 
 In this section you use the Swagger UI to test the new API app and verify that it can call the API app you created earlier.
 
@@ -204,7 +203,7 @@ In this section you use the Swagger UI to test the new API app and verify that i
 	If you want to verify that the **Internal** setting is protecting the ContactsList API app, comment out the `SignHttpRequest` call in *ContactNamesController.cs*, redeploy, run Swagger again, and you'll get an error message.
 
 
-### Add code to call the API app using the generated client
+## Add code to call the API app by using the generated client
  
 Calling a **Public (anonymous)** API app is much simpler using the client classes that the App Service SDK generates; all you have to do is create a client object and call methods on it, as in this example:
 
