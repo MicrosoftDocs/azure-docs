@@ -1,6 +1,6 @@
 <properties
-	pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure"
-	description="Learn how to run an Hadoop MapReduce sample on HDInsight."
+	pageTitle="Pi estimator Hadoop sample in HDInsight | Microsoft Azure"
+	description="Learn how to run a Hadoop MapReduce sample Pi estimator on HDInsight."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"

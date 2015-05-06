@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure"
+	pageTitle="C# streaming wordcount Hadoop sample | Microsoft Azure"
 	description="How to write MapReduce programs in C# that use the Hadoop Streaming interface, and how to run them on HDInsight using PowerShell cmdlets."
 	editor="cgronlun"
 	manager="paulettm"

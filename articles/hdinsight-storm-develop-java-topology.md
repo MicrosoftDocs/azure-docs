@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Develop Java-based topologies for Apache Storm on HDInsight | Azure"
+   pageTitle="Develop Java-based topologies for Apache Storm | Microsoft Azure"
    description="Learn how to create Storm topologies in Java by creating a simple word count topology."
    services="hdinsight"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-#Develop Java-based topologies for Apache Storm on HDInsight
+#Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
 
 Learn a basic process to create a Java-based topology for Apache Storm on HDInsight by using Maven. You will walk through the process of creating a basic word-count application using Maven and Java. Although instructions are provided for using Eclipse, you can also use the text editor of your choice.
 

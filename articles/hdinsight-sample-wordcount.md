@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Run an Hadoop MapReduce word count example in HDInsight | Azure"
+	pageTitle="Hadoop MapReduce word count example in HDInsight | Microsoft Azure"
 	description="Run a MapReduce word count example on an Hadoop cluster in HDInsight. The program, written in Java, counts word occurrences in a text file."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-#Run a MapReduce word count example on a Hadoop cluster in HDInsight
+#Run a MapReduce word count example written in Java on a Hadoop cluster in HDInsight
 
 This tutorial shows you how to run a MapReduce word count example on a Hadoop cluster in HDInsight. The program is written in Java. It counts word occurrences in a text file, and then outputs a new text file that contains each word paired with its frequency of occurrence. The text file analyzed in this sample is the Project Gutenberg eBook edition of The Notebooks of Leonardo Da Vinci.
 

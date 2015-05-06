@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The 10GB GraySort sample | Azure"
+	pageTitle="10GB GraySort Hadoop MapReduce sample | Microsoft Azure"
 	description="Learn how to run a general purpose GraySort for very large amounts of data, usually a 100 TB minimum, on Hadoop with HDInsight using Azure PowerShell."
 	editor="cgronlun"
 	manager="paulettm"
@@ -16,7 +16,7 @@
 	ms.date="03/30/2015" 
 	ms.author="bradsev"/>
 
-# The 10GB GraySort Hadoop sample in HDInsight
+# The 10GB GraySort Hadoop MapReduce sample in HDInsight
 
 This sample topic shows how to run a general-purpose GraySort Hadoop MapReduce program on Azure HDInsight by using Azure PowerShell. GraySort is a benchmark sort whose metric is the sort rate (TB/minute) that is achieved while sorting very large amounts of data, usually a 100TB minimum.
 
