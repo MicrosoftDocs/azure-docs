@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to write code for an ASP.NET [API app](app-service-api-apps-why-best-platform.md) that calls another API app configured for **Internal** access level. Both API apps must be in the same resource group.
+This tutorial shows how to write code for an ASP.NET [API app](app-service-api-apps-why-best-platform.md) that calls another API app configured for **Internal** access level. Both API apps must be in the same resource group.  The same code can be used to call an internal API app from a [mobile app](app-service-mobile-value-prop-preview.md).
 
 You'll build a ContactNames Web API. The Web API's Get method will call a ContactsList API app and return just the names out of the contact information provided by the ContactsList API app. Here's the Swagger UI screen for a successful call to the ContactNames Get method.
 
@@ -87,130 +87,17 @@ By default, API App projects are enabled with automatic [Swagger](http://swagger
 
 7. Name the controller **ContactNamesController**, and click **Add**. 
 
-### Add code to call the API app by using HttpClient
+## Add code to call the API app
 
 To call an API app that has been protected by setting its access level to **Internal**, you have to add 
-internal authentication headers to requests. These headers inform the target API app that the source of the call is a peer API app calling from within the same resource group. 
+internal authentication headers to HTTP requests. These headers inform the target API app that the source of the call is a peer API app calling from within the same resource group. 
 
-You can use HttpClient or the typed client that the App Service SDK generates for you. Either way, the easiest way to add the authentication headers is to call the `SignHttpRequest` method provided by the App Service SDK.
-
- 
-1. In *ContactNamesController.cs*, replace the template code with the following code.
-
-		using ContactNames.Models;
-		using Microsoft.Azure.AppService.ApiApps.Service;
-		using System;
-		using System.Collections.Generic;
-		using System.Net.Http;
-		using System.Net.Http.Headers;
-		using System.Threading.Tasks;
-		using System.Web.Http;
-		
-		namespace ContactNames.Controllers
-		{
-		    public class ContactNamesController : ApiController
-		    {
-		        [HttpGet]
-		        public async Task<IEnumerable<string>> Get()
-		        {
-		            var names = new List<string>();
-		
-		            using (var httpClient = new HttpClient())
-		            {
-		                HttpRequestMessage httpRequest = new HttpRequestMessage();
-		                httpRequest.Method = HttpMethod.Get;
-		                httpRequest.RequestUri = new Uri("https://{yourapiappurl}/api/contacts");
-		                Runtime.FromAppSettings(this.Request).SignHttpRequest(httpRequest);
-		                var response = await httpClient.SendAsync(httpRequest); 
-		                var contacts = await response.Content.ReadAsAsync<List<Contact>>();
-		                foreach (Contact contact in contacts)
-		                {
-		                    names.Add(contact.Name);
-		                }
-		            }
-		
-		            foreach (Contact contact in contacts2)
-		            {
-		                names.Add(contact.Name);
-		            }
-		            return names;
-		        }
-		    }
-		}
-
-	This code calls `SignHttpRequest` to add the authentication headers.
-
-		Runtime.FromAppSettings(this.Request).SignHttpRequest
-
-2. In the Azure preview portal, go to the API app blade for the ContactsList API app, and copy the URL.
-
-	![](./media/app-service-api-dotnet-consume-internal/clurl.png)
- 
-4. Replace the placeholder string "{yourapiappurl}" in the controller code with the actual URL. When you're done, that line of code will look like the following example.
-
-	httpRequest.RequestUri = new Uri("https://microsoft-apiappd99e684d99e684d99e684d99e684.azurewebsites.net/api/contacts");
-
-### Deploy the HttpClient code
-
-You can't test by running locally.  You have to deploy the code and run it in an Azure API app; otherwise you won't be able to add the right authentication headers, and the calls will be rejected.
-
-The following deployment steps are explained in more detail in [Deploy an API app](app-service-dotnet-deploy-api-app.md). 
-
-1. In **Solution Explorer**, right-click the project (not the solution) and click **Publish**. 
-
-2. Click the **Profile** tab, and then click **Microsoft Azure API Apps**. 
-
-3. Click **New** to provision a new API App in your Azure subscription.
-
-4. In the **Create an API App** dialog, enter ContactNames as the **API App Name**. 
-
-5. For the other values in the **Create an API App** dialog, enter the same values that you entered earlier for the [Deploy an API app](app-service-dotnet-deploy-api-app.md). 
-
-	Most importantly, make sure you create the new API app in the same resource group as the API app you're going to call.
-
-5. Click **OK**. 
-
-7. Once the API app is provisioned, right-click the project in **Solution Explorer** and click **Publish** to re-open the publish dialog.
-
-8. In the **Publish Web** dialog, click **Publish** to begin the deployment process. 
-
-### Test the HttpClient code
-
-In this section you use the Swagger UI to test the new API app and verify that it can call the API app you created earlier.
-
-1. Open a browser to the new API app's URL.
-
-	With the default publish settings, when Visual Studio completes the publish process it automatically opens a browser to the URL of the API app.  If that doesn't happen, or you have closed that browser window, follow these steps to get to the same URL:
-
-	* In the Azure preview portal, go to the API App blade for the new ContactsName API app.
-
-	* Click **URL**. 
-
-		![](./media/app-service-api-dotnet-consume-internal/clickurl.png)
-  
-5. In the browser address bar, add `/swagger` to the end of the URL, and press Enter. 
-
-	For example, the resulting URL will look like this:
-
-	https://microsoft-apiapp214f26e673e5449a214f26e673e5449a.azurewebsites.net/swagger
-
-1. In the Swagger UI page, click **ContactNames > Get > Try it out!**
-
-	![](./media/app-service-api-dotnet-consume-internal/tryitout.png)
-  
-	The page displays contact names in the Response Body section, which verifies that the ContactNames API app successfully retrieved data from the ContactsList API app. 
-
-	If you want to verify that the **Internal** setting is protecting the ContactsList API app, comment out the `SignHttpRequest` call in *ContactNamesController.cs*, redeploy, run Swagger again, and you'll get an error message.
-
-
-## Add code to call the API app by using the generated client
- 
-Calling a **Public (anonymous)** API app is much simpler using the client classes that the App Service SDK generates; all you have to do is create a client object and call methods on it, as in this example:
+The App Service SDK generates client classes that simplify the code you write to call API app. To call a **Public (anonymous)** API app all you have to do is create a client object and call methods on it, as in this example:
 
 		var client = new ContactsList();
 		var contacts = await client.Contacts.GetAsync();
 
-However, you don't have direct access here to the `HttpRequestMessage`, so for calling **Internal** API apps you have to great a `DelegatingHandler` and pass in an instance of the handler to the constructor of the generated client.
+However, to add authentication headers you need access to the `HttpRequestMessage` object and you don't have that here. To get access to the request and add the headers you have to create a `DelegatingHandler` class and pass in an instance of it to the constructor of the generated client.
 
 1. Add to the project a class file named *InternalCredentialHandler.cs*, and replace the template code with the following code.
 
@@ -231,24 +118,138 @@ However, you don't have direct access here to the `HttpRequestMessage`, so for c
 		    }
 		}
 
-	This code adds the internal authentication headers to all requests.
+	This code calls `SignHttpRequest` to add the authentication headers to every request sent by the generated client class:
+
+		Runtime.FromAppSettings(this.Request).SignHttpRequest
+
+1. In *ContactNamesController.cs*, replace the template code with the following code.
+
+		using ContactNames.Models;
+		using Microsoft.Azure.AppService.ApiApps.Service;
+		using System;
+		using System.Collections.Generic;
+		using System.Net.Http;
+		using System.Net.Http.Headers;
+		using System.Threading.Tasks;
+		using System.Web.Http;
+		
+		namespace ContactNames.Controllers
+		{
+		    public class ContactNamesController : ApiController
+		    {
+		        [HttpGet]
+		        public async Task<IEnumerable<string>> Get()
+		        {
+		            var names = new List<string>();
+
+		            var client = new ContactsList(new DelegatingHandler[] { new InternalCredentialHandler() });
+		            var contacts = await client.Contacts.GetAsync();
+		
+		            foreach (Contact contact in contacts)
+		            {
+		                names.Add(contact.Name);
+		            }		
+		            return names;
+		        }
+		    }
+		}
+
+	This code passes in the handler to the constructor of the generated client class:
+
+		var client = new ContactsList(new DelegatingHandler[] { new InternalCredentialHandler() });
+
+### Deploy
+
+You can't test by running locally.  You have to deploy the code and run it in an Azure API app; otherwise you won't be able to add the right authentication headers, and the calls will be rejected.
+
+The following deployment steps are explained in more detail in [Deploy an API app](app-service-dotnet-deploy-api-app.md). 
+
+1. Create a ContactNames API app.
+
+	* In **Solution Explorer**, right-click the project (not the solution) and click **Publish**. 
+
+	* Click the **Profile** tab, and then click **Microsoft Azure API Apps**. 
+
+	* Click **New** to provision a new API App in your Azure subscription.
+
+	* In the **Create an API App** dialog, enter ContactNames as the **API App Name**. 
+
+	* For the other values in the **Create an API App** dialog, enter the same values that you entered earlier for the [Deploy an API app](app-service-dotnet-deploy-api-app.md). 
+
+		Most importantly, make sure you create the new API app in the same resource group as the API app you're going to call.
+
+	* Click **OK**. 
+
+2. Deploy your code to the new API app.
+
+	* Once the API app is provisioned, right-click the project in **Solution Explorer** and click **Publish** to re-open the publish dialog.
+
+	* In the **Publish Web** dialog, click **Publish** to begin the deployment process. 
+
+### Test
+
+In this section you use the Swagger UI to test the new API app and verify that it can call the API app you created earlier.
+
+1. Open a browser to the new API app's URL.
+
+	With the default publish settings, when Visual Studio completes the publish process it automatically opens a browser to the URL of the API app.  If that doesn't happen, or you have closed that browser window, follow these steps to get to the same URL:
+
+	* In the Azure preview portal, go to the API App blade for the new ContactsName API app.
+
+	* Click **URL**. 
+
+		![](./media/app-service-api-dotnet-consume-internal/clickurl.png)
+  
+5. In the browser address bar, add `/swagger` to the end of the URL, and press Enter. 
+
+	For example, the resulting URL will look like this:
+
+		https://microsoft-apiapp214f26e673e5449a214f26e673e5449a.azurewebsites.net/swagger
+
+1. In the Swagger UI page, click **ContactNames > Get > Try it out!**
+
+	![](./media/app-service-api-dotnet-consume-internal/tryitout.png)
+  
+	The page displays contact names in the Response Body section, which verifies that the ContactNames API app successfully retrieved data from the ContactsList API app. 
+
+	If you want to verify that the **Internal** setting is protecting the ContactsList API app, comment out the `SignHttpRequest` call in *ContactNamesController.cs*, redeploy, run Swagger again, and you'll get an error message.
+
+
+## Add code to call the API app by using HttpClient
+ 
+The App Service SDK depends on Swagger API definitions to generate client classes. If you want to call an API app that has not implemented Swagger API definitions, you can do so using `HttpClient`. In this case, you still use the `SignHttpRequest` method, but you call it directly on the `HttpRequestMessage` object.
 
 1. In *ContactNamesController.cs*, add the following code before the `return names;` statement in the `Get` method.
 
-		var client = new ContactsList(new DelegatingHandler[] { new InternalCredentialHandler() });
-		var contacts2 = await client.Contacts.GetAsync();
-		
+		var httpClient = new HttpClient();
+		HttpRequestMessage httpRequest = new HttpRequestMessage();
+		httpRequest.Method = HttpMethod.Get;
+		httpRequest.RequestUri = new Uri("https://{yourapiappurl}/api/contacts");
+		Runtime.FromAppSettings(this.Request).SignHttpRequest(httpRequest);
+		var response = await httpClient.SendAsync(httpRequest); 
+		var contacts2 = await response.Content.ReadAsAsync<List<Contact>>();
 		foreach (Contact contact in contacts2)
 		{
 		    names.Add(contact.Name);
 		}
 
-### Deploy and test the code that uses the generated client
+	This code passes in the incoming request object to the `SignHttpRequest` method to sign the outgoing request object:
 
-1. Follow the procedure you did earlier to deploy the API app code.
+		Runtime.FromAppSettings(this.Request).SignHttpRequest(httpRequest);
+
+2. In the Azure preview portal, go to the API app blade for the ContactsList API app, and copy the URL.
+
+	![](./media/app-service-api-dotnet-consume-internal/clurl.png)
+ 
+4. Replace the placeholder string "{yourapiappurl}" in the controller code with the actual URL. When you're done, that line of code will look like the following example.
+
+		httpRequest.RequestUri = new Uri("https://microsoft-apiappd99e684d99e684d99e684d99e684.azurewebsites.net/api/contacts");
+
+### Deploy and test
+
+1. Follow the same procedure you did earlier to deploy the API app code.
 
 	**Hint:** You can bypass the **Publish Web** dialog and redeploy by clicking a single button in the toolbar.  In Visual Studio, click **View > Toolbars**, and enable the **Web One Click Publish** toolbar.  
-
  
 2. Follow the procedure you did earlier to use the Swagger UI.
 
