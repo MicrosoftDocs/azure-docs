@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <properties
 	pageTitle="How to use Table storage from Ruby | Microsoft Azure"
 	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API."
 	services="storage"
 	documentationCenter="ruby"
-	authors="tfitzmac" 
+	authors="tfitzmac"
 	manager="wpickett"
 	editor=""/>
 
@@ -16,33 +14,6 @@
 	ms.devlang="ruby"
 	ms.topic="article"
 	ms.date="03/11/2015"
-=======
-<properties 
-	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
-	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tamram" 
-	manager="wpickett" 
-=======
-<properties 
-	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
-	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
-	editor=""/>
-
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
->>>>>>> 1027d857ab887821da78f739f970417c421f6fa5
 	ms.author="tomfitz"/>
 
 
