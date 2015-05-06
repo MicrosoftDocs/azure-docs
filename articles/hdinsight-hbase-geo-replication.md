@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configure HBase replication between two Azure datacenters | Azure" 
-   description="Learn how to configure VPN connections between two Azure virtual networks, how to configure domain name resolution between two virtual networks, and how to configure HBase geo-replication" 
-   services="hdinsight" 
+   pageTitle="Configure HBase replication between two datacenters | Microsoft Azure" 
+   description="Learn how to configure HBase replication across two data centers, and about the use cases for cluster replication." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 

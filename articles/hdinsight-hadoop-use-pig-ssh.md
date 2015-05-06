@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to use Pig with Hadoop on HDInsight through SSH."
+   pageTitle="Use Hadoop Pig with SSH on an HDInsight cluster | Microsoft Azure"
+   description="Learn how connect to a Linux-based Hadoop cluster with SSH, and then use the Pig command to run Pig Latin statements interactively, or as a batch job."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
  
-#Run Pig jobs by using the Pig command (SSH)
+#Run Pig jobs on a Linux-based cluster with the Pig command (SSH)
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 

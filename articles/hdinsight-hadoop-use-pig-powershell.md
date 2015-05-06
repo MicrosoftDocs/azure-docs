@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to submit Pig jobs to Hadoop on HDInsight using PowerShell."
+   pageTitle="Use Hadoop Pig with PowerShell in HDInsight | Microsoft Azure"
+   description="Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

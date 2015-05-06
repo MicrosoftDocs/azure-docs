@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
+   pageTitle="Use Hadoop Pig with .NET in HDInsight | Microsoft Azure"
    description="Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-#Run Pig jobs using the .NET SDK for Hadoop
+#Run Pig jobs using the .NET SDK for Hadoop in HDInsight
 
 [AZURE.INCLUDE [pig-selector](../includes/hdinsight-selector-use-pig.md)]
 
