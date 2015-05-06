@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="What is Hadoop in HDInsight: Cloud big data analysis | Microsoft Azure" 
-   description="An introduction to Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="cjgronlund" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="What is Hadoop in HDInsight: Cloud big data analysis | Microsoft Azure" 
+	description="An introduction to Hadoop components in the cloud in HDInsight. Learn how HDInsight uses Hadoop clusters to manage, analyze, and report on big data." 
+	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="cjgronlund" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
