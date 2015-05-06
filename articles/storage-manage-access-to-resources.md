@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 <properties
-	pageTitle="Manage Access to Azure Storage Resources"
-	description="Learn about the different ways you can manage access to Azure Storage Resources."
+	pageTitle="Manage Access to Azure Storage Resources | Microsoft Azure"
+	description="Learn how to manage how users access your Azure Storage resources."
 	services="storage"
 	documentationCenter=""
-	authors="micurd" 
+	authors="micurd"
 	manager="jahogg"
 	editor=""/>
 
@@ -15,26 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/20/2015"
-	ms.author="micurd"/>
-=======
-<properties 
-	pageTitle="Manage Access to Azure Storage Resources | Microsoft Azure" 
-	description="Learn how to manage how users access your Azure Storage resources." 
-	services="storage" 
-	documentationCenter="" 
-	authors="micurd" 
-	manager="jahogg" 
-	editor=""/>
-
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
 	ms.author="micurd;tamram"/>
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 
 # Manage Access to Azure Storage Resources
 
