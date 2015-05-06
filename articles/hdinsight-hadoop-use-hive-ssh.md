@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive in HDInsight | Azure"
-   description="Learn how to use Hive with HDInsight through SSH."
+   pageTitle="Use Hadoop Hive and SSH in HDInsight | Microsoft Azure"
+   description="Learn how to use SSH to connect to a Hadoop cluster in HDInsight, and then interactively submit Hive queries by using the Hive command-line interface."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

@@ -2,14 +2,14 @@
    pageTitle="Use Hadoop Pig with .NET in HDInsight | Microsoft Azure"
    description="Learn how to use the .NET SDK for Hadoop to submit Pig jobs to Hadoop on HDInsight."
    services="hdinsight"
-   documentationCenter=""
+   documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
    editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="dotnet"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"

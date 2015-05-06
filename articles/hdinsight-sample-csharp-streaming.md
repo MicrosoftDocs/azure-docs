@@ -188,7 +188,7 @@ For tutorials that run other samples and provide instructions for running Pig, H
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 

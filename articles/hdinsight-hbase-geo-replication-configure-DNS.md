@@ -40,9 +40,9 @@ The following diagram illustrates the two virtual networks you created in [Confi
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- **An Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see  [Purchase Options] [azure-purchase-options],  [Member Offers] [azure-member-offers], or  [Free Trial] [azure-free-trial].
 
-- **A workstation with Azure PowerShell installed and configured**. For instructions, see [Install and configure Azure PowerShell][powershell-install]. 
+- **A workstation with Azure PowerShell installed and configured**. For instructions, see [Install and configure Azure PowerShell] [powershell-install]. 
 
 	Before running PowerShell scripts, make sure you are connected to your Azure subscription using the following cmdlet:
 
@@ -215,6 +215,7 @@ In this tutorial, you have learned how to configure name resolution across virtu
 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[powershell-install]: install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
