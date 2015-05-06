@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/04/2015"
+   ms.date="05/05/2015"
    ms.author="kenhoff"/>
 
 
@@ -46,9 +46,10 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 - On the bottom bar, click "Add application".
 	- Click "Add an application my organization is developing".
 	- **Name**: Any name is fine. Something like "Reporting API Application" is recommended.
-	- **Type**: Select "Native client application."
+	- **Type**: Select "Web application and/or Web API"
 	- Click the arrow to move to the next page
-	- **Redirect URI**: ```http://localhost```
+	- **Sign-on URL**: ```http://localhost```
+	- **App ID URI**: ```http://localhost```
 	- Click the checkmark to finish adding the application.
 
 ### Give your application permission to use the API
@@ -56,14 +57,13 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 - Navigate to your newly created application.
 - Navigate to the Configure tab.
 - In the "Permissions to Other Applications" section:
-	- Add application > Windows Azure Active Directory 
-	- Delegated Permissions: Read directory data.
+	- Windows Azure Active Directory > Application Permissions > enable "Read directory data"
 - Click "Save" on the bottom bar.
 
 
 ### Get your directory ID, client ID, and OAuth 2.0 endpoints
 
-Find your application's client ID, your OAuth endpoints, and your directory ID. Copy these IDs and URLs into a separate place; you'll use them in the next steps.
+Find your application's client ID, secret key, and your directory ID. Copy these IDs and URLs into a separate place; you'll use them in the next steps.
 
 #### Application Client ID
 - Navigate to the Applications tab.
@@ -71,12 +71,12 @@ Find your application's client ID, your OAuth endpoints, and your directory ID. 
 - Navigate to the Configure tab.
 - Your application's client ID is listed on the Client ID field.
 
-#### OAuth endpoints
+#### Application secret Key
 - Navigate to the Applications tab.
-- **Select** your newly created application.
-	- Don't navigate into the application! Just select it.
-- Click "View Endpoints" on the bottom bar.
-- Your OAuth Token and Authorization endpoints are at the bottom of the list.
+- Navigate to your newly created application.
+- Navigate to the Configure tab.
+- Generate a new secret key for your application by selecting a duration in the "Keys" section.
+- The key will be displayed upon saving. Make sure to copy it down somewhere, because there is no way to retrieve it later.
 
 #### Directory ID
 - While signed into the Azure Management Portal, you can find your directory ID in the URL.
@@ -148,7 +148,7 @@ curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>
 - Finally, replace ```YOUR-ACCESS-TOKEN``` with your access token in the curl request below.
 
 ```
-curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/audit?api-version=beta \
+curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/auditEvents?api-version=beta \
   -H "x-ms-version: 2013-08-01" \
   -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
 ```
@@ -158,7 +158,7 @@ curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/audi
 
 ```
 {
-  "@odata.context":"https://graph.windows.net//reports/?api-version=1.5/reports/$metadata#audit",
+  "@odata.context":"https://graph.windows.net/<<DIRECTORY-ID>>/reports/?api-version=beta/reports/$metadata#auditEvents",
   "value":[
     {
       "id":"SN2GR1RDS104.GRN001.msoprd.msft.net_4515449","timeStampOffset":"2015-04-13T21:27:55.1777659Z","actor":"thekenhoff_outlook.com#EXT#@kenhoffdemo.onmicrosoft.com","action":"Add service principal","target":"04670e0d84264acb86dac2
