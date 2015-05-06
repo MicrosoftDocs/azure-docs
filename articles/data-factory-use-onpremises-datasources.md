@@ -190,7 +190,6 @@ In this step, you will create two linked services: **StorageLinkedService** and 
     				}
 				}		
 		
-5. Confirm that the user you specified in the previous step is a member of the **Data Management Gateway Users** group on the gateway machine. The account you used to install the gateway on the machine is automatically added to the Data Management Gateway Users group. If you are using any other user account for the SQL Server linked service, you must manually add the user to the Windows group.   
 6. Click **Deploy** on the toolbar to deploy the SqlServerLinkedService. Confirm that you see the message **LINKED SERVICE CREATED SUCCESSFULLY** on the title bar. You should also see the **SqlServerLinkedService** in the tree view on the left. 
 		   
 	![SqlServerLinkedService deployment successful][image-editor-sql-linked-service-successful]
