@@ -42,7 +42,7 @@ The input and output format, used by all three applications, reads and writes th
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight clusters](hdinsight-provision-clusters.md).
 
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell] [powershell-install-configure].
 
 
 ##Run the sample with Azure PowerShell
@@ -56,7 +56,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To run the TeraGen program**
 
-1. Open Azure PowerShell. For instructions on opening the Azure PowerShell console window, see [Install and configure Azure PowerShell][powershell-install-configure].
+1. Open Azure PowerShell. For instructions on opening the Azure PowerShell console window, see [Install and configure Azure PowerShell] [powershell-install-configure].
 2. Set the two variables in the following commands, and then run them:
 
 		# Provide the Azure subscription name and the HDInsight cluster name

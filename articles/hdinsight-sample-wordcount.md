@@ -195,7 +195,7 @@ For tutorials that run other samples and provide instructions about using Pig, H
 * [Sample: Pi Estimator][hdinsight-sample-pi-estimator]
 * [Sample: C# Steaming][hdinsight-sample-cs-streaming]
 * [Use Pig with HDInsight][hdinsight-use-pig]
-* [Use Hive with HDInsight][hdinsight-use-hive]
+* [Use Hive with HDInsight] [hdinsight-use-hive]
 * [Azure HDInsight SDK documentation][hdinsight-sdk-documentation]
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
