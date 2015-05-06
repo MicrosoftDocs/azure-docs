@@ -281,7 +281,7 @@ There is no additional cost for connecting to Office 365 over ExpressRoute.  The
 Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of partners and locations where ExpressRoute is supported.
 
 ### Can I use NSPs and EXPs to connect to Office 365 services?
-WE support connectivity to Office 365 services through both NSPs and EXPs. Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of supported partners and locations.
+We support connectivity to Office 365 services through both NSPs and EXPs. Refer to [ExpressRoute partners and locations](expressroute-locations.md) for more information on the list of supported partners and locations.
 
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
