@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
-   description="Get a general-purpose introduction to Apache Storm, and learn how you can use Apache Storm on HDInsight to build real-time data analytics solutions in the cloud."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Introduction to Apache Storm on HDInsight | Microsoft Azure"
+	description="Get a general-purpose introduction to Apache Storm, and learn how you can use Apache Storm on HDInsight to build real-time data analytics solutions in the cloud."
+	keywords="apache storm,real time analytics"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
