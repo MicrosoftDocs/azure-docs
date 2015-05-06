@@ -212,7 +212,7 @@ In this section you use the Swagger UI to test the new API app and verify that i
   
 	The page displays contact names in the Response Body section, which verifies that the ContactNames API app successfully retrieved data from the ContactsList API app. 
 
-	If you want to verify that the **Internal** setting is protecting the ContactsList API app, comment out the `SignHttpRequest` call in *ContactNamesController.cs*, redeploy, run Swagger again, and you'll get an error message.
+	If you want to verify that the **Internal** setting is protecting the ContactsList API app, comment out the `SignHttpRequest` call in *ContactNamesController.cs*, redeploy, run Swagger **Try it now** again, and you'll get an error message.
 
 
 ## Add code to call the API app by using HttpClient
