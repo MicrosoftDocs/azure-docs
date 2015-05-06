@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/15/2015"
+   ms.date="05/05/2015"
    ms.author="jgao"/>
 
 # Use Apache Phoenix and SQuirrel in HDinsight  
 
-Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html).
+Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 >[AZURE.NOTE] For the Phoenix version information in HDInsight, see [What's new in the Hadoop cluster versions provided by HDInsight?][hdinsight-versions].
 
@@ -34,7 +34,7 @@ Before you can use SQLLine, you must have the following:
 **To find out the host name**
 
 1. Open **Hadoop Command Line** from the desktop.
-2. Run the following command
+2. Run the following command to get the DNS suffix:
 
 		ipconfig
 
@@ -43,14 +43,24 @@ Before you can use SQLLine, you must have the following:
 **To use SQLLine**
 
 1. Open **Hadoop Command Line** from the desktop.
-2. Run the following commands:
+2. Run the following commands to open SQLLine:
 
 		cd %phoenix_home%\bin
 		sqlline.py [The FQDN of one of the Zookeepers]
 
 	![hdinsight hbase phoenix sqlline][hdinsight-hbase-phoenix-sqlline]
 
-For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual).
+	The commands used in the sample:
+
+		CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
+		
+		!tables;
+		
+		UPSERT INTO Company VALUES(1, 'Microsoft');
+		
+		SELECT * FROM Company;
+
+For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manual) and [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
 
 
@@ -71,7 +81,7 @@ For more information, see [SQLLine manual](http://sqlline.sourceforge.net/#manua
 
 ##Use SQuirrel
 
-[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is a graphical Java program that will allow you to view the structure of a JDBC compliant database, browse the data in tables, issue SQL commands etc.
+[SQuirreL SQL Client](http://squirrel-sql.sourceforge.net/) is a graphical Java program that will allow you to view the structure of a JDBC compliant database, browse the data in tables, issue SQL commands etc. It can be used to connect to Apache Phoenix on HDInsight.
 
 This section shows you how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight via VPN. 
 
@@ -81,7 +91,7 @@ Before following the procedures, you must have the following:
 
 - An HBase cluster deployed to an Azure virtual network with a DNS virtual machine.  For instructions, see [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]. 
 
-	>[AZURE.IMPORTANT] You must install a DNS server to the virtual network. 
+	>[AZURE.IMPORTANT] You must install a DNS server to the virtual network. For instructions, see [Configure DNS between two Azure virtual networks](hdinsight-hbase-geo-replication-configure-DNS.md)
 
 - Get the HBase cluster cluster Connection-specific DNS suffix. To get it, RDP into the cluster, and then run IPConfig.  The DNS suffix is similar to:
 
@@ -232,7 +242,7 @@ You need to copy it to your workstation under the [SQuirrel installation folder]
 	- **Example URL**: jdbc:phoenix:zookeeper2.contoso-hbase-eu.f5.internal.cloudapp.net
 	- **Class Name**: org.apache.phoenix.jdbc.PhoenixDriver
 
-	>[AZURE.WARNING] User all lower case in the Example URL. 
+	>[AZURE.WARNING] User all lower case in the Example URL. You can use they full zookeeper quorum in case one of them is down.  The hostnames are zookeeper0, zookeeper1, and zookeeper2.
 
 	![HDInsight HBase Phoenix SQuirrel driver][img-squirrel-driver]
 4. Click **OK**.
@@ -246,8 +256,8 @@ You need to copy it to your workstation under the [SQuirrel installation folder]
 	- **Name**: The name of the HBase cluster or any name you prefer.
 	- **Driver**: Phoenix.  This must match the driver name you created in the last procedure.
 	- **URL**: The URL is copied from your driver configuration. Make sure to user all lower case.
-	- **User name**: HBase cluster HTTP user name
-	- **Password**: HBase cluster HTTP user password
+	- **User name**: It can be any text.  Because you use VPN connectivity here, the user name is not used at all.
+	- **Password**: It can be any text.
 
 	![HDInsight HBase Phoenix SQuirrel driver][img-squirrel-alias]
 4. Click **Test**. 

@@ -18,9 +18,9 @@
 
 # Azure DNS Overview
 
-Behind any website or service on the Internet, there is an IP address. For example, www.microsoft.com uses the IP address 134.170.185.46. The Doman Name System, or DNS, is responsible for translating (or resolving) the website or service name to its IP address.
+Behind any website or service on the Internet, there is an IP address. For example, www.microsoft.com uses the IP address 134.170.185.46. The Domain Name System, or DNS, is responsible for translating (or resolving) the website or service name to its IP address.
 
-Azure DNS is hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools and billing as your other Azure services.
+Azure DNS is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools and billing as your other Azure services.
 
 DNS domains in Azure DNS are hosted on Azure’s global network of DNS name servers.  We use Anycast networking, so that each DNS query is answered by the closest available DNS server. This provides both fast performance and high availability for your domain.
 

@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Create a VM with Multiple NICs"
    description="How to create vms with multiple nics"
-   services="virtual-networks, virtual-machines"
+   services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"

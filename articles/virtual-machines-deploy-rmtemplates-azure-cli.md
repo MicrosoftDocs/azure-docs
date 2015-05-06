@@ -24,14 +24,18 @@ This article provides guidance on how to automate common tasks for deploying and
 
 Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).
 
-### Step 1: Update your Azure CLI version to 0.9.0
+### Step 1: Update your Azure CLI version to 0.9.0 or later
 
-Type `azure --version` to see whether you have already installed version 0.9.0. 
+Type `azure --version` to see whether you have already installed version 0.9.0 or later 
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-If your version is not 0.9.0, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+If your version is not 0.9.0 or later, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+
+You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/kmouss/azure-cli/)
+
+	docker run -it kmouss/azure-cli
 
 ### Step 2: Set your Azure account and subscription
 
