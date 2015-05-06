@@ -69,12 +69,10 @@ To register your subscription to use the Azure DNS Public Preview, please execut
 You can check your registration status as follows:
 
 	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
-<BR>
 
 	FeatureName                       ProviderName                RegistrationState  
-	-----------                       ------------             -----------------  
-
-	azurednspreview              Microsoft.Network                  Registered 
+	-----------                       ------------                -----------------  
+	azurednspreview                   Microsoft.Network           Registered 
 
 
 Your RegistrationState may show as ‘Pending’, in which case please check back later.
