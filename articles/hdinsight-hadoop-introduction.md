@@ -19,7 +19,7 @@
 
 # Introduction to Hadoop in HDInsight: Big-data analysis and processing in the cloud
 
-Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop, its components, common terminology, and scenarios for big data analysis. Also, learn about documentation, tutorials, and resources for using Hadoop in HDInsight.
+Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis. Also, learn about documentation, tutorials, and resources for using Hadoop in HDInsight.
 
 ## What is Hadoop in HDInsight?
 
@@ -216,9 +216,9 @@ These BI tools can help in your big-data analysis:
 * <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Learn about SQL Server Reporting Services</a>.
 
 
-### Try HDInsight solutions for big-data analysis (for HDInsight on Widows)
+### Try Hadoop solutions for big-data analysis (for HDInsight on Windows)
 
-Analyze data from your organization to gain insights into your business. Here are some examples: 
+Use big data analysis on your organization's data to gain insights into your business. Here are some examples: 
 
 * [Analyze HVAC sensor data](hdinsight-hive-analyze-sensor-data.md) - Learn how to analyze sensor data by using Hive with HDInsight (Hadoop), and then visualize the data in Microsoft Excel. In this sample, you'll use Hive to process historical data produced by HVAC systems to see which systems can't reliably maintain a set temperature.
 

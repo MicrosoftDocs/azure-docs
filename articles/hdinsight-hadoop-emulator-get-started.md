@@ -77,7 +77,7 @@ The installation should have installed three icons on your desktop. The three ic
 
 The installation should have also installed several local services. The following is a screenshot of the Services window:
 
-![HDI.Emulator.Services][image-hdi-emulator-services]
+![Hadoop ecosystem services listed in the emulator window.][image-hdi-emulator-services]
 
 The services related to the HDInsight Emulator are not started by default. To start the services, from the Hadoop command line, run **start\_local\_hdp_services.cmd** under C:\hdp (default location). To automatically start the services after the computer restarts, run **set-onebox-autostart.cmd**.  
 
@@ -97,15 +97,15 @@ For instructions on how to install the HDInsight Visual Studio tools, see [here]
 2. From the **View** menu, click **Server Explorer** to open the Server Explorer window.
 3. Expand **Azure**, right-click **HDInsight**, and then click **Connect to HDInsight Emulator**.
 
-	 ![HDI.Emulator.Connect.VS](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.png)
+	 ![Visual Studio view: Connect to HDInsight emulator on menu.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.png)
 
 4. In the Connect to HDInsight Emulator dialog box, verify the values for WebHCat, HiveServer2, and WebHDFS endpoints, and then click **Next**. The values populated by default should work if you did not make any changes to the default configuration of the Emulator. If you made any changes, update the values in the dialog box and then click Next.
 
-	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.dialog.png)
+	![Connect to HDInsight emulator dialog box with settings.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.connect.vs.dialog.png)
 
 5. Once the connection is successfully established, click **Finish**. You should now see the HDInsight Emulator in the Server Explorer.
 
-	![HDI.Emulator.Connect.VS.dialog](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.vs.connected.png)
+	![Server Explorer showing HDInsight local emulator - a Hadoop sanbox - connected.](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.vs.connected.png)
 
 Once the connection is successfully established, you can use the HDInsight VS tools with Emulator, just like you would use it with an Azure HDInsight cluster. For instructions on how to use VS tools with Azure HDInsight clusters, see [Using HDInsight Hadoop Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
@@ -499,12 +499,11 @@ On the computer where you have the emulator installed, open Control Panel and un
 
 
 ##<a name="nextsteps"></a> Next steps
-In this MapReduce tutorial, you installed the HDInsight Emulator, a Hadoop sandbox, and ran some Hadoop jobs. To learn more, see the following articles:
+In this MapReduce tutorial, you installed the HDInsight Emulator - a Hadoop sandbox - and ran some Hadoop jobs. To learn more, see the following articles:
 
 - [Get started using Azure HDInsight](hdinsight-get-started.md)
 - [Develop Java MapReduce programs for HDInsight](hdinsight-develop-deploy-java-mapreduce.md)
-- [Develop C# 
-- Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [Develop C# Hadoop streaming MapReduce programs for HDInsight](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator release notes](hdinsight-emulator-release-notes.md)
 - [MSDN forum for discussing HDInsight](http://social.msdn.microsoft.com/Forums/hdinsight)
 

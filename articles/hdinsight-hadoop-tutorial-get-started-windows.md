@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Learn Hadoop on Windows in HDInsight | Microsoft Azure" 
+   pageTitle="Hadoop tutorial: Learn Hadoop on Windows | Microsoft Azure" 
    description="Get started with a Hadoop tutorial using HDInsight in the cloud. Learn how to provision Hadoop clusters on Windows, run a Hive query on data, and analyze output in Excel." 
-   keywords="hadoop on windows,hadoop cluster,learn hadoop, hive query
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 
@@ -35,9 +35,9 @@ In conjunction with the general availability of Azure HDInsight, Microsoft also 
 
 ## What does this Hadoop tutorial accomplish? 
 
-Assume you have a large unstructured data set and you want to run Hive queries on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
+Assume you have a large unstructured data set and you want to run a Hive query on it to extract some meaningful information. That's exactly what we are going to do in this tutorial. Here's how we achieve this:
 
-   !["Steps the Hadoop tutorial: Create an account; provision a Hadoop cluster; submit a Hive query; analyze data in Excel.][image-hdi-getstarted-flow]
+   !["Hadoop tutorial: Create an account; provision a Hadoop cluster; submit a Hive query; analyze data in Excel.][image-hdi-getstarted-flow]
 
 Watch a demo video of this tutorial to learn Hadoop on HDInsight:
 
@@ -60,7 +60,7 @@ Before you begin this tutorial for Hadoop on Windows, you must have the followin
 
 ##<a name="storage"></a>Create an Azure Storage account
 
-HDInsight uses Azure Blob Storage for storing data. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
+HDInsight uses Azure Blob storage for storing data. For more information, see [Use Azure Blob storage with HDInsight][hdinsight-storage].
 
 When you provision a Hadoop cluster in HDInsight, you specify an Azure Storage account. A specific Blob storage container from that account is designated as the default file system, like in the Hadoop distribute file system (HDFS). By default, the HDInsight cluster is provisioned in the same datacenter as the storage account you specify.
 
@@ -171,7 +171,7 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 			WHERE devicemake LIKE "HTC%"
 			LIMIT 20;
 
-	![Query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
+	![Hive query entered in the query pane of the Hive Editor.][img-hdi-dashboard-query-select]
 
 4. Click **Submit**. It takes a few moments to get the results back. The screen refreshes every 30 seconds. You can also click **Refresh** to refresh the screen.
 
@@ -196,7 +196,7 @@ Now that you have provisioned an HDInsight cluster, the next step is to run a Hi
 3. Click **admin** and then click the GUID that has the last modified time (a little after the job start time you noted earlier). Copy this GUID. You will need it in the next section.
 
 
-   	![The output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
+   	![The Hive query output file GUID listed in the File Browser tab.][img-hdi-dashboard-query-browse-output]
 
 
 ##<a name="powerquery"></a>Connect to Microsoft business intelligence tools for Excel 
@@ -228,7 +228,7 @@ You must have Excel 2013 or 2010 installed to complete this part of the tutorial
 
 
 ##<a name="nextsteps"></a>Next steps
-In this tutorial, you learned how to provision a Hadoop cluster on Windows in HDInsight, run a Hive Query on data, and import the results into Excel, where they can be further processed and graphically displayed by using business intelligence tools. To learn more, see the following articles:
+In this Hadoop tutorial, you learned how to provision a Hadoop cluster on Windows in HDInsight, run a Hive query on data, and import the results into Excel, where they can be further processed and graphically displayed with business intelligence tools. To learn more, see the following tutorials:
 
 - [Get started using HDInsight Hadoop Tools for Visual Studio][1]
 - [Get started with the HDInsight Emulator][hdinsight-emulator]
@@ -255,8 +255,8 @@ In this tutorial, you learned how to provision a Hadoop cluster on Windows in HD
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
-[hdinsight-storage]: hdinsight-use-blob-storage.md
-[hdinsight-emulator]: hdinsight-get-started-emulator.md
+[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
+[hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
 [hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
 [hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
@@ -273,7 +273,7 @@ In this tutorial, you learned how to provision a Hadoop cluster on Windows in HD
 [apache-hive]: http://go.microsoft.com/fwlink/?LinkId=510085
 [apache-mapreduce]: http://go.microsoft.com/fwlink/?LinkId=510086
 [apache-hdfs]: http://go.microsoft.com/fwlink/?LinkId=510087
-[hdinsight-hbase-custom-provision]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
+[hdinsight-hbase-custom-provision]: hdinsight-hbase-tutorial-get-started.md
 
 
 [powershell-download]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
@@ -281,19 +281,19 @@ In this tutorial, you learned how to provision a Hadoop cluster on Windows in HD
 [powershell-open]: install-configure-powershell.md#Install
 
 
-[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.dashboard.png
-[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.dashboard.query.select.png
-[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.dashboard.query.select.result.png
-[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.dashboard.query.select.result.output.png
-[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.dashboard.query.browse.output.png
+[img-hdi-dashboard]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.png
+[img-hdi-dashboard-query-select]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.png
+[img-hdi-dashboard-query-select-result]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.png
+[img-hdi-dashboard-query-select-result-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.select.result.output.png
+[img-hdi-dashboard-query-browse-output]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.dashboard.query.browse.output.png
 
-[img-hdi-getstarted-video]: ./media/hdinsight-hadoop-tutorial-get-started/hdi-get-started-video.png
+[img-hdi-getstarted-video]: ./media/hdinsight-hadoop-tutorial-get-started-windows/hdi-get-started-video.png
 
 
-[image-hdi-storageaccount-quickcreate]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.StorageAccount.QuickCreate.png
-[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.ClusterStatus.png
-[image-hdi-quickcreatecluster]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.QuickCreateCluster.png
-[image-hdi-getstarted-flow]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.GetStartedFlow.png
+[image-hdi-storageaccount-quickcreate]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.StorageAccount.QuickCreate.png
+[image-hdi-clusterstatus]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.ClusterStatus.png
+[image-hdi-quickcreatecluster]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.QuickCreateCluster.png
+[image-hdi-getstarted-flow]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GetStartedFlow.png
 
-[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
-[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
+[image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
+[image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
