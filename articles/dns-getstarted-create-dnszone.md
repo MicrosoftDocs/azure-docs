@@ -50,7 +50,15 @@ Create a new resource group (skip this step if using an existing resource group)
 
 		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
+
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
+
+### Step 5
+
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one time operation for each subscription.
+
+	PS c:\> Register-AzureProvider -ProviderNamespace Microsoft.Network 
+
 
 ## Sign up to the Azure DNS Public Preview
 
