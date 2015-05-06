@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/05/2015" 
+	ms.date="05/06/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft Stream Analytic release notes
@@ -59,7 +59,7 @@ This release contains the following updates.
 
 <tr>
 <td>Data types inferred from input source</td>
-<td>If a <B>CREATE TABLE</B> statement is not used, the input type is derived from input format, for example all fields from CSV are string. Fields need to be converted explicitly to the right type using the CAST function in order to avoid type mismatch errors.</td>
+<td>If a CREATE TABLE statement is not used, the input type is derived from input format, for example all fields from CSV are string. Fields need to be converted explicitly to the right type using the CAST function in order to avoid type mismatch errors.</td>
 </tr>
 
 <tr>
