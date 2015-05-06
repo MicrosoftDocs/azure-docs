@@ -3,7 +3,7 @@
 	description="Describes what happened in your Azure Mobile Services .NET project in Visual Studio" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="05/06/2015" 
-	ms.author="patshea"/>
+	ms.author="patshea123"/>
 
 # What happened to my project?
 
