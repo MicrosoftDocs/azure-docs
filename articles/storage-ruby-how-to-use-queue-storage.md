@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="How to use Queue storage from Ruby | Microsoft Azure" 
-	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+
+<properties
+	pageTitle="How to use Queue storage from Ruby | Microsoft Azure"
+	description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -35,7 +36,7 @@ queues**.
 
 ## Create a Ruby Application
 
-Create a Ruby application. For instructions, 
+Create a Ruby application. For instructions,
 see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure Your Application to Access Storage
@@ -56,8 +57,8 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 ## Setup an Azure Storage Connection
 
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY** 
-for information required to connect to your Azure storage account. If these environment variables are not set, 
+The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
+for information required to connect to your Azure storage account. If these environment variables are not set,
 you must specify the account information before using **Azure::QueueService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -108,7 +109,7 @@ You can remove a message from a queue in two steps.
 This two-step process of removing a message assures that when your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **delete\_message()** right after the message has been processed.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
-	azure_queue_service.delete_message("test-queue", 
+	azure_queue_service.delete_message("test-queue",
 	  messages[0].id, messages[0].pop_receipt)
 
 ## How To: Change the Contents of a Queued Message
@@ -117,7 +118,7 @@ You can change the contents of a message in-place in the queue. The code below u
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
-	  "test-queue", message.id, message.pop_receipt, "updated test message", 
+	  "test-queue", message.id, message.pop_receipt, "updated test message",
 	  30)
 
 ## How To: Additional Options for Dequeuing Messages

@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+<properties
+	pageTitle="How to use Table storage from PHP | Microsoft Azure"
+	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table."
+	services="storage"
+	documentationCenter="php"
+	authors="tfitzmac" 
+	manager="adinah"
+=======
 <properties 
 	pageTitle="How to use Table storage from PHP | Microsoft Azure" 
 	description="Learn how to use the Table service from PHP to create and delete a table, and insert, delete, and query the table." 
@@ -5,15 +14,16 @@
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="adinah" 
+>>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="03/11/2015"
 	ms.author="tomfitz"/>
 
 
@@ -105,7 +115,7 @@ A **TableRestProxy** object lets you create a table with the **createTable** met
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		// Handle exception based on error codes and messages.
-		// Error codes and messages can be found here: 
+		// Error codes and messages can be found here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 	}
 
@@ -124,22 +134,22 @@ To add an entity to a table, create a new **Entity** object and pass it to **Tab
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	$entity = new Entity();
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
 	$entity->addProperty("Description", null, "Take out the trash.");
-	$entity->addProperty("DueDate", 
-						 EdmType::DATETIME, 
+	$entity->addProperty("DueDate",
+						 EdmType::DATETIME,
 						 new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity->addProperty("Location", EdmType::STRING, "Home");
-	
+
 	try{
 		$tableRestProxy->insertEntity("mytable", $entity);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -158,21 +168,21 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	//Create new entity.
 	$entity = new Entity();
-	
+
 	// PartitionKey and RowKey are required.
 	$entity->setPartitionKey("tasksSeattle");
 	$entity->setRowKey("1");
-	
+
 	// If entity exists, existing properties are updated with new values and
 	// new properties are added. Missing properties are unchanged.
 	$entity->addProperty("Description", null, "Take out the trash.");
 	$entity->addProperty("DueDate", EdmType::DATETIME, new DateTime()); // Modified the DueDate field.
 	$entity->addProperty("Location", EdmType::STRING, "Home");
 	$entity->addProperty("Status", EdmType::STRING, "Complete"); // Added Status field.
-	
+
 	try	{
 		// Calling insertOrReplaceEntity, instead of insertOrMergeEntity as shown,
 		// would simply replace the entity with PartitionKey "tasksSeattle" and RowKey "1".
@@ -180,13 +190,13 @@ The **TableRestProxy** class offers two alternative methods for inserting entiti
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	   
+
 
 ## How to: Retrieve a single entity
 
@@ -199,19 +209,19 @@ The **TableRestProxy->getEntity** method allows you to retrieve a single entity 
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	try	{
 		$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	$entity = $result->getEntity();
 
 	echo $entity->getPartitionKey().":".$entity->getRowKey();
@@ -227,23 +237,23 @@ Entity queries are constructed using filters (for more information, see [Queryin
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	$filter = "PartitionKey eq 'tasksSeattle'";
-	
+
 	try	{
 		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	$entities = $result->getEntities();
-	
+
 	foreach($entities as $entity){
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
@@ -259,23 +269,23 @@ The same pattern used in the previous example can be used to retrieve any subset
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	$filter = "Location eq 'Office' and DueDate lt '2012-11-5'";
-	
+
 	try	{
 		$result = $tableRestProxy->queryEntities("mytable", $filter);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
+
 	$entities = $result->getEntities();
-	
+
 	foreach($entities as $entity){
 		echo $entity->getPartitionKey().":".$entity->getRowKey()."<br />";
 	}
@@ -292,23 +302,23 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	$options = new QueryEntitiesOptions();
 	$options->addSelectField("Description");
-	
+
 	try	{
 		$result = $tableRestProxy->queryEntities("mytable", $options);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
-	
-	// All entities in the table are returned, regardless of whether 
+
+	// All entities in the table are returned, regardless of whether
 	// they have the Description field.
 	// To limit the results returned, use a filter.
 	$entities = $result->getEntities();
@@ -320,10 +330,10 @@ A query can retrieve a subset of entity properties. This technique, called *proj
 
 ## How to: Update an entity
 
-An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**. 
+An existing entity can be updated by using the **Entity->setProperty** and **Entity->addProperty** methods on the entity, and then calling **TableRestProxy->updateEntity**. The following example retrieves an entity, modifies one property, removes another property, and adds a new property. Note that removing a property is done by setting its value to **null**.
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
@@ -331,15 +341,15 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	$result = $tableRestProxy->getEntity("mytable", "tasksSeattle", 1);
-	
+
 	$entity = $result->getEntity();
-	
+
 	$entity->setPropertyValue("DueDate", new DateTime()); //Modified DueDate.
-	
+
 	$entity->setPropertyValue("Location", null); //Removed Location.
-	
+
 	$entity->addProperty("Status", EdmType::STRING, "In progress"); //Added Status.
 
 	try	{
@@ -347,7 +357,7 @@ An existing entity can be updated by using the **Entity->setProperty** and **Ent
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -365,14 +375,14 @@ To delete an entity, pass the table name, and the entity's `PartitionKey` and `R
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	try	{
 		// Delete entity.
 		$tableRestProxy->deleteEntity("mytable", "tasksSeattle", "2");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -395,7 +405,7 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request:
 
 	require_once 'vendor\autoload.php';
-	
+
 	use WindowsAzure\Common\ServicesBuilder;
 	use WindowsAzure\Common\ServiceException;
 	use WindowsAzure\Table\Models\Entity;
@@ -404,31 +414,31 @@ The following example shows how to execute **insertEntity** and **deleteEntity**
 
  	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	// Create list of batch operation.
 	$operations = new BatchOperations();
-	
+
 	$entity1 = new Entity();
 	$entity1->setPartitionKey("tasksSeattle");
 	$entity1->setRowKey("2");
 	$entity1->addProperty("Description", null, "Clean roof gutters.");
-	$entity1->addProperty("DueDate", 
-						  EdmType::DATETIME, 
+	$entity1->addProperty("DueDate",
+						  EdmType::DATETIME,
 						  new DateTime("2012-11-05T08:15:00-08:00"));
 	$entity1->addProperty("Location", EdmType::STRING, "Home");
-	
+
 	// Add operation to list of batch operations.
     $operations->addInsertEntity("mytable", $entity1);
 
 	// Add operation to list of batch operations.
 	$operations->addDeleteEntity("mytable", "tasksSeattle", "1");
-	
+
 	try	{
 		$tableRestProxy->batch($operations);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -448,14 +458,14 @@ Finally, to delete a table, pass the table name to the **TableRestProxy->deleteT
 
 	// Create table REST proxy.
 	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	
+
 	try	{
 		// Delete table.
 		$tableRestProxy->deleteTable("mytable");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here: 
+		// Error codes and messages are here:
 		// http://msdn.microsoft.com/library/azure/dd179438.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
