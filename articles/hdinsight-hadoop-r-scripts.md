@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use R in HDInsight to customize clusters| Azure" 
+	pageTitle="Use R in HDInsight to customize clusters | Microsoft Azure" 
 	description="Learn how to install and use R to customize Hadoop clusters." 
 	services="hdinsight" 
 	documentationCenter="" 

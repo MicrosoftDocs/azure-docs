@@ -52,7 +52,7 @@ Before you begin this tutorial, you must have the following:
 
 		Select-AzureSubscription <AzureSubscriptionName>
 
-- **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet].
+- **Two Azure virtual network with VPN connectivity**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-geo-replication-vnet].
 
 >[AZURE.NOTE] Azure service names and virtual machine names must be unique. The name used in this tutorial is Contoso-[Azure Service/VM name]-[EU/US]. For example, Contoso-VNet-EU is the Azure virtual network in the North Europe data center; Contoso-DNS-US is the DNS server VM in the East U.S. data center. You must come up with your own names.
  
