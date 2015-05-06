@@ -332,6 +332,8 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
 
+	The use of HTTPS is not optional;  API Apps does not support HTTP.
+
 1. Right-click the HTML/JavaScript Web Project and select the **Publish** context menu item.
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/13-publish-web-app.png)
