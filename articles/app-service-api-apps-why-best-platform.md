@@ -70,6 +70,8 @@ Many of these features, such the public marketplace and automatic updates, are a
 - **Gateway** - A web app that handles API administration functions and authentication for all API apps in a resource group. 
 - **Swagger** - A framework for interactive documentation and discovery of a RESTful API, used by default in API apps. For more information, see [http://swagger.io/](http://swagger.io/).
 - **Connector** - A type of API app that makes it easy to connect to SaaS platforms such as Salesforce and Office 365. For more information, see [What are connectors and BizTalk API apps](app-service-logic-what-are-biztalk-api-apps.md).
+- **Trigger** - A REST API that [logic apps](app-service-logic-what-are-logic-apps.md) can call to initiate a workflow process when a certain condition is met. For example, an API app could provide a method that the logic app calls periodically to look for a certain phrase in a Twitter feed. For more information, see [API app triggers](app-service-api-dotnet-triggers.md).
+- **Action** - A REST API that [logic apps](app-service-logic-what-are-logic-apps.md) can call to process data after a workflow has been started by a trigger. For example, an API app could provide a method that the logic app calls to respond to a tweet found by the Twitter trigger. Actions are API methods that are exposed by a Swagger API definition.
 
 ## Getting started
 
