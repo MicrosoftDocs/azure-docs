@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="3/2/2015"
+	ms.date="03/02/2015"
 	ms.author="spelluru"/>
 
 
@@ -42,7 +42,8 @@ This tutorial assumes minimal prior experience with SQL Server and Azure SQL Dat
 ## Step 2: Add a Client Agent
 This step is required only if you are going to have an on-premises SQL Server database included in your sync group. You can skip to Step 4: Create a sync group if your sync group has only SQL Database instances.
 
-<h3><a id="InstallRequiredSoftware"></a>Step 2a: Install the required software</h3>
+<a id="InstallRequiredSoftware"></a>
+### Step 2a: Install the required software
 Be sure that you have the following installed on the computer you install the Client Agent.
 
 - **.NET Framework 4.0**
@@ -61,9 +62,6 @@ Be sure that you have the following installed on the computer you install the Cl
 
 <a id="InstallClient"></a>
 ### Step 2b: Install a new Client Agent
-=======
-<h3><a id="InstallClient"></a>Step 2b: Install a new Client Agent</h3>
-
 
 Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.microsoft.com/library/jj823137.aspx) to install the agent.
 
@@ -71,9 +69,6 @@ Follow the instruction at [Install a Client Agent (SQL Data Sync)](http://msdn.m
 
 <a id="RegisterSSDb"></a>
 ### Step 2c: Finish the New SQL Data Sync Agent wizard
-
-=======
-<h3><a id="RegisterSSDb"></a>Step 2c: Finish the New SQL Data Sync Agent wizard</h3>
 
 1. 	Return to the New SQL Data Sync Agent wizard.
 2.	Give the agent a meaningful name.
