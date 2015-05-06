@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Provision Hadoop clusters in HDInsight | Azure" 
-   description="Learn how to provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or the HDInsight .NET SDK" 
+   pageTitle="Custom-provision Hadoop clusters in HDInsight | Microsoft Azure" 
+   description="Learn different ways to custom-provision clusters for Azure HDInsight by using the Azure portal, Azure PowerShell, a command line, or a .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 
    authors="nitinme" 

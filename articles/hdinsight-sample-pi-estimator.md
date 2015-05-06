@@ -461,7 +461,7 @@ For tutorials that describe running other samples and provide instructions on us
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 

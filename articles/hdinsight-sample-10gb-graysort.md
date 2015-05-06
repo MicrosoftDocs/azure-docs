@@ -420,7 +420,7 @@ For tutorials that guide you through running other samples and that provide inst
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 

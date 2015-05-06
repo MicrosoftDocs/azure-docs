@@ -210,6 +210,6 @@ For tutorials that run other samples and provide instructions about using Pig, H
 
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
