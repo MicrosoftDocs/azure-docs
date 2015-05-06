@@ -57,13 +57,14 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 - Navigate to your newly created application.
 - Navigate to the Configure tab.
 - In the "Permissions to Other Applications" section:
-	- Windows Azure Active Directory > Application Permissions > enable "Read directory data"
+	- Add Windows Azure Active Directory > Application Permissions > enable "Read directory data"
+	- Add Windows Azure Service Managment API > Delegated Permissions > enable "Access Azure Service Management"
 - Click "Save" on the bottom bar.
 
 
 ### Get your directory ID, client ID, and OAuth 2.0 endpoints
 
-Find your application's client ID, secret key, and your directory ID. Copy these IDs and URLs into a separate place; you'll use them in the next steps.
+Find your application's client ID, client secret, and your directory ID. Copy these IDs and URLs into a separate place; you'll use them in the next steps.
 
 #### Application Client ID
 - Navigate to the Applications tab.
@@ -71,16 +72,16 @@ Find your application's client ID, secret key, and your directory ID. Copy these
 - Navigate to the Configure tab.
 - Your application's client ID is listed on the Client ID field.
 
-#### Application secret Key
+#### Application client secret
 - Navigate to the Applications tab.
 - Navigate to your newly created application.
 - Navigate to the Configure tab.
 - Generate a new secret key for your application by selecting a duration in the "Keys" section.
-- The key will be displayed upon saving. Make sure to copy it down somewhere, because there is no way to retrieve it later.
+- The key will be displayed upon saving. Make sure to copy it, because there is no way to retrieve it later.
 
 #### Directory ID
 - While signed into the Azure Management Portal, you can find your directory ID in the URL.
-- Example URL: ```https://manage.windowsazure.com/@kenhoffdemo.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<<YOUR-AZURE-AD-DIRECTORY-ID>>/apps...```
+- Example URL: ```https://manage.windowsazure.com/@demo.onmicrosoft.com#Workspaces/ActiveDirectoryExtension/Directory/<<YOUR-AZURE-AD-DIRECTORY-ID>>/apps...```
 
 Copy these IDs and URLs into a separate place; you'll use them in later steps.
 
@@ -112,7 +113,7 @@ First, you need an authorization code. You can retrieve this by navigating to a 
 
 Next, you'll retrieve your access token by making an HTTP request to an OAuth endpoint using your authorization token. For this example, we'll use a small unix library called [curl](http://curl.haxx.se/); you can also use [Postman](https://www.getpostman.com/) or a [PowerShell cmdlet that can make HTTP requests](https://technet.microsoft.com/en-us/library/hh849901.aspx).
 
-- First, replace ```YOUR-AZURE-AD-DIRECTORY-ID``` with the directory ID you retrieved in a previous step. Then, replace ```YOUR-CLIENT-ID``` with the client ID you retrieved in the previous step. Finally, replace ```YOUR-AUTHORIZATION-CODE``` with the authorization code you retrieved in the previous step.
+- First, replace ```YOUR-AZURE-AD-DIRECTORY-ID``` with the directory ID you retrieved in a previous step. Then, replace ```YOUR-CLIENT-ID``` with the client ID you retrieved in the previous step. Then, replace ```YOUR-CLIENT-SECRET``` with the client secret you retrieved in the previous step. Finally, replace ```YOUR-AUTHORIZATION-CODE``` with the authorization code you retrieved in the previous step.
 
 ```
 curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
@@ -121,6 +122,7 @@ curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>
 	-F resource=https://management.core.windows.net/
 	-F client_id=<<INSERT-YOUR-CLIENT-ID-HERE>>
 	-F code=<<INSERT-YOUR-AUTHORIZATION-CODE-HERE>>
+	-F client_secret=<<INSERT-YOUR-CLIENT-SECRET-HERE>>
 ```
 
 - Run the command or make the request using your method of choice.
@@ -149,7 +151,7 @@ curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>
 - Finally, replace ```YOUR-ACCESS-TOKEN``` with your access token in the curl request below.
 
 ```
-curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/auditEvents?api-version=beta
+curl -v https://graph.windows.net/<<INSERT-YOUR-DIRECTORY-ID-HERE>>/reports/$metadata?api-version=beta
   -H "x-ms-version: 2013-08-01"
   -H "Authorization: Bearer <<INSERT-YOUR-ACCESS-TOKEN-HERE>>"
 ```
