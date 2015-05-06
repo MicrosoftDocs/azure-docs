@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <properties
 	pageTitle="How to use Blob storage from Ruby | Microsoft Azure"
 	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby."
@@ -6,15 +5,6 @@
 	documentationCenter="ruby"
 	authors="tfitzmac"
 	manager="wpickett"
-=======
-<properties 
-	pageTitle="How to use Blob storage from Ruby | Microsoft Azure" 
-	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 	editor=""/>
 
 <tags
