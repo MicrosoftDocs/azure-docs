@@ -3,7 +3,7 @@
    description="Get started with Azure Storage Blob Connector" 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
+   authors="anuragdalmia" 
    manager="dwrede" 
    editor=""/>
 
@@ -23,16 +23,23 @@ Azure Storage Blob connector lets you upload, download and delete blobs from a b
 
 ##Create a new Azure Storage Blob connector
 To create a new Azure Storage connector, follow the steps mentioned below.
-- Launch Azure portal
-- Open Azure marketplace using +New (at the bottom of the page) -> Web+Mobile --> Azure Marketplace
+<ul>
+<li>Launch Azure portal
+<li>Open Azure marketplace using +New (at the bottom of the page) -> Web+Mobile --> Azure Marketplace
+</ul>
 
-![Launch Azure Marketplace][1]
-- Click on API Apps
-- Search for _Blob_, and select Azure Storage Blob Connector
+![Launch Azure Marketplace][1]<br>
+<ul>
+<li>Click on API Apps
+<li>Search for <i>Blob</i>, and select Azure Storage Blob Connector
+</ul>
 
 ![Select Azure Storage Blob Connector][2]
-- Click on Create
-- In the Azure Storage Blob connector blade that opens up, provide the following data.
+<br>
+<ul>
+<li>Click on Create
+<li>In the Azure Storage Blob connector blade that opens up, provide the following data.
+</ul>
 
 ![Create Azure Storage Blob Connector][3]
 
@@ -41,7 +48,7 @@ To create a new Azure Storage connector, follow the steps mentioned below.
 - **Resource group** - select or create a resource group where the connector should reside
 - **Web hosting plan** - select or create a web hosting plan
 - **Pricing tier** - choose a pricing tier for the connector
-- **Name** - give a name for your FTP Connector
+- **Name** - give a name for your Blob Storage Connector
 - **Package settings** 
 	- **Container/SAS URI** - Specify the URI of the Blob Container. The URI may also include the SAS token. Example http://storageaccountname.blob.core.windows.net/containername or http://storageaccountname.blob.core.windows.net/containername?sr=c&si=mypolicy&sig=signatureblah
 	- **Access Key** - Specify a valid primary/secondary storage account access key. Leave this field empty if you are using SAS token for authentication.
@@ -58,55 +65,7 @@ Click on *triggers and actions*. The flow designer opens up
 
 ![Logic App empty flow designer][5]
 
-Azure Storage Blob Connector can be used as both trigger and action. 
-
-###Trigger
-In the empty flow designer, click on Azure Storage Blob connector from the right gallery pane.
-
-![Choose Blob Available Trigger][6]
-
-Azure Storage Blob Connector has one trigger - _BlobAvailable_. This trigger polls for blobs present in given Container. Directory-level Polling and filtering of Blobs is also supported. It deletes blobs from the Container once they are picked up
-
-Click on _BlobAvailable_ trigger.
-
-![Basic inputs Blob Available Trigger][7]
-
-The inputs help you configure a particular folder path to be polled on a scheduled frequency. The basic inputs are
-- Frequency - Specifies the frequency of the FTP poll
-- Interval - Specifies the interval for the scheduled frequency
-- Folder Path - Specifies a virtual folder path to poll. Use '.' for the root container folder
-- File Type - Specifies a file mask to match against Blob file names.  Only Blobs with file names matching this file mask will be included in the poll. By default, all blobs will be included.
-
-Clicking on ... shows the advanced inputs. 
-
-![Advanced inputs Blob Available Trigger][8]
-
-The advanced inputs are
-
-- File mask - Specifies a file mask to match against Blob file names.  Only Blobs with file names matching this file mask will be included in the poll. By default, all blobs will be included.
-- Exclude file mask - Specifies a file mask to match against Blob file names.  Blobs matching this file mask will be excluded. By default, no blob is excluded.
-
-Provide the inputs and click on the tick mark to complete input configuration.
-
-![Configured Blob Available Trigger][9]
-
-Note that the configured _Blob Available_ trigger shows both input parameters configured, as well as the output parameters. 
-
-Once the logic app is created, the _Blob Available_ trigger 
-
-
-- Polls the folder path for new files
-- Instantiates the logic flow whenever for every new file
-- Deletes the file from the folder path after the logic flow has been instantiated
-
-####Using the output of Blob Available trigger in subsequent actions
-The output of _Blob Available_ trigger can be used as the input of some other actions in the flow. 
-
-You can click on + in the input dialog of action and select the output of FTP from the drop down box directly.
-
-You can also write an expression directly in the input box of action. The flow expression to refer to the output of trigger is given below
-
-	@triggers().outputs.body.Content
+Azure Storage Blob Connector can be used as as an action. 
 
 ###Actions
 Click on Azure Storage Blob Connector from the right pane. The connector lists down the actions supported.
@@ -137,7 +96,7 @@ Provide the inputs and click on the tick mark to complete input configuration.
 
 Note that the configured Azure Storage Blob Upload Blob action shows both input parameters as well as output parameters.
 
-####Using the outputs of previous actions as input to FTP action
+####Using the outputs of previous actions as input to Azure Storage Blob actions
 Note that in the configured screenshot, Content is value is set to an expression.
 
 	@triggers().outputs.body.Content

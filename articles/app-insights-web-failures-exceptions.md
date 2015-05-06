@@ -44,7 +44,7 @@ The details vary from one application type to another. You can click through any
 
 ##<a name="events"></a>Custom events
 
-Custom events show up both in [Diagnostic Search][diagnostics] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
+Custom events show up both in [Diagnostic Search][diagnostic] and in [Metric Explorer][metrics]. You can send them from devices, web pages and server applications. They can be used both for diagnostic purposes and to [understand usage patterns][track].
 
 A custom event has a name, and can also carry properties that you can filter on, together with numeric measurements.
 
@@ -218,6 +218,8 @@ You can also open Diagnostic Search directly, filter on exceptions, and choose t
 
 Application Insights reports unhandled exceptions where it can, from devices, [web browsers][usage], or web servers, whether instrumented by [Status Monitor][redfield] or [Application Insights SDK][greenbrown]. 
 
+> [AZURE.NOTE] In a web browser; if you include script files from CDNs or other domains, ensure your script tag has the attribute ```crossorigin="anonymous"``` and the server sends CORS headers to get a stack trace and detail for unhandled javascript execptions from these resources.
+
 However, it isn't always able to do this in some cases because the .NET framework catches the exceptions.  To make sure you see all exceptions, you therefore have to write a small exception handler. The best procedure varies with the technology. Please see [this blog](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/12/application-insights-exception-telemetry.aspx) for details. 
 
 ### Correlating with a build
@@ -273,8 +275,17 @@ Up to 500 events per second from each application. Events are retained for seven
 
 
 
-[AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
+<!--Link references-->
 
-
-
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[greenbrown]: app-insights-start-monitoring-app-health-usage.md
+[java]: app-insights-java-get-started.md
+[metrics]: app-insights-metrics-explorer.md
+[platforms]: app-insights-platforms.md
+[qna]: app-insights-troubleshoot-faq.md
+[redfield]: app-insights-monitor-performance-live-website-now.md
+[start]: app-insights-get-started.md
+[track]: app-insights-custom-events-metrics-api.md
+[usage]: app-insights-web-track-usage.md
 

@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." 
 	documentationCenter="php" 
 	services="storage" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 

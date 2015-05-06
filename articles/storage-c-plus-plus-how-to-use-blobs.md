@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-blob-include](../includes/storage-selector-blob-include.md)]
 
 ## Overview
-This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
+This guide will demonstrate how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md). The scenarios covered include **uploading**, **listing**, **downloading**, and **deleting** blobs.  
 
->[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 0.5.0 and above. The recommended version is Storage Client Library 0.5.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/). 
+>[AZURE.NOTE] This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. The recommended version is Storage Client Library 1.0.0, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp). 
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
@@ -38,7 +38,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
 -	**Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
 -	**Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
 
-		Install-Package wastorage -Pre
+		Install-Package wastorage
 
 ## Configure your application to access Blob Storage  
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
@@ -77,21 +77,21 @@ Every blob in Azure storage must reside in a container. This example shows how t
 
 	try 
 	{
-   		// Retrieve storage account from connection string.
-   		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+		// Retrieve storage account from connection string.
+		azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-   		// Create the blob client.
-   		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
+		// Create the blob client.
+		azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();
 
-   		// Retrieve a reference to a container.
-   		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
+		// Retrieve a reference to a container.
+		azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-   		// Create the container if it doesn't already exist.
-   		container.create_if_not_exists();
+		// Create the container if it doesn't already exist.
+		container.create_if_not_exists();
 	}
 	catch (const std::exception& e)
 	{
-	std::wcout << U("Error: ") << e.what() << std::endl;
+		std::wcout << U("Error: ") << e.what() << std::endl;
 	}  
 
 By default, the new container is private and you must specify your storage access key to download blobs from this container. If you want to make the files (blobs) within the container available to everyone, you can set the container to be public using the following code:  
@@ -137,7 +137,7 @@ To upload a file to a block blob, get a container reference and use it to get a 
 Alternatively, you can use the **upload_from_file** method to upload a file to a block blob.
 
 ## How to: List the blobs in a container
-To list the blobs in a container, first get a container reference. You can then use the container's **list_blobs_segmented** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a returned **blob_result_segment**, you must call the **blob_result_segment.blobs** property to get a  **cloud_blob** object, or the **blob_result_segment.directories** property to get a  cloud_blob_directory object. The following code demonstrates how to retrieve and output the URI of each item in the **my-sample-container** container:  
+To list the blobs in a container, first get a container reference. You can then use the container's **list_blobs** method to retrieve the blobs and/or directories within it. To access the rich set of properties and methods for a returned **list_blob_item**, you must call the **list_blob_item.as_blob** method to get a  **cloud_blob** object, or the **list_blob.as_directory** method to get a  cloud_blob_directory object. The following code demonstrates how to retrieve and output the URI of each item in the **my-sample-container** container:
 
 	// Retrieve storage account from connection string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -148,27 +148,19 @@ To list the blobs in a container, first get a container reference. You can then 
 	// Retrieve a reference to a previously created container.
 	azure::storage::cloud_blob_container container = blob_client.get_container_reference(U("my-sample-container"));
 
-	// Loop over items within the container and output the length and URI.
-	azure::storage::continuation_token token;
-	do
+	// Output URI of each item.
+	azure::storage::list_blob_item_iterator end_of_results;
+	for (auto it = container.list_blobs(); it != end_of_results; ++it)
 	{
-   		azure::storage::blob_result_segment result = container.list_blobs_segmented(token);
-   		std::vector<azure::storage::cloud_blob> blobs = result.blobs();
-
-   		for (std::vector<azure::storage::cloud_blob>::const_iterator it = blobs.cbegin(); it != blobs.cend(); ++it)
-   		{
-			std::wcout << U("Blob: ") << it->uri().primary_uri().to_string() << std::endl;
-   		}
-
-   		std::vector<azure::storage::cloud_blob_directory> directories = result.directories();
-
-   		for (std::vector<azure::storage::cloud_blob_directory>::const_iterator it = directories.cbegin(); it != directories.cend(); ++it)
-  		{
-			std::wcout << U("Directory: ") << it->uri().primary_uri().to_string() << std::endl;
-  		}
-  		token = result.continuation_token();
-	} while (!token.empty());  
-
+		if (it->is_blob())
+		{
+			std::wcout << U("Blob: ") << it->as_blob().uri().primary_uri().to_string() << std::endl;
+		}
+		else
+		{
+			std::wcout << U("Directory: ") << it->as_directory().uri().primary_uri().to_string() << std::endl;
+		}
+	}
 
 ## How to: Download blobs
 To download blobs, first retrieve a blob reference and then call the **download_to_stream** method. The following example uses the **download_to_stream** method to transfer the blob contents to a stream object that you can then persist to a local file.  

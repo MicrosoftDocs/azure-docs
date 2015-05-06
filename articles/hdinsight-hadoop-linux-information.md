@@ -22,7 +22,7 @@ Linux-based Azure HDInsight clusters provide Hadoop on a familiar Linux environm
 
 ## Domain names
 
-The fully qualified domain name (FQDN) to use when connecting to the cluster is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername>.aurehdinsight.net**.
+The fully qualified domain name (FQDN) to use when connecting to the cluster is **&lt;clustername>.azurehdinsight.net** or (for SSH only) **&lt;clustername-ssh>.azurehdinsight.net**.
 
 ## Remote access to services
 
@@ -114,7 +114,7 @@ During cluster creation, you selected to either use an existing Azure Storage ac
 
 Other than through the Hadoop command from the cluster, there are a variety of ways to access blobs:
 
-* [Azure Cross-Platform Command-Line Interface](xplat-cli.md): Cross-platform commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
+* [Azure CLI for Mac, Linux and Windows](xplat-cli.md): Cross-platform commands for working with Azure. After installing, use the `azure storage` command for help on using storage, or `azure blob` for blob-specific commands.
 
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): A python script for working with blobs in Azure Storage.
 

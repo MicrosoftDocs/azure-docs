@@ -5,17 +5,19 @@
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/20/2015"
+   ms.date="04/30/2015"
    ms.author="banders" />
 
 # Manage infrastructure capacity
+
+[AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
 You can use the Capacity Planning intelligence pack in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. You install the intelligence pack to update the Operations Manager agent and the base configuration module in Operational Insights. The intelligence pack reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 
@@ -23,7 +25,7 @@ For example, a projection might identify when additional processor cores or addi
 
 ## Capacity Management dashboard
 
-Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). After the Capacity Planning intelligence pack is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights. 
+Before you can use the Capacity Management dashboard in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md). After the Capacity Planning intelligence pack is installed, you can view the capacity of your monitored servers by using the **Capacity Planning** tile on the **Overview** page in Operational Insights. 
 
 ![image of Capacity Planning tile](./media/operational-insights-capacity/overview-cap-plan.png)
 

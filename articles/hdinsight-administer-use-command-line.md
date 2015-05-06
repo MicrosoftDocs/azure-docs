@@ -18,11 +18,11 @@
 
 # Manage Hadoop clusters in HDInsight by using the Cross-Platform Command-line Interface
 
-Learn how to use the Azure Cross-Platform Command-Line Interface to manage Hadoop clusters in Azure HDInsight. The command-line tool is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
+Learn how to use the Azure Command-Line interface for Mac, Linux and Windows to manage Hadoop clusters in Azure HDInsight. The Azure CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux. 
 
-The command-line tool is open source. The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
+The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
-This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]. For comprehensive reference documentation, see [Azure command-line tool for Mac and Linux][azure-command-line-tool].
+This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools].
 
 
 ##Prerequisites
@@ -190,8 +190,7 @@ In this article, you have learned how to perform different HDInsight cluster adm
 * [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
 * [Get started with Azure HDInsight][hdinsight-get-started]
-* [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools]
-* [Azure command-line tool for Mac and Linux][azure-command-line-tool]
+* [How to use the Azure CLI for Mac, Linux and Windows][azure-command-line-tools]
 
 
 [azure-command-line-tools]: xplat-cli.md

@@ -62,7 +62,7 @@
 </tr>
 <tr>
    <td valign="middle"><p>Maximum request size of stored procedure, trigger and UDF</p></td>
-   <td valign="middle"><p>256KB</p></td>
+   <td valign="middle"><p>512KB</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Maximum response size</p></td>
@@ -91,6 +91,10 @@
 <tr>
    <td valign="middle"><p>Maximum number of OR clauses per query*</p></td>
    <td valign="middle"><p>5</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>Maximum number of values per IN expression*</p></td>
+   <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Maximum number of collection creates per minute*</p></td>

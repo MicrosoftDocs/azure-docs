@@ -1,9 +1,9 @@
 <properties 
 	pageTitle="Connect to SQL Database by using Python with pymssql on Ubuntu" 
-	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Unbutu Linux client computer."
+	description="Presents a Python code sample you can use to connect to Azure SQL Database. The sample runs on an Ubuntu Linux client computer."
 	services="sql-database" 
 	documentationCenter="" 
-	authors="MightyPen" 
+	authors="meet-bhagdev" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -14,19 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/18/2015" 
-	ms.author="genemi"/>
+	ms.date="04/27/2015" 
+	ms.author="mebha"/>
 
 
-# Connect to SQL Database by using Python on Unbutu Linux
+# Connect to SQL Database by using Python on Ubuntu Linux
 
 
-<!--
-Original author of content is Meet Bhagdev. GeneMi edited and first published.
--->
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-This topic presents a Python code sample that run on an Unbutu Linux client computer, to connect to an Azure SQL Database database.
+This topic presents a Python code sample that run on an Ubuntu Linux client computer, to connect to an Azure SQL Database database.
 
 
 ## Requirements
@@ -38,7 +36,7 @@ This topic presents a Python code sample that run on an Unbutu Linux client comp
 ### Install the required modules
 
 
-Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**.
+Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**. pymssql uses FreeTDS to connect to SQL Databases.
 
 	sudo apt-get --assume-yes update
 	sudo apt-get --assume-yes install freetds-dev freetds-bin
@@ -49,17 +47,21 @@ Open your terminal and navigate to a directory where you plan on creating your p
 ### Create a database and retrieve your connection string
 
 
-See the [Get Started topic](sql-database-get-started.md) to learn how to create a sample database and retrieve your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
+See the [getting started page](sql-database-get-started.md) to learn how to create a sample database and get your connection string. It is important you follow the guide to create an **AdventureWorks database template**. The samples shown below only work with the **AdventureWorks schema**. 
 
 
 ## Connect to your SQL Database
 
+
+The [pymssql.connect](http://pymssql.org/en/latest/ref/pymssql.html) function is used to connect to SQL Database.
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
 
 
 ## Execute an SQL SELECT statement
+
+The [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.execute) function can be used to retrieve a result set from a query against SQL Database. This function essentially accepts any query and returns a result set which can be iterated over with the use of [cursor.fetchone()](http://pymssql.org/en/latest/ref/pymssql.html#pymssql.Cursor.fetchone).
 
 
 	import pymssql
@@ -74,6 +76,8 @@ See the [Get Started topic](sql-database-get-started.md) to learn how to create 
 
 ## Insert a row, pass parameters, and retrieve the generated primary key
 
+In SQL Database the [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) property and the [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) object can be used to auto-generate [primary key](https://msdn.microsoft.com/library/ms179610.aspx) values. 
+
 
 	import pymssql
 	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
@@ -85,52 +89,24 @@ See the [Get Started topic](sql-database-get-started.md) to learn how to create 
 	    row = cursor.fetchone()
 
 
-<!--
-TODO: The code sample must leave the schema and data in the same state as they were before the sample started. The above INSERT has no matching SQL DELETE.
--->
-
-
 ## Transactions
 
 
 This code example demonstrates the use of transactions in which you:
 
 
-- Begin a transaction.
-- Insert a row of data.
-- Rollback your transaction to undo the insert.
+-Begin a transaction
+
+-Insert a row of data
+
+-Rollback your transaction to undo the insert
 
 
-		import pymssql
-		conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
-		cursor = conn.cursor()
-		cursor.execute("BEGIN TRANSACTION")
-		cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
-		cnxn.rollback()
+	import pymssql
+	conn = pymssql.connect(server='yourserver.database.windows.net', user='yourusername@yourserver', password='yourpassword', database='AdventureWorks')
+	cursor = conn.cursor()
+	cursor.execute("BEGIN TRANSACTION")
+	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
+	cnxn.rollback()
 
-
-## Stored procedures
-
-
-<!--
-TODO, FIX PROBLEM:
-.
-This program is not re-runnable. The program needs to clean up after itself, and leave the schema and data in the same state it was before the program started.
-.
-Can you DROP the stored procedure after it runs?
--->
-
-
-	with pymssql.connect("yourserver", "yourusername", "yourpassword", "yourdatabase") as conn:
-    with conn.cursor(as_dict=True) as cursor:
-        cursor.execute("""
-        CREATE PROCEDURE FindProductNameName
-            @name VARCHAR(100)
-        AS BEGIN
-            SELECT * FROM Product WHERE Name = @name
-        END
-        """)
-        cursor.callproc('FindPerson', ('Bike'))
-        for row in cursor:
-            print str(row[0]) + " " + str(row[1]) + " " + str(row[2])
 

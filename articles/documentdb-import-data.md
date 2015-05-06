@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/05/2015" 
 	ms.author="stbaro"/>
 
 # Import data to DocumentDB #
@@ -26,6 +26,7 @@ After reading this article, you'll be able to answer the following questions:
 -	How can I import CSV file data to DocumentDB?
 -	How can I import SQL Server data to DocumentDB?
 -	How can I import MongoDB data to DocumentDB?
+-	How can I import data from Azure Table storage to DocumentDB?
 -	How can I migrate data between DocumentDB collections?
 
 ##<a id="Prerequisites"></a>Prerequisites ##
@@ -42,6 +43,7 @@ The DocumentDB Data Migration tool is an open source solution that imports data 
 - MongoDB
 - SQL Server
 - CSV files
+- Azure Table storage
 - DocumentDB collections
 
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command line (dt.exe).  In fact, there is an option to output the associated command after setting up an import through the UI.  Tabular source data (e.g. SQL Server or CSV files) can be transformed such that hierarchical relationships (subdocuments) can be created during import.  Keep reading to learn more about source options, sample command lines to import from each source, target options, and viewing import results.
@@ -180,6 +182,33 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting.  B
 Here is a command line sample for CSV import:
 
 	dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionTier:S3
+
+##<a id="AzureTableSource"></a>Import from Azure Table storage ##
+
+The Azure Table storage source importer option allows you to import from an individual Azure Table storage table and optionally filter the table entities to be imported.  
+
+![Screenshot of Azure Table storage source options](./media/documentdb-import-data/azuretablesource.png)
+
+The format of the Azure Table storage connection string is:
+
+	DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
+
+> [AZURE.NOTE] Use the Verify command to ensure that the Azure Table storage instance specified in the connection string field can be accessed. 
+
+Enter the name of the Azure table from which data will be imported.  You may optionally specify a [filter](https://msdn.microsoft.com/library/azure/ff683669.aspx).
+
+The Azure Table storage source importer option has the following additional options:
+
+1. Include Internal Fields 
+	2. All - Include all internal fields (PartitionKey, RowKey, and Timestamp)
+	3. None - Exclude all internal fields
+	4. RowKey - Only include the RowKey field
+3. Select Columns
+	1. Azure Table storage filters do not support projections.  If you want to only import specific Azure Table entity properties, add them to the Select Columns list.  All other entity properties will be ignored.
+
+Here is a command line sample to import from Azure Table storage:
+
+	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
 ##<a id="DocumentDBSource"></a>Import from DocumentDB ##
 

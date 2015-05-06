@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Ruby." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 

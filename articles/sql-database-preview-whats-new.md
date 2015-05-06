@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="04/28/2015" 
 	ms.author="genemi"/>
 
 
@@ -38,7 +38,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 ## Highlights
 
 
-- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the [earlier portal](http://manage.windowsazure.com/) is also supported.
+- **Azure preview portal** is [available](http://portal.azure.com/) to create SQL Database databases and servers at version V12, or optionally at the earlier version. In the Azure preview portal you specify your SQL Database database and then proceed to specify a SQL Database server to host it. For now the [earlier Azure portal](http://manage.windowsazure.com/) is also supported.
 
 
 - **Choose a version** of SQL Database server when you use the Azure preview portal to create a new database. The default is V12, but you can choose the earlier version of the SQL Database server.
@@ -126,6 +126,13 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | Log rate | V12 can log more data changes per second. |
 
 
+| Feature | Description |  
+| :--- | :--- |  
+| . | ***August 2015:*** |
+| Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |  
+| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |  
+
+
 ### Summary of enhancements
 
 
@@ -156,7 +163,7 @@ And at the Premium tier V12 brings major performance improvements. Some applicat
 | Japan East | General Availability (GA) | February 24th, 2015 |
 | North Europe | General Availability (GA) | January 29th, 2015 |
 | West Europe | General Availability (GA) | January 29th, 2015 |
-| Brazil South | Not available | Third quarter 2015, estimated |
+| Brazil South | General Availability (GA) | April 21st, 2015 |
 | Australia East | Preview | Second quarter 2015, estimated |
 | Australia Southeast | Preview | Second quarter 2015, estimated |
 

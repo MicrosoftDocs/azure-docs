@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/20/2015" 
+	ms.date="05/06/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -24,7 +24,7 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 
 ## Introduction to Azure Stream Analytics (video)
 
-In this video, Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
+In this [video](http://azure.microsoft.com/documentation/videos/introduction-to-azure-stream-analytics-with-santosh-balasubramanian/), Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
 
 > [AZURE.VIDEO introduction-to-azure-stream-analytics-with-santosh-balasubramanian]
 
@@ -108,19 +108,16 @@ Data from various devices and platforms that are distributed across the world is
 
 ![Azure Stream Analytics event archival for future processing][img.stream.analytics.scenario3]
  
-
-
-## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
-
+## Get help
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 
 <!--Image references-->

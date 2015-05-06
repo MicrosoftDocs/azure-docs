@@ -3,7 +3,7 @@
    description="Learn how to use Stream Analytics to analyze sentiment and trends on Twitter in real-time. This tutorial includes steps from event generation to data on a live dashboard."
    services="stream-analytics"
    documentationCenter=""
-   authors="Blackmist"
+   authors="jeffstokes72"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/16/2015"
-   ms.author="cgronlun"/>
+   ms.date="04/28/2015"
+   ms.author="jeffstok"/>
 
 
 # Social media analytics: Real-time Twitter sentiment analysis
@@ -24,6 +24,10 @@ In this tutorial, you'll learn how to build a solution by bringing Twitter event
 ## Scenario
 
 A news media website is interested in getting an edge over its competitors by featuring site content that is immediately relevant to its readers.  They use social media insights on topics relevant to their readers by doing real time analytics on Twitter data.  Specifically, to identify what topics are trending, they need real-time analytics about the tweet volume and sentiment for key topics.
+
+## Prerequisites
+1.	A Twitter account is required for this tutorial.  
+2.	This walkthough leverages an event generator located on GitHub.  Download it [here](https://github.com/streamanalytics/samples/tree/master/TwitterClient) and follow the steps below to set up your solution.
 
 ## Create an Event Hub input and a Consumer Group
 
@@ -220,7 +224,7 @@ Use a tool like [Azure Storage Explorer](https://azurestorageexplorer.codeplex.c
 ![Stream Analytics output in a Power BI dashboard.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## Get support
-For additional support, see [Azure Stream Analytics forum](stream-analytics-forum.md). 
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
 
 ## Next steps
@@ -228,5 +232,5 @@ For additional support, see [Azure Stream Analytics forum](stream-analytics-foru
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics Query Language Reference](stream-analytics-query-language-reference.md)
-- [Azure Stream Analytics Management REST API Reference](stream-analytics-rest-api-reference.md) 
+- [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
