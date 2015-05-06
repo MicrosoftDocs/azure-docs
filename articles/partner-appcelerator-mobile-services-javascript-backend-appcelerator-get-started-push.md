@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -28,7 +28,7 @@
 	<a href="partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md-push" title="Appcelerator" class="current">Appcelerator</a>
 </div>
 
-This topic shows you how to use Windows Azure Mobile Services to send push notifications to both iOS and Android apps developed through Appcelerator Titanium Studio. In this tutorial you add push notifications using the Apple Push Notification service (APNS) and Google Cloud Messaging to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
+This topic shows you how to use Microsoft Azure Mobile Services to send push notifications to both iOS and Android apps developed through Appcelerator Titanium Studio. In this tutorial you add push notifications using the Apple Push Notification service (APNS) and Google Cloud Messaging to the quickstart project. When complete, your mobile service will send a push notification each time a record is inserted.
 
 >[AZURE.NOTE] Mobile Services integrates with Azure Notification Hubs to support additional push notification functionality, such as templates, multiple platforms, and improved scale. This topic supports existing mobile services that have not yet been upgraded to use Notification Hubs integration. When you create a new mobile service, this integrated functionality is automatically enabled. You should upgrade your service to use Notification Hubs when possible. **We will work to get a tutorial available for Notification Hubs push with Appcelerator soon.**
 
@@ -479,6 +479,6 @@ This registers a new insert script, which uses the [Mobile Services push object]
 <!-- URLs. -->
 [Get started with Mobile Services]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
 [Using Titanium Modules]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-[Windows Azure Management Portal]: https://manage.windowsazure.com/
+[Microsoft Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services push object]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Installing the Java Development Tools]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
