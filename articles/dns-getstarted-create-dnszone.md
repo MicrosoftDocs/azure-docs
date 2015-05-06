@@ -28,12 +28,12 @@ The following steps need to be completed before you can manage Azure DNS using A
 ### Step 1
  Azure DNS uses Azure Resource Manager (ARM). Make sure you switch PowerShell mode to use the ARM cmdlets. More info is available at [Using Windows Powershell with Resource Manager](../powershell-azure-resource-manager).<BR><BR>
 
-		PS C:\> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### Step 2
  Log in to your Azure account.<BR><BR>
 			
-		PS C:\> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 You will be prompted to Authenticate with your credentials.<BR>
 
@@ -41,16 +41,21 @@ You will be prompted to Authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 To see a list of available subscriptions, use the ‘Get-AzureSubscription’ cmdlet.<BR>
 
 ### Step 4
 Create a new resource group (skip this step if using an existing resource group)<BR>
 
-		PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, since all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.<BR>
+
+### Step 5
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.<BR>
+
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ## Sign up to the Azure DNS Public Preview
 
@@ -61,12 +66,10 @@ To register your subscription to use the Azure DNS Public Preview, please execut
 You can check your registration status as follows:
 
 	PS C:\> Get-AzureProviderFeature -ProviderNamespace Microsoft.Network -FeatureName azurednspreview
-<BR>
 
 	FeatureName                       ProviderName                RegistrationState  
-	-----------                       ------------             -----------------  
-
-	azurednspreview              Microsoft.Network                  Registered 
+	-----------                       ------------                -----------------  
+	azurednspreview                   Microsoft.Network           Registered 
 
 
 Your RegistrationState may show as ‘Pending’, in which case please check back later.
