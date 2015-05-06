@@ -54,6 +54,11 @@ To build a dev/test environment or a proof-of-concept of this configuration, see
 
 For additional information about SharePoint with SQL Server AlwaysOn Availability Groups, see [Configure SQL Server 2012 AlwaysOn Availability Groups for SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
 
+## Next Step
+
+To start the configuration of this workload, go to [Phase 1: Configure Azure](virtual-machines-workload-intranet-sharepoint-phase1.md).
+
+
 ## Additional Resources
 
 [SharePoint with SQL Server AlwaysOn Infographic](http://go.microsoft.com/fwlink/?LinkId=394788)

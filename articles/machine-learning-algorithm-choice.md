@@ -14,13 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/05/2015" 
 	ms.author="bradsev;garye" />
 
 
 # How to choose an algorithm in Azure Machine Learning
 
-This topic explains some basics aspects of the machine learning approach and outlines, in particular, how to select an appropriate algorithm to analyze a given type of data, to answer a question posed, to accomplish a specified task, or to provide criteria for making a decision. When using machine learning to do analytics, we are usually faced with two questions: 
+This topic explains some basics aspects of the machine learning approach and outlines, in particular, how to select an appropriate algorithm to analyze a given type of data, to answer a question posed, to accomplish a specified task, or to provide criteria for making a decision. 
+
+> [AZURE.TIP] The [Microsoft Azure Machine Learning Algorithm Cheat Sheet](machine-learning-algorithm-cheat-sheet.md) is a handy reference to accompany this article.
+
+When using machine learning to do analytics, we are usually faced with two questions: 
 
 * What kind of analysis do we need to accomplish our objectives with the data available? 
 * What is the most appropriate algorithm or model to use to do this analysis?

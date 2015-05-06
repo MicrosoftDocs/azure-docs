@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Phase 1: Configure Azure" 
+	pageTitle="SharePoint Intranet Farm Workload Phase 1: Configure Azure" 
 	description="In this first phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create the Azure virtual network and other Azure infrastructure elements." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="05/05/2015" 
 	ms.author="josephd"/>
 
-# Phase 1: Configure Azure
+# SharePoint Intranet Farm Workload Phase 1: Configure Azure
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you build out the Azure networking and storage infrastructure. You must complete this phase before moving on to [Phase 2](virtual-machines-workload-intranet-sharepoint-phase2.md). See [Deploying SharePoint with SQL Server AlwaysOn Availability Groups in Azure](virtual-machines-workload-intranet-sharepoint-overview.md) for all of the phases.
 

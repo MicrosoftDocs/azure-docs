@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="05/05/2015"
    ms.author="banders" />
 
 # Update servers with System Updates
@@ -23,7 +23,7 @@ You can use the System Updates intelligence pack in Microsoft Azure Operational 
 
 ## Use System Updates to update servers
 
-Before you can use system updates in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-packs.md). After it is installed, you can view the updates that are missing from your monitored servers by using the **System Update Assessment** tile on the **Overview** page in Operational Insights. 
+Before you can use system updates in Microsoft Azure Operational Insights, you must have the intelligence pack installed. To read more about installing intelligence packs, see [Use the Gallery to add or remove intelligence packs](operational-insights-add-intelligence-pack.md). After it is installed, you can view the updates that are missing from your monitored servers by using the **System Update Assessment** tile on the **Overview** page in Operational Insights. 
 
 ![image of System Update Assessment tile](./media/operational-insights-updates/overview-update.png)
 
