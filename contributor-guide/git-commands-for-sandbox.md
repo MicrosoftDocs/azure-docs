@@ -4,7 +4,7 @@
 
 # Git commands for staging an article on the internal preview site
 
-Staging is now automated for private repository pull requests.
+Staging is now automated for private repository pull requests. See [Git commands for creating a new article or updating an existing article](git-commands-for-master.md)
 
 <!--
 Follow the steps in this article to stage content to the internal staging site prior to releasing the article to the public site.
