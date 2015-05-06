@@ -106,13 +106,15 @@ This step involves setting up a backup and retention policy for the virtual mach
 	> [AZURE.NOTE] For preview, up to 30 days of retention and a maximum of once-a-day backup is supported.
 
 	![Select protection policy][protect-wizard2]
- 	In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00PM, while another backup policy could be for weekly backup at 6:00AM. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
+
+	In each backup vault, you can have multiple backup policies. The policies reflect the details about how the backup should be scheduled and retained. For example, one backup policy could be for daily backup at 10:00PM, while another backup policy could be for weekly backup at 6:00AM. Multiple backup policies allow flexibility in scheduling backups for your virtual machine infrastructure.
 	 Each backup policy can have multiple virtual machines that are associated with the policy. The virtual machine can be associated with only one policy at any given point in time.
 
 6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click on the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
  ![Configure protection job][protect-configure]
 
 7. Once completed, the virtual machines are protected with a policy and must wait until the scheduled backup time for the initial backup to be completed. The virtual machine will now appear under the **Protected Items** tab and will have a Protected Status of *Protected* (pending initial backup).
+
 	> [AZURE.NOTE] Starting the initial backup immediately after configuring protection is not available as an option today.
 
 8. At the scheduled time, the Azure Backup service creates a backup job for each virtual machine that needs to be backed up. Click on the **Jobs** tab to view the list of **Backup** jobs. As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machines to flush all writes and take a consistent snapshot.
@@ -139,9 +141,13 @@ You can troubleshoot discovery and registration issues by using the following in
 
 ## Consistency of recovery points
 When dealing with backup data, customers worry about the behaviour of the VM after it has been restored. The typical questions that customers ask are:
+
 + Will the virtual machine boot up?
+
 + Will the data be available on the disk (or) is there any data loss?
+
 + Will the application be able to read the data (or) is the data corrupted?
+
 + Will the data make sense to the application (or) is the data self-consistent when read by the application?
 
 The table below explains the types of consistency that are encountered during Azure VM backup and restore:
