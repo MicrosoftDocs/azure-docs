@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Azure" 
+   pageTitle="Provision Hadoop clusters on Linux in HDInsight | Microsoft Azure" 
    description="Learn how to provision Hadoop clusters on Linux for HDInsight using the management portal, the command line, and the .NET SDK." 
    services="hdinsight" 
    documentationCenter="" 

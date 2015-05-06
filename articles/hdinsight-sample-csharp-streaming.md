@@ -51,7 +51,7 @@ Before you begin, you must have the following:
 - Azure PowerShell. It must be configured for use with your account. For instructions about how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
-<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
+## <a id="run-sample"></a>Run the sample with Azure PowerShell
 
 **To run the MapReduce job**
 
@@ -99,7 +99,7 @@ Before you begin, you must have the following:
 
 	Note that the output files of a MapReduce job are immutable. So if you rerun this sample, you need to change the name of the output file.
 
-<h2><a id="java-code"></a>The C# code for Hadoop Streaming</h2>
+##<a id="java-code"></a>The C# code for Hadoop Streaming
 
 The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and the wc.exe application as the reduce interface to count the number of words that are streamed from a document. Both the mapper and reducer read characters, line-by-line, from the standard input stream (stdin) and write to the standard output stream (stdout).
 
@@ -165,11 +165,11 @@ The mapper code in the cat.cs file uses a [StreamReader][streamreader] object to
 
 The reducer code in the wc.cs file uses a [StreamReader][streamreader]   object to read characters from the standard input stream that have been output by the cat.exe mapper. As it reads the characters with the [Console.Writeline][console-writeline] method, it counts the words by counting spaces and end-of-line characters at the end of each word. It then writes the total to the standard output stream with the [Console.Writeline][console-writeline] method.
 
-<h2><a id="summary"></a>Summary</h2>
+##<a id="summary"></a>Summary
 
 In this tutorial, you saw how to deploy a MapReduce job in HDInsight by using Hadoop Streaming.
 
-<h2><a id="next-steps"></a>Next steps</h2>
+##<a id="next-steps"></a>Next steps
 
 For tutorials that run other samples and provide instructions for running Pig, Hive, and MapReduce jobs in Azure HDInsight with Azure PowerShell, see the following articles:
 
@@ -188,7 +188,7 @@ For tutorials that run other samples and provide instructions for running Pig, H
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: http://msdn.microsoft.com/library/3x292kth(v=vs.110).aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 
