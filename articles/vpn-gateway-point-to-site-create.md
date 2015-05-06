@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/05/2015"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site VPN connection to an Azure Virtual Network
@@ -96,8 +96,9 @@ Certificates are used to authenticate VPN clients for point-to-site VPNs. This p
 2. Change the directory to the location where you want to save the client certificate file. *RootCertificateName* refers to the self-signed root certificate that you generated. If you run the example below (changing the RootCertificateName to the name of your root certificate), the result will be a client certificate named “ClientCertificateName” in your Personal certificate store.
 
 3. Type the following command:
-
-    makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1
+	
+    `makecert.exe -n "CN=ClientCertificateName" -pe -sky exchange -m 96 -ss My -in "RootCertificateName" -is my -a sha1`
+ 
 
 4. All certificates are stored in your Personal certificate store on your computer. Check *certmgr* to verify. You can generate as many client certificates as needed based on this procedure. We recommend that you create unique client certificates for each computer that you want to connect to the virtual network.
 
@@ -151,23 +152,24 @@ Note that the configuration package is not signed by Microsoft. You may wish to 
 
 2. View the results. Notice that the IP address you received is one of the addresses within the point-to-site connectivity address range that you specified when you created your VNet. The results should be something similar to this:
 
-PPP adapter VNetEast:
+Example:
 
-   Connection-specific DNS Suffix  . :
-   Description . . . . . . . . . . . : VNetEast
-   Physical Address. . . . . . . . . :
-   DHCP Enabled. . . . . . . . . . . : No
-   Autoconfiguration Enabled . . . . : Yes
-   IPv4 Address. . . . . . . . . . . : 192.168.130.2(Preferred)
-   Subnet Mask . . . . . . . . . . . : 255.255.255.255
-   Default Gateway . . . . . . . . . :
-   NetBIOS over Tcpip. . . . . . . . : Enabled
 
+
+    PPP adapter VNetEast:
+		Connection-specific DNS Suffix .:
+		Description.....................: VNetEast
+		Physical Address................:
+		DHCP Enabled....................: No
+		Autoconfiguration Enabled.......: Yes
+		IPv4 Address....................: 192.168.130.2(Preferred)
+		Subnet Mask.....................: 255.255.255.255
+		Default Gateway.................: 
+		NetBIOS over Tcpip..............: Enabled
 
 
 
 ## See Also
-
 
 - [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
 - [Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
