@@ -29,7 +29,7 @@ If you are a Microsoft contributor, you need to set up your GitHub account so yo
 
 - **Profile picture**: a picture of you (required)
 - **Name**: your first and last name (required)
-- **Email**: your Microsoft email address (optional at this time)
+- **Email**: your Microsoft email address (required)
 - **Company**: Microsoft Corporation (required)
 - **Location**: list your location (required)
 

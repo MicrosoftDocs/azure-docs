@@ -192,7 +192,7 @@ Once a predictive model has been put into production, you can monitor it from th
 
 **Is there a place where I can see the output of my RRS/BES?** 
 
-Yes, you can provide a blob storage location and the output of the RRS/BES will be placed there. 
+Yes, you must provide a blob storage location and the output of the RRS/BES will be placed there. 
 
 
 
