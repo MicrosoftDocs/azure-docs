@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/04/2015"
+   ms.date="05/05/2015"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -202,7 +202,7 @@ The table below provides the increased limits for the number of VNets you can li
 
 **Limits for circuits created through EXPs**
 
-| **Circuit Size** | **Number of VNets for default setup** | **Number of VNet links with ExpressRoute Premium** |
+| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet links with ExpressRoute Premium** |
 |--------------|-----------------------------------|------------------------------------------------|
 | 200 Mbps     | 10                                | 25                                             |
 | 500 Mbps     | 10                                | 40                                             |
