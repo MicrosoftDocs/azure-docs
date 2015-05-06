@@ -3,9 +3,9 @@
 	description="Presents a sample PHP program that connects to Azure SQL Database from a Windows client, and provides links to the necessary software components needed by the client."
 	services="sql-database"
 	documentationCenter=""
-	authors="Lfsantos"
+	authors="MightyPen"
 	manager="jeffreyg"
-	editor="genemi"/>
+	editor=""/>
 
 
 <tags
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="04/30/2015"
-	ms.author="lfsantos"/>
+	ms.date="04/27/2015"
+	ms.author="genemi"/>
 
 
 # Connect to SQL Database by using PHP on Windows

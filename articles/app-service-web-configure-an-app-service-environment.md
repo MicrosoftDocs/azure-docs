@@ -20,7 +20,7 @@
 
 ## Overview ##
 
-App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment][WhatisASE]. For information on how to create an ASE read the document here [How to Create an App Service Environment][HowtoCreateASE]. 
+App Service Environments is a new Premium Tier capability that is being offered in Preview.  It offers new scaling and network access capabilities.  This new scale capability allows you to place an instance of the Azure App Service into your VNET.  If you are unfamiliar with the App Service Environment (ASE) capability then read the document here [What is an App Service Environment]/app-service-app-service-environment-intro.md). For information on how to create an ASE read the document here [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md). 
 
 At a high level an App Service Environment consists of several major components:
 
@@ -61,7 +61,7 @@ Within any single worker pool the fault tolerance requirements are that for a gi
 - if X is between 21 to 40, the amount of usable compute resources you can use for workloads is X-2
 - if X is between 41 to 53, the amount of usable compute resources you can use for workloads is X-3
 
-In addition to being able to manage the quantity of compute resources that you can assign to a given pool you also have control over the size.  With App Service Environments you can choose from 4 different sizes labeled P1 through P4.  For details around those sizes and their pricing please see here [App Service Pricing][AppServicePricing] The P1 to P3 compute resource sizes are the same as what is available normally.  The P4 compute resource gives 8 cores with 14 GB of RAM and is only available in an App Service Environment.
+In addition to being able to manage the quantity of compute resources that you can assign to a given pool you also have control over the size.  With App Service Environments you can choose from 4 different sizes labeled P1 through P4.  For details around those sizes and their pricing please see here [App Service Pricing](app-service-value-prop-what-is.md) The P1 to P3 compute resource sizes are the same as what is available normally.  The P4 compute resource gives 8 cores with 14 GB of RAM and is only available in an App Service Environment.
 
 As noted earlier, the App Service Environment feature is currently in Preview and as such it still has room to grow.  In addition to additional monitoring capabilities, more management features will be rolled out as App Service Environments moves to GA.  For now there are only a few things that can be managed in this interface:
 
@@ -84,7 +84,7 @@ Adding additional instances to a worker pool is a benign operation and does not 
 - use an unused worker pool to bring up the instances required in the size desired
 - scale the App Service Plans to the new worker pool.  
  
-This is much less disruptive to running apps than changing the compute resource size with running workloads.  For details around scaling web apps in an App Service Environment go here [Scaling Web Apps in an App Service Environment][HowtoScale]  
+This is much less disruptive to running apps than changing the compute resource size with running workloads.  For details around scaling web apps in an App Service Environment go here [Scaling Web Apps in an App Service Environment](app-service-web-scale-a-web-app-in-an-app-service-environment.md)  
 
 ## Virtual Network ##
 
@@ -98,7 +98,7 @@ Administering your VNET is done through the normal Virtual Network UI.
 
 Because this capability places the Azure App Service into your VNET it means that your apps hosted in your ASE can now access resources made available through ExpressRoute or Site to Site VPNs directly.  The apps within your App Service Environments do not require additional networking features to access resources available to the VNET hosting your App Service Environment.  
 
-If desired you can also now control access using Network Security Groups.  This capability allows you to lock down your App Service Environment to just the IP addresses you wish to restrict it to.  For more information around how to do that see the document here [How to Control Inbound Traffic in an App Service Environment][ControlInbound].
+If desired you can also now control access using Network Security Groups.  This capability allows you to lock down your App Service Environment to just the IP addresses you wish to restrict it to.  For more information around how to do that see the document here [How to Control Inbound Traffic in an App Service Environment](app-service-app-service-environment-control-inbound-traffic.md).
 
 ## Deleting an App Service Environment ##
 
@@ -106,9 +106,9 @@ If you want to delete an App Service Environment then simply use the Delete acti
 
 ## Getting started
 
-To get started with App Service Environments, see [How To Create An App Service Environment][HowtoCreateASE]
+To get started with App Service Environments, see [How To Create An App Service Environment](app-service-web-how-to-create-an-app-service-environment.md)
 
-For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
+For more information about the Azure App Service platform, see [Azure App Service](app-service-value-prop-what-is.md).
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
@@ -123,8 +123,8 @@ For more information about the Azure App Service platform, see [Azure App Servic
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [Appserviceplans]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
-[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment-in-an-ase/
-[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-scale-a-web-app-in-an-app-service-environment/
+[HowtoCreateASE]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
+[HowtoScale]: http://azure.microsoft.com/documentation/articles/app-service-web-scale-a-web-app-in-an-app-service-environment/
 [ControlInbound]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 

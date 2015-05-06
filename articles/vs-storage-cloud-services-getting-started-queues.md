@@ -40,6 +40,7 @@ This article will show you how to perform common scenarios using the Azure Queue
 Add the following code namespace declarations to the top of any C\# file
 in which you wish to programmatically access Azure Storage:
 
+    using Microsoft.Azure;
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Queue;

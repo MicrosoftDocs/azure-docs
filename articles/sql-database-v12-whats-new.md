@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="05/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -58,10 +58,7 @@ Your path to planning and upgrading your earlier version databases to V12 starts
 - **New S3 performance level in the Standard tier:** offers more [pricing](sql-database-upgrade-new-service-tiers.md) flexibility between Standard and Premium. S3 will deliver more DTUs (database throughput units) and all the features available in the Standard tier.
 
 
-The next sections describe the enhancements in Azure SQL Database V12.
-
-
-## Expanded database management
+## V12 enhancements: Expanded database management
 
 
 | Feature | Description |
@@ -138,7 +135,7 @@ These performance enhancements apply to the P2 and P3 levels within the Premium 
 | :--- | :--- |
 | . | ***August 2015:*** |
 | Create server using REST or PowerShell |  When you create a server without specifying a server version, the default version will change from V11 to V12.<br/><br/>This aligns with the [Azure preview portal](http://portal.azure.com). |
-| Create database using Transact-SQL, REST, or PowerShell | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be S0 instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |
+| Create database using Transact-SQL, [REST](http://msdn.microsoft.com/library/azure/gg715283.aspx), or [PowerShell](http://msdn.microsoft.com/library/azure/dn806332.aspx) | On V11 servers, when you create a new database without specifying an edition or service objective, the default service objective will be [S0](http://azure.microsoft.com/pricing/details/sql-database/) instead of Web-and-Business. This aligns with V12 servers in the Azure preview portal. |
 
 
 ## Summary of enhancements

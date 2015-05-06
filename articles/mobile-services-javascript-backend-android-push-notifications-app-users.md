@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="02/23/2015" 
 	ms.author="wesmc"/>
 
 
@@ -83,6 +83,11 @@ After you have completed both tutorials, you can prevent unauthenticated users f
 ##Test the app
 
 [AZURE.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)] 
+
+<!---##Next steps
+
+In the next tutorial, [Service-side authorization of Mobile Services users](mobile-services-javascript-backend-service-side-authorization.md), you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->
+
 
 <!-- URLs. -->
 [Add authentication to your Mobile Services app]: mobile-services-android-get-started-users.md

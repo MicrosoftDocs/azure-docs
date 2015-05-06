@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/01/2015" 
 	ms.author="rasquill"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
@@ -24,14 +24,18 @@ This article provides guidance on how to automate common tasks for deploying and
 
 Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).
 
-### Step 1: Update your Azure CLI version to 0.9.0
+### Step 1: Update your Azure CLI version to 0.9.0 or later
 
-Type `azure --version` to see whether you have already installed version 0.9.0. 
+Type `azure --version` to see whether you have already installed version 0.9.0 or later 
 
 	azure --version
     0.9.0 (node: 0.10.25)
 
-If your version is not 0.9.0, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+If your version is not 0.9.0 or later, you'll need to either [install the Azure CLI](xplat-cli-install.md) or update using either one of the native installers or through **npm** by typing `npm update -g azure-cli`.
+
+You can also run Azure CLI as a Docker container using the following [Docker image](https://registry.hub.docker.com/u/kmouss/azure-cli/)
+
+	docker run -it kmouss/azure-cli
 
 ### Step 2: Set your Azure account and subscription
 
@@ -105,7 +109,9 @@ First, create your resource group.
 
 Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI](resource-groups-vm-searching.md). But for this quickstart, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
-| Publisher                        | ImageOffer                                 | ImageSku                         | ComputeImageVersion |
+> [AZURE.NOTE] For the ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template langauge and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modidfy your scripts or templates. This is shown below. 
+
+| PublisherName                        | Offer                                 | Sku                         | Version |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic                        | CentOS                                     | 7                                | 7.0.201503          |
 | OpenLogic                        | CentOS                                     | 7.1                              | 7.1.201504          |
@@ -117,8 +123,10 @@ Second, you'll need an image. To find an image with the Azure CLI, see [Navigati
 | msopentech                       | Oracle-Database-12c-Weblogic-Server-12c    | Enterprise                       | 1.0.0               |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-DW      | 12.0.2430           |
 | MicrosoftSQLServer               | SQL2014-WS2012R2                           | Enterprise-Optimized-for-OLTP    | 12.0.2430           |
-| Canonical                        | UbuntuServer                               | 14.04.1-LTS                      | 14.04.201501230     |
+| Canonical                        | UbuntuServer                               | 12.04.5-LTS                      | 12.04.201504230     |
 | Canonical                        | UbuntuServer                               | 14.04.2-LTS                      | 14.04.201503090     |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-Datacenter                  | 3.0.201503          |
+| MicrosoftWindowsServer           | WindowsServer                              | 2012-R2-Datacenter               | 4.0.201503          |
 | MicrosoftWindowsServer           | WindowsServer                              | Windows-Server-Technical-Preview | 5.0.201504          |
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials                    | WindowsServerEssentials          | 1.0.141204          |
 | MicrosoftWindowsServerHPCPack    | WindowsServerHPCPack                       | 2012R2                           | 4.3.4665            |
@@ -131,7 +139,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     Virtual machine name: coreos
     Location name: westus
     Operating system Type [Windows, Linux]: linux
-    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:633.1.0
+    ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:latest
     User name: ops
     Password: *********
     Confirm password: *********
