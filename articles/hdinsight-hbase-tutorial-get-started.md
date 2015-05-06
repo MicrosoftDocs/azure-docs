@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HBase tutorial: Query HBase tables using Hive | Microsoft Azure"
 	description="Follow this HBase tutorial to get started using Apache HBase with Hadoop in HDInsight. Learn how to create tables from the HBase shell and query them using Hive."
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"	
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
