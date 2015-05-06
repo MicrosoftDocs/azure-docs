@@ -215,7 +215,7 @@ In this tutorial, you have learned how to configure name resolution across virtu
 
 
 [hdinsight-hbase-geo-replication]: hdinsight-hbase-geo-replication.md
-[hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
+[hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-VNets.md
 [powershell-install]: install-configure-powershell.md
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png

@@ -71,7 +71,8 @@ A complete Visual Studio solution sample can be found on GitHub: [Realtime socia
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An HBase cluster in HDInsight**. For instructions about cluster provision, see [Get started using HBase with Hadoop in HDInsight][hbase-get-started]. You will need the following data to go through the tutorial:
+- **An HBase cluster in HDInsight**. For instructions about cluster provision, see  [Get started using HBase with Hadoop in HDInsight] [hbase-get-started]. You will need the following data to go through the tutorial:
+
 
 	<table border="1">
 	<tr><th>Cluster property</th><th>Description</th></tr>
