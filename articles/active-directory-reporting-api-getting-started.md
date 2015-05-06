@@ -62,7 +62,7 @@ In order to authenticate to the Reporting API, we must use the OAuth flow, which
 - Click "Save" on the bottom bar.
 
 
-### Get your directory ID, client ID, and OAuth 2.0 endpoints
+### Get your directory ID, client ID, and client secret
 
 Find your application's client ID, client secret, and your directory ID. Copy these IDs and URLs into a separate place; you'll use them in the next steps.
 
