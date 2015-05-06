@@ -56,6 +56,7 @@ There are two ways to do a DNS takeover of a tenant:
 
 ### Internal Takeover
 When you do internal takeover, the tenant gets converted from an unmanaged tenant to a managed tenant. You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
+
 + Validates that you own the domain
 + The tenant becomes managed
 + You become the global admin
@@ -78,9 +79,11 @@ External takeover follows the same DNS validation process as internal takeover. 
 Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience. 
 
 Currently the following services support takeover well:
+
 + RMS
 
 The following do not:
+
 + SharePoint/OneDrive
 + PowerBI - Soon to be fixed
 
@@ -147,14 +150,16 @@ A successful challenge returns you to the prompt without an error.
 
 ## How do I control self-service settings?
 
-Admins have two self-service controls today.
-1. Whether or not users can join the tenant via email.
-2. Whether or not users can license themselves for applications and services.
+Admins have two self-service controls today. They can control:
+
+- Whether or not users can join the tenant via email.
+- Whether or not users can license themselves for applications and services.
 
 
 ### How can I control these capabilities?
 
-An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters.
+An admin can configure these capabilities using these Azure AD cmdlet Set-MsolCompanySettings parameters:
+
 + **AllowEmailVerifiedUsers** controls whether a user can create or join an unmanaged tenant. If you set that parameter to $false, no email-verified users can join the tenant. 
 + **AllowAdHocSubscriptions** controls the ability for users to perform self-service sign up. If you set that parameter to $false, no users can perform self-service signup. 
 
