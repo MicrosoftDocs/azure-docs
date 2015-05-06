@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="Securely Connecting to BackEnd Resources from an App Service Environment" 
 	description="Learn about how to securely connect to backend resources from an App Service Environment." 
-	services="app-service" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -83,6 +83,11 @@ For details around controlling inbound traffic to your App Service Environment, 
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
+
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 
+
 <!-- LINKS -->
 [virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
 [ControlInboundTraffic]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/
@@ -90,7 +95,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [NetworkAccessControlLists]: https://msdn.microsoft.com/library/azure/dn376541.aspx
 [NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
-[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/TBD/
+[IntroToAppServiceEnvironment]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ControlInboundASE]:  http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-control-inbound-traffic/ 
 

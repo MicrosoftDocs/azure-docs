@@ -2,7 +2,7 @@
 	pageTitle="Diagnose performance issues on a running website" 
 	description="Monitor a website's performance without re-deploying it. Use standalone or with Application Insights SDK to get dependency telemetry." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter=".net"
 	authors="alancameronwills" 
 	manager="ronmart"/>
 
@@ -12,15 +12,13 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
 
 # Install Application Insights Status Monitor to monitor website performance
 
 *Application Insights is in preview.*
-
-[AZURE.INCLUDE [app-insights-selector-get-started](../includes/app-insights-selector-get-started.md)]
 
 The Status Monitor of Visual Studio Application Insights lets you diagnose exceptions and performance issues in web applications running in any IIS server. Just install it on your Azure or standalone IIS web server and it will instrument the ASP.NET web apps it finds there, sending data to the Application Insights portal for you to search and analyse. 
 
@@ -30,10 +28,10 @@ You have a choice of three ways to apply Application Insights to your IIS web ap
 
 * **Build time:** [Add the Application Insights SDK][greenbrown] to your web app code. This gives you:
  * A range of standard diagnostic and usage telemetry. 
- * And you can use the [Application Insights API][api] if you want to write your own telemetry.
-* **Run time:** Use Status Monitor to instrument your web app on the server. Benefits include:
- * Apply it to web apps that are already running, without the need to modify the code or republish.
- * Standard diagnostic and usage telemetry.
+ * And you can use the [Application Insights API][api] if you want to write your own telemetry to track usage or diagnose problems.
+* **Run time:** Use Status Monitor to instrument your web app on the server.
+ * Monitor web apps that are already running: no need to rebuild or republish them.
+ * A range of standard diagnostic and usage telemetry.
  * Dependency diagnostics - locate faults or poor performance where your app uses other components such as databases, REST APIs, or other services.
  * Troubleshoot any issues with telemetry.
 * **Both:** Compile the SDK into your web app code, and run Status Monitor on your web server.  The best of both worlds:

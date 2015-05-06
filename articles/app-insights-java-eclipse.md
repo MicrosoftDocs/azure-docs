@@ -2,7 +2,7 @@
 	pageTitle="Get started with Application Insights with Java in Eclipse" 
 	description="Use the Eclipse plug-in to add performance and usage monitoring to your Java website with Application Insights" 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="java"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 

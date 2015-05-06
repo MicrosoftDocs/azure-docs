@@ -1,14 +1,14 @@
 <properties 
 	pageTitle="How to Create an App Service Environment" 
 	description="Creation flow description for app service environments" 
-	services="app-services\web" 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
 	editor=""/>
 
 <tags 
-	ms.service="app-services-web" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
@@ -126,7 +126,10 @@ To get started with App Service Environments, see [Introduction to App Service E
 
 For more information about the Azure App Service platform, see [Azure App Service][AzureAppService].
 
+[AZURE.INCLUDE [app-service-web-whats-changed](../includes/app-service-web-whats-changed.md)]
 
+[AZURE.INCLUDE [app-service-web-try-app-service](../includes/app-service-web-try-app-service.md)]
+ 
 
 <!--Image references-->
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
@@ -134,7 +137,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
 
 <!--Links-->
-[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-web-what-is-an-app-service-environment/
+[WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [ASEConfig]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/

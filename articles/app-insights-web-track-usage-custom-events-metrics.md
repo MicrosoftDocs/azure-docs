@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/23/2015" 
+	ms.date="04/28/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -57,7 +57,9 @@ If you haven't done these yet:
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
 
-* Construct an instance of TelemetryClient (except in JavaScript in web pages):
+## Construct a TelemetryClient
+
+Construct an instance of TelemetryClient (except in JavaScript in web pages):
 
 *C#:* 
 
@@ -71,12 +73,15 @@ If you haven't done these yet:
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-We recommend you use one instance of TelemetryClient for each request in a web app, or for each session in other apps. You can set properties such as TelemetryClient.Context.User.Id = 
+We recommend you use one instance of `TelemetryClient` for each request in a web app, or for each session in other apps. You can set properties such as `TelemetryClient.Context.User.Id` to track users and sessions. This information is attached to all events sent by the instance.
+
+TelemetryClient is thread-safe.
+
 
 
 ## Track Event
 
-Events can be displayed in Metric Explorer as an aggregated count, and you can also display individual occurrences in Diagnostic Search.  
+Events can be displayed in [Metrics Explorer][metrics] as an aggregated count, and you can also display individual occurrences in [Diagnostic Search][diagnostic].  
 
 Insert events in your code to count how often they use a particular feature, how often they achieve particular goals, or make particular choices. 
 
@@ -100,7 +105,7 @@ For example, in a game app, send an event whenever a user wins the game:
     telemetry.trackEvent("WinGame");
 
 
-The top events show up on the overview blade:
+Click the Custom Events tile on the overview blade:
 
 ![Browse to your application resource in portal.azure.com](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
@@ -110,7 +115,7 @@ Select the chart and segment it by Event name to see the relative contributions 
 
 ![Select the chart and set Grouping](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
-From the list below the chart, select an event name to see individual occurrences of the event.
+From the list below the chart, select an event name. Click through to see individual occurrences of the event.
 
 ![Drill through the events](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
@@ -529,7 +534,6 @@ Individual telemetry calls can override the default values in their property dic
     // ...
 
 
-
 ## Disable standard telemetry
 
 You can [disable selected parts of the standard telemetry][config] by editing `ApplicationInsights.config`. You could do this, for example, if you want to send your own TrackRequest data. 
@@ -539,12 +543,7 @@ You can [disable selected parts of the standard telemetry][config] by editing `A
 
 ## <a name="debug"></a>Developer mode
 
-During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately.
-
-*JavaScript*
-
-    // Insert this in the initialization script, just before trackPageView:
-    appInsights.config.enableDebug = true;
+During debugging, it's useful to have your telemetry expedited through the pipeline so that you can see results immediately. You also get additional messages that help you trace any problems with the telemetry. Switch it off in production, as it may slow down your app.
 
 
 *C#*
@@ -554,6 +553,8 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *VB*
 
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
+
+
 
 ## Reference docs
 

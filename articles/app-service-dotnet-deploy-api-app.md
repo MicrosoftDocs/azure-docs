@@ -3,7 +3,7 @@
 	description="Learn how to deploy an API app project to your Azure subscription." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,15 +13,21 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/19/2015" 
+	ms.date="05/04/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Deploy an API app in Azure App Service 
 
 ## Overview
 
-In this tutorial, you'll deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). You use Visual Studio's deployment features to create the API app resource in [Azure App Service](app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
+In this tutorial, you'll deploy the Web API project that you created in the [previous tutorial](app-service-dotnet-create-api-app.md) to a new [API app](app-service-api-apps-why-best-platform.md). You'll use Visual Studio to create the API app resource in [Azure App Service](app-service-value-prop-what-is.md) and to deploy your Web API code to the Azure API app. 
 
+### Other deployment options
+
+There are many other ways to deploy API apps. An API app is a [web app](app-service-web-overview.md) with extra features for hosting web services, and all of the [the deployment methods that are available for web apps](web-sites-deploy.md) can also be used with API apps. The web app that hosts an API app is called the API app host in the Azure preview portal, and you can configure deployment by using the API app host portal blade. For information about the API app host blade, see [Manage an API app](app-service-api-manage-in-portal.md).
+
+The fact that API apps are based on web apps also means that you can deploy code written for platforms other than ASP.NET to API apps. For an example that uses Git to deploy Node.js code to an API app, see [Create a Node.js API app in Azure App Service](app-service-api-nodejs-api-app.md).
+ 
 ## Deploy the API app 
 
 In this section, you'll see the steps required to deploy an API app to an Azure subscription. 
@@ -40,12 +46,12 @@ In this section, you'll see the steps required to deploy an API app to an Azure 
 
 4. In the **Create an API App** dialog, enter the following:
 
-	- Under **API App Name**, enter a name for the app. 
+	- For **API App Name**, enter ContactsList. 
 	- If you have multiple Azure subscriptions, select the one you want to use.
-	- Under **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
-	- Under **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
-	- Under **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure Portal.
-	- Under **Region**, select a region close to you.  
+	- For **App Service Plan**, select from your existing App Service plans, or select **Create new App Service plan** and enter the name of a new plan. 
+	- For **Resource Group**, select from your existing resource groups, or select **Create new resource group** and enter a name. The name must be unique; consider using the app name as a prefix and appending some personal information such as your Microsoft ID (without the @ sign).  
+	- For **Access Level**, select **Available to Anyone**. This option will make your API completely public, which is fine for this tutorial. You can restrict access later through the Azure preview portal.
+	- For **Region**, select a region close to you.  
 
 	![Configure Microsoft Azure Web App dialog](./media/app-service-dotnet-deploy-api-app/24-new-api-app-dialog-v3.png)
 
@@ -65,11 +71,11 @@ The **Azure App Service Activity** window shows the deployment progress.
 
 ![Status notification of the Azure App Service Activity window](./media/app-service-dotnet-deploy-api-app/26-5-deployment-success-v4.png)
 
-## View the app in the Azure Portal
+## View the app in the Azure preview portal
 
 In this section, you will navigate to the portal to view the basic settings available for API Apps and make iterative changes to your API app. With each deployment, the portal will reflect the changes you're making to your API app. 
 
-1. In your browser, navigate to the [Azure Portal](https://portal.azure.com). 
+1. In your browser, navigate to the [Azure preview portal](https://portal.azure.com). 
 
 2. Click the **Browse** button on the sidebar and select **API Apps**.
 

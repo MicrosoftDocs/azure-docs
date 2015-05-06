@@ -1,7 +1,7 @@
 <properties
    pageTitle="Troubleshooting Resource Group Deployments in Azure"
    description="Describes common problems deploying resources in Azure, and shows how to use the Azure Portal, the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI), and PowerShell to examine deployments and detect issues."
-   services="multiple"
+   services="virtual-machines"
    documentationCenter=""
    authors="squillace"
    manager="timlt"
@@ -356,7 +356,7 @@ Often you may want to use a resource from outside of the current resource group 
 
 ## Next steps
 
-To master the creation of templates, read through the [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx), and stroll through the [AzureRMTemplates repository](https://github.com/azurermtemplates/azurermtemplates) for deployable examples. An examples of the **dependsOn** property is the [Load Balancer with Inbound NAT Rule template](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
+To master the creation of templates, read through the [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md), and stroll through the [AzureRMTemplates repository](https://github.com/azurermtemplates/azurermtemplates) for deployable examples. An examples of the **dependsOn** property is the [Load Balancer with Inbound NAT Rule template](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json).
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png

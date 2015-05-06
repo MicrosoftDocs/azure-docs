@@ -211,7 +211,7 @@ To test this poll trigger, follow these steps:
 
 ### Describe triggers in API definition
 
-After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
+After implementing the triggers and deploying your API app to Azure, navigate to the **API Definition** blade in the Azure preview portal and you'll see that triggers are automatically recognized in the UI, which is driven by the Swagger 2.0 API definition of the API app.
 
 ![API Definition Blade](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 

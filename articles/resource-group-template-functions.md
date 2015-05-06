@@ -11,9 +11,9 @@
    ms.service="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="AzurePortal"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/27/2015"
+   ms.date="04/28/2015"
    ms.author="tomfitz;ilygre"/>
 
 # Azure Resource Manager Template Functions
@@ -56,7 +56,7 @@ The following example shows how to combine multiple values to return a value.
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
 
-Returns the keys of a storage account. This function takes the resourceId and the API version as parameters. The resourceId can be specified by using the resourceId function described above or by using the format 'providerNamespace/resourceType/resourceName'). You can use the function to get the primaryKey and secondaryKey.
+Returns the keys of a storage account. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
@@ -152,7 +152,7 @@ By using the reference expression, you declare that one resource depends on anot
 
 **resourceGroup()**
 
-Returns a structured object (with id, name, and location properties) that represents the current resource group. The object will be in the following format:
+Returns a structured object that represents the current resource group. The object will be in the following format:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
@@ -176,21 +176,65 @@ The following example uses the resource group location to assign the location fo
 
 **resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within same template. The identifier is returned in the following format:
+Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
 
     /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
-| resourceGroupName |   No     | Optional resource group name. Default value is current resource group.
+| resourceGroupName |   No     | Optional resource group name. Default value is current resource group. Specify this value when you retrieving a resource in another resource group.
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
 | resourceName2     |   No     | Next resource name segment if resource is nested.
 
-The following examples show how to retrieve the resource id for a web site and a database:
+The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
     [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    
+Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
+
+    {
+      "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+          "virtualNetworkName": {
+              "type": "string"
+          },
+          "virtualNetworkResourceGroup": {
+              "type": "string"
+          },
+          "subnet1Name": {
+              "type": "string"
+          },
+          "nicName": {
+              "type": "string"
+          }
+      },
+      "variables": {
+          "vnetID": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
+          "subnet1Ref": "[concat(variables('vnetID'),'/subnets/', parameters('subnet1Name'))]"
+      },
+      "resources": [
+      {
+          "apiVersion": "2015-05-01-preview",
+          "type": "Microsoft.Network/networkInterfaces",
+          "name": "[parameters('nicName')]",
+          "location": "[parameters('location')]",
+          "properties": {
+              "ipConfigurations": [{
+                  "name": "ipconfig1",
+                  "properties": {
+                      "privateIPAllocationMethod": "Dynamic",
+                      "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                      }
+                  }
+              }]
+           }
+      }]
+    }
+
 
 ## subscription
 
@@ -224,7 +268,7 @@ Returns the value of variable. The specified variable name must be defined in th
 
 
 ## Next Steps
-- [Authoring Templates](./resource-group-authoring-templates.md)
-- [Deploying Templates](./resouce-group-template-deploy.md)
+- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
 - [Advanced Template Operations](./resource-group-advanced-template.md)
+- [Deploy an application with Azure Resource Manager Template](./resouce-group-template-deploy.md)
 - [Azure Resource Manager Overview](./resource-group-overview.md)

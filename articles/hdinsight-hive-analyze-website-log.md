@@ -45,10 +45,11 @@ In this sample, you will use an HDInsight cluster to analyze website log files t
 	When prompted, authenticate by using the administrator user name and password you used when provisioning the cluster.
   
 2. From the web page that opens, click the **Getting Started Gallery** tab, and then under the **Samples** category, click the **Website Log Analysis** sample.
+
 3. Follow the instructions provided on the web page to finish the sample.
 
 ##Next steps
-Try the following sample: [Analyzing sensor data using Hive with HDInsight][hdinsight-hive-analyze-sensor-data].
+Try the following sample: [Analyzing sensor data using Hive with HDInsight](hdinsight-hive-analyze-sensor-data.md).
 
 
 [hdinsight-provision]: hdinsight-provision-clusters.md

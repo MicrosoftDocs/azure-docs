@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="04/29/2015" 
 	ms.author="juliako"/>
 
-#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services(Preview)
+#Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services (Preview)
 
 ##Overview
 
-In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A Channel receives live input streams in one of two ways:
+In Azure Media Services, a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
-- An on-premises live encoder sends multi-bitrate RTMP or Smooth Streaming (Fragmented MP4) to the Channel. The Channel does not process the stream. When requested, Media Services delivers the stream to customers. 
-- A single bitrate RTMP, Smooth Streaming (Fragmented MP4), or RTP (MPEG-TS) stream is sent to a channel that is enabled to perform live encoding with Media Services. The Channel then encodes the incoming stream to a multi-bitrate video stream. When requested, Media Services delivers the stream to customers. 
+- An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders. The ingested streams pass through **Channel**s without any further processing. When requested, Media Services delivers the stream to customers.
+- A single bitrate stream (in one of the following formats: **RTP** (MPEG-TS)), **RTMP**, or **Smooth Streaming** (Fragmented MP4)) is sent to the **Channel** that is enabled to perform live encoding with Media Services. The **Channel** then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers. 
 
-	Encoding a live stream with Media Services is currently in Preview.
+	Encoding a live stream with Media Services is currently in **Preview**.
 
 Starting with the Media Services 2.10 release, when you create a Channel, you can specify in which way you want for your channel to receive the input stream and whether or not you want for the channel to perform live encoding of your stream. You have two options:    
 
@@ -41,18 +41,25 @@ The following diagram represents a live streaming workflow where a channel recei
 
 ![Live workflow][live-overview]
 
-This topic covers the following:
+>[AZURE.NOTE]Not all data centers support Live Encoding with Azure Media Services. 
+>If you are using Azure Management Portal to create Channels, you will have two Channel encoding type options available: **None** and **Standard**. If you only see the **None** option, it means your data center does not support Live Encoding with AMS.
+>If you are using .NET SDK or REST API, do the following to check:
+>1. Try to create a Channel with encoding type set to Standard. 
+>2. If the returned result HTTP Error Code 412 (Precondition Failed) with the following message: *"Live encoding is not supported in this region; EncodingType must be set to 'None'."*, your data center does not support Live Encoding.
 
-- [Common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
+
+##In this topic
+
+- Overview of a [common live streaming scenario](media-services-manage-live-encoder-enabled-channels.md#scenario)
 - [Description of a Channel and its related components](media-services-manage-live-encoder-enabled-channels.md#channel)
 - [Considerations](media-services-manage-live-encoder-enabled-channels.md#considerations)
 - [Tasks related to Live Streaming](media-services-manage-live-encoder-enabled-channels.md#tasks)
 
 ##<a id="scenario"></a>Common Live Streaming Scenario
 
-The following steps describe tasks involved in creating common live streaming applications.
+The following are general steps involved in creating common live streaming applications.
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a **single** bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 	
 	This step could also be performed after you create your Channel.
 
@@ -65,14 +72,12 @@ The following steps describe tasks involved in creating common live streaming ap
 
 	Use this URL to verify that your channel is properly receiving the live stream.
 
-2. Create an asset.
-3. If you want for the asset to be dynamically encrypted during playback, do the following: 	
-	
-	1. 	Create a content key. 
-	1. 	Configure the content key's authorization policy.
-1. Configure asset delivery policy (used by dynamic packaging and dynamic encryption).
-3. Create a program and specify to use the asset that you created.
-1. Publish the asset associated with the program by creating an OnDemand locator.  
+3. Create a program. 
+
+	When using the Azure Management Portal, creating a program also creates an asset. 
+
+	When using .NET SDK or REST you need to create an asset and specify to use this asset when creating a Program. 
+1. Publish the asset associated with the program.   
 
 	Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
 1. Start the program when you are ready to start streaming and archiving.
@@ -99,12 +104,12 @@ For more information, see [Azure Media Services RTMP Support and Live Encoders](
 
 Typical use case: 
 
-Use professional broadcasters with on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme,  Envivio to send a stream. Often used in conjunction with  an IT department and private networks.
+Professional broadcasters typically work with high-end on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Imagine or Envivio to send a stream. Often used in conjunction with  an IT department and private networks.
 
 Considerations:
 
 - The use of a single program transport stream (SPTS) input is strongly recommended. The use of multiple language audio tracks, however, is supported
-- The video stream should have an average bitrate below 25 Mbps
+- The video stream should have an average bitrate below 15 Mbps
 - The aggregate average bitrate of the audio streams should be below 1 Mbps
 - Following are the supported codecs:
 	- MPEG-2 / H.262 Video 
@@ -138,8 +143,8 @@ Considerations:
 	- Ericsson AVP2000
 	- eVertz 3480
 	- Ericsson RX8200
-	- Harris Selenio ENC 1
-	- Harris Selenio ENC 2
+	- Imagine Communications Selenio ENC 1
+	- Imagine Communications Selenio ENC 2
 	- AdTec EN-30
 	- AdTec EN-91P
 	- AdTec EN-100
@@ -153,8 +158,8 @@ Considerations:
 
 Considerations:
 
-- The incoming stream cannot have multi-bitrate video, nor can it have multi-track audio
-- The video stream should have an average bitrate below 25 Mbps
+- The incoming stream cannot contain multi-bitrate video
+- The video stream should have an average bitrate below 15 Mbps
 - The audio stream should have an average bitrate below 1 Mbps
 - Following are the supported codecs:
 
@@ -172,15 +177,15 @@ Considerations:
 	
 - Recommended encoders include: 
 
-	- Telestream Wirecast, 
-	- Flash Media Live Encoder, 
-	- Tricaster, etc.
+	- Telestream Wirecast
+	- Flash Media Live Encoder
+	- Tricaster
 
 ####Single bitrate Fragmented MP4 (Smooth Streaming)
 
 Typical use case: 
 
-Use on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme,  Envivio to send the input stream over the open internet to a nearby Azure data center.
+Use on-premises live encoders from vendors like Elemental Technologies, Ericsson, Ateme, Envivio to send the input stream over the open internet to a nearby Azure data center.
 
 Considerations:
 
@@ -196,7 +201,7 @@ Same as for [single bitrate RTMP](media-services-manage-live-encoder-enabled-cha
 
 A Channel provides an input endpoint (ingest URL) that you specify in the live encoder, so the encoder can push streams to your Channels.   
 
-You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the started state. When you are ready to start pushing data into the Channel, it must be in the Started state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
+You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
 You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. 
 
@@ -213,7 +218,7 @@ If no IP addresses are specified and there is no rule definition then no IP addr
 
 Channels provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery.
 
-You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the started state. 
+You can get the preview URL when you create the channel. To get the URL, the channel does not have to be in the **Running** state. 
 
 Once the Channel starts ingesting data, you can preview your stream.
 
@@ -268,9 +273,22 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 **Default720p** will encode the video into the following 7 layers.
 
 
+####Output Video Stream
+
+<table border="1">
+<tr><th>BitRate</th><th>Width</th><th>Height</th><th>MaxFPS</th><th>Profile</th><th>Output Stream Name</th></tr>
+<tr><td>3500</td><td>1280</td><td>720</td><td>30</td><td>High</td><td>Video_1280x720_30fps_3500kbps</td></tr>
+<tr><td>2200</td><td>960</td><td>540</td><td>30</td><td>Main</td><td>Video_960x540_30fps_2200kbps</td></tr>
+<tr><td>1350</td><td>704</td><td>396</td><td>30</td><td>Main</td><td>Video_704x396_30fps_1350kbps</td></tr>
+<tr><td>850</td><td>512</td><td>288</td><td>30</td><td>Main</td><td>Video_512x288_30fps_850kbps</td></tr>
+<tr><td>550</td><td>384</td><td>216</td><td>30</td><td>Main</td><td>Video_384x216_30fps_550kbps</td></tr>
+<tr><td>350</td><td>340</td><td>192</td><td>30</td><td>Baseline</td><td>Video_340x192_30fps_350kbps</td></tr>
+<tr><td>200</td><td>340</td><td>192</td><td>30</td><td>Baseline</td><td>Video_340x192_30fps_200kbps</td></tr>
+</table>
+
 ####Output Audio Stream
 
-Audio is encoded to stereo AAC-LC at 64 kbps, sampling rate of 44.1 kHz. 
+Audio is encoded to stereo AAC-LC at 64 kbps, sampling rate of 44.1 kHz.
 
 ##Signaling Advertisements
 
@@ -289,19 +307,20 @@ The duration, in seconds, of the commercial break. This has to be a non-zero pos
 
 ###CueId
 
-Unique ID for the commercial break, to be used by downstream application to take appropriate action(s). Needs to be a positive integer. 
+A Unique ID for the commercial break, to be used by downstream application to take appropriate action(s). Needs to be a positive integer. You can set this value to any random positive integer or use an upstream system to track the Cue Ids. Make certain to normalize any ids to positive integers before submitting through the API.
 
 ###Show slate
 
-Optional. Indicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is **false**. 
-
+Optional. Signals the live encoder to switch to the default slate image during a commercial break and hide the incoming video feed. Audio is also muted during slate. Default is **false**. 
+ 
 The image used will be the one specified via the default slate asset Id property at the time of the channel creation. 
+The slate will be stretech to fit the display image size. 
 
 ##Insert Slate  images
 
 The live encoder within the Channel can be signaled to switch to a slate image. It can also be signaled to end an on-going slate. 
 
-The live encoder can be configured to switch to a slate image and mask the incoming video signal in certain situations – for example, during an ad break. If such a slate is not configured, input video is not masked during that ad break. 
+The live encoder can be configured to switch to a slate image and hide the incoming video signal in certain situations – for example, during an ad break. If such a slate is not configured, input video is not masked during that ad break.
 
 ###Duration
 
@@ -315,9 +334,9 @@ When set to true, this setting configures the live encoder to insert a slate ima
 
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
-**Note**: Before creating the Channel, the slate image, of 1920x1080 maximum resolution, in JPEG format, and at most 3 Mbytes in size, should be uploaded as a dedicated asset (no other files should be in this asset). The file name should have a *.jpg extension, and this AssetFile should be marked as the primary file for that asset. This Asset cannot be storage encr2ypted.
+**Note**: Before creating the Channel, the slate image, of 1920x1080 maximum resolution, in JPEG format, and at most 3 Mbytes in size, should be uploaded as a dedicated asset (no other files should be in this asset). The file name should have a *.jpg extension, and this AssetFile should be marked as the primary file for that asset. This Asset cannot be storage encrypted.
 
-If the **default slate Asset Id** is not specified, and **insert slate on ad marker** is set to **true**, a default Azure Media Services image will be used to mask the input stream.
+If the **default slate Asset Id** is not specified, and **insert slate on ad marker** is set to **true**, a default Azure Media Services image will be used to hide the input video stream. Audio is also muted during slate. 
 
 
 
@@ -346,29 +365,39 @@ If you do want to retain the archived content, but not have it available for str
 
 When Live Encoding is enabled, you can now get a preview of the live feed as it reaches the Channel. This can be a valuable tool to check whether your live feed is actually reaching the Channel. 
 
-##Channel state
+##<a id="states"></a>Channel states and how states map to the billing mode 
 
 The current state of a Channel. Possible values include:
 
-- Stopped. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
-- Starting. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
-- Running. The Channel is capable of processing live streams.
-- Stopping. The Channel is being stopped. No updates or streaming is allowed during this state.
-- Deleting. The Channel is being deleted. No updates or streaming is allowed during this state.
+- **Stopped**. This is the initial state of the Channel after its creation. In this state, the Channel properties can be updated but streaming is not allowed.
+- **Starting**. The Channel is being started. No updates or streaming is allowed during this state. If an error occurs, the Channel returns to the Stopped state.
+- **Running**. The Channel is capable of processing live streams.
+- **Stopping**. The Channel is being stopped. No updates or streaming is allowed during this state.
+- **Deleting**. The Channel is being deleted. No updates or streaming is allowed during this state.
+
+The following table shows how Channel states map to the billing mode. 
+ 
+<table border="1">
+<tr><th>Channel state</th><th>Portal UI Indicators</th><th>Billed?</th></tr>
+<tr><td>Starting</td><td>Starting</td><td>No (transient state)</td></tr>
+<tr><td>Running</td><td>Ready (no running programs)<br/>or<br/>Streaming (at least one running program)</td><td>Yes</td></tr>
+<tr><td>Stopping</td><td>Stopping</td><td>No (transient state)</td></tr>
+<tr><td>Stopped</td><td>Stopped</td><td>No</td></tr>
+</table>
 
 
->[AZURE.NOTE] Channel start up can take up to 30 minutes. Channel reset can take up to 5 minutes.
+>[AZURE.NOTE] Currently in Preview, the Channel start can take up to 30 minutes. Channel reset can take up to 5 minutes.
 
 
 
 ##<a id="Considerations"></a>Considerations
 
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol. 
-- You are only billed when your Channel is in running state.
 - Every time you reconfigure the live encoder, call the **Reset** method on the channel. Before you reset the channel, you have to stop the program. After you reset the channel, restart the program. 
 - A channel can be stopped only when it is in the Running state, and all programs on the channel have been stopped.
-- By default you can only add 5 channels to your Media Services account. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
+- By default you can only add 5 channels to your Media Services account. This is a soft quota on all new accounts. For more information, see [Quotas and Limitations](media-services-quotas-and-limitations.md).
 - You cannot change the input protocol while the Channel or its associated programs are running. If you require different protocols, you should create separate channels for each input protocol.
+- You are only billed when your Channel is in the **Running** state. For more information, refer to [this](media-services-manage-live-encoder-enabled-channels.md#states) section.
 
 
 ##<a id="tasks"></a>Tasks related to Live Streaming
@@ -443,5 +472,8 @@ For information about scaling streaming units, see: [How to scale streaming unit
 ##Related topics
 
 [Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+
+[Media Services Concepts](media-services-concepts.md)
+
 
 [live-overview]: ./media/media-services-overview/media-services-live-streaming-new.png

@@ -26,7 +26,7 @@ Before you dive in, make sure you have Azure, PowerShell, and Azure CLI configur
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../includes/arm-getting-setup-powershell.md)]
 
-[AZURE.INCLUDE [xplat-getting-set-up](../includes/xplat-getting-set-up.md)]
+[AZURE.INCLUDE [xplat-getting-set-up-arm](../includes/xplat-getting-set-up-arm.md)]
 
 ## Create a Windows VM with a Resource Manager template using Azure PowerShell
 
@@ -235,24 +235,51 @@ Here is an example.
 	New-AzureResourceGroup –Name $RGName –Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-You would see something like this.
+You will see something like this:
 
-	cmdlet New-AzureResourceGroup at command pipeline position 1
+	cmdlet New-AzureResourceGroupDeployment at command pipeline position 1
 	Supply values for the following parameters:
 	(Type !? for Help.)
-	newStorageAccountName: saTest
-	adminUserName: WinAdmin1
-	adminPassword: *******
-	dnsNameForPublicIP: contoso.com
-	windowsOSVersion: 2012-R2-Datacenter
-	...
+	newStorageAccountName: newsaacct
+	adminUsername: WinAdmin1
+	adminPassword: *********
+	dnsNameForPublicIP: contoso
+	VERBOSE: 10:56:59 AM - Template is valid.
+	VERBOSE: 10:56:59 AM - Create template deployment 'TestDeployment'.
+	VERBOSE: 10:57:08 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
+	VERBOSE: 10:57:11 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is running
+	VERBOSE: 10:57:38 AM - Resource Microsoft.Storage/storageAccounts 'newsaacct' provisioning status is succeeded
+	VERBOSE: 10:57:40 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
+	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
+	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
+	
+	
+	DeploymentName    : TestDeployment
+	ResourceGroupName : TestRG
+	ProvisioningState : Succeeded
+	Timestamp         : 4/28/2015 6:02:13 PM
+	Mode              : Incremental
+	TemplateLink      :
+	Parameters        :
+                    	Name             Type                       Value
+	                    ===============  =========================  ==========
+	                    newStorageAccountName  String                     newsaacct
+	                    adminUsername    String                     WinAdmin1
+	                    adminPassword    SecureString
+	                    dnsNameForPublicIP  String                     contoso9875
+	                    windowsOSVersion  String                     2012-R2-Datacenter
+	
+	Outputs           :
 
+You now have a new Windows virtual machine named MyWindowsVM in your new resource group.
 
 ## Create a Windows VM with a Resource Manager template using Azure CLI
 
 Follow these steps to create a Windows VM using a Resource Manager template in the Github template repository with Azure CLI commands.
 
-Fill in a resource group name and Azure location (removing the brackets), and then run these commands.
+Fill in a resource group name and Azure location (such as westus for West US), remove the brackets), and then run these commands.
 
 	azure group create [resource group] [location]
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json [resource group] firstdeployment
@@ -262,15 +289,15 @@ Here is an example of the Azure CLI command set for the template.
 	azure group create testrg westus
 	azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json testrg firstdeployment
 
-You would see something like this.
+You would see something like this:
 
 	azure group create testrg westus
 	info:    Executing command group create
-	+ Getting resource group squillace                                             
-	+ Creating resource group squillace                                            
-	info:    Created resource group squillace
-	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/squillace
-	data:    Name:                squillace
+	+ Getting resource group testrg                                             
+	+ Creating resource group testrg                                            
+	info:    Created resource group testrg
+	data:    Id:                  /subscriptions/2c73c582-4b11-4800-96f9-a9bd790a861c/resourceGroups/testrg
+	data:    Name:                testrg
 	data:    Location:            westus
 	data:    Provisioning State:  Succeeded
 	data:    Tags: 
@@ -293,10 +320,14 @@ You would see something like this.
 
 ## Additional Resources
 
+[Azure Compute, Network and Storage Providers under Azure Resource Manager](virtual-machines-azurerm-versus-azuresm.md)
+
+[Azure Resource Manager Overview](resource-group-overview.md)
+
+[Create a Windows virtual machine with Azure Resource Manager and PowerShell](virtual-machines-create-windows-powershell-rm.md)
+
+[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-sm.md)
+
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
-
-[Azure virtual machines FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
-
-[Overview of Azure Virtual Machines](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
 [How to install and configure Azure PowerShell](install-configure-powershell.md)

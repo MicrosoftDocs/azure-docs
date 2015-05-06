@@ -2,7 +2,7 @@
 	pageTitle="Application Insights for Windows desktop apps" 
 	description="Analyze usage and performance of your Windows app with Application Insights." 
 	services="application-insights" 
-    documentationCenter=""
+    documentationCenter="windows"
 	authors="alancameronwills" 
 	manager="keboyd"/>
 
@@ -67,7 +67,11 @@ Application Insights lets you monitor your deployed application for usage and pe
 
 Create a `TelemetryClient` instance and then [use it to send telemetry][track].
 
+Use `TelemetryClient.Flush` to send messages before closing the app. (This is not recommended for other types of app.)
+
 For example, in a Windows Forms application, you could write:
+
+```C#
 
     public partial class Form1 : Form
     {
@@ -79,6 +83,17 @@ For example, in a Windows Forms application, you could write:
             ...
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            stop = true;
+            if (tc != null)
+            {
+                tc.Flush(); // only for desktop apps
+            }
+            base.OnClosing(e);
+        }
+
+```
 
 Use any of the [Application Insights API][track] to send telemetry. In Windows Desktop applications, no telemetry is sent automatically. Typically you'd use:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="04/30/2015" 
 	ms.author="sdanie"/>
 
 # How to Use Azure Redis Cache
@@ -22,12 +22,6 @@ This guide shows you how to get started using
 **Azure Redis Cache**. The samples are written in C\# code and
 use the .NET API. The scenarios covered include **creating and configuring a cache**, **configuring cache clients**, **adding and removing objects from the cache**, and **storing ASP.NET session state in the cache**. For more
 information on using Azure Redis Cache, refer to the [Next Steps][] section.
-
-<a name="video"></a>
-## Introduction to Azure Redis Cache (Video)
-In this video, Saurabh Pant and Scott Hanselman introduce Azure Redis Cache. (Duration: 7:45)  
-
-> [AZURE.VIDEO azure-redis-cache-101-introduction-to-redis]
 
 <a name="what-is"></a>
 ## What is Azure Redis Cache?
@@ -54,9 +48,11 @@ Getting started with Azure Redis Cache is easy. To get started, you provision an
 <a name="create-cache"></a>
 ## Create a cache
 
-To create a cache, first sign in to the Azure management preview portal, and click **New**, **Data + Storage**, **Redis Cache**.
+To create a cache, first sign in to the [Microsoft Azure preview portal][], and click **New**, **Data + Storage**, **Redis Cache**.
 
 ![New cache][NewCacheMenu]
+
+>[AZURE.NOTE] If you don't have an Azure account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][].
 
 In the **New Redis Cache** blade, specify the desired configuration for the cache.
 
@@ -127,7 +123,7 @@ In order to programmatically work with a cache, you need a reference to the cach
 
 The connection to the Azure Redis Cache is managed by the `ConnectionMultiplexer` class. This class is designed to be shared and reused throughout your client application, and does not need to be created on a per operation basis. 
 
-To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key like the following example. Use the Azure key generated from the service portal as the password parameter.
+To connect to an Azure Redis Cache and be returned an instance of a connected `ConnectionMultiplexer`, call the static `Connect` method and pass in the cache endpoint and key like the following example. Use the Azure key generated from the portal as the password parameter.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
 
@@ -141,7 +137,7 @@ If you don't want to use SSL, either set `ssl=false` or just pass in the endpoin
 
 >[AZURE.NOTE] For more information on advanced connection configuration options, see [StackExchange.Redis configuration model][].
 
-The cache endpoint and keys can be obtained from the Azure management preview portal blade for your cache instance.
+The cache endpoint and keys can be obtained from the **Redis Cache** blade for your cache instance.
 
 ![Cache properties][CacheProperties]
 
@@ -245,7 +241,7 @@ The NuGet package downloads and adds the required assembly references and adds t
 
 The commented section provides an example of the attributes and sample settings for them.
 
-Configure the attributes with the values from your cache blade on the preview portal, and configure the other values as desired.
+Configure the attributes with the values from your cache blade on the portal, and configure the other values as desired.
 
 	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
@@ -341,7 +337,6 @@ follow these links to learn how to do more complex caching tasks.
 [Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
 [How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
 [Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
-[Azure Management Portal]: http://windows.azure.com/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
@@ -363,7 +358,7 @@ follow these links to learn how to do more complex caching tasks.
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Management Portal]: https://manage.windowsazure.com/
+[Microsoft Azure preview portal]: https://portal.azure.com/
 
 [Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -380,3 +375,5 @@ follow these links to learn how to do more complex caching tasks.
 [a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
 
 [How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+
+[Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero

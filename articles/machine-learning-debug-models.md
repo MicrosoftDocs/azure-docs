@@ -23,6 +23,8 @@ This article explains of how to debug your models in Microsoft Azure Machine Lea
 * the [Train Model][train-model] module throws an error 
 * the [Score Model][score-model] module produces incorrect results 
 
+[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
 ## Train Model Module throws an error
 
 ![image1](./media/machine-learning-debug-model/train_model-1.png)

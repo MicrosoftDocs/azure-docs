@@ -3,7 +3,7 @@
 	description="Learn how to debug an API App while it runs in Azure App Service, using Visual Studio." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -94,19 +94,21 @@ The API App tools in Visual Studio make it easy to generate C# code that calls t
 	        Console.ReadLine();
 	    }
 
-## Test the API app 
+## Test the API app client
 
 Once the API app has been coded, it's time to test the code in the browser.
 
-1. Press <Ctrl>F5 to run the app in your default browser.
+1. Open **Solution Explorer**.
 
-2. The browser might show a 403.14 error at this point. Add /swagger to end of URL and press <Enter>
+2. Right-click the console application you created in the previous section.
 
-3. Click the **Contacts** heading. You should now see two options under **Contacts**: **Get** and **Post**.
+3. From the console application's context menu, select **Debug > Start new instance**. 
 
-4. Click **Get** to view the schema and **Try it out** button.
+4. A console windows should open and display all of the contacts. 
 
-5. Click **Try it out**. The Contact records will be displayed in the Web page's **Response Body** section.
+	![Running console app](./media/app-service-dotnet-remotely-debug-api-app/running-console-app.png)
+
+5. Press **Enter** to dismiss the console window.          
 
 ## Debug the API app 
 
@@ -138,6 +140,8 @@ Now that the API app and its client are coded and tested, let's see how to debug
 
 ## Next steps
 
-Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for your remotely-running Azure API apps.
+Remote debugging for API Apps makes it easier to see how your code is running in Azure App Service. Rich diagnostic and debugging data is available right in the Visual Studio IDE for Azure API apps. 
+
+App Service API apps are App Service web apps that have additional features for hosting web services, so you can use the same debugging and troubleshooting tools for API apps that you use for web apps.  For more information, see [Troubleshoot a web app in Azure App Service using Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md). 
 
 The API app you created in this series is publicly available for anyone to call. For information about how to protect the API app so that only authenticated users can call it, see [Protect an API app: Add Azure Active Directory or social provider authentication](app-service-api-dotnet-add-authentication.md).

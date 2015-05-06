@@ -3,7 +3,7 @@
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps" 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="wpickett" 
+	authors="wadepickett" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -35,12 +35,14 @@ In this article:
 -   [Add a DNS record for your custom domain](#bkmk_configurecname)
 -   [Enable the domain on your web](#enabledomain)
 
-<h2><a name="understanding-records"></a>Understanding DNS records</h2>
+<a name="understanding-records"></a> 
+##Understanding DNS records
 
 [AZURE.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 
-<h2><a name="bkmk_configurecname"></a>Add a DNS record for your custom domain</h2>
+<a name="bkmk_configurecname"></a> 
+## Add a DNS record for your custom domain 
 
 To associate your custom domain with a web app in App Service, you must add a new entry in the DNS table for your custom domain by using tools provided by GoDaddy. Use the following steps to locate the DNS tools for GoDaddy.com
 
@@ -79,7 +81,8 @@ To associate your custom domain with a web app in App Service, you must add a ne
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 
-<h2><a name="enabledomain"></a>Enable the domain name on your web app</h2>
+<a name="enabledomain"></a> 
+## Enable the domain name on your web app 
 
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 

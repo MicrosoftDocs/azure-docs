@@ -1,24 +1,24 @@
 <properties
    pageTitle="Deploy an application with Azure Resource Manager Template"
+   services="azure-portal"
    description="Use Azure Resource Manager to deploy an application to Azure. A template is a JSON file and can be used from the Portal, PowerShell, the Azure Command-Line Interface for Mac, Linux, and Windows, or REST."
-   services="na"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-portal"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="AzurePortal"
+   ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/23/2015"
+   ms.date="04/29/2015"
    ms.author="tomfitz;ryjones"/>
 
 # Deploy an application with Azure Resource Manager template
 
-This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure portal.
+This topic explains how to use Azure Resource Manager templates to deploy your application to Azure. It shows how deploy your application by using either Azure PowerShell, Azure CLI, REST API, or the Microsoft Azure preview portal.
 
 Azure Resource Manager templates enable you to quickly and easily provision your applications in Azure via declarative JSON. In a single JSON template, you can deploy multiple services, such as Virtual Machines, Virtual Networks, Storage, App Services, and databases. You use the same template to repeatedly and consistently deploy your application during every stage of the application lifecycle.
 
@@ -46,13 +46,15 @@ With Resource Manager templates, you can:
 - View the status of deployments.
 - Troubleshoot deployment failures using deployment audit logs.
 
-## Deploy with the Portal
+## Deploy with the preview portal
 
 Guess what?  Every application in the Gallery is backed by an Azure Resource Manager template!  By simply creating a Virtual Machine, Virtual Network, Storage Account, App Service, or database through the portal, you're already reaping the benefits of Azure Resource Manager without additional effort.
 
-To troubleshoot deployments through the portal, click **Browse** -> **Resource Groups** -> *YourResourceGroupName*.  From here, click on the **Events** tile under the **Monitoring** lens.  Finally, you can select an individual **operation** and **event** to view details.
+To troubleshoot deployments through the preview portal, click **Browse** -> **Resource Groups** -> *YourResourceGroupName*.  From here, click on the **Events** tile under the **Monitoring** lens.  Finally, you can select an individual **operation** and **event** to view details.
 
 ## Deploy with PowerShell
+
+If you have not previously used Azure PowerShell with Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](./powershell-azure-resource-manager.md).
 
 1. Login to your Azure account. After providing your credentials, the command returns information about your account.
 
@@ -119,6 +121,8 @@ To troubleshoot deployments through the portal, click **Browse** -> **Resource G
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Deploy with Azure CLI for Mac, Linux and Windows
+
+If you have not previously used Azure CLI with Resource Manager, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management](./xplat-cli-azure-resource-manager.md).
 
 1. Login to your Azure account. After providing your credentials, the command returns the result of your login.
 
@@ -244,9 +248,8 @@ If you use a parameter file to pass the parameter values to your template during
 
 ## Next steps
 - [Azure Resource Manager Overview](./resource-group-overview.md)
-- [Authoring Azure Resource Manager Templates](./resource-group-authoring-templates.md)
-- [Azure Resource Manager Template Functions](./resource-group-template-functions.md)
-- 
-
-
+- [Deploy resources using .NET libraries and a template](./arm-template-deployment.md)
+- [Authoring templates](./resource-group-authoring-templates.md)
+- [Template functions](./resource-group-template-functions.md)
+- [Advanced template operations](./resource-group-advanced-template.md)  
 

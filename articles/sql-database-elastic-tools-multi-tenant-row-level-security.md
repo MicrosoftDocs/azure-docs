@@ -170,7 +170,7 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
 GO 
 ```
 
-[AZURE.TIP] For more complex projects that need to add the predicate function on hundreds of tables, you can use a helper stored procedure that automatically generates a security policy adding a predicate on all tables in a schema. See [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
+> [AZURE.TIP] For more complex projects that need to add the predicate function on hundreds of tables, you can use a helper stored procedure that automatically generates a security policy adding a predicate on all tables in a schema. See [Apply Row-Level Security to all tables – helper script (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).  
 
 If you add a new table later on, simply ALTER the security policy and add a filter predicate on the new table: 
 
@@ -248,7 +248,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-[AZURE.NOTE] *If you use default constraints for an Entity Framework project, it is recommended that you do NOT include the TenantId column in your EF data model.* This is because Entity Framework queries automatically supplies default values that will override these default constraints created in T-SQL that use CONTEXT_INFO. To use default constraints in the sample project, for instance, you should remove TenantId from DataClasses.cs (and run Add-Migration in the Package Manager Console) and use T-SQL to ensure that the field only exists in the database tables. This way, EF will not automatically supply incorrect default values when inserting data. 
+> [AZURE.NOTE] If you use default constraints for an Entity Framework project, it is recommended that you do NOT include the TenantId column in your EF data model. This is because Entity Framework queries automatically supply default values that will override the default constraints created in T-SQL that use CONTEXT_INFO. To use default constraints in the sample project, for instance, you should remove TenantId from DataClasses.cs (and run Add-Migration in the Package Manager Console) and use T-SQL to ensure that the field only exists in the database tables. This way, EF will not automatically supply incorrect default values when inserting data. 
 
 ### Maintenance 
 
