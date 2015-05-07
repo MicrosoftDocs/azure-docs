@@ -85,7 +85,7 @@ The following modules are limited to datasets less than 10GB:
 - Scripting modules: R, Python, SQL
 - Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
 - Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
-- 
+
 For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 
@@ -244,7 +244,7 @@ The following modules are limited to datasets less than 10GB:
 - Scripting modules: R, Python, SQL
 - Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
 - Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
-- 
+
 For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 
