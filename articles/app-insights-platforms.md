@@ -60,6 +60,12 @@ Please also visit the [Application Insights SDK project on GitHub](https://githu
 
 ### <a name="cordova"></a>Cordova and Windows Store JavaScript apps
 
+In Visual Studio, right-click your project and choose **Manage NuGet packages**.
+
+Select **Online** and search on Application Insights.
+
+Install **Application Insights API for JavaScript Applications**. 
+
 Use the standard client-side [web app script](app-insights-web-track-usage.md), but with one change.
 
 When you get the script from the Application Insights portal, insert a line after the instrumentation key:

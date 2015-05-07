@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/05/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -132,6 +132,10 @@ There's a limit of about 1k on the string length. (If you want to send large chu
 **Metrics** are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores your gamers achieve. The graphs can be segmented by the properties sent with the event, so that you could get separate or stacked graphs for different games.
 
 Metric values should be >= 0 to be correctly displayed.
+
+
+There are some [limits on the number of properties, property values, and metrics](#limits) that you can use.
+
 
 *JavaScript*
 
@@ -307,6 +311,7 @@ To see the results, open Metrics Explorer and add a new chart. Set it to display
 
 ![Add a new chart or select a chart, and under Custom select your metric](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
+There are some [limits on the number of metrics](#limits) you can use.
 
 ## Page views
 
@@ -582,7 +587,18 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** Allows users to be counted. In a web app, if there is a cookie, the user Id is taken from that. If there isn't, a new one is generated. If your users have to login to your app, you could set the id from their authenticated ID, so as to provide a more reliable count that is correct even if the user signs in from a different machine. 
 
+## Limits
 
+There are some limits on the number of metrics and events per application.
+
+1. Up to 500 telemetry data points per second per instrumentation key (that is, per application). This includes both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code.
+1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
+2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search and filtering but no longer for filters.
+3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
+
+* *Q: How long is data kept?*
+
+    See [Data retention and privacy][data].
 
 ## Reference docs
 
@@ -606,6 +622,7 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 [client]: app-insights-javascript.md
 [config]: app-insights-configuration-with-applicationinsights-config.md
+[data]: app-insights-data-retention-privacy.md
 [diagnostic]: app-insights-diagnostic-search.md
 [exceptions]: app-insights-asp-net-exceptions.md
 [greenbrown]: app-insights-start-monitoring-app-health-usage.md
