@@ -1,11 +1,11 @@
 <properties
-   pageTitle="Getting started using Apache Storm on HDInsight | Azure"
-   description="Learn how to use Apache Storm to process data in realtime with Storm on HDInsight"
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Apache Storm tutorial: Try Storm Starter samples | Microsoft Azure"
+	description="Get started with big data analytics using Apache Storm by running the Storm Starter samples on HDInsight. Learn how to use Apache Storm to process data real-time."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
@@ -17,13 +17,13 @@
    ms.author="larryfr"/>
 
 
-# Getting started using Apache Storm on HDInsight
+# Apache Storm tutorial on HDInsight: Get started with big data analytics using the Storm Starter samples 
 
-Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs data analysis in real time.
+Apache Storm is a scalable, fault-tolerant, distributed, real-time computation system for processing streams of data. With Storm on Azure HDInsight, you can create a cloud-based Storm cluster that performs big data analytics in real time.
 
 ##Before you begin
 
-You must have the following to successfully complete this tutorial:
+You must have the following to successfully complete this Apache Storm tutorial:
 
 * An Azure subscription
 
@@ -70,7 +70,9 @@ When you provision an HDInsight cluster, you provision Azure compute resources t
 
 > [AZURE.NOTE] Cluster provisioning takes some time, usually under 15 minutes, to create the cluster, configure software, and install sample data and topologies.
 
-##Using Storm on HDInsight
+##Run a Storm Starter sample on HDInsight
+
+This Apache Storm tutorial introduces you to big data analytics using the Storm Starter samples on GitHub.
 
 Each Storm on HDInsight cluster comes with the Storm Dashboard, which can be used to upload and run Storm topologies on the cluster. Each cluster also comes with sample topologies that can be run directly from the Storm Dashboard.
 
@@ -88,11 +90,11 @@ Once the Storm Dashboard has loaded, you will see the **Submit Topology** form.
 
 The **Submit Topology** form can be used to upload and run .jar files containing Storm topologies. It also includes several basic samples that are provided with the cluster.
 
-###<a id="run"></a>Run the word-count sample
+###<a id="run"></a>Run the word-count sample from the Storm Starter project in GitHub
 
 The samples provided with the cluster include several variations of a word-counting topology. These samples include a **spout** that randomly emits sentences, and **bolts** that break each sentence into individual words, then count how many times each word has occurred. These samples are from the <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">Storm Starter samples</a>, which are a part of Apache Storm.
 
-Perform the following steps to run one of the samples:
+Perform the following steps to run a Storm Starter sample:
 
 1. Select **StormStarter - WordCount** from the **Jar File** drop-down. This should populate the **Class Name** and **Additional Parameters** fields with the parameters for this sample.
 
@@ -182,7 +184,7 @@ Return to the **Topology summary** page for the word-count topology, and then se
 
 ##Summary
 
-In this tutorial, you learned how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies.
+In this Apache Storm tutorial, you used the Storm Starter to learn how to create a Storm on HDInsight cluster and use the Storm Dashboard to deploy, monitor, and manage Storm topologies.
 
 ##<a id="next"></a>Next steps
 

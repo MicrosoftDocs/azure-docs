@@ -1,5 +1,5 @@
 <properties
-   pageTitle="MapReduce with Hadoop in HDInsight | Azure"
+   pageTitle="MapReduce and SSH connection with Hadoop in HDInsight | Microsoft Azure"
    description="Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -9,14 +9,14 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Use Hive with Hadoop on HDInsight with SSH
+# Use MapReduce with Hadoop on HDInsight with SSH
 
 [AZURE.INCLUDE [mapreduce-selector](../includes/hdinsight-selector-use-mapreduce.md)]
 

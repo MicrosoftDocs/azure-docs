@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Build an HBase application using Maven"
-	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight"
+	pageTitle="Build an HBase application using Maven | Microsoft Azure"
+	description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"

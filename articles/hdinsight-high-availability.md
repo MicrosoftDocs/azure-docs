@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Availability of Hadoop clusters in HDInsight | Azure" 
-	description="HDInsight deploys highly available and reliable clusters." 
+	pageTitle="Availability of Hadoop clusters in HDInsight | Microsoft Azure" 
+	description="HDInsight deploys highly available and reliable clusters with an addtional head node." 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -22,7 +22,7 @@
 ## Introduction ##
 A second head node has been added to the Hadoop clusters deployed by Azure HDInsight to increase the availability and reliability of the service needed to manage workloads. Standard implementations of Hadoop clusters typically have a single head node. These clusters are designed to manage the failure of worker nodes smoothly, but any outages of master services running on the head node would cause the cluster to cease to work. 
 
-![](http://i.imgur.com/jrUmrH4.png)
+![Diagram of the highly reliable head nodes in the HDInsight Hadoop implementation.](http://i.imgur.com/jrUmrH4.png)
 
 HDInsight removes this single point of failure with the addition of a secondary head node (Head Node1). [ZooKeeper][zookeeper] nodes (ZKs) have been added and are used for leader election of head nodes and to insure that worker nodes and gateways (GWs) know when to fail over to the secondary head node (Head Node1) when the active head node (Head Node0) becomes inactive.
 

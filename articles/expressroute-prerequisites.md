@@ -12,15 +12,15 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="05/06/2015"
    ms.author="cherylmc"/>
 
 
-# ExpressRoute Prerequesites  
+# ExpressRoute Prerequisites  
 
 To connect to Microsoft cloud services using ExpressRoute, you’ll need to verify that the following prerequisites have been met:
 
-##Prerequisites for Connectivity
+## Prerequisites for Connectivity
 
 - A valid and active Microsoft Azure Account
 - A relationship with a network service provider (NSP) or an exchange provider (EXP) from the [supported list](expressroute-locations.md) through whom connectivity needs to be facilitated. You must have an existing business relationship with the network service provider or exchange provider. You’ll need to make sure that the service you use is compatible with ExpressRoute. 
