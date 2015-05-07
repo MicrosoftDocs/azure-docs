@@ -182,8 +182,8 @@ You can update the bandwidth of the ExpressRoute circuit using the update dedica
 ExpressRoute premium is a collection of features listed below.
  
  - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
- - Increased number of vnets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
- - Global connectivity over the Microsoft core network. You will now be able to link an vnet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a vnet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
+ - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
+ - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley. 
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
 The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.

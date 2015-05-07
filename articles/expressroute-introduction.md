@@ -96,7 +96,7 @@ The table below compares the three routing domains.
 |---|---|---|---|
 |**Max. # prefixes supported per peering**|4000 by default, 10,000 with ExpressRoute Premium|4000 by default, 10,000 with ExpressRoute Premium|200|
 |**IP address ranges supported**|Any valid IPv4 address within your WAN|Public IPv4 addresses owned by you or your connectivity provider|Public IPv4 ddresses owned by you or your connectivity provider|
-|**AS Number Requirements**|Private and public AS numbers . Customer must own public AS number. | Private and public AS numbers . Customer must own ublic AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
+|**AS Number Requirements**|Private and public AS numbers . Customer must own public AS number. | Private and public AS numbers . Customer must own public AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
 |**Routing Interface IP adressess**|RFC1918 and public IP addresses|Public IP addresses registered to customers / NSP in routing registries.| Public IP addresses registered to customers / NSP in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
