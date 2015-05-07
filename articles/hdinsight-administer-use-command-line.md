@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" 
-	description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." 
+	pageTitle="Manage Hadoop clusters using a Command-Line interface | Microsoft Azure" 
+	description="Learn how to use the cross-platform Command-Line interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 

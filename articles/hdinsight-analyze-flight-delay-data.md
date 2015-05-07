@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyze flight delay data by using Hadoop in HDInsight | Azure" 
+	pageTitle="Analyze flight delay data with Hadoop in HDInsight | Microsoft Azure" 
 	description="Learn how to use one Windows PowerShell script to provision an HDInsight cluster, run a Hive job, run a Sqoop job, and delete the cluster." 
 	services="hdinsight" 
 	documentationCenter="" 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" 
+	pageTitle="Analyze Twitter data with Hadoop in HDInsight | Microsoft Azure" 
 	description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." 
 	services="hdinsight" 
 	documentationCenter="" 
