@@ -35,7 +35,6 @@ Azure App Services provides a number of connectors out of the box:
 * [HTTP connector]
 * [Office 365 connector]
 * [OneDrive connector]
-* [Oracle connector]
 * [POP3 connector]
 * [QuickBooks connector]
 * [Salesforce connector]
@@ -61,7 +60,7 @@ Azure App Services provides a number of connectors out of the box:
 * BizTalk XML Validator
 * DB2 Connector
 * Informix Connector
-* Oracle Database Connector
+* [Oracle connector]
 * MQ Connector
 * [SAP connector]
  
