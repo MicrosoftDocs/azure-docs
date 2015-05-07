@@ -317,7 +317,6 @@ You can configure a VPN connection to the server as follows:
 
 10. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.5 on the server to be able to discover vCenter Servers. If you install VMware vSphere CLI 5.5 after the process server installation is complete, remember to reboot the process server. 
 
-	![Register process server](./media/site-recovery-vmware-to-azure/ASRVMWare_PSRegister2.png)
 
 Validate that the process server registered successfully in the vault > **Configuration Server** > **Server Details**.
 
