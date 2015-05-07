@@ -137,7 +137,8 @@ The following code will enable monitoring for an **existing** Stream Analytics j
 
 > [AZURE.WARNING] 
 - If you have previously enabled monitoring for a different Stream Analytics job, either through the Azure Portal or programmatically via the below code, **it is recommended that you provide the same storage account name that you did when you previously enabled monitoring.**
-- The storage account is linked to the region you created your Stream Analytics job in, not specifically to the job itself. All Stream Analytics job (and all other Azure resources) in that same region share this storage account to store monitoring data. If you provide a different storage account, it may cause unintended side effects to the monitoring of your other Stream Analytics jobs and/or other Azure resources.
+- The storage account is linked to the region you created your Stream Analytics job in, not specifically to the job itself. 
+- All Stream Analytics job (and all other Azure resources) in that same region share this storage account to store monitoring data. If you provide a different storage account, it may cause unintended side effects to the monitoring of your other Stream Analytics jobs and/or other Azure resources.
 - The storage account name used to replace ```“<YOUR STORAGE ACCOUNT NAME>”``` below should be a storage account that is in the same subscription as the Stream Analytics job you are enabling monitoring for?
 
     // Get an existing Stream Analytics job
