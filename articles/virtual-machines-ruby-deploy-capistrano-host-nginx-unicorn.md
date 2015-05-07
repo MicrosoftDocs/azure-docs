@@ -351,9 +351,10 @@ On your development environment, modify the application to use the Unicorn web s
 		set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 		set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 		
-		# dirs we want symlinked to the shared folder
+		# dirs and files we want symlinked to the shared folder
 		# during deployment
 		set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+		set :linked_files, %w{config/database.yml config/unicorn.rb}
 		
 		namespace :deploy do
 
