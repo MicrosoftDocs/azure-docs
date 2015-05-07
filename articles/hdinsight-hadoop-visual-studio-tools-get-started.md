@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Learn to use Visual Studio Hadoop tools for HDInsight | Microsoft Azure" 
 	description="Learn how to install and use Visual Studio Hadoop tools for HDInsight to connect to a Hadoop cluster and run a Hive query." 
+	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight" 
 	documentationCenter="" 
 	authors="mumian" 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" 
-	description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." 
+	pageTitle="Manage Hadoop clusters using a Command-Line interface | Microsoft Azure" 
+	description="Learn how to use the cross-platform Command-Line interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." 
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
@@ -22,7 +22,7 @@ Learn how to use the Azure Command-Line interface for Mac, Linux and Windows to 
 
 The Azure CLI is open source. The source code is managed in GitHub at <a href= "https://github.com/WindowsAzure/azure-sdk-tools-xplat">https://github.com/WindowsAzure/azure-sdk-tools-xplat</a>. 
 
-This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux][azure-command-line-tools].
+This article covers only using the command-line interface from Windows. For a general guide on how to use the command-line interface, see [How to use the Azure Command-Line Tools for Mac and Linux] [azure-command-line-tools].
 
 
 ##Prerequisites
@@ -76,7 +76,7 @@ Before using the command-line interface, you must configure connectivity between
 
 		azure account download
  
-	![HDI.CLIAccountDownloadImport][image-cli-account-download-import]
+	![Command-line Interface downloading Azure account.][image-cli-account-download-import]
 
 	The command shows the instructions for downloading the file, including a URL.
 
@@ -187,10 +187,10 @@ Use the following command to delete a cluster:
 ##Next steps
 In this article, you have learned how to perform different HDInsight cluster administrative tasks. To learn more, see the following articles:
 
-* [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
-* [Administer HDInsight by using Azure PowerShell][hdinsight-admin-powershell]
-* [Get started with Azure HDInsight][hdinsight-get-started]
-* [How to use the Azure CLI for Mac, Linux and Windows][azure-command-line-tools]
+* [Administer HDInsight by using the Azure portal] [hdinsight-admin-portal]
+* [Administer HDInsight by using Azure PowerShell] [hdinsight-admin-powershell]
+* [Get started with Azure HDInsight] [hdinsight-get-started]
+* [How to use the Azure CLI for Mac, Linux and Windows] [azure-command-line-tools]
 
 
 [azure-command-line-tools]: xplat-cli.md

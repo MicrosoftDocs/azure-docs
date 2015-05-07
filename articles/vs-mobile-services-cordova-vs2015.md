@@ -3,7 +3,7 @@
 	description="Using mobile services in Cordova projects" 
 	services="mobile-services" 
 	documentationCenter="" 
-	authors="patshea" 
+	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="patshea"/>
+	ms.date="05/06/2015" 
+	ms.author="patshea123"/>
 
 # Using Mobile Services with Cordova Projects in Visual Studio 2015 Preview
 
