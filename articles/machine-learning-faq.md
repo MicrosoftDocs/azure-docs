@@ -69,7 +69,21 @@ Data can be loaded into Machine Learning Studio in one of two ways: by uploading
 
 ####<a id="ModuleLimit"></a>How large can the data set be for my modules?
 
-Machine Learning Studio supports  training datasets up to 10 GB. There is no limit on the dataset size for web services.  You can also sample larger datasets via Hive or Azure SQL Database queries before ingestion. If you are working with data larger than 10 GB, you can create multiple datasets and use the [Partition and Sample][partition-and-sample], [Split][split], or [Join][join] modules to combine these datasets in Machine Learning Studio to create training sets for building predictive models. Visit the module Help in Machine Learning Studio to learn more about these modules.
+Modules in Machine Learning Studio supports datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than 1 input, the 10 GB is the total of all input sizes. Sampling larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion, is also supported.  
+
+The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:
+•	Sparse
+•	Categorical
+•	Strings
+•	Binary data
+The following modules are limited to datasets less than 10GB:
+•	Recommender modules
+•	SMOTE module
+•	Scripting modules: R, Python, SQL
+•	Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+•	Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+For datasets larger than a couple GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+
 
 ####<a id="UploadLimit"></a>What are the limits for data upload?
 For datasets larger than a couple GB, upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
