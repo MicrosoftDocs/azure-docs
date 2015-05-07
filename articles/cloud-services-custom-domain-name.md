@@ -18,16 +18,6 @@
 
 # Configuring a custom domain name for an Azure cloud service
 
-<!-- 
-
-REVISION HISTORY
-
-5/6/2015
-  - Removed the include file and added all the content directly to this topic
-  - Converted tables
-  
--->
-
 > [AZURE.NOTE]
 > Get going faster--use the NEW Azure [guided walkthrough](http://support.microsoft.com/kb/2990804)!  It makes associating a custom domain name AND securing communication (SSL) with Azure Cloud Services or Azure Websites a snap.
 
