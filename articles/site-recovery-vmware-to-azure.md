@@ -385,7 +385,7 @@ When you add machines to a protection group, the mobility service is automatical
 
 **To automatically push install the mobility service on Windows servers, you'll need to complete the following prerequisites:** 
 
-1. Latest [patch updates](http://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmware-to-azure/#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
 2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server. 
 3. Ensure vSphere CLI 5.5 is installed on the process server. 
 4. Configure Windows Firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. Under Windows Firewall settings, select the option “Allow an app or feature through Firewall” and select the applications as shown in the picture below. For machines that belong to a domain you can configure the firewall policy with a Group Policy Object.
@@ -398,7 +398,7 @@ When you add machines to a protection group, the mobility service is automatical
 
 **To automatically push install the mobility service on Linux servers, you'll need to complete the following prerequisites:**
 
-1. Latest [patch updates](http://azure.microsoft.com/en-us/documentation/articles/site-recovery-vmware-to-azure/#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
 2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server. 
 3. Ensure vSphere CLI 5.5 is installed on the process server. 
 4. Make sure the account is a root user on the source Linux server.
