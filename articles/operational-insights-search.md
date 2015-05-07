@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Search for data in Operational Insights"
    description="You can use search in Microsoft Azure Operational Insights to find data that you’re looking for"
    services="operational-insights"
@@ -6,7 +6,7 @@
    authors="bandersmsft"
    manager="jwhit"
    editor="" />
-<tags 
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
@@ -19,13 +19,13 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-At the core of Microsoft Azure Operational Insights is the search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Intelligence Packs are also powered by search to bring you metrics pivoted around a particular problem area. 
+At the core of Microsoft Azure Operational Insights is the search feature which allows you to combine and correlate any machine data from multiple sources within your environment. Solutions are also powered by search to bring you metrics pivoted around a particular problem area.
 
 On the Search page, you can create a query, and then when you search, you can filter the results by using facet controls. You can also create advanced queries to transform, filter, and report on your results.
 
-Common search queries appear on most intelligence pack pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using Search.
+Common search queries appear on most solution pages. Throughout the Operational Insights console, you can click tiles or drill in to other items to view details about the item by using Search.
 
-In this tutorial, we'll walk through examples to cover all the basics when you use Search. 
+In this tutorial, we'll walk through examples to cover all the basics when you use Search.
 
 We'll start with simple, practical examples and then build on them so that you can get an understanding of practical use cases about how to use the syntax to extract the insights you want from the data.
 
@@ -45,7 +45,7 @@ After you've familiar with search techniques, you can review the [Search syntax 
 
 The first thing to know is that the first part of a search query, before any “|” vertical pipe character, is always a *filter*. You can think of it as a WHERE clause in TSQL--it determines *what* subset of data to pull out of the Operational Insights data store. Searching from a the data store is largely about specifying the characteristics of the data that you want to extract, so it is natural that a query would start with the WHERE clause.
 
-The most basic filters you can use are *keywords*, such as ‘error’ or ‘timeout’, or a computer name. These types of simple queries generally return diverse shapes of data within the same result set. This is because Operational Insights has different *types* of data in the system. 
+The most basic filters you can use are *keywords*, such as ‘error’ or ‘timeout’, or a computer name. These types of simple queries generally return diverse shapes of data within the same result set. This is because Operational Insights has different *types* of data in the system.
 
 
 ### To conduct a simple search
@@ -62,13 +62,13 @@ For example, the query for `error` in the following image returned 100,000 **Eve
 
 These filters are not really object types/classes. *Type* is just a tag, or a property, or a string/name/category, that is attached to a piece of data. Some documents in the system are tagged as **Type:Alert** and some are tagged as **Type:PerfHourly**, or **Type:Event**, and so on. Each search result, document, record, or entry displays all the raw properties and their values for each of those pieces of data, and you can use those field names to specify in the filter when you want to retrieve only the records where the field has that given value.
 
-*Type* is really just a field that all records have, it is not different from any other field. This was established based on the value of the Type field. That record will have a different shape or form. Incidentally, **Type=PerfHourly**, or **Type=Event** is also the syntax that you need to learn to query for hourly performance data aggregates or events. 
+*Type* is really just a field that all records have, it is not different from any other field. This was established based on the value of the Type field. That record will have a different shape or form. Incidentally, **Type=PerfHourly**, or **Type=Event** is also the syntax that you need to learn to query for hourly performance data aggregates or events.
 
 You can use either a colon (:) or a equal sign (=) after the field name and before the value. **Type:Event** and **Type=Event** are equivalent in meaning, you can chose the style you prefer.
 
 So, if the Type=PerfHourly records have a field called 'CounterName', then you can write a query resembling `Type=PerfHourly CounterName="% Processor Time"`.
 
-This will give you only the performance data where the performance counter name is "% Processor Time". 
+This will give you only the performance data where the performance counter name is "% Processor Time".
 
 ### To search for processor time performance data
 - In the search query field, type `Type=PerfHourly CounterName="% Processor Time"`
@@ -79,16 +79,16 @@ You can also be more specific and use **InstanceName=_'Total'** in the query, wh
 
 Your query now becomes `Type=PerfHourly CounterName=”% Processor Time” InstanceName=”_Total”`
 
-In this example, you don't have to specify **Type=PerfHourly** to get to this result. Because the fields CounterName and InstanceName only exist for records of Type=PerfHourly, the query is specific enough to return the same results as the longer, previous one: 
+In this example, you don't have to specify **Type=PerfHourly** to get to this result. Because the fields CounterName and InstanceName only exist for records of Type=PerfHourly, the query is specific enough to return the same results as the longer, previous one:
 ```
 CounterName=”% Processor Time” InstanceName=”_Total”
 ```
 
-This is because all the filters in the query are evaluated as being in *AND* with each other. Effectively, the more fields you add to the criteria, you get less, more specific and refined results. 
+This is because all the filters in the query are evaluated as being in *AND* with each other. Effectively, the more fields you add to the criteria, you get less, more specific and refined results.
 
 For example, the query `Type=Event EventLog="Windows PowerShell"` is identical to `Type=Event AND EventLog="Windows PowerShell"`. It returns all events that were logged in and collected from the Windows PowerShell event log. If you add a filter multiple times by repeatedly selecting the same facet, then the issue is purely cosmetic--it might clutter the Search bar, but it still returns the same results because the implicit AND operator is always there.
 
-You can easily reverse the implicit AND operator by using a NOT operator explicitly. For example: 
+You can easily reverse the implicit AND operator by using a NOT operator explicitly. For example:
 
 `Type:Event NOT(EventLog:"Windows PowerShell")` or it's equivalent `Type=Event EventLog!="Windows PowerShell"` return all events from all other logs that are NOT the Windows PowerShell log.
 
@@ -98,7 +98,7 @@ Or, you can use other Boolean operator such as ‘OR’. The following query ret
 EventLog=Application OR EventLog=System
 ```
 
-Using the above query, you’ll get entries for both logs in the same result set. 
+Using the above query, you’ll get entries for both logs in the same result set.
 
 However, if you remove the OR by leaving the implicit AND in place, then the following query will not produce any results because there isn’t an event log entry that belongs to BOTH logs. Each event log entry was written to only one of the two logs.
 
@@ -179,7 +179,7 @@ For example, given that Configuration Assessment’s alerts have the following s
 - 0 = Information
 - 1 = Warning
 - 2 = Critical
- 
+
 You can query for both warning and critical alerts and also exclude informational ones with the following query:
 
 ```
@@ -200,9 +200,9 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 When you're searching for data, you'll want to refine your search query and have a good level of control over the results. When results are retrieved, you can apply commands to transform them.
 
-Commands in Operational Insights searches *must* follow after the vertical pipe character (|). A filter must always be the first part of a query string. It defines the data set you're working with and then "pipes" those results into a command. You can then use the pipe to add additional commands. This is loosely similar to the Windows PowerShell pipeline. 
+Commands in Operational Insights searches *must* follow after the vertical pipe character (|). A filter must always be the first part of a query string. It defines the data set you're working with and then "pipes" those results into a command. You can then use the pipe to add additional commands. This is loosely similar to the Windows PowerShell pipeline.
 
-In general, the Operational Insights search language tries to follow PowerShell style and guidelines to make it similar to the IT pros, and to ease the learning curve. 
+In general, the Operational Insights search language tries to follow PowerShell style and guidelines to make it similar to the IT pros, and to ease the learning curve.
 
 Commands have names of verbs so you can easily tell what they do.  
 
@@ -268,7 +268,7 @@ This is command particularly useful when you want to control search output and c
 
 ## Use the measure command
 
-MEASURE is one of the most versatile commands in Operational Insights searches. It allows you to apply statistical *functions* to your data and aggregate results grouped by a given field. There are multiple statistical functions that Measure supports. 
+MEASURE is one of the most versatile commands in Operational Insights searches. It allows you to apply statistical *functions* to your data and aggregate results grouped by a given field. There are multiple statistical functions that Measure supports.
 
 ### Measure count()
 
@@ -348,7 +348,7 @@ Type=Alert | Measure Max(Severity) by Computer
 
 ![search measure max time generated computer](./media/operational-insights-search/search-measure-max03.png)
 
-This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example : When was the most recent configuration change reported by change tracking Intelligence Pack for each machine?
+This function works well with numbers, but it also works with DateTime fields. It is useful to check for the last or most recent time stamp for any piece of data indexed for each computer. For example : When was the most recent configuration change reported by change tracking solution for each machine?
 
 ```
 Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
@@ -358,7 +358,7 @@ Type=ConfigurationChange | Measure Max(TimeGenerated) by Computer
 
 The Avg() statistical function used with measure allows you to calculate the average value for some field, and group results by the same or other field. This is useful in a variety of cases, such as performance data.
 
-We'll start with performance data. However, note that Operational Insights currently collects only certain fabric-related performance counters for Virtual Machine Manager and Hyper-V hosts as part of the Capacity Management intelligence pack.
+We'll start with performance data. However, note that Operational Insights currently collects only certain fabric-related performance counters for Virtual Machine Manager and Hyper-V hosts as part of the Capacity Management solution.
 
 To search for *all* performance data, the most basic query is:
 
@@ -392,7 +392,7 @@ Type=PerfHourly  ObjectName:Processor  InstanceName:_Total  CounterName:"% Proce
 
 ![search avg samplevalue](./media/operational-insights-search/search-avg03.png)
 
-In this example, you select the CPU Total Time performance counter and average by Computer. Because **SampleValue** is already an average, you actually query for an average of an average. That’s correct with Type=PerfHourly at this point. You should always use a filter on TimeGenerated to restrict the operation to a small or recent dataset, such as the last 4 hours--not 7 days. 
+In this example, you select the CPU Total Time performance counter and average by Computer. Because **SampleValue** is already an average, you actually query for an average of an average. That’s correct with Type=PerfHourly at this point. You should always use a filter on TimeGenerated to restrict the operation to a small or recent dataset, such as the last 4 hours--not 7 days.
 
 So the query above becomes:
 
@@ -429,24 +429,24 @@ Because you have a very specific selection, the **measure Avg()** command can re
 Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% Processor Time") OR (ObjectName="LogicalDisk" AND CounterName="% Free Space")) AND TimeGenerated>NOW-4HOURS AND (Computer=”SERVER1.contoso.com” OR Computer=”SERVER2.contoso.com” OR Computer=”SERVER3.contoso.com”) | Measure Avg(SampleValue) by CounterName
 ```
 
-This gives you a useful compact view of a couple of your environment's KPIs. 
+This gives you a useful compact view of a couple of your environment's KPIs.
 
 ![search avg grouping](./media/operational-insights-search/search-avg04.png)
 
 
-You can easily use this in a dashboard. To learn more about using dashboards, see [Operational Insights dashboards](operational-insights-use-dashboards). 
+You can easily use this in a dashboard. To learn more about using dashboards, see [Operational Insights dashboards](operational-insights-use-dashboards).
 
 ![search avg dashboard](./media/operational-insights-search/search-avg05.png)
 
 ### Use the sum function with the measure command
 
-The sum function is similar to other functions of the measure command. You can see an example about how to use the sum function at [W3C IIS Logs Search in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx). 
+The sum function is similar to other functions of the measure command. You can see an example about how to use the sum function at [W3C IIS Logs Search in Microsoft Azure Operational Insights](http://blogs.msdn.com/b/dmuscett/archive/2014/09/20/w3c-iis-logs-search-in-system-center-advisor-limited-preview.aspx).
 
 You can use Max() and Min() with numbers, datetimes and text strings. With text strings, they are sorted alphabetically and you get first and last.
 
 However, you cannot use Sum() with anything other than numerical fields. This also applies to Avg().
 
-## Use the where command 
+## Use the where command
 
 The where command works like a filter, but it can be applied in the pipeline to further filter aggregated results that have been produced by a Measure command – as opposed to raw results that are filtered at the beginning of a query.
 
@@ -599,7 +599,7 @@ Syntax:
 		</td>
 		<td>
 		<p>Rounds Date/Time to the specified unit. </p>
-		<p>Example:&nbsp;NOW/DAY rounds the current Date/Time to the midnight of the 
+		<p>Example:&nbsp;NOW/DAY rounds the current Date/Time to the midnight of the
 		current day. </p>
 		</td>
 	</tr>
@@ -611,9 +611,9 @@ Syntax:
 		<p>Offsets Date/Time by the specified number of units</p>
 		<p>Examples:&nbsp; </p>
 		<ul>
-			<li class="unordered">NOW+1HOUR offsets the current Date/Time by one 
+			<li class="unordered">NOW+1HOUR offsets the current Date/Time by one
 			hour ahead.<br><br></li>
-			<li class="unordered">2013-10-01T12:00-10DAYS offsets the Date value 
+			<li class="unordered">2013-10-01T12:00-10DAYS offsets the Date value
 			back by 10 days.</li>
 		</ul>
 		</td>
@@ -648,7 +648,7 @@ The following table lists the supported Date/Time units.
 		<p>MONTH, MONTHS</p>
 		</td>
 		<td>
-		<p>Rounds to current month, or offsets by the specified number of 
+		<p>Rounds to current month, or offsets by the specified number of
 		months.</p>
 		</td>
 	</tr>
@@ -657,7 +657,7 @@ The following table lists the supported Date/Time units.
 		<p>DAY, DAYS, DATE</p>
 		</td>
 		<td>
-		<p>Rounds to current day of the month, or offsets by the specified 
+		<p>Rounds to current day of the month, or offsets by the specified
 		number of days.</p>
 		</td>
 	</tr>
@@ -674,7 +674,7 @@ The following table lists the supported Date/Time units.
 		<p>MINUTE, MINUTES</p>
 		</td>
 		<td>
-		<p>Rounds to current minute, or offsets by the specified number of 
+		<p>Rounds to current minute, or offsets by the specified number of
 		minutes.</p>
 		</td>
 	</tr>
@@ -683,7 +683,7 @@ The following table lists the supported Date/Time units.
 		<p>SECOND, SECONDS</p>
 		</td>
 		<td>
-		<p>Rounds to current second, or offsets by the specified number of 
+		<p>Rounds to current second, or offsets by the specified number of
 		seconds.</p>
 		</td>
 	</tr>
@@ -692,7 +692,7 @@ The following table lists the supported Date/Time units.
 		<p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p>
 		</td>
 		<td>
-		<p>Rounds to current millisecond, or offsets by the specified number of 
+		<p>Rounds to current millisecond, or offsets by the specified number of
 		milliseconds.</p>
 		</td>
 	</tr>
@@ -880,7 +880,7 @@ Aggregates the results by **groupField** and calculates the aggregated measure v
 		<p></p>
 		</td>
 		<td>
-		<p>The name of the aggregate function (case insensitive). The following 
+		<p>The name of the aggregate function (case insensitive). The following
 		aggregate functions are supported :</p>
 		<ul>
 			<li class="unordered">COUNT<br><br></li>
@@ -897,8 +897,8 @@ Aggregates the results by **groupField** and calculates the aggregated measure v
 		<p><em>aggregatedField</em> </p>
 		</td>
 		<td>
-		<p>The field that is being aggregated. This field is optional for the 
-		COUNT aggregate function, but has to be an existing numeric field for 
+		<p>The field that is being aggregated. This field is optional for the
+		COUNT aggregate function, but has to be an existing numeric field for
 		SUM, MAX, MIN, AVG, or STDDEV.</p>
 		</td>
 	</tr>
@@ -907,7 +907,7 @@ Aggregates the results by **groupField** and calculates the aggregated measure v
 		<p><em>fieldAlias</em> </p>
 		</td>
 		<td>
-		<p>The (optional) alias for the calculated aggregated value. If not 
+		<p>The (optional) alias for the calculated aggregated value. If not
 		specified, the field name will be <em>AggregatedValue.</em></p>
 		</td>
 	</tr>
@@ -1042,7 +1042,7 @@ Can only be used after a **Measure** command to further filter the aggregated re
 
 Examples:
 
-	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) as MAXCPU by 
+	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) as MAXCPU by
 
 	Type:PerfHourly CounterName:"% Total Run Time" | Measure max(Max) by RootObjectName | where (AggregatedValue>50 and AggregatedValue<90)
 
@@ -1078,15 +1078,15 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>All</p>
 		</td>
 		<td>
-		<p>Used to drive the timeline, timeselectors (in search and in other 
-		screens). It represents when the piece of data was generated (typically 
-		on the agent). The time is expressed in ISO format and is always UTC. In 
-		the case of &#39;types&#39; that are based on existing instrumentation (i.e. 
-		events in a log) this is typically the real time that the log 
-		entry/line/record was logged at; for some of the other types that are 
-		produced either via management packs or in the cloud - i.e. 
-		recommendations/alerts/updateagent/etc, this is the time when this new 
-		piece of data with a snapshot of a configuration of some sort was 
+		<p>Used to drive the timeline, timeselectors (in search and in other
+		screens). It represents when the piece of data was generated (typically
+		on the agent). The time is expressed in ISO format and is always UTC. In
+		the case of &#39;types&#39; that are based on existing instrumentation (i.e.
+		events in a log) this is typically the real time that the log
+		entry/line/record was logged at; for some of the other types that are
+		produced either via management packs or in the cloud - i.e.
+		recommendations/alerts/updateagent/etc, this is the time when this new
+		piece of data with a snapshot of a configuration of some sort was
 		collected or a recommendation/alert was produced based on it</p>
 		</td>
 	</tr>
@@ -1131,7 +1131,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Event</p>
 		</td>
 		<td>
-		<p>Numerical value for critical / warning / information / success (use 
+		<p>Numerical value for critical / warning / information / success (use
 		EventLevelName instead for easier/more readable queries)</p>
 		</td>
 	</tr>
@@ -1143,8 +1143,8 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>All</p>
 		</td>
 		<td>
-		<p>Where the data comes from (in terms of &#39;attach&#39; mode to the service - 
-		i.e. Operations Manager, Operational Insights (=the data is generated in 
+		<p>Where the data comes from (in terms of &#39;attach&#39; mode to the service -
+		i.e. Operations Manager, Operational Insights (=the data is generated in
 		the cloud), Azure Storage (data coming from WAD) and so on</p>
 		</td>
 	</tr>
@@ -1189,8 +1189,8 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly, Alert, ConfigurationObject, ConfigurationObjectProperty</p>
 		</td>
 		<td>
-		<p>Display name of the object targeted by a performance collection rule 
-		in Operations Manager, or that of the object discovered by Operational 
+		<p>Display name of the object targeted by a performance collection rule
+		in Operations Manager, or that of the object discovered by Operational
 		Insights, or against which the alert was generated</p>
 		</td>
 	</tr>
@@ -1202,10 +1202,10 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly, Alert, ConfigurationObject, ConfigurationObjectProperty</p>
 		</td>
 		<td>
-		<p>Display name of the parent of the parent (in a double hosting 
-		relationship: i.e. SqlDatabase hosted by SqlInstance hosted by Windows 
-		Computer) of the object targeted by a performance collection rule in 
-		Operations Manager, or that of the object discovered by Operational 
+		<p>Display name of the parent of the parent (in a double hosting
+		relationship: i.e. SqlDatabase hosted by SqlInstance hosted by Windows
+		Computer) of the object targeted by a performance collection rule in
+		Operations Manager, or that of the object discovered by Operational
 		Insights, or against which the alert was generated</p>
 		</td>
 	</tr>
@@ -1250,13 +1250,13 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ProtectionStatus</p>
 		</td>
 		<td>
-		<p>Threat status rank is a numerical representation of the threat 
-		status, and similar to HTTP response codes, we&#39;ve left gaps between the 
-		numbers (which is why no threats is 150 and not 100 or 0) so that we&#39;ve 
-		got some room to add new states. When we do a rollup for threat status 
-		and protection status, we want to show the worst state that the computer 
-		has been in during the selected time period. We use the numbers to rank 
-		the different states so we can look for the record with the highest 
+		<p>Threat status rank is a numerical representation of the threat
+		status, and similar to HTTP response codes, we&#39;ve left gaps between the
+		numbers (which is why no threats is 150 and not 100 or 0) so that we&#39;ve
+		got some room to add new states. When we do a rollup for threat status
+		and protection status, we want to show the worst state that the computer
+		has been in during the selected time period. We use the numbers to rank
+		the different states so we can look for the record with the highest
 		number.</p>
 		</td>
 	</tr>
@@ -1279,7 +1279,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ProtectionStatus</p>
 		</td>
 		<td>
-		<p>Anti-malware product that is detected in the computer: none, 
+		<p>Anti-malware product that is detected in the computer: none,
 		Microsoft Malware Removal tool, Forefront, and so on</p>
 		</td>
 	</tr>
@@ -1324,7 +1324,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Most types </p>
 		</td>
 		<td>
-		<p>Management Group Name for Operations Manager-attached agents; 
+		<p>Management Group Name for Operations Manager-attached agents;
 		otherwise it will be null/blank</p>
 		</td>
 	</tr>
@@ -1336,7 +1336,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationObject</p>
 		</td>
 		<td>
-		<p>Type (as in Operations Manager management pack&#39;s &#39;type&#39;/class) for 
+		<p>Type (as in Operations Manager management pack&#39;s &#39;type&#39;/class) for
 		this object discovered by Operational Insights configuration assessment</p>
 		</td>
 	</tr>
@@ -1458,7 +1458,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Alert</p>
 		</td>
 		<td>
-		<p>XML with the parameters of the Operations Manager/Operational 
+		<p>XML with the parameters of the Operations Manager/Operational
 		Insights alert</p>
 		</td>
 	</tr>
@@ -1470,7 +1470,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Alert</p>
 		</td>
 		<td>
-		<p>XML with the &#39;context&#39; of the Operations Manager/Operational Insights 
+		<p>XML with the &#39;context&#39; of the Operations Manager/Operational Insights
 		alert</p>
 		</td>
 	</tr>
@@ -1515,7 +1515,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>UpdateAgent</p>
 		</td>
 		<td>
-		<p>How many days ago (relative to &#39;TimeGenerated&#39; of this record) did 
+		<p>How many days ago (relative to &#39;TimeGenerated&#39; of this record) did
 		this agent install any update from WSUS/Microsoft Update?</p>
 		</td>
 	</tr>
@@ -1527,8 +1527,8 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>UpdateAgent</p>
 		</td>
 		<td>
-		<p>Based on DaysSinceLastUpdate, a categorization in &#39;time buckets&#39; of 
-		how long ago was a computer last installed any update from 
+		<p>Based on DaysSinceLastUpdate, a categorization in &#39;time buckets&#39; of
+		how long ago was a computer last installed any update from
 		WSUS/Microsoft Update</p>
 		</td>
 	</tr>
@@ -1551,7 +1551,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>UpdateAgent</p>
 		</td>
 		<td>
-		<p>Is automatic update checking set to automatically download and 
+		<p>Is automatic update checking set to automatically download and
 		install, only download, or only check?</p>
 		</td>
 	</tr>
@@ -1596,7 +1596,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Recommendation, ConfigurationObjectProperty</p>
 		</td>
 		<td>
-		<p>Name/title of the recommendation, or name of the property from 
+		<p>Name/title of the recommendation, or name of the property from
 		Operational Insights Configuration Assessment</p>
 		</td>
 	</tr>
@@ -1608,7 +1608,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationObjectProperty</p>
 		</td>
 		<td>
-		<p>Value of a property from Operational Insights Configuration 
+		<p>Value of a property from Operational Insights Configuration
 		Assessment</p>
 		</td>
 	</tr>
@@ -1631,9 +1631,9 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Recommendation</p>
 		</td>
 		<td>
-		<p>Recommendations are among the few types whose records get &#39;updated&#39;, 
-		not just added to the search index. This status changes whether the 
-		recommendation is active/open or if Operational Insights detects that it 
+		<p>Recommendations are among the few types whose records get &#39;updated&#39;,
+		not just added to the search index. This status changes whether the
+		recommendation is active/open or if Operational Insights detects that it
 		has been resolved</p>
 		</td>
 	</tr>
@@ -1645,7 +1645,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Event</p>
 		</td>
 		<td>
-		<p>Rendered description (reused text with populated parameters) of a 
+		<p>Rendered description (reused text with populated parameters) of a
 		Windows event</p>
 		</td>
 	</tr>
@@ -1657,7 +1657,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Event</p>
 		</td>
 		<td>
-		<p>XML with the parameters in the &#39;data&#39; section of a Windows Event (as 
+		<p>XML with the parameters in the &#39;data&#39; section of a Windows Event (as
 		seen in event viewer)</p>
 		</td>
 	</tr>
@@ -1669,7 +1669,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>Event</p>
 		</td>
 		<td>
-		<p>XML with the whole &#39;data&#39; section of a Windows Event (as seen in 
+		<p>XML with the whole &#39;data&#39; section of a Windows Event (as seen in
 		event viewer)</p>
 		</td>
 	</tr>
@@ -1725,7 +1725,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Minimum value in the hourly interval of a performance counter hourly 
+		<p>Minimum value in the hourly interval of a performance counter hourly
 		aggregate</p>
 		</td>
 	</tr>
@@ -1737,7 +1737,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>Maximum value in the hourly interval of a performance counter hourly 
+		<p>Maximum value in the hourly interval of a performance counter hourly
 		aggregate</p>
 		</td>
 	</tr>
@@ -1749,7 +1749,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>The 95th percentile value for the hourly interval of a performance 
+		<p>The 95th percentile value for the hourly interval of a performance
 		counter hourly aggregate</p>
 		</td>
 	</tr>
@@ -1761,7 +1761,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>PerfHourly</p>
 		</td>
 		<td>
-		<p>How many &#39;raw&#39; perf counter samples were used to produce this hourly 
+		<p>How many &#39;raw&#39; perf counter samples were used to produce this hourly
 		aggregate record</p>
 		</td>
 	</tr>
@@ -1828,7 +1828,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>IIS Website that the log belongs to (metabase notation); the 
+		<p>IIS Website that the log belongs to (metabase notation); the
 		s-sitename field in the original log</p>
 		</td>
 	</tr>
@@ -1851,7 +1851,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Server IP address the HTTP request was addressed to. The s-ip field 
+		<p>Server IP address the HTTP request was addressed to. The s-ip field
 		in the original log</p>
 		</td>
 	</tr>
@@ -1863,7 +1863,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>HTTP Method (GET/POST/etc) used by the client in the HTTP request. 
+		<p>HTTP Method (GET/POST/etc) used by the client in the HTTP request.
 		The cs-method in the original log</p>
 		</td>
 	</tr>
@@ -1875,7 +1875,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Client IP address the HTTP request came from. The c-ip field in the 
+		<p>Client IP address the HTTP request came from. The c-ip field in the
 		original log</p>
 		</td>
 	</tr>
@@ -1887,7 +1887,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>HTTP User-Agent declared by the client (browser or otherwise). The 
+		<p>HTTP User-Agent declared by the client (browser or otherwise). The
 		cs-user-agent in the original log</p>
 		</td>
 	</tr>
@@ -1899,7 +1899,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>HTTP Status code (200/403/500/etc) returned by the server to the 
+		<p>HTTP Status code (200/403/500/etc) returned by the server to the
 		client. The cs-status in the original log</p>
 		</td>
 	</tr>
@@ -1911,7 +1911,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>How long (in milliseconds) that the request took to complete. The 
+		<p>How long (in milliseconds) that the request took to complete. The
 		timetaken field in the original log</p>
 		</td>
 	</tr>
@@ -1923,7 +1923,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Relative Uri (without host address, i.e. &#39;/search&#39; ) that was 
+		<p>Relative Uri (without host address, i.e. &#39;/search&#39; ) that was
 		requested. The cs-uristem field in the original log</p>
 		</td>
 	</tr>
@@ -1935,7 +1935,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>URI query. URI queries are necessary only for dynamic pages, such as 
+		<p>URI query. URI queries are necessary only for dynamic pages, such as
 		ASP pages, so this field usually contains a hyphen for static pages.</p>
 		</td>
 	</tr>
@@ -1947,7 +1947,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Server port that the HTTP request was sent to (and IIS listens to, 
+		<p>Server port that the HTTP request was sent to (and IIS listens to,
 		since it picked it up)</p>
 		</td>
 	</tr>
@@ -1959,7 +1959,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>authenticated user name, if the request is authenticated and not 
+		<p>authenticated user name, if the request is authenticated and not
 		anonymous</p>
 		</td>
 	</tr>
@@ -1993,7 +1993,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>Site that the user last visited. This site provided a link to the 
+		<p>Site that the user last visited. This site provided a link to the
 		current site. </p>
 		</td>
 	</tr>
@@ -2104,7 +2104,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Vendor who publishes the software (only applicable to software 
+		<p>Vendor who publishes the software (only applicable to software
 		changes)</p>
 		</td>
 	</tr>
@@ -2116,8 +2116,8 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Type of change that was applied on a Windows service (State / 
-		StartupType / Path / ServiceAccount) - only applicable to Windows 
+		<p>Type of change that was applied on a Windows service (State /
+		StartupType / Path / ServiceAccount) - only applicable to Windows
 		service changes</p>
 		</td>
 	</tr>
@@ -2162,7 +2162,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Previous known state of the service (only applicable if service state 
+		<p>Previous known state of the service (only applicable if service state
 		changed)</p>
 		</td>
 	</tr>
@@ -2185,7 +2185,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Previous service startup type (only applicable if service startup 
+		<p>Previous service startup type (only applicable if service startup
 		type changed)</p>
 		</td>
 	</tr>
@@ -2230,7 +2230,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Previous path of the executable for the Windows service (only 
+		<p>Previous path of the executable for the Windows service (only
 		applicable if it changed)</p>
 		</td>
 	</tr>
@@ -2253,7 +2253,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Previous state of this software (Installed / Not Installed / previous 
+		<p>Previous state of this software (Installed / Not Installed / previous
 		version)</p>
 		</td>
 	</tr>
@@ -2265,7 +2265,7 @@ When you use Search to find data, results display various field and facets. Howe
 		<p>ConfigurationChange</p>
 		</td>
 		<td>
-		<p>Latest state of this software (Installed / Not Installed / current 
+		<p>Latest state of this software (Installed / Not Installed / current
 		version)</p>
 		</td>
 	</tr>
@@ -2278,4 +2278,4 @@ When you use Search to find data, results display various field and facets. Howe
 - [Useful Operational Insights Search Query Collection](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
 ## Other resources
-Stefan Roth created a handy Search cheat sheet. Check out his [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) to learn more and to download his cheat sheet. 
+Stefan Roth created a handy Search cheat sheet. Check out his [blog](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/) to learn more and to download his cheat sheet.
