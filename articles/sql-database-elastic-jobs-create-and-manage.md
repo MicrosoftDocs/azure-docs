@@ -18,9 +18,9 @@
 
 # Creating and managing elastic database jobs
 
-**Elastic database pools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. 
+**Elastic database tools** provide a predictable model for deploying large numbers of databases. You can set minimum the Data Throughput Units (DTUs) for each database at a set cost. Managing common objects in these databases can most easily accomplished using **elastic database jobs**. The service allows you to run T-SQL scripts against all of the databases in the pool in a single operation. For example, you can set the policy on each database to allow only a person with the right credentials to view sensitive data. 
 
-## Prerequistes
+## Prerequisites
 
 * An Azure subscription. For a free trial, see [Free one-month trial](http://azure.microsoft.com/pricing/free-trial/).
 * An elastic database pool. See [About Elastic database pools](sql-database-elastic-pool.md)
@@ -29,7 +29,7 @@
 ## Creating jobs
 
 1. In the elastic database job pool blade, click **Create job**.
-2. Type in the name and password of the database adminstrator (created at installation).
+2. Type in the name and password of the database administrator (created at installation).
 2. In the **Create Job** blade, type a name for the job.
 3. Paste or type in the T-SQL script.
 4. Click **Save** and then click **Run**.
