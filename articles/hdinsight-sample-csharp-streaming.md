@@ -1,5 +1,5 @@
 <properties
-	pageTitle="The C# streaming wordcount Hadoop sample in HDInsight | Azure"
+	pageTitle="C# streaming wordcount Hadoop sample | Microsoft Azure"
 	description="How to write MapReduce programs in C# that use the Hadoop Streaming interface, and how to run them on HDInsight using PowerShell cmdlets."
 	editor="cgronlun"
 	manager="paulettm"
@@ -99,7 +99,9 @@ Before you begin, you must have the following:
 
 	Note that the output files of a MapReduce job are immutable. So if you rerun this sample, you need to change the name of the output file.
 
-##<a id="java-code"></a>The C# code for Hadoop Streaming
+
+## <a id="java-code"></a>The C# code for Hadoop Streaming
+
 
 The MapReduce program uses the cat.exe application as a mapping interface to stream the text into the console and the wc.exe application as the reduce interface to count the number of words that are streamed from a document. Both the mapper and reducer read characters, line-by-line, from the standard input stream (stdin) and write to the standard output stream (stdout).
 
@@ -165,11 +167,13 @@ The mapper code in the cat.cs file uses a [StreamReader][streamreader] object to
 
 The reducer code in the wc.cs file uses a [StreamReader][streamreader]   object to read characters from the standard input stream that have been output by the cat.exe mapper. As it reads the characters with the [Console.Writeline][console-writeline] method, it counts the words by counting spaces and end-of-line characters at the end of each word. It then writes the total to the standard output stream with the [Console.Writeline][console-writeline] method.
 
-##<a id="summary"></a>Summary
+
+## <a id="summary"></a>Summary
 
 In this tutorial, you saw how to deploy a MapReduce job in HDInsight by using Hadoop Streaming.
 
-##<a id="next-steps"></a>Next steps
+## <a id="next-steps"></a>Next steps
+
 
 For tutorials that run other samples and provide instructions for running Pig, Hive, and MapReduce jobs in Azure HDInsight with Azure PowerShell, see the following articles:
 
