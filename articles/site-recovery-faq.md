@@ -1,6 +1,8 @@
 <properties 
 	pageTitle="Azure Site Recovery: Frequently Asked Questions" 
 	description="This article discusses popular questions about using Azure Site Recovery." 
+	services="site-recovery" 
+	documentationCenter=""
 	editor="tysonn" 
 	manager="jwhit" 
 	authors="csilauraa"/>
@@ -99,7 +101,7 @@ No, ASR is designed as a first-class, public cloud DRaaS solution. Data is repli
 Yes.
 
 ### What platforms do you currently support?
-We support Windows Azure Pack, Cloud Platform System, and System Center based Hyper 2012 and higher deployments. To learn more about the ASR and Azure Pack integration, see [Configure protection for virtual machines](https://technet.microsoft.com/en-us/library/dn850370.aspx).
+We support Azure Pack, Cloud Platform System, and System Center based Hyper 2012 and higher deployments. To learn more about the ASR and Azure Pack integration, see [Configure protection for virtual machines](https://technet.microsoft.com/en-us/library/dn850370.aspx).
 
 ### Do you also support single Azure Pack and single SCVMM deployments?
 Yes, single SCVMM deployments is supported for either scenarios – DR between service provider sites and DR between a service provider site and Azure.
