@@ -81,7 +81,7 @@ In this example, the cloud service has 3 VIPs:
 - **Vip1** is the default VIP, you know that because the value for IsDnsProgrammedName is set to true.
 - **Vip2** and **Vip3** are not used as they don’t have any IP addresses. They will only be used if you associate an endpoint to the VIP.
 
->[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see XXX.
+>[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
 To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
