@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/07/2015" 
 	ms.author="paulettm"/>
 
 #Azure Machine Learning Frequently Asked Questions (FAQ)
@@ -210,7 +210,23 @@ No.
 
 **How much data can I train on?** 
 
-10 GB from end-to-end is the limitation on the data size.  
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than 1 input, the 10 GB is the total of all input sizes. Sampling larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion, is also supported.  
+
+The following types of data can expand into larger datasets during feature normalization, and are  limited to less than 10 GB:
+
+•	Sparse
+•	Categorical
+•	Strings
+•	Binary data
+
+The following modules are limited to datasets less than 10GB:
+•	Recommender modules
+•	SMOTE module
+•	Scripting modules: R, Python, SQL
+•	Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+•	Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+ 
 
 **Are there any vector size limitations?** 
 
