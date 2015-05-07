@@ -21,9 +21,7 @@
 ##Overview
 Social websites are one of the major driving forces for big-data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will get tweets by using a Twitter streaming API, and then use Apache Hive on Azure HDInsight to get a list of Twitter users who sent the most tweets that contained a certain word.
 
-> [AZURE.NOTE] A similar sample is added to the HDInsight Sample Gallery. The following Channel 9 video shows how to run the sample:
-
-<center><iframe width="854" height="510" src="https://www.youtube.com/embed/7ePbHot1SN4" frameborder="0" allowfullscreen></iframe></center>
+> [AZURE.NOTE] A similar sample is in the HDInsight Sample Gallery. Watch the Channel 9 video: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">Analyze Twitter trends using Apache Hive in HDInsight</a>.
 
 ##Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -40,13 +38,13 @@ Before you begin this tutorial, you must have the following:
 
 
 
-- **An Azure HDInsight cluster**. For instructions on cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You will need the cluster name later in the tutorial.
+- **An Azure HDInsight cluster**. For instructions on cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters] [hdinsight-provision]. You will need the cluster name later in the tutorial.
 
 **Understand HDInsight storage**
 
 HDInsight uses Azure Blob storage for data storage. Azure Blob storage is Microsoft's implementation of Hadoop Distributed File System (HDFS). For more information see [Use Azure Blob storage with HDInsight][hdinsight-storage]. 
 
-When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add containers from either the same Azure storage account or different Azure storage accounts during the provisioning process. For instructions on adding storage accounts, see [Provision HDInsight clusters][hdinsight-provision]. 
+When you provision an HDInsight cluster, a Blob storage container is designated as the default file system, just like in HDFS. In addition to this container, you can add containers from either the same Azure storage account or different Azure storage accounts during the provisioning process. For instructions on adding storage accounts, see [Provision HDInsight clusters] [hdinsight-provision]. 
 
 > [AZURE.NOTE] To simplify the Windows PowerShell script used in this tutorial, all of the files are stored in the default file system container, located at */tutorials/twitter*. By default this container has the same name as the HDInsight cluster name. If you choose to use a different container to store these files, please update the script accordingly.
 
