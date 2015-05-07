@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive in HDInsight | Azure"
-   description="Learn how to use Hive with HDInsight through Remote Desktop."
+   pageTitle="Use Hadoop Hive and Remote Desktop in HDInsight | Microsoft Azure"
+   description="Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

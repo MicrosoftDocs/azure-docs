@@ -118,7 +118,7 @@ At the Powershell prompt, type:
 
 The cmdlet returns a list of gallery templates with Microsoft as the publisher. You use the **Identity** property to identify the template in the commands.
 
-The Microsoft.WebSiteSQLDatabase.0.2.6-preview template looks interesting. When you run the command, the version of the template may be slightly different because a new version has been released. Use the latest version of the tempalte. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
+The Microsoft.WebSiteSQLDatabase.0.2.6-preview template looks interesting. When you run the command, the version of the template may be slightly different because a new version has been released. Use the latest version of the template. To get more information about a gallery template, use the **Identity** parameter. The value of the Identity parameter is Identity of the template.
 
     PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
@@ -163,7 +163,7 @@ Some parameters have a default value. When you use the template, you are not req
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     },
 
-When parameters that have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
+When parameters have enumerated values, the valid values are listed with the parameter. For example, the **sku** parameter can take values of Free, Shared, Basic, or Standard. If you don't specify a value for the **sku** parameter, it uses the default value, Free.
 
     "sku": {
       "type": "string",
@@ -210,7 +210,7 @@ We're almost ready to use the template, but before we do, we need to find locati
 
 Most templates ask you to specify a location for each of the resources in a resource group. Every resource is located in an Azure data center, but not every Azure data center supports every resource type. 
 
-Select any location that supports the resource type. The resources in a resource group do not need to be in the same location, and they do not need to be in the same location as the resource group or the subscription.
+Select any location that supports the resource type. You do not have to create all of the resources in a resource group in the same location; however, whenever possible, you will want to create resources in the same location to optimize performance. In particular, you will want to make sure that your database is in the same location as the app accessing it. 
 
 To get the locations that support each resource type, use the **Get-AzureLocation** cmdlet. To limit your output to a specific type of of resource, such as ResourceGroup, use:
 
@@ -261,7 +261,7 @@ When a template parameter has enumerated values, such as the sku parameter in th
 
 Here is an example of a New-AzureResourceGroup command that specifies only the required template parameters and the **Verbose** common parameter. Note that the **administratorLoginPassword** is omitted.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "North Europe" -serverName testserver -serverLocation "West US" -administratorLogin Admin01 -databaseName TestDB -Verbose
+	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
 
 When you enter the command, you are prompted for the missing mandatory parameter, **administratorLoginPassword**. And, when you type the password, the secure string value is obscured. This strategy eliminates the risk of providing a password in plain text.
 
@@ -304,13 +304,13 @@ After creating a resource group, you can use the cmdlets in the AzureResourceMan
 		Resources         :
 				Name                   Type                          Location
 				----                   ------------                  --------
-				ServerErrors-TestSite  microsoft.insights/alertrules         eastus
+				ServerErrors-TestSite  microsoft.insights/alertrules         eastasia
 	        	TestPlan-TestRG        microsoft.insights/autoscalesettings  eastus
 	        	TestSite               microsoft.insights/components         centralus
-	         	testserver             Microsoft.Sql/servers                 westus
-	        	TestDB                 Microsoft.Sql/servers/databases       westus
-	        	TestPlan               Microsoft.Web/serverFarms             westus
-	        	TestSite               Microsoft.Web/sites                   westus
+	         	testserver             Microsoft.Sql/servers                 eastasia
+	        	TestDB                 Microsoft.Sql/servers/databases       eastasia
+	        	TestPlan               Microsoft.Web/serverFarms             eastasia
+	        	TestSite               Microsoft.Web/sites                   eastasia
 		ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
 
 ## Add to a resource group
