@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Phase 2: Configure Domain Controllers" 
+	pageTitle="SharePoint Intranet Farm Workload Phase 2: Configure Domain Controllers" 
 	description="In this second phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you create and configure the two Active Directory domain controllers." 
 	documentationCenter=""
 	services="virtual-machines" 
@@ -16,7 +16,7 @@
 	ms.date="05/05/2015" 
 	ms.author="josephd"/>
 
-# Phase 2: Configure Domain Controllers
+# SharePoint Intranet Farm Workload Phase 2: Configure Domain Controllers
 
 In this phase of deploying an intranet-only SharePoint 2013 farm with SQL Server AlwaysOn Availability Groups in Azure infrastructure services, you configure two domain controllers in the Azure Virtual Network so that client web requests for SharePoint farm resources can be authenticated in the Azure virtual network, rather than sending that authentication traffic across the VPN or ExpressRoute connection to your on-premises network. 
 

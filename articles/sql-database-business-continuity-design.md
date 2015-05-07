@@ -75,10 +75,10 @@ Use the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220
 
 To create Geo-Replication with a non-readable secondary for a Premium or Standard database:
 		
-		$myDbCopy = Get-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -OfflineSecondary
+		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy -OfflineSecondary
 To create Geo-Replication with a readable secondary for a Premium database:
 
-		$myDbCopy | Start-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName" -ContinuousCopy
+		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
 This command is asynchronous. After it returns use the [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) cmdlet to check the status of this operation. The ReplicationState field of the returned object will have the value CATCH_UP when the operation is completed.
 
