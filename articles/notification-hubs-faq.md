@@ -134,7 +134,7 @@ It also provides the capability to export the telemetry programmatically (in Sta
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx 
 [Backend Registration guidance - 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[NH Security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx.
+[NH Security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [NH - Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [NH - troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [NH - Metrics]: https://msdn.microsoft.com/library/dn458822.aspx
