@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Get started using Hadoop with Hive in HDInsight on Linux| Azure" 
-   description="Get started using Hadoop in HDInsight on Linux. Learn how to provision HDInsight Hadoop clusters running on Linux, and query data with Hive" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="Get started using Hadoop with Hive in HDInsight on Linux| Azure" 
+	description="Get started using Hadoop in HDInsight on Linux. Learn how to provision HDInsight Hadoop clusters running on Linux, and query data with Hive" 
+	keywords="linux tutorial,hadoop tutorial"
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
