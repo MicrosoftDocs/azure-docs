@@ -61,14 +61,18 @@ Open a PowerShell session in Administrator mode and run the following command to
 
 	Import-Module HybridRegistration 
 
-   Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
+If you receive an error message saying that the module file was not found, then you may need to use the following comment that uses entire path the module file.
+
+	Import-Module "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomationFiles\HybridRegistration\HybridRegistration.psd1"
+
+Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
 	Add-HybridRunbookWorker –Name <String> -EndPoint <Url> -Token <String>
 
 
 - **Name** is the name of the Hybrid Runbook Worker Group. If this group already exists in the automation account, then the current computer is added to it.  If it does not already exist, then it is added.
 - **EndPoint** is the URL of the Agent service. You can obtain this from the Azure preview portal on the **Manage Keys** blade.  
-- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br>![Hybrid Runbook Worker Overview](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+- **Token** is the **Primary Access Key** in the **Manage Keys** blade.  You can open the Manage Keys blade by clicking the key icon on the Elements panel for the automation account.<br><br>![Hybrid Runbook Worker Overview](./media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
 #### 3. Install PowerShell modules 
