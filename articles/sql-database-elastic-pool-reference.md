@@ -49,7 +49,7 @@ The following articles will help you get started using elastic databases and ela
 
 | Article | Description |
 | :-- | :-- |
-| [SQL Database elastic pools](sql-database-elastc-pool.md) | Overview of elastic pools |
+| [SQL Database elastic pools](sql-database-elastic-pool.md) | Overview of elastic pools |
 | [Create and manage a SQL Database elastic pool with the Azure portal](sql-database-elastic-pool-portal.md) | How to create and manage an elastic pool using the Azure portal |
 | [Create and manage a SQL Database elastic pool with PowerShell](sql-database-elastic-pool-powershell.md) | How to create and manage an elastic pool using PowerShell cmdlets |
 | [Elastic database jobs overview](sql-database-elastic-jobs-overview.md) | An overview of the elastic jobs service, that enables running T-SQL scripts across all elastic databases in a pool |
