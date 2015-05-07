@@ -33,7 +33,7 @@ The **Azure Data Factory** service is a fully managed service for composing data
 The following video provides a quick overview of the Azure Data Factory service.
 
 
-- [Video: Introducing Azure Data Factory](http://azure.microsoft.com/en-us/documentation/videos/introducing-azure-data-factory/)
+- [Video: Introducing Azure Data Factory](http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory/)
 
 
 <!--
