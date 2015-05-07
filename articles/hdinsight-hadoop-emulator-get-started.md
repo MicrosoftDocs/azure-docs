@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Learn the Hadoop ecosystem with HDInsight Emulator | Microsoft Azure" 
 	description="Use an emulator on a desktop computer with a MapReduce tutorial and other samples to learn the Hadoop ecosystem. HDInsight emulator works like a Hadoop sandbox." 
+	keywords="emulator,hadoop ecosystem,hadoop sandbox,mapreduce tutorial"	
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 

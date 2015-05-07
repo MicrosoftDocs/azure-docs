@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="Query data from HDFS-compatible Blob storage | Microsoft Azure" 
 	description="HDInsight uses Blob storage as the big data store for HDFS. Learn how to query structured and unstructured data from Blob storage and store results of your analysis." 
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage" 
 	documentationCenter="" 
 	authors="mumian" 

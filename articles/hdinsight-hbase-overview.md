@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="What is HBase in HDInsight? | Microsoft Azure" 
 	description="An introduction to Apache HBase in HDInsight, a NoSQL database build on Hadoop. Learn about this Big Data technology, use cases, and a comparison with other Hadoop clusters." 
-	keywords="nosql,what is hbase"
+	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
