@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Connect Excel to Hadoop with Power Query | Azure" 
-	description="Learn how to take advantage of business intelligence components and use Excel to access data stored in Azure HDInsight using Power Query." 
+	pageTitle="Connect Excel to Hadoop with Power Query | Microsoft Azure" 
+	description="Learn how to take advantage of business intelligence components and use Power Query for Excel to access data stored in Hadoop on HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -21,7 +21,7 @@
 
 One key feature of the Microsoft big-data solution is the integration of Microsoft business intelligence (BI) components with Hadoop clusters in Azure HDInsight. A primary example of this integration is the ability to connect Excel to the Azure Storage account that contains the data associated with your Hadoop cluster by using the Microsoft Power Query for Excel add-in. This article walks you through how to set up and use Power Query to query data associated with a Hadoop cluster managed with HDInsight. 
 
-**Prerequisites**
+## Prerequisites
 
 Before you begin this article, you must have the following:
 

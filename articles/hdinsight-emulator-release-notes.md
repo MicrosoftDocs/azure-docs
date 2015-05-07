@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" 
+	pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Microsoft Azure" 
 	description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." 
 	editor="cgronlun" 
 	manager="paulettm" 

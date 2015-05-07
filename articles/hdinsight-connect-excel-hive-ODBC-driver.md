@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Connect Excel to Hadoop with the Hive ODBC Driver | Azure" 
+   pageTitle="Connect Excel to Hadoop with the Hive ODBC Driver | Microsoft Azure" 
    description="Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in an HDInsight cluster." 
    services="hdinsight" 
    documentationCenter="" 

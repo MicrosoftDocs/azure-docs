@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Debug Hadoop in HDInsight: Error messages | Azure" 
+	pageTitle="Debug Hadoop in HDInsight: Error messages | Microsoft Azure" 
 	description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." 
 	services="hdinsight" 
 	editor="cgronlun" 
@@ -16,7 +16,7 @@
 	ms.date="11/10/2014" 
 	ms.author="bradsev"/>
 
-# Debug Hadoop in HDInsight: Error messages
+# Debug Hadoop in HDInsight: Interpret error messages
 
 ##Introduction
 The error messages itemized in this topic are provided to help the users of Hadoop in Azure HDInsight understand possible error conditions that they can encounter when administering the service using Azure PowerShell and to advise them on the steps which can be taken to recover from the error. 
