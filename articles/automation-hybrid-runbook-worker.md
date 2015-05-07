@@ -61,7 +61,7 @@ Open a PowerShell session in Administrator mode and run the following command to
 
 	Import-Module HybridRegistration 
 
-If you receive an error message saying that the module file was not found, then you may need to use the following command that uses entire path to the module file.
+If you receive an error message saying that the module file was not found, then you may need to use the following command that uses the entire path to the module file.
 
 	Import-Module "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomationFiles\HybridRegistration\HybridRegistration.psd1"
 
