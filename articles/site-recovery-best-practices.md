@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="04/23/2015" 
+	ms.date="05/08/2015" 
 	ms.author="raynew"/>
 
 # Best practices for Site Recovery deployment
