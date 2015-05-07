@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
-   description="Learn how to use Pig with Hadoop on HDInsight using SSH."
+   pageTitle="Use Hadoop Pig with Curl in HDInsight | Microsoft Azure"
+   description="Learn how to use Curl to run Pig Latin jobs on a Hadoop cluster in Azure HDInsight."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

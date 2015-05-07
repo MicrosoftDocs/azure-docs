@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Get started with the HDInsight Emulator | Azure" 
-	description="Learn how to use HDInsight Emulator for Azure on a local computer" 
+	pageTitle="Try a Hadoop ecosystem with the HDInsight Emulator | Microsoft Azure" 
+	description="Use an emulator on a desktop computer and a MapReduce tutorial to learn the Hadoop ecosystem in HDInsight. The HDInsight emulator works like a Hadoop sandbox." 
 	editor="cgronlun" 
 	manager="paulettm" 
 	services="hdinsight" 
@@ -20,14 +20,14 @@
 
 This tutorial gets you started with Hadoop clusters in the Microsoft HDInsight Emulator for Azure (formerly HDInsight Server Developer Preview). The HDInsight Emulator comes with the same components from the Hadoop ecosystem as Azure HDInsight. For details, including information on the versions deployed, see [What version of Hadoop is in Azure HDInsight?](hdinsight-component-versioning.md).
 
-> [AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase.
+> [AZURE.NOTE] The HDInsight Emulator includes only a Hadoop cluster. It does not include HBase or Storm.
 
-The HDInsight Emulator provides a local development environment for Azure HDInsight. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
+The HDInsight Emulator provides a local development environment much like a Hadoop sandbox. If you are familiar with Hadoop, you can get started with the HDInsight Emulator by using the Hadoop Distributed File System (HDFS). In HDInsight, the default file system is Azure Blob storage. So eventually, you will want to develop your jobs by using Azure Blob storage. To use Azure Blob storage with the HDInsight Emulator, you must make changes to the configuration of the emulator. 
 
 > [AZURE.NOTE] The HDInsight Emulator can use only a single node deployment. 
 
 
-**Prerequisites**	
+## Prerequisites	
 Before you begin this tutorial, you must have the following:
 
 - The HDInsight Emulator requires a 64-bit version of Windows. One of the following requirements must be satisfied:

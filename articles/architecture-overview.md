@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="3/20/2015" 
+	ms.date="05/05/2015" 
 	ms.author="robb"/>
 
 #Architecture
@@ -21,7 +21,7 @@ Resources for building applications that use Microsoft Azure.
 
 ##Microsoft Architecture Blueprints
 
-Microsoft publishes a set of high level architecture blueprints showing how to build specific types of systems which include  Microsoft Azure services. Each blueprint includes a 2D Visio based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint, and a video that walks through the 3D version. See 
+Microsoft publishes a set of high level architecture blueprints showing how to build specific types of systems which include  Mirosoft products and Microsoft Azure services. Each blueprint includes a 2D Visio-based file that you can download and modify, a more colorful 3D PDF file to introduce the blueprint, and a video that walks through the 3D version. See 
 [Microsoft Architecture Blueprints](http://msdn.microsoft.com/dn630664). 
 
 The 2D Blueprint diagrams use the Cloud and Enterprise Symbol Set mentioned below.  

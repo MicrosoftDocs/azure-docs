@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use Hadoop Hive in HDInsight | Azure"
-   description="Learn how to use Hive with the web-based HDInsight query console."
+   pageTitle="Use Hadoop Hive on the Query Console in HDInsight | Microsoft Azure"
+   description="Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

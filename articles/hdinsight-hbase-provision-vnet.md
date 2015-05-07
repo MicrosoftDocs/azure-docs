@@ -1,11 +1,12 @@
 <properties 
-   pageTitle="Provision HBase clusters on Azure Virtual Network | Azure" 
-   description="Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network" 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+	pageTitle="Provision HBase clusters on a Virtual Network | Microsoft Azure" 
+	description="Get started using HBase in Azure HDInsight. Learn how to create HDInsight HBase clusters on Azure Virtual Network" 
+	keywords=""	
+	services="hdinsight,virtual-network" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"

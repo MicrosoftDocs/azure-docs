@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Use Apache Phoenix and Squirrel in HDInsight | Azure" 
+   pageTitle="Use Apache Phoenix and Squirrel in HDInsight | Microsoft Azure" 
    description="Learn how to use Apache Phoenix in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight." 
    services="hdinsight" 
    documentationCenter="" 
@@ -16,7 +16,7 @@
    ms.date="05/05/2015"
    ms.author="jgao"/>
 
-# Use Apache Phoenix and SQuirrel in HDinsight  
+# Use Apache Phoenix and SQuirrel with HBase clusters in HDinsight  
 
 Learn how to use [Apache Phoenix](http://phoenix.apache.org/) in HDInsight, and how to install and configure SQuirrel on your workstation to connect to an HBase cluster in HDInsight. For more information about Phoenix, see [Phoenix in 15 minutes or less](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). For the Phoenix grammar, see [Phoenix Grammar](http://phoenix.apache.org/language/index.html).
 
