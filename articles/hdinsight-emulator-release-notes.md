@@ -274,8 +274,10 @@
 
 ##<a name="nextsteps"></a> Next steps
 
-- [Get started with the HDInsight Emulator][hdinsight-get-started-emulator]
+- [Get started with the HDInsight Emulator][hdinsight-hadoop-emulator-get-started]
 
 
-[hdinsight-get-started-emulator]: hdinsight-get-started-emulator.md
+
+
+[hdinsight-hadoop-emulator-get-started]: hdinsight-get-started-emulator.md
 
