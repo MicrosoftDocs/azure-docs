@@ -22,7 +22,7 @@ If you can't connect to a Windows virtual machine because of a forgotten passwor
 
 ## Azure Preview Portal
 
-To reset the Remote Desktop service in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Reset Remote Access**. Here is an example.
+To reset the Remote Desktop service in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Reset Remote Access**. Here is an example. 
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
