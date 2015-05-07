@@ -1,20 +1,21 @@
 <properties
-   pageTitle="Learn what is Hive and how to use HiveQL | Microsoft Azure"
-   description="Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how you want to run your Hive job, and use HiveQL to analyze a sample Apache log4j file." 
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Learn what is Hive and how to use HiveQL | Microsoft Azure"
+	description="Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how you want to run your Hive job, and use HiveQL to analyze a sample Apache log4j file." 
+	keywords="hiveql,what is hive"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/23/2015"
-   ms.author="larryfr"/>
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/23/2015"
+	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
 

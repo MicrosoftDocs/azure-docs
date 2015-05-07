@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Develop Python MapReduce jobs with HDInsight | Aure"
+   pageTitle="Develop Python MapReduce jobs with HDInsight | Microsoft Aure"
    description="Learn how to create and run Python MapReduce jobs on Linux-based HDInsight clusters."
    services="hdinsight"
    documentationCenter=""
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"

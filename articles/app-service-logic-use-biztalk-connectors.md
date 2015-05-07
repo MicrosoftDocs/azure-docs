@@ -38,7 +38,7 @@ Azure App Services provides a number of connectors out of the box:
 * [Oracle connector]
 * [POP3 connector]
 * [QuickBooks connector]
-* [Salesforce  connector]
+* [Salesforce connector]
 * [SFTP connector]
 * [Sharepoint connector]
 * [Slack connector]
