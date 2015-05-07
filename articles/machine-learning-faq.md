@@ -69,20 +69,24 @@ Data can be loaded into Machine Learning Studio in one of two ways: by uploading
 
 ####<a id="ModuleLimit"></a>How large can the data set be for my modules?
 
-Modules in Machine Learning Studio supports datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than 1 input, the 10 GB is the total of all input sizes. Sampling larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion, is also supported.  
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB is the total of all input sizes. You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.  
 
 The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:
-•	Sparse
-•	Categorical
-•	Strings
-•	Binary data
+
+- Sparse
+- Categorical
+- Strings
+- Binary data
+
 The following modules are limited to datasets less than 10GB:
-•	Recommender modules
-•	SMOTE module
-•	Scripting modules: R, Python, SQL
-•	Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
-•	Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
-For datasets larger than a couple GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
+
+- Recommender modules
+- SMOTE module
+- Scripting modules: R, Python, SQL
+- Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+- Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+- 
+For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
 
 
 ####<a id="UploadLimit"></a>What are the limits for data upload?
@@ -224,23 +228,25 @@ No.
 
 **How much data can I train on?** 
 
-Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than 1 input, the 10 GB is the total of all input sizes. Sampling larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion, is also supported.  
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB is the total of all input sizes. You can also sample larger datasets via Hive or Azure SQL Database queries, or by Learning by Counts pre-processing, before ingestion.  
 
-The following types of data can expand into larger datasets during feature normalization, and are  limited to less than 10 GB:
+The following types of data can expand into larger datasets during feature normalization, and are limited to less than 10 GB:
 
-•	Sparse
-•	Categorical
-•	Strings
-•	Binary data
+- Sparse
+- Categorical
+- Strings
+- Binary data
 
 The following modules are limited to datasets less than 10GB:
-•	Recommender modules
-•	SMOTE module
-•	Scripting modules: R, Python, SQL
-•	Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
-•	Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+
+- Recommender modules
+- SMOTE module
+- Scripting modules: R, Python, SQL
+- Modules where the output data size can be larger than input data size, such as Join or Feature Hashing.
+- Cross-validation, Sweep Parameters, Ordinal Regression and One-vs-All Multiclass, when number of iterations is very large.
+- 
 For datasets larger than a few GB, you should upload data to Azure storage or Azure SQL Database or use HDInsight, rather than directly uploading from local file.
- 
+
 
 **Are there any vector size limitations?** 
 
