@@ -2,6 +2,7 @@
 	pageTitle="Service-side Authorization of Users in Mobile Services with .NET Backend | Mobile Dev Center"
 	description="Learn how to authorize users in .NET backend of Azure Mobile Services"
 	services="mobile-services"
+	documentationCenter="windows"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>

@@ -2,6 +2,7 @@
 	pageTitle="Service-side Authorization of Users in Mobile Services with JavaScript Backend | Mobile Dev Center"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
+	documentationCenter=""
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
