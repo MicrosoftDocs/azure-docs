@@ -12,14 +12,14 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="05/07/2015" 
 	 ms.author="mazha"/>
 
 
 
 #How to Enable Content Delivery Network (CDN)  for Azure  
 
-Once you enable a CDN endpoint for your origin such as storage account, cloud service,  all publicly available objects are eligible for CDN edge caching.  
+CDN can be enabled for your origin via Azure Management Portal. The current available origin type includes: Web Apps, storage, Cloud Services. You can also enable CDN for your Azure Media Services Streaming endpoint. Once you enable a CDN endpoint for your origin, all publicly available objects are eligible for CDN edge caching.
 
 
 ##To Create a New CDN Endpoint  
@@ -36,5 +36,4 @@ Once you enable a CDN endpoint for your origin such as storage account, cloud se
 > Note: The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
 #See Also
-[How to Map Content Delivery Network (CDN) Content to a Custom Domain](./cdn-map-content-to-custom-domain.md
-)
+[How to Map Content Delivery Network (CDN) Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
