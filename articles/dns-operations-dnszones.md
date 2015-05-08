@@ -47,7 +47,7 @@ By omitting the zone name from Get-AzureDnsZone, you can enumerate all zones in 
 This operation returns an array of zone objects.
 
 ## Update a DNS zone
-Changes to a DNS zone resource can be made using Set-AzureDnsZone.  This does not update any of the DNS record sets within the zone (see [operations on record sets and records](../dns-operations-recordsets)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](../dns-getstarted-create-dnszone#Etags-and-tags) for more information.
+Changes to a DNS zone resource can be made using Set-AzureDnsZone.  This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](../dns-operations-recordsets)). It is only used to update properties of the zone resource itself. This is currently limited to the Azure Resource Manager ‘tags’ for the zone resource. See [Etags and Tags](../dns-getstarted-create-dnszone#Etags-and-tags) for more information.
 
 Use one of the following two ways to update DNS zone:
 
