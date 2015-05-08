@@ -27,7 +27,7 @@ The **decision tree** for selecting the sample scenarios that is appropriate for
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
->[AZURE.ALERT] **For all of the following scenarios, you need to:**
+>[AZURE.NOTE] **For all of the following scenarios, you need to:**
 
 *   [Create a storage account](storage-whatis-account.md)
 *   [Create an Azure ML workspace](machine-learning-create-workspace.md)
