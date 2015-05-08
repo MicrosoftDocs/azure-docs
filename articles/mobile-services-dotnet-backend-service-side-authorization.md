@@ -22,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-This topic shows you how to use server-side logic to authorize users.  In this tutorial, you modify data access methods in .NET, filter queries based on user IDs, and give users access to only their own data.
+This topic shows you how to use server-side logic to authorize users.  In this tutorial, you modify table controllers, filter queries based on user IDs, and give users access to only their own data. Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
 
 This tutorial is based on the Mobile Services Quick Start and builds on the [Add Authentication to Existing Mobile Services App] tutorial. Please complete [Add Authentication to Existing Mobile Services App] first.
 
@@ -48,8 +48,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 				var currentUser = User as ServiceUser;
 
 				return Query().Where(todo => todo.UserId == currentUser.Id);
-
-	>[AZURE.NOTE] Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
 
 4. Republish the mobile service project to Azure.
 
