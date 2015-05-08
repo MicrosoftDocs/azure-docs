@@ -35,5 +35,5 @@ CDN can be enabled for your origin via Azure Management Portal. The current avai
 
 > Note: The configuration created for the endpoint will not immediately be available; it can take up to 60 minutes for the registration to propagate through the CDN network. Users who try to use the CDN domain name immediately may receive status code 400 (Bad Request) until the content is available via the CDN.
 
-#See Also
+##See Also
 [How to Map Content Delivery Network (CDN) Content to a Custom Domain](./cdn-map-content-to-custom-domain.md)
