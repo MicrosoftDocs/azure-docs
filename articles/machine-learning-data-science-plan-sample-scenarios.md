@@ -25,14 +25,16 @@ This article outlines the variety of sample data sources and target scenarios th
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+>[AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
+
+Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
 
 *   [Create a storage account](storage-whatis-account.md)
 *   [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
-Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
+
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
