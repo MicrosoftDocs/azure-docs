@@ -213,7 +213,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 Allows to create a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
 	
-	C:\>azure network vnet create myresourcegroup newvnet "west us"
+	azure network vnet create myresourcegroup newvnet "west us"
 	info:    Executing command network vnet create
 	+ Looking up virtual network "newvnet"
 	+ Creating virtual network "newvnet"
