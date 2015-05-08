@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries" 
 	description="Learn to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure" 
-	services="virtual-machines,virtual-networks,storage" 
+	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 
 	manager="timlt" 
@@ -16,7 +16,7 @@
 	ms.date="04/27/2015" 
 	ms.author="davidmu"/>
 
-#Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
+# Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries
 
 This tutorial shows you how to use some of the available clients in the Compute, Storage, and Network .NET libraries to create and delete resources in Microsoft Azure. It also shows you how to authenticate the requests to Azure Resource Manager by using Azure Active Directory.
 
@@ -61,7 +61,7 @@ To use Azure AD to authenticate requests to Azure Resource Manager, an applicati
 
 	    New-AzureRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName "https://myapp1.com"
 
-##Step 2: Create a Visual Studio project and install the libraries
+## Step 2: Create a Visual Studio project and install the libraries
 
 NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. You must install the Azure Resource Management Library, the Azure Active Directory Authentication Library, and the Computer Resource Provider Library. To get these libraries in Visual Studio, do the following:
 
@@ -83,7 +83,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 You are now ready to start using the libraries to create your application.
 
-##Step 3: Create the credentials that are used to authenticate requests
+## Step 3: Create the credentials that are used to authenticate requests
 
 Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager. Do the following:
 
@@ -130,9 +130,9 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 4.	Save the Program.cs file.
 
-##Step 4: Add the code to create the resources
+## Step 4: Add the code to register the providers and create the resources
 
-###Create a resource group
+### Register the providers and create a resource group
 
 Resources are always deployed to a resource group. You use the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes to create the resource group that the resources are deployed to.
 
@@ -144,10 +144,14 @@ Resources are always deployed to a resource group. You use the [ResourceGroup](h
 		  
           using (var resourceManagementClient = new ResourceManagementClient(credential))
 		  {
-		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(
-              "mytestrg1", 
-              new ResourceGroup { Location = "West US" } );
-		    Console.WriteLine(rgResult.StatusCode);
+		    var rgResult = await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync("mytestrg1", new ResourceGroup { Location = "West US" });
+            Console.WriteLine(rgResult.StatusCode);
+            var rpResult = await resourceManagementClient.Providers.RegisterAsync("Microsoft.Storage");
+            Console.WriteLine(rpResult.StatusCode);
+            rpResult = await resourceManagementClient.Providers.RegisterAsync("Microsoft.Network");
+            Console.WriteLine(rpResult.StatusCode);
+            rpResult = await resourceManagementClient.Providers.RegisterAsync("Microsoft.Compute");
+            Console.WriteLine(rpResult.StatusCode);
 		  }
 		}
 
