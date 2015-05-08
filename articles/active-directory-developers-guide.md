@@ -25,6 +25,7 @@ _Read these overview topics to learn the basics of Azure Active Directory, or ju
 
 Azure Active Directory offers developers an effective way to integrate identity management in their applications. Industry standard protocols such as SAML 2.0, WS-Federation, and OpenID Connect makes sign-in possible on a variety of platforms such as .Net, Java, Node.js, and PHP. The REST-based Graph API enables developers to read and write to the directory from any platform. Through support for OAuth 2.0, developers can build mobile and web applications that integrate with Microsoft and third party web APIs, and build their own secure web APIs. Open source client libraries are available for .Net, Windows Store, iOS and Android with additional libraries under development.
 
+### Overview articles
 These articles provide developers with high-level information about the use, implementation, and key features of Azure Active Directory. We suggest you read them in order.
 
 
@@ -38,6 +39,19 @@ These articles provide developers with high-level information about the use, imp
 
 1. **[Libraries](https://msdn.microsoft.com/library/azure/dn151135.aspx)**: Easily authenticate users to obtain access tokens with the Azure Authentication Libraries.
 
+### Videos
+This section highlights overview videos from recent events, which will help you build a better understanding of Azure AD concepts.  They typically feature speakers that work directly in the Azure AD engineering team, and provide coverage and walk-throughs of fundamental topics including identity federation, authentication, single sign-on, and Identity Management as as Service (IDMaaS).
+
+#### Build 2015
+- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
+- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
+- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
+
+
+#### Azure Friday
+- **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
+- **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
+- **[Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
 
 ## Getting Started
 
@@ -105,20 +119,6 @@ These articles provide foundation reference for REST and authentication library 
 - **[WS-Federation 1.2 Protocol Reference](https://msdn.microsoft.com/library/azure/dn903702.aspx)**: The WS-Federation 1.2 protocol, as specified in the Web Services Federation Version 1.2 Specification.
 
 - **[Supported Security Tokens and Claims](active-directory-token-and-claims.md)**: A guide of understanding and evaluating the claims in the SAML 2.0 and JSON Web Tokens (JWT) tokens.
-
-## Videos
-
-### Build 2015
-- **[Azure Active Directory: Identity Management as a Service for Modern Applications](http://azure.microsoft.com/documentation/videos/build-2015-azure-active-directory-identity-management-as-a-service-for-modern-applications)**
-- **[Develop Modern Web Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-web-applications-with-azure-active-directory)**
-- **[Develop Modern Native Applications with Azure Active Directory](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**
-
-
-### Azure Friday
-- **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
-- **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
-- **[Azure Identity 103](http://azure.microsoft.com/documentation/videos/azure-identity-application-to-authenticate/)**
-
 
 ## Social
 
