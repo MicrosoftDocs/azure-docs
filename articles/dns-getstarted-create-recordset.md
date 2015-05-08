@@ -108,6 +108,8 @@ You can also use nslookup or other DNS tools to query the new record set.
 	Addresses:  134.170.185.46
     	        134.170.188.221
 
+
+
 ## Next Steps
 [Performing operations with DNS zones](../dns-operations-dnszones)
 
