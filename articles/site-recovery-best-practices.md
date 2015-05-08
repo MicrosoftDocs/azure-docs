@@ -175,7 +175,7 @@ Providers and agents are installed on on-premises servers so that they can conne
 ## Failing over
 - **Outage on primary**: If you're replicating from one on-premises datacenter to another and both datacenters experience an outage on your primary site, run an unplanned failover from the Site Recovery portal. Connectivity from the primary datacenter isn't needed to run the failover.
 - **Retain IP address after failover to secondary site**: If you want to retain the IP address of a source virtual machine after it fails over to a secondary datacenter, follow the steps [here](http://blogs.technet.com/b/scvmm/archive/2014/04/04/retaining-ip-address-after-failover-using-hyper-v-recovery-manager.aspx). 
-- Retain IP address after failover to Azure: You can retain the IP address using an Azure automation runbook in a recovery plan.
+- **Retain IP address after failover to Azure**: You can specify the IP to be given to failed over VM in Configure tab of the virtual machine. For details look at how to [configure network properties of the virtual machine](site-recovery-vmm-to-azure.md#step-8-enable-protection-for-virtual-machines)
 - **Retain public IP address**: If you want to retain a public IP address after failover to a secondary site Site Recovery doesn't prevent you from doing that if your ISP supports it. You can't retain a public IP address after failover to Azure.
 - **Retain non-RFC internal addresses in Azure**: You can retain non-RFC 1918 address spacees after failover to Azure.
 - **Partial failover to secondary datacenter**: If you fail over a partial site to your secondary datacenter and want to connect back to the primary site, you can use site-to-site VPN to connect a failed over application on the secondary site to infrastructure components running on the primary site. Note that if the entire subnet fails over you can retain the virtual machine IP address. If you fail over a partial subnet you can't retain the virtual machine IP address because subnets can't be split between sites.
@@ -192,9 +192,9 @@ Providers and agents are installed on on-premises servers so that they can conne
 After reviewing these best practices you can start deploying Site Recovery:
 
 - [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md) 
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure) 
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm) 
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san) 
-- [Set up protection with a single VMM server](site-recovery-single-vmm) 
+- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md) 
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md) 
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md) 
+- [Set up protection with a single VMM server](site-recovery-single-vmm.md) 
 
 

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Data Science Process in Action: using HDInsight Hadoop clusters | Azure" 
-	description="End-to-end Azure Data Science Process using an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
+	pageTitle="Azure Advanced Analytics Process in Action: using HDInsight Hadoop clusters | Azure" 
+	description="End-to-end Azure Advanced Analytics Process using an HDInsight Hadoop cluster to build and deploy a model using a publicly available dataset." 
 	metaKeywords="" 
 	services="machine-learning,hdinsight" 
 	solutions="" 
@@ -19,9 +19,9 @@
 	ms.author="hangzh;bradsev" /> 
 
                 
-# Azure Data Science Process in Action: using HDInsight Hadoop clusters
+# Azure Advanced Analytics Process in Action: using HDInsight Hadoop clusters
 
-In this walkthrough, you follow the Azure Data Science Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built to handle binary and multiclass classification and regression predictive tasks with Azure Machine Learning.
+In this walkthrough, you follow the Azure Advanced Analytics Process map in an end-to-end scenario using an Azure HDInsight Hadoop cluster to store, explore and feature engineer data from the publicly available [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset, and to down sample the data. Models of the data are built to handle binary and multiclass classification and regression predictive tasks with Azure Machine Learning.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset description

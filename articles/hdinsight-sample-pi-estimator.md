@@ -1,6 +1,6 @@
 <properties
-	pageTitle="The Pi estimator Hadoop sample in HDInsight | Azure"
-	description="Learn how to run an Hadoop MapReduce sample on HDInsight."
+	pageTitle="Pi estimator Hadoop sample in HDInsight | Microsoft Azure"
+	description="Learn how to run a Hadoop MapReduce sample Pi estimator on HDInsight."
 	editor="cgronlun"
 	manager="paulettm"
 	services="hdinsight"
@@ -41,10 +41,10 @@ The other samples that are available to help you get up to speed in using HDInsi
 
 - You must have provisioned an HDInsight cluster. For instructions on the various ways in which such clusters can be created, see [Provision HDInsight Clusters](hdinsight-provision-clusters.md).
 
-- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see [Install and configure Azure PowerShell][powershell-install-configure].
+- You must have installed Azure PowerShell, and have configured it for use with your account. For instructions on how to do this, see  [Install and configure Azure PowerShell] [powershell-install-configure].
 
 
-<h2><a id="run-sample"></a>Run the sample with Azure PowerShell</h2>
+## <a id="run-sample"></a>Run the sample with Azure PowerShell
 
 **To submit the MapReduce job**s
 
@@ -78,7 +78,7 @@ The other samples that are available to help you get up to speed in using HDInsi
 	For comparison, the first 10 decimal places of pi are 3.1415926535.
 
 
-<h2><a id="java-code"></a>The Java code for the pi estimator MapReduce program</h2>
+## <a id="java-code"></a>The Java code for the pi estimator MapReduce program
 
 
 
@@ -419,8 +419,7 @@ The other samples that are available to help you get up to speed in using HDInsi
 	 }
 	 }
 
-
-<h2><a id="summary"></a>Summary</h2>
+## <a id="summary"></a>Summary
 
 In this tutorial, you saw how to run a MapReduce job on HDInsight and how to use Monte Carlo methods that require and generate large data sets that can be managed by this service.
 
@@ -447,7 +446,7 @@ Here is the complete script used to run this sample on a default HDInsight 3.1 c
 
 
 
-<h2><a id="next-steps"></a>Next steps</h2>
+## <a id="next-steps"></a>Next steps
 
 For tutorials that describe running other samples and provide instructions on using Pig, Hive, and MapReduce jobs on Azure HDInsight with Azure PowerShell, see the following topics:
 
@@ -461,7 +460,7 @@ For tutorials that describe running other samples and provide instructions on us
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [hdinsight-get-started]: hdinsight-get-started.md
 
