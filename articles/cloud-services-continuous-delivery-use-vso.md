@@ -42,11 +42,11 @@ To set up a cloud service to automatically build and deploy to Azure by using Vi
 
 -	[Step 7: Run unit tests (optional)][]
 
-<h2> <a name="step1"></a>Step 1: Create a team project</h2>
+## <a name="step1"></a>Step 1: Create a team project
 
 Follow the instructions [here](http://go.microsoft.com/fwlink/?LinkId=512980) to create your team project and link it to Visual Studio. This walkthrough assumes you are using Team Foundation Version Control (TFVC) as your source control solution. If you want to use Git for version control, see [the Git version of this walkthrough](http://go.microsoft.com/fwlink/p/?LinkId=397358).
 
-<h2><a name="step2"> </a>Step 2: Check in a project to source control</h2>
+## <a name="step2"> </a>Step 2: Check in a project to source control
 
 1. In Visual Studio, open the solution you want to deploy, or create a new one.
 You can deploy a web app or a cloud service (Azure Application) by following the steps in this walkthrough.
@@ -73,7 +73,7 @@ If you want to create a web app, choose the ASP.NET Web Application project temp
 Note the options to include or exclude specific changes when you check in. If desired changes are excluded, choose the **Include All** link.<br/>
 ![][9]
 
-<h2> <a name="step3"> </a>Step 3: Connect the project to Azure</h2>
+## <a name="step3"> </a>Step 3: Connect the project to Azure
 
 1. Now that you have a VSO team project with some source code in it, you are ready to connect your team project to Azure.  In the [Azure Portal](http://manage.windowsazure.com), select your cloud service or web app, or create a new one by selecting the + icon at the bottom left and choosing **Cloud Service** or **Web App** and then **Quick Create**. Choose the **Set up publishing with Visual Studio Online** link.<br/>
 ![][10]
@@ -90,7 +90,7 @@ Note the options to include or exclude specific changes when you check in. If de
 5. When your project is linked, you will see some instructions for checking in changes to your Visual Studio Online team project.  On your next check-in, Visual Studio Online will build and deploy your project to Azure.  Try this now by clicking the **Check In from Visual Studio** link, and then the **Launch Visual Studio** link (or the equivalent **Visual Studio** button at the bottom of the portal screen).<br/>
 ![][14]
 
-<h2><a name="step4"> </a>Step 4: Trigger a rebuild and redeploy your project</h2>
+## <a name="step4"> </a>Step 4: Trigger a rebuild and redeploy your project
 
 1. In Visual Studio's Team Explorer, click the **Source Control Explorer** link.<br/>
 ![][15]
@@ -165,17 +165,17 @@ A new browser tab will open to reveal your running site.<br/>
 15.	For cloud services, if you make other changes to your project, you trigger more builds, and you will accumulate multiple deployments. The latest one marked as Active.<br/>
 ![][33]
 
-<h2> <a name="step5"> </a>Step 5: Redeploy an earlier build</h2>
+## <a name="step5"> </a>Step 5: Redeploy an earlier build
 
 This step applies to cloud services and is optional. In the management portal, select an earlier deployment and click the **Redeploy** button to rewind your site to an earlier check-in.  Note that this will trigger a new build in TFS, and create a new entry in your deployment history.<br/>
 ![][34]
 
-<h2> <a name="step6"> </a>Step 6: Change the Production deployment</h2>
+## <a name="step6"> </a>Step 6: Change the Production deployment
 
 This step applies only to cloud services, not web apps. When you are ready, you can promote the Staging environment to the production environment by choosing the Swap button in the management portal. The newly deployed Staging environment is promoted to Production, and the previous Production environment, if any, becomes a Staging environment. The Active deployment may be different for the Production and Staging environments, but the deployment history of recent builds is the same regardless of environment.<br/>
 ![][35]
 
-<h2> <a name="step7"> </a>Step 7: Run unit tests</h2>
+## <a name="step7"> </a>Step 7: Run unit tests
 
 This step applies only to web apps, not cloud services. To put a quality gate on your deployment, you can run unit tests and if they fail, you can stop the deployment.
 
