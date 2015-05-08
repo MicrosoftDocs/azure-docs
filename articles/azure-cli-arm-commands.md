@@ -210,7 +210,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the following example we create a virtual network with newvnet for resource group myresourcegroup in the West US region.
+Allows to create a new virtual network. In the following example we create a virtual network named newvnet for resource group myresourcegroup in the West US region.
 
 	
 	C:\>azure network vnet create myresourcegroup newvnet "west us"
@@ -299,6 +299,7 @@ Parameter options:
 	   --no-tags                                  remove all existing tags
 	   -s, --subscription <subscription>          the subscription identifier
 <BR>
+	
 	network vnet list [options] <resource-group>
 
 The command allows to list all virtual networks in a resource group.
