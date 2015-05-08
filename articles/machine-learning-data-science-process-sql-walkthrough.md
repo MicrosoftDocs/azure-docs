@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Data Science Process in Action: using SQL Sever | Azure" 
-	description="Azure Data Science Process in Action" metaKeywords="" 
+	pageTitle="Azure Advanced Analytics Process in Action: using SQL Sever | Azure" 
+	description="Azure Advanced Analytics Process in Action" metaKeywords="" 
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
@@ -18,9 +18,9 @@
 	ms.author="mohabib;fashah"/> 
 
                 
-# Azure Data Science Process in Action: using SQL Sever
+# Azure Advanced Analytics Process in Action: using SQL Sever
 
-In this tutorial, you will follow the Azure Data Science Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
+In this tutorial, you will follow the Azure Advanced Analytics Process map end-to-end to build and deploy a model using a publicly available dataset -- the [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) dataset. 
 
 
 ## <a name="dataset"></a>NYC Taxi Trips Dataset Description
