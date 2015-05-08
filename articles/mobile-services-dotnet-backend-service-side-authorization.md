@@ -9,9 +9,9 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Service-side Authorization of Users in Mobile Services
@@ -69,9 +69,4 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [3]: ./media/mobile-services-dotnet-backend-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: mobile-services-dotnet-backend-ios-get-started.md
-[Get started with data]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Add Authentication to Existing Mobile Services App]: mobile-services-dotnet-backend-ios-get-started-users.md
-[Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
-
-[Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
