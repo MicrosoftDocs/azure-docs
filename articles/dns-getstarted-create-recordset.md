@@ -111,9 +111,9 @@ You can also use nslookup or other DNS tools to query the new record set.
 
 
 ## Next Steps
-[How to manage DNS zones](../dns-operations-dnszones)
+[How to manage DNS zones](dns-operations-dnszones.md)
 
-[How to manage DNS records](../dns-operations-recordsets)<BR>
+[How to manage DNS records](dns-operations-recordsets.md)<BR>
 
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Automate Azure Operations with .NET SDK](dns-sdk.md)
 
