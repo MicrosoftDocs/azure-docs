@@ -116,7 +116,7 @@ These articles provide foundation reference for REST and authentication library 
 ### Videos
 
 #### Azure Friday
-[Azure Friday](http://azure.microsoft.com/en-us/documentation/videos/azure-friday/) is a recurring Friday 1:1 video series dedicated to bringing you short 10-15 minute interviews with experts on a variety of Azure topics.  Use the Services Filter feature on the page to see all Azure Active Directory videos.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/) is a recurring Friday 1:1 video series dedicated to bringing you short 10-15 minute interviews with experts on a variety of Azure topics.  Use the Services Filter feature on the page to see all Azure Active Directory videos.
 
 - **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**
 - **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**
