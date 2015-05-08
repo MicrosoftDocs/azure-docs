@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines" 
-	description="Quickly reset a local administrator password or the Remote Desktop Service for Windows Virtual Machines using PowerShell commands." 
+	description="Quickly reset a local administrator password or the Remote Desktop Service for Windows virtual machines using the Azure Preview Portal or PowerShell commands." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
@@ -13,14 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="05/07/2015" 
 	ms.author="josephd"/>
 
 # How to Reset a Password or the Remote Desktop Service for Windows Virtual Machines
 
-If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
+If you can't connect to a Windows virtual machine because of a forgotten password or a problem with the Remote Desktop service configuration, use the Azure Preview Portal or the VMAccess extension to reset the local administrator password or reset the Remote Desktop service configuration.
+
+## Azure Preview Portal
+
+To reset the Remote Desktop service in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Windows virtual machine* > **Reset Remote Access**. Here is an example. 
+
+
+![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
+
+To reset the name and password of the local administrator account in the [Azure Preview Portal](https://portal.azure.com), click **Browse** > **Virtual machines** > *your Windows virtual machine* > **All settings** > **Password reset**. Here is an example.
+
+![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
+
  
-## Requirements
+## VMAccess Extension and PowerShell
 
 Before you begin, you'll need the following:
 
