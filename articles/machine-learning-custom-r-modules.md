@@ -317,13 +317,17 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 **DropDown**: a user specified enumerated (dropdown) list. The dropdown items are specified within the **Properties** element using an **Item** element. The **id** for each **Item** must be unique and a valid R variable and the name of the item is both the text that appears to users and the value that is passed to the R function.
 
 	<Arg id="color" name="Color" type="DropDown">
-      <Properties default="Red Value">
+      <Properties default="red">
         <Item id="red" name="Red Value"/>
         <Item id="green" name="Green Value"/>
         <Item id="blue" name="Blue Value"/>
       </Properties>
       <Description>Select a color.</Description>
     </Arg>	
+
+* *Optional Properties*:
+	* **default** - The value for the default property must correspond with an id value from one of the **Item** elements.
+
 
 ### Auxiliary Files
 
