@@ -269,5 +269,5 @@ You can try this sample API App at [TryApp Service](http://tryappservice.azure.c
 [api-app-enable-java]:./media/app-service-api-java-api-app/api-app-enable-java.png
 [click-gateway]:./media/app-service-api-java-api-app/clickgateway.png
 [restart-gateway]:./media/app-service-api-java-api-app/gatewayrestart.png
-[api-definition-click]:/media/app-service-api-java-api-app/apidef.png
+[api-definition-click]:./media/app-service-api-java-api-app/apidef.png
 [api-definition-blade]:./media/app-service-api-java-api-app/apidefblade.png
