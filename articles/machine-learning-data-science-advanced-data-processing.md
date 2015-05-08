@@ -4,8 +4,8 @@
 	services="machine-learning" 
 	solutions="" 
 	documentationCenter="" 
-	authors="sidneyh"  
-	manager="jhubbard" />
+	authors="bradsev"  
+	manager="paulettm" />
 
 <tags 
 	ms.service="machine-learning" 
@@ -14,9 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
 	ms.date="02/11/2015" 
-	ms.author="sidneyh" />
+	ms.author="bradsev" />
+
 # Learning Guide: Advanced data processing in Azure 
-This map walks through the optional process of preparing data to be used in an Azure Machine Learning experiment. This is in addition to the main map found in [Learning Guide: How to create a Machine Learning service](./machine-learning-data-science-how-to-create-machine-learning-service.md)
+
+This map walks through the process of preparing data to be used in an Azure Machine Learning experiment. The data preparation process outlined here is a step in the [Advanced analytics process for Azure Machine Learning](./machine-learning-data-science-how-to-create-machine-learning-service.md)
 
 [AZURE.INCLUDE [machine-learning-free-trial](../includes/machine-learning-free-trial.md)]
 
