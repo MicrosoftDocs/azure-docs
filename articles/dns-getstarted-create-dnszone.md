@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Get started with Azure DNS | Microsoft Azure" 
-   description="Learn how to create DNS zones for Azure DNS .Thisis a Step by step to get your first DNS zone created to start hosting your DNS domain." 
+   description="Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain." 
    services="dns" 
    documentationCenter="na" 
    authors="joaoma" 
@@ -165,4 +165,5 @@ If you haven’t yet delegated your domain to use the new zone in Azure DNS, you
 [Get started creating Record Sets and records](../dns-getstarted-create-record)<BR>
 [Perform operations on DNS zones](../dns-operations-dnszones)<BR>
 [Perform operations on DNS records](../dns-operations-recordsets)<BR>
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Automate Azure Operations with .NET SDK](../dns-sdk)<BR>
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)

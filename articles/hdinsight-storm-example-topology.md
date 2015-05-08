@@ -1,6 +1,6 @@
 <properties
- pageTitle="Example Storm topologies for Apache Storm on HDInsight"
- description="A list of example Storm topologies that have been created and tested with Apache Storm on HDInsight."
+ pageTitle="Example Apache Storm topologies on HDInsight | Microsoft Azure"
+ description="A list of example Storm topologies that are created and tested with Apache Storm on HDInsight. Examples include basic C# and Java topologies to working with Event Hubs."
  services="hdinsight"
  documentationCenter=""
  authors="Blackmist"

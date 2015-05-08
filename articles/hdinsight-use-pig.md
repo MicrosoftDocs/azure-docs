@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Hadoop Pig in HDInsight | Azure"
+   pageTitle="Use Hadoop Pig in HDInsight | Microsoft Azure"
    description="Learn how to use Pig with Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=""

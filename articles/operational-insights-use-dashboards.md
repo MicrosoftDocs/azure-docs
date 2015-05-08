@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Operational Insights dashboards" 
-	description="Informational article on basic dashboard usage for Operational Insights" 
-	services="operational-insights" 
-	documentationCenter="" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Operational Insights dashboards"
+	description="Informational article on basic dashboard usage for Operational Insights"
+	services="operational-insights"
+	documentationCenter=""
+	authors="ehissey"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="operational-insights" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
-	ms.author="banders"/>
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/07/2015"
+	ms.author="evanhi"/>
 
 # Operational Insights dashboards
 

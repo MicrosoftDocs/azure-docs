@@ -10,28 +10,19 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
-	ms.devlang="Java"
+	ms.tgt_pltfrm="mobile-xamarin-ios"
+	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="3/10/2015"
+	ms.date="05/07/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
+##Overview
+
 This topic shows you how to use Azure Mobile Services to send push notifications to a Xamarin.iOS 8 app. In this tutorial you add push notifications using the Apple Push Notification service (APNS) to the [Get started with Mobile Services] project. When complete, your mobile service will send a push notification each time a record is inserted.
-
-This tutorial walks you through these basic steps to enable push notifications:
-
-1. [Generate the certificate signing request]
-2. [Register your app and enable push notifications]
-3. [Create a provisioning profile for the app]
-4. [Configure Mobile Services]
-5. [Configure the Xamarin.iOS App]
-6. [Add push notifications to the app]
-7. [Update scripts to send push notifications]
-8. [Insert data to receive notifications]
 
 This tutorial requires the following:
 
@@ -396,12 +387,8 @@ You have successfully completed this tutorial.
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: partner-xamarin-mobile-services-ios-get-started.md
+
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
 

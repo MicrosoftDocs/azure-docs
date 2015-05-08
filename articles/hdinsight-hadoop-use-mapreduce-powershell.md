@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use MapReduce with Hadoop in HDinsight | Azure"
+   pageTitle="Use MapReduce and PowerShell with Hadoop | Microsoft Azure"
    description="Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight."
    services="hdinsight"
    documentationCenter=""
@@ -9,7 +9,7 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang=""
+   ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
