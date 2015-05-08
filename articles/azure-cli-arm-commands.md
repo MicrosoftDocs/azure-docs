@@ -210,7 +210,7 @@ Your Azure subscription information is used by the tool to connect to your accou
 **Commands to manage virtual networks**
 
 	network vnet create [options] <resource-group> <name> <location>
-Allows to create a new virtual network. In the following example we create a virtual network with newvnet for resource group myresourcegroup in the West US region:
+Allows to create a new virtual network. In the following example we create a virtual network with newvnet for resource group myresourcegroup in the West US region.
 
 	
 	C:\>azure network vnet create myresourcegroup newvnet "west us"
@@ -301,7 +301,7 @@ Parameter options:
 <BR>
 	network vnet list [options] <resource-group>
 
-The command allows to list all virtual networks in a resource group
+The command allows to list all virtual networks in a resource group.
 
 
 	C:\>azure network vnet list myresourcegroup
@@ -328,7 +328,7 @@ Parameter options:
 <BR>
 	
 	network vnet show [options] <resource-group> <name>
-The command shows the virtual network properties in a resource group
+The command shows the virtual network properties in a resource group.
 
 	azure network vnet show -g myresourcegroup -n newvnet
 
@@ -406,7 +406,7 @@ Parameter options:
 
 	network vnet subnet set [options] <resource-group> <vnet-name> <name>
 
-Sets a specific virtual network subnet within a resource group
+Sets a specific virtual network subnet within a resource group.
 
 
 	C:\>azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
@@ -425,7 +425,7 @@ Sets a specific virtual network subnet within a resource group
 
 	network vnet subnet list [options] <resource-group> <vnet-name>
 
-Lists all the virtual network subnets for a specific virtual network within a resource group
+Lists all the virtual network subnets for a specific virtual network within a resource group.
 
 	azure network vnet subnet set -g myresourcegroup --vnet-name newvnet -n subnet1
 	
@@ -468,7 +468,7 @@ Parameter options:
 <BR>
 
 	network vnet subnet delete [options] <resource-group> <vnet-name> <subnet-name>
-Removes a subnet from an existing virtual network 
+Removes a subnet from an existing virtual network. 
 
 	azure network vnet subnet delete -g myresourcegroup --vnet-name newvnet -n subnet1
 	
@@ -492,7 +492,7 @@ Parameter options:
 **Commands to manage load balancers**
 
 	network lb create [options] <resource-group> <name> <location>
-Creates a load balancer set 
+Creates a load balancer set. 
 
 	azure network lb create -g myresourcegroup -n mylb -l westus
 	
@@ -522,7 +522,7 @@ Parameter options:
 <BR>
 
 	network lb list [options] <resource-group>
-Lists Load balancer objects within a resource group. 
+Lists Load balancer resources within a resource group. 
 
 	azure network lb list myresourcegroup
 	
@@ -593,6 +593,7 @@ Parameter options:
 **Commands to manage probes of a load balancer**
 	
 	network lb probe create [options] <resource-group> <lb-name> <name>
+
 Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer needs to have a frontend-ip configured first (Check out command "azure network frontend-ip" to assign an ip address to load balancer).
 
 	azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
@@ -620,7 +621,7 @@ Parameter options:
 
 	network lb probe set [options] <resource-group> <lb-name> <name>
 
-Updates the an existing load balancer probe to the new values for it.
+Updates the an existing load balancer probe with new values for it.
 
 	azure network lb probe set -g myresourcegroup -l mylb -n mylbprobe -p mylbprobe1 -p TCP -o 443 -i 300
 	
@@ -648,7 +649,7 @@ Parameter options
 
 	network lb probe list [options] <resource-group> <lb-name>
 
-List the probe properties for a load balancer set 
+List the probe properties for a load balancer set. 
 
 	C:\>azure network lb probe list -g myresourcegroup -l mylb
 	
@@ -670,7 +671,7 @@ Parameter options:
 
 
 	network lb probe delete [options] <resource-group> <lb-name> <name>
-Removes the probe created for the load balancer
+Removes the probe created for the load balancer.
 
 	azure network lb probe delete -g myresourcegroup -l mylb -n mylbprobe
 	
@@ -711,7 +712,7 @@ Creates a frontend IP configuration to an existing load balancer set.
 
 	network lb frontend-ip set [options] <resource-group> <lb-name> <name>
 
-Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip
+Allows to update an existing configuration of a frontend IP.The command below adds a public IP called mypubip5 to an existing load balancer frontend IP named myfrontendip.
 
 	azure network lb frontend-ip set -g myresourcegroup --lb-name mylb -n myfrontendip -i mypubip5
 	
@@ -761,7 +762,7 @@ Parameter options:
 	
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Lists all the frontend IP's configured for the load balancer 
+Lists all the frontend IP's configured for the load balancer.
 
 	azure network lb frontend-ip list -g myresourcegroup -l mylb
 	
@@ -1089,7 +1090,7 @@ Parameter options:
 	network lb inbound-nat-rule create [options] <resource-group> <lb-name> <name>
 Creates a inbound NAT rule for load balancer.
 
-In the example below we created a NAT rule from frontend IP (which was previously defined. See azure network frontend-ip command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.
+In the example below we created a NAT rule from frontend IP (which was previously defined. See "azure network frontend-ip" command for more details) with a inbound listening port and outbound port which the load balancer will send the network traffic.
 
 
 	azure network lb inbound-nat-rule create -g myresourcegroup -l mylb -n myinboundnat -p tcp -f 80 -b 8080 -i myfrontendip
