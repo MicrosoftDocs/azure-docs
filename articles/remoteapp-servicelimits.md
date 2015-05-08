@@ -1,20 +1,20 @@
-<prsoperties
-   pageTitle="RemoteApp service limits"
-   description="Learn about the limits for using Azure RemoteApp"
-   services="remoteapp"
-   documentationCenter=""
-   authors="lizap"
-   manager="mbaldwin"
-   editor=""/>
+<properties 
+    pageTitle="RemoteApp service limits"
+    description="Learn about the limits and default values for Azure RemoteApp" 
+    services="remoteapp" 
+    documentationCenter="" 
+    authors="lizap" 
+    manager="mbaldwin" />
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang=""
-   ms.topic="article"
-   ms.tgt_pltfrm=""
-   ms.workload="compute"
-   ms.date="05/07/2015"
-   ms.author="elizapo"/>
+<tags 
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="05/07/2015" 
+    ms.author="elizapo" />
+
 
 # RemoteApp service limits and default values
 
