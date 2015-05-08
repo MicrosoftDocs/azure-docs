@@ -47,6 +47,8 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 
 				return Query().Where(todo => todo.UserId == currentUser.Id);
 
+	>[AZURE.NOTE] Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
+
 4. Republish the mobile service project to Azure.
 
 
