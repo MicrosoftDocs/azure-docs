@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/06/2015"
+	ms.date="05/08/2015"
 	ms.author="rasquill"/>
 
 
-<!--The next line, with one pound sign at the beginning, is the page title-->
+
 # Linux and Open-Source Computing on Azure
 
 This document attempts to list in one place all the topics written by Microsoft and its partners about running Linux-based Virtual Machines as well as other open-source compute environments and applications on Microsoft Azure. As both Azure and the open-source computing world are fast-moving targets, it is almost certain that this document is out of date, *despite* the fact that we shall do our best to continually add newer topics and remove out-of-date ones. If we've missed one, please let us know in the comments, or submit a pull request to our [GitHub repo](https://github.com/Azure/azure-content/).
