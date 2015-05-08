@@ -9,9 +9,9 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Service-side Authorization of Users in Mobile Services
@@ -73,9 +73,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
 [Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
-[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/
