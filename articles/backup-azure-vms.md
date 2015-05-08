@@ -165,19 +165,4 @@ To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
 
-[discover-button]: 
-[discover-vms]: 
-[discover-done]: 
-[register-button]: 
-[register-job]: 
-[register-vms]: 
-[register-status1]: 
-[register-status2]: 
-[select-workload]: 
-[protect-wizard1]: 
-[protect-wizard2]: 
-[protect-configure]: 
-[protect-inprogress]: 
-[protect-backedup]: 
-[dashboard]: 
-[prereq]: 
+
