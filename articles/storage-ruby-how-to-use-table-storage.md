@@ -1,19 +1,19 @@
-<properties
-	pageTitle="How to use Table storage from Ruby | Microsoft Azure"
-	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API."
-	services="storage"
-	documentationCenter="ruby"
-	authors="tfitzmac"
-	manager="wpickett"
+<properties 
+	pageTitle="How to use Table storage from Ruby | Microsoft Azure" 
+	description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." 
+	services="storage" 
+	documentationCenter="ruby" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="ruby"
-	ms.topic="article"
-	ms.date="03/11/2015"
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -34,12 +34,12 @@ table, inserting and querying entities in a table**.
 
 ## Create a Ruby Application
 
-Create a Ruby application. For instructions,
+Create a Ruby application. For instructions, 
 see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure Your Application to Access Storage
 
-To use Azure storage, you need to download and use the Ruby azure package,
+To use Azure storage, you need to download and use the Ruby azure package, 
 which includes a set of convenience libraries that communicate with the storage REST services.
 
 ### Use RubyGems to obtain the package
@@ -56,7 +56,7 @@ Use your favorite text editor, add the following to the top of the Ruby file whe
 
 ## Setup an Azure Storage Connection
 
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY**
+The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** 
 for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
 
 	Azure.config.storage_account_name = "<your azure storage account>"
@@ -85,9 +85,9 @@ The **Azure::TableService** object lets you work with tabls and entities. To cre
 
 ## How to Add an Entity to a Table
 
-To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Azure Storage Service uses **PartitionKey** to automatically distribute the table's entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to.
+To add an entity, first create a hash object that defines your entity properties. Note that for every entity you mustspecify a **PartitionKey** and **RowKey**. These are the unique identifiers of your entities, and are values that can be queried much faster than your other properties. Azure Storage Service uses **PartitionKey** to automatically distribute the table's entities over many storage nodes. Entities with the same **PartitionKey** are stored on the same node. The **RowKey** is the unique ID of the entity within the partition it belongs to. 
 
-	entity = { "content" => "test entity",
+	entity = { "content" => "test entity", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.insert_entity("testtable", entity)
 
@@ -102,7 +102,7 @@ There are multiple methods available to update an existing entity:
 
 The following example demonstrates updating an entity using **update\_entity()**:
 
-	entity = { "content" => "test entity with updated content",
+	entity = { "content" => "test entity with updated content", 
 	  :PartitionKey => "test-partition-key", :RowKey => "1" }
 	azure_table_service.update_entity("testtable", entity)
 
@@ -113,7 +113,7 @@ With **update\_entity()** and **merge\_entity()**, if the entity that is being u
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute\_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
 
 	azure_table_service = Azure::TableService.new
-	batch = Azure::Storage::Table::Batch.new("testtable",
+	batch = Azure::Storage::Table::Batch.new("testtable", 
 	  "test-partition-key") do
 	  insert "2", { "content" => "new content 2" }
 	  insert "3", { "content" => "new content 3" }
@@ -124,7 +124,7 @@ Sometimes it makes sense to submit multiple operations together in a batch to en
 
 To query an entity in a table, use the **get\_entity()** method, by passing the table name, **PartitionKey** and **RowKey**.
 
-	result = azure_table_service.get_entity("testtable", "test-partition-key",
+	result = azure_table_service.get_entity("testtable", "test-partition-key", 
 	  "1")
 
 ## How to: Query a Set of Entities
@@ -140,7 +140,7 @@ To query a set of entities in a table, create a query hash object and use the **
 
 A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
 
-	query = { :filter => "PartitionKey eq 'test-partition-key'",
+	query = { :filter => "PartitionKey eq 'test-partition-key'", 
 	  :select => ["content"] }
 	result, token = azure_table_service.query_entities("testtable", query)
 
