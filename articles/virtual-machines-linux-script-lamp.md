@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="2/23/2015"
+	ms.date="02/23/2015"
 	ms.author="guybo"/>
 
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
