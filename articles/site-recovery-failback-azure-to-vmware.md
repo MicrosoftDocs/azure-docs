@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="04/29/2015"
+   ms.date="05/08/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Steps to failback from Azure to VMware
@@ -57,7 +57,9 @@ Part of the setup has already been completed during failover.
 
 ## Install vContinuum on-premsies
 
-The vContinuum setup will be at http://go.microsoft.com/fwlink/?linkid=526305
+The vContinuum setup will be at [download location](http://go.microsoft.com/fwlink/?linkid=526305)
+
+Also install the patch given here on the vConinuum - [download link is](http://go.microsoft.com/fwlink/?LinkID=533813).
 
 1.  Launch the setup to begin installation of vContinuum. After the
     welcome screen click next to begin specifying the settings
