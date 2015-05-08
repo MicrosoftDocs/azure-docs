@@ -1,37 +1,37 @@
 <properties 
-	pageTitle="How to Manage SQL Database" 
-	description="Learn how to manage Azure SQL database." 
-	headerExpose="" 
-	footerExpose="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
-	editor="" 
-	services="sql-database" 
+	pageTitle="How to Manage SQL Database"
+	description="Learn how to manage Azure SQL database."
+	headerExpose=""
+	footerExpose=""
+	authors="jeffgoll"
+	manager="jeffreyg"
+	editor=""
+	services="sql-database"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="01/13/2015" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="01/13/2015"
 	ms.author="jeffreyg"/>
 
 
 # How to Manage SQL Database
 
-This article shows you how to perform simple management tasks in Azure SQL Database. 
+This article shows you how to perform simple management tasks in Azure SQL Database.
 
 ## How to: Connect to SQL Database in Azure using Management Studio
 
 Management Studio is an administrative tool that lets you manage multiple SQL Server instances and servers in a single workspace. If you already have an on-premises SQL Server instance, you can open a connection to both the on-premises instance and a logical server on Azure to perform tasks side by side.
 
-Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premises server will run on a SQL Database logical server. 
+Management Studio includes features that are not currently available in the management portal, such as a syntax checker and the ability to save scripts and named queries for reuse. SQL Database is just a tabular data stream (TDS) endpoint. Any tools that work with TDS, including Management Studio, are valid for SQL Database operations. Scripts that you develop for on-premises server will run on a SQL Database logical server.
 
 In the following step, you'll use Management Studio to connect to a logical server on Azure. This step requires you to have SQL Server Management Studio version 2008 R2 or 2012. If you need help downloading or connecting to  Management Studio, see [Managing SQL Database using Management Studio][] on this site.
 
-Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open. 
+Before you can connect, it is sometimes necessary to create a firewall exception that allows outbound requests on port 1433 on your local system. Computers that are secure by default typically do not have port 1433 open.
 
 ## Configure the firewall for an on-premises server
 
@@ -39,7 +39,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 
 2. Choose **Port**, specify TCP 1433, specify **Allow the connection**, and be sure that the **Public** profile is selected.
 
-3. Provide a meaningful name, such as *WindowsAzureSQLDatabase (tcp-out) port 1433*. 
+3. Provide a meaningful name, such as *WindowsAzureSQLDatabase (tcp-out) port 1433*.
 
 
 ## Connect to a logical server
@@ -50,7 +50,7 @@ Before you can connect, it is sometimes necessary to create a firewall exception
 
 2. In Authentication, choose **SQL Server Authentication** and then enter the administrator login that you created when you configured the logical server.
 
-3. Click **Options**. 
+3. Click **Options**.
 
 4. In Connect to database, specify **master**.
 
@@ -81,7 +81,7 @@ The second script assigns database user permissions. For this script, you will c
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on master, execute each line separately
     -- use this login to manage other logins on this server
-    CREATE LOGIN sqladmin WITH password='&lt;ProvidePassword&gt;'; 
+    CREATE LOGIN sqladmin WITH password='&lt;ProvidePassword&gt;';
     CREATE USER sqladmin FROM LOGIN sqladmin;
     EXEC sp_addrolemember 'loginmanager', 'sqladmin';
 
@@ -96,7 +96,7 @@ The second script assigns database user permissions. For this script, you will c
 
 1. Expand the Databases folder, right-click **school**, and select **New Query**.
 
-2. Use the following Transact-SQL statements to add database users. Replace the password with a valid password. 
+2. Use the following Transact-SQL statements to add database users. Replace the password with a valid password.
 
 <div style="width:auto; height:auto; overflow:auto"><pre>
     -- run on a regular database, execute each line separately
@@ -116,7 +116,7 @@ The second script assigns database user permissions. For this script, you will c
 
 ## View and test logins
 
-1. In a new query window, connect to **master** and execute the following statement: 
+1. In a new query window, connect to **master** and execute the following statement:
 
         SELECT * from sys.sql_logins;
 
@@ -138,8 +138,3 @@ You have now created and tested several logins. For more information, see [Manag
 [Managing Databases and Logins in SQL Database]: http://msdn.microsoft.com/library/windowsazure/ee336235.aspx
 [Monitoring SQL Database Using Dynamic Management Views]: http://msdn.microsoft.com/library/windowsazure/ff394114.aspx
 [Managing SQL Database using Management Studio]: http://www.windowsazure.com/develop/net/common-tasks/sql-azure-management/
-
-
-
-
-

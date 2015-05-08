@@ -1,19 +1,20 @@
 
-<properties 
-    pageTitle="Configure Active Directory for Azure RemoteApp" 
-    description="Learn how to set up Active Directory to work with Azure RemoteApp." 
-    services="remoteapp" 
-    solutions="" documentationCenter="" 
-    authors="lizap" 
+<properties
+    pageTitle="Configure Active Directory for Azure RemoteApp"
+    description="Learn how to set up Active Directory to work with Azure RemoteApp."
+    services="remoteapp"
+    solutions="" documentationCenter=""
+    authors="lizap"
     manager="mbaldwin" />
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="04/28/2015" 
+
+<tags
+    ms.service="remoteapp"
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="04/28/2015"
     ms.author="elizapo" />
 
 
@@ -24,7 +25,7 @@
 For a hybrid collection of RemoteApp, you need to set up an Active Directory domain infrastructure on-premises and an Azure Active Directory tenant with Directory Integration (and optionally single sign-on). Additionally, you need to create some Active Directory objects in the on-premises directory. Use the following information to configure the on-premises Active Directory and Azure AD, and then integrate the two.
 
 ## Configure your on-premises Active Directory
-Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp. 
+Start by configuring your on-premises Active Directory. You need to identify the UPN domain suffix to use, and then create Active Directory objects for RemoteApp.
 
 Haven’t added Active Directory Domain Services to your Windows Server 2012 R2 environment yet? Check out [these instructions](https://technet.microsoft.com/library/cc731053.aspx) for information on how to do just that.
 ### Examine and configure the UPN domain suffix
@@ -39,7 +40,7 @@ If your forest is not configured with a UPN suffix that matches the Azure AD dom
 	1.	Launch Active Directory Domains and Trusts.
 	2.	Right-click **Active Directory Domains and Trusts**, and then click **Properties**.
 	3.	Review the list of suffixes.
-	4.	Type the FQDN of the domain name in the box, and click **Add**, then **OK**. Example: contoso.com. 
+	4.	Type the FQDN of the domain name in the box, and click **Add**, then **OK**. Example: contoso.com.
 
 		DO NOT include the "@" in the suffix here.
 
@@ -74,7 +75,7 @@ Use the following information to create each of these objects.
 	To do this, find the service account you created. Right-click it, and then click **Move**. Select the new OU, and then click **OK**.
 
 
-1. Grant the RemoteApp service account the authority to add and delete computers to this 
+1. Grant the RemoteApp service account the authority to add and delete computers to this
 OU:
 	1. From the Active Directory Users and Computers snap-in, click **View > Advanced Features**. This adds the **Security** tab to the Properties information.
 	2. Right-click the RemoteApp service OU, and then click **Properties**.
@@ -82,12 +83,12 @@ OU:
 	4. Click **Advanced**.
 	5. On the **Permissions** tab, select the RemoteApp service account, and then click **Edit**.
 	6. Select **This object and all descendant objects** in the **Applies to** field.
-	7. In the **Permissions** field, select **Allow** next to the Create Computer Objects and Delete Computer Objects, and then click **OK**. 
+	7. In the **Permissions** field, select **Allow** next to the Create Computer Objects and Delete Computer Objects, and then click **OK**.
 	8. Click **OK** on the remaining two windows.
 
 
 ## Configure Azure Active Directory
-Now that the on-premises Active Directory is set up, move to Azure AD. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured. 
+Now that the on-premises Active Directory is set up, move to Azure AD. You need to create a custom domain that matches the UPN domain suffix for your on-premises domain and set up directory integration. The hybrid collection supports only Azure Active Directory accounts that have been synced (using a tool like DirSync) from a Windows Server Active Directory deployment; specifically, either synced with the Password Synchronization option or synced with Active Directory Federation Services (AD FS) federation configured.
 
 Use the following information to configure Azure Active Directory
 
@@ -101,7 +102,7 @@ You can also configure [Multi-Factor Authentication (MFA)](http://technet.micros
 
 If you are having trouble configuring directory synchronization, check the following:
 
-- You are using the latest version of Azure Directory Sync tool 
+- You are using the latest version of Azure Directory Sync tool
 -	In the management portal, under **Active Directory->Default Directory->Domains**, you already added your custom domain (e.g mydomain.com) and made it the primary one.
 -	Under **Active Directory->Default Directory->Users**, you add a new user under that domain (e.g. myAzureSyncUser@mydomain.com).
 -	On your domain in Active Directory, you added a new domain user and made him a member of Enterprise Admins  (e.g. myDomainSyncUser@mydomain.com).
