@@ -595,9 +595,10 @@ Parameter options:
 	
 	network lb probe create [options] <resource-group> <lb-name> <name>
 
-Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer needs to have a frontend-ip configured first (Check out command "azure network frontend-ip" to assign an ip address to load balancer).
+Create the probe configuration for health status in the load balancer. Keep in mind to run this command, your load balancer requires a frontend-ip resource (Check out command "azure network frontend-ip" to assign an ip address to load balancer).
 
 	azure network lb probe create -g myresourcegroup --lb-name mylb -n mylbprobe --protocol tcp --port 80 -i 300
+	
 	info:    Executing command network lb probe create
 	+ Looking up the load balancer "mylb"
 	+ Updating load balancer "mylb"
@@ -763,7 +764,7 @@ Parameter options:
 	
 	network lb frontend-ip list [options] <resource-group> <lb-name>
 
-Lists all the frontend IP's configured for the load balancer.
+Lists all the frontend IP resources configured for the load balancer.
 
 	azure network lb frontend-ip list -g myresourcegroup -l mylb
 	
@@ -839,9 +840,9 @@ Parameter options:
 
 	network lb address-pool add [options] <resource-group> <lb-name> <name>
 
-A backend address pool range is the way a load balancer will know what IP addresses to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (see command azure network lb address-pool create), you need to add the endpoints which are now defined by a resource called "network interfaces".
+A backend address pool range is how a load balancer will know what resources to route incoming network traffic from its endpoint using Azure Resource Manager. After you create and name the backend address pool range (See command "azure network lb address-pool create"), you need to add the endpoints which are now defined by a resource called "network interfaces".
  
-To configure the backend address range, you will need at least one "network interface"(See azure network lb nic command line). 
+To configure the backend address range, you will need at least one "network interface"(See "azure network lb nic" command line for more details). 
 
 In the following example it was used a previously created "nic1" network interface to create the backend address pool range.
   
@@ -968,7 +969,7 @@ Parameter options:
 	network lb rule create [options] <resource-group> <lb-name> <name>
 Create load balancer rules. 
 
-You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic. Settings also include the ports for frontend IP endpoint and ports in the backend address pool range. 
+You can create a load balancer rule configuring the frontend endpoint for the load balancer and the backend address pool range which will receive the incoming network traffic. Settings also include the ports for frontend IP endpoint and ports for the backend address pool range. 
 
 The following example shows how to create a load balancer rule,  the frontend endpoint listening to port 80 TCP and load balancing network traffic sending to port 8080 for the backend address pool range.
  
