@@ -11,6 +11,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
+	ms.devlang="javascript"
 	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
