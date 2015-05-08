@@ -49,7 +49,7 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
            request.execute();
         }
 
-
+	>[AZURE.NOTE] Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access. 
 
 
 ## <a name="test-app"></a>Test the app
