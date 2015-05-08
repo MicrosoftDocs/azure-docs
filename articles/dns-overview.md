@@ -34,6 +34,8 @@ Azure DNS does not currently support purchasing of domain names.  To purchase do
 
 [Automate Azure Operations with .NET SDK](../dns-sdk)
 
+[Azure DNS REST API Reference](https://msdn.microsoft.com/library/azure/mt163862.aspx)
+
 
 
 
