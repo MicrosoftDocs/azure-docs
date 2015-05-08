@@ -120,7 +120,7 @@ You should now see the WordPress start screen, where you can complete the instal
 * Check out the [Compose command reference](http://docs.docker.com/compose/cli/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
 * Try integrating Docker Compose with a [Docker Swarm](virtual-machines-docker-swarm.md) cluster. See
 [Docker Compose/Swarm integration](https://github.com/docker/compose/blob/master/SWARM.md) for scenarios.
-* Use an Azure Resource Manager template, either your own or one contributed from the [community](http://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Ubuntu VM with Docker and three containers template](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/) helps you quickly deploy three services from imaages in the [DockerHub Registry](https://registry.hub.docker.com/).
+* Use an Azure Resource Manager template, either your own or one contributed from the [community](http://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Ubuntu VM with Docker and three containers template](http://azure.microsoft.com/documentation/templates/docker-simple-on-ubuntu/) helps you quickly deploy three services from images in the [DockerHub Registry](https://registry.hub.docker.com/).
 
 <!--Image references-->
 
