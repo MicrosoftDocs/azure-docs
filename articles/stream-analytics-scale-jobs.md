@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="05/08/2015"
 	ms.author="jeffstok"/>
 
 # Scale Azure Stream Analytics jobs
@@ -26,7 +26,7 @@ A job requires at least one data stream input source. The data stream input sour
 
 The resource available for processing Stream Analytics jobs is measured by a streaming unit. Each streaming unit can provide up to 1 MB/second throughput. Each job needs a minimum of one streaming unit, which is the default for all jobs. You can set up to 50 streaming units for a Stream Analytics job by using the Azure portal. Each Azure subscription can have up to 50 streaming units for all the jobs in a specific region. To increase streaming units for your subscription (up to 100 units), contact [Microsoft Support](http://support.microsoft.com).
 
-The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. This article will show you how to calculate and tune the query to increase throughput.
+The number of streaming units that a job can utilize depends on the partition configuration for the inputs and the query defined for the job. Streaming Units are only available in increments of 3. This article will show you how to calculate and tune the query to increase throughput.
 
 
 ## Calculate the maximum streaming units of a job
