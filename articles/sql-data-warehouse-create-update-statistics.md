@@ -431,7 +431,7 @@ Load your data into the data warehouse.
 
 <!-- External Links -->
 [Cardinality Estimation]:              (https://msdn.microsoft.com/en-US/library/dn600374.aspx "Cardinality Estimation")
-[CREATE STATISTICS (Transact-SQL]:     (https://msdn.microsoft.com/en-us/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
+[CREATE STATISTICS (Transact-SQL)]:     (https://msdn.microsoft.com/en-us/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
 [DBCC SHOW_STATISTICS (Transact-SQL)]:  (https://msdn.microsoft.com/en-us/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
 [Statistics]:                          (https://msdn.microsoft.com/en-us/library/ms190397.aspx "Statistics")
 [STATS_DATE (Transact-SQL)]:           (https://msdn.microsoft.com/en-us/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
