@@ -430,16 +430,16 @@ Load your data into the data warehouse.
 -->
 
 <!-- External Links -->
-[Cardinality Estimation]:              (https://msdn.microsoft.com/en-US/library/dn600374.aspx "Cardinality Estimation")
-[CREATE STATISTICS (Transact-SQL)]:     (https://msdn.microsoft.com/en-us/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
-[DBCC SHOW_STATISTICS (Transact-SQL)]:  (https://msdn.microsoft.com/en-us/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
-[Statistics]:                          (https://msdn.microsoft.com/en-us/library/ms190397.aspx "Statistics")
-[STATS_DATE (Transact-SQL)]:           (https://msdn.microsoft.com/en-us/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
-[sys.columns (Transact-SQL)]:          (https://msdn.microsoft.com/en-us/library/ms176106.aspx "sys.columns (Transact-SQL)")
-[sys.objects (Transact-SQL)]:                         (https://msdn.microsoft.com/en-us/library/ms190324.aspx "sys.objects (Transact-SQL)"
-[sys.schemas (Transact-SQL)]:                         (https://msdn.microsoft.com/en-us/library/ms190324.aspx "sys.objects (Transact-SQL)"
-[sys.stats (Transact-SQL)]:            (https://msdn.microsoft.com/en-us/library/ms177623.aspx "sys.stats (Transact-SQL)")
-[sys.stats_columns (Transact-SQL)]:    (https://msdn.microsoft.com/en-us/library/ms187340.aspx "sys.stats_columns")
-[sys.tables (Transact-SQL)]:           (https://msdn.microsoft.com/en-us/library/ms187406.aspx "sys.tables (Transact-SQL)")
-[sys.table_types (Transact-SQL)]:      (https://msdn.microsoft.com/en-us/library/bb510623.aspx "sys.table_types (Transact-SQL)")
-[UPDATE STATISTICS (Transact-SQL)]:    (https://msdn.microsoft.com/en-us/library/ms187348.aspx "Update Statistics (Transact-SQL)")
+[Cardinality Estimation]:              (https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation")
+[CREATE STATISTICS (Transact-SQL)]:     (https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
+[DBCC SHOW_STATISTICS (Transact-SQL)]:  (https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
+[Statistics]:                          (https://msdn.microsoft.com/library/ms190397.aspx "Statistics")
+[STATS_DATE (Transact-SQL)]:           (https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
+[sys.columns (Transact-SQL)]:          (https://msdn.microsoft.com/library/ms176106.aspx "sys.columns (Transact-SQL)")
+[sys.objects (Transact-SQL)]:                         (https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
+[sys.schemas (Transact-SQL)]:                         (https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
+[sys.stats (Transact-SQL)]:            (https://msdn.microsoft.com/library/ms177623.aspx "sys.stats (Transact-SQL)")
+[sys.stats_columns (Transact-SQL)]:    (https://msdn.microsoft.com/library/ms187340.aspx "sys.stats_columns")
+[sys.tables (Transact-SQL)]:           (https://msdn.microsoft.com/library/ms187406.aspx "sys.tables (Transact-SQL)")
+[sys.table_types (Transact-SQL)]:      (https://msdn.microsoft.com/library/bb510623.aspx "sys.table_types (Transact-SQL)")
+[UPDATE STATISTICS (Transact-SQL)]:    (https://msdn.microsoft.com/library/ms187348.aspx "Update Statistics (Transact-SQL)")
