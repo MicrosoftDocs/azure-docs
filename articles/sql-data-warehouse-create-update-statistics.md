@@ -18,16 +18,17 @@
 
 # Create and update statistics #
 
-Creating and updating statistics is important in order to achieve the query performance that SQL Data Warehouse is designed to provide. This guide gives an overview of statistics, and then provides examples of how to:
+Creating and updating statistics is important in order to achieve the query performance that SQL Data Warehouse is designed to provide. This guide gives an overview of statistics, and then provides examples of:
 
-- Create statistics as part of database design
-- Update statistics as part of database maintenance
-- View statistics with system views and functions
+
+- Creating statistics as part of database design
+- Updating statistics as part of database maintenance
+- Viewing statistics with system views and functions
 
 ## Overview ##
  SQL Data Warehouse uses statistics to assess the cost of different ways to perform a distributed query. When statistics are accurate, the query optimizer can generate high quality query plans that improve query performance.
 
-### Statistics types?
+### What are statistics?
 
 Single-column statistics are objects that contain information about the range and frequency of values in a single column. The query optimizer uses this histogram to estimate the number of rows in the query result. This directly impacts decisions about how to optimize the query.
 
@@ -35,7 +36,7 @@ Multi-column statistics are statistics created on a list of columns. They includ
 
 For more details, see [DBCC SHOW_STATISTICS (Transact-SQL)] on MSDN.
 
-### Statistics benefits?
+### Why are statistics necessary?
 Without proper statistics, you will not get the performance that SQL Data Warehouse is designed to provide. Indexes automatically have single-column statistics on the first column of each index. Tables and columns do not, and so you need to create them. It's best to create them when you create the table.
 
 > [AZURE.NOTE] If you use SQL Server, you might depend on SQL Server to create and update single-column statistics for you as needed. SQL Data Warehouse is different in this aspect. Since the data is distributed, SQL Data Warehouse doesn't automatically aggregate statistics across all the distributed data. It will only generate the aggregated statistics when you create and update statistics.
@@ -45,10 +46,8 @@ To improve query performance for SQL Data Warehouse:
 - Create single-column statistics on columns in each table.
 - Create multi-column statistics on the columns used in joins and group by clauses.
 
-### Plan for creating statistics
+### When to create statistics
 It is important to create statistics as part of designing your database and tables.
-
-Which columns need statistics?
 
 Creating single-column statistics on every column is a way to get started with statistics. However, there are always tradeoffs between performance and the cost to create and update statistics.  If you create single-column statistics on all columns and later find it is taking too long to update all statistics, you can always drop some of the statistics, or update some of them more often than others.
 
@@ -56,12 +55,13 @@ Multi-column statistics are only used by the query optimizer when the columns ar
 
 For further explanation, see  [Cardinality Estimation] on MSDN.
 
-### Plan for updating statistics ##
+### When to update statistics
 One of the first questions to ask when troubleshooting a query is, "Are the statistics up-to-date?"  
 
 It is important to include updating statistics in your database management routine. When the distribution of data in the database changes, statistics need to be updated. Otherwise, you can see sub-optimal query performance, and efforts to further troubleshoot the query might not be worthwhile.
 
-#### Recommendation: update statistics often on frequently changing columns ###
+
+- Update statistics often on frequently changing columns
 
 Some statistics do not require updating as frequently as others. When the distribution of values in the column changes, you need to update statistics.
 
@@ -71,7 +71,7 @@ Conversely, statistics on a gender column on a customer table might never need t
 
 For further explanation, see [Statistics] on MSDN.
 
-## How to create statistics as part of database design
+## Examples of creating statistics
 
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
@@ -263,7 +263,7 @@ To create statistics on all columns in the table with this procedure, simply cal
 prc_sqldw_create_stats;
 ```
 
-## How to update statistics as part of database maintenance
+## Examples of updating statistics
 
 To update statistics, you can:
 
@@ -305,7 +305,7 @@ This statement is easy to use. Just remember this updates all statistics on the 
 
 For the full syntax, see [Update Statistics (Transact-SQL)] on MSDN.
 
-## View statistics with system views and functions ##
+## Examples of viewing statistics ##
 
 There are several system view and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out-of-date by using the stats-date function to see when statistics were last created or updated.
 
@@ -430,16 +430,16 @@ Load your data into the data warehouse.
 -->
 
 <!-- External Links -->
-[Cardinality Estimation]:              (https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation")
-[CREATE STATISTICS (Transact-SQL)]:     (https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
-[DBCC SHOW_STATISTICS (Transact-SQL)]:  (https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
-[Statistics]:                          (https://msdn.microsoft.com/library/ms190397.aspx "Statistics")
-[STATS_DATE (Transact-SQL)]:           (https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
-[sys.columns (Transact-SQL)]:          (https://msdn.microsoft.com/library/ms176106.aspx "sys.columns (Transact-SQL)")
-[sys.objects (Transact-SQL)]:                         (https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
-[sys.schemas (Transact-SQL)]:                         (https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
-[sys.stats (Transact-SQL)]:            (https://msdn.microsoft.com/library/ms177623.aspx "sys.stats (Transact-SQL)")
-[sys.stats_columns (Transact-SQL)]:    (https://msdn.microsoft.com/library/ms187340.aspx "sys.stats_columns")
-[sys.tables (Transact-SQL)]:           (https://msdn.microsoft.com/library/ms187406.aspx "sys.tables (Transact-SQL)")
-[sys.table_types (Transact-SQL)]:      (https://msdn.microsoft.com/library/bb510623.aspx "sys.table_types (Transact-SQL)")
-[UPDATE STATISTICS (Transact-SQL)]:    (https://msdn.microsoft.com/library/ms187348.aspx "Update Statistics (Transact-SQL)")
+[Cardinality Estimation]:(https://msdn.microsoft.com/library/dn600374.aspx "Cardinality Estimation")
+[CREATE STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms188038.aspx "CREATE STATISTICS (Transact-SQL)")
+[DBCC SHOW_STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms174384.aspx "DBCC SHOW_STATISTICS (Transact-SQL)")
+[Statistics]:(https://msdn.microsoft.com/library/ms190397.aspx "Statistics")
+[STATS_DATE (Transact-SQL)]:(https://msdn.microsoft.com/library/ms190330.aspx "STATS_DATE ( Transact-SQL)")
+[sys.columns (Transact-SQL)]:(https://msdn.microsoft.com/library/ms176106.aspx "sys.columns (Transact-SQL)")
+[sys.objects (Transact-SQL)]:(https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
+[sys.schemas (Transact-SQL)]:(https://msdn.microsoft.com/library/ms190324.aspx "sys.objects (Transact-SQL)"
+[sys.stats (Transact-SQL)]:(https://msdn.microsoft.com/library/ms177623.aspx "sys.stats (Transact-SQL)")
+[sys.stats_columns (Transact-SQL)]:(https://msdn.microsoft.com/library/ms187340.aspx "sys.stats_columns")
+[sys.tables (Transact-SQL)]:(https://msdn.microsoft.com/library/ms187406.aspx "sys.tables (Transact-SQL)")
+[sys.table_types (Transact-SQL)]:(https://msdn.microsoft.com/library/bb510623.aspx "sys.table_types (Transact-SQL)")
+[UPDATE STATISTICS (Transact-SQL)]:(https://msdn.microsoft.com/library/ms187348.aspx "Update Statistics (Transact-SQL)")
