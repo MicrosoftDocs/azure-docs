@@ -124,11 +124,11 @@ Then use `New-AzureRoleAssignment` to create a role assignment. For example:
 
 This will create a role assignment at the current subscription level for a user as a reader.
 
-	 PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Reader
+	 PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Reader
 
 This will create a role assignment at a resource group level.
 
-	PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Contributor -ResourceGroupName group1
+	PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Contributor -ResourceGroupName group1
 
 This will create a role assignment for a group at a resource group level.
 
@@ -137,7 +137,7 @@ This will create a role assignment for a group at a resource group level.
 This will create a role assignment at a resource level.
 
 	PS C:\> $resources = Get-AzureResource
-    PS C:\> New-AzureRoleAssignment -Mail <user's email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId 
+    PS C:\> New-AzureRoleAssignment -Mail <user email> -RoleDefinitionName Owner -Scope $resources[0].ResourceId 
 
 
 ## Verify permissions

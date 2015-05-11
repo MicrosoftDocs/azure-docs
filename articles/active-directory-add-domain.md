@@ -152,7 +152,7 @@ If you are using the Management Portal:
 
 Azure AD uses a DNS record that you create at your domain name registrar to confirm that you own the domain. Use the instructions below to create either a TXT or MX record type for a domain that is registered at your registrar.
 
-If your domain registrar does not accept “@” as a hostname, contact your domain registrar to find out how to represent “parent of the current zone.”
+If your domain registrar does not accept "@" as a hostname, contact your domain registrar to find out how to represent "parent of the current zone."
 
 To add a TXT or MX record:
 
