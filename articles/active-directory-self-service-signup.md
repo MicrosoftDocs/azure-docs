@@ -13,138 +13,190 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="05/06/2015" 
+	ms.date="05/11/2015" 
 	ms.author="Justinha"/>
 
 
 # What is Self-Service Signup?
 
-TBD
+This topic explains the self-service signup process (sometimes known as viral signup) and how to take over a DNS domain name.  
 
-## Section 1:  Why was self-service signup invented?
+## Why use self-service signup?
 
 - Get customers to services they want faster.
-- Create email based (viral) offers for your service.
-- Create email based signup flows which quickly allow users to create identities using their easy to remember work email.
-- Unmanaged tenants can grow up into managed tenants and be reused for other services. 
+- Create email-based (viral) offers for a service.
+- Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.
+- Unmanaged tenants can grow and become managed tenants later and be reused for other services. 
 
-## Section 2:  Terms and Definitions
+## Terms and Definitions
 
 + **Self-service sign up**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory based on their email domain. 
 + **Unmanaged tenant**: This is the directory where that identity is created. An unmanaged tenant is a directory that has no global administrator. 
 + **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
 
-## Section:  Basic explanation of how we make a user and an Admin happy
+## Customer experience
+
+### User experience
 
 For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management Service (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for Individuals in order to read the protected files.
 
 If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged tenant will be created for BellowsCollege.com in Azure AD. If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged tenant in Azure.
 
-Generic paragraph saying that Admins can come over and take over or merge the tenant when they prove ownership.
+### Admin experience
 
-## What is takeover?  Both internal and external.  (Concept article)
+An admin who owns the DNS domain name of an unmanaged tenant can take over or merge the tenant after proving ownership. The next sections explain the admin experience in more detail, but here's a summary: 
 
-### 	What is domain validation and why is it used?
-Domain validation is the way in which the owner of a domain validates they can perform a takeover…
-	
-You might be interested validating that you own a domain because you are taking over an unmanaged tenant after a user performed self-service signup, or you might be adding a new domain to an existing managed tenant. For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk (this is actually DNS validation but has nothing to do with self-service sign up for unmanaged tenants). 
+- When you take over an unmanaged tenant, you simply become the global administrator of the unmanaged tenant. This is sometimes called an internal takeover. 
+- When you merge an unmanaged tenant, you add the DNS domain name of the unmanaged tenant to your managed tenant and a mapping of users-to-resources is created so users can continue to access services without interruption. This is sometimes called an external takeover. 
+
+### What gets created in the Microsoft Azure Directory?
+
+#### Tenant
+
+- A tenant for the domain is created, one tenant per domain.
+- The tenant directory has no global admin.
+
+#### Users
+
+- For each user who signs up, a user object is created in the tenant.
+- Each user object is marked as viral.
+- Each user is given access to the service that they user signed up for.
+
+### How do I claim a self-service tenant for a domain I own?
+
+You can claim a self-service tenant by performing domain validation. Domain validation proves you own the domain by creating DNS records.
 
 There are two ways to do a DNS takeover of a tenant: 
 
-+ internal takeover  (Admin discovers viral tenant, and wants to turn into managed tenant)
-+ external takeover (Admin tries to add a new domain to their managed tenant)
+- internal takeover (Admin discovers viral tenant, and wants to turn into managed tenant)
+- external takeover (Admin tries to add a new domain to their managed tenant)
 
-### Internal Takeover
+You might be interested in validating that you own a domain because you are taking over an unmanaged tenant after a user performed self-service signup, or you might be adding a new domain to an existing managed tenant. For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk. 
+
+## What is domain takeover?  
+
+This section covers how to validate that you own a domain
+
+### 	What is domain validation and why is it used?
+
+In order to perform operations on a tenant, Azure AD requires that you validate ownership of the DNS domain.  Validation of the domain allows you to claim the tenant and either promote the self-service tenant to a managed tenant, or merge the self-service tenant into an existing managed tenant.	
+
+## Examples of domain validation
+
+There are two ways to do a DNS takeover of a tenant: 
+
++ internal takeover  (For example, an admin discovers a self-service, unmanaged tenant, and wants to turn into managed tenant)
++ external takeover (For example, a admin tries to add a new domain to a managed tenant)
+
+### Internal Takeover - promote a self-service, unmanaged tenant to be a managed tenant
+
 When you do internal takeover, the tenant gets converted from an unmanaged tenant to a managed tenant. You need to complete DNS domain name validation, where you create an MX record or a TXT record in the DNS zone. That action:
 
 + Validates that you own the domain
-+ The tenant becomes managed
-+ You become the global admin
++ Makes the tenant managed
++ Makes you the global admin of the tenant
 
-### External Takeover
+Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings. As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged tenant. The tenant then becomes a managed tenant, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory. 
+
+### External Takeover - merge a self-service tenant into an existing managed tenant
 
 In an external takeover, you already have a managed tenant and you want all users and groups from an unmanaged tenant to join that managed tenant, rather than own two separate tenants.
 
 As an admin of a managed tenant, you add a domain, and that domain happens to have an unmanaged tenant associated with it.
 	
 For example, let's say you are an IT administrator and you already have a managed tenant for Contoso.com, a domain name that is registered to your organization. You discover that users from your organization have performed self-service sign up for an offering by using email domain name user@contoso.co.uk, which is another domain name that your organization owns. Those users currently have accounts in an unmanaged tenant for contoso.co.uk.
+
 You don't want to manage two separate tenants, so you merge the unmanaged tenant for contoso.co.uk into your existing IT managed tenant for contoso.com.
 	
 External takeover follows the same DNS validation process as internal takeover.  Difference being: users and services are remapped to the IT managed tenant.
 	
-*A mapping of users-to-resources is created so users can continue to access services without interruption.*
-
-### 	Service Takeover support
-
-Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience. 
-
-Currently the following services support takeover well:
-
-+ RMS
-
-The following do not:
-
-+ SharePoint/OneDrive
-+ PowerBI - Soon to be fixed
-
-Let's say an IT administrator from Bellows College discovers that users from the school have signed up for self-service offerings. As the registered owner of the DNS name BellowsCollege.com, the IT administrator can validate ownership of the DNS name in Azure and then take over the unmanaged tenant. The tenant then becomes a managed tenant, and the IT administrator is assigned the global administrator role for the BellowsCollege.com directory. 
-	
-Advice for when you run into ones that don't.
-
-	<Link to Office url support guide>
-	
-	<Insert UI for external takeover>
-
-## How do I perform a takeover (how to guide)
-
-How can you validate that you own a domain? In a case like this, you can perform domain validation using a few methods.
-
-1.  Azure UI
-
-	You would sign in to the existing managed tenant, then add the domain name of the unmanaged tenant, then validate DNS domain ownership, the you get a dialog that says 'this is a separate tenant, do you want to merge it in? Realize that merging the tenant may cause such and such to happen' - this goes back to Office and SharePoint ability to map users to resources. We should be clear in docs about what are all the implications.
-	<<Insert UI showing Azure merge>>
 
 
-2.  Office UI
+#### What’s the impact of performing an external takeover?
 
-		Quick blurb
-	<Link to Office article and UI>
+With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience. 
 
+#### Tenant takeover support by service
+
+Currently the following services support takeover:
+
+- RMS
+
+
+The following services will soon be supporting takeover:
+
+- PowerBI
+
+The following do not and require additional admin action to migrate user data after an external takeover.
+
+- SharePoint/OneDrive
+
+Advice for when you run into ones that don't support takeover.
+<Link to Office url support guide>
+
+## How to perform a DNS domain name takeover
+
+You have a few options for how to perform a domain validation (and do a takeover if you wish):
+
+1.  Azure Management Portal
+
+	A takeover is triggered by doing a domain addition.  If a tenant already exists for the domain, you’ll have the option to perform an external takeover.
+
+	Sign in to the Azure portal using your credentials.  Navigate to your existing tenant and then to **Add domain**.
+
+2.  Office 365
+
+	You can use the options on the [Manage domains](https://support.office.com/article/Navigate-to-the-Office-365-Manage-domains-page-026af1f2-0e6d-4f2d-9b33-fd147420fac2/) page in Office 365 to work with your domains and DNS records. See [Verify your domain in Office 365](https://support.office.com/article/Verify-your-domain-in-Office-365-6383f56d-3d09-4dcb-9b41-b5f5a5efd611/).
 
 3.  Windows PowerShell
-The following steps are required to perform a validation using Windows PowerShell.
 
-Step	|	Cmdlet to use
--------	| -------------
-Connect to Azure AD	| Connect-MsolService
-Specify your domain	| New-MsolDomain
-Create a challenge	| Get-MsolDomainVerificationDns
-Create DNS record	| Do this on your DNS server
-Verify the challenge	| Confirm-MsolDomain
+	The following steps are required to perform a validation using Windows PowerShell.
+
+	Step	|	Cmdlet to use
+	-------	| -------------
+	Create a credential object | Get-Credential
+	Connect to Azure AD	| Connect-MsolService
+	get a list of domains	| Get-MsolDomain
+	Create a challenge	| Get-MsolDomainVerificationDns
+	Create DNS record	| Do this on your DNS server
+	Verify the challenge	| Confirm-MsolEmailVerifiedDomain
 
 For example:
-1. Connect to Azure AD by running the following cmdlets:
+
+1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
 		import-module MSOnline
 		$msolcred = get-credential
 		connect-msolservice -credential $msolcred
 		
-2. Specify your domain, by using the New-MsolDomain cmdlet:
-	New-MsolDomain -Name <your-domain_name>
-for example:
-	New-MsolDomain -Name contoso.com
+2. Get a list of domains:
+
+	Get-MsolDomain
+
 3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
-	Get-MsolDomainVerificationDns –DomainName <your_domain_name> –Mode DnsTxtRecord
-For example: 
+
+	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+
+	For example: 
+
 	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
+
 4. Copy the value (the challenge) that is returned from this command.
-For example: 
+
+	For example: 
+
 	MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
+
 5. In your public DNS namespace, create a DNS txt record that contains the value that you copied in the previous step.
-The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
+
+	The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
+
 6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
-	Confirm-MsolDomain -DomainName <your_domain_name>
-for example:
-	Confirm-MsolDomain –DomainName contoso.com
+
+	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+
+	for example:
+
+	Confirm-MsolEmailVerifiedDomain –DomainName contoso.com
 
 A successful challenge returns you to the prompt without an error.
 
