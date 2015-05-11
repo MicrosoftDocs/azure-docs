@@ -55,7 +55,7 @@ You can use reference style links to make your source content easier to read. Th
 
 Inline text:
 
-    I get 10 times more traffic from [Google] [1] than from [Yahoo] [2] or [MSN] [3].
+    I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 
 Link references at the end of the article:
 
