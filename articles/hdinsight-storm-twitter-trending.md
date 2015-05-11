@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Twitter trending topics with Apache Storm on HDInsight | Azure"
-   description="Learn how to use Trident to create a Storm topology that determines trending topics based on hashtags."
+   pageTitle="Twitter trending topics with Apache Storm on HDInsight | Microsoft Azure"
+   description="Learn how to use Trident to create an Apache Storm topology that determines trending topics on Twitter based on hashtags."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

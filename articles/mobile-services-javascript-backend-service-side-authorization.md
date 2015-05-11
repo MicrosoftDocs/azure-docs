@@ -2,6 +2,7 @@
 	pageTitle="Service-side Authorization of Users in Mobile Services with JavaScript Backend | Mobile Dev Center"
 	description="Learn how to authorize users in JavaScript backend of Azure Mobile Services"
 	services="mobile-services"
+	documentationCenter=""
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
@@ -9,9 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
-	ms.date="2/18/2015"
+	ms.devlang="javascript"
+	ms.date="05/10/2015"
 	ms.author="krisragh"/>
 
 # Service-side Authorization of Users in Mobile Services
@@ -20,7 +22,7 @@
 - [(Any | .NET)](mobile-services-dotnet-backend-service-side-authorization.md)
 - [(Any | Javascript)](mobile-services-javascript-backend-service-side-authorization.md)
 
-This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data.
+This topic shows you how to use server-side scripts to authorize users. In this tutorial, you register scripts with Azure Mobile Services, filter queries based on user IDs, and give users access to only their own data. Filtering a user's query results by the user ID is the most basic form of authorization. Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
 
 This tutorial is based on the Mobile Services Quick Start and builds on the [Add Authentication to Existing Mobile Services App] tutorial. Please complete [Add Authentication to Existing Mobile Services App] first.
 
@@ -49,9 +51,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
            request.execute();
         }
 
-
-
-
 ## <a name="test-app"></a>Test the app
 
 1. Notice that when you now run your client-side app, although there are items already in the _TodoItem_ table from previous tutorials, no items are returned. This happens because previous items were inserted without the user ID column and now have null values. Verify newly added items have an associated userId value in the _TodoItem_ table.
@@ -73,9 +72,6 @@ This tutorial is based on the Mobile Services Quick Start and builds on the [Add
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-with-data-ios
 [Add Authentication to Existing Mobile Services App]: /develop/mobile/tutorials/get-started-with-users-ios
-[Add Push Notifications to Existing App]: /develop/mobile/tutorials/get-started-with-push-ios
 
 [Azure Management Portal]: https://manage.windowsazure.com/

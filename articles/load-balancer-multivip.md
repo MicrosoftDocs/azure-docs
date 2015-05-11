@@ -53,7 +53,7 @@ To remove the VIP added to your service in the example above, run the following 
 ## How to retrieve VIP information from a Cloud Service
 To retrieve the VIPs associated with a cloud service, run the following PowerShell script:
 
-    $deployment = Get-AzureService -ServiceName myService
+    $deployment = Get-AzureDeployment -ServiceName myService
     $deployment.VirtualIPs
 
 The script above will display a result similar to the sample below:
@@ -81,7 +81,7 @@ In this example, the cloud service has 3 VIPs:
 - **Vip1** is the default VIP, you know that because the value for IsDnsProgrammedName is set to true.
 - **Vip2** and **Vip3** are not used as they don’t have any IP addresses. They will only be used if you associate an endpoint to the VIP.
 
->[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see XXX.
+>[AZURE.NOTE] Your subscription will only be charged for extra VIPs once they are associated with an endpoint. For more information on pricing, see [IP Address pricing](http://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## How to associate a VIP to an endpoint
 To associate a VIP on a cloud service to an endpoint, runt he following PowerShell command:
@@ -94,7 +94,7 @@ The command above creates and endpoint linked to the VIP called *Vip2* on port *
 
 To verify the configuration, run the following PowerShell command:
 
-    $deployment = Get-AzureService -ServiceName myService
+    $deployment = Get-AzureDeployment -ServiceName myService
     $deployment.VirtualIPs
 
 And the output will look similar to the results below:

@@ -21,7 +21,7 @@
 Azure Mobile Engagement is a SaaS-delivered, data-driven user engagement platform that enables real-time fine-grain user segmentation, app user analytics, and contextually-aware smart push notifications and in-app messaging across all connected devices.
 
 ###Overview video
-[AZURE.VIDEO azure-mobile-engagement-overview]
+> [AZURE.VIDEO azure-mobile-engagement-overview]
 
 With Azure Mobile Engagement, app publishers and marketing professionals can create cutting-edge interactions.
 
@@ -47,4 +47,4 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 
 [Getting Started (Marketers)](mobile-engagement-define-your-mobile-engagement-strategy.md) 
 
-[Getting Started (Developers)](../services/mobile-engagement/)
+[Getting Started (Developers)](/documentation/services/mobile-engagement/)

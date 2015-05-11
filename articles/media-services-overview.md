@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/26/2015" 
+	ms.date="05/11/2015" 
 	ms.author="juliako"/>
 
 #Azure Media Services Overview
@@ -38,58 +38,24 @@ The following poster depicts Azure Media Services workflows, from media creation
 
 For more information, see [Concepts](media-services-concepts.md).
 
-##Choosing Your Media Experience
-
-One of the first steps in sharing video content is deciding what type of experience you want your clients to have. How will your customers be viewing the video content? Will they be connected to the internet? Will they be viewing your content on a computer or a hand-held device? Will your customers expect the video to be in HD? Questions such as these can help you give your customers the best possible experience.
-
-###Accessing video
- 
-There are four basic ways customers can access videos:
-
-- Streaming\Adaptive Bitrate Streaming (most common)
-
-	Streaming technologies download a small piece of the video at a time and discard it once it has been displayed. This requires very little storage on the viewing device. The throughput of a network connection can vary, but customers still expect to be able to view videos regardless of network bandwidth. Adaptive bitrate technologies allow video player applications to determine network conditions and select from among several bitrates. When network communication degrades, the client can select a lower bitrate allowing the player to continue to play the video at a lower video quality. As network conditions improve the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS.
-
-- Progressive Download
-	
-	Progressive download requires that a customer is connected to the internet and allows them to start viewing the video before the entire video has been downloaded. Both offline viewing and progressive download approaches require that the device the customer is using to view the video has enough storage space to hold the entire video.
-
-
-- Offline Viewing 
-	
-	To view a video offline a customer will download the entire video onto their computer or device. Videos tend to be quite large so it may take some time for the download to complete. The benefit of offline viewing is you do not need a network connection to view the video once it has been downloaded to your device. 
-
-###Supported Technologies by Device
-
-
-You can blayback your content on any of the following devices: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes.
-
-The following table shows each type of device and the client technologies supported by  Media Services:
- 
-<table border="1">
-<tr><th>Device</th><th>Technologies</th></tr>
-<tr><td>iOS</td><td>Smooth Streaming, Apple HLS, Progressive Download</td></tr>
-<tr><td>Windows Phone 8</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows RT</td><td>Smooth Streaming</td></tr>
-<tr><td>Windows</td><td>Smooth Streaming, Progressive Download</td></tr>
-<tr><td>Android Phones</td><td>Smooth Streaming and Apple HLS</td></tr>
-<tr><td>XBox</td><td>Smooth Streaming</td></tr>
-<tr><td>Macintosh</td><td>Apple HLS, Progressive Download</td></tr>
-<tr><td>Set-top Box, Connected TV</td><td>Smooth Streaming, Apple HLS, Progressive Download</td></tr>
-</table>
-
 
 ##Delivering Media on-Demand with Azure Media Services
 
-For more information, see [Delivering Media on-Demand with Azure Media Services](media-services-video-on-demand-workflow.md).
+The following topic describes steps of common Media Services Video-on-Demand workflows. The topic links to other topics that show how to achieve these steps using technologies supported by Media Services.  
+
+[Delivering Media on-Demand with Azure Media Services](media-services-video-on-demand-workflow.md).
 
 ##Delivering Live Streaming with Azure Media Services
 
-For more information, see [Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md).
+The following topic describes steps of common Media Services Live Streaming workflows. The topic links to other topics that show how to achieve these steps using technologies supported by Media Services. 
+
+[Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md).
 
 ##Consuming content
 
-For more information, see [Developing Video Player Applications](media-services-develop-video-players.md)
+Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services.
+
+[Developing Video Player Applications](media-services-develop-video-players.md)
 
 ##Patterns & practices guidance
 
@@ -103,6 +69,11 @@ For more information, see [Developing Video Player Applications](media-services-
 
 ##Next Steps
 
+[Delivering Live Streaming with Azure Media Services](media-services-live-streaming-workflow.md)
+
+[Developing Video Player Applications](media-services-develop-video-players.md)
+ 
+[Developing Video Player Applications](media-services-develop-video-players.md)
 
 
 <!-- Images -->

@@ -1,34 +1,35 @@
 <properties
-   pageTitle="Use Hadoop Hive in HDInsight | Azure"
-   description="Learn how to use Hive with Hadoop on HDInsight."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Learn what is Hive and how to use HiveQL | Microsoft Azure"
+	description="Learn about Apache Hive and how to use it with Hadoop in HDInsight. Choose how you want to run your Hive job, and use HiveQL to analyze a sample Apache log4j file." 
+	keywords="hiveql,what is hive"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="04/23/2015"
-   ms.author="larryfr"/>
+	ms.service="hdinsight"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="04/23/2015"
+	ms.author="larryfr"/>
 
-# Use Hive with Hadoop on HDInsight
+# Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
-[Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL). Hive can be used to interactively explorer your data or to create reusable batch processing jobs.
 
-In this article, you will learn how you can use Hive with HDInsight.
+In this tutorial, you'll learn how to use Apache Hive in Hadoop on HDInsight, and choose how to run your Hive job. You'll also learn about HiveQL and how to analyze a sample Apache log4j file.
 
-##<a id="why"></a>Why use Hive?
+##<a id="why"></a>What is Hive and why use it? 
+[Apache Hive](http://hive.apache.org/) is a data warehouse system for Hadoop, which enables data summarization, querying, and analysis of data by using HiveQL (a query language similar to SQL). Hive can be used to interactively explore your data or to create reusable batch processing jobs.
 
 Hive allows you to project structure on largely unstructured data. After you define the structure, you can use Hive to query that data without knowledge of Java or MapReduce. **HiveQL** (the Hive query language) allows you to write queries with statements that are similar to T-SQL.
 
-Hive understands how to work with structured and semi-structured documents, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
+Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
 
@@ -38,7 +39,7 @@ Hive can also be extended through **user-defined functions (UDF)**. A UDF allows
 
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-##<a id="data"></a>About the sample data
+##<a id="data"></a>About the sample data, an Apache log4j file
 
 This example uses a *log4j* sample file, which is stored at **/example/data/sample.log** in your blob storage container. Each log inside the file consists of a line of fields that contains a `[LOG LEVEL]` field to show the type and the severity, for example:
 
@@ -52,11 +53,11 @@ The sample data is stored in Azure Blob storage, which HDInsight uses as the def
 
 	wasb:///example/data/sample.log
 
-Because WASB is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from HiveQL.
+Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from HiveQL.
 
 > [AZURE.NOTE] The syntax, **wasb:///**, is used to access files stored in the default storage container for your HDInsight cluster. If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
-##<a id="job"></a>About the sample job
+##<a id="job"></a>Sample job: Project columns onto delimited data
 
 The following HiveQL statements will project columns onto delimited data that is stored in the **wasb:///example/data** directory:
 
@@ -93,7 +94,7 @@ These statements perform the following actions:
 
 > [AZURE.NOTE] Unlike external tables, dropping an internal table also deletes the underlying data.
 
-##<a id="usetez"></a>Using Tez For Improved Performance
+##<a id="usetez"></a>Use Apache Tez for improved performance
 
 [Apache Tez](http://tez.apache.org) is a framework that allows data intensive applications, such as Hive, to run much more efficiently at scale. In the latest release of HDInsight, Hive supports running on Tez. This is currently off by default and it must be enabled. To take advantage of Tez, the following value must be set for a Hive query:
 
@@ -104,7 +105,7 @@ This can be submitted on a per-query basis by placing it at the beginning of you
 The [Hive on Tez design documents](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contain a number of details about the implementation choices and tuning configurations.
 
 
-##<a id="run"></a>Run the HiveQL job
+##<a id="run"></a>Choose how to run the HiveQL job
 
 HDInsight can run HiveQL jobs using a variety of methods. Use the following table to decide which method is right for you, then follow the link for a walkthrough.
 
@@ -120,7 +121,7 @@ HDInsight can run HiveQL jobs using a variety of methods. Use the following tabl
 
 ##<a id="nextsteps"></a>Next steps
 
-Now that you have learned how to use Hive with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
+Now that you've learned what Hive is and how to use it with Hadoop in HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
 * [Upload data to HDInsight][hdinsight-upload-data]
 * [Use Pig with HDInsight][hdinsight-use-pig]

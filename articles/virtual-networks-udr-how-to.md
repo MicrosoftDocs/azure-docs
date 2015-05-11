@@ -25,71 +25,103 @@ You can add, remove, and change routes in Azure by using PowerShell. Before you 
 To create a route table named *FrontEndSubnetRouteTable*, run the following PowerShell command:
 
 	New-AzureRouteTable -Name FrontEndSubnetRouteTable `
-	-Location usnorth `
+	-Location uscentral `
 	-Label "Route table for frontend subnet"
+
+The output of the command above should look like the following:
+
+	Error          :
+	HttpStatusCode : OK
+	Id             : 085ac8bf-26c3-9c4c-b3ae-ebe880108c70
+	Status         : Succeeded
+	StatusCode     : OK
+	RequestId      : a8cc03ca42d39f27adeaa9c1986c14f7
 
 ### How to add a route to a route table
 To add a route that sets *10.1.1.10* as the next hop for the *10.2.0.0/16* subnet in the route table created above, run the following PowerShell command:
 
-	Set-AzureRoute -RouteTableName FrontEndSubnetRouteTable `
-	-RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
+	Get-AzureRouteTable FrontEndSubnetRouteTable `
+	|Set-AzureRoute -RouteName FirewallRoute -AddressPrefix 10.2.0.0/16 `
 	-NextHopType VirtualAppliance `
 	-NextHopIpAddress 10.1.1.10
+
+The output of the command above should look like the following:
+
+	Name     : FrontEndSubnetRouteTable
+	Location : Central US
+	Label    : Route table for frontend subnet
+	Routes   : 
+	           Name                 Address Prefix    Next hop type        Next hop IP address
+	           ----                 --------------    -------------        -------------------
+	           firewallroute        10.2.0.0/16       VirtualAppliance     10.1.1.10    
 
 ### How to associate a route to a subnet
 A route table must be associated with one or more subnets for it to be used. To associate the *FrontEndSubnetRouteTable* route table to a subnet named *FrontEndSubnet* in the virtual network *ProductionVnet*, run the following PowerShell command:
 
-	Set-AzureSubnetRouteTable -VNetName ProductionVnet `
+	Set-AzureSubnetRouteTable -VirtualNetworkName ProductionVnet `
 	-SubnetName FrontEndSubnet `
 	-RouteTableName FrontEndSubnetRouteTable
 
 ### How to see the applied routes in a VM
 You can query Azure to see the actual routes applied for a specific VM or role instance. The routes shown include default routes that Azure provides, as well as routes advertised by a VPN Gateway. The limit of routes shown is 800.
 
-To see routes associated to the primary NIC on a VM named *FirewallAppliance1*, run the following PowerShell command:
+To see routes associated to the primary NIC on a VM named *FWAppliance1*, run the following PowerShell command:
 
-	Get-AzureVM -Name FirewallAppliance1 `
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureEffectiveRouteTable
 
-To see routes associated to a secondary NIC named *backendnic* on a VM named *FirewallAppliance1*, run the following PowerShell command:
+The output of the command above should look like the following:
 
-	Get-AzureVM -Name FirewallAppliance1 `
+	Effective routes : 
+	                   Name            Address Prefix    Next hop type    Next hop IP address Status   Source     
+	                   ----            --------------    -------------    ------------------- ------   ------     
+	                                   {10.0.0.0/8}      VNETLocal                            Active   Default    
+	                                   {0.0.0.0/0}       Internet                             Active   Default    
+	                                   {25.0.0.0/8}      Null                                 Active   Default    
+	                                   {100.64.0.0/10}   Null                                 Active   Default    
+	                                   {172.16.0.0/12}   Null                                 Active   Default    
+	                                   {192.168.0.0/16}  Null                                 Active   Default    
+	                   firewallroute   {10.2.0.0/16}     Null             10.1.1.10           Active   User      
+
+To see routes associated to a secondary NIC named *backendnic* on a VM named *FWAppliance1*, run the following PowerShell command:
+
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureEffectiveRouteTable -NetworkInterfaceName backendnic
 
-To see routes associated to the primary NIC on a role instance named *myRole* that is part of a cloud service named *myservice*, run the following PowerShell command:
+To see routes associated to the primary NIC on a role instance named *myRole* that is part of a cloud service named *ProductionVMs*, run the following PowerShell command:
 
-	Get-AzureEffectiveRouteTable -ServiceName myservice `
+	Get-AzureEffectiveRouteTable -ServiceName ProductionVMs `
 	-RoleInstanceName myRole
 
 ## How to Manage IP Forwarding
 As previously mentioned, you need to enable IP forwarding on any VM or role instance that will act as a virtual appliance. 
 
 ### How to enable IP Forwarding
-To enable IP forwarding in a VM named *FirewallAppliance1*, run the following PowerShell command:
+To enable IP forwarding in a VM named *FWAppliance1*, run the following PowerShell command:
 
-	Get-AzureVM -Name FirewallAppliance1 `
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Set-AzureIPForwarding -Enable
 
-To enable IP forwarding in a role instance named *FirewallAppliance1* in a cloud service named *myService*, run the following PowerShell command:
+To enable IP forwarding in a role instance named *FWAppliance* in a cloud service named *DMZService*, run the following PowerShell command:
 
-	Set-AzureIPForwarding -ServiceName myService `
-	-RoleName FirewallAppliance1 -Enable
+	Set-AzureIPForwarding -ServiceName DMZService `
+	-RoleName FWAppliance -Enable
 
 ### How to disable IP Forwarding
-To disable IP forwarding in a VM named *FirewallAppliance1*, run the following PowerShell command:
+To disable IP forwarding in a VM named *FWAppliance1*, run the following PowerShell command:
 
-	Get-AzureVM -Name FirewallAppliance1 `
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Set-AzureIPForwarding -Disable
 
-To disable IP forwarding in a role instance named *FirewallAppliance1* in a cloud service named *myService*, run the following PowerShell command:
+To disable IP forwarding in a role instance named *FWAppliance* in a cloud service named *DMZService*, run the following PowerShell command:
 
-	Set-AzureIPForwarding -ServiceName myService `
-	-RoleName FirewallAppliance1 -Disable
+	Set-AzureIPForwarding -ServiceName DMZService `
+	-RoleName FWAppliance -Disable
 
 ### How to view status of IP Forwarding
-To view the status of IP forwarding on a VM named *FirewallAppliance1*, run the following PowerShell command:
+To view the status of IP forwarding on a VM named *FWAppliance1*, run the following PowerShell command:
 
-	Get-AzureVM -Name FirewallAppliance1 `
+	Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
 
 ## See Also

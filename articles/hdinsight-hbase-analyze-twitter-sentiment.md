@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Analyze real-time Twitter sentiment with HBase in HDInsight | Azure" 
-	description="Learn how to do real-time analysis of big data using HBase in an HDInsight (Hadoop) cluster." 
+	pageTitle="Analyze real-time Twitter sentiment with HBase | Microsoft Azure" 
+	description="Learn how to do real-time sentiment analysis of big data from Twitter using HBase in an HDInsight (Hadoop) cluster." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -18,7 +18,7 @@
 
 # Analyze real-time Twitter sentiment with HBase in HDInsight
 
-Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in an HDInsight (Hadoop) cluster.
+Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data from Twitter by using HBase in an HDInsight (Hadoop) cluster.
 
 
 Social websites are one of the major driving forces for big data adoption. Public APIs provided by sites like Twitter are a useful source of data for analyzing and understanding popular trends. In this tutorial, you will develop a console streaming service application and an ASP.NET web application to perform the following:
@@ -71,7 +71,8 @@ A complete Visual Studio solution sample can be found on GitHub: [Realtime socia
 ##<a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An HBase cluster in HDInsight**. For instructions about cluster provision, see [Get started using HBase with Hadoop in HDInsight][hBase-get-started]. You will need the following data to go through the tutorial:
+- **An HBase cluster in HDInsight**. For instructions about cluster provision, see  [Get started using HBase with Hadoop in HDInsight] [hbase-get-started]. You will need the following data to go through the tutorial:
+
 
 	<table border="1">
 	<tr><th>Cluster property</th><th>Description</th></tr>

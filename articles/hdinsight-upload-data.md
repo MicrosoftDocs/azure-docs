@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" 
+	pageTitle="Upload data for Hadoop jobs in HDInsight | Microsoft Azure" 
 	description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." 
 	services="storage, hdinsight" 
 	documentationCenter="" 

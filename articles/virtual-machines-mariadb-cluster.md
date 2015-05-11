@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="4/15/2015"
-	ms.author="v-ahsab"
-	ms.prod="azure"/>
+	ms.date="04/15/2015"
+	ms.author="v-ahsab"/>
 
 # MariaDB (MySQL) cluster - Azure tutorial
 

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use R in HDInsight to customize clusters| Azure" 
+	pageTitle="Use R in HDInsight to customize clusters | Microsoft Azure" 
 	description="Learn how to install and use R to customize Hadoop clusters." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -279,7 +279,7 @@ Provide a cluster name and press ENTER to provision a cluster with R installed.
 - [Install Giraph on HDInsight clusters](../hdinsight-hadoop-giraph-install). Use cluster customization to install Giraph on HDInsight Hadoop clusters. Giraph allows you to perform graph processing using Hadoop, and it can be used with Azure HDInsight.
 - [Install Solr on HDInsight clusters](../hdinsight-hadoop-solr-install). Use cluster customization to install Solr on HDInsight Hadoop clusters. Solr allows you to perform powerful search operations on stored data.
 
-
+[powershell-install-configure]: install-configure-powershell.md
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/

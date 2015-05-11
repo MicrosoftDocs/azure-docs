@@ -64,7 +64,7 @@ The Test control is not displayed when the graphical editor is first started. It
 
 ### Testing a graphical runbook
 
-You can test the Draft version of a runbook in the Azure portal while leaving the published version of the runbook unchanged, or you can test a new runbook before it has been published. This allows you to verify that the runbook is working correctly before replacing the published version. When you test a runbook, the Draft runbook is executed and any actions that it performs are completed. No job history is created, but output is displayed in the Test Output Pane. 
+You can test the Draft version of a runbook in the Azure preview portal while leaving the published version of the runbook unchanged, or you can test a new runbook before it has been published. This allows you to verify that the runbook is working correctly before replacing the published version. When you test a runbook, the Draft runbook is executed and any actions that it performs are completed. No job history is created, but output is displayed in the Test Output Pane. 
 
 Open the Test control for a runbook by opening the runbook for edit and then click on the **Test pane** button.
 
@@ -241,10 +241,10 @@ You have to authenticate at the start of the runbook and after each checkpoint. 
 
 ### Runbook input
 
-A runbook may require input either from a user when they start the runbook through the Azure portal or from another runbook if the current one is used as a child.
+A runbook may require input either from a user when they start the runbook through the Azure preview portal or from another runbook if the current one is used as a child.
 For example, if you have a runbook that creates a virtual machine, you may need to provide information such as the name of the virtual machine and other properties each time you start the runbook.  
 
-You accept input for a runbook by defining one or more input parameters.  You provide values for these parameters each time the runbook is started.  When you start a runbook with the Azure portal, it will prompt you to provide values for the each of the runbook's input parameters.
+You accept input for a runbook by defining one or more input parameters.  You provide values for these parameters each time the runbook is started.  When you start a runbook with the Azure preview portal, it will prompt you to provide values for the each of the runbook's input parameters.
 
 You can access input parameters for a runbook by clicking the **Input and output** button on the runbook toolbar.  
 
@@ -260,7 +260,7 @@ Each input parameter is defined by the properties in the following table.
 |:---|:---|
 | Name | The unique name of the parameter.  This can only contain alpha numeric characters and cannot contain a space. |
 | Description | An optional description for the input parameter.  |
-| Type | Data type expected for the parameter value.  The Azure portal will provide an appropriate control for the data type for each parameter when prompting for input. |
+| Type | Data type expected for the parameter value.  The Azure preview portal will provide an appropriate control for the data type for each parameter when prompting for input. |
 | Mandatory | Specifies whether a value must be provided for the parameter.  The runbook cannot be started if you do not provide a value for each mandatory parameter that does not have a default value defined. |
 | Default Value | Specifies what value is used for the parameter if one is not provided.  This can either be Null or a specific value. |
 
