@@ -1,23 +1,29 @@
 <properties 
-	pageTitle="Azure Site Recovery: Frequently Asked Questions" 
+	pageTitle="Azure Site Recovery: Frequently asked questions" 
 	description="This article discusses popular questions about using Azure Site Recovery." 
 	services="site-recovery" 
 	documentationCenter=""
-	editor="tysonn" 
-	manager="jwhit" 
-	authors="csilauraa"/>
+	authors="csilauraa"
+	manager="jwhit"
+	editor="tysonn"/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.workload="storage-backup-recovery" 
+	ms.service="site-recovery"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2014" 
+	ms.workload="storage-backup-recovery"
+	ms.date="05/08/2014" 
 	ms.author="lauraa"/>
 
 
-# Azure Site Recovery: Frequently Asked Questions
+# Azure Site Recovery: Frequently asked questions
+## About this article
+
+This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](hyper-v-recovery-manager-overview/).
+
+If you have other questions after reading this article, you can post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+
 
 ## Between enterprise Hyper-V sites: Hyper-V replica
 ### Is Azure Site Recovery secure? What data do you send to Azure?
@@ -133,4 +139,14 @@ Windows Server 2012 and Windows Server 2012 R2 can be used when you choose Hyper
 
 ### What versions of guest operating systems are supported?
 The most current list of supported guest operating systems is available in the article titled [About Virtual Machines and Guest Operating Systems](https://technet.microsoft.com/en-us/library/cc794868%28v=ws.10%29.aspx).
+
+## Next steps
+
+To start deploying ASR:
+
+- [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md) 
+- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure) 
+- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm) 
+- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san) 
+- [Set up protection with a single VMM server](site-recovery-single-vmm) 
 
