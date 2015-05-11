@@ -34,8 +34,7 @@ SQL Assessment solution assesses the risk and health of your SQL Server environm
 - easily take **action** to decrease risk and improve health
 - **prioritize** your work and become more **productive**
 
-SQL Assessment requires .NET 4 to run on each agent. It supports the Standard, Developer and Enterprise editions of SQL Server, all currently supported versions.
-[Read more on MSDN](https://msdn.microsoft.com/library/azure/dn873958.aspx)
+SQL Assessment requires .NET 4 to run on each agent. It supports the Standard, Developer and Enterprise editions of SQL Server, all currently supported versions. See [Optimize your environment with Assessment solutions](operational-insights-assessment).
 
 
 ## Configuration Assessment
