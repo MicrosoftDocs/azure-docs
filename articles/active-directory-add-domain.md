@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/30/2015" 
+	ms.date="05/11/2015" 
 	ms.author="Justinha"/>
 
 # Add your own domain name to Azure AD
@@ -46,12 +46,11 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 > [AZURE.NOTE]
 > Using Office 365? Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name. You can also use your domain name for a public-facing website hosted on SharePoint Online.
 
-- Add and verify a domain using the Azure Management Portal 
-- Specify the services you’ll use with your domain 
-- Edit DNS records for your cloud services
-- Verify a domain at any domain name registrar 
-- Check domain status
-- For Office 365 Customers: Host a public-facing website with your domain name together with Exchange Online or Lync Online
+- [Add and verify a domain using the Azure Management Portal](#add-and-verify-a-domain-using-the-azure-management-portal)
+- [Specify the services to use with your domain](#specify-the-services-to-use-with-your-domain)
+- [Edit DNS records for your cloud services](#edit-dns-records-for-your-cloud-services)
+- [Verify a domain at any domain name registrar](#verify-a-domain-at-any-domain-name-registrar)
+- [Check domain status](#check-domain-status)
 
 ### Add and verify a domain using the Azure Management Portal
 
@@ -70,7 +69,7 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 > [AZURE.NOTE]
 > After you add your domain name to Azure AD, you can change the default domain name for new email addresses. For more information, see How can I change the primary domain  name for my users? You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain. 
 
-### Specify the services you’ll use with your domain
+### Specify the services to use with your domain
 
 When you add your domain name to Azure AD, you might need to specify the services that you’ll use with your domain name.
 
@@ -87,6 +86,7 @@ In a couple of scenarios, you have to specify which domain services you intend t
 To set the domain services for your domain name in the **Add a domain** wizard, select them on the **Specify services** page. 
 
 To edit your domain services list later:
+
 1. On the portal, in the left pane, click **Domains**.
 2. Click a domain name, and on the **Domain properties**  page, click **Edit domain services**.
 
@@ -132,10 +132,13 @@ Before you can verify your domain, you must add a custom domain to Azure AD. Whe
 Based on the portal you are using to administer your Azure AD directory, you’ll need to collect some information about your domain so that you can later create a DNS record that will be used during the verification process. 
 
 If you are using Microsoft Intune or the Azure Account Portal:
+
 1. On the **Domains** page, in the list of domain names, find the domain that you are verifying. In the **Status** column, click** Click to verify domain**.
 2. On the **Verify domain** page, in the **See instructions for performing this step with:** drop-down list, choose your DNS hosting provider. If your provider doesn’t appear in the list, choose **General instructions**.
-3. In the **Select a verification method:** drop-down list, choose **Add a TXT record (preferred method)** or **Add an MX record (alternate method)**. 
+3. In the **Select a verification method:** drop-down list, choose **Add a TXT record (preferred method)** or **Add an MX record (alternate method)**.
+
     If your DNS hosting provider allows you create TXT records, we recommend you use a TXT record for verification. Why? TXT records are straightforward to create and don’t introduce the possibility of interfering with email delivery if an incorrect value is accidentally entered.
+
 4. From the table, copy or record the **Destination or Points to Address** information.
 
 If you are using the Management Portal:
@@ -178,40 +181,6 @@ After the record that you created for your domain has propagated successfully th
 If it has been more than 72 hours since you made the changes to your domain, sign in to the domain registrar’s website and verify that you entered the alias information correctly. If you entered the information incorrectly, you must remove the incorrect DNS record and create a new one with the correct information by using the procedures in this topic.
 
 After you’ve verified your domain, you can configure your domain to work with your accounts.
-
-### For Office 365 Customers: Host a public-facing website with your domain name together with Exchange Online or Lync Online
-
-In Office 365, you can host your SharePoint Online public website on the same domain as Exchange Online and Lync Online, but there are several additional steps you have to take. 
-
-Here’s what you need to do:
-
-1. Run the Add your domain wizard to add your domain name, for example, contoso.com, to Office 365 and verify that you own the domain. In the wizard, set the domain services option to Exchange Online, Lync Online, or both Exchange Online and Lync Online.
-
-     > [AZURE.NOTE]
-     > Do not enable the SharePoint Online service yet. You’ll add it later.
-
-2. Add the required DNS records for Exchange Online and Lync Online to work with your domain name. Add the records where you host DNS records for your domain name, which could be your domain registrar, another DNS hosting provider, or an on-premises DNS server.
-
-    After you create the DNS records and they propagate through the DNS system, traffic will begin to go to Exchange Online and Lync Online.
-
-3. Run the Add a domain wizard again, and this time add a third-level domain to Office 365 with the format label.contoso.com, where label is a value that completes the website address for the website you want to host on SharePoint Online. For example, you could set label to be www so your website would be located at http://www.contoso.com.
-
-    When you add the domain, set the domain services options to SharePoint Online.
-
-4. On the SharePoint Online Administration Center, create your SharePoint Online public-facing website, and then associate it with the third-level domain name you added in the previous step, for example, www.contoso.com. 
-5. Create a CNAME record for SharePoint Online at your domain name registrar in the same area where you created the DNS records for Exchange Online and Lync Online.
-
-    When you create the CNAME record, specify the host name of the record as the same label that you chose earlier, for example, www. The SharePoint Online Administration Center provides the target address for the CNAME record is provided to you by the SharePoint Online Administration Center.
-
-    > [AZURE.WARNING]
-    > When you create the CNAME record, be aware of the following:
-    > - Make sure that you set up the CNAME record this way to route traffic to your SharePoint Online website. Otherwise, the record could prevent other DNS records for your domain from working correctly, so that, for example, your email service might be disrupted.
-    > - When you specify the host header name, you must explicitly specify the domain name that you want to use with SharePoint Online. This is because Office 365 uses the host header name that you configure for your DNS records to map your domain to the corresponding site collection in SharePoint Online.
-
-After you create the CNAME record and the record propagates through the DNS system, traffic for your website (for example, http://www.contoso.com) will be directed to the website at SharePoint Online. Typically it takes about 15 minutes for your changes to take effect. But it can take up to 72 hours for the record that you created to propagate through the DNS system.
-
-> [AZURE.NOTE]
-> You cannot host the three services together on your domain if you want to host your website on the same third-level, or greater, domain as you are also hosting other services. For example, you cannot host your website on http://partners.contoso.com and also use email addresses, such as user@partners.contoso.com.
 
 ## How can I change the primary domain  name for my users?
 
