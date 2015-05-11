@@ -21,7 +21,7 @@
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and a site-to-site VPN connection between your newly created VNet and your on-premises location. This procedure can be used for creating cross-premises and hybrid configurations.
 
 
-## Before beginning
+## Before Beginning
 
 - Verify that the VPN device that you want to use meets the requirements necessary to create a cross-premises virtual network connection. See [About VPN Devices for Virtual Network Connectivity](https://msdn.microsoft.com/library/azure/jj156075.aspx) for more information.
 
@@ -29,7 +29,7 @@ You can connect your on-premises location with a virtual network by creating a s
 
 >[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
 
-## Create your virtual network
+## Create your Virtual Network
 
 1. Log in to the **Management Portal**.
 
@@ -74,22 +74,18 @@ Enter the following information, and then click the checkmark on the lower right
 
 Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Management Portal. After the VNet has been created, you can then configure your virtual network gateway.
 
-## Configure your virtual network gateway
+## Configure your Virtual Network Gateway
 
-Next, you'll configure the virtual network gateway to create a secure site-to-site connection. See [Configure a Virtual Network Gateway in the Management Portal](https://msdn.microsoft.com/library/azure/jj156210.aspx).
+Next, you'll configure the **Virtual Network Gateway** in order to create a secure site-to-site connection. See [Configure a Virtual Network Gateway in the Management Portal](https://msdn.microsoft.com/library/azure/jj156210.aspx).
 
-## Concepts and additional resources
+## Next Steps
 
-**Concepts**
+You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
 
-[About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
+If you want to configure a point-to-site VPN connection, see [Configure a Point-to-Site VPN Connection](vpn-gateway-point-to-site-create.md)
 
-[Create a Virtual Network](https://msdn.microsoft.com/library/azure/dn631643.aspx)
+You can add virtual machines to your virtual network. See:[How to Create a Custom Virtual Machine](virtual-machines-create-custom.md)
 
-[Virtual Network Overview](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+If you want to configure a VNet connection using RRAS, see, [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
-[Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-**Additional Resources**
-
-[Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
