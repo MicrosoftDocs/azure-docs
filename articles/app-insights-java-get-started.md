@@ -26,7 +26,7 @@ By adding Visual Studio Application Insights to your project, you can detect and
 
 ![sample data](./media/app-insights-java-track-http-requests/5-results.png)
 
-In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][track] to understand usage patterns.
+In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][api] to understand usage patterns.
 
 You'll need:
 
