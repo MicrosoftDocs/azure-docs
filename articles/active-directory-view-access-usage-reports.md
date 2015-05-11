@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="05/10/2015" 
 	ms.author="Justinha"/>
 
 # View your access and usage reports
@@ -230,7 +230,7 @@ Report name  | Available in this edition
 <tr>
 <td>Shows the sign in activity for a user. The report includes information like the application signed into, device used, IP address, and location. We do not collect the history for users that sign in with a Microsoft account.
 </td>
-<td>Directory > Users > <i>User</i> > Devices tab</td>
+<td>Directory > Users > <i>User</i> > Activity tab</td>
 </tr>
 </table>
 
