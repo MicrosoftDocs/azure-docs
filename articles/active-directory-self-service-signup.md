@@ -77,7 +77,7 @@ You might be interested in validating that you own a domain because you are taki
 
 This section covers how to validate that you own a domain
 
-### 	What is domain validation and why is it used?
+### What is domain validation and why is it used?
 
 In order to perform operations on a tenant, Azure AD requires that you validate ownership of the DNS domain.  Validation of the domain allows you to claim the tenant and either promote the self-service tenant to a managed tenant, or merge the self-service tenant into an existing managed tenant.	
 
@@ -112,7 +112,7 @@ External takeover follows the same DNS validation process as internal takeover. 
 	
 
 
-#### What’s the impact of performing an external takeover?
+#### What's the impact of performing an external takeover?
 
 With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience. 
 
@@ -138,7 +138,7 @@ You have a few options for how to perform a domain validation (and do a takeover
 
 1.  Azure Management Portal
 
-	A takeover is triggered by doing a domain addition.  If a tenant already exists for the domain, you’ll have the option to perform an external takeover.
+	A takeover is triggered by doing a domain addition.  If a tenant already exists for the domain, you'll have the option to perform an external takeover.
 
 	Sign in to the Azure portal using your credentials.  Navigate to your existing tenant and then to **Add domain**.
 
@@ -161,24 +161,24 @@ You have a few options for how to perform a domain validation (and do a takeover
 
 For example:
 
-1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
+1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
 		import-module MSOnline
 		$msolcred = get-credential
 		connect-msolservice -credential $msolcred
 		
 2. Get a list of domains:
 
-	Get-MsolDomain
+	Get-MsolDomain
 
-3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
+3. Then run the Get-MsolDomainVerificationDns cmdlet to create a challenge:
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
 
-	For example: 
+	For example: 
 
 	Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
 
-4. Copy the value (the challenge) that is returned from this command.
+4. Copy the value (the challenge) that is returned from this command.
 
 	For example: 
 
@@ -188,11 +188,11 @@ For example:
 
 	The name for this record is the name of the parent domain, so if you create this resource record by using the DNS role from Windows Server, leave the Record name blank and just paste the value into the Text box
 
-6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
+6. Run the Confirm-MsolDomain cmdlet to verify the challenge:
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
 
-	for example:
+	for example:
 
 	Confirm-MsolEmailVerifiedDomain –DomainName contoso.com
 
@@ -225,14 +225,6 @@ The following flowchart explains all the different combinations for these parame
 ![][1]
 
 For more information and examples of how to use these parameters, see [Set-MsolCompanySettings](https://msdn.microsoft.com/library/azure/dn194127.aspx).
-
-	A. Potentially include visios showing tenant state pre-post takeover
-	
-	B. These can be linked to from the ‘what is’ article, the RMS article and other services leveraging ‘viral’.
-		a.  Keep the article explaining MSOLCompany settings on MSDN and in the examples link to the new topic where appropriate
-		
-	Future of self-service -> this should be a blog post not an article until it happens.  We can link to these topics from the blog post for more visibility
-
 
 ## See Also
 
