@@ -73,7 +73,7 @@ Yes. We need the SAN array to be brought under management by SCVMM using an arra
 We support single SCVMM HA deployments based on the array type, though the recommended configuration is to use separate SCVMM servers to manage the sites.
 
 
-### What if my storage admin is going to be iffy?
+### What if I'm not sure about my storage admin?
 We work with existing replication set up by your storage administrator, which means that the storage administrator does not need to make any changes on their arrays. However, organizations that want to automate their storage management through SCVMM can also provision storage using ASR and SCVMM.
 
 ### Can I support synchronous replication? Guest clusters? Shared storage?
