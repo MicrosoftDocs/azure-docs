@@ -244,9 +244,12 @@ Only certain types of sign in events will appear in the User Activity report.
 | Sign ins to the [Azure Management Portal](https://manage.windowsazure.com/)		| Yes			|
 | Sign ins to the [Microsoft Azure Portal](http://portal.azure.com/)			| Yes			|
 | Sign ins to the [Office 365 portal](http://portal.office.com/)			| Yes			|
-| Sign ins to a native application (such as Outlook or Lync)				| Yes			|
+| Sign ins to a native application, like Outlook (see exception below)			| Yes			|
 | Sign ins to a federated/provisioned app through the Access Panel, like Salesforce	| Yes			|
 | Sign ins to a password-based app through the Access Panel, like Twitter		| No (Coming soon)	|
+| Sign ins to a custom business app that has been added to the directory		| No (Coming soon)	|
+
+> Note: To reduce the amount of noise in this report, sign ins to the [Lync/Skype for Business](http://products.office.com/en-us/skype-for-business/online-meetings) native app and by the [Microsoft Online Services Sign-In Assistant](http://community.office365.com/en-us/w/sso/534.aspx) are not shown.
 
 ## Activity logs
 
