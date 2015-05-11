@@ -16,7 +16,7 @@
    ms.date="05/11/2015"
    ms.author="cherylmc"/>
 
-# Configure a cross-premises Site-to-Site Virtual Network connection
+# Configure a Virtual Network with a Site-to-Site VPN Connection
 
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and a site-to-site VPN connection between your newly created VNet and your on-premises location. This procedure can be used for creating cross-premises and hybrid configurations.
 
@@ -72,7 +72,7 @@ Enter the following information, and then click the checkmark on the lower right
 - **Add subnet**: Include Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 - **Add gateway subnet**: Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration.
 
-Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Management Portal.
+Click the checkmark on the bottom of the page and your virtual network will begin to create. When it completes, you will see **Created** listed under **Status** on the **Networks** page in the Management Portal. After the VNet has been created, you can then configure your virtual network gateway.
 
 ## Configure your virtual network gateway
 
