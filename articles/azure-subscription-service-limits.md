@@ -84,6 +84,11 @@ In the limits below, a new table has been added to reflect any differences in li
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>ExpressRoute dedicated circuits per subscription</p></td>
+   <td valign="middle"><p>10</p></td>
+   <td valign="middle"><p>25</p></td>
+</tr>
+<tr>
    <td valign="middle"><p>Hosted service certificates per subscription</p></td>
    <td valign="middle"><p>400</p></td>
    <td valign="middle"><p>400</p></td>
