@@ -108,10 +108,12 @@ You can also use nslookup or other DNS tools to query the new record set.
 	Addresses:  134.170.185.46
     	        134.170.188.221
 
+
+
 ## Next Steps
-[Performing operations with DNS zones](../dns-operations-dnszones)
+[How to manage DNS zones](dns-operations-dnszones.md)
 
-[Performing operations with Record sets and records](../dns-operations-recordsets)<BR>
+[How to manage DNS records](dns-operations-recordsets.md)<BR>
 
-[Automate Azure Operations with .NET SDK](../dns-sdk)
+[Automate Azure Operations with .NET SDK](dns-sdk.md)
 

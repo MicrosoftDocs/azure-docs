@@ -47,4 +47,4 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 
 [Getting Started (Marketers)](mobile-engagement-define-your-mobile-engagement-strategy.md) 
 
-[Getting Started (Developers)](../services/mobile-engagement/)
+[Getting Started (Developers)](/documentation/services/mobile-engagement/)

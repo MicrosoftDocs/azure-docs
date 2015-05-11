@@ -162,7 +162,7 @@ At this point, you have everything you need to begin creating user accounts. In 
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]This registration endpoint can be accessed by any client via HTTP. Before you publish this 
+>[AZURE.IMPORTANT]This registration endpoint can be accessed by any client via HTTP. Before you publish this service to a production environment, you should implement some sort of scheme to validate registrations, such as a SMS or email-based verification. This can help prevent a malicious user from creating fraudulent registrations.     
 
 ## Create the LoginProvider
 
@@ -383,11 +383,9 @@ This section describes the steps needed to access the custom authentication endp
 
 2. Use the appropriate **invokeApi** method on the **MobileServiceClient** in the client library to call the **CustomRegistration** endpoint, passing the runtime-supplied username and password in the message body. 
 
-	For examples of how to call a custom API on the various supported client platforms, see the article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
-	
-	>[AZURE.NOTE] You only need to call the **CustomRegistration** endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table. Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion. 
-	>
-	>You should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts. You can use Twilio to send SMS messages from Mobile services. For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). You can also use SendGrid to send emails from Mobile Services. For more inforation, see [Send email from Mobile Services with SendGrid](store-sendgrid-mobile-services-send-email-scripts.md).
+	You only need to call the **CustomRegistration** endpoint once to create an account for a given user, as long as you keep the user login information in the Accounts table. For examples of how to call a custom API on the various supported client platforms, see the article [Custom API in Azure Mobile Services – client SDKs](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx).
+	 
+	> [AZURE.IMPORTANT] Because this user provisioning step occurs only once, you should consider creating the user account in some out-of-band fashion. For a public registration endpoint, you should also consider implementing an SMS-based or email-based verification process, or some other safeguard to prevent the generation of fruadulent accounts. You can use Twilio to send SMS messages from Mobile services. For more information, see [How to: Send an SMS message](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms). You can also use SendGrid to send emails from Mobile Services. For more inforation, see [Send email from Mobile Services with SendGrid](store-sendgrid-mobile-services-send-email-scripts.md). 
 	
 3. Use the appropriate **invokeApi** method again, this time to call the **CustomLogin** endpoint, passing the runtime-supplied username and password in the message body. 
 

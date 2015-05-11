@@ -1,7 +1,7 @@
 <properties 
-   pageTitle="Configure HBase replication between two Azure datacenters | Azure" 
-   description="Learn how to configure VPN connections between two Azure virtual networks, how to configure domain name resolution between two virtual networks, and how to configure HBase geo-replication" 
-   services="hdinsight" 
+   pageTitle="Configure HBase replication between two datacenters | Microsoft Azure" 
+   description="Learn how to configure HBase replication across two data centers, and about the use cases for cluster replication." 
+   services="hdinsight,virtual-network" 
    documentationCenter="" 
    authors="mumian" 
    manager="paulettm" 
@@ -43,12 +43,13 @@ The following diagram illustrates the two virtual networks and the network conne
 
 ![HDInsight HBase replication virtual network diagram][img-vnet-diagram]
 
-##<a id="prerequisites"></a>Prerequisites
+## <a id="prerequisites"></a>Prerequisites
 Before you begin this tutorial, you must have the following:
 
-- **An Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- **An Azure subscription**. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options] [azure-purchase-options],   [Member Offers] [azure-member-offers], or  [Free Trial] [azure-free-trial].
+- 
 
-- **A workstation with Azure PowerShell installed and configured**. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See [Using the Set-ExecutionPolicy cmdlet][2].
+- **A workstation with Azure PowerShell installed and configured**. For instructions, see [Install and configure Azure PowerShell][powershell-install]. To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See Using the Set-ExecutionPolicy cmdlet.
 
 - **Two Azure virtual network with VPN connectivity and with DNS configured**.  For instructions, see [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], and [Configure DNS between two Azure virtual networks][hdinsight-hbase-replication-dns].
 
@@ -63,7 +64,7 @@ Before you begin this tutorial, you must have the following:
 
 
 
-##Provision HBase clusters in HDInsight
+## Provision HBase clusters in HDInsight
 
 In [Configure a VPN connection between two Azure virtual networks][hdinsight-hbase-replication-vnet], you have created a virtual network in an Europe data center, and a virtual network in a U.S. data center. The two virtual network are connected via VPN. In this session, you will provision an HBase cluster in each of the virtual networks. Later in this tutorial, you will make one of the HBase clusters to replicate the other HBase cluster.
 
@@ -148,7 +149,7 @@ The Azure portal doesn't support provisioning HDInsight clusters with custom con
 
 
 
-# Configure DNS conditional forwarder
+## Configure DNS conditional forwarder
 
 In [Configure DNS for the virtual networks][hdinsight-hbase-replication-dns], you have configured DNS servers for the two networks. The HBase clusters have different domain suffixes. So you need to configure additional DNS conditional forwarders.
 
@@ -194,7 +195,7 @@ To configure conditional forwarder, you need to know the domain suffixes of the 
 
 >[AZURE.IMPORTANT] DNS must work before you can proceed to the next steps.
 
-##Enable replication between HBase tables
+## Enable replication between HBase tables
 
 Now, you can create a sample HBase table, enable replication, and then test it with some data. The sample table you will use has two column families: Personal and Office. 
 
@@ -274,14 +275,14 @@ You can upload the same data file into your HBase cluster and import the data fr
 		hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
 
 
-##Verify that data replication is taking place
+## Verify that data replication is taking place
 
 You can verify that replication is taking place by scanning the tables from both clusters with the following HBase shell commands:
 
 		Scan 'Contacts'
 
 
-##Next Steps
+## Next Steps
 
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
 
@@ -299,7 +300,7 @@ In this tutorial, you have learned how to configure HBase replication across two
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-
+[powershell-install]: install-configure-powershell.md
 [hdinsight-hbase-get-started]: hdinsight-hbase-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md

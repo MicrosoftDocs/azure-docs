@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" 
+	pageTitle="Manage Hadoop clusters in HDInsight using Azure portal | Microsoft Azure" 
 	description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -16,10 +16,12 @@
 	ms.date="03/12/2015" 
 	ms.author="jgao"/>
 
-#Manage Hadoop clusters in HDInsight by using the Azure portal
+# Manage Hadoop clusters in HDInsight by using the Azure portal
 
-##Overview
-Using the Azure portal, you can provision Hadoop clusters in Azure HDInsight, change the Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster. There are also other tools available for administering HDInsight in addition to the Azure portal. 
+Using the Azure portal, you can provision Hadoop clusters in Azure HDInsight, change the Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster. 
+
+## Other tools for administering HDInsight
+There are also other tools available for administering HDInsight in addition to the Azure portal. 
 
 - For more information on administering HDInsight by using Azure PowerShell, see [Administer HDInsight Using Azure PowerShell](hdinsight-administer-use-powershell.md).
 

@@ -143,7 +143,7 @@ Install the Provider and agent. If you're installing on a Hyper-V cluster, perfo
 		- *.blob.core.windows.net
 		- *.store.core.windows.net 
 
-	If you need to allow outbound connections to an Azure domain controller, allow the IP addresses described in Azure Datacenter IP Ranges, and allow the HTTP (80) and HTTPS (443) protocols. 
+	- Allow the IP addresses described in [Azure Datacenter IP Ranges](http://go.microsoft.com/fwlink/?LinkId=511094) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US. 
 
 9. On the **Vault Settings** page, click **Browse** to select the key file. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 

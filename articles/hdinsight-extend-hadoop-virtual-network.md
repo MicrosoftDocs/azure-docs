@@ -1,10 +1,11 @@
 <properties
-   pageTitle="Extend HDInsight with Azure Virtual Network | VNet" metaKeywords="virtual network, vnet, azure, hdinsight" description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
-   services="hdinsight"
-   documentationCenter=""
-   authors="blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	pageTitle="Extend HDInsight with Virtual Network | Microsoft Azure"  
+	description="Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter"
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"

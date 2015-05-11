@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/07/2015"
 	ms.author="raynew"/>
 
 
@@ -317,7 +317,6 @@ You can configure a VPN connection to the server as follows:
 
 10. Finish installing the server. Remember that you'll need to install VMware vSphere CLI 5.5 on the server to be able to discover vCenter Servers. If you install VMware vSphere CLI 5.5 after the process server installation is complete, remember to reboot the process server. 
 
-	![Register process server](./media/site-recovery-vmware-to-azure/ASRVMWare_PSRegister2.png)
 
 Validate that the process server registered successfully in the vault > **Configuration Server** > **Server Details**.
 
@@ -379,32 +378,40 @@ Before proceeding, ensure that you have the latest updates installed. Remember t
 
 You can monitor the protection group as they're created on the **Protected Items** page.
 
-## Step 10: Push the Mobility service
+## Step 10: Push the mobility service
 
-When you add machines to a protection group the  Mobility service is automatically pushed and installed on each machine by the process server. If you want use this automatic push mechanism for protected machines running Windows you'll need to do the following on each machine:
+When you add machines to a protection group, the mobility service is automatically pushed and installed on each machine by the process server.
 
-1. Configure the Windows firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation**. For machines that belong to a domain you can configure the firewall policy with a GPO.
-2. The account used to perform the push installation must be in the Administrators group on the machine you want to protect. Note that these credentials are only use for the push installation. They're not stored anywhere by the Mobility service and are discarded after the server is protected. You'll provide these credentials when you add a machine to a protection group.
+**To automatically push install the mobility service on Windows servers, you'll need to complete the following prerequisites:** 
 
-	![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png)
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server. 
+3. Ensure vSphere CLI 5.5 is installed on the process server. 
+4. Configure Windows Firewall to allow **File and Printer Sharing** and **Windows Management Instrumentation (WMI)**. Under Windows Firewall settings, select the option “Allow an app or feature through Firewall” and select the applications as shown in the picture below. For machines that belong to a domain you can configure the firewall policy with a Group Policy Object.
 
-3. If the admin account isn't a domain account you'll need to disable Remote User Access control on the local machine. To do this in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System create the entry LocalAccountTokenFilterPolicy if it doesn't exist and assign it a DWORD value of 1
+![Firewall Settings](./media/site-recovery-vmware-to-azure/ASRVMWare-PushInstall-Firewall.png)<br>
+5. The account used to perform the push installation must be in the Administrators group on the machine you want to protect. Note that these credentials are used only for the push installation. You'll provide these credentials when you add a machine to a protection group.
 
-If you want to protect machines running Linux you'll need to do the following:
+![Mobility credentials](./media/site-recovery-vmware-to-azure/ASRVMWare_PushCredentials.png) <br>
+6. If the admin account isn't a domain account you'll need to disable remote User Access Control (UAC) on the local machine. To do this in HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System create the entry LocalAccountTokenFilterPolicy if it doesn't exist and assign it a DWORD value of 1
 
-1. Make sure the account is a root user on the source Linux server
-2. Ensure that the /etc/hosts files on the source Linux server contains entries that map the local host name to IP addresses associated with all NICs 
-1. Install the latest openssh, openssh-server,  openssl packages on the machine you want to protect.
-1. Enable ssh port 22.
-2. Enable Sftp subsystem and password authentication in the sshd config file:
-	1. Log in under the root user account.
-	2. In the file /etc/ssh/sshd_config file the line that begins with “PasswordAuthentication”. Uncomment the line and change the value from “no” to “yes”.
+**To automatically push install the mobility service on Linux servers, you'll need to complete the following prerequisites:**
 
-		![Linux mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
+1. Latest [patch updates](#step-7-install-latest-updates) for process server should be installed and the process server should be available. 
+2. Ensure network connectivity exists between the source machine and the process server, and that the source machine is accessible from the process server. 
+3. Ensure vSphere CLI 5.5 is installed on the process server. 
+4. Make sure the account is a root user on the source Linux server.
+5. Ensure that the /etc/hosts file on the source Linux server contains entries that map the local host name to IP addresses associated with all NICs.
+6. Install the latest openssh, openssh-server, openssl packages on the machine you want to protect.
+7. Ensure SSH is enabled and running on port 22. 
+8. Enable SFTP subsystem and password authentication in the sshd_config file:<br>	
+	a. Log in as root.<br>
+	b. In the file /etc/ssh/sshd_config file, find the line that begins with PasswordAuthentication, uncomment the line and change the value from “no” to “yes”.<br>
+	![Linux mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)	<br>
+	c. Find the line that begins with Subsystem and uncomment the line.<br>
+	![Linux push mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_Linux-source-sshd.png)	
+9. Ensure source machine Linux variant is supported. 
 
-	4. Find the line that begins with “Subsystem” and uncomment the line.
-
-		![Linux push mobility](./media/site-recovery-vmware-to-azure/ASRVMWare_LinuxPushMobility1.png)
 
 ## Step 11: Add machines to a protection group
 

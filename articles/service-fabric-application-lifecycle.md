@@ -115,3 +115,4 @@ For more information on developing, testing, and managing Service Fabric applica
 - [Develop a Service Fabric service](service-fabric-develop-your-service-index.md)
 - [Manage a Service Fabric service](service-fabric-manage-your-service-index.md)
 - [Test a Service Fabric service](service-fabric-test-your-service-index.md)
+- [REST-Based Application Lifecycle Sample](service-fabric-rest-based-application-lifecycle-sample.md)
