@@ -19,7 +19,7 @@
 
 # Back up Azure virtual machines
 
-This article is the essential guide to backing up Azure virtual machines. Before you proceed, ensure that all the [prerequisites](backup-azure-vms-introduction.md#prerequisites) have been met.
+This article is the essential guide to backing up Azure virtual machines. Before you proceed, ensure that all the [prerequisites](http://azure.microsoft.com/documentation/articles/backup-azure-vms-introduction/#prerequisites) have been met.
 
 Backing up Azure virtual machines involves three key steps:
 
