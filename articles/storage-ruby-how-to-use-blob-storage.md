@@ -70,6 +70,13 @@ To obtain these values:
 
 ## How To: Create a Container
 
+Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+
+	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+ 
+> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. For rules on naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+
 The **Azure::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 
 The following example creates a container or print out the error if there is any.

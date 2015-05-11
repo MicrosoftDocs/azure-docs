@@ -67,7 +67,14 @@ The following samples assume that you have used one of these two methods to get 
 
 A CloudBlobClient object lets you get reference objects for containers and blobs. The following code creates a **CloudBlobClient** object. (Note: There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].)
 
-All blobs reside in a container. Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
+Every blob in Azure storage must reside in a container. The container forms part of the blob name. For example, `mycontainer` is the name of the container in these sample blob URIs:
+
+	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
+	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
+ 
+> [AZURE.IMPORTANT] Note that the name of a container must always be lowercase. For rules on naming containers, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
+
+Use the **CloudBlobClient** object to get a reference to the container you want to use. You can create the container if it doesn't exist with the **createIfNotExists** method, which will otherwise return the existing container. By default, the new container is private, so you must specify your storage access key (as you did above) to download blobs from this container.
 
 	try
     {
