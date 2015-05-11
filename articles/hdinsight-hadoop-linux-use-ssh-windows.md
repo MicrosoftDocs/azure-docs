@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use SSH keys with Hadoop on Linux-based HDInsight from Windows | Aure"
-   description="Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters."
+   pageTitle="Use SSH keys with Hadoop on Linux-based clusters from Windows | Microsoft Azure"
+   description="Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters. Connect clusters from Windows-based clients by using the PuTTY SSH client."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="MapReduce with Hadoop on HDInsight"
-   description="Learn how to use MapReduce with Hadoop on HDInsight."
+   pageTitle="MapReduce with Hadoop on HDInsight | Microsoft Azure"
+   description="Learn how to run MapReduce jobs on Hadoop in HDInsight clusters. You'll run a basic word count operation implemented as a Java MapReduce job."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
