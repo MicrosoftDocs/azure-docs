@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
 
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
@@ -30,7 +30,9 @@ There's a node in the configuration file for each module. To disable a module, d
 
 #### Implementation.Tracing.DiagnosticsTelemetryModule
 
-Required if you use the Application Insights [TrackTrace() API][api], or if you use [log collection][netlogs]. Trace events appear in [Diagnostic Search][diagnostic].
+Reports errors in the SDK. For example, if the SDK cannot access performance counters or if a custom TelemetryInitializer throws an exception.
+
+Data appears in [Diagnostic Search][diagnostic].
 
 #### RuntimeTelemetry.RemoteDependencyModule
 
