@@ -33,7 +33,7 @@ You can attach both empty disks and disks that contain data. In both cases, the 
 
 
 
-1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Linux][logonlinux].
+1. Connect to the virtual machine by using the steps listed in [How to log on to a virtual machine running Linux](logonlinux).
 
 
 

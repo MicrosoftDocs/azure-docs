@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="05/06/2015" 
 	ms.author="kempb"/>
 
 # Getting Started with Azure Active Directory (Web API Projects)

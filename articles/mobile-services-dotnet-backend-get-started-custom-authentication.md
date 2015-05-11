@@ -162,7 +162,7 @@ At this point, you have everything you need to begin creating user accounts. In 
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
->[AZURE.IMPORTANT]This registration endpoint can be accessed by any client via HTTP. Before you publish this 
+>[AZURE.IMPORTANT]This registration endpoint can be accessed by any client via HTTP. Before you publish this service to a production environment, you should implement some sort of scheme to validate registrations, such as a SMS or email-based verification. This can help prevent a malicious user from creating fraudulent registrations.     
 
 ## Create the LoginProvider
 

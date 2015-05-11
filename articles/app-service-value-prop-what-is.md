@@ -1,20 +1,19 @@
-
-<properties
-	pageTitle="What is Azure App Service"
-	description="Learn why Azure App Service is the best platform for developing web and mobile apps."
-	services="app-service"
-	documentationCenter=""
-	authors="omarkmsft"
+<properties 
+	pageTitle="What is Azure App Service" 
+	description="Learn why Azure App Service is the best platform for developing web and mobile apps." 
+	services="app-service" 
+	documentationCenter="" 
+	authors="omarkmsft" 
 	manager="dwrede" 
 	editor="jimbe"/>
 
-<tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/13/2015"
+<tags 
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="03/13/2015" 
 	ms.author="omark"/>
 
 # What is Azure App Service?
@@ -55,6 +54,6 @@ App Service Plans represent a set of features and capacity that you can share ac
 ##Get Started with App Service
 Want a taste? Get going in seconds.
 
-With Azure App Service, this is as easy as selecting a language!
+With Azure App Service, this is as easy as selecting a language! 
 
 [Create a new web app](http://go.microsoft.com/fwlink/?LinkId=523751) right away for free. No credit card required, no commitments, no hassles.

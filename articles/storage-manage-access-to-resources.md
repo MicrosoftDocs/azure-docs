@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-<properties
-	pageTitle="Manage Access to Azure Storage Resources"
-	description="Learn about the different ways you can manage access to Azure Storage Resources."
-	services="storage"
-	documentationCenter=""
-	authors="micurd" 
-	manager="jahogg"
-	editor=""/>
-
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/20/2015"
-	ms.author="micurd"/>
-=======
 <properties 
 	pageTitle="Manage Access to Azure Storage Resources | Microsoft Azure" 
 	description="Learn how to manage how users access your Azure Storage resources." 
@@ -34,7 +15,6 @@
 	ms.topic="article" 
 	ms.date="02/20/2015" 
 	ms.author="micurd;tamram"/>
->>>>>>> 16f5e705810cb61755b20850b41d3a13fb8df2ab
 
 # Manage Access to Azure Storage Resources
 
@@ -60,7 +40,7 @@ Containers provide the following options for managing container access:
 
 - **No public read access:** Container and blob data can be read by the account owner only.
 
->[AZURE.NOTE]If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users.
+>[AZURE.NOTE]If your service requires that you exercise more granular control over blob resources, or if you wish to provide permissions for operations other than read operations, you can use a Shared Access Signature to make a resource accessible to users. 
 
 ### Features Available to Anonymous Users
 The following table shows which operations may be called by anonymous users when a container's ACL is set to allow public access.
@@ -114,7 +94,7 @@ Supported operations using shared access signatures include:
 
 The shared access signature URI query parameters incorporate all of the information necessary to grant controlled access to a storage resource. The URI query parameters specify the time interval over which the shared access signature is valid, the permissions that it grants, the resource that is to be made available, and the signature that the storage services should use to authenticate the request.
 
-Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary.
+Additionally, the shared access signature URI can reference a stored access policy that provides an additional level of control over a set of signatures, including the ability to modify or revoke access to the resource if necessary. 
 
 For information on the URI format of a shared access signature, see [Delegating Access with a Shared Access Signature](https://msdn.microsoft.com/library/ee395415.aspx).
 
@@ -123,7 +103,7 @@ A shared access signature grants access to the resource specified by the URI's g
 
 If a shared access signature grants access that is not intended for the general public, then it should be constructed with the fewest possible permissions. In addition, a shared access signature should be distributed securely to clients over a secure connection, should be associated with a stored access policy for the purpose of revocation, and should specify the shortest possible lifetime for the signature.
 
->[AZURE.NOTE] A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key.
+>[AZURE.NOTE] A shared access signature URI is associated with the account key used to create the signature, and the associated stored access policy (if any). If no stored access policy is specified, the only way to revoke a shared access signature is to change the account key. 
 
 ### Creating a Shared Access Signature
 The following code example creates an access policy on a container and then generates a shared access signature for the container. This shared access signature can then be given to clients:
@@ -133,28 +113,28 @@ The following code example creates an access policy on a container and then gene
        "DefaultEndpointsProtocol=https;" +
        "AccountName=myaccount;" +
        "AccountKey=<account-key>";
-
-    // As an alternative, you can retrieve storage account information from an app.config file.
-    // This is one way to store and retrieve a connection string if you are
+    
+    // As an alternative, you can retrieve storage account information from an app.config file. 
+    // This is one way to store and retrieve a connection string if you are 
     // writing an application that will run locally, rather than in Microsoft Azure.
-
+    
     // string storageConnectionString = ConfigurationManager.AppSettings["StorageAccountConnectionString"];
-
+    
     // Create the storage account with the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-
+       
     // Create the blob client object.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-
+    
     // Get a reference to the container for which shared access signature will be created.
     CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
     container.CreateIfNotExists();
-
-    // Create blob container permissions, consisting of a shared access policy
-    // and a public access setting.
+    
+    // Create blob container permissions, consisting of a shared access policy 
+    // and a public access setting. 
     BlobContainerPermissions blobPermissions = new BlobContainerPermissions();
-
-    // The shared access policy provides
+    
+    // The shared access policy provides 
     // read/write access to the container for 10 hours.
     blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
     {
@@ -164,14 +144,14 @@ The following code example creates an access policy on a container and then gene
        Permissions = SharedAccessBlobPermissions.Write |
       SharedAccessBlobPermissions.Read
     });
-
-    // The public access setting explicitly specifies that
+    
+    // The public access setting explicitly specifies that 
     // the container is private, so that it can't be accessed anonymously.
     blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
-
+    
     // Set the permission policy on the container.
     container.SetPermissions(blobPermissions);
-
+    
     // Get the shared access signature to share with users.
     string sasToken =
        container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
@@ -180,15 +160,15 @@ The following code example creates an access policy on a container and then gene
 A client who receives a shared access signature can use it from their code to construct an object of type [StorageCredentials](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.auth.storagecredentials.aspx). Those credentials can then be used to construct a [CloudStorageAccount](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.cloudstorageaccount.aspx) or a [CloudBlobClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobclient.aspx) object for working with the resource, as shown in this example:
 
     Uri blobUri = new Uri("https://myaccount.blob.core.windows.net/mycontainer/myblob.txt");
-
+    
     // Create credentials with the SAS token. The SAS token was created in previous example.
     StorageCredentials credentials = new StorageCredentials(sasToken);
-
+    
     // Create a new blob.
     CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
-
-    // Upload the blob.
-    // If the blob does not yet exist, it will be created.
+    
+    // Upload the blob. 
+    // If the blob does not yet exist, it will be created. 
     // If the blob does exist, its existing content will be overwritten.
     using (var fileStream = System.IO.File.OpenRead(@"c:\Test\myblob.txt"))
     {
@@ -202,7 +182,7 @@ A stored access policy gives you greater control over shared access signatures y
 
 For example, suppose you have issued a shared access signature that's associated with a stored access policy. If you've specified the expiry time within the stored access policy, you can modify the access policy to extend the life of the signature, without having to reissue a new signature.
 
-Best practices recommend specifying a stored access policy for any signed resource for which you are issuing a shared access signature, as the stored policy can be used to modify or revoke the signature after it has been issued. If you don't specify a stored policy, it's recommended that you limit the lifetime of your signature in order to minimize any risk to your storage account resources.
+Best practices recommend specifying a stored access policy for any signed resource for which you are issuing a shared access signature, as the stored policy can be used to modify or revoke the signature after it has been issued. If you don't specify a stored policy, it's recommended that you limit the lifetime of your signature in order to minimize any risk to your storage account resources. 
 
 ### Associating a Shared Access Signature with a Stored Access Policy
 A stored access policy includes a name up to 64 characters long that is unique within the container, queue, or table. To associate a shared access signature with a stored access policy, you specify this identifier when creating the shared access signature. On the shared access signature URI, the *signedidentifier* field specifies the identifier for the stored access policy.

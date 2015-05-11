@@ -126,9 +126,9 @@ Here is an example of you might see:
 
 [Azure Resource Manager Overview](resource-group-overview.md)
 
-[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-rm-template-simple.md)
+[Create a Windows virtual machine with a Resource Manager template and PowerShell](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
-[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-sm.md)
+[Create a Windows virtual machine with PowerShell and Azure Service Manager](virtual-machines-create-windows-powershell-service-manager.md)
 
 [Virtual machines documentation](http://azure.microsoft.com/documentation/services/virtual-machines/)
 

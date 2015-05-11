@@ -1,20 +1,19 @@
-
-<properties
-	pageTitle="How to use Blob storage from PHP | Microsoft Azure"
-	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP."
-	documentationCenter="php"
-	services="storage"
-	authors="tfitzmac"
-	manager="wpickett"
+<properties 
+	pageTitle="How to use Blob storage from PHP | Microsoft Azure" 
+	description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
-<tags
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="03/11/2015"
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="03/11/2015" 
 	ms.author="tomfitz"/>
 
 # How to use Blob storage from PHP
@@ -101,35 +100,35 @@ A **BlobRestProxy** object lets you create a blob container with the **createCon
 
 	// OPTIONAL: Set public access policy and metadata.
 	// Create container options object.
-	$createContainerOptions = new CreateContainerOptions();
+	$createContainerOptions = new CreateContainerOptions();	
 
-	// Set public access policy. Possible values are
+	// Set public access policy. Possible values are 
 	// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
-	// CONTAINER_AND_BLOBS:
+	// CONTAINER_AND_BLOBS: 	
 	// Specifies full public read access for container and blob data.
-    // proxys can enumerate blobs within the container via anonymous
+    // proxys can enumerate blobs within the container via anonymous 
 	// request, but cannot enumerate containers within the storage account.
 	//
 	// BLOBS_ONLY:
-	// Specifies public read access for blobs. Blob data within this
-    // container can be read via anonymous request, but container data is not
-    // available. proxys cannot enumerate blobs within the container via
+	// Specifies public read access for blobs. Blob data within this 
+    // container can be read via anonymous request, but container data is not 
+    // available. proxys cannot enumerate blobs within the container via 
 	// anonymous request.
-	// If this value is not specified in the request, container data is
+	// If this value is not specified in the request, container data is 
 	// private to the account owner.
 	$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
+	
 	// Set container metadata
 	$createContainerOptions->addMetaData("key1", "value1");
 	$createContainerOptions->addMetaData("key2", "value2");
-
+	
 	try	{
 		// Create container.
 		$blobRestProxy->createContainer("mycontainer", $createContainerOptions);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -152,17 +151,17 @@ To upload a file as a blob, use the **BlobRestProxy->createBlockBlob** method. T
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
+	
 	$content = fopen("c:\myfile.txt", "r");
 	$blob_name = "myblob";
-
+	
 	try	{
 		//Upload blob
 		$blobRestProxy->createBlockBlob("mycontainer", $blob_name, $content);
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -183,12 +182,12 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
+	
 	try	{
 		// List blobs.
 		$blob_list = $blobRestProxy->listBlobs("mycontainer");
 		$blobs = $blob_list->getBlobs();
-
+		
 		foreach($blobs as $blob)
 		{
 			echo $blob->getName().": ".$blob->getUrl()."<br />";
@@ -196,7 +195,7 @@ To list the blobs in a container, use the **BlobRestProxy->listBlobs** method wi
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -216,7 +215,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
+	
 	try	{
 		// Get blob.
 		$blob = $blobRestProxy->getBlob("mycontainer", "myblob");
@@ -224,7 +223,7 @@ To download a blob, call the **BlobRestProxy->getBlob** method, then call the **
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -235,7 +234,7 @@ Note that the example above gets a blob as a stream resource (the default behavi
 
 ## How to: Delete a Blob
 
-To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**.
+To delete a blob, pass the container name and blob name to **BlobRestProxy->deleteBlob**. 
 
 	require_once 'vendor\autoload.php';
 
@@ -245,14 +244,14 @@ To delete a blob, pass the container name and blob name to **BlobRestProxy->dele
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
+	
 	try	{
 		// Delete container.
 		$blobRestProxy->deleteBlob("mycontainer", "myblob");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
@@ -271,14 +270,14 @@ Finally, to delete a blob container, pass the container name to **BlobRestProxy-
 	// Create blob REST proxy.
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-
+	
 	try	{
 		// Delete container.
 		$blobRestProxy->deleteContainer("mycontainer");
 	}
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
-		// Error codes and messages are here:
+		// Error codes and messages are here: 
 		// http://msdn.microsoft.com/library/azure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();

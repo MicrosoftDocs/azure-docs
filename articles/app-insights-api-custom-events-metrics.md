@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2015" 
+	ms.date="05/08/2015" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -231,23 +231,10 @@ If it's more convenient, you can collect the parameters of an event in a separat
     telemetry.TrackEvent(event);
 
 
-## <a name="timed"></a> Timed events
+#### <a name="timed"></a> Timing events
 
-Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. 
+Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
-You can attach timing data to events. In the web client, instead of calling trackEvent, use these calls:
-
-*JavaScript at web client*
-
-    // At the start of the game:
-    appInsights.startTrackEvent(game.id);
-
-    // At the end of the game:
-    appInsights.stopTrackEvent(game.id, {GameName: game.name}, {Score: game.score});
-
-Use the same string as the first parameter in the start and stop calls. 
-
-This feature isn't built in to the other SDKs. But you can write your own code such as this:
 
 *C#*
 
