@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="05/11/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB resource model and concepts
@@ -45,7 +45,7 @@ To start working with resources, you must [create a DocumentDB database account]
 |Database	|A database is a logical container of document storage partitioned across collections. It is also a users container.
 |User	|The logical namespace for scoping/partitioning permissions. 
 |Permission	|An authorization token associated with a user for authorized access to a specific resource.
-|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is assigned a performance tier with provisioned document storage and throughput. The performance tiers (S1, S2 and S3) provide 10GB of storage and a fixed amount of throughput. For more information on performance tiers, visit our [performance page](documentdb-performance-levels.md).
+|Collection	|A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the cost is determined by the performance level associated with the collection. The performance levels (S1, S2 and S3) provide 10GB of storage and a fixed amount of throughput. For more information on performance levels, visit our [performance page](documentdb-performance-levels.md).
 |Stored Procedure	|Application logic written in JavaScript which is registered with a collection and transactionally executed within the database engine.
 |Trigger	|Application logic written in JavaScript modeling side effects associated with insert, replace or delete operations.
 |UDF	|A side effect free, application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language.
