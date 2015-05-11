@@ -131,8 +131,6 @@ The following do not and require additional admin action to migrate user data af
 
 - SharePoint/OneDrive
 
-Advice for when you run into ones that don't support takeover.
-<Link to Office url support guide>
 
 ## How to perform a DNS domain name takeover
 
