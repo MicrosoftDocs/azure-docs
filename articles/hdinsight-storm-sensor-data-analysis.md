@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Analyzing sensor data with Apache Storm on HDInsight, Event Hub, and HBase | Azure"
-   description="Learn how to use Apache Storm and HBase on HDInsight to process data from Azure Event Hub."
+   pageTitle="Analyze sensor data with Apache Storm and HBase | Microsoft Azure"
+   description="Learn how to use Apache Storm and HBase on HDInsight to process sensor data from Azure Event Hub and visualize it with D3.js. Also, connect to Storm with a virtual network."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -16,7 +16,7 @@
    ms.date="04/28/2015"
    ms.author="larryfr"/>
 
-# Analyzing sensor data with Storm and HBase in HDInsight (Hadoop)
+# Analyze sensor data with Apache Storm, Event Hub, and HBase in HDInsight (Hadoop)
 
 Learn how to use Apache Storm on HDInsight to process sensor data from Azure Event Hub, and visualize it by using D3.js. This document also describes how to use an Azure virtual network to connect Storm on HDInsight with HBase on HDInsight, and store data from the topology into HBase.
 

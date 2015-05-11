@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure WebJobs resources" 
+	pageTitle="Azure WebJobs documentation resources" 
 	description="Recommended resources for learning how to use Azure WebJobs and the Azure WebJobs SDK." 
 	services="app-service\web" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="04/03/2015" 
 	ms.author="tdykstra"/>
 
-# Azure WebJobs resources
+# Azure WebJobs documentation resources
 
 ## Overview
 

@@ -22,6 +22,11 @@
 
 This topic contains links to Azure SDK for .NET Release Notes. 
 
+
+##Azure SDK for .NET 2.6 Release Notes
+
+[Azure SDK for .NET 2.6 Release Notes](azure-sdk-dotnet-release-notes-2_6.md)
+
 ##Azure SDK for .NET 2.5.1 Release Notes
 
 [Azure SDK for .NET 2.5.1 Release Notes](app-service-release-notes.md)

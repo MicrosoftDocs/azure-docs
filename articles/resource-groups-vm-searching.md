@@ -18,6 +18,7 @@
 
 # Navigating and Selecting Azure Virtual Machine images with PowerShell and the Azure CLI
 
+> [AZURE.NOTE] When you're searching for VM images in this topic, you're using the [Azure Resource Management mode](resource-group-overview.md) with a recent installation of either the Azure Command-Line Interface for Mac, Linux, and Windows or of Windows PowerShell. With the Azure CLI, enter that mode by typing `azure config mode arm`. With PowerShell, type `Switch-AzureMode -Name AzureResourceManager`. See [Azure CLI with resource management](xplat-cli-azure-resource-manager.md) and [PowerShell with Azure resource management](powershell-azure-resource-manager.md) for more complete update and configuration details. 
 
 ## Azure CLI
 

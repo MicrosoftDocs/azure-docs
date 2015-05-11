@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/06/2015" 
 	ms.author="josephd"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and PowerShell
@@ -415,7 +415,7 @@ You will receive the following type of information:
 	vmSize: Standard_A3
 	...
 
-## Common task: Deploy a multi-VM application that uses a virtual network and an external load balancer
+## Common Task: Deploy a multi-VM application that uses a virtual network and an external load balancer
 
 Use the instructions in these sections to deploy a multi-VM application that uses a virtual network and a load balancer with a Resource Manager template using Azure PowerShell. This template creates two virtual machines in a new virtual network with a single subnet in a new cloud service, and adds them to an external load-balanced set for incoming traffic to TCP port 80.
 
@@ -913,7 +913,7 @@ You will see information like this:
 
 ## Delete a virtual machine
 
-You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  Use the **–Force** parameter to skip the confirmation prompt.
+You can delete a VM using the **Remove-AzureVM** command. Replace everything within the quotes, including the < and > characters, with the correct name.  You can use the **–Force** parameter to skip the confirmation prompt.
 
 	Remove-AzureVM –ResourceGroupName "<resource group name>" –Name "<VM name>"
 

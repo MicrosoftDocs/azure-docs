@@ -1,13 +1,13 @@
 <properties 
    pageTitle="Network Resource Provider"
    description="Network Resource Provider"
-   services="virtual-networks"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="adinah"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-networks"
+   ms.service="virtual-network"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -329,6 +329,20 @@ Key properties of an endpoint include:
 - **Target Resource ID** – public IP address of a service or web endpoint. This can be an Azure or external endpoint.
 - **Weight** - endpoint weight used in traffic management. 
 - **Priority** - priority of the endpoint, used to define a failover action. 
+
+## Using a template
+
+You can deploy services to Azure from a template by using PowerShell, AzureCLI, or by performing a click to deploy from GitHub. To deploy services from a template in GitHub, execute the following steps:
+
+1. Open the template3 file from GitHub. As an example, open [Virtual network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network).
+2. Click on **Deploy to Azure**, and then sign in on to the Azure portal with your credentials.
+3. Verify the template, and then click **Save**.
+4. Click **Edit parameters** and select a location, such as *West US*, for the vnet and subnets.
+5. If necessary, change the **ADDRESSPREFIX** and **SUBNETPREFIX** parameters, and then click **OK**.
+6. Click **Select a resource group** and then click on the resource group you want to add the vnet and subnets to. Alternatively, you can create a new resource group by clicking **Or create new**.
+3. Click **Create**. Notice the tile displaying **Provisioning Template deployment**. Once the deployment is done, you will see a screen similar to one below.
+
+![Sample template deployment](./media/resource-groups-networking/Figure6.png)
 
 ## See Also
 

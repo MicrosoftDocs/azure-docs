@@ -68,7 +68,20 @@ A call to Connect-ServiceFabricCluster fails with an error like this:
 
 Close the current Powershell window and launch a new Powershell window as an Administrator. You should now be able to successfully connect.
 
-## Next steps 
+### FabricConnectionDeniedException
+
+#### Problem
+
+When debugging from Visual Studio, you get a FabricConnectionDeniedException.
+
+#### Solution
+
+This error usually occurs when you try to try to start a service host process manually, rather than allowing the Service Fabric runtime to start it for you.
+
+Ensure that you do not have any service projects set as startup projects in your solution. Only Service Fabric application projects should be set as startup projects.
+
+
+## Next steps
 
 - [Understand and troubleshoot your cluster with system health reports](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [Visualizing your cluster with Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

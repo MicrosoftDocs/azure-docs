@@ -30,21 +30,6 @@ It is now possible to combine multiple Azure resources in to a single Azure Reso
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
-## Account Limits
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">Resource</th>
-   <th align="left" valign="middle">Default Limit</th>
-   <th align="left" valign="middle">Maximum Limit</th>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">Subscriptions</a> per account</td>
-   <td valign="middle"><p>Unlimited</p></td>
-   <td valign="middle"><p>Unlimited</p></td>
-</tr>
-</table>
-
 ## Subscription Limits
 
 <table cellspacing="0" border="1">
@@ -97,6 +82,11 @@ In the limits below, a new table has been added to reflect any differences in li
    <td valign="middle"><p>Reserved IPs per subscription</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>100</p></td>
+</tr>
+<tr>
+   <td valign="middle"><p>ExpressRoute dedicated circuits per subscription</p></td>
+   <td valign="middle"><p>10</p></td>
+   <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>Hosted service certificates per subscription</p></td>
@@ -232,7 +222,7 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 <sup>2</sup>Input endpoints are used to allow communication to the virtual machines that is external to the containing cloud service. Virtual machines within the same cloud service automatically allow communication between all UDP and TCP ports for internal communication.
 
 
-## Virtual Machines (v2) Limits - Azure Resource Manager
+## Virtual Machines Limits - Azure Resource Manager
 
 The following limits apply when using the Azure Resource Manager and Azure Resource Groups. Limits that have not changed with the Azure Resource Manager are not listed below. Please refer to the previous table for those limits.
 
@@ -242,11 +232,11 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
    <th align="left" valign="middle">Default Limit</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Virtual machines (v2) per Availability Set</p></td>
+   <td valign="middle"><p>Virtual machines per Availability Set</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Certificates per subscription></p></td>
+   <td valign="middle"><p>Certificates per subscription</p></td>
    <td valign="middle"><p>Unlimited<sup>1</sup</p></td>
 </tr>
 </table>

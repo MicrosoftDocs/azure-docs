@@ -20,7 +20,7 @@
 
 ## Overview
 
-This article shows how to create an HTML and JavaScript client for an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](/documentation/services/app-service/). This article assumes a working knowledge of HTML and JavaScript, and will focus on using the [AngularJS](https://angularjs.org/) JavaScript framework for making REST calls to the API App. 
+This article shows how to create an HTML and JavaScript client for an [API app](app-service-api-apps-why-best-platform.md) in [Azure App Service](/documentation/services/app-service/). The article assumes a working knowledge of HTML and JavaScript, and uses the [AngularJS](https://angularjs.org/) JavaScript framework for making REST calls to the API App. 
 
 Some articles to go through before this to help you get started. 
 
@@ -28,7 +28,7 @@ Some articles to go through before this to help you get started.
 2. In [Deploy an API App](app-service-dotnet-deploy-api-app.md), you deploy the API app to your Azure subscription.
 3. In [Debug an API App](app-service-dotnet-remotely-debug-api-app.md), you use Visual Studio to remotely debug the code while it runs in Azure.
 
-This article will build upon these previous articles by demonstrating how your HTML applications can use JavaScript to access your back-end API Apps. 
+This article will build upon these previous articles by demonstrating how your HTML applications can use JavaScript to access your back-end API apps. 
 
 ## Enabling CORS
 
@@ -36,7 +36,7 @@ Typically, CORS (Cross-Origin Resource Sharing) is needed in HTML applications t
 
 ### Enabling CORS for API App Gateways
 
-API App Gateways can be configured to enable CORS using the Azure prreview portal. By adding the **MS_CrossDomainOrigins** *appSetting* you can specify which URLs are allowed to call your API App. This section will explain how to use this *appSetting* to enable CORS at the API Gateway level. 
+API App Gateways can be configured to enable CORS using the Azure preview portal. By adding the **MS_CrossDomainOrigins** *appSetting* you can specify which URLs are allowed to call your API App. This section will explain how to use this *appSetting* to enable CORS at the API Gateway level. 
 
 1. Navigate to the Azure preview portal blade for the API App you want to CORS-enable. Once there, click the *Gateway* icon for your API App. 
 
@@ -143,7 +143,7 @@ The process of enabling CORS in Web API is documented in the ASP.NET article [En
 
 In this section, you'll create a new Empty Web Application, install and use AngularJS into it, and bind a simple HTML front end to the API App. You'll deploy the consuming Web App into Azure App Service. The HTML Web App will bind to and display the data retrieved from the API App, and provide users a simple UI for the Contacts API. 
 
-1. Right-click the solution and select **Add -> New Project**
+1. Right-click the solution that you created earlier in [Create an API App](app-service-dotnet-create-api-app.md), and select **Add -> New Project**
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/02-add-project.png)
 
@@ -231,16 +231,16 @@ In this section, you'll create a new Empty Web Application, install and use Angu
             </thead>
             <tbody>
                 <tr ng-repeat="con in contacts">
-                    <td>{{con.Id}}</td>
-                    <td>{{con.Name}}</td>
-                    <td>{{con.EmailAddress}}</td>
+                    <td>[[con.Id]]</td>
+                    <td>[[con.Name</td>
+                    <td>[[con.EmailAddress]]</td>
                     <td></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr>
                     <th>Create a new Contact</th>
-                    <th colspan="2">API Status: {{status}}</th>
+                    <th colspan="2">API Status: [[status]]</th>
                     <th><button class="btn btn-sm btn-info" ng-click="refresh()">Refresh</button></th>
                 </tr>
                 <tr>
@@ -252,11 +252,13 @@ In this section, you'll create a new Empty Web Application, install and use Angu
             </tfoot>
         </table>
 
-1. Right-click the *index.html* file and select the **Set as Start Page** menu item. Then debug the Web Project so that it will open up in your default browser. 
+1. In the `tbody` and `tfoot` elements replace each [ with { and each ] with }. (This site is currently unable to display double-curly-brace expressions in code blocks.)
 
-	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/08-run-the-web-app.png)
+2. Right-click the *index.html* file and click **Set as Start Page**. 
 
-1. Take note of the template handlebars in the HTML output. You'll data-bind those HTML elements using AngularJS in the next step. 
+3. Right-click the *index.html* file and click **View in Browser**. 
+
+	Notice the template handlebars in the HTML output. You'll data-bind those HTML elements using AngularJS in the next step. 
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/09-template-ui.png)
 
@@ -308,13 +310,15 @@ In this section, you'll create a new Empty Web Application, install and use Angu
             $scope.refresh();
         });
 
-	> **Note**: Your port number may vary, so if your API project is running on a different port, simply change the JavaScript above to reflect your own environment.
+1, In the code you just added to index.html, replace the port number in the base URL (`http://localhost:1578`) with the actual port number for your API project.
 
-1. Make sure that the API App project is also running, or the JavaScript HTML will not function properly. Right-click the solution and select **Properties**. Then set both Web projects to **Start without Debugging**, and that the API project runs first. 
+	> **Note** Don't use the port number of the HTML client project. You can right-click the API project and click **Debug > Start New Instance** to get a browser window that shows the port number.
+
+1. Make sure that the API App project is also running when you run the HTML client, or the JavaScript HTML will not function properly. Right-click the solution and select **Properties**. Then set both Web projects to **Start without Debugging**, and that the API project runs first. 
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/10-run-both-web-projects.png)
 
-1. Debug the solution and you'll see that the HTML/JavaScript client can connect to and display data from the API App project. 
+1. Run the solution and the HTML/JavaScript client connects to and displays data from the API App project. 
 
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/11-web-client-running.png)
 
@@ -331,6 +335,8 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 1. Paste the API App's URL to overwrite the previous value for the **$scope.baseUrl** property in the JavaScript code. 
 
 		$scope.baseUrl = 'https://microsoft-apiappf7e042ba8e5233ab4312021d2aae5d86.azurewebsites.net';
+
+	Notice that the URL specifies HTTPS.  The use of HTTPS is not optional;  API Apps does not support HTTP.
 
 1. Right-click the HTML/JavaScript Web Project and select the **Publish** context menu item.
 
@@ -360,4 +366,5 @@ In this section you'll deploy the HTML/JavaScript client as an App Service Web A
 	![apiapp.json and Metadata in Solution Explorer](./media/app-service-api-javascript-client/18-web-app-visible-in-resource-group.png)
 
 ## Summary 
-This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends. You can change the REST access functionality to use any other JavaScript framework.   
+This example demonstrated how you can use AngularJS as your JavaScript platform for accessing API App back ends. You can change the REST access functionality to use any other JavaScript framework. 
+

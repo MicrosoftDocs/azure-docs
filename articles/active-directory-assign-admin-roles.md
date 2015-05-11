@@ -5,8 +5,7 @@
 	documentationCenter="" 
 	authors="Justinha" 
 	manager="TerryLan" 
-	editor="LisaToft"
-	tags="azure-classic-portal"/>
+	editor="LisaToft"/>
 
 <tags 
 	ms.service="active-directory" 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
 # Assigning administrator roles in Azure AD
@@ -30,7 +29,7 @@ The following administrator roles are available:
 - **Password administrator**: Resets passwords, manages service requests, and monitors service health. Password administrators can reset passwords only for users and other password administrators.
 - **Service administrator**: Manages service requests and monitors service health.
     > [AZURE.NOTE]
-    > To assign the service administrator role to a user, the global administrator must first assign administrative permissions to the user in the service, such as Exchange Online, and then assign the service administrator role to the user in the Azure classic portal. 
+    > To assign the service administrator role to a user, the global administrator must first assign administrative permissions to the user in the service, such as Exchange Online, and then assign the service administrator role to the user in the Azure Management Portal. 
 - **User administrator**: Resets passwords, monitors service health, and manages user accounts, user groups, and service requests. Some limitations apply to the permissions of a user management administrator. For example, they cannot delete a global administrator or create other administrators. Also, they cannot reset passwords for billing, global, and service administrators.
 
 ## Administrator permissions
@@ -72,7 +71,7 @@ The global administrator has access to all administrative features. By default, 
 ## Assign or remove administrator roles 
 
 
-1. In the classic portal, click **Active Directory**, and then click on the name of your organization’s directory.
+1. In the Management Portal, click **Active Directory**, and then click on the name of your organization’s directory.
 2. On the **Users** page, click the display name of the user you want to edit.
 3. Select the **Organizational Role** drop-down menu, and then select the administrator role that you want to assign to this user, or select **User** if you want to remove an existing administrator role. 
 4. In the **Alternate Email Address** box, type an email address. This email address is used for important notifications, including password self-reset, so the user must be able to access the email account whether or not the user can access Azure.

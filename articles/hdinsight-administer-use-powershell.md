@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" 
+	pageTitle="Manage Hadoop clusters in HDInsight with PowerShell | Microsoft Azure" 
 	description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." 
 	services="hdinsight" 
 	editor="cgronlun" 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="04/29/2015" 
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
 
-##Overview
 
 Azure PowerShell is a powerful scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. In this article, you will learn how to manage Hadoop clusters in Azure HDInsight by using a local Azure PowerShell console through the use of Windows PowerShell. For the list of the HDInsight PowerShell cmdlets, see [HDInsight cmdlet reference][hdinsight-powershell-reference].
 
@@ -26,12 +25,12 @@ Azure PowerShell is a powerful scripting environment that you can use to control
 
 Before you begin this article, you must have the following:
 
-- An Azure subscription. Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks by using your subscription. For more information about obtaining a subscription, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
+- An Azure subscription. Azure is a subscription-based platform. The Azure PowerShell cmdlets for HDInsight perform the tasks by using your subscription. For more information about obtaining a subscription, see [Purchase Options] [azure-purchase-options],  [Member Offers] [azure-member-offers],  or  [Free Trial] [azure-free-trial].
 
-- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Powershell-install-configure].
+- A workstation with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
 
 
-##Provision an HDInsight cluster
+##Provision HDInsight clusters
 HDInsight uses an Azure Blob storage container as the default file system. An Azure Storage account and a storage container are required before you can create an HDInsight cluster. 
 
 [AZURE.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
@@ -100,7 +99,7 @@ The following screenshot shows the script execution:
 
 
 
-##List and show cluster details
+##List cluster details
 Use the following command to list all clusters in the current subscription:
 
 	Get-AzureHDInsightCluster 
@@ -109,10 +108,12 @@ Use the following command to show details of a specific cluster in the current s
 
 	Get-AzureHDInsightCluster -Name <ClusterName> 
 
-##Delete a cluster
+##Delete clusters
 Use the following command to delete a cluster:
 
 	Remove-AzureHDInsightCluster -Name <ClusterName> 
+
+
 
 ##Grant/revoke HTTP services access
 
@@ -236,10 +237,10 @@ The Hive job will first show the Hive tables created on the cluster, and the dat
 For more information on using Hive, see [Using Hive with HDInsight][hdinsight-use-hive].
 
 
-##Upload data to the Blob storage
+##Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
 
-##Download the MapReduce output from the Blob storage
+##Download job output from Azure Blob storage
 See the [Submit MapReduce jobs](#mapreduce) section in this article.
 
 ## See Also
@@ -258,7 +259,7 @@ See the [Submit MapReduce jobs](#mapreduce) section in this article.
 
 [hdinsight-get-started]: hdinsight-get-started.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-
+[hdinsight-provision-custom-options]: hdinsight-provision-clusters.md#configuration
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [hdinsight-admin-cli]: hdinsight-administer-use-command-line.md
@@ -267,10 +268,11 @@ See the [Submit MapReduce jobs](#mapreduce) section in this article.
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
+[hdinsight-flight]: hdinsight-analyze-flight-delay-data.md
 
 [hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
-[Powershell-install-configure]: install-configure-powershell.md
+[powershell-install-configure]: install-configure-powershell.md
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
 

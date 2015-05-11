@@ -1,5 +1,5 @@
 <properties
- pageTitle="Develop Scalding MapReduce jobs with Maven"
+ pageTitle="Develop Scalding MapReduce jobs with Maven | Microsoft Azure"
  description="Learn how to use Maven to create a Scalding MapReduce job, then deploy and run the job on a Hadoop on HDInsight cluster."
  services="hdinsight"
  documentationCenter=""
