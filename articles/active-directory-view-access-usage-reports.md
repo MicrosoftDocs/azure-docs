@@ -236,6 +236,8 @@ Report name  | Available in this edition
 
 #### Sign in events included in the User Activity report
 
+Only certain types of sign in events will appear in the User Activity report.
+
 | Event type										| Included?		|
 | ----------------------								| ---------		|
 | Sign ins to the [Access Panel](http://myapps.microsoft.com/)				| Yes			|
