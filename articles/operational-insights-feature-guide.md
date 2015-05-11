@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="05/11/2015"
 	ms.author="banders"/>
 
 # Operational Insights feature guide
@@ -42,8 +42,10 @@ With Operational Insights, you can transform machine data into operational intel
 
 You can also:
 
-- **Send machine data to the system with or without using an agent or in conjunction with System Center Operations Manager**
-	- For information about collecting machine data, see [Collect machine data](operational-insights-collect-data.md)
+- **Send machine data to the system with or without using an agent or in conjunction with System Center Operations Manager**. For more information, see:
+	- [Connect to Operational Insights from System Center Operations Manager](operational-insights-connect-scom.md)
+	- [Connect computers directly to Operational Insights](operational-insights-direct-agent.md)
+	- [Analyze data from servers in Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Do all of the above on the go with the mobile application**
 	- For more information about the Windows Phone application, see [Operational Insights Mobile app](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
