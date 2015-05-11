@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Hadoop Oozie in HDInsight | Azure" 
+	pageTitle="Use Hadoop Oozie in HDInsight | Microsoft Azure" 
 	description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="jgao"/>
 
 
-# Use Oozie with Hadoop in HDInsight
+# Use Oozie with Hadoop to define and run a workflow in HDInsight
 
 ##Overview
 Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].

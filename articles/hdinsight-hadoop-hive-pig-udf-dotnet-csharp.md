@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Use C# with Hive and Pig in Azure HDInsight"
-	description="Learn how to use C# User Defined Functions (UDF) with Hive and Pig streaming in Azure HDInsight."
+	pageTitle="Use C# with Hive and Pig on Hadoop in HDInsight | Microsoft Azure"
+	description="Learn how to use C# user-defined functions (UDF) with Hive and Pig streaming in Azure HDInsight."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -17,7 +17,7 @@
 	ms.author="larryfr"/>
 
 
-#Use C# with Hive and Pig in HDInsight
+#Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight 
 
 Hive and Pig are great for working with data in Azure HDInsight, but sometimes you need a more general-purpose language. Both Hive and Pig allow you to call external code through user-defined functions (UDFs) or streaming.
 
