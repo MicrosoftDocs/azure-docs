@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Develop C# Hadoop streaming programs for HDInsight | Azure" 
+	pageTitle="Develop C# Hadoop streaming programs for HDInsight | Microsoft Azure" 
 	description="Learn how to develop Hadoop streaming MapReduce programs in C#, and how to deploy them to Azure HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -37,7 +37,7 @@ This tutorial shows you how to:
 Before you begin this tutorial, you must have done the following:
 
 - Install the HDInsight Emulator. For instructions, see [Get started using HDInsight Emulator][hdinsight-get-started-emulator].
-- Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure].
+- Install Azure PowerShell on the emulator computer. For instructions, see [Install and configure Azure PowerShell][powershell-install].
 - Obtain an Azure subscription. For instructions, see [Purchase Options][azure-purchase-options], [Member Offers][azure-member-offers], or [Free Trial][azure-free-trial].
 
 
@@ -222,7 +222,7 @@ This tutorial uses the .txt files located in the %hadoop_home% directory.
 
 **To run the MapReduce job by using Azure PowerShell**
 
-1. Open Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install-configure]. 
+1. Open Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][powershell-install]. 
 3. Run the following commands to set variables:
 
 		$clusterName = "http://localhost:50111"
@@ -548,7 +548,7 @@ In this tutorial, you have learned how to develop a Hadoop streaming MapReduce j
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 
 [powershell-PSCredential]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
-[Powershell-install-configure]: powershell-install-configure.md
+[powershell-install]: powershell-install-configure.md
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-hadoop-develop-deploy-streaming-jobs/HDI.WordCountDiagram.gif "MapReduce wordcount application flow"
 
