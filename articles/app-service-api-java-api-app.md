@@ -59,7 +59,7 @@ Here is a screenshot of the completed application:
 
 ## Enable Git publishing for the new API app
 
-[Git](http://git-scm.com/%20target="_blank) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your API app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps that you can use in an API app because API apps are based on web apps: an API app in Azure App Service is a web app with additional features for hosting web services.  
+[Git](http://git-scm.com) is a distributed version control system that you can use to deploy your Azure Website. You'll store the code you write for your API app in a local Git repository, and you'll deploy your code to Azure by pushing to a remote repository. This method of deployment is a feature of App Service web apps that you can use in an API app because API apps are based on web apps: an API app in Azure App Service is a web app with additional features for hosting web services.  
 
 In the portal you manage the features specific to API apps in the **API App** blade, and you manage the features that are shared with web apps in the **API App Host** blade. So in this section you go to the **API App Host** blade to configure the Git deployment feature.
 
@@ -128,8 +128,6 @@ In this section, you'll download and take a look at the code provided as part of
 
 	Notice the **apiDefinition** property. The path for this URL is relative to your API's URL and it points to the Swagger 2.0 endpoint. Azure App Service uses this property to discover the definition of your API and enable many of the App Service API app capabilities.
 
-	> [AZURE.NOTE] The endpoint has to be of Swagger 2.0 specification, as older versions (e.g. 1.2) are not supported by the platform. The sample application is using swaggerize-express to create a Swagger 2.0 specification endpoint.
-
 4. Navigate to `src\main\java\com\microsoft\trysamples\javaapiapp`, open the **App.java** file and inspect the code.
 
 	![][app-java]
@@ -190,7 +188,7 @@ In this section you run the application locally to verify it works prior to depl
 
 In this section you create a local Git repository and push from that repository to Azure in order to deploy your sample application to the API app running in Azure App Service.
 
-1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download%20target="_blank").
+1. If Git is not installed, install it from [the Git download page](http://git-scm.com/download).
 
 1. From the command line, change directories to the sample application directory, then `build\libs` and enter the following commands to initialize a local Git repository.
 
