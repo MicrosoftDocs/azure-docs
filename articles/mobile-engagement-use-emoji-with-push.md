@@ -23,7 +23,7 @@ Please follow the steps below:
 
 1) First you need to find a 3 bytes Emoji emoticon library. You can find all Emoji emoticons you can use at the following [link](http://stackoverflow.com/questions/10153529/emoji-on-mysql-and-php-why-some-symbol-yes-other-not)
 
-![1]
+	![][1]
 
 2) Go to the Reach tab on the the Azure Mobile Engagement portal.
 
@@ -31,7 +31,7 @@ Please follow the steps below:
 
 4) Specify the different fields of the notification until you reach the text of the notification. This is where you will add your Emoji Emoticon. You can choose to put it in the title, the message, or both.
 
-![2]
+	![][2]
 
 5) Cut the Emoji emoticon you want to use from the previous link. Paste it directly in the title and/or message, at the place you chose. 
 
@@ -39,7 +39,7 @@ Please follow the steps below:
 
 7) When you run a test or activate the announcement you will see a notification with the emoticon as specified.   
 
-![3] ![4]
+	![][3] ![][4]
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-use-emoji-with-push/emoji.png
