@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network | Microsoft Azure"
-   description="Create a virtual network with a site-to-site VPN connection for cross-premise and hybrid configuration."
+   pageTitle="Configure a Site-to-Site Virtual Network connection | Microsoft Azure"
+   description="Create a virtual network with a site-to-site VPN connection for cross-premises and hybrid configurations."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
@@ -16,9 +16,9 @@
    ms.date="05/11/2015"
    ms.author="cherylmc"/>
 
-# Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network
+# Configure a cross-premises Site-to-Site Virtual Network connection
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating your virtual network and creating the foundation for your VPN connection between your newly created VNet and your on-premises location.
+You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and a site-to-site VPN connection between your newly created VNet and your on-premises location. This procedure can be used for creating cross-premises and hybrid configurations.
 
 
 ## Before beginning
