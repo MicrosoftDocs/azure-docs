@@ -24,7 +24,9 @@ API Apps are part of the [Azure App Service](app-service-value-prop-what-is.md) 
 
 The API Apps part of this suite provides a rich platform and ecosystem for building, consuming and distributing APIs in the cloud and on-premises.
 
->[AZURE.NOTE] API Apps is currently in public preview. It's built on top of [App Service Web Apps](app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing Web apps and leveraging features of API Apps.
+>[AZURE.NOTE] [Azure API Management](/services/api-management/) is a separate service that offers features such as endpoint consolidation and throttling. You can use API Management with API Apps.
+>
+>API Apps is currently in public preview. It's built on top of [App Service Web Apps](app-service-web-overview.md), which is a Generally Available (GA) service designed for building and hosting secure mission-critical applications at global scale. If you are looking for a GA service for building your API today, Web Apps is a great option. When API Apps goes GA, we'll provide a path for taking existing web apps and leveraging features of API Apps.
 
 ## Why API Apps?
 
