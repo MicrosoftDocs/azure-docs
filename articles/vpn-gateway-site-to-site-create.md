@@ -20,7 +20,7 @@
 
 You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. For more information about secure connection options for cross-premises and hybrid connectivity to VNets, see the [VPN Documentation page](../services/vpn-gateway/) and [About VPN Connections](https://msdn.microsoft.com/library/azure/dn133798.aspx).
 
- This procedure will walk you through creating your virtual network and creating the foundation for your VPN connection between your newly created VNet and your on-premises location.
+This procedure will walk you through creating your virtual network and creating the foundation for your VPN connection between your newly created VNet and your on-premises location.
 
 
 ## Before beginning
@@ -29,7 +29,7 @@ You can connect your on-premises location with a virtual network by creating a s
 
 - Obtain an externally facing IPv4 IP for your VPN device. This IP address is required for a site-to-site configuration and is used for your VPN device, which cannot be located behind a NAT.
 
->[AZURE.IMPORTANT] If you aren’t familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
+>[AZURE.IMPORTANT] If you aren't familiar with configuring your VPN device or are unfamiliar with the IP address ranges located on your on-premises network configuration, you will need to coordinate with someone who can provide those details for you.
 
 ## Create your virtual network
 
@@ -43,18 +43,18 @@ You can connect your on-premises location with a virtual network by creating a s
 
 Enter the information below. For more information about the settings on the details page, see the [Virtual Network Details page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNetDetails).
 
-- **Name**: Name your virtual network. For example, *EastUSVNet*. You’ll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.
-- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in *East US*, select that location. You can’t change the region associated with your virtual network after you create it.
+- **Name**: Name your virtual network. For example, *EastUSVNet*. You'll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.
+- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in *East US*, select that location. You can't change the region associated with your virtual network after you create it.
 
 ## DNS Servers and VPN Connectivity page
 Enter the following information, and then click the next arrow on the lower right. For more information about the settings on this page, see the [DNS Servers and VPN Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETDNS).
 
 - **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 - **Configure Site-To-Site VPN**: Select the checkbox for **Configure a site-to-site VPN**.
-- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you’ve previously created, or you can create a new local network.
+- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network.
 
 ## Site-to-Site Connectivity page
-If you’re creating a new local network, you’ll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. Note that if you use local network that you previously created, you’ll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate for this local network. 
+If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. Note that if you use local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate for this local network. 
 
 Enter the following information and then click the next arrow. For more information about the settings on this page, see the [Site-To-Site Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
 
@@ -66,11 +66,11 @@ Enter the following information and then click the next arrow. For more informat
 ## Virtual Network Address Spaces page 
 Specify the address range that you want to use for your virtual network. These are the dynamic IP addresses (DIPS) that will be assigned to the VMs and other role instances that you deploy to this virtual network. There are quite a few rules regarding virtual network address space, so please refer to the [Virtual Network Address Spaces page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS) for more information. 
 
-It’s especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You’ll need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
+It's especially important to select a range that does not overlap with any of the ranges that are used for your on-premises network. You'll need to coordinate with your network administrator. Your network administrator may need to carve out a range of IP addresses from your on-premises network address space for you to use for your virtual network.
 
 Enter the following information, and then click the checkmark on the lower right to configure your network.	
 
-- **Address Space**: Include Starting IP and Address Count. Verify that the address spaces you specify don’t overlap any of the address spaces that you have on your on-premises network.
+- **Address Space**: Include Starting IP and Address Count. Verify that the address spaces you specify don't overlap any of the address spaces that you have on your on-premises network.
 - **Add subnet**: Include Starting IP and Address Count. Additional subnets are not required, but you may want to create a separate subnet for VMs that will have static DIPS. Or you might want to have your VMs in a subnet that is separate from your other role instances.
 - **Add gateway subnet**: Click to add the gateway subnet. The gateway subnet is used only for the virtual network gateway and is required for this configuration.
 
@@ -78,7 +78,7 @@ Click the checkmark on the bottom of the page and your virtual network will begi
 
 ## Configure your virtual network gateway
 
-Next, you’ll configure the virtual network gateway to create a secure site-to-site connection. See [Configure a Virtual Network Gateway in the Management Portal](https://msdn.microsoft.com/library/azure/jj156210.aspx).
+Next, you'll configure the virtual network gateway to create a secure site-to-site connection. See [Configure a Virtual Network Gateway in the Management Portal](https://msdn.microsoft.com/library/azure/jj156210.aspx).
 
 ## Concepts and additional resources
 
