@@ -54,7 +54,7 @@ Enter the following information, and then click the next arrow on the lower righ
 - **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network.
 
 ## Site-to-Site Connectivity page
-If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. Note that if you use local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device is accurate for this local network. 
+If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. However, if you do select to use a local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate. 
 
 Enter the following information and then click the next arrow. For more information about the settings on this page, see the [Site-To-Site Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
 
