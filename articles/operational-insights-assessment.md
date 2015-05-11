@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/07/2015"
+   ms.date="05/11/2015"
    ms.author="banders" />
 
 # Optimize your environment with Assessment solutions
@@ -73,7 +73,7 @@ Not at this time.
 For SQL Server, a small number of SQL queries are run. In order for them to run, a Run As Account with VIEW SERVER STATE permissions to SQL must be used.  In addition, in order to query WMI, local administrator credentials are required.
 
 *Why display only the top 10 recommendations?*<br>
-Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the Operational Insights search.
+Instead of giving you an exhaustive overwhelming list of tasks, we recommend that you focus on addressing the prioritized recommendations first. After you address them, additional recommendations will become available. If you prefer to see the detailed list, you can view all recommendations using the Operational Insights log search.
 
 *Is there a way to ignore a recommendation?*<br>
 Not at this time.
@@ -116,7 +116,7 @@ Every recommendation made includes guidance about why the recommendation might b
 
 ## Use assessment focus area recommendations
 
-Before you can use an assessment solution in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-intelligence-pack.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
+Before you can use an assessment solution in Microsoft Azure Operational Insights, you must have the solution installed. To read more about installing solutions, see [Use the Solution Gallery to add or remove solutions](operational-insights-add-solution.md). After it is installed, you can view the summary of recommendations by using the Assessment tile on the Overview page in Operational Insights.
 
 You can summary compliance assessments for your infrastructure and then drill-into recommendations.
 

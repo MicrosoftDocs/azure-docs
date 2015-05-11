@@ -33,7 +33,7 @@ With Operational Insights, you can transform machine data into operational intel
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Capacity Planning](operational-insights-capacity.md) | You can use the Capacity Planning solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. |
 | ![](./media/operational-insights-feature-guide/update.png) | [System Update Assessment](operational-insights-updates.md) | You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management solution to gather event and IIS logs for searches throughout Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management solution to gather event and IIS logs for log searches throughout Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Malware Assessment](operational-insights-antimalware.md) | You can use the Antimalware solution in Microsoft Azure Operational Insights to help you protect the servers in your infrastructure from malware. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Security and Audit](operational-insights-security-audit.md) | You can use the Security and Audit solution to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory and SQL Assessment](operational-insights-assessment.md) | You can use Assessment solutions to assess the risk and health of your server environments on a regular interval. |
@@ -63,7 +63,7 @@ Using Operational Insights software as an Operations Manager service consists of
 
 Similarly, agents installed on individual computers can connect directly to the web service to send collected data for processing.
 
-The data in each solution is analyzed, indexed, and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed ad-hoc searches and explorations.
+The data in each solution is analyzed, indexed, and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed ad-hoc log searches and explorations.
 
 ![Image of Operational Insights overview diagram](./media/operational-insights-feature-guide/environment.png)
 

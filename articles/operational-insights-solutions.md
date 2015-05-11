@@ -1,34 +1,34 @@
-<properties 
-	pageTitle="Operational Insights Intelligence Packs" 
-	description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data." 
-	services="operational-insights" 
-	documentationCenter="n/a" 
-	authors="bandersmsft" 
-	manager="jwhit" 
+<properties
+	pageTitle="Operational Insights solutions"
+	description="Operational Insights is an analysis service that enables IT administrators to gain deep insight across on-premises and cloud environments. It enables you to interact with real-time and historical machine data to rapidly develop custom insights, and provides Microsoft and community-developed patterns for analyzing data."
+	services="operational-insights"
+	documentationCenter="n/a"
+	authors="bandersmsft"
+	manager="jwhit"
 	editor=""/>
 
-<tags 
-	ms.service="operational-insights" 
-	ms.workload="operational-insights" 
-	ms.tgt_pltfrm="NA" 
-	ms.devlang="NA" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="operational-insights"
+	ms.workload="operational-insights"
+	ms.tgt_pltfrm="NA"
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.date="05/11/2015"
 	ms.author="alfran"/>
 
-# Intelligence Packs
+# Solutions
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
-Intelligence Packs are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Intelligence Packs are powered by Operational Insights Search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing. 
+Solutions are a collection of **logic**, **visualization** and **data acquisition rules** that address key customer challenges today. Solutions are powered by Operational Insights log search to bring you metrics pivoted around a particular problem area. They allow deeper insights to help investigate and resolve operational issues faster, collect and correlate various types of machine data and help you be proactive with activities such as capacity planning, patch status reporting and security auditing.
 
-This guide walks you through the various Intelligence Packs available and what they are used for.
+This guide walks you through the various solutions available and what they are used for.
 
->[AZURE.NOTE] For more information on *adding* intelligence packs, see [Adding Intelligence Packs](operational-insights-add-intelligence-pack.md)
+>[AZURE.NOTE] For more information on *adding* solutions, see [Adding solutions](operational-insights-add-solution.md)
 
 ## SQL Assessment
 
-SQL Assessment Intelligence Pack assesses the risk and health of your SQL Server environments on a regular interval. By default it will scan the SQL systems weekly, and information is presented as a monthly rollup. It provides a prioritized list of recommendations tailored to your deployments. These recommendations are categorized across six focus areas which allows you and your team to:
+SQL Assessment solution assesses the risk and health of your SQL Server environments on a regular interval. By default it will scan the SQL systems weekly, and information is presented as a monthly rollup. It provides a prioritized list of recommendations tailored to your deployments. These recommendations are categorized across six focus areas which allows you and your team to:
 
 - **quickly** understand the **risk and health** of your environments
 - easily take **action** to decrease risk and improve health
@@ -40,14 +40,14 @@ SQL Assessment requires .NET 4 to run on each agent. It supports the Standard, D
 
 ## Configuration Assessment
 
-Configuration assessment provides you with detailed information about the current state of your server infrastructure. 
+Configuration assessment provides you with detailed information about the current state of your server infrastructure.
 
-Unlike intelligence packs, configuration assessment is available when you first start using Operational Insights with System Center Operations Manager. It is not available if you only use Directly-connected agents.
+Unlike solutions, configuration assessment is available when you first start using Operational Insights with System Center Operations Manager. It is not available if you only use Directly-connected agents.
 
 Configuration data is gathered from monitored servers and then sent to the Operational Insights service in the cloud for processing. Logic is applied to the received data and the cloud service records the data. Processed data for the servers is shown for the following areas:
 
 - **Alerts:** Shows the configuration-related, proactive alerts that have been raised for your monitored servers. These are produced by rules authored by Microsoft Customer and Support organization (CSS) with best practices from the field
-- **Knowledge Recommendations:** Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning 
+- **Knowledge Recommendations:** Shows the Microsoft Knowledge Base articles that are recommended for workloads that are found in your infrastructure; these are automatically suggested based on your configuration thru the use of machine learning
 - **Servers and Workloads Analyzed:** Shows the servers and workloads that are being monitored by Operational Insights
 - **Current Snapshot:** Shows the most recent information about servers that reported data to the Operational Insights service
 - **Change History:** Shows a list of configuration changes made to your monitored servers
@@ -66,7 +66,7 @@ If insufficient protection is found, servers with active threats and servers wit
 
 ## Alert Management
 
-With the Alert Management Intelligence Pack, you can view your **Operations Manager** Alerts across all your servers. This tool can help you to easily triage alerts, and identify root causes in your environment in a very fast and fluid way.
+With the Alert Management solution, you can view your **Operations Manager** Alerts across all your servers. This tool can help you to easily triage alerts, and identify root causes in your environment in a very fast and fluid way.
 
 You can get insights into key scenarios, including:
 
@@ -75,26 +75,26 @@ You can get insights into key scenarios, including:
 - Top active critical and warning alerts that are raised within a specified time frame.
 - Ability to search through all alerts and view every alert in detail
 
-> [AZURE.IMPORTANT] Alert Management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**. This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use Search. For additional information, see [Connect Operations Manager](operational-insights-connect-scom.md)
+> [AZURE.IMPORTANT] Alert Management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**. This does not send any data from agents, but simply synchronizes Operations Manager alerts to the cloud to allow you to triage them in Operational Insights and use log search. For additional information, see [Connect Operations Manager](operational-insights-connect-scom.md)
 
 
 ## Capacity Planning
 
-You can use the Capacity Management intelligence pack in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. The intelligence pack reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
+You can use the Capacity Management solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. The solution reads performance counters on the monitored server and sends usage data to the Operational Insights service in the cloud for processing. Logic is applied to the usage data, and the cloud service records the data. Over time, usage patterns are identified and capacity is projected, based on current consumption.
 
 For example, a projection might identify when additional processor cores or additional memory will be needed for an individual server. In this example, the projection might indicate that in 30 days the server will need additional memory. This can help you plan for a memory upgrade during the server’s next maintenance window, which might occur once every two weeks.
 
 >[AZURE.IMPORTANT] Capacity management can only be enabled when Operational Insights is used in conjunction with **System Center Operations Manager**, and you must also enable the Operations Manager connector with Virtual Machine Manager (VMM). For additional information about connecting the systems, see [How to connect VMM with Operations Manager](https://technet.microsoft.com/library/hh882396.aspx).
 
-For more information on using the Capacity Management Intelligence Pack, see:
+For more information on using the Capacity Management solution, see:
 
-- [How to use the Compute page](https://msdn.microsoft.com/library/azure/dn873965.aspx)
-- [How to use the Direct Attached Storage page](https://msdn.microsoft.com/library/azure/dn873954.aspx) 
+- [How to use the Compute page](operational-insights-capacity/#compute-page)
+- [How to use the Direct Attached Storage page](operational-insights-capacity/#direct-attached-storage-page)
 
 
 ## Change Tracking
 
-You can use the Configuration Change Tracking intelligence pack to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues. By using the information on the Change Tracking page, you can easily see the changes that were made in your server infrastructure. You can view changes to your infrastructure and then drill-into details for the following categories:
+You can use the Configuration Change Tracking solution to help you easily identify software and Windows Services changes that occur in your environment — identifying these configuration changes can help you pinpoint operational issues. By using the information on the Change Tracking page, you can easily see the changes that were made in your server infrastructure. You can view changes to your infrastructure and then drill-into details for the following categories:
 
 - Changes by configuration type for software and windows services
 - Software changes to applications and updates for individual servers
@@ -104,7 +104,7 @@ You can use the Configuration Change Tracking intelligence pack to help you easi
 
 ## System Update Assessment
 
-You can use the System Updates intelligence pack in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. If missing updates are found, they are shown on the **Updates** page. You can use the **Updates** page to work with missing updates and develop a plan to apply them to the servers that need them.
+You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. If missing updates are found, they are shown on the **Updates** page. You can use the **Updates** page to work with missing updates and develop a plan to apply them to the servers that need them.
 
 The Updates page details the following categories:
 
@@ -129,9 +129,3 @@ Server search results include:
 - Automatic update enabling method
 - Days since last update
 - Windows Update agent version
-
-
-
-
-
-
