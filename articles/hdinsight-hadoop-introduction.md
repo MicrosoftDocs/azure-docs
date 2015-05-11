@@ -20,7 +20,7 @@
 
 # Introduction to Hadoop in HDInsight: Big-data analysis and processing in the cloud
 
-Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis. Also, learn about Hadoop tutorials, documentation, and resources for using Hadoop in HDInsight.
+Get an introduction to Hadoop, its ecosystem, and big data in Azure HDInsight: What is Hadoop in HDInsight and what are the Hadoop components, common terminology, and scenarios for big data analysis? Also, learn about Hadoop tutorials, documentation, and resources for using Hadoop in HDInsight.
 
 ## What is Hadoop in HDInsight?
 
