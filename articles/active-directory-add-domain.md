@@ -133,7 +133,7 @@ Based on the portal you are using to administer your Azure AD directory, you'll 
 
 If you are using Microsoft Intune or the Azure Account Portal:
 
-1. On the **Domains** page, in the list of domain names, find the domain that you are verifying. In the **Status** column, click** Click to verify domain**.
+1. On the **Domains** page, in the list of domain names, find the domain that you are verifying. In the **Status** column, click **Click to verify domain**.
 2. On the **Verify domain** page, in the **See instructions for performing this step with:** drop-down list, choose your DNS hosting provider. If your provider doesn't appear in the list, choose **General instructions**.
 3. In the **Select a verification method:** drop-down list, choose **Add a TXT record (preferred method)** or **Add an MX record (alternate method)**.
 
@@ -152,7 +152,7 @@ If you are using the Management Portal:
 
 Azure AD uses a DNS record that you create at your domain name registrar to confirm that you own the domain. Use the instructions below to create either a TXT or MX record type for a domain that is registered at your registrar.
 
-If your domain registrar does not accept "@" as a hostname, contact your domain registrar to find out how to represent "parent of the current zone."
+If your domain registrar does not accept '@' as a hostname, contact your domain registrar to find out how to represent 'parent of the current zone.'
 
 To add a TXT or MX record:
 
