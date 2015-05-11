@@ -359,12 +359,12 @@ This command creates a virtual machine endpoint. You may also use -u or --enable
 
 Create multiple vm endpoints.
 
-**vm endpoint delete &lt;vm-name> &lt;lb-port>**
+**vm endpoint delete [options] &lt;vm-name> &lt;endpoint-name>**
 
 This command deletes a virtual machine endpoint.
 
-	~$ azure vm endpoint delete my-vm 8888
-	azure vm endpoint delete my-vm 8888
+	~$ azure vm endpoint delete my-vm http
+	azure vm endpoint delete my-vm http
 	info:   Executing command vm endpoint delete
 	+ Fetching VM
 	+ Reading network configuration
