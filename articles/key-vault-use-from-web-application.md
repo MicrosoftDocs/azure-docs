@@ -23,8 +23,6 @@ Use this tutorial to help you learn how to use Azure Key Vault—currently in pr
 **Estimated time to complete:** 15 minutes
 
 
->During the preview period, you cannot configure Azure Key Vault in the Azure portal. Instead, use these Azure PowerShell instructions.
-
 For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 
 ## Prerequisites 
