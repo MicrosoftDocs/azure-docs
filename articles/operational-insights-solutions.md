@@ -16,7 +16,7 @@
 	ms.date="05/11/2015"
 	ms.author="alfran"/>
 
-# Solutions
+# Solutions in Operational Insights
 
 [AZURE.INCLUDE [operational-insights-note-moms](../includes/operational-insights-note-moms.md)]
 
