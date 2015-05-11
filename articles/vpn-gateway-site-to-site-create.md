@@ -18,9 +18,7 @@
 
 # Configure a Cross-Premises Site-to-Site connection to an Azure Virtual Network
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. For more information about secure connection options for cross-premises and hybrid connectivity to VNets, see the [VPN Documentation page](../services/vpn-gateway/) and [About VPN Connections](https://msdn.microsoft.com/library/azure/dn133798.aspx).
-
-This procedure will walk you through creating your virtual network and creating the foundation for your VPN connection between your newly created VNet and your on-premises location.
+You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating your virtual network and creating the foundation for your VPN connection between your newly created VNet and your on-premises location.
 
 
 ## Before beginning
@@ -51,15 +49,15 @@ Enter the following information, and then click the next arrow on the lower righ
 
 - **DNS Servers**: Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 - **Configure Site-To-Site VPN**: Select the checkbox for **Configure a site-to-site VPN**.
-- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network.
+- **Local Network**: A local network represents your physical on-premises location. You can select a local network that you've previously created, or you can create a new local network. However, if you do select to use a local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate. 
 
 ## Site-to-Site Connectivity page
-If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section. However, if you do select to use a local network that you previously created, you'll want to go to the **Local Networks** configuration page and make sure that the VPN Device IP address (public facing IPv4 address) for the VPN device you are using for this connection is accurate. 
+If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section.
 
 Enter the following information and then click the next arrow. For more information about the settings on this page, see the [Site-To-Site Connectivity page](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETSITE).
 
 - 	**Name**: The name you want to call your local (on-premises) network site.
-- 	**VPN Device IP Address**: This is public facing IPv4 address of your on-premises VPN device that you’ll use to connect to Azure. The VPN device cannot be located behind a NAT.
+- 	**VPN Device IP Address**: This is public facing IPv4 address of your on-premises VPN device that you'll use to connect to Azure. The VPN device cannot be located behind a NAT.
 - 	**Address Space**: Include Starting IP and CIDR (Address Count). This is where you specify the address range(s) that you want sent through the virtual network gateway to your local on-premises location. If a destination IP address falls within the ranges that you specify here, it will be routed through the virtual network gateway.
 - 	**Add address space**: If you have multiple address ranges that you want sent through the virtual network gateway, this is where you specify each additional address range. You can add or remove ranges later on the Local Network page.
 
