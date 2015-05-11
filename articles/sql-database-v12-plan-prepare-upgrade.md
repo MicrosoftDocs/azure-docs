@@ -159,8 +159,7 @@ For another alternative, you can use SQL Server Management Studio (SSMS) 2014 wi
 
 | Limitation | Description |
 | :--- | :--- |
-| Duration of upgrade | The duration of upgrade depends on the number, size, and edition of databases in the server. The upgrade process can run for 1 to 4 days for servers with databases that are both:<br/><br/>* Larger than 50 GB<br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
-| DNS entry update delay | After the upgrade completes, it takes several minutes for the system to update the DNS entry for your V12 database, for connectivity from your client application. |
+| Duration of upgrade | The duration of upgrade depends on the size, edition and number of databases in the server. The upgrade process can run for hours to days for servers especially for servers that has databases:<br/><br/>* Larger than 50 GB, or <br/>* At a non-premium service tier<br/><br/>Creation of new databases on the server during the upgrade can also increase the upgrade duration. |
 | No geo-replication | Geo-replication is not supported on a V12 server that is currently involved in an upgrade from V11. |
 
 
