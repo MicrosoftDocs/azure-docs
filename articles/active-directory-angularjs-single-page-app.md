@@ -3,7 +3,7 @@
 	description="Demonstrates the use of Active Directory Authentication Library (ADAL) for Javascript for securing an AngularJS based single page app, implemented with an ASP.NET Web API backend, that calls another ASP.NET Web API using CORS." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Dastrock" 
+	authors="dstrockis" 
 	manager="terrylan" 
 	editor="LisaToft"/>
 
@@ -122,7 +122,7 @@ To deploy the To Do SPA and To Go API to Azure Web Sites, you will create two we
 1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
 2. Click **Web Sites** in the left hand nav.
 3. Click **New** in the bottom left hand corner, select **Compute** > **Web Site** > **Custom Create**, select the hosting plan and region, and give your web site a name, e.g. togo-contoso.azurewebsites.net.  Select a database to use, or create a new one.  Click **Create Web Site**.
-4. Once the web site is created, click it to manage it.  For this set of steps, download the .publishsettings file and save it.  Other deployment mechanisms, such as from source control, can also be used. For more information about using a .publishsettings file, see [How to: Connect to your subscription](http://azure.microsoft.com/documentation/articles/install-configure-powershell/#Connect). 
+4. Once the web site is created, click it to manage it.  For this set of steps, download the .publishsettings file and save it.  Other deployment mechanisms, such as from source control, can also be used. For more information about using a .publishsettings file, see [How to: Connect to your subscription](install-configure-powershell.md#Connect). 
 
 ### Create the To Do SPA Azure Web Site
 
