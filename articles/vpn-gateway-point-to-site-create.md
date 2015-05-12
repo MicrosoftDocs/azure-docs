@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/12/2015"
    ms.author="cherylmc"/>
 
 # Configure a Point-to-Site VPN connection to an Azure Virtual Network
@@ -150,7 +150,11 @@ Example:
 
 ## See Also
 
-- [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
-- [Virtual Network Configuration Tasks](https://msdn.microsoft.com/library/azure/jj156206.aspx)
-- [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968.aspx)
-- [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/windowsazure/gg551722.aspx)
+
+You can learn more about Virtual Network cross-premises connectivity in this article: [About Virtual Network Secure Cross-Premises Connectivity](https://msdn.microsoft.com/library/azure/dn133798.aspx)
+
+If you want to configure a site-to-site VPN connection, see [Configure a Site-to-Site VPN Connection](vpn-gateway-site-to-site-create.md)
+
+You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md)
+
+If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
