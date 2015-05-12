@@ -59,7 +59,7 @@ If you don't already have an Azure subscription but you do have an MSDN subscrip
 
 You you will need to have a work or school account to use Azure resource management templates, if you have one you can type `azure login`, enter your username and password, and you should successfully log in. 
 
-> [AZURE.NOTE] If you don't have one, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [connecting to your Azure account](xplat-cli-connect.md).
+> [AZURE.NOTE] If you don't have one, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a Work or School identity in Azure Active Directory](resource-group-create-work-id-from-personal.md).
 
 Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
