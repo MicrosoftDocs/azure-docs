@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Learning Map for HDInsight | Azure" 
-	description="Get a suggested flow of resources to go through for learning all you need to know about HDInsight" 
+	pageTitle="Learning Map for Hadoop in HDInsight | Microsoft Azure" 
+	description="Follow this learning path for Hadoop in HDInsight. Get a suggested flow of resources to go through for learning all you need to know about HDInsight." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 

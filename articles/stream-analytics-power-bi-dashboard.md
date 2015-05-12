@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Stream Analytics Power BI Dashboard | Azure" 
-	description="Learn how to populate a live Power BI dashboard with data from a Stream Analytics job." 
+	pageTitle="Stream Analytics Power BI dashboard | Microsoft Azure" 
+	description="Learn how to analyze high-volume streaming data in real time from a Stream Analytics job and get the insight on a live Power BI dashboard." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,16 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="05/12/2015" 
 	ms.author="jeffstok"/>
 	
-#Azure Stream Analytics & Power BI: Live Dashboard on Real time Analytics of Streaming Data
+#Azure Stream Analytics & Power BI: Live dashboard for real-time analytics of streaming data
 
-One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  [Microsoft Power BI](https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. Note- Azure Stream Analytics is Generally Available however at this point, Power BI output is a preview feature of Azure Stream Analytics. 
+One of the common use case for Azure Stream Analytics is to analyze high volume streaming data in real time and get the insight in a live dashboard (a dashboard that updates in real time without user having to refresh the browser).  
+
+[Microsoft Power BI](https://powerbi.com/) is perfect for building live dashboard in no time. [Here is an example video to illustrate the scenario](https://www.youtube.com/watch?v=SGUpT-a99MA). In this article, learn how to use Power BI as an output for your Azure Stream Analytics job. 
+
+> [AZURE.NOTE] Power BI output is a preview feature of Azure Stream Analytics. 
 
 ##Prerequisites
 
-* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. [You can learn more about org id here](https://www.arin.net/resources/request/org.html) ).
+* Microsoft Azure Account using Org Id (Power BI works with Org ID only. Org ID is your work or business email address e.g. xyz@mycompany.com. Personal emails like xyz@hotmail.com are not org ids. You can learn more about org id [here](https://msdn.microsoft.com/subscriptions/dn531048.aspx) and there is also a FAQ that can be downloaded from [here](http://go.microsoft.com/fwlink/?linkid=331007&clcid=0x409) ).
 * An input stream for ASA (Azure Stream Analytics) job to consume streaming data from. At this point, ASA accepts input from an Azure Eventhub or Azure Blob Store.  
 
 ##Create Azure Stream Analytics Job
