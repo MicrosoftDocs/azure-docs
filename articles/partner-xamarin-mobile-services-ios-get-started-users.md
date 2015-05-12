@@ -10,10 +10,10 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm=""
+	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="05/12Fh/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later versions.
 
-<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
+##<a name="register"></a>Register your app for authentication and configure Mobile Services
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
-<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
+##<a name="permissions"></a>Restrict permissions to authenticated users
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
@@ -50,7 +50,7 @@ Completing this tutorial requires [Xamarin.iOS], XCode 6.0 and iOS 7.0 or later 
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-<h2><a name="add-authentication"></a>Add authentication to the app</h2>
+##<a name="add-authentication"></a>Add authentication to the app
 
 1. Open the **TodoService** project file and add the following variables
 
