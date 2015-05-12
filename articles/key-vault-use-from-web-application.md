@@ -30,7 +30,7 @@ For overview information about Azure Key Vault, see [What is Azure Key Vault?](k
 To complete this tutorial, you must have the following:
 
 - A URI to a secret in an Azure Key Vault
-- A Client ID and Client Secret for a web application registered with Azure Active Directory
+- A Client ID and Client Secret for a web application registered with Azure Active Directory that has access to your Key Vault
 - A web application. We will be showing the steps for an ASP.NET MVC application deployed in Azure as a Web App. 
 
 It is essential that you have completed the steps listed in [Get Started with Azure Key Vault](keyvault-get-started.md). 
@@ -50,19 +50,22 @@ There are three packages that your web application needs to have installed.
 
 All three of these packages can be installed using the Package Manager Console using the Install-Package command. 
 
+	// this is the latest stable version of ADAL
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+
+	//this is a preview version of the Key Vault Library
 	Install-Package Microsoft.Azure.KeyVault -Pre
 
 
 ## <a id="webconfig"></a>Modify Web.Config ##
-There are three application settings that need to be added to the web.config file. 
+There are three application settings that need to be added to the web.config file as follows. 
 
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
     <add key="SecretUri" value="secreturi" />
 
 
-If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values. Otherwise we will be adding them via the Azure Portal for an additional level of security. 
+If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise we will be adding them via the Azure Portal for an additional level of security. 
 
 
 ## <a id="gettoken"></a>Add Method to GetToken ##
@@ -70,11 +73,14 @@ In order to access your Key Vault we will use the Key Vault Client. The Key Vaul
 
 This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class. I have also added a string called EncryptSecret which will hold the secret after it is retrieved. 
 
+	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
 	using Microsoft.Azure;
 	
+	//this is a property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
+	//the method that will be provided to the KeyVaultClient
 	public async static Task<string> GetToken(string authority, string resource, string scope)
     {
 	    var authContext = new AuthenticationContext(authority);
