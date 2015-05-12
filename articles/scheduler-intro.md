@@ -24,8 +24,9 @@ Azure Scheduler maintains, manages, schedules, and invokes scheduled work. Azure
 Azure Scheduler schedules jobs, keeps a history of job execution results that one can interrogate, and deterministically and reliability schedules workloads to be run. Azure Mobile Services Scheduled Scripts, Azure Web Apps WebJobs, and other Azure scheduling capabilities use Azure Scheduler behind the scenes. The [Scheduler REST API](https://msdn.microsoft.com/library/dn528946) helps manage the communication for these actions. As such, Scheduler supports [complex schedules and advanced recurrence easily](scheduler-advanced-complexity.md).
 
 There are several scenarios that lend themselves to the usage of Azure Scheduler. For example:
-+ **Recurring application actions**: Periodically gathering data from Twitter and gather the data into  feed.
-+ **Daily maintenance**: Daily pruning of logs, performing backups, and other maintenance tasks.For example, an administrator may choose to backup her database at 1AM every day for the next 9 months.
+
++ _Recurring application actions_: Periodically gathering data from Twitter and gather the data into  feed.
++ _Daily maintenance_: Daily pruning of logs, performing backups, and other maintenance tasks.For example, an administrator may choose to backup her database at 1AM every day for the next 9 months.
 
 Scheduler allows you to create, update, delete, view, and manage [“job collections” and “jobs”](scheduler-concepts-terms.md) programmatically, using scripts, and in the portal. 
 
@@ -39,7 +40,7 @@ Scheduler allows you to create, update, delete, view, and manage [“job collect
  
  [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  
- [Scheduler REST API](https://msdn.microsoft.com/library/dn528946)   
+ [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
  
  [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
  
