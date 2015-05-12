@@ -37,7 +37,8 @@ You will have access to Azure services across all regions within a geopolitical 
 |**Europe**|North Europe, West Europe|Amsterdam, London|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
 |**Japan**|Japan West, Japan East|Tokyo|
-|**Australia**|Australia Southeast, Australia East|Sydney|
+|**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
+|**India**|India West, India Central, India South|Chennai, Mumbai|
 
 Connectivity across geopolitical regions is not supported. You can work with your connectivity provider to extend connectivity across geopolitical regions using their network.
 
@@ -57,6 +58,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 |**[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)**|Amsterdam, London|
 |**[Zayo Group]( http://www.zayo.com/)**|Washington DC|
 
+** + coming soon**
 
 -  Visit the [Configure your EXP connection](expressroute-configuring-exps.md) for steps to set up your connection.
 
@@ -72,10 +74,11 @@ Connectivity across geopolitical regions is not supported. You can work with you
 |**[Orange]( http://www.orange-business.com/)**|Amsterdam, London, Silicon Valley, Washington DC|
 |**PCCW Global Limited**|Hong Kong|
 |**[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)**|Singapore|
-|**[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)**|Hong Kong, Singapore|
+|**[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)**|Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore|
 |**[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**|Melbourne+, Sydney|
 |**[Verizon]( http://www.verizonenterprise.com/news/2014/04/secure-cloud-interconnect-solutions-enterprise)**|London, Hong Kong, Silicon Valley, Washington DC|
 
+** + coming soon**
 
 - Visit [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
 
