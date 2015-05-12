@@ -26,7 +26,7 @@ To configure the storage emulator, you must have administrative privileges on th
  
 Some differences exist between the storage emulator and Azure storage services. For more information about these differences, see [Differences Between the Storage Emulator and Azure Storage Services](#differences-between-the-storage-emulator-and-azure-storage-services).
 
-The storage emulator uses a Microsoft® SQL Server™ instance and the local file system to emulate the Azure storage services. By default, the storage emulator is configured for a database in Microsoft® SQL Server™ 2012 Express LocalDB. You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication. You can choose to configure the storage emulator to access a local instance of SQL Server instead of LocalDB using the Storage Emulator Command-Line Tool Reference.
+The storage emulator uses a Microsoft SQL Server instance and the local file system to emulate the Azure storage services. By default, the storage emulator is configured for a database in Microsoft SQL Server 2012 Express LocalDB. You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication. You can choose to configure the storage emulator to access a local instance of SQL Server instead of LocalDB using the Storage Emulator Command-Line Tool Reference.
 
 ## Authenticating Requests
 
