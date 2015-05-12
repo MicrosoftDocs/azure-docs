@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introduction to Stream Analytics | Azure" 
+	pageTitle="Introduction to Stream Analytics | Microsoft Azure" 
 	description="Understand Azure Stream Analytics" 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -24,7 +24,7 @@ Azure Stream Analytics is a fully managed service providing low-latency, highly 
 
 ## Introduction to Azure Stream Analytics (video)
 
-In this [video](http://azure.microsoft.com/documentation/videos/introduction-to-azure-stream-analytics-with-santosh-balasubramanian/), Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
+In this video, Santosh Balasubramanian and Scott Hanselman introduce Azure Stream Analytics. (Duration: 11:22)  
 
 > [AZURE.VIDEO introduction-to-azure-stream-analytics-with-santosh-balasubramanian]
 
