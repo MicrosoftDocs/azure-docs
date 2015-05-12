@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2015" 
-	ms.author="fashah,garye" /> 
+	ms.date="05/12/2015" 
+	ms.author="fashah,garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
@@ -24,7 +24,7 @@ This document covers sampling data stored in SQL Server on Azure in the followin
 2. [Using the Python Programming Language](#python) 
 
 **Note**
->The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to the cloud data science process map for instructions to move your data to a SQL Server in Azure.
+>The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it isn't, please refer to [Move data to SQL Server on Azure](machine-learning-data-science-move-sql-server-virtual-machine.md) topic in the [Advanced Data Process guide](machine-learning-data-science-advanced-data-processing.md) for instructions to move your data to a SQL Server in Azure.
 
 ###<a name="SQL"></a>Using SQL
 
@@ -109,9 +109,9 @@ You can use the following sample code to save the down-sampled data to a file an
  
 ![reader blob][2]
 
-### Azure Data Science in Action Example
+### Advanced analytics in Action Example
 
-For an end-to-end walkthrough example of the Azure Data Science Process using a public dataset, see [Azure Data Science Process in Action](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Advanced Data Process using a public dataset, see [Azure Advanced Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
 
 [1]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/machine-learning-data-science-sample-sql-server-virtual-machine/reader_blob.png

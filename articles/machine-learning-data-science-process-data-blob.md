@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Process Data in  Azure Blob" 
+	pageTitle="Process Azure blob data with advanced analytics | Azure" 
 	description="Process Data in Azure Blob" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye" /> 
+	ms.date="05/12/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
 
-#<a name="heading"></a>Process Azure Blob data in your data science environment
+#<a name="heading"></a>Process Azure blob data with advanced analytics
 
 This document covers exploring data and generating features from data stored in Azure Blob. In order to do so, data must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame for exploration and manipulation. Here are the steps to follow:
 
