@@ -74,7 +74,7 @@ If you are not going to host your application as an Azure Web App, then you shou
 ## <a id="gettoken"></a>Add Method to Get an Access Token ##
 In order to use the Key Vault API you need an access token. The Key Vault Client handles calls to the Key Vault API but you need to supply it with a function that gets the access token.  
 
-Following is the code to get an access token for Key Vault. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
+Following is the code to get an access token from Azure Active Directory. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
 
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
