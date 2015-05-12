@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use the Azure Storage Emulator for Development and Testing" 
+	pageTitle="Use the Azure Storage Emulator for Development and Testing | Microsoft Azure" 
 	description="Learn how to use the Azure Storage Emulator for Development and Testing." 
 	services="storage" 
 	documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
@@ -24,7 +24,7 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 To configure the storage emulator, you must have administrative privileges on the computer. 
 > Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
  
-Some differences exist between the storage emulator and Azure storage services. For more information about these differences, see [Differences Between the Storage Emulator and Azure Storage Services](https://msdn.microsoft.com/library/azure/gg433135.aspx).
+Some differences exist between the storage emulator and Azure storage services. For more information about these differences, see [Differences Between the Storage Emulator and Azure Storage Services](#differences-between-the-storage-emulator-and-azure-storage-services).
 
 The storage emulator uses a Microsoft® SQL Server™ instance and the local file system to emulate the Azure storage services. By default, the storage emulator is configured for a database in Microsoft® SQL Server™ 2012 Express LocalDB. You can install SQL Server Management Studio Express to manage your LocalDB installation. The storage emulator connects to SQL Server or LocalDB using Windows authentication. You can choose to configure the storage emulator to access a local instance of SQL Server instead of LocalDB using the Storage Emulator Command-Line Tool Reference.
 
@@ -43,12 +43,12 @@ To start the Azure storage emulator, Select the Start button or press the Window
 
 Alternatively, if the Azure compute emulator is already running, you can start the storage emulator by right-clicking the system tray icon and selecting Start Storage Emulator For more information about running the compute emulator, see [Run an Azure Application in the Compute Emulator](https://msdn.microsoft.com/library/azure/hh403990.aspx).
 
-When the storage emulator starts, a command line will appear. You can use this command line to start and stop the storage emulator as well as clear data, get current status, and initialize the emulator. For more information, see [Storage Emulator Command-Line Tool Reference](https://msdn.microsoft.com/library/azure/gg433005.aspx).
+When the storage emulator starts, a command line will appear. You can use this command line to start and stop the storage emulator as well as clear data, get current status, and initialize the emulator. For more information, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
 
 When the command line window is closed, the storage emulator continues to run. To bring up the command line again, follow the steps above as if starting the storage emulator.
 
 
-The first time you run the storage emulator, the local storage environment is initialized for you. You can use the storage emulator command-line tool to point to a different database instance or to reinitialize the existing database. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service. This step requires administrative privileges. For details, see [Storage Emulator Command-Line Tool Reference](https://msdn.microsoft.com/library/azure/gg433005.aspx).
+The first time you run the storage emulator, the local storage environment is initialized for you. You can use the storage emulator command-line tool to point to a different database instance or to reinitialize the existing database. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service. This step requires administrative privileges. For details, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
 
 ## About Storage Service URIs
 
@@ -202,6 +202,5 @@ There are no differences specific to the Queue service.
 
 - Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
 
-## Next Steps
 
-- [Storage Emulator Release Notes](https://msdn.microsoft.com/library/azure/dn683879.aspx) 
+
