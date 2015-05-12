@@ -18,7 +18,7 @@
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
 
-This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
+This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Templates](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 Common Tasks:
 
