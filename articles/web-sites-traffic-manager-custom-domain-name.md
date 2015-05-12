@@ -3,7 +3,7 @@
 	description="Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing." 
 	services="app-service\web" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="MikeWasson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
-	ms.author="cephalin"/>
+	ms.date="05/12/2015" 
+	ms.author="mwasson"/>
 
 #Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
 
@@ -27,13 +27,6 @@ This article provides generic instructions for using a custom domain name with A
 [AZURE.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
-
-In this article:
-
--   [Understanding DNS records](#understanding-records)
--   [Configure your web apps for Standard mode](#bkmk_configsharedmode)
--   [Add a DNS record for your custom domain](#bkmk_configurecname)
--   [Enable Traffic Manager for your web app](#enabledomain)
 
 <a name="understanding-records"></a>
 ## Understanding DNS records

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process | Azure"
+	pageTitle="Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process | Azure"
 	description="Process Data from Hive Tables with Hive queries."
 	metaKeywords=""
 	services="machine-learning"
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/25/2015"
+	ms.date="05/12/2015"
 	ms.author="hangzh;bradsev" />
 
-#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Cloud Data Science Process
+#<a name="heading"></a> Submit Hive Queries to HDInsight Hadoop clusters in the Advanced Analytics Process
 
 This document describes various ways of submitting Hive queries to Hadoop clusters that are managed by an HDInsight service in Azure. Several data wrangling tasks are discussed: data exploration and feature generation. Generic Hive queries that show how to explore data or generate features using Hive in an Azure HDInsight Hadoop cluster. These Hive queries use embedded Hive User Defined Functions (UDFs) which are provided.
 
@@ -30,7 +30,7 @@ In the final section, parameters that users can tune so that the performance of 
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](hdinsight-get-started.md#storage)
-* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md).
+* Provisioned a customized Hadoop cluster with the HDInsight service.  If you need instructions, see [Customize Azure HDInsight Hadoop Clusters for Advanced Analytics](machine-learning-data-science-customize-hadoop-cluster.md).
 * The data has been uploaded to Hive tables in Azure HDInsight Hadoop clusters. If it has not, please follow [Create and load data to Hive tables](machine-learning-data-science-move-hive-tables.md) to upload data to Hive tables first.
 * Enabled remote access to the cluster. If you need instructions, see [Access the Head Node of Hadoop Cluster](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
@@ -59,7 +59,7 @@ Users have three ways to submit Hive queries in Hadoop Command Line console:
 * using .hql files
 * from the Hive command console
 
-####Submit Hive queries directly from the Hadoop Command Line
+#### Submit Hive queries directly from the Hadoop Command Line
 
 Users can run command like
 
@@ -69,7 +69,7 @@ to submit simple Hive queries directly in the Hadoop command line. Here is an ex
 
 ![Create workspace][10]
 
-####Submit Hive queries in .hql files
+#### Submit Hive queries in .hql files
 
 When the Hive query is more complicated and has multiple lines, editing queries in Hadoop command line or Hive command console is not practical. An alternative is to use a text editor in the head node of the Hadoop cluster and to save the Hive queries in a .hql file in a local directory of the head node. Then the Hive query in the .hql file can be submitted by using the `-f` argument in the `hive` command as follows:
 
@@ -78,14 +78,14 @@ When the Hive query is more complicated and has multiple lines, editing queries 
 ![Create workspace][15]
 
 
-####Suppress progress status screen print of Hive queries
+#### Suppress progress status screen print of Hive queries
 
 By default, after Hive query is submitted in the Hadoop Command Line console, the progress of the Map/Reduce job will be printed out on screen. To suppress the screen print of the Map/Reduce job progress, you can use the argument `-S` ("S" must in upper case) argument in the command line as follows:
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Submit Hive queries in Hive command console.
+#### Submit Hive queries in Hive command console.
 
 Users can also enter the Hive command console by running the  `hive` command from the Hadoop command line, and then submit Hive queries from Hive command console. Here is an example.  
 
@@ -95,7 +95,7 @@ In this example, the two red boxes highlight the commands used to enter the Hive
 
 The previous examples directly output the Hive query results on screen. Users can also write the output to a local file on the head node, or to an Azure blob. Then, users can use other tools to further analyze the output of from Hive queries.
 
-####Output Hive query results to a local file.
+#### Output Hive query results to a local file.
 
 To output Hive query results to a local directory on the head node, users have to submit the Hive query in the Hadoop Command Line as follows:
 
@@ -105,7 +105,7 @@ In the following example, the output of Hive query is written into a file *hiveq
 
 ![Create workspace][12]
 
-####Output Hive query results to an Azure blob
+#### Output Hive query results to an Azure blob
 
 Users can also output the Hive query results to an Azure blob, within the default container of the Hadoop cluster. The Hive query to do this looks like this:
 

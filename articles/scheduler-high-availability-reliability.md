@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="04/22/2015" 
+ ms.date="05/12/2015" 
  ms.author="krisragh"/>
  
  
@@ -61,7 +61,9 @@ Note that the same retry policy applies to both the original action and the alte
 To learn how to configure an alternate endpoint, refer to [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
 
 ## See Also
-
+ 
+ [What is Scheduler?](scheduler-intro.md)
+ 
  [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
  
  [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
@@ -71,6 +73,8 @@ To learn how to configure an alternate endpoint, refer to [errorAction](schedule
  [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ 
+ [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
  
  [Scheduler Limits, Defaults, and Error Codes](scheduler-limits-defaults-errors.md)
  
