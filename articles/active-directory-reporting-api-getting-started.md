@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/06/2015"
+   ms.date="05/12/2015"
    ms.author="kenhoff"/>
 
 
@@ -25,7 +25,7 @@ This article will walk you through the necessary steps in order to make your fir
 
 You will need:
 
-- An [Azure Active Directory](active-directory-whatis)
+- An [Azure Active Directory](active-directory-whatis.md)
 - A way to make HTTP GET and POST requests; either:
 	- a bash shell with [curl](http://curl.haxx.se/)
 	- [Postman](https://www.getpostman.com/)
@@ -176,6 +176,7 @@ c0-a84f-57faf131dc2b"
 
 
 ## Next Steps
-- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports)
-- [Azure AD Audit Report Events](active-directory-reporting-audit-events)
+- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
+- See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
+- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/en-us/library/azure/mt126081.aspx) for more details on the Graph API REST service
 - For more information on the OAuth flow with Azure AD using curl: [Microsoft Azure REST API + OAuth 2.0](https://ahmetalpbalkan.com/blog/azure-rest-api-with-oauth2/) (external link)
