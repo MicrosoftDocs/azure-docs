@@ -18,7 +18,7 @@
 
 # Configure a Virtual Network with a Site-to-Site VPN Connection
 
-You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and a site-to-site VPN connection between your newly created VNet and your on-premises location. This procedure can be used for creating cross-premises and hybrid configurations.
+You can connect your on-premises location with a virtual network by creating a site-to-site VPN connection. This procedure will walk you through creating a virtual network and creating a site-to-site VPN connection between your newly created VNet and your on-premises location. You can use this procedure for creating cross-premises and hybrid virtual network configurations.
 
 
 ## Before Beginning
@@ -84,8 +84,8 @@ You can learn more about Virtual Network cross-premises connectivity in this art
 
 If you want to configure a point-to-site VPN connection, see [Configure a Point-to-Site VPN Connection](vpn-gateway-point-to-site-create.md)
 
-You can add virtual machines to your virtual network. See:[How to Create a Custom Virtual Machine](virtual-machines-create-custom.md)
+You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md)
 
-If you want to configure a VNet connection using RRAS, see, [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
+If you want to configure a VNet connection using RRAS see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
 
