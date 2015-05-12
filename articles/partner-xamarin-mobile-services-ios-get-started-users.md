@@ -78,8 +78,8 @@ Next, you will update the app to authenticate users before requesting resources 
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetSyncTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
