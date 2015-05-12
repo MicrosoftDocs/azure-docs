@@ -55,7 +55,6 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 - [Add and verify a domain using the Azure Management Portal](#add-and-verify-a-domain-using-the-azure-management-portal)
 - [Edit DNS records for your cloud services](#edit-dns-records-for-your-cloud-services)
 - [Verify a domain at any domain name registrar](#verify-a-domain-at-any-domain-name-registrar)
-- [Check domain status](#check-domain-status)
 
 ### Add and verify a domain using the Azure Management Portal
 
@@ -93,17 +92,6 @@ If you've just completed the **Add a domain** wizard, click **Configure DNS reco
 Typically it takes about 15 minutes for your changes to take effect. But it can take up to 72 hours for the DNS record that you created to propagate through the DNS system. If you need to view these record settings again, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click the **DNS settings** tab.
 
 To check the status of your domain, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click **Troubleshoot domain**.
-
-### Check domain status
-
-On the **Domains** page, you can view the status of each of your domain names in the cloud service. The following table lists the status options for domains.
-
- Status  | Definition
-------------- | -------------
-**Click to verify domain** | The domain has been added to your account, but the cloud service has not yet verified that you own the domain. You cannot use the domain with any of the services until verification is complete. Click the status to go verify your domain.
-**Active** | The initial onmicrosoft.com domain that is created when you open your account has this status.
-**Verified** | The domain has been successfully added and the cloud service has verified that you own it.
-**Pending deletion** | The cloud service has started removing the domain, but the removal process isn't complete, or there is an issue with removing the domain. 
 
 ### Verify a domain at any domain name registrar
 
