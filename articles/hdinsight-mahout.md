@@ -359,9 +359,9 @@ Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually 
 
     	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
-2. Upload the jar file to __example/jars__ in the default storage for your cluster. The following example uses send-hdinsight from the [HDInsight-Tools][tools] to upload the file:
+2. Upload the jar file to __example/jars__ in the default storage for your cluster. The following example uses add-hdinsightfile from the [HDInsight-Tools][tools] to upload the file:
 
-    	PS C:\> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Cannot overwrite files
 
