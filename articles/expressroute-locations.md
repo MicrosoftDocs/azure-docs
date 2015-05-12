@@ -58,7 +58,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 |**[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)**|Amsterdam, London|
 |**[Zayo Group]( http://www.zayo.com/)**|Washington DC|
 
- + coming soon
+ Note: + coming soon
 
 -  Visit the [Configure your EXP connection](expressroute-configuring-exps.md) for steps to set up your connection.
 
@@ -78,7 +78,7 @@ Connectivity across geopolitical regions is not supported. You can work with you
 |**[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**|Melbourne+, Sydney|
 |**[Verizon]( http://www.verizonenterprise.com/news/2014/04/secure-cloud-interconnect-solutions-enterprise)**|London, Hong Kong, Silicon Valley, Washington DC|
 
- + coming soon
+ Note: + coming soon
 
 - Visit [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
 
