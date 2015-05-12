@@ -20,7 +20,7 @@
 # Azure Site Recovery: Frequently asked questions
 ## About this article
 
-This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](http://azure.microsoft.com/en-us/documentation/articles/hyper-v-recovery-manager-overview/).
+This article includes frequently asked questions about Azure Site Recovery. For an introduction to Site Recovery and related deployment scenarios, read the [Site Recovery Overview](http://azure.microsoft.com/documentation/articles/hyper-v-recovery-manager-overview/).
 
 If you have other questions after reading this article, you can post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr).
 
