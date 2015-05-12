@@ -60,32 +60,35 @@ All three of these packages can be installed using the Package Manager Console u
 ## <a id="webconfig"></a>Modify Web.Config ##
 There are three application settings that need to be added to the web.config file as follows. 
 
+	<!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
     <add key="ClientId" value="clientid" />
     <add key="ClientSecret" value="clientsecret" />
+
+	<!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
 
 
-If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise we will be adding them via the Azure Portal for an additional level of security. 
+If you are not going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise leave these dummy values because we will be adding the actual values in the Azure Portal for an additional level of security. 
 
 
-## <a id="gettoken"></a>Add Method to GetToken ##
-In order to access your Key Vault we will use the Key Vault Client. The Key Vault Client in turn makes use of a callback function that you need to supply that will get the access token for Key Vault. 
+## <a id="gettoken"></a>Add Method to Get an Access Token ##
+In order to use the Key Vault API you need an access token. The Key Vault Client handles calls to the Key Vault API but you need to supply it with a function that gets the access token.  
 
-This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class. I have also added a string called EncryptSecret which will hold the secret after it is retrieved. 
+Following is the code to get an access token for Key Vault. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
 
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-	using Microsoft.Azure;
+	using System.Web.Configuration;
 	
-	//this is a property to hold the secret after it is retrieved
+	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
 	//the method that will be provided to the KeyVaultClient
 	public async static Task<string> GetToken(string authority, string resource, string scope)
     {
 	    var authContext = new AuthenticationContext(authority);
-	    ClientCredential clientCred = new ClientCredential(CloudConfigurationManager.GetSetting("ClientId"),
-	    CloudConfigurationManager.GetSetting("ClientSecret"));
+	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
+                    WebConfigurationManager.AppSettings["ClientSecret"]);
 	    AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
 	    
 	    if (result == null)
@@ -95,14 +98,20 @@ This code can go anywhere in your application. I like to add a Utils or Encrypti
     }
 
 ## <a id="appstart"></a>Retrieve the secret on Application Start ##
-You will now add code to access the Key Vault and retrieve the secret. It can be put anywhere as long as it is called before you need to use it. I will put this code in the Application Start event in the Global.asax so that it runs once on start and makes the secret available for the application.  
+Now we need code to call the Key Vault API and retrieve the secret. The following code can be put anywhere as long as it is called before you need to use it. I have put this code in the Application Start event in the Global.asax so that it runs once on start and makes the secret available for the application. 
+
+	//add these using statements
+	using Microsoft.Azure.KeyVault;
+	using System.Web.Configuration;
 
 	// I put my GetToken method in a Utils class. Change for wherever you placed your method. 
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
-	var sec = kv.GetSecretAsync(CloudConfigurationManager.GetSetting("SecretUri")).Result.Value;
+
+	var sec = kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]).Result.Value;
 	
 	//I put a variable in a Utils class to hold the secret for general  application use. 
     Utils.EncryptSecret = sec;
+
 
 
 ## <a id="portalsettings"></a>Add App Settings in the Azure Portal (optional) ##
