@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/12Fh/2015"
+	ms.date="05/12/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
