@@ -98,7 +98,7 @@ Next, we need to generate an authorization code, which we will use to retrieve a
 First, you need an authorization code. You can retrieve this by navigating to a specific URL in your browser, signing in as a global administrator in your directory, and retrieving the authorization code from the URL you were redirected to.
 
 - Substitute this URL with your Azure AD Directory ID and your Application Client ID.
-	- ```https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/authorize?client_id=<<INSERT-YOUR-APPLICATION-CLIENT-ID-HERE>>&response_type=code```
+	- ```https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/authorize?client_id=<<INSERT-YOUR-APPLICATION-CLIENT-ID-HERE>>&response_type=code```
 - After filling in the fields, open a browser window and navigate to the URL. Your browser will be redirected to a URL which contains your access code; there won't be any page content. This is OK. 
 
 - If prompted, sign in as a global administrator in your directory.
@@ -116,7 +116,7 @@ Next, you'll retrieve your access token by making an HTTP request to an OAuth en
 - First, replace ```YOUR-AZURE-AD-DIRECTORY-ID``` with the directory ID you retrieved in a previous step. Then, replace ```YOUR-CLIENT-ID``` with the client ID you retrieved in the previous step. Then, replace ```YOUR-CLIENT-SECRET``` with the client secret you retrieved in the previous step. Finally, replace ```YOUR-AUTHORIZATION-CODE``` with the authorization code you retrieved in the previous step.
 
 ```
-curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
+curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
 	-F redirect_uri=http://localhost
 	-F grant_type=authorization_code 
 	-F resource=https://management.core.windows.net/
