@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm=""
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/23/2014"
+	ms.date="05/12/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -60,7 +60,7 @@ Next, you will update the app to authenticate users before requesting resources 
 
 2. Then add a new method named **Authenticate** to **TodoService** defined as:
 
-        private async Task Authenticate(UIViewController view)
+        private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
             try
             {
@@ -79,12 +79,12 @@ Next, you will update the app to authenticate users before requesting resources 
         private async Task CreateTable()
         {
             // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetTable<TodoItem>();
+            todoTable = client.GetSyncTable<TodoItem>();
         }
 
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
 
-        public async Task LoginAndGetData(UIViewController view)
+        public async Task LoginAndGetData(MonoTouch.UIKit.UIViewController view)
         {
             await Authenticate(view);
             await CreateTable();
@@ -96,12 +96,12 @@ Next, you will update the app to authenticate users before requesting resources 
         {
             base.ViewDidAppear(animated);
 
-            if (TodoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
-                await TodoService.DefaultService.LoginAndGetData(this);
+                await QSTodoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (TodoService.DefaultService.User == null)
+            if (QSTodoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
