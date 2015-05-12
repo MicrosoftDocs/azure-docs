@@ -110,7 +110,7 @@ Assuming the custom domain name is ‘contoso.com’, this would create the foll
 - **www.contoso.com** mapped to **contoso.azurewebsites.net**.
 
 <a name="awverify" />
-## Create an “awverify” record (A records only)
+## Create an awverify record (A records only)
 
 If you create an A record, web app also requires a special CNAME record, which is used to verify that you own the domain you are attempting to use. This CNAME record must have the following form.
 
