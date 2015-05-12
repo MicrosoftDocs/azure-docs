@@ -23,7 +23,7 @@ This article shows you how to use Azure Resource Manager templates and Azure CLI
 Common Tasks:
 
 - [Quick-create a Virtual Machine in Azure](#common-task-quick-create-a-vm-in-azure)
-- [Deploy a Virtuam Machine in Azure from a template](#common-task-deploy-a-vm-in-azure-from-a-template)
+- [Deploy a Virtual Machine in Azure from a template](#common-task-deploy-a-vm-in-azure-from-a-template)
 - [Create a Virtual Machine from a custom image](#common-task-create-a-custom-vm-image) 
 - [Deploy a VM with virtual network and load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 - [Remove a resource group](#remove-a-resource-group)
