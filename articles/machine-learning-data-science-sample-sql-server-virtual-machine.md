@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="05/12/2015" 
-	ms.author="fashah,garye;bradsev" /> 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample Data in SQL Server on Azure
 
