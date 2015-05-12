@@ -20,17 +20,6 @@
 
 This sample demonstrates the Service Fabric application lifecycle through REST API calls. For more information on the Service Fabric application lifecycle, see [Service Fabric Application Lifecycle](service-fabric-application-lifecycle.md).
 
-## Prerequisites
-
-This sample requires two applications in the ImageStore.
-
-|Folder|Description|
-|------|-----------|
-|WordCount|The WordCount sample application. The ApplicationManifest.xml contains ApplicationTypeVersion="1.0.0.0".|
-|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to ApplicationTypeVersion="1.1.0.0" to allow the application upgrade to occur.|
-
-## Description
-
 This sample performs the following:
 
 * Provisions the WordCount 1.0.0.0 sample from the WordCount application package in the ImageStore.
@@ -48,6 +37,42 @@ This sample performs the following:
 * Unprovisions the 1.0.0.0 version of the WordCount sample.
 * Displays the list of application types, which no longer includes WordCount.
 
+
+## Prerequisites
+
+This sample uses the [WordCount sample](https://github.com/azure/servicefabric-samples). The WordCount sample must first be built and then two application packages must be copied to the ImageStore.
+
+|Folder|Description|
+|------|-----------|
+|WordCount|The WordCount sample application. The ApplicationManifest.xml contains ApplicationTypeVersion="1.0.0.0".|
+|WordCountUpgrade|The WordCount sample application. The ApplicationManifest.xml file must be changed to ApplicationTypeVersion="1.1.0.0" to allow the application upgrade to occur.|
+
+To create the application packages and copy them to the ImageStore, take the following steps:
+
+1. Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount. This creates the WordCount application package. 
+2. Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade. This creates the WordCountUpgrade application package.
+3. Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.
+4. In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0.0".  This updates the version number of the application.
+5. Save the changed ApplicationManifest.xml file.
+6. Run the following PowerShell script as an administrator to copy the applications to the ImageStore:
+
+
+		# Deploy the WordCount and upgrade applications
+		$applicationPathWordCount = "C:\Temp\WordCount"
+		$applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
+
+		# LOCAL:
+		$imageStoreConnection = "fabric:ImageStore"
+		$cluster = 'localhost:19000'
+
+		Connect-ServiceFabricCluster $cluster
+
+		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
+		Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
+
+
+After the PowerShell script completes, this application will be ready to run.
+
 ## Example
 
 The following example demonstrates the Service Fabric application lifecycle.
@@ -63,52 +88,6 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
-
-/*********************************************************************************************************
-
-    This sample demonstrates  the Service Fabric application lifecycle. A Service Fabric Application 
-        is provisioned, created, updated, deleted, and unprovisioned.
-
-    This requires two applications in the ImageStore:
-        WordCount        - The WordCount sample.
-        WordCountUpgrade - The WordCount sample with an altered ApplicationManifest.xml which has 
-                           ApplicationTypeVersion="1.1.0.0".
-
-
-    To create the application packages and copy them to the ImageStore, take the following steps:
-
-    1) Copy C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug to C:\Temp\WordCount.
-        This creates the WordCount application package.
-
-    2) Copy C:\Temp\WordCount to C:\Temp\WordCountUpgrade.
-        This creates the WordCountUpgrade application package.
-
-    3) Open C:\Temp\WordCountUpgrade\ApplicationManifest.xml in a text editor.
-
-    4) In the ApplicationManifest element, change the ApplicationTypeVersion attribute to "1.1.0.0".
-        This updates the version number of the application.
-
-    5) Save the changed ApplicationManifest.xml file.
-
-    6) Run the following PowerShell script as an administrator to copy the applications to the ImageStore:
-
-        # Deploy the WordCount and upgrade applications
-        $applicationPathWordCount = "C:\Temp\WordCount"
-        $applicationPathUpgrade = "C:\Temp\WordCountUpgrade"
-
-        # LOCAL:
-        $imageStoreConnection = "fabric:ImageStore"
-        $cluster = 'localhost:19000'
-
-        Connect-ServiceFabricCluster $cluster
-
-        Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathWordCount -ImageStoreConnectionString $imageStoreConnection
-        Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $applicationPathUpgrade -ImageStoreConnectionString $imageStoreConnection
-
-    After the PowerShell script completes, this application will be ready to run.
-
-*********************************************************************************************************/
-
 
 namespace ServiceFabricRestCaller
 {
@@ -206,127 +185,6 @@ namespace ServiceFabricRestCaller
             Console.WriteLine("\nPress Enter to end this program: ");
             Console.ReadLine();
         }
-
-        /*
-        This code produces output similar to the following:
-
-        Provision the 1.0.0.0 WordCount application for the first time.
-        Provision an Application response status = OK
-
-        Press Enter to get the list of application types:
-
-
-        Get the list of application types.
-        Application types:
-          Application Type:
-            Name: WordCount
-            Version: 1.0.0.0
-            Default Parameter List:
-
-        Press Enter to create the fabric:/WordCount application:
-
-
-        Create the fabric:/WordCount application.
-        Create Application response status = Created
-
-        Press Enter to get the list of applications:
-
-
-        Get the list of applications.
-        Application List:
-          Application:
-            Id: WordCount
-            Name: fabric:/WordCount
-            TypeName: WordCount
-            TypeVersion: 1.0.0.0
-            Status: Ready
-            HealthState: Ok
-            Parameters:
-
-        Press Enter to provision the 1.1.0.0 upgrade to the WordCount application:
-
-
-        Provision the 1.1.0.0 upgrade to the WordCount application.
-        Provision an Application response status = OK
-
-        Press Enter to get the list of application types:
-
-
-        Get the list of application types.
-        Application types:
-          Application Type:
-            Name: WordCount
-            Version: 1.0.0.0
-            Default Parameter List:
-          Application Type:
-            Name: WordCount
-            Version: 1.1.0.0
-            Default Parameter List:
-
-        Press Enter to upgrade the fabric:/WordCount application:
-
-
-        Upgrade the fabric:/WordCount application.
-        Update Application response status = OK
-
-        Press Enter to get the list of applications:
-
-
-        Get the list of applications.
-        Application List:
-          Application:
-            Id: WordCount
-            Name: fabric:/WordCount
-            TypeName: WordCount
-            TypeVersion: 1.1.0.0
-            Status: Ready
-            HealthState: Ok
-            Parameters:
-
-        Press Enter to delete the fabric:/WordCount application:
-
-
-        Delete the fabric:/WordCount application.
-        Delete Application response status = OK
-
-        Press Enter to get the list of applications:
-
-
-        Get the list of applications.
-        Application List:
-
-        Press Enter to unprovision the WordCount 1.1.0.0 application:
-
-
-        Unprovision the WordCount 1.1.0.0 application.
-        Unprovision an Application response status = OK
-
-        Press Enter to get the list of application types:
-
-
-        Get the list of application types.
-        Application types:
-          Application Type:
-            Name: WordCount
-            Version: 1.0.0.0
-            Default Parameter List:
-
-        Press Enter to unprovision the WordCount 1.0.0.0 application:
-
-
-        Unprovision the WordCount 1.0.0.0 application.
-        Unprovision an Application response status = OK
-
-        Press Enter to get the final list of application types:
-
-
-        Get the final list of application types.
-        Application types:
-
-        Press Enter to end this program:
-
-        */
-
 
         #region Classes
 
@@ -435,25 +293,6 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /* This code produces output similar to the following:
-
-        Application types:
-            Application Type:
-            Name: WordCount
-            Version: 1.0.0.0
-            Default Parameter List:
-        */
-
-        /* Sample JSON return string (formatted): 
-        [
-            {
-                "Name": "WordCount",
-                "Version": "1.0.0.0",
-                "DefaultParameterList": []
-            }
-        ]
-        */
-
         #endregion
 
 
@@ -517,20 +356,7 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /*
-        This code produces output similar to the following:
-
-        Provision an Application response status = OK
-        */
-
-        /* JSON request string (formatted): 
-        {
-            "ApplicationTypeBuildPath": "WordCount"
-        }
-        */
-
         #endregion
-
 
         #region Unprovision an Application (REST API)
 
@@ -592,20 +418,7 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /*
-        This code produces output similar to the following:
-
-        Unprovision an Application response status = OK
-        */
-
-        /* JSON request string (formatted):
-        {
-            "ApplicationTypeVersion":"1.0.0.0"
-        }
-        */
-
         #endregion
-
 
         #region Get Application List (REST API)
 
@@ -683,35 +496,7 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /* This code produces output similar to the following:
-
-        Application List:
-            Application:
-            Id: WordCount
-            Name: fabric:/WordCount
-            TypeName: WordCount
-            TypeVersion: 1.0.0.0
-            Status: Ready
-            HealthState: Ok
-            Parameters:
-        */
-
-        /* Sample JSON return string (formatted): 
-        [
-            {
-                "Id": "WordCount",
-                "Name": "fabric:\\/WordCount",
-                "TypeName": "WordCount",
-                "TypeVersion": "1.0.0.0",
-                "Status": 1,
-                "Parameters": [],
-                "HealthState": 1
-            }
-        ]
-        */
-
         #endregion
-
 
         #region Create Application (REST API)
 
@@ -779,20 +564,6 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /* This code produces output similar to the following:
-
-        Create Application response status = Created
-        */
-
-        /* JSON request string (formatted): 
-        {
-            "Name": "fabric:/WordCount",
-            "TypeName": "WordCount",
-            "TypeVersion": "1.0.0.0",
-            "ParameterList": []
-        }
-        */
-
         #endregion
 
 
@@ -846,13 +617,7 @@ namespace ServiceFabricRestCaller
             return true;
         }
 
-        /* This code produces output similar to the following:
-
-        Delete Application response status = OK
-        */
-
         #endregion
-
 
         #region Upgrade Application by Application Type (REST API)
 
@@ -933,31 +698,6 @@ namespace ServiceFabricRestCaller
 
             return true;
         }
-
-        /* This code produces output similar to the following:
-
-        Update Application response status = OK
-        */
-
-        /* JSON request string (formatted): 
-        {
-            "Name": "fabric:/WordCount",
-            "TargetApplicationTypeVersion": "1.1.0.0",
-            "Parameters": [],
-            "UpgradeKind": 1,
-            "RollingUpgradeMode": 1,
-            "UpgradeReplicaSetCheckTimeoutInSeconds": 5,
-            "ForceRestart": true,
-            "MonitoringPolicy": {
-                "FailureAction": 1,
-                "HealthCheckWaitDurationInMilliseconds": "5000",
-                "HealthCheckStableDurationInMilliseconds": "10000",
-                "HealthCheckRetryTimeoutInMilliseconds": "20000",
-                "UpgradeTimeoutInMilliseconds": "60000",
-                "UpgradeDomainTimeoutInMilliseconds": "30000"
-            }
-        }
-        */
 
         #endregion
     }
