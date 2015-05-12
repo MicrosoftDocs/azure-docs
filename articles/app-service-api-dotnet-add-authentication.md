@@ -20,7 +20,7 @@
 
 ## Overview
 
-This tutorial shows how to protect an API app so that only authenticated users can access it. The tutorial also shows the code required to retrieve information about the logged-on user.
+This tutorial shows how to protect an API app so that only authenticated users can access it. The tutorial also shows code that you can use in an ASP.NET API app to retrieve information about the logged-on user.
 
 You'll perform the following steps:
 
