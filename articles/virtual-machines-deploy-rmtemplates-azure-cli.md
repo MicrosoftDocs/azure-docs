@@ -18,7 +18,7 @@
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
 
-This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and the Azure CLI as well as links to more documentation on automation for Virtual Machines. 
+This article shows you how to use Azure Resource Manager templates and Azure CLI to do the following common tasks for deploying and managing Azure Virtual Machines. For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 Common Tasks:
 
@@ -1307,6 +1307,8 @@ Then you'll need to mount the disk, as you normally would in Linux (or in Window
 ## Next steps
 
 For far more examples of Azure CLI usage with the **arm** mode, see [Using the Microsoft Azure CLI for Mac, Linux, and Windows with Azure Resource Management](xplat-cli-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager Overview](resource-group-overview.md).
+
+For more templates you can use, see [Azure Quickstart Tempaltes](http://azure.microsoft.com/documentation/templates/) and [App Frameworks](virtual-machines-app-frameworks.md).
 
 
 
