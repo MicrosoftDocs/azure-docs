@@ -41,7 +41,6 @@ Read the following to learn how to upgrade an application:
 - [Troubleshooting Application Upgrade Failures](service-fabric-application-upgrade-troubleshooting.md)
 - [Application Upgrade Tutorial/Walkthrough](service-fabric-application-upgrade-tutorial.md)
 - [Service Fabric Application Upgrade: Data Serialization](service-fabric-application-upgrade-data-serialization.md) 
-- [Troubleshooting a failed application upgrade](service-fabric-application-monitored-upgrade-troubleshooting.md)
 
 ## Scale and partition applications services
 The following articles describe scaling and partitioning:
