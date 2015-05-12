@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="04/22/2015" 
+ ms.date="05/12/2015" 
  ms.author="krisragh"/>
 
 # Get Started Using Scheduler in the Management Portal
@@ -226,7 +226,9 @@ The job config page appears as shown below for storage queue jobs. For storage q
 Finally, for all action types, you may change the schedule itself and its recurrence behavior. You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.) After making any changes, you may save changes by clicking ‘Save’ or discard changes by clicking ‘Discard.’
 
 ## See Also
-
+ 
+ [What is Scheduler?](scheduler-intro.md)
+ 
  [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
  
  [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
@@ -234,6 +236,8 @@ Finally, for all action types, you may change the schedule itself and its recurr
  [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ 
+ [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
  
  [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
  

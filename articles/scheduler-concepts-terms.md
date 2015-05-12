@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="04/22/2015" 
+ ms.date="05/12/2015" 
  ms.author="krisragh"/>
  
 # Scheduler Concepts, Terminology, and Entity Hierarchy
@@ -188,7 +188,9 @@ To set a retry policy, two values additional settings may be specified: a retry 
 Retry interval, specified with the **retryInterval** object, is the interval between retries. Its default value is 1 minute, its minimum value is 1 minute, and its maximum value is 18 months. It is defined in the ISO 8601 format. Similarly, the value of the number of retries is specified with the **retryCount** object; it is the number of times a retry is attempted. Its default value is 5 and its maximum value is 20\. Both **retryInterval** and **retryCount** are optional – they are given their default values if **retryType** is set to **fixed** and no values are specified explicitly.
 
 ## See Also
-
+ 
+ [What is Scheduler?](scheduler-intro.md)
+ 
  [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
  
  [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
@@ -196,6 +198,8 @@ Retry interval, specified with the **retryInterval** object, is the interval bet
  [How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler](scheduler-advanced-complexity.md)
  
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ 
+ [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
  
  [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
  
