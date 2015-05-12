@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="huvalo"/>
 
 # How to use Blob storage from Python
@@ -34,7 +34,6 @@ Azure Blob storage service. The samples are written in Python and use the [Pytho
 
 > [AZURE.NOTE] If you need to install Python or the [Python Azure package][], please see the [Python Installation Guide](python-how-to-install.md).
 
-
 The **BlobService** object lets you work with containers and blobs. The
 following code creates a **BlobService** object. Add the following near
 the top of any Python file in which you wish to programmatically access Azure Storage:
@@ -45,7 +44,9 @@ The following code creates a **BlobService** object using the storage account na
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-All storage blobs reside in a container. You can use a **BlobService** object to create the container if it doesn't exist:
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+You can use a **BlobService** object to create the container if it doesn't exist:
 
 	blob_service.create_container('mycontainer')
 

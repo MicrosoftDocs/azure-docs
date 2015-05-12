@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="05/11/2015" 
 	ms.author="awills"/>
  
 # Get started with Application Insights in a Java web project
@@ -26,7 +26,7 @@ By adding Visual Studio Application Insights to your project, you can detect and
 
 ![sample data](./media/app-insights-java-track-http-requests/5-results.png)
 
-In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][track] to understand usage patterns.
+In addition, you can set up [web tests][availability] to monitor your application's availability, and insert [code into your web pages][api] to understand usage patterns.
 
 You'll need:
 
@@ -240,7 +240,15 @@ For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET H
 
 This enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 
-## 5. Performance counters
+## Unhandled exceptions and request failures
+
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+To collect data on other exceptions, [insert calls to TrackException in your code][apiexceptions]. 
+
+
+## Performance counters
 
 Click the Servers tile, and you'll see a range of performance counters.
 
@@ -299,15 +307,15 @@ Your performance counters are visible as custom metrics in [Metrics Explorer][me
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 
-## 6. Capture log traces
+## Capture log traces
 
 You can use Application Insights to slice and dice logs from Log4J, Logback or other logging frameworks. You can correlate the logs with HTTP requests and other telemetry. [Learn how][javalogs].
 
-## 7. Send your own telemetry
+## Send your own telemetry
 
 Now that you've installed the SDK, you can use the API to send your own telemetry. 
 
-* [Track custom events and metrics][track] to learn what users are doing with your application.
+* [Track custom events and metrics][api] to learn what users are doing with your application.
 * [Search events and logs][diagnostic] to help diagnose problems.
 
 
@@ -325,11 +333,12 @@ In addition, you can bring more features of Application Insights to bear on your
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
 [usage]: app-insights-web-track-usage.md
 
