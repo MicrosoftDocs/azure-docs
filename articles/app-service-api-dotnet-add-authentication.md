@@ -252,7 +252,15 @@ In this section you change the code in the ContactsList API app so that it retri
 
 	Instead of the three sample contacts, the code returns contact information for the logged-on user. 
 
-	The sample code uses Azure Active Directory. For other providers you would use the appropriate token name ("microsoftaccount", "google", "twitter", or "facebook") and claims identifiers. For information about Azure Active Directory claims that are available, see [Supported Token and Claim Types](https://msdn.microsoft.com/library/dn195587.aspx).
+	The sample code uses Azure Active Directory. For other providers you would use the appropriate token name and claims identifiers. Here are the valid token name values:
+
+	* "aad"
+	* "microsoftaccount"
+	* "google"
+	* "twitter"
+	* "facebook". 
+
+	For information about Azure Active Directory claims that are available, see [Supported Token and Claim Types](https://msdn.microsoft.com/library/dn195587.aspx).
 
 3. Add a using statement for `Microsoft.Azure.AppService.ApiApps.Service`.
 
