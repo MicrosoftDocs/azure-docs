@@ -13,18 +13,34 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/11/2015" 
 	ms.author="rasquill"/>
 
 # Deploy and Manage Virtual Machines using Azure Resource Manager Templates and the Azure CLI
 
 This article provides guidance on how to automate common tasks for deploying and managing Azure Virtual Machines using Azure Resource Manager templates and the Azure CLI as well as links to more documentation on automation for Virtual Machines. 
 
+Common Tasks:
+
+- [Quick-create a Virtual Machine in Azure](#common-task-quick-create-a-vm-in-azure)
+- [Deploy a Virtuam Machine in Azure from a template](#common-task-deploy-a-vm-in-azure-from-a-template)
+- [Create a Virtual Machine from a custom image](#common-task-create-a-custom-vm-image) 
+- [Deploy a VM with virtual network and load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Remove a resource group](#remove-a-resource-group)
+- [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
+- [Display information about a Virtual Machine](#display-information-about-a-virtual-machine)
+- [Connect to a Linux-based Virtual Machine](#log-on-to-a-linux-based-virtual-machine)
+- [Stop a Virtual Machine](#stop-a-virtual-machine)
+- [Start a Virtual Machine](#start-a-virtual-machine)
+- [Attach a data disk](#attach-a-data-disk)
+
+
+
 ## Getting Ready
 
 Before you can use the Azure CLI with Azure resource groups you will need to have the right Azure CLI version and a work or school ID (also called an organizational ID).
 
-### Step 1: Update your Azure CLI version to 0.9.0 or later
+### Update your Azure CLI version to 0.9.0 or later
 
 Type `azure --version` to see whether you have already installed version 0.9.0 or later 
 
@@ -37,7 +53,7 @@ You can also run Azure CLI as a Docker container using the following [Docker ima
 
 	docker run -it kmouss/azure-cli
 
-### Step 2: Set your Azure account and subscription
+### Set your Azure account and subscription
 
 If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -58,11 +74,11 @@ Your account may have more than one subscription. You can list your subscription
     
 You can set the current Azure subscription by typing
 
-	`azure account set <subscription name or ID> true
+	azure account set <subscription name or ID> true
 
 with the subscription name or the ID that has the resources you want to manage.
 
-### Step 3: Switch to the Azure CLI resource group mode
+### Switch to the Azure CLI resource group mode
 
 By default, the Azure CLI starts in the service management mode (**asm** mode). Type 
 
@@ -1206,7 +1222,7 @@ and then, looking up myVM1:
     info:    Executing command vm show
     + Looking up the VM "myVM1"                                                    
     + Looking up the NIC "nic1"                                                    
-    data:    Id                              :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
+    data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
@@ -1240,7 +1256,7 @@ and then, looking up myVM1:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
-    data:          Id                        :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
+    data:          Id                        :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Network/networkInterfaces/nic1
     data:          Primary                   :false
     data:          Provisioning State        :Succeeded
     data:          Name                      :nic1
@@ -1249,25 +1265,11 @@ and then, looking up myVM1:
     data:            Private IP address      :10.0.0.5
     data:    
     data:    AvailabilitySet:
-    data:      Id                            :/subscriptions/8f2d8c5f-742a-4f1b-a2ed-a2b8b246bcd6/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
+    data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
     
 
 > [AZURE.NOTE] If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)**, or language libraries good for the task. 
-
-## Show information about a VM
-
-This is a basic task you'll use often. Use it to get information about a VM, perform tasks on a VM, or get output to store in a variable. 
-
-To get info about the VM, run this command, replacing everything in the quotes, including the < and > characters:
-
-     azure vm show -g <group name> -n <virtual machine name>
-
-To store the output in a $vm variable as a JSON document, run:
-
-    vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
-or you can pipe the stdout to a file.
 
 ## Log on to a Linux-based virtual machine
 
