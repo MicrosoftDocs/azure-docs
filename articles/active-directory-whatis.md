@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="05/11/2015"
 	ms.author="curtand"/>
 
 
@@ -51,11 +51,15 @@ Because it is a comprehensive service, Azure AD provides different benefits to p
 
 ![][1]
 
-##Top eight things you should know about Azure AD
+##Top nine things you should know about Azure AD
+
+### Manage Active Directory passwords from anywhere
+
+Use Azure Active Directory to empower users to manage their Active Directory or Azure Active Directory passwords from any device, at any location.  An administrator can manage password and notification policies, and can see detailed audit activity of these password reset operations the moment they occur. [Learn more about Azure AD password management] (http://aka.ms/ssproverview)
 
 ### Set rules for access to cloud resources
 
-In addition, you can set rules and policies that control who has access to cloud applications and resources, and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](multi-factor-authentication.md).
+You can set rules and policies that control who has access to cloud applications and resources, and under what conditions. For example, you can require Multi-Factor Authentication (MFA), and manage access based on the device or location. [Learn more about Azure MFA](multi-factor-authentication.md).
 
 ### Single sign-on to any app
 
