@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="05/12/2015"
 	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service
@@ -124,6 +124,10 @@ Visitors to your web app will not see the awverify subdomain; it’s only for Az
 [AZURE.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 >[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+
+## Buy domain for your web app
+
+[AZURE.INCLUDE [modes](../includes/custom-dns-web-site-buydomains-web-app.md)]
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
