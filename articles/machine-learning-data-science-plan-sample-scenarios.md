@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/08/2015" 
+	ms.date="05/12/2015" 
 	ms.author="msolhab;bradsev" /> 
 
 
@@ -303,13 +303,13 @@ The following diagram summarizes the scenarios described above and the Advanced 
 
 ![Sample DS process walkthrough scenarios][8]
 
-### Azure Advanced Analytics in Action Examples
+### Advanced Analytics in action Eeamples
 
-For end-to-end walkthrough examples of the Azure Advanced Analytics Process using a public dataset, see: 
+For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process using a public dataset, see: 
 
 
-* [Azure Advanced Analytics Process in Action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
-* [Azure Advanced Analytics Process in Action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+* [Advanced Analytics Process in action: using SQL Sever](machine-learning-data-science-process-sql-walkthrough.md).
+* [Advanced Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
