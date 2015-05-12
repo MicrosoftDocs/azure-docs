@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="05/12/2015" 
 	ms.author="hangzh;bradsev" /> 
 
                 
@@ -72,15 +72,15 @@ Here are three examples of prediction problems that we address in this walkthrou
 3. **Regression task**: To predict the amount of the tip paid for a trip.  
 
 
-## <a name="setup"></a>Set up an HDInsight Hadoop cluster for data science
+## <a name="setup"></a>Set up an HDInsight Hadoop cluster for advanced analytics
 
 >[AZURE.NOTE] This is typically an **Admin** task.
 
-You can set up an Azure Data Science environment that works with an HDInsight cluster in three steps :
+You can set up an Azure environment for advanced analytics that employs an HDInsight cluster in three steps:
 
 1. [Create a storage account](storage-whatis-account.md): This storage account is used for storing data in Azure Blob Storage. The data used in HDInsight clusters also resides here.
 
-2. [Customize Azure HDInsight Hadoop Clusters for Data Science](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
+2. [Customize Azure HDInsight Hadoop clusters for advanced analytics](machine-learning-data-science-customize-hadoop-cluster.md). This step creates an Azure HDInsight Hadoop cluster with 64-bit Anaconda Python 2.7 installed on all nodes. There are two important steps to remember while customizing your HDInsight cluster.
 
 	* Remember to link the storage account created in step 1 with your HDInsight cluster when creating it. This storage account is used to access data that is processed within the cluster.
 	

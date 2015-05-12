@@ -209,7 +209,7 @@ public Task PublishMessageAsync(long participantId, string message)
 All it really does is leverage Reliable Actors' ability to allow any actor to address any other actor in the cluster by id and communicate with it without needing to worry about placement, addressing, caching, messaging, serialization, or routing.
 
 ## Next Steps
-[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smartcache.md)
+[Pattern: Smart Cache](service-fabric-reliable-actors-pattern-smart-cache.md)
 
 [Pattern: Resource Governance](service-fabric-reliable-actors-pattern-resource-governance.md)
 

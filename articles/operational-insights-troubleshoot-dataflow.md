@@ -116,8 +116,8 @@ Error code 403 means ‘fordbidden’ – this is typically a wrongly-copied Wor
 
 
 ## Procedure 5: Look for your agents to send their data and have it indexed in the Portal
-Check in the OpInsights Portal, from Overview page navigate to the small tile **Servers and Usage** – this will show if management groups (and their agents) and direct agents are reporting data into search. The number of agents on the tile is derived from data – if machines don’t report for 2 weeks they’ll drop off the radar.
+Check in the OpInsights Portal, from Overview page navigate to the small tile **Servers and Usage** – this will show if management groups (and their agents) and direct agents are reporting data into log search. The number of agents on the tile is derived from data – if machines don’t report for 2 weeks they’ll drop off the radar.
 
-The drill downs take you to search and show the last indexed data’s timestamp for each machine. From there you can explore what data it is. Depending on the amount of data collection configured and which solutions, data upload schedule and speed can vary.
+The drill downs take you to log search and show the last indexed data’s timestamp for each machine. From there you can explore what data it is. Depending on the amount of data collection configured and which solutions, data upload schedule and speed can vary.
 
-This page also features metering information (this does not use the search index but the billing system, it’s refreshed every couple of hours) about the amounts of data sent to the service broken down by solution.
+This page also features metering information (this does not use the log search index but the billing system, it’s refreshed every couple of hours) about the amounts of data sent to the service broken down by solution.

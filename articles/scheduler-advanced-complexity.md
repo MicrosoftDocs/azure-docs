@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="04/22/2015" 
+ ms.date="05/12/2015" 
  ms.author="krisragh"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
@@ -177,7 +177,9 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
 ## See Also
-
+ 
+ [What is Scheduler?](scheduler-intro.md)
+ 
  [Scheduler Concepts, Terminology, and Entity Hierarchy](scheduler-concepts-terms.md)
  
  [Get Started Using Scheduler in the Management Portal](scheduler-get-started-portal.md)
@@ -185,6 +187,8 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
  [Plans and Billing in Azure Scheduler](scheduler-plans-billing.md)
  
  [Scheduler REST API Reference](https://msdn.microsoft.com/library/dn528946)   
+ 
+ [Scheduler PowerShell Cmdlets Reference](scheduler-powershell-reference.md)
  
  [Scheduler High-Availability and Reliability](scheduler-high-availability-reliability.md)
  

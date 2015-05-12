@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Process Data in  Azure Blob" 
+	pageTitle="Process Azure blob data with advanced analytics | Azure" 
 	description="Process Data in Azure Blob" 
 	metaKeywords="" 
 	services="machine-learning" 
@@ -15,10 +15,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="sunliangms;fashah;msolhab;garye" /> 
+	ms.date="05/12/2015" 
+	ms.author="sunliangms;fashah;msolhab;garye;bradsev" /> 
 
-#<a name="heading"></a>Process Azure Blob data in your data science environment
+#<a name="heading"></a>Process Azure blob data with advanced analytics
 
 This document covers exploring data and generating features from data stored in Azure Blob. In order to do so, data must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame for exploration and manipulation. Here are the steps to follow:
 
@@ -48,7 +48,7 @@ This document covers exploring data and generating features from data stored in 
 
 Now you are ready to explore the data and generate features on this dataset.
 
-####<a name="blob-dataexploration"></a>Data Exploration
+##<a name="blob-dataexploration"></a>Data Exploration
 
 Here are a few examples of ways to explore data using Pandas:
 
@@ -104,11 +104,11 @@ Here are a few examples of ways to explore data using Pandas:
 		dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 	
 	
-####<a name="blob-featuregen"></a>Feature Generation
+##<a name="blob-featuregen"></a>Feature Generation
 	
 We can generate features using Python as follows:
 
-#####<a name="blob-countfeature"></a>Indicator value based Feature Generation
+###<a name="blob-countfeature"></a>Indicator value based Feature Generation
 
 Categorical features can be created as follows:
 
@@ -131,7 +131,7 @@ Categorical features can be created as follows:
 		#Remove the original column rate_code in df1_with_dummy
 		dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 	
-#####<a name="blob-binningfeature"></a>Binning Feature Generation
+###<a name="blob-binningfeature"></a>Binning Feature Generation
 
 For generating binned features, we proceed as follows:
 
@@ -148,7 +148,7 @@ For generating binned features, we proceed as follows:
 
 		dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)	
 
-####<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
+##<a name="sql-featuregen"></a>Writing data back to Azure blob and consuming in Azure Machine Learning
 
 After you have explored the data and created the necessary features, you can upload the data (sampled or featurized) to an Azure blob and consume it in Azure Machine Learning using the following steps:
 Note that additional features can be created in the Azure Machine Learning Studio as well. 
