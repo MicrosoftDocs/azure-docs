@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Use SSH keys with Hadoop on Linux-based HDInsight from Linux, Unix, or OS X | Aure"
-   description="Learn how to create and use SSH keys to authenticate to Linux-based HDInsight clusters."
+   pageTitle="Use SSH keys with  Linux-based Hadoop from Linux, Unix, or OS X | Microsoft Azure"
+   description=" You can access Linux-based HDInsight using Secure Shell (SSH). This document provides information on using SSH with HDInsight from Linux, Unix, or OS X clients."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"

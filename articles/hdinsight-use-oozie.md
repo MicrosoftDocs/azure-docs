@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Hadoop Oozie in HDInsight | Azure" 
+	pageTitle="Use Hadoop Oozie in HDInsight | Microsoft Azure" 
 	description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -17,7 +17,7 @@
 	ms.author="jgao"/>
 
 
-# Use Oozie with Hadoop in HDInsight
+# Use Oozie with Hadoop to define and run a workflow in HDInsight
 
 ##Overview
 Learn how to use Apache Oozie to define a workflow and run the workflow on HDInsight. To learn about the Oozie coordinator, see [Use time-based Hadoop Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]. To learn Azure Data Factory, see [Use Pig and Hive with Data Factory][azure-data-factory-pig-hive].
@@ -60,7 +60,7 @@ The workflow you will implement by following the instructions in this tutorial c
 Before you begin this tutorial, you must have the following:
 
 - **A workstation** with Azure PowerShell installed and configured. For instructions, see [How to install and configure Azure PowerShell][powershell-install-configure]. To execute Windows PowerShell scripts, you must run as an administrator and set the execution policy to *RemoteSigned*. For more information, see [Run Windows PowerShell scripts][powershell-script].
-- **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Provision Hadoop clusters in HDInsight by using custom options][hdinsight-provision-clusters] or [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]. You will need the following data to go through the tutorial:
+- **An HDInsight cluster**. For information about creating an HDInsight cluster, see [Provision Hadoop clusters in HDInsight by using custom options][hdinsight-provision] or [Get started using Hadoop with Hive in HDInsight to analyze mobile handset use][hdinsight-get-started]. You will need the following data to go through the tutorial:
 
 	<table border = "1">
 	<tr><th>Cluster property</th><th>Windows PowerShell variable name</th><th>Value</th><th>Description</th></tr>
