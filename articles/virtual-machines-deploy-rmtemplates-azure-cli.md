@@ -22,9 +22,9 @@ This article shows you how to use Azure Resource Manager templates and Azure CLI
 
 Common Tasks:
 
-- [Quick-create a Virtual Machine in Azure](#common-task-quick-create-a-vm-in-azure)
-- [Deploy a Virtual Machine in Azure from a template](#common-task-deploy-a-vm-in-azure-from-a-template)
-- [Create a Virtual Machine from a custom image](#common-task-create-a-custom-vm-image) 
+- [Quick-create a Virtual Machine in Azure](#quick-create-a-vm-in-azure)
+- [Deploy a Virtual Machine in Azure from a template](#deploy-a-vm-in-azure-from-a-template)
+- [Create a Virtual Machine from a custom image](#create-a-custom-vm-image) 
 - [Deploy a VM with virtual network and load balancer](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 - [Remove a resource group](#remove-a-resource-group)
 - [Show the log for a resource group deployment](#show-the-log-for-a-resource-group-deployment)
@@ -103,7 +103,7 @@ You can then manage the overall lifecycle of the group's resources by using Azur
 
 You can learn lots more about Azure resource groups and what they can do for you [here](resource-groups-overview.md). If you're interested in authoring templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md). 
 
-## Common Task: Quick-create a VM in Azure
+## Quick-create a VM in Azure
 
 Sometimes you know what image you need, and you need a VM from that image right now and you don't care too much about the infrastructure -- maybe you have to test something on a clean VM. That's when you want to use the `azure vm quick-create` command, and pass the arguments necessary to create a VM and its infrastructure.
 
@@ -232,7 +232,7 @@ Just create your VM by entering the `azure vm quick-create command` and being re
     
 And away you go with your new VM.
 
-## Common Task: Deploy a VM in Azure from a template
+## Deploy a VM in Azure from a template
 
 Use the instructions in these sections to deploy a new Azure VM using a template with the Azure CLI. This template creates a single virtual machine in a new virtual network with a single subnet, and unlike `azure vm quick-create`, enables you to describe what you want precisely and repeat it without errors. Here's what this template creates:
 
@@ -501,7 +501,7 @@ You will receive the following type of information:
     
 
 
-## Common Task: Create a custom VM image
+## Create a custom VM image
 
 You've seen the basic usage of templates above, so now we can use similar instructions to create a custom VM from a specific .vhd file in Azure with a template using the Azure CLI. The difference here is that this template creates a single virtual machine from a specified virtual hard disk (VHD). 
 
