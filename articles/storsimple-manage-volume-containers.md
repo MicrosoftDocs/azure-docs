@@ -20,7 +20,6 @@
 ## Overview
 
 A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings. A device can have multiple volume containers for all its volumes. 
-This tutorial explains how you can use the StorSimple Manager service to add, edit, or delete a volume container.
 
 A volume container has the following attributes:
 
@@ -60,3 +59,6 @@ A volume container has volumes within it. It can be deleted only if all the volu
 
 [AZURE.INCLUDE [storsimple-delete-volume-container](../includes/storsimple-delete-volume-container.md)]
 
+## Next steps
+
+Read more about [managing StorSimple volumes](storsimple-manage-volumes.md). 
