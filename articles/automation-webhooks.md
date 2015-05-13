@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/13/2015"
    ms.author="bwren" />
 
 # Azure Automation webhooks
@@ -114,12 +114,12 @@ The following sample runbook accepts the previous request and retrieves the data
 	workflow Sample-Webhook
 	{
 		param (	
-				$WebookData
+				[object]$WebookData
 		)
 	
-		$WebhookName 	= 	$WebookData.webhookname
-		$WebhookHeaders = 	$WebookData.webhookHeaders
-		$WebhookBody 	= 	$WebookData.webhookBody
+		$WebhookName 	= 	$WebookData.WebhookName
+		$WebhookHeaders = 	$WebookData.RequestHeaders
+		$WebhookBody 	= 	$WebookData.RequestBody
 	} 
 
 	
