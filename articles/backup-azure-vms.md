@@ -44,12 +44,10 @@ To trigger the discovery process, do the following steps:
     ![discover vms](./media/backup-azure-vms/discovering-vms.png)
 
 5. Once the discovery process is complete, a toast notification appears.
-
     ![discover-done](./media/backup-azure-vms/discovery-complete.png)
 
 
 ## Register Azure virtual machines
-
 Before a virtual machine can be protected, it needs to be registered with the Azure Backup service. The Registration process has two primary goals:
 
 1. To have the backup extension plugged-in to the VM agent in the virtual machine
@@ -82,12 +80,10 @@ Registration is typically a one-time activity. The Azure Backup service seamless
     ![Registering status 1](./media/backup-azure-vms/register-status01.png)
 
 7. Once the operation is completed, the status in the portal will change to reflect the registered state.
-
     ![Registration status 2](./media/backup-azure-vms/register-status02.png)
 
 
 ## Back up Azure virtual machines
-
 This step involves setting up a backup and retention policy for the virtual machine. To protect a virtual machine, do the following steps:
 
 1. Navigate to the backup vault which can be found under **Recovery Services** in the Azure portal, and click on the **Registered Items** tab.
@@ -95,17 +91,15 @@ This step involves setting up a backup and retention policy for the virtual mach
 2. Choose the type of workload in the dropdown menu as **Azure Virtual Machine**, and click on the select button.
     ![Select workload in portal](./media/backup-azure-vms/select-workload.png)
 
-
-3. Click on the **Protect** button at the bottom of the page.
-
-=======
 3. Click on the **PROTECT** button at the bottom of the page.
 
 4. This will bring up a **Protect Items** wizard where the virtual machines to be protected can be selected. If there are two or more virtual machines with the same name, use the cloud service to distinguish between the virtual machines.
 
     The **Protect** operation can be done at scale, which means that multiple virtual machines can be selected at one time to be registered. This greatly reduces the effort spent in protecting the virtual machine.
 
- 	![Select items to protect](./media/backup-azure-vms/protect-wizard1.png)
+    > [AZURE.NOTE] Only the virtual machines that have been registered correctly with the Azure Backup service, and are in the same region as the backup vault, will show up here.
+
+    ![Select items to protect](./media/backup-azure-vms/protect-wizard1.png)
 
 5. In the second screen of the **Protect Items** wizard, choose a backup and retention policy to back up the selected virtual machines. Pick from an existing set of policies or define a new one.
 
@@ -120,13 +114,11 @@ This step involves setting up a backup and retention policy for the virtual mach
 6. A job is created for each virtual machine to configure the protection policy and to associate the virtual machines to the policy. Click on the **Jobs** tab and choose the right filter to view the list of **Configure Protection** jobs.
     ![Configure protection job](./media/backup-azure-vms/protect-configureprotection.png)
 
-
 7. Once completed, the virtual machines are protected with a policy and must wait until the scheduled backup time for the initial backup to be completed. The virtual machine will now appear under the **Protected Items** tab and will have a Protected Status of *Protected* (pending initial backup).
 
     > [AZURE.NOTE] Starting the initial backup immediately after configuring protection is not available as an option today.
 
 8. At the scheduled time, the Azure Backup service creates a backup job for each virtual machine that needs to be backed up. Click on the **Jobs** tab to view the list of **Backup** jobs. As a part of the backup operation, the Azure Backup service issues a command to the backup extension in each virtual machines to flush all writes and take a consistent snapshot.
-
     ![Backup in progress](./media/backup-azure-vms/protect-inprogress.png)
 
 9. Once completed, the Protection Status of the virtual machine in the **Protected Items** tab will show as *Protected*.
@@ -134,7 +126,6 @@ This step involves setting up a backup and retention policy for the virtual mach
 
 
 ## Viewing backup status and details
-
 Once protected, the virtual machine count also increases in the **Dashboard** page summary. In addition, the Dashboard page shows the number of jobs from the last 24 hours that were successful, have failed, and are still in progress. Clicking on any one category will drill down into that category in the **Jobs** page.
     ![Status of backup in Dashboard page](./media/backup-azure-vms/dashboard-protectedvms.png)
 
@@ -174,3 +165,5 @@ The table below explains the types of consistency that are encountered during Az
 To learn more about getting started with Azure Backup, see:
 
 - [Restore virtual machines](backup-azure-restore-vms.md)
+
+
