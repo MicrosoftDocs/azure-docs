@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
+	ms.date="05/15/2015"
 	ms.author="paolos"/>
 
 # Spark on Ubuntu with a Resource Manager Template
@@ -499,6 +499,7 @@ More information regarding the template language can be found on MSDN at [Azure 
 
 The **"resources"** section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the "**templateLink**" element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
 
+```json
 	"resources": [
 	{
 		"name": "shared-resources",
@@ -532,6 +533,7 @@ The **"resources"** section is where most of the action is happening. Looking ca
 			}
 		}
 		},
+```
 
 From this first example, it is clear how **azuredeploy.json** in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files, each one responsible for part of the required deployment activities.
 
