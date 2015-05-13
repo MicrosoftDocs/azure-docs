@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What is Self-Service Signup for Azure" 
-	description="An overview self-service signup, and how to manage it." 
+	pageTitle="What is Self-Service Signup for Azure?" 
+	description="An overview self-service signup for Azure, how to manage the sign up process and how to ." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
@@ -13,11 +13,11 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="05/11/2015" 
+	ms.date="05/13/2015" 
 	ms.author="Justinha"/>
 
 
-# What is Self-Service Signup?
+# What is Self-Service Signup for Azure?
 
 This topic explains the self-service signup process (sometimes known as viral signup) and how to take over a DNS domain name.  
 
@@ -26,50 +26,50 @@ This topic explains the self-service signup process (sometimes known as viral si
 - Get customers to services they want faster.
 - Create email-based (viral) offers for a service.
 - Create email-based signup flows which quickly allow users to create identities using their easy-to-remember work email aliases.
-- Unmanaged tenants can grow and become managed tenants later and be reused for other services. 
+- Unmanaged Azure tenants can grow and become managed tenants later and be reused for other services. 
 
 ## Terms and Definitions
 
 + **Self-service sign up**: This is the method by which a user signs up for a cloud service and has an identity automatically created for them in Azure Active Directory based on their email domain. 
-+ **Unmanaged tenant**: This is the directory where that identity is created. An unmanaged tenant is a directory that has no global administrator. 
++ **Unmanaged Azure tenant**: This is the directory where that identity is created. An unmanaged tenant is a directory that has no global administrator. 
 + **Email-verified user**: This is a type of user account in Azure AD. A user who has an identity created automatically after signing up for a self-service offer is known as an email-verified user. An email-verified user is a regular member of a directory tagged with creationmethod=EmailVerified.
 
 ## Customer experience
 
 ### User experience
 
-For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management Service (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for Individuals in order to read the protected files.
+For example, let's say a user whose email is Dan@BellowsCollege.com receives sensitive files via email. The files have been protected by Azure Rights Management (Azure RMS). But Dan's organization, Bellows College, has not signed up for Azure RMS, nor has it deployed Active Directory RMS. In this case, Dan can sign up for a free subscription to RMS for individuals in order to read the protected files.
 
 If Dan is the first user with an email address from BellowsCollege.com to sign up for this self-service offering, then an unmanaged tenant will be created for BellowsCollege.com in Azure AD. If other users from the BellowsCollege.com domain sign up for this offering or a similar self-service offering, they will also have email-verified user accounts created in the same unmanaged tenant in Azure.
 
 ### Admin experience
 
-An admin who owns the DNS domain name of an unmanaged tenant can take over or merge the tenant after proving ownership. The next sections explain the admin experience in more detail, but here's a summary: 
+An admin who owns the DNS domain name of an unmanaged Azure tenant can take over or merge the tenant after proving ownership. The next sections explain the admin experience in more detail, but here's a summary: 
 
-- When you take over an unmanaged tenant, you simply become the global administrator of the unmanaged tenant. This is sometimes called an internal takeover. 
-- When you merge an unmanaged tenant, you add the DNS domain name of the unmanaged tenant to your managed tenant and a mapping of users-to-resources is created so users can continue to access services without interruption. This is sometimes called an external takeover. 
+- When you take over an unmanaged Azure tenant, you simply become the global administrator of the unmanaged tenant. This is sometimes called an internal takeover. 
+- When you merge an unmanaged Azure tenant, you add the DNS domain name of the unmanaged tenant to your managed Azure tenant and a mapping of users-to-resources is created so users can continue to access services without interruption. This is sometimes called an external takeover. 
 
 ### What gets created in the Microsoft Azure Directory?
 
 #### Tenant
 
-- A tenant for the domain is created, one tenant per domain.
-- The tenant directory has no global admin.
+- An Azure tenant for the domain is created, one tenant per domain.
+- The Azure tenant directory has no global admin.
 
 #### Users
 
-- For each user who signs up, a user object is created in the tenant.
+- For each user who signs up, a user object is created in the Azure tenant.
 - Each user object is marked as viral.
 - Each user is given access to the service that they user signed up for.
 
-### How do I claim a self-service tenant for a domain I own?
+### How do I claim a self-service Azure tenant for a domain I own?
 
-You can claim a self-service tenant by performing domain validation. Domain validation proves you own the domain by creating DNS records.
+You can claim a self-service Azure tenant by performing domain validation. Domain validation proves you own the domain by creating DNS records.
 
-There are two ways to do a DNS takeover of a tenant: 
+There are two ways to do a DNS takeover of an Azure tenant: 
 
-- internal takeover (Admin discovers viral tenant, and wants to turn into managed tenant)
-- external takeover (Admin tries to add a new domain to their managed tenant)
+- internal takeover (Admin discovers an unmanaged Azure tenant, and wants to turn into a managed tenant)
+- external takeover (Admin tries to add a new domain to their managed Azure tenant)
 
 You might be interested in validating that you own a domain because you are taking over an unmanaged tenant after a user performed self-service signup, or you might be adding a new domain to an existing managed tenant. For example, you have a domain named contoso.com and you want to add a new domain named contoso.co.uk or contoso.uk. 
 
@@ -194,7 +194,7 @@ For example:
 
 	for example:
 
-	Confirm-MsolEmailVerifiedDomain –DomainName contoso.com
+	Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
 
 A successful challenge returns you to the prompt without an error.
 
