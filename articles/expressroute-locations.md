@@ -53,9 +53,9 @@ Connectivity across geopolitical regions is not supported. You can work with you
 | **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)**                 | Amsterdam, London                                                                                                                                                     |
 | **[Zayo Group]( http://www.zayo.com/)**                                                                                        | Washington DC                                                                                                                                                         |
 
- Note: + coming soon
+ **+** denotes coming soon
 
--  Visit the [Configure your EXP connection](expressroute-configuring-exps.md) for steps to set up your connection.
+See [Configure your EXP connection](expressroute-configuring-exps.md) for steps to set up your connection.
 
 ### Network Service Provider (NSP) Locations
 
@@ -73,9 +73,9 @@ Connectivity across geopolitical regions is not supported. You can work with you
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)**                                        | Amsterdam, Chennai+, Hong Kong, London, Mumbai+, Singapore      |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)**         | Melbourne+, Sydney                                              |
 
- Note: + coming soon
+ **+** denotes coming soon
 
-- Visit [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
+See [Configure your NSP connection](expressroute-configuring-nsps.md) for steps to set up your connection.
 
 ### Connectivity through service providers not listed above
 
