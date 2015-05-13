@@ -16,12 +16,12 @@
    ms.author="cherylmc" />
 
 # ExpressRoute Partners and Peering Locations
-This table provides details on
+The tables below provide information on the following:
 
-1. ExpressRoute connectivity providers (EXPs and NSPs)
-2. ExpressRoute geographical coverage
-3. Microsoft cloud services supported over ExpressRoute
-4. ExpressRoute System Integrators (SIs)
+- ExpressRoute connectivity providers (EXPs and NSPs)
+- ExpressRoute geographical coverage
+- Microsoft cloud services supported over ExpressRoute
+- ExpressRoute System Integrators (SIs)
 
 ## ExpressRoute Connectivity Providers
 ExpressRoute is supported across all Azure regions and locations. The map below provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
@@ -104,7 +104,7 @@ If your connectivity provider is not in the list above sections, you can still c
 ## ExpressRoute and Microsoft Cloud Services
 The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider
 
-**Exchange Providers (EXPs)**
+### Exchange Providers (EXPs)
 
 |**Service Provider**|**Microsoft Azure Services**|**Office 365 Services**|
 |---|---|---|
@@ -116,7 +116,7 @@ The tables below provide details on connectivity providers and the list of Micro
 |**TeleCity Group**|Supported||
 |**Zayo Group**|Supported||
 
-**Network Service Providers (NSPs)**
+### Network Service Providers (NSPs)
 
 |**Service Provider**|**Microsoft Azure Services**|**Office 365 Services**|
 |---|---|---|
