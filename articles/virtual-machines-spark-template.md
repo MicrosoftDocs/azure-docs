@@ -492,7 +492,7 @@ The “**vmStorageAccountContainerName**” is an example of a simple name/value
 
 If you want to customize the size of the Spark Cluster deployment, then you can change the properties of the variables tshirtSizeS, tshirtSizeM, and tshirtSizeL in the azuredeploy.json template.  
 
-More information regarding the template language can be found on MSDN at [Azure Resource Manager Template Language](https://msdn.microsoft.com/en-us/library/azure/dn835138.aspx).
+More information regarding the template language can be found on MSDN at [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
 
 ### "resources" section
