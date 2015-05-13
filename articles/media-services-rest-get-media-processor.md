@@ -60,7 +60,7 @@ The following table provides the name and description of each available media pr
     <tr>
         <td>Windows Azure Media Encryptor</td>
         <td>Lets you encrypt media assets using PlayReady Protection.</td>
-        <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
+        <td><a href=" http://go.microsoft.com/fwlink/?LinkId=613274">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
 	<tr>
 		<td>Azure Media Hyperlapse (preview)</td>

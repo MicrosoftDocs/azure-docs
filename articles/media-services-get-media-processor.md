@@ -64,7 +64,7 @@ The following table provides the name and description of each available media pr
 	<tr>
 		<td>Azure Media Hyperlapse (preview)</td>
 		<td>Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip.</td>
-		<td><a href="http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db">Azure Media Hyperlapse</a></td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkId=613274">Azure Media Hyperlapse</a></td>
 	</tr>
     <tr>
         <td>Storage Decryption</td>
