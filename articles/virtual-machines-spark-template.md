@@ -20,11 +20,11 @@
 
 Apache Spark is a fast engine for large-scale data processing. Spark has an advanced DAG execution engine that supports cyclic data flow and in-memory computing and it can access diverse data sources including HDFS, Spark, HBase, and S3.
 
-In addition to running on the Mesos or YARN cluster managers, Spark also provides a simple standalone deployment mode. This tutorial will walk you through how to use a sample Azure Resource Manager (ARM) template to deploy a Spark Cluster on Ubuntu VMs through [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI](xplat-cli.md)..
+In addition to running on the Mesos or YARN cluster managers, Spark also provides a simple standalone deployment mode. This tutorial will walk you through how to use a sample Azure Resource Manager (ARM) template to deploy a Spark Cluster on Ubuntu VMs through [Azure PowerShell](powershell-install-configure.md) or the [Azure CLI](xplat-cli.md).
 
-This template deploys a Spark cluster on the Ubuntu virtual machines. This template also provisions a storage account, virtual network, availability sets, public IP addresses and network interfaces required by the installation. The Spark Cluster is created behind a subnet, so there is no public IP access to the cluster.  As part of the deployment, an optional “jump box” can be deployed. This “jump box” is an Ubuntu VM deployed in the subnet as well, but it *does* expose a public IP address with an open SSH port that you can connect to. Then from the “jump box”, you can SSH to all the Spark VMs in the subnet.
+This template deploys a Spark cluster on the Ubuntu virtual machines. This template also provisions a storage account, virtual network, availability sets, public IP addresses and network interfaces required by the installation. The Spark Cluster is created behind a subnet, so there is no public IP access to the cluster.  As part of the deployment, an optional "jump box" can be deployed. This "jump box" is an Ubuntu VM deployed in the subnet as well, but it *does* expose a public IP address with an open SSH port that you can connect to. Then from the "jump box", you can SSH to all the Spark VMs in the subnet.
 
-The template utilizes a “t-shirt size” concept in order to specify a “small”, “medium”, or “large” Spark Cluster setup.  When the template language supports more dynamic template sizing, this could be changed to specify the number of Spark Cluster master nodes and slave nodes, VM size, etc. For now, you can see the VM size and the number of masters and slaves defined in the file azuredeploy.json in the variables tshirtSizeS, tshirtSizeM, and tshirtSizeL:
+The template utilizes a "t-shirt size" concept in order to specify a "small", "medium", or "large" Spark Cluster setup.  When the template language supports more dynamic template sizing, this could be changed to specify the number of Spark Cluster master nodes and slave nodes, VM size, etc. For now, you can see the VM size and the number of masters and slaves defined in the file azuredeploy.json in the variables tshirtSizeS, tshirtSizeM, and tshirtSizeL:
 
 - S: 1 master, 1 slave
 - M: 1 master, 4 slaves
@@ -97,9 +97,9 @@ When completed, look for the **spark-on-ubuntu** folder in your C:\Azure\Templat
 
 ### Step 2: (optional) Understand the template parameters
 
-When you create a Spark cluster with a template, you must specify a set of configuration parameters to deal with a number of settings required. By declaring these parameters in template definition, it’s possible to specify values during deployment execution through an external file or at command line.
+When you create a Spark cluster with a template, you must specify a set of configuration parameters to deal with a number of settings required. By declaring these parameters in template definition, it's possible to specify values during deployment execution through an external file or at command line.
 
-In the "parameters" section at the top of the **azuredeploy.json** file, you’ll find the set of parameters that are required by the template to configure a Spark cluster. Here is an example of the parameters section from this template's azuredeploy.json file:
+In the "parameters" section at the top of the **azuredeploy.json** file, you'll find the set of parameters that are required by the template to configure a Spark cluster. Here is an example of the parameters section from this template's azuredeploy.json file:
 
 ```json
 "parameters": {
@@ -301,8 +301,8 @@ $locName="<Azure location, such as West US>"
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
 $templateFile= $folderName + "\azuredeploy.json"
 $templateParameterFile= $folderName + "\azuredeploy-parameters.json"
-New-AzureResourceGroup –Name $RGName –Location $locName
-New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName –TemplateParamterFile $templateParameterFile -TemplateFile $templateFile
+New-AzureResourceGroup -Name $RGName -Location $locName
+New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParamterFile $templateParameterFile -TemplateFile $templateFile
 ```
 > [AZURE.NOTE] $RGName must be unique within your subscription.
 
@@ -313,7 +313,7 @@ When deploying, please keep in mind that a new Azure Storage Account needs to be
 During the deployment, you will see something like this:
 
 ```powershell
-PS C:\> New-AzureResourceGroup –Name $RGName –Location $locName
+PS C:\> New-AzureResourceGroup -Name $RGName -Location $locName
 
 ResourceGroupName : SparkResourceGroup
 Location          : westus
@@ -381,9 +381,9 @@ During and after deployment, you can check all the requests that were made durin
 
 To do that, go to the [Azure Portal](https://portal.azure.com) and do the following:
 
-- Click "Browse” on the left-hand navigation bar, scroll down and click on "Resource Groups”.
-- After clicking on the Resource Group that you just created, it will bring up the "Resource Group” blade.
-- By clicking on the "Events” bar graph in the "Monitoring” part of the "Resource Group” blade, you can see the events for your deployment:
+- Click "Browse" on the left-hand navigation bar, scroll down and click on "Resource Groups".
+- After clicking on the Resource Group that you just created, it will bring up the "Resource Group" blade.
+- By clicking on the "Events" bar graph in the "Monitoring" part of the "Resource Group" blade, you can see the events for your deployment:
 - Clicking on individual events lets you drill further down into the details of each individual operation made on behalf of the template
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -391,7 +391,7 @@ To do that, go to the [Azure Portal](https://portal.azure.com) and do the follow
 After your tests, if you need to remove this resource group and all of its resources (the storage account, virtual machine, and virtual network), use this single command:
 
 ```powershell
-Remove-AzureResourceGroup –Name "<resource group name>" -Force
+Remove-AzureResourceGroup -Name "<resource group name>" -Force
 ```
 
 ### Step 3-b: Deploy a Spark cluster with a template using the Azure CLI
@@ -410,7 +410,7 @@ You can check the status of individual resources deployments with the following 
 
 ## A tour of the Spark template structure and file organization
 
-In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like Spark. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it’s possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
+In order to design a robust and reusable Resource Manager template, additional thinking is needed to organize the series of complex and interrelated tasks required during the deployment of a complex solution like Spark. Leveraging ARM **template linking** and **resource looping** in addition to script execution through related extensions, it's possible to implement a modular approach that can be reused with virtually any complex template-based deployment.
 
 This diagram describes the relationships between all the files downloaded from GitHub for this deployment:
 
@@ -434,7 +434,7 @@ Open the azuredeploy.json template in a text editor or tool of your choice. The 
 
 The "parameters" section of **azuredeploy.json** specifies modifiable parameters that are used in this template. The aforementioned **azuredeploy-parameters.json** file is used to pass values into the "parameters" section of azuredeploy.json during template execution.
 
-Here is an example of a parameter for the “t-shirt size”:
+Here is an example of a parameter for the "t-shirt size":
 
 ```json
 "tshirtSize": {
@@ -451,7 +451,7 @@ Here is an example of a parameter for the “t-shirt size”:
 },
 ```
 
->. [AZURE.NOTE] Notice that a “defaultValue” may be specified, as well as “allowedValues”.
+>. [AZURE.NOTE] Notice that a "defaultValue" may be specified, as well as "allowedValues".
 
 ### "variables" section
 
@@ -488,7 +488,7 @@ The "variables" section specifies variables that can be used throughout this tem
 },
 ```
 
-The “**vmStorageAccountContainerName**” is an example of a simple name/value variable.  “**vnetID**” is an example of a variable that is calculated at runtime using the functions “**resourceId**” and “**parameters**”.  The value of the “**numberOfMasterInstances**” and “**vmSize**” variables are calculated at runtime using the “**concat**”, “**variables**” and “**parameters**” functions.  
+The "**vmStorageAccountContainerName**" is an example of a simple name/value variable.  "**vnetID**" is an example of a variable that is calculated at runtime using the functions "**resourceId**" and "**parameters**".  The value of the "**numberOfMasterInstances**" and "**vmSize**" variables are calculated at runtime using the "**concat**", "**variables**" and "**parameters**" functions.  
 
 If you want to customize the size of the Spark Cluster deployment, then you can change the properties of the variables tshirtSizeS, tshirtSizeM, and tshirtSizeL in the azuredeploy.json template.  
 
@@ -497,7 +497,7 @@ More information regarding the template language can be found on MSDN at [Azure 
 
 ### "resources" section
 
-The **"resources"** section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the "**templateLink**" element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
+The **"resources"** section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the "**templateLink**" element (and related version property), it's possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
 
 ```json
 "resources": [
@@ -539,14 +539,14 @@ From this first example, it is clear how **azuredeploy.json** in this scenario h
 
 In particular, the following linked templates will be used for this deployment:
 
--	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM’s OS disks and virtual networks.
--	**jumpbox-resources-enabled.json**: deploys the “jump box” VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
+-	**shared-resource.json**: contains the definition of all resources that will be shared across the deployment. Examples are storage accounts used to store VM's OS disks and virtual networks.
+-	**jumpbox-resources-enabled.json**: deploys the "jump box" VM and all related resources, such as network interface, public IP address, and the input endpoint used to SSH into the environment.
 
 sAfter invoking these two templates, the **azuredeploy.json** provisions all Spark Cluster node VMs and connected resources (e.g. network cards, private IPs, etc.). This template will also deploy VM extensions (custom scripts for Linux) and invoke a bash script (**spark-cluster-install.sh**) to physically install and set up Spark on each node.  
 
-Let’s drill down into *how* this last template, **azuredeploy.json**, is used, as it is one of the most interesting from a template development perspective. One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance, it can set unique values for required settings. This concept is known as **Resource Looping**.
+Let's drill down into *how* this last template, **azuredeploy.json**, is used, as it is one of the most interesting from a template development perspective. One important concept to highlight is how a single template file can deploy multiple copies of a single resource type, and for each instance, it can set unique values for required settings. This concept is known as **Resource Looping**.
 
-A resource that uses the “copy” element will “copy” itself for the number of times specified in the “count” parameter of the “copy” element.  For all settings where it is necessary to specify unique values between different instances of the deployed resource, the **copyindex()** function can be used to obtain a numeric value indicating the current index in that particular resource loop creation. In the following fragment from **azuredeploy.json**, you can see this concept applied to multiple Network cards, VMs and VM extensions being created for the Spark Cluster:
+A resource that uses the "copy" element will "copy" itself for the number of times specified in the "count" parameter of the "copy" element.  For all settings where it is necessary to specify unique values between different instances of the deployed resource, the **copyindex()** function can be used to obtain a numeric value indicating the current index in that particular resource loop creation. In the following fragment from **azuredeploy.json**, you can see this concept applied to multiple Network cards, VMs and VM extensions being created for the Spark Cluster:
 
 ```json
 {
@@ -764,7 +764,7 @@ A resource that uses the “copy” element will “copy” itself for the numbe
 
 Another important concept in resource creation is the ability to specify dependencies and precedencies between resources, as you can see in the **dependsOn** JSON array. In this particular template, you can see that the Spark Cluster nodes are dependent on the shared resources and networkInterfaces resources being created first.
 
-Another interesting fragment to explore is the one related to **CustomScriptForLinux** VM extensions. These are installed as a separate type of resource, with a dependency on each cluster node.  In this case, this is used to install and setup Spark on each VM node.  Let’s look at a snippet from the **azuredeploy.json** template that uses these:
+Another interesting fragment to explore is the one related to **CustomScriptForLinux** VM extensions. These are installed as a separate type of resource, with a dependency on each cluster node.  In this case, this is used to install and setup Spark on each VM node.  Let's look at a snippet from the **azuredeploy.json** template that uses these:
 
 ```json
 {
@@ -821,7 +821,7 @@ Another interesting fragment to explore is the one related to **CustomScriptForL
 
 Notice that the extension for the master and slave node resources executes different commands, defined in the **commandToExecute property**, as part of the provisioning process.  
 
-You can see that this resource depends on the resource VM already being deployed **Microsoft.Compute/virtualMachines/vmMember<X>**, where **<X>** is the parameter “**machineSettings.machineIndex**”, which is the index of the VM that was passed to this script using the “**copyindex()**” function.
+You can see that this resource depends on the resource VM already being deployed **Microsoft.Compute/virtualMachines/vmMember<X>**, where **<X>** is the parameter "**machineSettings.machineIndex**", which is the index of the VM that was passed to this script using the "**copyindex()**" function.
 
 By familiarizing yourself with the other files included in this deployment, you will be able to understand all the details and best practices required to organize and orchestrate complex deployment strategies for multi-nodes solutions, based on any technology, leveraging Azure Resource Manager templates. While not mandatory, a recommended approach is to structure your template files as highlighted by the following diagram:
 
