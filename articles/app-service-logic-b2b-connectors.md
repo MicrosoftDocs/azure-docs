@@ -201,7 +201,7 @@ The following steps add the B2B API Apps to Logic Apps, Mobile Apps, or Web Apps
 
 ## Read about Logic Apps and Web Apps
 [What are Logic Apps?](app-service-logic-what-are-logic-apps.md)<br/>
-[Websites and Web Apps in Azure App Service](app-service-web-app-azure-portal.md)
+[Websites and Web Apps in Azure App Service](app-service-web-overview.md)
 
 
 ## More Connectors

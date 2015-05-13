@@ -106,6 +106,8 @@ If you would like to see the Eclipse version of this tutorial, go to
 
 To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
 
+If you want to get the sample file used in the preceding version of the Azure Mobile Services Android SDK, you can get it [here](http://go.microsoft.com/fwlink/p/?LinkID=282122).
+
 ## Next steps
 
 This tutorial demonstrated the basics of enabling an Android app to work with data in Mobile Services. 

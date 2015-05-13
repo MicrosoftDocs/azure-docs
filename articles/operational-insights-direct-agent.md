@@ -21,6 +21,7 @@
 
 You can connect computers directly to Operational Insights by installing the Operational Insights agent on each computer you want to on board.
 
+> [AZURE.TIP] For virtual machines running in Azure, install the agent by following the steps in [Analyze data from servers in Microsoft Azure](operational-insights-analyze-data-azure.md)
 
 ## Download and install the agent
 Use the following procedures to download and install the Operational Insights agent.
