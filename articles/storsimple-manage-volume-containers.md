@@ -19,6 +19,8 @@
 
 ## Overview
 
+This tutorial explains how to use the StorSimple Manager service to create and manage StorSimple volume containers.
+
 A volume container in a Microsoft Azure StorSimple device contains one or more volumes that share storage account, encryption, and bandwidth consumption settings. A device can have multiple volume containers for all its volumes. 
 
 A volume container has the following attributes:
@@ -33,7 +35,7 @@ A volume container has the following attributes:
 
 ![Volume containers page](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
 
-This tutorial explains how to use the StorSimple **Volume containers** page to complete the following common operations:
+This following procedures explain how to use the StorSimple **Volume containers** page to complete the following common operations:
 
 - Add a volume container 
 - Modify a volume container 
