@@ -25,6 +25,8 @@ This tutorial walks you through the steps of creating a **Channel** that receive
 
 >[AZURE.NOTE]For more conceptual information related to Channels that are enabled for live encoding, see [Working with Channels that Perform Live Encoding from a Single-bitrate to Multi-bitrate Stream](media-services-manage-live-encoder-enabled-channels.md).
 
+>[AZURE.NOTE]You must use Media Services .NET SDK version 3.2.0.0 or newer.
+
 ##Common Live Streaming Scenario
 
 The following steps describe tasks involved in creating common live streaming applications.

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
+   ms.date="05/11/2015"
    ms.author="rajram"/>
    
 #Azure Storage Blob Connector
@@ -72,7 +72,7 @@ Click on Azure Storage Blob Connector from the right pane. The connector lists d
 
 ![List of Azure Storage Blob Actions][10]
 
-Azure Storage Blob Connector supports four actions. They are
+Azure Storage Blob Connector supports six actions. They are
 
 - **Get Blob** - Get a specific Blob from the container
 - **Upload Blob** - Upload a new Blob or update an existing Blob
