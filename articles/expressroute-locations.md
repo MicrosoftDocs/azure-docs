@@ -16,7 +16,7 @@
    ms.author="cherylmc" />
 
 # ExpressRoute Partners and Peering Locations
-The tables on this page provide information on ExpressRoute connectivity providers (EXPs and NSPs), ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs)
+The tables on this page provide information on ExpressRoute connectivity providers (EXPs and NSPs), ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
 ## ExpressRoute Connectivity Providers
 ExpressRoute is supported across all Azure regions and locations. The map below provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
