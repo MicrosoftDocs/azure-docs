@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
+	ms.date="05/13/2015" 
 	ms.author="juliako"/>
 
 
@@ -61,6 +61,11 @@ The following table provides the name and description of each available media pr
         <td>Lets you encrypt media assets using PlayReady Protection.</td>
         <td><a href="http://msdn.microsoft.com/library/hh973610.aspx">Task Preset Strings for the Azure Media Packager</a></td>
     </tr>
+	<tr>
+		<td>Azure Media Hyperlapse (preview)</td>
+		<td>Enables you to smooth out the "bumps" in your video with video stabilization. Also allows you to speed up your content into a consumable clip.</td>
+		<td><a href="http://go.microsoft.com/fwlink/?LinkId=613274">Azure Media Hyperlapse</a></td>
+	</tr>
     <tr>
         <td>Storage Decryption</td>
         <td>Lets you decrypt media assets that were encrypted using storage encryption.</td>

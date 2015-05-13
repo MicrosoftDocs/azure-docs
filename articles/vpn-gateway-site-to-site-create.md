@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2015"
+   ms.date="05/12/2015"
    ms.author="cherylmc"/>
 
 # Configure a Virtual Network with a Site-to-Site VPN Connection
@@ -86,6 +86,6 @@ If you want to configure a point-to-site VPN connection, see [Configure a Point-
 
 You can add virtual machines to your virtual network. See [How to Create a Custom Virtual Machine](virtual-machines-create-custom.md)
 
-If you want to configure a VNet connection using RRAS see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
+If you want to configure a VNet connection using RRAS, see [Configure a Site-to-Site VPN using Windows Server 2012 Routing and Remote Access Service (RRAS)](https://msdn.microsoft.com/library/dn636917.aspx)
 
 
