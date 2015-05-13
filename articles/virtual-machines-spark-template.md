@@ -3,7 +3,7 @@
 	description="Learn to easily deploy a new Spark cluster on Ubuntu VMs using Azure PowerShell or the Azure CLI and a Resource Manager template"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="paolos"
+	authors="paolosalvatori"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
-	ms.author="paolos"/>
+	ms.date="05/16/2015"
+	ms.author="paolosalvatori"/>
 
 # Spark on Ubuntu with a Resource Manager Template
 
