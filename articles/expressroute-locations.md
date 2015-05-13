@@ -97,7 +97,7 @@ If your connectivity provider is not in the list above sections, you can still c
 
 
 ## ExpressRoute and Microsoft Cloud Services
-The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider
+The tables below provide details on connectivity providers and the list of Microsoft cloud services they support. Contact your service provider.
 
 ### Exchange Providers (EXPs)
 
