@@ -62,7 +62,6 @@ Connectivity across geopolitical regions is not supported. You can work with you
 
 | **Service Provider**                                                                                                              | **Locations**                                                   |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-|                                                                                                                                   |                                                                 |
 | **[AT&T]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)**                                            | Dallas+, Silicon Valley, Washington DC                          |
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)**                 | Amsterdam, London, Silicon Valley+, Washington DC               |
 | **[Colt IPVPN]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**       | Amsterdam, London+                                              |
