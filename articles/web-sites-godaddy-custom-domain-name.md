@@ -3,7 +3,7 @@
 	description="Learn how to use a domain name from GoDaddy with Azure Web Apps"
 	services="app-service\web"
 	documentationCenter=""
-	authors="wadepickett"
+	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
-	ms.author="wpickett"/>
+	ms.date="05/12/2015"
+	ms.author="mwasson"/>
 
 # Configure a custom domain name in Azure App Service (GoDaddy)
 
@@ -28,12 +28,6 @@
 This article provides instructions on using a custom domain name purchased from [Go Daddy](https://godaddy.com) with [App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 [AZURE.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
-
-In this article:
-
--   [Understanding DNS records](#understanding-records)
--   [Add a DNS record for your custom domain](#bkmk_configurecname)
--   [Enable the domain on your web](#enabledomain)
 
 <a name="understanding-records"></a>
 ##Understanding DNS records

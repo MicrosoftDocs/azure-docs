@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="05/11/2015"
 	ms.author="banders"/>
 
 # Operational Insights feature guide
@@ -33,7 +33,7 @@ With Operational Insights, you can transform machine data into operational intel
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [Capacity Planning](operational-insights-capacity.md) | You can use the Capacity Planning solution in Microsoft Azure Operational Insights to help you understand the capacity of your server infrastructure. |
 | ![](./media/operational-insights-feature-guide/update.png) | [System Update Assessment](operational-insights-updates.md) | You can use the System Updates solution in Microsoft Azure Operational Insights to help you apply missing updates to servers in your infrastructure. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management solution to gather event and IIS logs for searches throughout Operational Insights. |
+| ![](./media/operational-insights-feature-guide/log-mgt.png) | [Log Management](operational-insights-search.md) | You use the Log Management solution to gather event and IIS logs for log searches throughout Operational Insights. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [Malware Assessment](operational-insights-antimalware.md) | You can use the Antimalware solution in Microsoft Azure Operational Insights to help you protect the servers in your infrastructure from malware. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [Security and Audit](operational-insights-security-audit.md) | You can use the Security and Audit solution to get a comprehensive view into your organization’s IT security posture with built-in search queries for notable issues that require your attention. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory and SQL Assessment](operational-insights-assessment.md) | You can use Assessment solutions to assess the risk and health of your server environments on a regular interval. |
@@ -42,8 +42,10 @@ With Operational Insights, you can transform machine data into operational intel
 
 You can also:
 
-- **Send machine data to the system with or without using an agent or in conjunction with System Center Operations Manager**
-	- For information about collecting machine data, see [Collect machine data](operational-insights-collect-data.md)
+- **Send machine data to the system with or without using an agent or in conjunction with System Center Operations Manager**. For more information, see:
+	- [Connect to Operational Insights from System Center Operations Manager](operational-insights-connect-scom.md)
+	- [Connect computers directly to Operational Insights](operational-insights-direct-agent.md)
+	- [Analyze data from servers in Microsoft Azure](operational-insights-analyze-data-azure.md)
 - **Do all of the above on the go with the mobile application**
 	- For more information about the Windows Phone application, see [Operational Insights Mobile app](http://www.windowsphone.com/en-us/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)
 
@@ -63,7 +65,7 @@ Using Operational Insights software as an Operations Manager service consists of
 
 Similarly, agents installed on individual computers can connect directly to the web service to send collected data for processing.
 
-The data in each solution is analyzed, indexed, and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed ad-hoc searches and explorations.
+The data in each solution is analyzed, indexed, and presented in the Operational Insights portal. You can view any alerts and associated remediation guidance, configuration assessments, infrastructure capacity issues, system update status, antimalware warnings, and log data. You can also perform detailed ad-hoc log searches and explorations.
 
 ![Image of Operational Insights overview diagram](./media/operational-insights-feature-guide/environment.png)
 
