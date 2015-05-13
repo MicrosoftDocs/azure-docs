@@ -14,7 +14,7 @@ Data in your storage account is replicated to ensure durability that is also hig
 
 	> [AZURE.NOTE] GRS is recommended over ZRS or LRS for maximum durability.
 
-- *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region in the event that the primary region becomes unavailable. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
+- *Read-access geo-redundant storage (RA-GRS)* provides all of the benefits of geo-redundant storage noted above, and also allows read access to data at the secondary region at any time. Read-access geo-redundant storage is recommended for maximum availability in addition to durability.  
 
 For more details about replication options, see the [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/) and [Azure Storage Redundancy Options](storage-redundancy.md).
 	

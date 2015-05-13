@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Generate movie recommendations using Mahout with Microsoft Azure HDInsight (Hadoop)"
+	pageTitle="Generate movie recommendations with Mahout on Hadoop | Microsoft Azure"
 	description="Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop)"
 	services="hdinsight"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/06/2015"
+	ms.date="05/12/2015"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with HDInsight
@@ -359,9 +359,9 @@ Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually 
 
     	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
-2. Upload the jar file to __example/jars__ in the default storage for your cluster. The following example uses the [send-hdinsight][sendhdinsight] script to upload the file:
+2. Upload the jar file to __example/jars__ in the default storage for your cluster. The following example uses add-hdinsightfile from the [HDInsight-Tools][tools] to upload the file:
 
-    	PS C:\> .\Send-HDInsight -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###Cannot overwrite files
 

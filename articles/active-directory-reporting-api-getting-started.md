@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/06/2015"
+   ms.date="05/12/2015"
    ms.author="kenhoff"/>
 
 
@@ -25,7 +25,7 @@ This article will walk you through the necessary steps in order to make your fir
 
 You will need:
 
-- An [Azure Active Directory](active-directory-whatis)
+- An [Azure Active Directory](active-directory-whatis.md)
 - A way to make HTTP GET and POST requests; either:
 	- a bash shell with [curl](http://curl.haxx.se/)
 	- [Postman](https://www.getpostman.com/)
@@ -98,7 +98,7 @@ Next, we need to generate an authorization code, which we will use to retrieve a
 First, you need an authorization code. You can retrieve this by navigating to a specific URL in your browser, signing in as a global administrator in your directory, and retrieving the authorization code from the URL you were redirected to.
 
 - Substitute this URL with your Azure AD Directory ID and your Application Client ID.
-	- ```https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/authorize?client_id=<<INSERT-YOUR-APPLICATION-CLIENT-ID-HERE>>&response_type=code```
+	- ```https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/authorize?client_id=<<INSERT-YOUR-APPLICATION-CLIENT-ID-HERE>>&response_type=code```
 - After filling in the fields, open a browser window and navigate to the URL. Your browser will be redirected to a URL which contains your access code; there won't be any page content. This is OK. 
 
 - If prompted, sign in as a global administrator in your directory.
@@ -116,7 +116,7 @@ Next, you'll retrieve your access token by making an HTTP request to an OAuth en
 - First, replace ```YOUR-AZURE-AD-DIRECTORY-ID``` with the directory ID you retrieved in a previous step. Then, replace ```YOUR-CLIENT-ID``` with the client ID you retrieved in the previous step. Then, replace ```YOUR-CLIENT-SECRET``` with the client secret you retrieved in the previous step. Finally, replace ```YOUR-AUTHORIZATION-CODE``` with the authorization code you retrieved in the previous step.
 
 ```
-curl -X POST https://login.windows.net/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
+curl -X POST https://login.microsoftonline.com/<<INSERT-YOUR-AZURE-AD-DIRECTORY-ID-HERE>>/oauth2/token  \
 	-F redirect_uri=http://localhost
 	-F grant_type=authorization_code 
 	-F resource=https://management.core.windows.net/
@@ -176,6 +176,7 @@ c0-a84f-57faf131dc2b"
 
 
 ## Next Steps
-- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports)
-- [Azure AD Audit Report Events](active-directory-reporting-audit-events)
+- Curious about what security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md)
+- See [Azure AD Audit Report Events](active-directory-reporting-audit-events.md) for more details on the Audit Report
+- See [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/library/azure/mt126081.aspx) for more details on the Graph API REST service
 - For more information on the OAuth flow with Azure AD using curl: [Microsoft Azure REST API + OAuth 2.0](https://ahmetalpbalkan.com/blog/azure-rest-api-with-oauth2/) (external link)

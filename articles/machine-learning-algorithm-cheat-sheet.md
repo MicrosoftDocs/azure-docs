@@ -25,7 +25,7 @@ But how do I choose a machine learning algorithm for my specific solution?
 
 **Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf)**
 
-![Algorithm Cheat Sheet][cheat-sheet]
+![Machine Learning Algorithm cheat sheet: How do I choose a Machine Learning algorithm?][cheat-sheet]
 
 [cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small.png
 

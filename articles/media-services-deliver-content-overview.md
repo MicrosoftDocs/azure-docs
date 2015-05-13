@@ -21,7 +21,7 @@
 
 ##Overview
 
-When delivering your content to customers (streaming live events or video-on-demand) your goal is: to deliver a high quality video to various devices under different network conditions. 
+When delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. 
 
 To achieve this goal:
 
