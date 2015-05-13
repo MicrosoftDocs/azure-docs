@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Machine Learning Algorithm Cheat Sheet | Azure" 
-	description="A downloadable machine learning algorithm cheat sheet that can help you answer the question, How do I choose a machine learning algorithm?"
+	description="A downloadable machine learning algorithm cheat sheet that can help you figure out how to choose a machine learning algorithm."
 	services="machine-learning"
 	documentationCenter="" 
 	authors="brohrer" 
@@ -13,17 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/13/2015" 
 	ms.author="brohrer;garye" />
 
 
 # Microsoft Azure Machine Learning Algorithm Cheat Sheet
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to build your predictive analytics solutions. These algorithms fall into the general machine learning categories of *regression*, *classification*, *clustering*, and *anomaly detection*, and each one is designed to address a different type of machine learning problem.
+[Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large number of machine learning algorithms that you can use to build your predictive analytics solutions. These algorithms fall into the general machine learning categories of ***regression***, ***classification***, ***clustering***, and ***anomaly detection***, and each one is designed to address a different type of machine learning problem.
 
-But how do I choose a machine learning algorithm for my specific solution?
+The question is, is there something that can help me quickly figure out how to choose a machine learning algorithm for my specific solution?
 
-**Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf)**
+**Download the cheat sheet here: [Microsoft Azure Machine Learning Algorithm Cheat Sheet](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)**
 
 ![Machine Learning Algorithm cheat sheet: How do I choose a Machine Learning algorithm?][cheat-sheet]
 
