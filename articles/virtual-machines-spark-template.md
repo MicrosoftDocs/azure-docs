@@ -500,39 +500,39 @@ More information regarding the template language can be found on MSDN at [Azure 
 The **"resources"** section is where most of the action is happening. Looking carefully inside this section, you can immediately identify two different cases: the first one is an element defined of type `Microsoft.Resources/deployments` that basically means the invocation of a nested deployment within the main one. Through the "**templateLink**" element (and related version property), it’s possible to specify a linked template file that will be invoked passing a set of parameters as input, as seen in this fragment:
 
 ```json
-	"resources": [
-	{
-		"name": "shared-resources",
-		"type": "Microsoft.Resources/deployments",
-		"apiVersion": "2015-01-01",
-		"properties": {
-			"mode": "Incremental",
-			"templateLink": {
-				"uri": "[concat(variables('templateUrl'), variables('sharedTemplateName'), '.json')]",
-				"contentVersion": "1.0.0.0"
+"resources": [
+{
+	"name": "shared-resources",
+	"type": "Microsoft.Resources/deployments",
+	"apiVersion": "2015-01-01",
+	"properties": {
+		"mode": "Incremental",
+		"templateLink": {
+			"uri": "[concat(variables('templateUrl'), variables('sharedTemplateName'), '.json')]",
+			"contentVersion": "1.0.0.0"
+		},
+		"parameters": {
+			"region": {
+				"value": "[parameters('region')]"
 			},
-			"parameters": {
-				"region": {
-					"value": "[parameters('region')]"
-				},
-				"storageAccountName": {
-					"value": "[parameters('storageAccountName')]"
-				},
-				"virtualNetworkName": {
-					"value": "[parameters('virtualNetworkName')]"
-				},
-				"addressPrefix": {
-					"value": "[parameters('addressPrefix')]"
-				},
-				"subnetName": {
-					"value": "[parameters('subnetName')]"
-				},
-				"subnetPrefix": {
-					"value": "[parameters('subnetPrefix')]"
-				}
+			"storageAccountName": {
+				"value": "[parameters('storageAccountName')]"
+			},
+			"virtualNetworkName": {
+				"value": "[parameters('virtualNetworkName')]"
+			},
+			"addressPrefix": {
+				"value": "[parameters('addressPrefix')]"
+			},
+			"subnetName": {
+				"value": "[parameters('subnetName')]"
+			},
+			"subnetPrefix": {
+				"value": "[parameters('subnetPrefix')]"
 			}
 		}
-		},
+	}
+},
 ```
 
 From this first example, it is clear how **azuredeploy.json** in this scenario has been organized as a sort of orchestration mechanism, invoking a number of other template files, each one responsible for part of the required deployment activities.
