@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="09/23/2014" 
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -32,11 +32,11 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later version. 
 
-##<a name="register"></a>Register your app for authentication and configure Mobile Services
+<h2><a name="register"></a>Register your app for authentication and configure Mobile Services</h2>
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a>Restrict permissions to authenticated users
+<h2><a name="permissions"></a>Restrict permissions to authenticated users</h2>
 
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
@@ -50,13 +50,13 @@ Completing this tutorial requires Xamarin.Android and Android SDK 4.2 or a later
 
 Next, you will update the app to authenticate users before requesting resources from the mobile service.
 
-##<a name="add-authentication"></a>Add authentication to the app
+<h2><a name="add-authentication"></a>Add authentication to the app</h2>
 
-1. Add the following property to the **ToDoActivity** class:
+1. Add the following property to the **TodoActivity** class:
 
 			private MobileServiceUser user;
 
-2. Add the following method to the **ToDoActivity** class: 
+2. Add the following method to the **TodoActivity** class: 
 
 	        private async Task Authenticate()
 	        {
@@ -85,16 +85,14 @@ Next, you will update the app to authenticate users before requesting resources 
 
 	        private async Task CreateTable()
 	        {
-                await InitLocalStoreAsync();
-	            
-                // Get the Mobile Service Table instance to use
-	            toDoTable = client.GetSyncTable<ToDoItem>();
+	            // Get the Mobile Service Table instance to use
+	            todoTable = client.GetTable<TodoItem>();
 
-	            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
+	            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
 
 	            // Create an adapter to bind the items with the view
-	            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-	            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
+	            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+	            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
 	            listViewTodo.Adapter = adapter;
 
 	            // Load the items from the Mobile Service
