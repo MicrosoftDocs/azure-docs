@@ -87,8 +87,8 @@ If your connectivity provider is not in the list above sections, you can still c
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 - Have your connectivity provider extend your network to the Exchange location of choice.
 	- Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
-	- Connectivity providers (specifically Ethernet providers) may require you to procure a pair of circuits to the Ethernet exchanges to ensure high availability 
-- Order an ExpressRoute circuit through the Exchange provider to connect to Azure
+	- Connectivity providers (specifically Ethernet providers) may require you to procure a pair of circuits to the Ethernet exchanges to ensure high availability. 
+- Order an ExpressRoute circuit through the Exchange provider to connect to Azure.
 	- Follow steps in [Configure your EXP connection](expressroute-configuring-exps.md) to set up connectivity.
 
 |**Connectivity Provider**|**Exchange Providers**|**Peering Locations**|
