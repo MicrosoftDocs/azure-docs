@@ -285,7 +285,7 @@ Once you create the content key, you can configure key authorization policy usin
 
 **Overview**: 
 
-- [Dynamic Packaging Overview](media-services-dynamic-overview.md)
+- [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md)
 - [Delivering Content Overview](media-services-deliver-content-overview.md)
 
 Configure asset delivery policy using **.NET** or **REST API**.
