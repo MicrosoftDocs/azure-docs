@@ -9,10 +9,10 @@
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
 
