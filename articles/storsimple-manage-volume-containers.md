@@ -34,7 +34,7 @@ A volume container has the following attributes:
 
 ![Volume containers page](./media/storsimple-manage-volume-containers/HCS_VolumeContainersPage.png)
 
-The common operations that can be performed on this page are:
+This tutorial explains how to use the StorSimple **Volume containers** page to complete the following common operations:
 
 - Add a volume container 
 - Modify a volume container 
