@@ -110,8 +110,6 @@ You don't want to manage two separate tenants, so you merge the unmanaged tenant
 	
 External takeover follows the same DNS validation process as internal takeover.  Difference being: users and services are remapped to the IT managed tenant.
 	
-
-
 #### What's the impact of performing an external takeover?
 
 With an external takeover, a mapping of users-to-resources is created so users can continue to access services without interruption. Many applications, including RMS for individuals, handle the mapping of users-to-resources well, and users can continue to access those services without change. If an application does not handle the mapping of users-to-resources effectively, external takeover may be explicitly blocked to prevent users from a poor experience. 
