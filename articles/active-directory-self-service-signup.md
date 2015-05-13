@@ -11,8 +11,8 @@
 	ms.service="active-directory" 
 	ms.devlang="na" 
 	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="identity" 
 	ms.date="05/13/2015" 
 	ms.author="Justinha"/>
 
