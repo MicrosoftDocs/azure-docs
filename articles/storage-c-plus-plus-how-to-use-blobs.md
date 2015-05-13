@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+	ms.date="05/11/2015" 
     ms.author="tamram"/>
 
 # How to use Blob Storage from C++  
@@ -73,7 +73,10 @@ Next, get a reference to a **cloud_blob_client** class as it allows you to retri
 	azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 
 ## How to: Create a container
-Every blob in Azure storage must reside in a container. This example shows how to create a container if it does not already exist:  
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../includes/storage-container-naming-rules-include.md)]
+
+This example shows how to create a container if it does not already exist:  
 
 	try 
 	{
