@@ -32,6 +32,7 @@ This page has links to overview and conceptual articles and tutorial to help you
 - [Notes on Azure Service Fabric Actors type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 Communicating with Actors is described in:
+
 - [Introduction to the Service Fabric Actor Model](service-fabric-reliable-actors-introduction.md#actor-communication).
 - [Communicating with services](service-fabric-connect-and-communicate-with-services.md)
 
@@ -49,7 +50,7 @@ These articles discuss useful design patterns and scenarios:
 A simple turn-based concurrency is provided for Reliable Actor methods. Concurrency, timers and reminders, and reentrancy are described in these articles:
 
 - [Concurrency](service-fabric-reliable-actors-introduction.md#concurrency)
-- [Events and performance counters related to concurrency](service-fabric-reliable-actors-diagnostics.md#concurrency-events-and-performance-counters)
+- [Events and performance counters related to concurrency](service-fabric-reliable-actors-diagnostics.md)
 - [Actor Reentrancy](service-fabric-reliable-actors-reentrancy.md)
 - [Actor Timers](service-fabric-reliable-actors-timers-reminders.md)
  
