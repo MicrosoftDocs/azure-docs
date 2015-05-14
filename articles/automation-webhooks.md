@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="05/13/2015"
    ms.author="bwren" />
 
 # Azure Automation webhooks
@@ -49,7 +49,7 @@ The **$WebhookData** object will have the following properties:
 | Property | Description |
 |:--- |:---|
 | WebhookName | The name of the webhook. |
-| RequestHeaders | The headers of the incoming POST request. |
+| RequestHeader | The headers of the incoming POST request. |
 | RequestBody | The body of the incoming POST request. |
 
 There is no configuration of the webhook required to support the **$WebhookData** parameter, and the runbook is not required to accept it.  If the runbook does not define the parameter, then any details of the request sent from the client is ignored.
@@ -114,12 +114,12 @@ The following sample runbook accepts the previous request and retrieves the data
 	workflow Sample-Webhook
 	{
 		param (	
-				$WebookData
+				[object]$WebhookData
 		)
 	
-		$WebhookName 	= 	$WebookData.webhookname
-		$WebhookHeaders = 	$WebookData.webhookHeaders
-		$WebhookBody 	= 	$WebookData.webhookBody
+		$WebhookName 	= 	$WebhookData.WebhookName
+		$WebhookHeaders = 	$WebhookData.RequestHeader
+		$WebhookBody 	= 	$WebhookData.RequestBody
 	} 
 
 	

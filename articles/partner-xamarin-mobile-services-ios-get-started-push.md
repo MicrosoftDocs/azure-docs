@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="05/13/2015"
 	ms.author="yuaxu"/>
 
 # Add push notifications to your Mobile Services app
@@ -31,9 +31,9 @@ This tutorial requires the following:
 + [Xamarin.iOS Studio]
 + [Azure Mobile Services Component]
 
-   > [AZURE.NOTE] Because of push notification configuration requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
+>[AZURE.IMPORTANT] Because of APNS requirements, you must deploy and test push notifications on an iOS capable device (iPhone or iPad) instead of in the emulator.
 
-The Apple Push Notification Service (APNS) uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
+APNS uses certificates to authenticate your mobile service. Follow these instructions to create the necessary certificates and upload it to your Mobile Service. For the official APNS feature documentation, see [Apple Push Notification Service].
 
 ## <a name="certificates"></a>Generate the Certificate Signing Request file
 
@@ -305,7 +305,7 @@ Your app is now updated to support push notifications.
 
     This registers a new insert script, which uses the [apns object] to send a push notification (the inserted text) to the device provided in the insert request.
 
-   > [AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
+   >[AZURE.NOTE] This script delays sending the notification to give you time to close the app to receive a toast notification.
 
 ## <a name="test"></a>Test push notifications in your app
 
@@ -313,7 +313,7 @@ Your app is now updated to support push notifications.
 
     ![][23]
 
-   > [AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
+   >[AZURE.NOTE] You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
 
 2. In the app, type meaningful text, such as _A new Mobile Services task_ and then click the plus (**+**) icon.
 
