@@ -1,4 +1,4 @@
-properties 
+<properties 
    pageTitle="Manage your StorSimple backup policies"
    description="Explains how you can use the StorSimple Manager service to create and manage backup jobs and backup schedules."
    services="storsimple"

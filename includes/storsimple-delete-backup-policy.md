@@ -1,4 +1,4 @@
-properties 
+<properties 
    pageTitle="Delete a StorSimple backup policy"
    description="Explains how you can use the StorSimple Manager service to delete a backup policy."
    services="storsimple"
