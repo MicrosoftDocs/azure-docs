@@ -51,33 +51,33 @@ The frequently used operations that you can perform from this page are:
 
 Add a backup policy to automatically schedule your backups. Perform the following steps in the Management Portal to add a backup policy for your StorSimple device. After you add the policy, you can define a schedule (see [Add or modify a schedule](#add-or-modify-a-schedule).
 
-[AZURE.INCLUDE [storsimple-add-backup-policy](../includes/storsimple-add-backup-policy.md)
+[AZURE.INCLUDE [storsimple-add-backup-policy](../includes/storsimple-add-backup-policy.md)]
 
 
 ## Add or modify a schedule
 
 You can add or modify a schedule that is attached to an existing backup policy on your StorSimple device. Perform the following steps in the Management Portal to add or modify a schedule.
 
-[AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../includes/storsimple-add-modify-backup-schedule.md)
+[AZURE.INCLUDE [storsimple-add-modify-backup-schedule](../includes/storsimple-add-modify-backup-schedule.md)]
 
 ## Delete a backup policy
 
 Perform the following steps in the Management Portal to delete a backup policy on your StorSimple device.
 
-[AZURE.INCLUDE [storsimple-delete-backup-policy](../includes/storsimple-delete-backup-policy.md)
+[AZURE.INCLUDE [storsimple-delete-backup-policy](../includes/storsimple-delete-backup-policy.md)]
 
 
 ## Take a manual backup
 
 Perform the following steps in the Management Portal to create an on-demand (manual) backup for a single volume.
 
-[AZURE.INCLUDE [storsimple-create-manual-backup](../includes/storsimple-create-manual-backup.md)
+[AZURE.INCLUDE [storsimple-create-manual-backup](../includes/storsimple-create-manual-backup.md)]
 
 ## Create a custom backup policy with multiple volumes and schedules
 
 Perform the following steps in the Management Portal to create a custom backup policy that has multiple volumes and schedules.
 
-[AZURE.INCLUDE [storsimple-create-custom-backup-policy](../includes/storsimple-create-custom-backup-policy.md)
+[AZURE.INCLUDE [storsimple-create-custom-backup-policy](../includes/storsimple-create-custom-backup-policy.md)]
 
 
 ## Next steps
