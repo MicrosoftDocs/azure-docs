@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="infrastructure"
-   ms.date="04/29/2015"
+   ms.date="05/14/2015"
    ms.author="rasquill"/>
 
 # Application Frameworks using templates
