@@ -835,7 +835,7 @@ In essence, this approach suggests to:
 
 For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
 
-# Next Steps
+## Next Steps
 
 Read more details on [deploying a template](resource-group-template-deploy.md).
 
