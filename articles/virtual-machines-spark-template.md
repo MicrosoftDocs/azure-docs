@@ -839,6 +839,6 @@ For more information, see [Azure Resource Manager Template Language](https://msd
 
 Read more details on [deploying a template](resource-group-template-deploy.md).
 
-Discover more [application frameworks](virtual-machine-app-frameworks.md).
+Discover more [application frameworks](virtual-machines-app-frameworks.md).
 
 [Troubleshooting template deployments](resource-group-deploy-debug.md).
