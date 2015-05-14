@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/12/2015"
+	ms.date="05/14/2015"
 	ms.author="donnam"/>
 
 # Add authentication to your Mobile Services app
@@ -52,13 +52,13 @@ Next, you will update the app to authenticate users before requesting resources 
 
 ##<a name="add-authentication"></a>Add authentication to the app
 
-1. Open the **TodoService** project file and add the following variables
+1. Open the **ToDoService** project file and add the following variables
 
 		// Mobile Service logged in user
 		private MobileServiceUser user;
 		public MobileServiceUser User { get { return user; } }
 
-2. Then add a new method named **Authenticate** to **TodoService** defined as:
+2. Then add a new method named **Authenticate** to **ToDoService** defined as:
 
         private async Task Authenticate(MonoTouch.UIKit.UIViewController view)
         {
@@ -74,12 +74,12 @@ Next, you will update the app to authenticate users before requesting resources 
 
 	> [AZURE.NOTE] If you are using an identity provider other than a Microsoft Account, change the value passed to **LoginAsync** above to one of the following: _Facebook_, _Twitter_, _Google_, or _WindowsAzureActiveDirectory_.
 
-3. Move the request for the **TodoItem** table from the **TodoService** constructor into a new method named **CreateTable**:
+3. Move the request for the **ToDoItem** table from the **ToDoService** constructor into a new method named **CreateTable**:
 
         private async Task CreateTable()
         {
-            // Create an MSTable instance to allow us to work with the TodoItem table
-            todoTable = client.GetSyncTable<TodoItem>();
+            // Create an MSTable instance to allow us to work with the ToDoItem table
+            todoTable = client.GetSyncTable<ToDoItem>();
         }
 
 4. Create a new asynchronous public method named **LoginAndGetData** defined as:
@@ -90,18 +90,18 @@ Next, you will update the app to authenticate users before requesting resources 
             await CreateTable();
         }
 
-5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **TodoService** doesn't yet have a handle on the user:
+5. In the **TodoListViewController** override the **ViewDidAppear** method and define it as found below. This logs in the user if the **ToDoService** doesn't yet have a handle on the user:
 
         public override async void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
 
-            if (QSTodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
-                await QSTodoService.DefaultService.LoginAndGetData(this);
+                await QSToDoService.DefaultService.LoginAndGetData(this);
             }
 
-            if (QSTodoService.DefaultService.User == null)
+            if (QSToDoService.DefaultService.User == null)
             {
                 // TODO:: show error
                 return;
