@@ -43,9 +43,7 @@ As shown in the above image, the deployment topology is comprised of the followi
 -	Four slave nodes running in the same virtual subnet and availability set as the master node.
 -	A jump box VM located in the same virtual network and subnet that can be used to access the cluster.
 
-Spark version 1.2.1 is the default version and can be changed to any pre-built binaries available on Spark repository. There is also a provision in the script to uncomment the build from source. A static IP address will be assigned to each Spark Master node 10.0.0.10 A static IP address will be assigned to each Spark Slave node in order to work around the current limitation of not being able to dynamically compose a list of IP addresses from within the template (by default, the first node will be assigned the private IP of 10.0.0.30, the second node - 10.0.0.31, and so on). To check deployment errors go to the new Azure portal and look under **Resource Group** > **Last deployment** > **Check Operation Details**.
-
-Through a parameter you can define the number of nodes that will be deployed in the new Spark cluster and, in addition to that, an instance of Spark Operation Center service will be also deployed in a stand-alone VM within the same VNET, giving you the ability to monitor the status of the cluster and all individual nodes, add/remove nodes, and perform all administrative tasks related that cluster.
+Spark version 3.0.0 is the default version and can be changed to any pre-built binaries available on Spark repository. There is also a provision in the script to uncomment the build from source. A static IP address will be assigned to each Spark Master node 10.0.0.10 A static IP address will be assigned to each Spark Slave node in order to work around the current limitation of not being able to dynamically compose a list of IP addresses from within the template (by default, the first node will be assigned the private IP of 10.0.0.30, the second node - 10.0.0.31, and so on). To check deployment errors go to the new Azure portal and look under **Resource Group** > **Last deployment** > **Check Operation Details**.
 
 Before diving into more details related to the Azure Resource Manager and the template we will use for this deployment, make sure you have Azure PowerShell or the Azure CLI configured correctly.
 
@@ -65,7 +63,7 @@ Substitute in the folder name of your local folder and run these commands:
 
 ```powershell
 # Define variables
-$folderName="E:\Azure\Templates\Spark\"
+$folderName="C:\Azure\Templates\Spark\"
 $baseAddress = "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/spark-on-ubuntu/"
 $webclient = New-Object System.Net.WebClient
 $files = $("azuredeploy.json", `
@@ -369,7 +367,7 @@ Parameters        :
                     addressPrefix    String                     10.0.0.0/16
 										subnetName       String                     Subnet1
                     subnetPrefix     String                     10.0.0.0/24
-                    sparkVersion     String                     1.2.1
+                    sparkVersion     String                     3.0.0
                     sparkClusterName  String                    spark-arm-cluster
                     sparkNodeIPAddressPrefix  String            10.0.0.1
                     sparkSlaveNodeIPAddressPrefix  String       10.0.0.3
@@ -418,10 +416,10 @@ This diagram describes the relationships between all the files downloaded from G
 
 This section steps you through the structure of the **azuredeploy.json** file for the Spark cluster.
 
-If you have not already downloaded a copy of the template file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\SparkCluster). Fill in the folder name and run these commands.
+If you have not already downloaded a copy of the template file, designate a local folder as the location for the file and create it (for example, C:\Azure\Templates\Spark). Fill in the folder name and run these commands.
 
 ```powershell
-$folderName="<folder name, such as C:\Azure\Templates\SparkCluster>"
+$folderName="<folder name, such as C:\Azure\Templates\Spark>"
 $webclient = New-Object System.Net.WebClient
 $url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/spark-on-ubuntu/azuredeploy.json"
 $filePath = $folderName + "\azuredeploy.json"
@@ -836,3 +834,11 @@ In essence, this approach suggests to:
 -	For all post deployment tasks (e.g. product installation, configurations, etc.) leverage script deployment extensions and create scripts specific to each technology
 
 For more information, see [Azure Resource Manager Template Language](https://msdn.microsoft.com/library/azure/dn835138.aspx).
+
+# Next Steps
+
+Read more details on [deploying a template](resource-group-template-deploy.md).
+
+Discover more [application frameworks](app-frameworks.md).
+
+[Troubleshooting template deployments](resource-group-deploy-debug.md).
