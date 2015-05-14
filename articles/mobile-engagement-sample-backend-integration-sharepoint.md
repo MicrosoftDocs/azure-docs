@@ -88,9 +88,7 @@ This tutorial goes through such a scenario where a SharePoint business user popu
 ## Mobile Engagement integration
 1.  Once we find an item which requires processing - we extract the information required to create an announcement from the list item and call `CreateAzMECampaign` to create it and subsequently `ActivateAzMECampaign` to activate it. These are essentially REST API calls calling to the Mobile Engagement backend. 
 
-2.  The Mobile Engagement REST APIs use require a **Basic auth scheme authorization HTTP header** which is composed of the `ApplicationId` and the `ApiKey` which you get from the Azure portal. 
-
-	> [AZURE.IMPORTANT] Make sure that you are using the Key from the **api keys** section and *not* from the **sdk keys** section. 
+2.  The Mobile Engagement REST APIs use require a **Basic auth scheme authorization HTTP header** which is composed of the `ApplicationId` and the `ApiKey` which you get from the Azure portal. Make sure that you are using the Key from the **api keys** section and *not* from the **sdk keys** section. 
 
 	![][2]
 

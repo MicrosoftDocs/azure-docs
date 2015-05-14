@@ -71,7 +71,7 @@ The following file types are accepted:
 	
 > [AZURE.NOTE] If your web app runs on more than one instance, a continuously running WebJob will run on all of your instances. On-demand and scheduled WebJobs run on a single instance selected for load balancing by Microsoft Azure.
 	
-> For continuous WebJobs, it is recommended that you enable **Always On** for your web app. The Always On feature, available in Basic and Standard mode, prevents web apps from being unloaded, even if they have been idle for some time. If your web app is always loaded, your continuously running WebJob may run more reliably. 
+> For Continuous WebJobs to run reliably and on all instances, enable the Always On* configuration setting for the web app otherwise they can stop running when the SCM host site has been idle for too long.
 
 ## <a name="CreateScheduled"></a>Create a scheduled WebJob
 

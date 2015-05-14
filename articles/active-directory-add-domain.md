@@ -13,12 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
 
 # Add your own domain name to Azure AD
 
 When you sign up for a Microsoft cloud service, you are issued a domain name that has the following format: contoso.onmicrosoft.com. You can continue to use that initial domain name, or you can add your own custom domain name to the cloud service. This topic explains how to add your own domain name and related information.
+
+Office 365 users may be interested in these related topics:
+
+- [DNS basics](https://support.office.com/article/854b6b2b-0255-4089-8019-b765cff70377)
+- [Find your domain registrar or DNS hosting provider](https://support.office.com/article/Find-your-domain-registrar-or-DNS-hosting-provider-b5b633ba-1e56-4a98-8ff5-2acaac63a5c8/)
+- [Work with domain names in Office 365](https://support.office.com/article/Work-with-domain-names-in-Office-365-4f1bd681-337a-4bd3-a7b7-cf77b18d0870/)
 
 ## About your onmicrosoft.com domain
 
@@ -47,10 +53,8 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
 > Using Office 365? Once you have set up your domain, you can start creating email addresses, Lync Online accounts, and distribution groups that use your custom domain name. You can also use your domain name for a public-facing website hosted on SharePoint Online.
 
 - [Add and verify a domain using the Azure Management Portal](#add-and-verify-a-domain-using-the-azure-management-portal)
-- [Specify the services to use with your domain](#specify-the-services-to-use-with-your-domain)
 - [Edit DNS records for your cloud services](#edit-dns-records-for-your-cloud-services)
 - [Verify a domain at any domain name registrar](#verify-a-domain-at-any-domain-name-registrar)
-- [Check domain status](#check-domain-status)
 
 ### Add and verify a domain using the Azure Management Portal
 
@@ -67,28 +71,7 @@ If you plan to use single sign-on with the cloud service, we recommend that you 
         2. After you see the message that your domain has been successfully added to Azure AD, click the arrow to move to the next page and then follow the directions on that page to configure the domain you added for single sign-on.
 
 > [AZURE.NOTE]
-> After you add your domain name to Azure AD, you can change the default domain name for new email addresses. For more information, see How can I change the primary domain  name for my users? You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain. 
-
-### Specify the services to use with your domain
-
-When you add your domain name to Azure AD, you might need to specify the services that you'll use with your domain name.
-
-In a couple of scenarios, you have to specify which domain services you intend to use with a domain name. Why do you have to tell us which services you'll use? This lets us make sure that you can see and update the DNS records in the cloud service for the services you want.
-
-> [AZURE.NOTE]
-> Using Office 365? You have to specify which domain services you intend to use when you do either of the following:
-
-- You add your custom domain name to Azure AD by using the wizard and want to use your domain name for a public website on SharePoint Online.
-
-    If you want to create a SharePoint Online public-facing website that uses your domain name, you must specify SharePoint Online as the domain service you plan to use. However, you can't also choose Exchange Online or Lync Online if you have already set up SharePoint Online as the service you'll use with the domain name. To learn about how to work around this set up restriction, see For Office 365 Customers: Host a public-facing website with your domain name together with Exchange Online or Lync Online.
-- You add your domain by using the Microsoft Azure Active Directory Module for Windows PowerShell. When you use the tool to add your domain name, you always have to choose the services you want to use with the domain name.
-
-To set the domain services for your domain name in the **Add a domain** wizard, select them on the **Specify services** page. 
-
-To edit your domain services list later:
-
-1. On the portal, in the left pane, click **Domains**.
-2. Click a domain name, and on the **Domain properties**  page, click **Edit domain services**.
+> After you add your domain name to Azure AD, you can change the default domain name for new email addresses. For more information, see [How can I change the primary domain name for users?](#how-can-i-change-the-primary-domain-name-for-users?) You can also edit the profile for an existing user account to update the email address (which is also your user ID) to use your custom domain name instead of the onmicrosoft.com domain. 
 
 ### Edit DNS records for your cloud services
 
@@ -109,17 +92,6 @@ If you've just completed the **Add a domain** wizard, click **Configure DNS reco
 Typically it takes about 15 minutes for your changes to take effect. But it can take up to 72 hours for the DNS record that you created to propagate through the DNS system. If you need to view these record settings again, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click the **DNS settings** tab.
 
 To check the status of your domain, on the **Domains** page, click the domain, and then, on the **Domain properties** page, click **Troubleshoot domain**.
-
-### Check domain status
-
-On the **Domains** page, you can view the status of each of your domain names in the cloud service. The following table lists the status options for domains.
-
- Status  | Definition
-------------- | -------------
-**Click to verify domain** | The domain has been added to your account, but the cloud service has not yet verified that you own the domain. You cannot use the domain with any of the services until verification is complete. Click the status to go verify your domain.
-**Active** | The initial onmicrosoft.com domain that is created when you open your account has this status.
-**Verified** | The domain has been successfully added and the cloud service has verified that you own it.
-**Pending deletion** | The cloud service has started removing the domain, but the removal process isn't complete, or there is an issue with removing the domain. 
 
 ### Verify a domain at any domain name registrar
 
@@ -154,7 +126,9 @@ Azure AD uses a DNS record that you create at your domain name registrar to conf
 
 If your domain registrar does not accept '@' as a hostname, contact your domain registrar to find out how to represent 'parent of the current zone.'
 
-To add a TXT or MX record:
+Office 365 has [specific instructions for common domain registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+
+For general instructions, follow these steps to add a TXT or MX record:
 
 1. Sign in to your domain name registrar's website, and then select the domain that you're verifying.
 2. In the DNS management area for your account, select the option to add a TXT or an MX record for your domain.
@@ -182,7 +156,7 @@ If it has been more than 72 hours since you made the changes to your domain, sig
 
 After you've verified your domain, you can configure your domain to work with your accounts.
 
-## How can I change the primary domain  name for my users?
+## How can I change the primary domain name for users?
 
 After you add your domain name to Azure AD, you can change the domain name that should show as the default when you create a new user account. To do this, follow these steps.
 
