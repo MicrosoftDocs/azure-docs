@@ -9,10 +9,10 @@
 
 <tags 
 	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.workload="infrastructure-services"
 	ms.date="05/14/2015" 
 	ms.author="kathydav"/>
 
@@ -59,7 +59,13 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 - [How to Capture a Windows Virtual Machine to Use as a Template][].
 - [Create and upload a Windows Server VHD to Azure][]
 
-##Additional resources
+## Next Steps
+
+[Log On to the Virtual Machine][]
+
+[Attach a Data Disk][]
+
+## Additional resources
 [About Azure VM configuration settings][]
 
 [Base Configuration Test Environment][]
@@ -85,6 +91,10 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Creating a virtual machine for a website with Visual Studio]: virtual-machines-dotnet-create-visual-studio-powershell.md
 [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries]: virtual-machines-arm-deployment.md
+
+[Log On to the Virtual Machine]: virtual-machines-log-on-windows-server.md
+
+[Attach a Data Disk]: storage-windows-attach-disk.md
 
 [About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 

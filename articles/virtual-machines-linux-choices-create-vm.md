@@ -8,11 +8,11 @@
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
+ms.service="virtual-machines" 
 	ms.devlang="na" 
 	ms.topic="article" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.workload="infrastructure-services"
 	ms.date="05/14/2015" 
 	ms.author="kathydav"/>
 
@@ -57,7 +57,13 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 - [How to Capture a Linux Virtual Machine to Use as a Template with the CLI][]
 - [Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System][]
 
-##Additional resources
+## Next Steps
+
+[Log On to the Virtual Machine][]
+
+[Attach a Data Disk][]
+
+## Additional resources
 [About Azure VM configuration settings][]
 
 [Base Configuration Test Environment][]
@@ -82,6 +88,10 @@ Use an image based on an existing Azure virtual machine by *capturing* that VM, 
 
 [Creating a virtual machine for a website with Visual Studio]: virtual-machines-dotnet-create-visual-studio-powershell.md
 [Deploy Azure Resources Using the Compute, Network, and Storage .NET Libraries]: virtual-machines-arm-deployment.md
+
+[Log On to the Virtual Machine]: virtual-machines-linux-how-to-log-on.md
+
+[Attach a Data Disk]: virtual-machines-linux-how-to-attach-disk.md
 
 [About Azure VM configuration settings]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [Base Configuration Test Environment]: virtual-machines-base-configuration-test-environment.md
