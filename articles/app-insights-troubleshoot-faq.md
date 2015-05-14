@@ -25,10 +25,9 @@
 
 #### <a name="q01"></a>I don't see any option to Add Application Insights to my project in Visual Studio
 
-+ Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools, which you should be able to see in Extension Manager.
-+ Application Insights on Microsoft Azure Preview is currently available only for ASP.NET web projects in C# or Visual Basic.
-+ If you have an existing project, go to Solution Explorer and make sure you click the web project (not another project or the solution). You should see a menu item 'Add Application Insights Telemetry to Project'.
-+ If you are creating a new project, in Visual Studio, open File > New Project, and select {Visual C#|Visual Basic} > Web > ASP.NET Web Application. There should be an option to Add Application Insights to Project.
++ Make sure you have [Visual Studio 2013 Update 3 or later](http://go.microsoft.com/fwlink/?LinkId=397827). It comes pre-installed with Application Insights Tools.
++ Although the Tools don't support all types of application, you can probably still add an Application Insights SDK to your project manually. Use [this procedure][windows]. 
+
 
 #### <a name="q02"></a>My new web project was created, but adding Application Insights failed.
 
@@ -179,4 +178,5 @@ If your web service is running in an Azure VM, you can also [get diagnostics][az
 [data]: app-insights-data-retention-privacy.md
 [platforms]: app-insights-platforms.md
 [start]: app-insights-get-started.md
+[windows]: app-insights-windows-get-started.md
 
