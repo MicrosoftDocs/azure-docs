@@ -160,7 +160,13 @@ In the Azure portal, the **Configure** tab for the application you created in th
 
 	![Gateway URL](./media/app-service-api-dotnet-add-authentication/gatewayurl.png)
 
-	The [providername] value is "microsoftaccount", "facebook", "twitter", "google", or "aad".
+	The [providername] must be one of the following values:
+	
+	* "microsoftaccount"
+	* "facebook"
+	* "twitter"
+	* "google"
+	* "aad"
 
 	Here is a sample login URL for Azure Active Directory:
 

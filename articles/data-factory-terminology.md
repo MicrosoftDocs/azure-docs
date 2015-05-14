@@ -69,7 +69,7 @@ The Data Hub allows a data factory to be divided into logical or domain specific
 
 An important characteristic of Hub is that a pipeline runs on a single hub. This means that when defining a pipeline, all of the linked services referenced by tables or activities within that pipeline must have the same hub name as the pipeline itself. If the HubName property is not specified for a linked service, the linked service is placed in the “Default” Hub.
 
-# See Also
+## See Also
 
 1. [Introduction to Azure Data Factory][adf-intro]. This article provides an overview of the Azure Data Factory service, the value it provides, and the scenarios it supports.
 2. [Get started with Data Factory][datafactory-getstarted]. This article provides an end-to-end tutorial that shows you how to create a sample Azure data factory that copies data from an Azure blob to an Azure SQL database.
