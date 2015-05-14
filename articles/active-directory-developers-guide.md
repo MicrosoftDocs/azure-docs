@@ -69,7 +69,7 @@ These articles describe how to perform specific tasks using Azure Active Directo
 
 - [How to get an Azure AD tenant](active-directory-howto-tenant.md)
 - [How to list your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)
-- [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/en-us/office/office365/howto/getting-started-Office-365-APIs)
+- [How to get started with the Office 365 APIs in apps](https://msdn.microsoft.com/office/office365/howto/getting-started-Office-365-APIs)
 
 
 ## Reference
