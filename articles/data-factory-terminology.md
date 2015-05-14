@@ -25,7 +25,7 @@ An **Azure data factory** has one or more pipelines that process data in linked 
 A **linked service** is a service that is linked to an Azure data factory. A linked service can be one of the following:
 
 - A **data storage** service such as Azure Storage, Azure SQL Database or on-premises SQL Server database. A data store is a container of input/output data sets.    
-- A **compute** service such as Azure HDInsight and Azure Machine Learning. A compute service process the input data and produces the output data.  
+- A **compute** service such as Azure HDInsight, Azure Machine Learning, and Azure Batch. A compute service process the input data and produces the output data.  
 
 ## Data set
 A **data set** is a named view of data. The data being described can vary from simple bytes, semi-structured data like CSV files all the way up to relational tables or even models. A  Data Factory **table** is a data set that has a schema and is rectangular. After creating a linked service in a data store that refers to a data store, you define data sets that represent input/output data that is stored in the data store. 
